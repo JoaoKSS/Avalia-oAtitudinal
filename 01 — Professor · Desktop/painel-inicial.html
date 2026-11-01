@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Inicial do Professor · Desktop · Educar & Aprender</title>
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f8fc;
+      color: #172b4d;
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Barra Lateral do Professor (248px) */
+    .sidebar {
+      width: 248px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #2563eb;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: #172b4d;
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+    }
+
+    /* Navegação */
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: #60758b;
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: #172b4d;
+    }
+
+    .nav-link.active {
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    /* Barra indicadora azul ativa no item do menu */
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: #2563eb;
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil do Usuário */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Área Principal (1192px) */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Cabeçalho Superior Desktop (76px) */
+    .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-path {
+      font-weight: 500;
+      color: #60758b;
+    }
+
+    .breadcrumb-current {
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+
+    /* Indicador de notificação · desktop (Círculo 7×7px em x:28px, y:7px) */
+    .notification-dot {
+      position: absolute;
+      top: 7px;
+      left: 28px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #2563eb;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    /* Conteúdo do Painel */
+    .content-area {
+      padding: 32px;
+      width: 100%;
+    }
+
+    /* Boas-vindas */
+    .welcome-header {
+      margin-bottom: 20px;
+    }
+
+    .welcome-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.39;
+      color: #172b4d;
+      margin-bottom: 6px;
+    }
+
+    .welcome-desc {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.43;
+      color: #60758b;
+    }
+
+    /* Busca rápida · Campo desktop (1128 × 48px, r: 10px) */
+    .quick-search {
+      width: 100%;
+      height: 48px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 10px;
+      margin-bottom: 40px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .quick-search:focus-within {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .search-icon {
+      width: 20px;
+      height: 20px;
+      color: #60758b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      flex: 1;
+      height: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #172b4d;
+    }
+
+    .search-input::placeholder {
+      color: #8194aa;
+    }
+
+    /* Seções com Grid */
+    .section-block {
+      margin-bottom: 36px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #172b4d;
+    }
+
+    .section-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .section-link:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    /* Grid de Cards (2 colunas proporcionais, gap 26px) */
+    .two-column-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      width: 100%;
+    }
+
+    /* Cards de Turmas: Altura 78px */
+    .turma-card {
+      background-color: #ffffff;
+      border: 1px solid #d8e4f3;
+      border-radius: 12px;
+      padding: 16px;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    }
+
+    .turma-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .turma-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .turma-icon-wrapper {
+      width: 44px;
+      height: 44px;
+      background-color: #e8f0ff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .turma-details {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .turma-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .turma-meta {
+      font-size: 12px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .card-arrow {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .turma-card:hover .card-arrow,
+    .shortcut-card:hover .card-arrow {
+      color: #2563eb;
+      transform: translateX(2px);
+    }
+
+    /* Cards de Atalhos Rápidos: Altura 98px */
+    .shortcut-card {
+      background-color: #ffffff;
+      border: 1px solid #d8e4f3;
+      border-radius: 12px;
+      padding: 24px 20px;
+      height: 98px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    }
+
+    .shortcut-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .shortcut-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .shortcut-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Variações de cor dos ícones dos atalhos */
+    .shortcut-icon-wrapper.devolutiva {
+      background-color: #e8f0ff;
+      color: #2563eb;
+    }
+
+    .shortcut-icon-wrapper.historico {
+      background-color: #e7f7f5;
+      color: #0f766e;
+    }
+
+    .shortcut-icon-wrapper.registro {
+      background-color: #e8f0ff;
+      color: #2563eb;
+    }
+
+    .shortcut-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .shortcut-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .shortcut-desc {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.38;
+      color: #60758b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Barra Lateral (248px) -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <!-- Ícone do Penpot: Livro aberto -->
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-role">Área do Professor</span>
+        </div>
+      </div>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Espaço Pedagógico</div>
+        <ul class="nav-list">
+          <!-- Visão Geral (Ativo) -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Início/Dashboard oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Visão geral</span>
+            </a>
+          </li>
+
+          <!-- Minhas Turmas -->
+          <li class="nav-item">
+            <a href="#turmas" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 5.833v11.667"/>
+                  <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+                </svg>
+              </span>
+              <span>Minhas turmas</span>
+            </a>
+          </li>
+
+          <!-- Registros de Observação -->
+          <li class="nav-item">
+            <a href="#registros" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Documento de registros oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
+                </svg>
+              </span>
+              <span>Registros de observação</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé: Perfil do Usuário -->
+      <div class="sidebar-footer">
+        <button type="button" class="user-profile-button">
+          <div class="user-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="8" rx="4" ry="4"/>
+              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Meu perfil</span>
+            <span class="user-role">Professor</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Área Principal de Conteúdo (1192px) -->
+    <main class="main-wrapper">
+      <!-- Cabeçalho Superior (76px) -->
+      <header class="top-header">
+        <div class="breadcrumb">
+          <span class="breadcrumb-path">Área do professor &nbsp;/</span>
+          <span class="breadcrumb-current">Visão geral</span>
+        </div>
+
+        <div class="header-actions">
+          <!-- Botão Mensagens (Ícone oficial do Penpot: dois balões sobrepostos) -->
+          <button type="button" class="header-icon-btn" title="Mensagens">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+              <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
+            </svg>
+          </button>
+
+          <!-- Botão Notificações com Indicador -->
+          <button type="button" class="header-icon-btn" title="Notificações">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.334"/>
+            </svg>
+            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Conteúdo da Visão Geral -->
+      <div class="content-area">
+        <!-- Boas-vindas -->
+        <section class="welcome-header">
+          <h1 class="welcome-title">Olá, Professor!</h1>
+          <p class="welcome-desc">Acesse rapidamente suas atividades pedagógicas.</p>
+        </section>
+
+        <!-- Busca rápida · Campo desktop (1128 × 48px) -->
+        <div class="quick-search">
+          <span class="search-icon" aria-hidden="true">
+            <!-- Ícone oficial de busca do Penpot -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"/>
+              <path d="M16.667 16.667L13.333 13.333"/>
+            </svg>
+          </span>
+          <input type="text" class="search-input" placeholder="Buscar turma ou estudante" aria-label="Buscar turma ou estudante">
+        </div>
+
+        <!-- Seção: Minhas Turmas -->
+        <section class="section-block">
+          <div class="section-header">
+            <h2 class="section-title">Minhas turmas</h2>
+            <a href="#todas-turmas" class="section-link">
+              <span>Ver mais</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="two-column-grid">
+            <!-- Turma 1: 6º ano A -->
+            <a href="#turma-6a" class="turma-card">
+              <div class="turma-left">
+                <div class="turma-icon-wrapper">
+                  <!-- Ícone oficial de estudantes do Penpot -->
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="8.272" cy="7.334" rx="2.954" ry="2.979"/>
+                    <path d="M3.273 18.333v-1.146c0-2.4 1.933-4.354 4.318-4.354h1.364c2.384 0 4.318 1.954 4.318 4.354v1.146"/>
+                    <path d="M14.635 4.492c1.23.39 2.063 1.542 2.063 2.842s-.833 2.452-2.063 2.842"/>
+                    <path d="M15.545 13.023c1.864.512 3.167 2.221 3.182 4.164v1.146"/>
+                  </svg>
+                </div>
+                <div class="turma-details">
+                  <span class="turma-name">6º ano A</span>
+                  <span class="turma-meta">Ensino Fundamental II</span>
+                </div>
+              </div>
+              <div class="card-arrow">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Turma 2: 7º ano B -->
+            <a href="#turma-7b" class="turma-card">
+              <div class="turma-left">
+                <div class="turma-icon-wrapper">
+                  <!-- Ícone oficial de estudantes do Penpot -->
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="8.272" cy="7.334" rx="2.954" ry="2.979"/>
+                    <path d="M3.273 18.333v-1.146c0-2.4 1.933-4.354 4.318-4.354h1.364c2.384 0 4.318 1.954 4.318 4.354v1.146"/>
+                    <path d="M14.635 4.492c1.23.39 2.063 1.542 2.063 2.842s-.833 2.452-2.063 2.842"/>
+                    <path d="M15.545 13.023c1.864.512 3.167 2.221 3.182 4.164v1.146"/>
+                  </svg>
+                </div>
+                <div class="turma-details">
+                  <span class="turma-name">7º ano B</span>
+                  <span class="turma-meta">Ensino Fundamental II</span>
+                </div>
+              </div>
+              <div class="card-arrow">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Seção: Atalhos Rápidos -->
+        <section class="section-block">
+          <div class="section-header">
+            <h2 class="section-title">Atalhos rápidos</h2>
+          </div>
+
+          <div class="two-column-grid">
+            <!-- Atalho 1: Devolutiva individual -->
+            <a href="#devolutiva" class="shortcut-card">
+              <div class="shortcut-left">
+                <div class="shortcut-icon-wrapper devolutiva">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19.615 14.538a2.538 2.538 0 0 1-2.538 2.539H8.615l-4.23 2.538V6.923a2.538 2.538 0 0 1 2.538-2.538h10.154a2.538 2.538 0 0 1 2.538 2.538v7.615z"/>
+                    <path d="M8.615 9.462h6.77M8.615 12.846H13.7"/>
+                  </svg>
+                </div>
+                <div class="shortcut-info">
+                  <span class="shortcut-title">Devolutiva individual</span>
+                  <span class="shortcut-desc">Prepare e consulte devolutivas por estudante.</span>
+                </div>
+              </div>
+              <div class="card-arrow">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Atalho 2: Histórico de evidências -->
+            <a href="#historico" class="shortcut-card">
+              <div class="shortcut-left">
+                <div class="shortcut-icon-wrapper historico">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13.692 3.539H6.923A1.692 1.692 0 0 0 5.231 5.231v13.538a1.692 1.692 0 0 0 1.692 1.692h6.769"/>
+                    <path d="M13.692 3.539v5.077h5.077"/>
+                    <path d="m13.692 3.539 5.077 5.076"/>
+                    <ellipse cx="16.23" cy="16.23" rx="3.385" ry="3.385"/>
+                    <path d="M16.231 14.539v1.692l1.015.846"/>
+                  </svg>
+                </div>
+                <div class="shortcut-info">
+                  <span class="shortcut-title">Histórico de evidências</span>
+                  <span class="shortcut-desc">Consulte o histórico de registros do estudante.</span>
+                </div>
+              </div>
+              <div class="card-arrow">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Atalho 3: Registro de observação -->
+            <a href="#novo-registro" class="shortcut-card">
+              <div class="shortcut-left">
+                <div class="shortcut-icon-wrapper registro">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6.077" y="5.231" width="11.846" height="14.384" rx="2" ry="2"/>
+                    <path d="M9.462 5.231V4.385h5.076v0.846"/>
+                    <path d="M12 10.308v5.077M9.462 12.846h5.076"/>
+                  </svg>
+                </div>
+                <div class="shortcut-info">
+                  <span class="shortcut-title">Registro de observação</span>
+                  <span class="shortcut-desc">Registre uma nova observação pedagógica.</span>
+                </div>
+              </div>
+              <div class="card-arrow">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
+
