@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Inicial do Estudante · Mobile · Educar & Aprender</title>
+  <!-- Fonte oficial utilizada no design Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       Design Tokens & CSS Variables (Extraídos fielmente do Penpot)
+       ========================================================================== */
+    :root {
+      /* Cores Neutras e Estruturais */
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      
+      /* Tipografia / Textos */
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      
+      /* Paleta Primária (Azul Institucional) */
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      
+      /* Paleta de Alertas & Status */
+      --color-warning-text: #b45309;
+      --color-warning-bg: #fff4d6;
+      --color-success-text: #16a34a;
+      --color-success-bg: #e8f7ee;
+
+      /* Sombras & Arredondamentos */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100vw;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .text-node {
+      background-clip: text !important;
+      -webkit-background-clip: text !important;
+    }
+
+    /* Viewport Mobile Penpot: 390px × 844px */
+    .mobile-screen-wrapper {
+      width: 100%;
+      max-width: 390px;
+      height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    /* ==========================================================================
+       Cabeçalho Mobile (Altura 72px)
+       ========================================================================== */
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    /* Botão de Notificações com Badge */
+    .notif-button {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      padding: 0;
+    }
+
+    .notif-button:hover {
+      background-color: #f8fafc;
+      border-color: #c7d7eb;
+    }
+
+    /* Indicador de nova notificação (posicionamento exato do Penpot) */
+    .notif-badge-dot {
+      position: absolute;
+      left: 26px;
+      top: 5px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      mix-blend-mode: normal;
+    }
+
+    /* ==========================================================================
+       Conteúdo Principal (Scrollável)
+       ========================================================================== */
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 16px 98px 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Saudação */
+    .greeting-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.36;
+      color: var(--color-text-main);
+      margin-bottom: 16px;
+    }
+
+    /* Card Destaque: Minha Evolução (358 × 132) */
+    .evolution-card {
+      width: 100%;
+      height: 132px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: var(--shadow-card);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .evolution-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0px 8px 20px rgba(20, 51, 97, 0.08);
+    }
+
+    .evolution-info {
+      display: flex;
+      flex-direction: column;
+      max-width: 215px;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .evolution-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--color-text-main);
+    }
+
+    .evolution-desc {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.42;
+      color: var(--color-text-muted);
+    }
+
+    .evolution-action {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .evolution-badge-circle {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Seção de Atalhos */
+    .shortcuts-section {
+      margin-top: 24px;
+    }
+
+    .shortcuts-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.41;
+      color: var(--color-text-main);
+    }
+
+    .shortcuts-subtitle {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+
+    .shortcuts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Card de Atalho (358 × 88) */
+    .shortcut-card {
+      width: 100%;
+      min-height: 88px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      box-shadow: var(--shadow-card);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .shortcut-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0px 8px 20px rgba(20, 51, 97, 0.08);
+    }
+
+    /* Caixa de Ícone do Atalho */
+    .shortcut-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .shortcut-icon-box.warning {
+      background-color: var(--color-warning-bg);
+      color: var(--color-warning-text);
+    }
+
+    .shortcut-icon-box.success {
+      background-color: var(--color-success-bg);
+      color: var(--color-success-text);
+    }
+
+    .shortcut-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .shortcut-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .shortcut-name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.42;
+      color: var(--color-text-main);
+    }
+
+    /* Badges de Status */
+    .status-badge {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+    }
+
+    .status-badge.primary {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+
+    .status-badge.success {
+      background-color: var(--color-success-bg);
+      color: var(--color-success-text);
+    }
+
+    .shortcut-description {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.36;
+      color: var(--color-text-muted);
+    }
+
+    .shortcut-arrow {
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       Barra de Navegação Inferior Mobile (Altura 82px)
+       ========================================================================== */
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 82px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-top: 8px;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      position: relative;
+      width: 78px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Container de visualização 390 × 844 (Viewport Mobile Penpot) -->
+  <main class="mobile-screen-wrapper">
+
+    <!-- 1. Cabeçalho Mobile -->
+    <header class="mobile-header">
+      <a href="#" class="brand-section" aria-label="Educar & Aprender - Área do Estudante">
+        <div class="brand-icon">
+          <!-- Ícone oficial Penpot (Livro aberto / Educação) -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-category">Área do Estudante</span>
+        </div>
+      </a>
+
+      <!-- Botão de Notificações com Indicador Azul Fiel ao Penpot -->
+      <button class="notif-button" aria-label="Ver notificações">
+        <!-- Ícone do Sino 24 × 24 oficial Penpot -->
+        <svg width="24" height="24" viewBox="439 126 24 24" fill="none">
+          <path d="M456 134.667C456 131.905 453.761 129.667 451 129.667C448.239 129.667 446 131.905 446 134.667C446 140.5 443.5 140.5 443.5 142.167H458.5C458.5 140.5 456 140.5 456 134.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M449.333 145.5H452.667" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="notif-badge-dot"></span>
+      </button>
+    </header>
+
+    <!-- 2. Conteúdo Principal -->
+    <section class="main-content">
+
+      <!-- Saudação -->
+      <h1 class="greeting-title">Olá, estudante!</h1>
+
+      <!-- Card Destaque: Minha Evolução -->
+      <a href="#" class="evolution-card" aria-label="Acessar Minha Evolução">
+        <div class="evolution-info">
+          <div>
+            <h2 class="evolution-title">Minha evolução</h2>
+            <p class="evolution-desc">Veja seu caminho, reconheça avanços e descubra novos passos.</p>
+          </div>
+          <span class="evolution-action">
+            Acompanhar evolução
+            <!-- Seta extraída diretamente do SVG Penpot -->
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.75 9H14.25M9.75 4.5L14.25 9L9.75 13.5"></path>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Ilustração de Gráfico Crescente -->
+        <div class="evolution-badge-circle">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 35L17 24L25 32L41 14M31 14H41V24"></path>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Seção: Seu acompanhamento -->
+      <section class="shortcuts-section">
+        <h2 class="shortcuts-title">Seu acompanhamento</h2>
+        <p class="shortcuts-subtitle">Acesse suas atividades e conversas.</p>
+
+        <div class="shortcuts-list">
+          
+          <!-- Atalho 1: Autoavaliação -->
+          <a href="#" class="shortcut-card" aria-label="Acessar Autoavaliação">
+            <div class="shortcut-icon-box warning">
+              <!-- Ícone Autoavaliação (Checkmark idêntico ao Penpot) -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 10.5L8 14.5L16 6.5"></path>
+              </svg>
+            </div>
+            <div class="shortcut-content">
+              <div class="shortcut-header-row">
+                <span class="shortcut-name">Autoavaliação</span>
+                <span class="status-badge primary">1 em aberto</span>
+              </div>
+              <p class="shortcut-description">Uma atividade está aguardando sua reflexão.</p>
+            </div>
+            <div class="shortcut-arrow">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 4.5L11 9L6.5 13.5"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Atalho 2: Devolutivas -->
+          <a href="#" class="shortcut-card" aria-label="Acessar Devolutivas">
+            <div class="shortcut-icon-box success">
+              <!-- Ícone ≡ Devolutivas -->
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round">
+                <line x1="3" y1="4.5" x2="15" y2="4.5"></line>
+                <line x1="3" y1="9" x2="15" y2="9"></line>
+                <line x1="3" y1="13.5" x2="15" y2="13.5"></line>
+              </svg>
+            </div>
+            <div class="shortcut-content">
+              <div class="shortcut-header-row">
+                <span class="shortcut-name">Devolutivas</span>
+                <span class="status-badge success">Nova</span>
+              </div>
+              <p class="shortcut-description">Confira a nova devolutiva do professor.</p>
+            </div>
+            <div class="shortcut-arrow">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 4.5L11 9L6.5 13.5"></path>
+              </svg>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+    </section>
+
+    <!-- 3. Barra de Navegação Inferior Mobile -->
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      
+      <!-- Início (Ativo) -->
+      <a href="#" class="nav-tab active" aria-current="page">
+        <span class="nav-indicator-bar"></span>
+        <div class="nav-icon">
+          <!-- Ícone Início (Home 24 × 24, stroke 1.8, vetor oficial do Penpot) -->
+          <svg width="24" height="24" viewBox="133 874 24 24" fill="none">
+            <path d="M137.5 884.333L145 878.5L152.5 884.333V892.667C152.5 893.127 152.127 893.5 151.667 893.5H147.5V887.667H142.5V893.5H138.333C137.873 893.5 137.5 893.127 137.5 892.667V884.333Z" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <!-- Autoavaliações -->
+      <a href="#" class="nav-tab">
+        <div class="nav-icon">
+          <!-- Ícone Autoavaliações (Checkmark 24 × 24, stroke 1.8 oficial Penpot) -->
+          <svg width="24" height="24" viewBox="231.96 875 24 24" fill="none">
+            <path d="M238.129 887L241.463 890.333L249.796 882" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Autoavaliações</span>
+      </a>
+
+      <!-- Evolução -->
+      <a href="#" class="nav-tab">
+        <div class="nav-icon">
+          <!-- Ícone Evolução (Trend 24 × 24, stroke 2 oficial Penpot) -->
+          <svg width="24" height="24" viewBox="333 874 24 24" fill="none">
+            <path d="M337.5 890.167L342.5 885.167L345.833 888.5L352.5 881" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M347.5 881H352.5V886" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Evolução</span>
+      </a>
+
+      <!-- Perfil -->
+      <a href="#" class="nav-tab">
+        <div class="nav-icon">
+          <!-- Ícone Perfil (User 24 × 24, stroke 1.8 oficial Penpot) -->
+          <svg width="24" height="24" viewBox="433 874 24 24" fill="none">
+            <ellipse cx="445" cy="882.667" rx="3.333" ry="3.333" stroke="#60758b" stroke-width="1.8"/>
+            <path d="M439.166 893.5V891.833C439.166 888.612 441.778 886 445 886C448.222 886 450.834 888.612 450.834 891.833V893.5" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+
+    </nav>
+
+  </main>
+
+</body>
+</html>
