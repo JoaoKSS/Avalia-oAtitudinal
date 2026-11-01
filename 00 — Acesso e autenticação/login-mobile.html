@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login · Mobile · Educar & Aprender</title>
+  <!-- Fonte oficial utilizada no design Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f8fc;
+      color: #172b4d;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container de visualização 390 × 844 (Viewport Mobile Penpot) */
+    .mobile-screen-wrapper {
+      width: 100%;
+      max-width: 390px;
+      min-height: 844px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Card de Login Mobile: 358px × 478px com padding 24px */
+    .login-card-mobile {
+      width: 100%;
+      max-width: 358px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 24px;
+      box-shadow: 0px 8px 24px rgba(20, 51, 97, 0.08);
+      padding: 24px;
+    }
+
+    /* Topo: Marca Educar & Aprender */
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      background-color: #2563eb;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.39;
+      color: #172b4d;
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+    }
+
+    /* Título principal mobile */
+    .login-title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.42;
+      color: #172b4d;
+      margin-top: 36px;
+      margin-bottom: 36px;
+    }
+
+    /* Formulário de Acesso */
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.42;
+      color: #172b4d;
+    }
+
+    /* Input: Altura 52px */
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 52px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 12px;
+      padding: 0 14px 0 44px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .input-wrapper:focus-within {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8194aa;
+      pointer-events: none;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 400;
+      color: #172b4d;
+    }
+
+    .form-input::placeholder {
+      color: #8194aa;
+    }
+
+    /* Opções: Manter conectado e Esqueci a senha */
+    .form-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 20px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .remember-me {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .remember-me input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 1.2px solid #d9e4f2;
+      border-radius: 4px;
+      background-color: #ffffff;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .remember-me input[type="checkbox"]:checked {
+      background-color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .remember-me input[type="checkbox"]:checked::before {
+      content: "";
+      width: 8px;
+      height: 5px;
+      border-left: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+      transform: rotate(-45deg) translate(1px, -1px);
+    }
+
+    .remember-label {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.36;
+      color: #60758b;
+    }
+
+    .forgot-password {
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.36;
+      color: #2563eb;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .forgot-password:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    /* Botão Entrar: Altura 54px */
+    .btn-submit {
+      width: 100%;
+      height: 54px;
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.43;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #1d4ed8;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-screen-wrapper">
+    <main class="login-card-mobile">
+      <!-- Topo: Marca Educar & Aprender -->
+      <header class="brand-header">
+        <div class="brand-icon">
+          <!-- Ícone do Penpot: Livro aberto -->
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-category">Avaliação Formativa</span>
+        </div>
+      </header>
+
+      <!-- Título Principal -->
+      <h1 class="login-title">Acesse sua conta</h1>
+
+      <!-- Formulário -->
+      <form class="login-form" onsubmit="event.preventDefault();">
+        <!-- Campo E-mail institucional -->
+        <div class="form-group">
+          <label class="form-label" for="email">E-mail institucional</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <!-- Ícone de e-mail do Penpot -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8194aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </span>
+            <input 
+              type="email" 
+              id="email" 
+              class="form-input" 
+              placeholder="E-mail" 
+              autocomplete="email"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Campo Senha -->
+        <div class="form-group">
+          <label class="form-label" for="password">Senha</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <!-- Ícone de cadeado do Penpot -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8194aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </span>
+            <input 
+              type="password" 
+              id="password" 
+              class="form-input" 
+              placeholder="Digite sua senha" 
+              autocomplete="current-password"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Opções: Manter conectado e Esqueci a senha -->
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="remember" />
+            <span class="remember-label">Manter conectado</span>
+          </label>
+          <a href="#recuperar-senha" class="forgot-password">Esqueci a senha</a>
+        </div>
+
+        <!-- Botão Entrar -->
+        <button type="submit" class="btn-submit">
+          Entrar
+        </button>
+      </form>
+    </main>
+  </div>
+
+</body>
+</html>
+

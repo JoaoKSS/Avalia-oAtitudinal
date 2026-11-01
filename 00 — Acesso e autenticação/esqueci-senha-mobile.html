@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esqueci minha senha · Mobile · Educar & Aprender</title>
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f8fc;
+      color: #172b4d;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Dimensão do Artboard Mobile (390 × 844) */
+    .mobile-screen-wrapper {
+      width: 100%;
+      max-width: 390px;
+      min-height: 844px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Card de Recuperação de Senha Mobile (358 × 440) */
+    .recovery-card-mobile {
+      width: 100%;
+      max-width: 358px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 24px;
+      box-shadow: 0px 8px 24px rgba(20, 51, 97, 0.08);
+      padding: 24px;
+    }
+
+    /* Topo: Marca Educar & Aprender */
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      background-color: #2563eb;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.39;
+      color: #172b4d;
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+    }
+
+    /* Título e Texto Descritivo */
+    .recovery-title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.42;
+      color: #172b4d;
+      margin-top: 32px;
+      margin-bottom: 11px;
+    }
+
+    .recovery-desc {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.36;
+      color: #60758b;
+      margin-bottom: 26px;
+    }
+
+    /* Formulário */
+    .recovery-form {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.42;
+      color: #172b4d;
+    }
+
+    /* Input: Altura 52px */
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 52px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 12px;
+      padding: 0 14px 0 44px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .input-wrapper:focus-within {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8194aa;
+      pointer-events: none;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 400;
+      color: #172b4d;
+    }
+
+    .form-input::placeholder {
+      color: #8194aa;
+    }
+
+    /* Botão Enviar Link de Recuperação: Altura 54px */
+    .btn-submit {
+      width: 100%;
+      height: 54px;
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.43;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #1d4ed8;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+
+    /* Link Voltar para entrar: Centralizado */
+    .back-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: -2px;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+
+    .back-action:hover {
+      opacity: 0.85;
+    }
+
+    .back-icon {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+    }
+
+    .back-text {
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.36;
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-screen-wrapper">
+    <main class="recovery-card-mobile">
+      <!-- Topo: Marca Educar & Aprender -->
+      <header class="brand-header">
+        <div class="brand-icon">
+          <!-- Ícone do Penpot: Livro aberto -->
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-category">Avaliação Formativa</span>
+        </div>
+      </header>
+
+      <!-- Título Principal -->
+      <h1 class="recovery-title">Esqueci minha senha</h1>
+      <p class="recovery-desc">Informe seu e-mail institucional para receber um link de redefinição.</p>
+
+      <!-- Formulário -->
+      <form class="recovery-form" onsubmit="event.preventDefault();">
+        <!-- Campo E-mail institucional -->
+        <div class="form-group">
+          <label class="form-label" for="email">E-mail institucional</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <!-- Ícone de e-mail do Penpot -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8194aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </span>
+            <input 
+              type="email" 
+              id="email" 
+              class="form-input" 
+              placeholder="Digite seu e-mail" 
+              autocomplete="email"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Botão Enviar Link de Recuperação -->
+        <button type="submit" class="btn-submit">
+          Enviar link de recuperação
+        </button>
+
+        <!-- Voltar para entrar com seta vetorial -->
+        <a href="login-mobile.html" class="back-action">
+          <span class="back-icon">
+            <!-- Ícone vetor exato do Penpot (16x16 com seta para esquerda) -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12.67 8H3.33M7 12.67L3.33 8 7 3.33"/>
+            </svg>
+          </span>
+          <span class="back-text">Voltar para entrar</span>
+        </a>
+      </form>
+    </main>
+  </div>
+
+</body>
+</html>
+
