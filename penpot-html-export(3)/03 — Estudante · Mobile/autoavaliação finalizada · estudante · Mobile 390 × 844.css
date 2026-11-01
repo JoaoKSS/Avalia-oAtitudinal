@@ -1,0 +1,32 @@
+/* Reset & pure screen layout */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: transparent;
+}
+
+.screen-content {
+  width: 100%;
+  max-width: 390px;
+  display: block;
+}
+
+.screen-content > svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
