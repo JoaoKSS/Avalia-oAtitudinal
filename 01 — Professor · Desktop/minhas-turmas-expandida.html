@@ -597,29 +597,12 @@
       width: 100%;
     }
 
-    /* Item 1: Devolutiva individual (Fundo Azul #2563eb, Texto Branco) */
-    .expanded-action-item.action-blue {
-      height: 42px;
-      background-color: #2563eb;
-      border-radius: 10px;
-      padding: 0 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      transition: background-color 0.15s ease, transform 0.1s ease;
-    }
-
-    .expanded-action-item.action-blue:hover {
-      background-color: #1d4ed8;
-      transform: translateX(2px);
-    }
-
-    /* Item 2: Histórico de evidências (Fundo #f8fafc, Borda #d9e4f2, Texto #172b4d) */
-    .expanded-action-item.action-gray {
+    /* ==========================================================================
+       Itens de Ação da Turma Expandida (Devolutiva, Histórico, Registro)
+       Estado Normal: Fundo Neutro Suave (#f8fafc), Borda (#d9e4f2), Texto (#172b4d)
+       Estado Hover: Fundo Azul Primário (#2563eb), Ícone e Texto Brancos (#ffffff)
+       ========================================================================== */
+    .expanded-action-item {
       height: 42px;
       background-color: #f8fafc;
       border: 1px solid #d9e4f2;
@@ -632,36 +615,35 @@
       text-decoration: none;
       font-size: 13px;
       font-weight: 600;
-      transition: all 0.15s ease;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.12s ease;
     }
 
-    .expanded-action-item.action-gray:hover {
-      background-color: #f1f5f9;
-      border-color: #cbd5e1;
-      transform: translateX(2px);
-    }
-
-    /* Item 3: Registro de observação (Fundo #eef5ff, Borda #d9e4f2, Texto #2563eb) */
-    .expanded-action-item.action-light-blue {
-      height: 42px;
-      background-color: #eef5ff;
-      border: 1px solid #d9e4f2;
-      border-radius: 10px;
-      padding: 0 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .expanded-action-item .action-item-icon {
       color: #2563eb;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      transition: all 0.15s ease;
+      transition: color 0.15s ease;
     }
 
-    .expanded-action-item.action-light-blue:hover {
-      background-color: #e0edff;
-      border-color: #2563eb;
+    .expanded-action-item.item-historico .action-item-icon {
+      color: #0f766e;
+    }
+
+    .expanded-action-item svg {
+      stroke: currentColor;
+      transition: stroke 0.15s ease;
+    }
+
+    /* Efeito Hover Unificado: Fundo Azul, Texto Branco e Ícone Branco */
+    .expanded-action-item:hover {
+      background-color: #2563eb !important;
+      border-color: #2563eb !important;
+      color: #ffffff !important;
       transform: translateX(2px);
+    }
+
+    .expanded-action-item:hover .action-item-icon,
+    .expanded-action-item:hover svg {
+      color: #ffffff !important;
+      stroke: #ffffff !important;
     }
 
     .action-item-icon {
@@ -870,11 +852,11 @@
 
             <!-- Lista de Ações da Turma Expandida -->
             <div class="expanded-actions-list">
-              <!-- Ação 1: Devolutiva individual (Azul Primário) -->
-              <a href="devolutiva-individual.html" class="expanded-action-item action-blue">
+              <!-- Ação 1: Devolutiva individual -->
+              <a href="devolutiva-individual.html" class="expanded-action-item">
                 <span class="action-item-icon" aria-hidden="true">
                   <!-- Ícone oficial de Devolutiva do Penpot (ID 644b7976-7f30-8041-8008-d476a751abad) -->
-                  <svg width="18" height="18" viewBox="3635 1870 18 18" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="18" height="18" viewBox="3635 1870 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3649.5227 1880.8409C3649.5227 1881.8577 3648.6982 1882.6818 3647.6819 1882.6818H3641.5454L3638.4773 1884.5227V1875.3182C3638.4773 1874.3015 3639.3018 1873.4773 3640.3181 1873.4773H3647.6819C3648.6982 1873.4773 3649.5227 1874.3015 3649.5227 1875.3182V1880.8409Z"/>
                     <path d="M3641.5454 1877.1591H3646.4546M3641.5454 1879.6136H3645.2273"/>
                   </svg>
@@ -882,11 +864,11 @@
                 <span>Devolutiva individual</span>
               </a>
 
-              <!-- Ação 2: Histórico de evidências (Fundo Neutro / Branco) -->
-              <a href="#historico" class="expanded-action-item action-gray">
+              <!-- Ação 2: Histórico de evidências -->
+              <a href="historico-evidencias.html" class="expanded-action-item item-historico">
                 <span class="action-item-icon" aria-hidden="true">
                   <!-- Ícone oficial de Histórico do Penpot (ID 644b7976-7f30-8041-8008-d476a76ef094) -->
-                  <svg width="18" height="18" viewBox="3635 1917.864 18 18.273" fill="none" stroke="#0f766e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="18" height="18" viewBox="3635 1917.864 18 18.273" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3645.2273 1920.8636H3640.3181C3639.6404 1920.8636 3639.0908 1921.4131 3639.0908 1922.0909V1931.9091C3639.0908 1932.5869 3639.6404 1933.1364 3640.3181 1933.1364H3645.2273"/>
                     <path d="M3645.2273 1920.8636V1924.5454H3648.9092"/>
                     <path d="M3645.2273 1920.8636L3648.9092 1924.5454"/>
@@ -897,11 +879,11 @@
                 <span>Histórico de evidências</span>
               </a>
 
-              <!-- Ação 3: Registro de observação (Fundo Azul Claro Suave) -->
-              <a href="#registro" class="expanded-action-item action-light-blue">
+              <!-- Ação 3: Registro de observação -->
+              <a href="#registro" class="expanded-action-item">
                 <span class="action-item-icon" aria-hidden="true">
                   <!-- Ícone oficial de Registro com + do Penpot (ID 644b7976-7f30-8041-8008-d476a7942e81) -->
-                  <svg width="18" height="18" viewBox="3635 1966 18 18" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="18" height="18" viewBox="3635 1966 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect rx="2" ry="2" x="3639.7045" y="1970.0909" width="8.5909" height="10.4318"/>
                     <path d="M3642.1592 1970.0909V1969.4773H3645.8408V1970.0909"/>
                     <path d="M3644 1973.7727V1977.4546M3642.1592 1975.6136H3645.8408"/>
