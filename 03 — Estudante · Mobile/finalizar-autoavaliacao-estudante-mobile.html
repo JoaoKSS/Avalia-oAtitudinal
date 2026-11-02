@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finalizar autoavaliação · Estudante · Mobile</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,17 +38,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100vw;
+      width: 100%;
       min-height: 100vh;
       margin: 0;
       padding: 16px;
+      box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     .mobile-screen-wrapper {
-      width: 100%;
+      width: 390px;
+      min-width: 390px;
       max-width: 390px;
       height: 844px;
+      min-height: 844px;
+      max-height: 844px;
       background-color: var(--color-bg-canvas);
       border-radius: 36px;
       border: 1px solid var(--color-border-subtle);
@@ -54,6 +62,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      flex-shrink: 0;
     }
 
     @media (max-width: 480px) {
@@ -61,7 +70,12 @@
         padding: 0;
       }
       .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
         height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
         border-radius: 0;
         border: none;
         box-shadow: none;
@@ -537,7 +551,7 @@
 
     <footer class="bottom-actions-bar">
       <a href="autoavaliacoes-estudante-mobile.html" class="btn-action btn-draft">Salvar rascunho</a>
-      <a href="autoavaliacoes-estudante-mobile.html" class="btn-action btn-next">Finalizar</a>
+      <a href="autoavaliacao-finalizada-estudante-mobile.html" class="btn-action btn-next">Finalizar</a>
     </footer>
 
   </main>

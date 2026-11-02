@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Autoavaliações do Estudante · Mobile · Educar & Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -44,17 +47,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100vw;
+      width: 100%;
       min-height: 100vh;
       margin: 0;
       padding: 16px;
+      box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     .mobile-screen-wrapper {
-      width: 100%;
+      width: 390px;
+      min-width: 390px;
       max-width: 390px;
       height: 844px;
+      min-height: 844px;
+      max-height: 844px;
       background-color: var(--color-bg-canvas);
       border-radius: 36px;
       border: 1px solid var(--color-border-subtle);
@@ -63,6 +71,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      flex-shrink: 0;
     }
 
     @media (max-width: 480px) {
@@ -70,7 +79,12 @@
         padding: 0;
       }
       .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
         height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
         border-radius: 0;
         border: none;
         box-shadow: none;
@@ -162,7 +176,8 @@
     .main-content {
       flex: 1;
       overflow-y: auto;
-      padding: 18px 16px 98px 16px;
+      overflow-x: hidden;
+      padding: 16px 16px 88px 16px;
       display: flex;
       flex-direction: column;
       scrollbar-width: none;
@@ -177,28 +192,28 @@
       font-weight: 700;
       line-height: 1.36;
       color: var(--color-text-main);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .page-subtitle {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 400;
       line-height: 1.35;
       color: var(--color-text-muted);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .status-summary-card {
       width: 100%;
-      height: 72px;
+      height: 64px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 10px;
-      margin-bottom: 14px;
+      padding: 0 8px;
+      margin-bottom: 12px;
       box-shadow: var(--shadow-card);
     }
 
@@ -218,8 +233,8 @@
     }
 
     .status-icon-box {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
@@ -258,11 +273,11 @@
     }
 
     .status-label {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
-      line-height: 1.25;
+      line-height: 1.2;
       color: var(--color-text-muted);
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
     .status-divider {
@@ -276,24 +291,21 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 6px;
-      margin-bottom: 14px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .filter-pills-row::-webkit-scrollbar {
-      display: none;
+      gap: 5px;
+      margin-bottom: 12px;
+      width: 100%;
     }
 
     .filter-pill {
-      height: 32px;
-      border-radius: var(--radius-sm);
-      padding: 0 11px;
+      flex: 1;
+      min-width: 0;
+      height: 30px;
+      border-radius: 8px;
+      padding: 0 4px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
       line-height: 1.2;
       text-decoration: none;
@@ -318,29 +330,29 @@
     }
 
     .section-list-title {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
-      line-height: 1.4;
+      line-height: 1.35;
       color: var(--color-text-main);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .assessment-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .assessment-card {
       width: 100%;
-      min-height: 102px;
+      height: 96px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-card);
-      padding: 12px 14px;
+      border-radius: 13px;
+      padding: 10px 12px;
       display: flex;
       align-items: flex-start;
-      gap: 12px;
+      gap: 10px;
       position: relative;
       box-shadow: var(--shadow-card);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -352,13 +364,13 @@
     }
 
     .teacher-avatar {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       line-height: 1.2;
       flex-shrink: 0;
@@ -393,42 +405,42 @@
     }
 
     .assessment-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      line-height: 1.3;
+      line-height: 1.25;
       color: var(--color-text-main);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      padding-right: 85px;
+      padding-right: 75px;
     }
 
     .teacher-name {
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 500;
-      line-height: 1.3;
+      line-height: 1.2;
       color: var(--color-text-muted);
       margin-top: 3px;
     }
 
     .assessment-meta {
-      font-size: 11px;
+      font-size: 9.5px;
       font-weight: 400;
-      line-height: 1.3;
+      line-height: 1.2;
       color: var(--color-text-muted);
       margin-top: 2px;
     }
 
     .card-badge {
       position: absolute;
-      top: 12px;
-      right: 14px;
-      height: 22px;
+      top: 10px;
+      right: 12px;
+      height: 20px;
       padding: 0 8px;
       border-radius: 6px;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
-      line-height: 22px;
+      line-height: 20px;
       text-align: center;
       white-space: nowrap;
     }
@@ -450,12 +462,12 @@
 
     .card-action-btn {
       position: absolute;
-      bottom: 12px;
-      right: 14px;
-      height: 28px;
-      padding: 0 12px;
-      border-radius: var(--radius-sm);
-      font-size: 11px;
+      bottom: 9px;
+      right: 12px;
+      height: 24px;
+      padding: 0 10px;
+      border-radius: 6px;
+      font-size: 9.5px;
       font-weight: 600;
       display: inline-flex;
       align-items: center;

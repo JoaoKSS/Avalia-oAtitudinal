@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autoavaliação finalizada · Estudante · Mobile</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      --color-success-text: #16a34a;
+      --color-success-bg: #e8f7ee;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-btn: 12px;
+      --radius-card: 16px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .notif-button {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      padding: 0;
+    }
+
+    .notif-button:hover {
+      background-color: #f8fafc;
+      border-color: #c7d7eb;
+    }
+
+    .notif-badge-dot {
+      position: absolute;
+      left: 27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 40px 16px 96px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .success-hero-badge {
+      width: 102px;
+      height: 102px;
+      border-radius: 50%;
+      background-color: var(--color-success-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      flex-shrink: 0;
+    }
+
+    .success-hero-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 2px solid var(--color-success-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-text-main);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .confirmation-card {
+      width: 100%;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 28px;
+    }
+
+    .confirmation-student-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .confirmation-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .confirmation-student-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .confirmation-student-name {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--color-text-main);
+    }
+
+    .confirmation-student-meta {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--color-text-muted);
+      margin-top: 3px;
+    }
+
+    .confirmation-divider {
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-border-subtle);
+      margin-bottom: 12px;
+    }
+
+    .confirmation-status-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot-green {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-success-text);
+      flex-shrink: 0;
+    }
+
+    .confirmation-status-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-success-text);
+      line-height: 1.3;
+    }
+
+    .btn-return-action {
+      width: 100%;
+      height: 48px;
+      background-color: var(--color-text-muted);
+      border-radius: var(--radius-btn);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .btn-return-action:hover {
+      background-color: #4b5d73;
+    }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-top: 8px;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      position: relative;
+      width: 78px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="mobile-screen-wrapper">
+
+    <header class="mobile-header">
+      <a href="painel-inicial-estudante-mobile.html" class="brand-section" aria-label="Educar & Aprender - Área do Estudante">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3.333 16.25C3.333 15.1 4.266 14.167 5.416 14.167H16.666M5.416 1.667H16.666V18.333H5.416C4.266 18.333 3.333 17.401 3.333 16.25V3.75C3.333 2.6 4.266 1.667 5.416 1.667Z" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-category">Área do Estudante</span>
+        </div>
+      </a>
+
+      <button class="notif-button" aria-label="Ver notificações">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="notif-badge-dot"></span>
+      </button>
+    </header>
+
+    <section class="main-content">
+      <div class="success-hero-badge">
+        <div class="success-hero-circle">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M6 14.5L11.5 20L22 8" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="success-title">Autoavaliação finalizada</h1>
+
+      <article class="confirmation-card">
+        <div class="confirmation-student-row">
+          <div class="confirmation-avatar">AB</div>
+          <div class="confirmation-student-info">
+            <h2 class="confirmation-student-name">Ana Beatriz Ferraz</h2>
+            <p class="confirmation-student-meta">6º ano A · 1º bimestre de 2026</p>
+          </div>
+        </div>
+
+        <div class="confirmation-divider"></div>
+
+        <div class="confirmation-status-row">
+          <span class="status-dot-green"></span>
+          <span class="confirmation-status-text">Autoavaliação finalizada com sucesso</span>
+        </div>
+      </article>
+
+      <a href="autoavaliacoes-estudante-mobile.html" class="btn-return-action">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M15.833 10H4.167M9.167 15L4.167 10L9.167 5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Voltar às autoavaliações</span>
+      </a>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="painel-inicial-estudante-mobile.html" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="133 874 24 24" fill="none">
+            <path d="M137.5 884.333L145 878.5L152.5 884.333V892.667C152.5 893.127 152.127 893.5 151.667 893.5H147.5V887.667H142.5V893.5H138.333C137.873 893.5 137.5 893.127 137.5 892.667V884.333Z" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <a href="autoavaliacoes-estudante-mobile.html" class="nav-tab active" aria-current="page">
+        <span class="nav-indicator-bar"></span>
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M6.16 12L9.5 15.33L17.83 7" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Autoavaliações</span>
+      </a>
+
+      <a href="#" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="333 874 24 24" fill="none">
+            <path d="M337.5 890.167L342.5 885.167L345.833 888.5L352.5 881" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M347.5 881H352.5V886" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Evolução</span>
+      </a>
+
+      <a href="#" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="433 874 24 24" fill="none">
+            <ellipse cx="445" cy="882.667" rx="3.333" ry="3.333" stroke="#60758b" stroke-width="1.8"/>
+            <path d="M439.166 893.5V891.833C439.166 888.612 441.778 886 445 886C448.222 886 450.834 888.612 450.834 891.833V893.5" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+  </main>
+
+</body>
+</html>
