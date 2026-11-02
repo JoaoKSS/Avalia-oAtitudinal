@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversa · Prof. Ana Almeida · Responsável · Mobile · Educar & Aprender</title>
+
+  <!-- Favicons adaptativos -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      --color-incoming-bg: #ffffff;
+      --color-outgoing-bg: #2563eb;
+
+      --radius-sm: 8px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
+      --radius-card: 14px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Container do dispositivo mobile (390 × 844) */
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    /* Cabeçalho Mobile (72px) */
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-icon-btn {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: var(--color-text-main);
+    }
+
+    .header-icon-btn.active {
+      background-color: var(--color-primary-light);
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .notif-badge-dot {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      border: 1.5px solid #ffffff;
+    }
+
+    /* Conteúdo Principal Rolável */
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 16px 98px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Link Voltar */
+    .btn-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: opacity 0.15s ease;
+      align-self: flex-start;
+    }
+
+    .btn-back-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    /* Barra de Informações do Contato */
+    .contact-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .contact-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .contact-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contact-role {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Separador de Data */
+    .date-separator {
+      display: flex;
+      justify-content: center;
+      margin: 4px 0;
+    }
+
+    .date-pill {
+      background-color: #e8f0ff;
+      color: var(--color-primary);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 12px;
+    }
+
+    /* Área de Mensagens */
+    .messages-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .message-bubble-wrapper {
+      display: flex;
+      width: 100%;
+    }
+
+    .message-bubble-wrapper.incoming {
+      justify-content: flex-start;
+    }
+
+    .message-bubble-wrapper.outgoing {
+      justify-content: flex-end;
+    }
+
+    .message-bubble {
+      max-width: 85%;
+      padding: 12px 14px 8px 14px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(20, 51, 97, 0.04);
+    }
+
+    .message-bubble-wrapper.incoming .message-bubble {
+      background-color: var(--color-incoming-bg);
+      border: 1px solid var(--color-border-subtle);
+      border-bottom-left-radius: 4px;
+      color: var(--color-text-main);
+    }
+
+    .message-bubble-wrapper.outgoing .message-bubble {
+      background-color: var(--color-outgoing-bg);
+      border-bottom-right-radius: 4px;
+      color: #ffffff;
+    }
+
+    .message-text {
+      font-size: 13px;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    .message-meta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .message-time {
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .message-bubble-wrapper.incoming .message-time {
+      color: #8194aa;
+    }
+
+    .message-bubble-wrapper.outgoing .message-time {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .message-check {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1;
+    }
+
+    /* Barra de Composição de Mensagens */
+    .composer-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      margin-top: 6px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .composer-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--color-text-main);
+      padding: 4px 6px;
+    }
+
+    .composer-input::placeholder {
+      color: #8194aa;
+    }
+
+    .btn-send {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background-color: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-send:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Navegação Inferior Mobile (80px) */
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 8px 12px 8px;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      position: relative;
+      padding: 8px 16px;
+      transition: color 0.15s ease;
+      flex: 1;
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-tab.active::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      width: 44px;
+      height: 3px;
+      background-color: var(--color-primary);
+      border-radius: 0 0 3px 3px;
+    }
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-label {
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Moldura Mobile (390 x 844) -->
+  <main class="mobile-screen-wrapper">
+
+    <!-- Cabeçalho Mobile -->
+    <header class="mobile-header">
+      <a href="painel-inicial-responsavel-mobile.html" class="brand-section" title="Educar &amp; Aprender - Início">
+        <div class="brand-icon" aria-hidden="true">
+          <!-- Ícone vetorial da marca oficial do Penpot -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-category">Área do Responsável</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <!-- Botão Mensagens (Ativo) -->
+        <a href="mensagens-responsavel-mobile.html" class="header-icon-btn active" title="Mensagens e conversas">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+            <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
+            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+          </svg>
+        </a>
+
+        <!-- Botão Notificações -->
+        <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="notif-badge-dot"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal Rolável -->
+    <div class="main-content">
+
+      <!-- Link Voltar às Conversas -->
+      <a href="mensagens-responsavel-mobile.html" class="btn-back-link">
+        <span aria-hidden="true">‹</span> Conversas
+      </a>
+
+      <!-- Barra do Contato -->
+      <div class="contact-bar">
+        <div class="contact-avatar" aria-hidden="true">AA</div>
+        <div class="contact-info">
+          <h1 class="contact-name">Prof. Ana Almeida</h1>
+          <span class="contact-role">Professora · 6º ano A</span>
+        </div>
+      </div>
+
+      <!-- Separador de Data -->
+      <div class="date-separator">
+        <span class="date-pill">HOJE</span>
+      </div>
+
+      <!-- Fluxo de Mensagens -->
+      <div class="messages-stream">
+
+        <!-- Mensagem 1 (Recebida) -->
+        <div class="message-bubble-wrapper incoming">
+          <div class="message-bubble">
+            <p class="message-text">Olá, João! Gostaria de compartilhar uma observação positiva sobre a participação do Lucas na atividade de hoje.</p>
+            <div class="message-meta">
+              <span class="message-time">14:28</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mensagem 2 (Enviada) -->
+        <div class="message-bubble-wrapper outgoing">
+          <div class="message-bubble">
+            <p class="message-text">Olá, professora! Que bom saber disso. O que ele fez durante a atividade?</p>
+            <div class="message-meta">
+              <span class="message-time">14:30</span>
+              <span class="message-check" aria-label="Lida">✓✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mensagem 3 (Recebida) -->
+        <div class="message-bubble-wrapper incoming">
+          <div class="message-bubble">
+            <p class="message-text">Ele compartilhou ideias com o grupo e ajudou os colegas a organizarem a tarefa. Foi uma boa demonstração de colaboração.</p>
+            <div class="message-meta">
+              <span class="message-time">14:32</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mensagem 4 (Enviada) -->
+        <div class="message-bubble-wrapper outgoing">
+          <div class="message-bubble">
+            <p class="message-text">Fico feliz! Vou conversar com ele sobre essa experiência em casa.</p>
+            <div class="message-meta">
+              <span class="message-time">14:35</span>
+              <span class="message-check" aria-label="Lida">✓✓</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Área de Composição / Envio -->
+      <form class="composer-bar" onsubmit="event.preventDefault();" aria-label="Escrever mensagem">
+        <input type="text" class="composer-input" placeholder="Escreva uma mensagem…" aria-label="Escreva uma mensagem">
+        <button type="submit" class="btn-send" title="Enviar mensagem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </form>
+
+    </div>
+
+    <!-- Navegação Inferior -->
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="painel-inicial-responsavel-mobile.html" class="nav-tab active">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <a href="evolucao-estudante-responsavel-mobile.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+            <polyline points="17 6 23 6 23 12"/>
+          </svg>
+        </div>
+        <span class="nav-label">Evolução</span>
+      </a>
+
+      <a href="#" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="7" r="4"/>
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          </svg>
+        </div>
+        <span class="nav-label">Meu perfil</span>
+      </a>
+    </nav>
+
+  </main>
+
+</body>
+</html>
