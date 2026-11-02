@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset & Variáveis Base */
+    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -24,58 +24,53 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: #f5f8fc;
       color: #172b4d;
       min-height: 100vh;
       display: flex;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Layout Principal Desktop */
+    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
       min-height: 100vh;
     }
 
-    /* ==========================================================================
-       Barra Lateral Desktop (Sidebar) - 248px
-       ========================================================================== */
+    /* Barra Lateral do Responsável (248px) */
     .sidebar {
       width: 248px;
-      min-width: 248px;
       background-color: #ffffff;
       border-right: 1px solid #d9e4f2;
       display: flex;
       flex-direction: column;
+      flex-shrink: 0;
       position: sticky;
       top: 0;
       height: 100vh;
-      z-index: 50;
-      overflow-y: auto;
     }
 
-    /* Marca / Logo */
-    .brand-section {
-      padding: 24px 20px 20px 20px;
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
     }
 
-    .brand-logo-icon {
+    .brand-logo-container {
       width: 40px;
       height: 40px;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      background-color: #2563eb;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
       flex-shrink: 0;
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+      color: #ffffff;
     }
 
     .brand-text {
@@ -90,29 +85,30 @@
       line-height: 1.2;
     }
 
-    .brand-role-badge {
-      font-size: 10px;
-      font-weight: 700;
+    .brand-subtitle {
+      font-size: 9px;
+      font-weight: 600;
       letter-spacing: 0.5px;
       color: #2563eb;
       text-transform: uppercase;
       margin-top: 2px;
     }
 
-    /* Navegação do Menu */
-    .nav-section {
-      padding: 16px 12px 10px 12px;
-      flex-grow: 1;
+    /* Navegação Lateral */
+    .sidebar-nav {
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
-    .nav-label {
-      font-size: 11px;
+    .nav-section-title {
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       color: #8194aa;
+      padding: 12px 12px 8px 12px;
       text-transform: uppercase;
-      padding: 0 12px 8px 12px;
-      display: block;
     }
 
     .nav-list {
@@ -122,40 +118,45 @@
       gap: 4px;
     }
 
-    .nav-item-link {
+    .nav-item {
+      width: 100%;
+    }
+
+    .nav-link {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      color: #60758b;
-      text-decoration: none;
+      padding: 11px 16px;
+      border-radius: 8px;
       font-size: 14px;
       font-weight: 500;
-      transition: all 0.15s ease;
+      color: #60758b;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
       position: relative;
     }
 
-    .nav-item-link:hover {
+    .nav-link:hover {
       background-color: #f1f5f9;
       color: #172b4d;
     }
 
-    .nav-item-link.active {
+    .nav-link.active {
       background-color: #e8f0ff;
       color: #2563eb;
       font-weight: 600;
     }
 
-    .nav-item-link.active::before {
-      content: '';
+    .nav-link.active::before {
+      content: "";
       position: absolute;
       left: 0;
-      top: 8px;
-      bottom: 8px;
+      top: 50%;
+      transform: translateY(-50%);
       width: 3px;
+      height: 28px;
       background-color: #2563eb;
-      border-radius: 0 4px 4px 0;
+      border-radius: 2px;
     }
 
     .nav-icon {
@@ -165,75 +166,84 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      color: currentColor;
     }
 
-    /* Rodapé da Barra Lateral: Perfil do Responsável */
+    /* Rodapé da Sidebar: Perfil do Responsável */
     .sidebar-footer {
-      padding: 16px;
-      border-top: 1px solid #d9e4f2;
-      background-color: #fafcff;
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: 1px solid #f1f5f9;
     }
 
-    .user-profile-summary {
+    .user-profile-button {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 6px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: inherit;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
     }
 
-    .user-avatar-circle {
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
+      border-radius: 20px;
       background-color: #e8f0ff;
-      border: 1px solid #d9e4f2;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #2563eb;
-      font-weight: 700;
-      font-size: 14px;
       flex-shrink: 0;
     }
 
     .user-info {
       display: flex;
       flex-direction: column;
-      overflow: hidden;
+      flex: 1;
+      min-width: 0;
     }
 
     .user-name {
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
       color: #172b4d;
       white-space: nowrap;
-      text-overflow: ellipsis;
       overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .user-role {
       font-size: 11px;
+      font-weight: 400;
       color: #60758b;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
     }
 
-    /* ==========================================================================
-       Área de Conteúdo Principal (Main Content)
-       ========================================================================== */
+    .user-chevron {
+      color: #60758b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Área Principal */
     .main-wrapper {
       flex: 1;
       display: flex;
       flex-direction: column;
       min-width: 0;
-      background-color: #f5f8fc;
     }
 
-    /* Cabeçalho Superior Desktop (Top Header) - 76px */
+    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -241,10 +251,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
-      position: sticky;
-      top: 0;
-      z-index: 40;
+      padding: 0 32px;
     }
 
     /* Breadcrumbs */
@@ -321,52 +328,53 @@
       border: 2px solid #ffffff;
     }
 
-    /* Conteúdo da Tela */
+    /* Conteúdo Principal */
     .content-area {
-      padding: 32px 40px 40px 40px;
-      max-width: 1440px;
-      margin: 0 auto;
+      padding: 24px 32px 32px 32px;
       width: 100%;
-      flex-grow: 1;
       display: flex;
       flex-direction: column;
+      gap: 20px;
+      flex: 1;
     }
 
-    /* Linha do Título */
+    /* Cabeçalho da Página com Título e Botão Voltar */
     .page-header-row {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
+      gap: 20px;
     }
 
     .page-header-text {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
     }
 
     .page-title {
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 700;
+      line-height: 1.25;
       color: #172b4d;
-      letter-spacing: -0.02em;
     }
 
     .page-desc {
-      font-size: 14px;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.4;
       color: #60758b;
     }
 
     .btn-back-messages {
-      height: 40px;
-      padding: 0 18px;
+      height: 42px;
+      padding: 0 20px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
       color: #60758b;
       border-radius: 10px;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
@@ -380,9 +388,7 @@
       color: #172b4d;
     }
 
-    /* ==========================================================================
-       Painel Principal: Seleção de Professor (1148px)
-       ========================================================================== */
+    /* Painel Principal de Seleção de Professores */
     .teacher-selection-panel {
       width: 100%;
       background-color: #ffffff;
@@ -394,7 +400,7 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
 
-    /* Cabeçalho do Painel */
+    /* Cabeçalho do Painel com Contador */
     .panel-header-row {
       display: flex;
       align-items: flex-start;
@@ -618,76 +624,76 @@
 </head>
 <body>
   <div class="app-layout">
-    <!-- ========================================================================
-         Barra Lateral Desktop (Sidebar)
-         ======================================================================== -->
-    <aside class="sidebar" aria-label="Navegação Principal">
-      <!-- Marca do Colégio -->
-      <div class="brand-section">
-        <div class="brand-logo-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    <!-- Barra Lateral do Responsável (248px) -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-logo-container">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
           </svg>
         </div>
         <div class="brand-text">
           <span class="brand-title">Educar &amp; Aprender</span>
-          <span class="brand-role-badge">Área do Responsável</span>
+          <span class="brand-subtitle">ÁREA DO RESPONSÁVEL</span>
         </div>
       </div>
 
-      <!-- Links de Navegação -->
-      <nav class="nav-section">
-        <span class="nav-label">Menu Lateral</span>
+      <!-- Navegação Lateral -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Menu Lateral</div>
         <ul class="nav-list">
-          <li>
-            <a href="painel-inicial.html" class="nav-item-link" title="Visão geral do estudante">
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                  <polyline points="9 22 9 12 15 12 15 22"/>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
                 </svg>
               </span>
-              <span>Visão geral</span>
+              <span>Início</span>
             </a>
           </li>
-          <li>
-            <a href="historico-registros.html" class="nav-item-link" title="Histórico de registros atitudinais">
+
+          <li class="nav-item">
+            <a href="evolucao-estudante.html" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
-                  <polyline points="10 9 9 9 8 9"/>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                  <polyline points="17 6 23 6 23 12"/>
                 </svg>
               </span>
-              <span>Registros</span>
+              <span>Evolução do estudante</span>
             </a>
           </li>
-          <li>
-            <a href="evolucao-estudante.html" class="nav-item-link" title="Evolução e gráficos do estudante">
+
+          <li class="nav-item">
+            <a href="historico-registros.html" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="8.5" cy="8.5" r="5.5"/>
+                  <line x1="12.5" y1="12.5" x2="16.5" y2="16.5"/>
                 </svg>
               </span>
-              <span>Evolução</span>
+              <span>Histórico de registros</span>
             </a>
           </li>
-          <li>
-            <a href="devolutivas.html" class="nav-item-link" title="Devolutivas e pareceres pedagógicos">
+
+          <li class="nav-item">
+            <a href="devolutivas.html" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3.5" y1="6" x2="16.5" y2="6"/>
+                  <line x1="3.5" y1="10" x2="16.5" y2="10"/>
+                  <line x1="3.5" y1="14" x2="16.5" y2="14"/>
                 </svg>
               </span>
               <span>Devolutivas</span>
             </a>
           </li>
-          <li>
-            <!-- Item Ativo: Mensagens com Ícone oficial do Penpot -->
-            <a href="mensagens.html" class="nav-item-link active" title="Conversas e Mensagens" aria-current="page">
+
+          <li class="nav-item">
+            <a href="mensagens.html" class="nav-link active">
               <span class="nav-icon">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
@@ -701,21 +707,29 @@
         </ul>
       </nav>
 
-      <!-- Perfil do Responsável no Rodapé -->
+      <!-- Rodapé da Sidebar: Perfil do Responsável -->
       <div class="sidebar-footer">
-        <div class="user-profile-summary">
-          <div class="user-avatar-circle" aria-hidden="true">JM</div>
+        <button class="user-profile-button" type="button" aria-label="Menu do responsável">
+          <div class="user-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
           <div class="user-info">
             <span class="user-name">João Martins</span>
             <span class="user-role">Responsável · Lucas</span>
           </div>
-        </div>
+          <div class="user-chevron">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </button>
       </div>
     </aside>
 
-    <!-- ========================================================================
-         Conteúdo Principal (Main Content)
-         ======================================================================== -->
+    <!-- Área Principal -->
     <main class="main-wrapper">
       <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
@@ -728,9 +742,7 @@
         </nav>
 
         <div class="header-actions">
-          <!-- Botão Mensagens (Ativo) -->
           <a href="mensagens.html" class="header-icon-btn active" title="Mensagens" aria-label="Mensagens">
-            <!-- Ícone Conversas oficial do Penpot -->
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
               <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
@@ -738,9 +750,7 @@
             </svg>
           </a>
 
-          <!-- Botão Notificações -->
           <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
-            <!-- Ícone Sino de Notificação oficial do Penpot -->
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M15 6.667C15 3.905 12.761 1.667 10 1.667C7.239 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167h15C17.5 12.5 15 12.5 15 6.667z"/>
               <path d="M8.333 17.5h3.334"/>
@@ -750,7 +760,7 @@
         </div>
       </header>
 
-      <!-- Conteúdo da Página -->
+      <!-- Conteúdo Principal -->
       <div class="content-area">
         <!-- Linha do Título com Botão Voltar -->
         <div class="page-header-row">
@@ -767,7 +777,7 @@
           </a>
         </div>
 
-        <!-- Painel Principal de Seleção de Professores (1148px) -->
+        <!-- Painel Principal de Seleção de Professores -->
         <section class="teacher-selection-panel" aria-label="Seleção de professores disponíveis">
           <!-- Cabeçalho do Painel com Contador -->
           <div class="panel-header-row">
@@ -934,7 +944,6 @@
   </div>
 
   <script>
-    // Filtro dinâmico de professores
     function handleTeacherSearch() {
       const query = document.getElementById('teacherSearchInput').value.toLowerCase().trim();
       const items = document.querySelectorAll('.teacher-item');
@@ -971,4 +980,3 @@
   </script>
 </body>
 </html>
-

@@ -509,6 +509,7 @@
       flex-direction: column;
       gap: 8px;
       list-style: none;
+      padding-top: 6px;
     }
 
     .conversation-item-link {
@@ -531,7 +532,12 @@
     }
 
     .conversation-item-link.unread {
-      border: 2px solid #2563eb;
+      border: 2px solid #3aff2e;
+    }
+
+    .conversation-item-link.unread .chat-time {
+      color: #3aff2e;
+      font-weight: 600;
     }
 
     .chat-avatar {
@@ -590,19 +596,21 @@
     }
 
     .unread-counter-badge {
-      width: 20px;
-      height: 20px;
-      border-radius: 10px;
-      background-color: #2563eb;
+      position: absolute;
+      top: -10px;
+      right: -6px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #3aff2e;
       color: #ffffff;
       font-size: 11px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      align-self: flex-start;
-      margin-top: 2px;
+      z-index: 2;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     /* Painel Direito: Estado Vazio / Sem Seleção (760px) */
