@@ -1019,31 +1019,6 @@
   </div>
 
   <!-- Script leve para filtragem reativa das observações ao digitar na busca -->
-  <script>
-    const searchInput = document.getElementById('input-busca-observacao');
-    if (searchInput) {
-      searchInput.addEventListener('input', function(e) {
-        const query = e.target.value.toLowerCase().trim();
-        const cards = document.querySelectorAll('.observation-card');
-        let visibleCount = 0;
-
-        cards.forEach(card => {
-          const text = card.textContent.toLowerCase();
-          if (text.includes(query)) {
-            card.style.display = 'flex';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        const footerText = document.querySelector('.list-footer-text');
-        if (footerText) {
-          footerText.textContent = query ? `Exibindo ${visibleCount} observações filtradas` : 'Exibindo 4 de 22 observações';
-        }
-      });
-    }
-  </script>
 </body>
 </html>
 

@@ -942,41 +942,5 @@
       </div>
     </main>
   </div>
-
-  <script>
-    function handleTeacherSearch() {
-      const query = document.getElementById('teacherSearchInput').value.toLowerCase().trim();
-      const items = document.querySelectorAll('.teacher-item');
-      let visibleCount = 0;
-
-      items.forEach(item => {
-        const name = item.getAttribute('data-name') || '';
-        const discipline = item.getAttribute('data-discipline') || '';
-        const matches = name.includes(query) || discipline.includes(query);
-
-        if (matches) {
-          item.style.display = 'list-item';
-          visibleCount++;
-        } else {
-          item.style.display = 'none';
-        }
-      });
-
-      const pill = document.getElementById('teacherCounterPill');
-      const emptyState = document.getElementById('emptySearchState');
-
-      if (visibleCount === 1) {
-        pill.textContent = '1 professor';
-      } else {
-        pill.textContent = `${visibleCount} professores`;
-      }
-
-      if (visibleCount === 0) {
-        emptyState.classList.add('show');
-      } else {
-        emptyState.classList.remove('show');
-      }
-    }
-  </script>
 </body>
 </html>

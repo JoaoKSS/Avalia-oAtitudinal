@@ -555,25 +555,5 @@
     </footer>
 
   </main>
-
-  <script>
-    document.querySelectorAll('.option-row').forEach(row => {
-      row.addEventListener('click', () => {
-        document.querySelectorAll('.option-row').forEach(r => {
-          r.classList.remove('selected');
-          r.setAttribute('aria-checked', 'false');
-        });
-        row.classList.add('selected');
-        row.setAttribute('aria-checked', 'true');
-      });
-
-      row.addEventListener('keydown', e => {
-        if (e.key === ' ' || e.key === 'Enter') {
-          e.preventDefault();
-          row.click();
-        }
-      });
-    });
-  </script>
 </body>
 </html>

@@ -484,7 +484,22 @@
       }
     }
 
-    /* Seletor de Dimensão */
+    /* Seletor de Dimensão em Puro HTML & CSS */
+    .dimension-dropdown-details {
+      position: relative;
+      width: 100%;
+    }
+
+    .dimension-dropdown-details summary {
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    .dimension-dropdown-details summary::-webkit-details-marker {
+      display: none;
+    }
+
     .dimension-select-box {
       width: 100%;
       height: 46px;
@@ -501,6 +516,7 @@
       color: var(--color-text-main);
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
       position: relative;
+      box-sizing: border-box;
     }
 
     .dimension-select-box:hover,
@@ -508,20 +524,51 @@
       border-color: var(--color-border-hover);
     }
 
-    .dimension-native-select {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      cursor: pointer;
-    }
-
     .select-chevron {
       color: var(--color-text-muted);
       font-size: 12px;
       pointer-events: none;
+    }
+
+    /* Menu do Dropdown Customizado (Arredondado, elegante, idêntico a Turmas) */
+    .custom-dropdown-menu {
+      position: absolute;
+      top: 52px;
+      left: 0;
+      right: 0;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 50;
+      display: none;
+      overflow: hidden;
+    }
+
+    .dimension-dropdown-details[open] .custom-dropdown-menu {
+      display: block;
+    }
+
+    .custom-dropdown-item {
+      display: block;
+      text-decoration: none;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--color-text-main);
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      text-align: left;
+    }
+
+    .custom-dropdown-item:hover {
+      background-color: #f1f5f9;
+      color: var(--color-primary);
+    }
+
+    .custom-dropdown-item.selected {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 600;
     }
 
     /* Opções de Tipo de Observação */
@@ -860,36 +907,39 @@
         </section>
 
         <!-- Formulário de Registro -->
-        <form id="record-observation-form" onsubmit="event.preventDefault(); window.location.href='registro-confirmacao.html';">
+        <form id="record-observation-form" action="registro-confirmacao.html" method="get">
           <!-- Linha 1: Dimensão e Tipo de Observação -->
           <div class="form-row-top">
             <!-- Coluna Dimensão Atitudinal -->
             <div class="form-group" style="margin-bottom: 0;">
-              <label class="field-label" for="dimensao-select">Dimensão atitudinal <span class="required-asterisk">*</span></label>
-              <div class="dimension-select-box" tabindex="0">
-                <span id="dimension-text">Responsabilidade</span>
-                <span class="select-chevron" aria-hidden="true">▾</span>
-                <select id="dimensao-select" class="dimension-native-select" aria-label="Selecione a dimensão atitudinal" onchange="document.getElementById('dimension-text').textContent = this.options[this.selectedIndex].text;">
-                  <option value="responsabilidade" selected>Responsabilidade</option>
-                  <option value="colaboracao">Colaboração</option>
-                  <option value="comunicacao">Comunicação</option>
-                  <option value="autonomia">Autonomia</option>
-                  <option value="criatividade">Criatividade</option>
-                </select>
-              </div>
+              <label class="field-label" id="label-dimensao">Dimensão atitudinal <span class="required-asterisk">*</span></label>
+              <details class="dimension-dropdown-details">
+                <summary class="dimension-select-box" role="button" aria-haspopup="listbox" aria-labelledby="label-dimensao">
+                  <span id="dimension-text">Responsabilidade</span>
+                  <span class="select-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <!-- Dropdown customizado arredondado em puro HTML e CSS -->
+                <div class="custom-dropdown-menu">
+                  <a href="#responsabilidade" class="custom-dropdown-item selected">Responsabilidade</a>
+                  <a href="#colaboracao" class="custom-dropdown-item">Colaboração</a>
+                  <a href="#comunicacao" class="custom-dropdown-item">Comunicação</a>
+                  <a href="#autonomia" class="custom-dropdown-item">Autonomia</a>
+                  <a href="#criatividade" class="custom-dropdown-item">Criatividade</a>
+                </div>
+              </details>
             </div>
 
             <!-- Coluna Tipo de Observação -->
             <div class="form-group" style="margin-bottom: 0;">
               <label class="field-label">Tipo de observação <span class="required-asterisk">*</span></label>
               <div class="type-options-container" role="radiogroup" aria-label="Tipo de observação">
-                <div class="type-btn positiva" role="radio" aria-checked="false" tabindex="0" onclick="selectType(this)">
+                <div class="type-btn positiva" role="radio" aria-checked="false" tabindex="0">
                   <span>Positiva</span>
                 </div>
-                <div class="type-btn neutra" role="radio" aria-checked="false" tabindex="0" onclick="selectType(this)">
+                <div class="type-btn neutra" role="radio" aria-checked="false" tabindex="0">
                   <span>Neutra</span>
                 </div>
-                <div class="type-btn desenvolver selected" role="radio" aria-checked="true" tabindex="0" onclick="selectType(this)">
+                <div class="type-btn desenvolver selected" role="radio" aria-checked="true" tabindex="0">
                   <span>A desenvolver</span>
                 </div>
               </div>
@@ -930,33 +980,12 @@
         </a>
 
         <!-- Botão Salvar Observação -->
-        <a href="registro-confirmacao.html" class="btn-salvar" onclick="document.getElementById('record-observation-form').dispatchEvent(new Event('submit'));">
+        <a href="registro-confirmacao.html" class="btn-salvar">
           <span>Salvar observação</span>
         </a>
       </footer>
     </div>
   </div>
-
-  <!-- Script Interativo para Seleção dos Botões de Tipo -->
-  <script>
-    function selectType(btn) {
-      document.querySelectorAll('.type-btn').forEach(b => {
-        b.classList.remove('selected');
-        b.setAttribute('aria-checked', 'false');
-      });
-      btn.classList.add('selected');
-      btn.setAttribute('aria-checked', 'true');
-    }
-
-    document.querySelectorAll('.type-btn').forEach(btn => {
-      btn.addEventListener('keydown', function(e) {
-        if (e.key === ' ' || e.key === 'Enter') {
-          e.preventDefault();
-          selectType(this);
-        }
-      });
-    });
-  </script>
 </body>
 </html>
 

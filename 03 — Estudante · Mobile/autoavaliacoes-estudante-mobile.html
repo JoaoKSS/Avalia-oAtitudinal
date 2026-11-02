@@ -746,34 +746,5 @@
 
   </main>
 
-  <script>
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const cards = document.querySelectorAll('.assessment-card');
-
-    filterPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        filterPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-
-        const filterText = pill.textContent.toLowerCase();
-        
-        cards.forEach(card => {
-          const badge = card.querySelector('.card-badge').textContent.toLowerCase();
-          if (filterText.includes('todas')) {
-            card.style.display = 'flex';
-          } else if (filterText.includes('pendentes') && badge.includes('pendente')) {
-            card.style.display = 'flex';
-          } else if (filterText.includes('em andamento') && badge.includes('andamento')) {
-            card.style.display = 'flex';
-          } else if (filterText.includes('concluídas') && badge.includes('concluída')) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-  </script>
-
 </body>
 </html>

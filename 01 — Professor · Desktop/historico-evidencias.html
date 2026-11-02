@@ -978,36 +978,6 @@
   </div>
 
   <!-- Script leve para filtragem dinâmica de estudantes ao digitar na busca -->
-  <script>
-    const searchInput = document.getElementById('input-busca-estudante');
-    if (searchInput) {
-      searchInput.addEventListener('input', function(e) {
-        const query = e.target.value.toLowerCase().trim();
-        const cards = document.querySelectorAll('.student-card');
-        const sections = document.querySelectorAll('.turma-section');
-
-        cards.forEach(card => {
-          const studentName = (card.getAttribute('data-student') || '').toLowerCase();
-          if (studentName.includes(query)) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        // Ocultar seções vazias durante a busca
-        sections.forEach(section => {
-          const visibleCards = section.querySelectorAll('.student-card[style*="display: flex"], .student-card:not([style*="display: none"])');
-          const allCards = section.querySelectorAll('.student-card');
-          let hasVisible = false;
-          allCards.forEach(c => {
-            if (c.style.display !== 'none') hasVisible = true;
-          });
-          section.style.display = hasVisible ? 'block' : 'none';
-        });
-      });
-    }
-  </script>
 </body>
 </html>
 

@@ -431,11 +431,26 @@
       color: var(--color-text-placeholder);
     }
 
-    /* Filtro de Turma Dropdown */
-    .turma-filter-select {
+    /* Filtro de Turma Dropdown (100% HTML/CSS com details/summary) */
+    .turma-filter-details {
+      position: relative;
       flex: 1;
       min-width: 0;
-      height: 50px;
+    }
+
+    .turma-filter-details summary {
+      list-style: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .turma-filter-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .turma-filter-select {
+      width: 100%;
+      height: 48px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-card);
       border-radius: 10px;
@@ -447,6 +462,7 @@
       position: relative;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
       user-select: none;
+      box-sizing: border-box;
     }
 
     .turma-filter-select:hover {
@@ -483,7 +499,7 @@
     /* Menu dropdown de turmas */
     .turma-dropdown-menu {
       position: absolute;
-      top: 56px;
+      top: 54px;
       left: 0;
       right: 0;
       background-color: var(--color-bg-card);
@@ -495,11 +511,13 @@
       overflow: hidden;
     }
 
-    .turma-dropdown-menu.open {
+    .turma-filter-details[open] .turma-dropdown-menu {
       display: block;
     }
 
     .turma-dropdown-item {
+      display: block;
+      text-decoration: none;
       padding: 10px 16px;
       font-size: 13px;
       color: var(--color-text-main);
@@ -827,20 +845,22 @@
               <input type="text" id="searchInput" class="search-input" placeholder="Buscar estudante pelo nome" autocomplete="off">
             </div>
 
-            <!-- Filtro de Turma -->
-            <div class="turma-filter-select" id="turmaFilterBtn" tabindex="0">
-              <span class="turma-filter-label">TURMA</span>
-              <div class="turma-filter-row">
-                <span class="turma-filter-value" id="currentTurmaLabel">Todas as turmas</span>
-                <span class="turma-filter-chevron">▾</span>
+            <!-- Filtro de Turma (Dropdown 100% HTML/CSS) -->
+            <details class="turma-filter-details">
+              <summary class="turma-filter-select" role="button" aria-haspopup="listbox">
+                <span class="turma-filter-label">TURMA</span>
+                <div class="turma-filter-row">
+                  <span class="turma-filter-value">Todas as turmas</span>
+                  <span class="turma-filter-chevron">▾</span>
+                </div>
+              </summary>
+              <div class="turma-dropdown-menu">
+                <a href="#todas" class="turma-dropdown-item selected">Todas as turmas</a>
+                <a href="#6a" class="turma-dropdown-item">6º ano A</a>
+                <a href="#7b" class="turma-dropdown-item">7º ano B</a>
+                <a href="#8c" class="turma-dropdown-item">8º ano C</a>
               </div>
-              <div class="turma-dropdown-menu" id="turmaDropdown">
-                <div class="turma-dropdown-item selected" data-value="todas">Todas as turmas</div>
-                <div class="turma-dropdown-item" data-value="6a">6º ano A</div>
-                <div class="turma-dropdown-item" data-value="7b">7º ano B</div>
-                <div class="turma-dropdown-item" data-value="8c">8º ano C</div>
-              </div>
-            </div>
+            </details>
           </div>
 
           <!-- Faixa de Resumo de Estudantes -->
@@ -978,97 +998,6 @@
       </div>
     </main>
   </div>
-
-  <!-- Script Interativo: Busca Reativa e Filtro de Turma -->
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const turmaFilterBtn = document.getElementById('turmaFilterBtn');
-    const currentTurmaLabel = document.getElementById('currentTurmaLabel');
-    const turmaDropdown = document.getElementById('turmaDropdown');
-    const summaryCounter = document.getElementById('summaryCounter');
-    const emptyState = document.getElementById('emptyState');
-    const studentCards = document.querySelectorAll('.student-card');
-    const turmaSections = document.querySelectorAll('.turma-section');
-
-    let selectedTurma = 'todas';
-
-    // Dropdown de Turmas
-    turmaFilterBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      turmaDropdown.classList.toggle('open');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!turmaFilterBtn.contains(e.target)) {
-        turmaDropdown.classList.remove('open');
-      }
-    });
-
-    document.querySelectorAll('.turma-dropdown-item').forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        document.querySelectorAll('.turma-dropdown-item').forEach(i => i.classList.remove('selected'));
-        item.classList.add('selected');
-
-        selectedTurma = item.getAttribute('data-value');
-        currentTurmaLabel.textContent = item.textContent;
-        turmaDropdown.classList.remove('open');
-
-        filterStudents();
-      });
-    });
-
-    // Busca por Texto Reativa
-    searchInput.addEventListener('input', () => {
-      filterStudents();
-    });
-
-    function filterStudents() {
-      const term = searchInput.value.toLowerCase().trim();
-      let visibleStudentsCount = 0;
-      let visibleTurmasCount = 0;
-
-      turmaSections.forEach(section => {
-        const turmaKey = section.getAttribute('data-turma');
-        const matchesTurma = (selectedTurma === 'todas' || selectedTurma === turmaKey);
-
-        let sectionVisibleCards = 0;
-        const cards = section.querySelectorAll('.student-card');
-
-        cards.forEach(card => {
-          const name = card.getAttribute('data-name');
-          const matchesSearch = !term || name.includes(term);
-
-          if (matchesTurma && matchesSearch) {
-            card.style.display = 'flex';
-            sectionVisibleCards++;
-            visibleStudentsCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        if (sectionVisibleCards > 0) {
-          section.style.display = 'block';
-          visibleTurmasCount++;
-        } else {
-          section.style.display = 'none';
-        }
-      });
-
-      // Atualiza banner de resumo
-      const turmaText = visibleTurmasCount === 1 ? '1 turma' : `${visibleTurmasCount} turmas`;
-      const estudanteText = visibleStudentsCount === 1 ? '1 estudante' : `${visibleStudentsCount} estudantes`;
-      summaryCounter.textContent = `${estudanteText} · ${turmaText}`;
-
-      // Exibe estado vazio se nada encontrado
-      if (visibleStudentsCount === 0) {
-        emptyState.style.display = 'block';
-      } else {
-        emptyState.style.display = 'none';
-      }
-    }
-  </script>
 </body>
 </html>
 

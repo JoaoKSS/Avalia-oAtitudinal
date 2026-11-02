@@ -1113,30 +1113,6 @@ Como próximo passo, vamos combinar uma estratégia simples para conferir os mat
   </div>
 
   <!-- Script leve para reatividade imediata dos sliders HTML5 ao arrastar -->
-  <script>
-    function updateSlider(input) {
-      const min = parseFloat(input.min) || 1.0;
-      const max = parseFloat(input.max) || 5.0;
-      const val = parseFloat(input.value);
-      const pct = ((val - min) / (max - min)) * 100;
-      input.style.setProperty('--fill-pct', pct + '%');
-
-      const badge = input.closest('.dimension-slider-item').querySelector('.dimension-value');
-      if (badge) {
-        badge.textContent = val.toFixed(1).replace('.', ',');
-      }
-
-      // Recalcular a média resultante
-      const sliders = document.querySelectorAll('.dimension-range');
-      let sum = 0;
-      sliders.forEach(s => sum += parseFloat(s.value));
-      const avg = sum / sliders.length;
-      const avgEl = document.querySelector('.dimensoes-footer-text');
-      if (avgEl) {
-        avgEl.textContent = 'Média resultante: ' + avg.toFixed(1).replace('.', ',') + ' / 5,0';
-      }
-    }
-  </script>
 </body>
 </html>
 
