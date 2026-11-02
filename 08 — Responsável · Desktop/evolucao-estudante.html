@@ -337,11 +337,11 @@
 
     /* Área de Conteúdo */
     .content-area {
-      padding: 24px 32px 40px 32px;
+      padding: 32px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 28px;
     }
 
     /* Cabeçalho da Tela */
@@ -352,27 +352,27 @@
     }
 
     .page-title {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
-      line-height: 1.25;
+      line-height: 1.39;
       color: #172b4d;
     }
 
     .page-desc {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 1.4;
+      line-height: 1.43;
       color: #60758b;
     }
 
     /* Cartão de Identificação do Estudante (1088 × 75px) */
     .student-id-card {
       width: 100%;
-      min-height: 75px;
+      min-height: 76px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
-      padding: 14px 24px;
+      border-radius: 12px;
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -386,9 +386,9 @@
     }
 
     .student-id-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 26px;
       background-color: #e8f0ff;
       display: flex;
       align-items: center;
@@ -407,22 +407,25 @@
 
     .student-tag {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #60758b;
+      color: #8194aa;
       text-transform: uppercase;
+      line-height: 1.4;
     }
 
     .student-id-name {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
       color: #172b4d;
+      line-height: 1.35;
     }
 
     .student-id-class {
       font-size: 13px;
       font-weight: 400;
       color: #60758b;
+      line-height: 1.4;
     }
 
     /* Seletor de Período (Dropdown) */
@@ -430,10 +433,11 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 9px 16px;
+      height: 40px;
+      padding: 0 14px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 13px;
       font-weight: 500;
       color: #172b4d;
@@ -453,9 +457,11 @@
       align-items: center;
     }
 
+    .filter-chevron,
     .period-chevron {
       color: #60758b;
       font-size: 12px;
+      line-height: 1;
       margin-left: 2px;
     }
 
@@ -463,18 +469,24 @@
     .kpi-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 20px;
     }
 
     .kpi-card {
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
-      padding: 16px 20px;
+      border-radius: 12px;
+      padding: 18px 20px;
       display: flex;
       align-items: center;
       gap: 16px;
-      min-height: 84px;
+      min-height: 90px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .kpi-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
     }
 
     .kpi-icon-box {
@@ -494,7 +506,7 @@
 
     .kpi-icon-green {
       background-color: #e8f6ee;
-      color: #287d4f;
+      color: #16804a;
     }
 
     .kpi-icon-amber {
@@ -511,10 +523,11 @@
 
     .kpi-label {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #60758b;
+      color: #8194aa;
       text-transform: uppercase;
+      line-height: 1.4;
     }
 
     .kpi-value-row {
@@ -524,24 +537,24 @@
     }
 
     .kpi-value-large {
-      font-size: 24px;
-      font-weight: 700;
-      color: #172b4d;
-      line-height: 1.1;
-    }
-
-    .kpi-value-green {
-      font-size: 22px;
-      font-weight: 700;
-      color: #287d4f;
-      line-height: 1.1;
-    }
-
-    .kpi-value-highlight {
-      font-size: 15px;
+      font-size: 26px;
       font-weight: 700;
       color: #172b4d;
       line-height: 1.2;
+    }
+
+    .kpi-value-green {
+      font-size: 24px;
+      font-weight: 700;
+      color: #16804a;
+      line-height: 1.2;
+    }
+
+    .kpi-value-highlight {
+      font-size: 16px;
+      font-weight: 600;
+      color: #172b4d;
+      line-height: 1.35;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -551,23 +564,30 @@
       font-size: 12px;
       font-weight: 400;
       color: #60758b;
+      line-height: 1.4;
     }
 
     /* Grid de Gráficos Principais (2 Colunas) */
     .charts-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 20px;
     }
 
     .chart-card {
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 24px;
       display: flex;
       flex-direction: column;
-      min-height: 345px;
+      min-height: 360px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .chart-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
     }
 
     .chart-card-header {
@@ -586,12 +606,14 @@
     .chart-title {
       font-size: 18px;
       font-weight: 700;
+      line-height: 1.35;
       color: #172b4d;
     }
 
     .chart-subtitle {
       font-size: 13px;
       font-weight: 400;
+      line-height: 1.4;
       color: #60758b;
     }
 
@@ -619,7 +641,7 @@
     .radar-container {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 18px;
       flex: 1;
     }
 
@@ -633,14 +655,14 @@
 
     .radar-svg {
       width: 100%;
-      max-width: 260px;
+      max-width: 295px;
       height: auto;
       overflow: visible;
     }
 
     /* Lista de Dimensões (Direita do Radar) */
     .dimensions-list {
-      width: 210px;
+      width: 200px;
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -649,10 +671,11 @@
 
     .dimensions-scale-header {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
       color: #2563eb;
       text-transform: uppercase;
+      line-height: 1.4;
       margin-bottom: 2px;
     }
 
@@ -685,11 +708,12 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: 1.4;
     }
 
     .dimension-score {
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
       color: #172b4d;
     }
 
@@ -729,50 +753,6 @@
       font-size: 13px;
       font-weight: 600;
       color: #16804a;
-    }
-
-    /* Card de Aviso Formativo */
-    .formative-notice-card {
-      width: 100%;
-      min-height: 80px;
-      background-color: #e8f0ff;
-      border: 1px solid #d0e1fd;
-      border-radius: 15px;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .notice-icon-box {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background-color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #2563eb;
-    }
-
-    .notice-text-content {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .notice-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #2563eb;
-    }
-
-    .notice-desc {
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.45;
-      color: #3f5878;
     }
 
     /* Responsividade */
@@ -961,7 +941,7 @@
               </svg>
             </span>
             <span>Últimos 6 meses</span>
-            <span class="period-chevron">⌄</span>
+            <span class="filter-chevron" aria-hidden="true">▾</span>
           </button>
         </section>
 
@@ -1184,21 +1164,6 @@
                 <span>+1,0 ponto desde maio</span>
               </div>
             </div>
-          </div>
-        </section>
-
-        <!-- Card de Aviso Formativo (Leitura para apoiar o desenvolvimento) -->
-        <section class="formative-notice-card" aria-label="Aviso formativo">
-          <div class="notice-icon-box">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-          </div>
-          <div class="notice-text-content">
-            <h4 class="notice-title">Uma leitura para apoiar o desenvolvimento</h4>
-            <p class="notice-desc">Os indicadores ajudam a acompanhar avanços e conversar com a escola. Não são uma classificação do estudante nem devem ser usados para comparações entre colegas.</p>
           </div>
         </section>
       </div>
