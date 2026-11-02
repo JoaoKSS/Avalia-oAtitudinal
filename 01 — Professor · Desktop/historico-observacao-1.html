@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Histórico de Evidências · Observação 1 · Professor · Desktop · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -53,7 +50,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
@@ -61,9 +57,6 @@
       overflow: hidden;
     }
 
-    /* ==========================================================================
-       Barra Lateral do Professor (248px) - Padronização Unificada
-       ========================================================================== */
     .sidebar {
       width: 248px;
       background-color: var(--color-bg-card);
@@ -77,7 +70,6 @@
       z-index: 30;
     }
 
-    /* Topo da Sidebar: Marca */
     .sidebar-brand {
       display: flex;
       align-items: center;
@@ -118,7 +110,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -167,7 +158,6 @@
       color: var(--color-text-main);
     }
 
-    /* Estado Ativo: Minhas Turmas */
     .nav-link.active {
       background-color: var(--color-primary-light);
       color: var(--color-primary);
@@ -196,7 +186,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Usuário */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -262,9 +251,6 @@
       justify-content: center;
     }
 
-    /* ==========================================================================
-       Área Principal
-       ========================================================================== */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -275,7 +261,6 @@
       background-color: var(--color-bg-page);
     }
 
-    /* Cabeçalho Superior Fixo (76px) */
     .top-header {
       height: 76px;
       background-color: var(--color-bg-card);
@@ -290,7 +275,6 @@
       flex-shrink: 0;
     }
 
-    /* Breadcrumbs */
     .breadcrumb,
     .breadcrumb-nav {
       display: flex;
@@ -329,7 +313,6 @@
       font-size: 13px;
     }
 
-/* Ações do Cabeçalho */
     .header-actions {
       display: flex;
       align-items: center;
@@ -368,9 +351,6 @@
       background-color: var(--color-primary);
     }
 
-    /* ==========================================================================
-       Conteúdo Principal (Totalmente Fluido)
-       ========================================================================== */
     .content-area {
       flex: 1;
       padding: 32px 32px 20px 32px;
@@ -382,7 +362,6 @@
       min-height: 0;
     }
 
-    /* Cabeçalho da Página */
     .page-header {
       margin-bottom: 20px;
       flex-shrink: 0;
@@ -403,9 +382,6 @@
       color: var(--color-text-muted);
     }
 
-    /* ==========================================================================
-       Cartão da Estudante (1128 × 76px no Penpot)
-       ========================================================================== */
     .student-summary-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-card);
@@ -478,9 +454,6 @@
       line-height: 1;
     }
 
-    /* ==========================================================================
-       Barra de Busca e Filtros - 48px Padronizada
-       ========================================================================== */
     .filters-bar {
       display: flex;
       align-items: center;
@@ -492,7 +465,6 @@
       z-index: 25;
     }
 
-    /* Campo de Busca */
     .search-box {
       flex: 1.4;
       min-width: 240px;
@@ -538,7 +510,6 @@
       color: #8194aa;
     }
 
-    /* Dropdowns de Filtro em Puro HTML & CSS */
     .filter-dropdown-details {
       position: relative;
     }
@@ -616,7 +587,6 @@
       line-height: 1;
     }
 
-    /* Menu do Dropdown */
     .filter-dropdown-menu {
       position: absolute;
       top: 54px;
@@ -656,9 +626,6 @@
       font-weight: 600;
     }
 
-    /* ==========================================================================
-       Faixa de Resumo das Observações (Padronizada)
-       ========================================================================== */
     .summary-banner {
       background-color: #e8f1ff;
       border-radius: 12px;
@@ -684,9 +651,6 @@
       color: #60758b;
     }
 
-    /* ==========================================================================
-       Área de Scroll Interno das Observações
-       ========================================================================== */
     .observations-scroll-area {
       flex: 1;
       min-height: 0;
@@ -717,14 +681,12 @@
       background: #94a3b8;
     }
 
-    /* Lista de Observações */
     .observations-section {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    /* Cartão de Observação (78px no Penpot) */
     .observation-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-card);
@@ -785,7 +747,6 @@
       flex-shrink: 0;
     }
 
-    /* Badges de Status: Positiva e A desenvolver (Tamanho Padronizado e Alinhado) */
     .obs-status-badge {
       display: inline-flex;
       align-items: center;
@@ -811,7 +772,6 @@
       color: var(--color-status-dev-text);
     }
 
-    /* Seta de navegação oficial do Penpot */
     .observation-action-icon {
       color: var(--color-text-muted);
       display: flex;
@@ -825,7 +785,6 @@
       transform: translateX(3px);
     }
 
-    /* Rodapé da lista de observações */
     .list-footer-text {
       font-size: 13px;
       font-weight: 500;
@@ -835,9 +794,6 @@
       flex-shrink: 0;
     }
 
-    /* ==========================================================================
-       Barra Inferior Fixa de Ações (Voltar) - Altura 76px
-       ========================================================================== */
     .bottom-bar,
     .bottom-action-bar {
       background-color: var(--color-bg-card);
@@ -852,7 +808,6 @@
       flex-shrink: 0;
     }
 
-    /* Botão Voltar (Fundo #60758b, Borda var(--color-border-header), Texto #ffffff, Altura 44px, r=10px) */
     .btn-back,
     .btn-voltar {
       height: 44px;
@@ -887,14 +842,9 @@
 </head>
 <body>
   <div class="app-layout">
-    <!-- ========================================================================
-         BARRA LATERAL DO PROFESSOR (248px) - Padronização Unificada
-         ======================================================================== -->
     <aside class="sidebar">
-      <!-- Marca -->
       <div class="sidebar-brand">
         <div class="brand-icon">
-          <!-- Ícone oficial do Penpot: Livro aberto -->
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"></path>
           </svg>
@@ -905,14 +855,12 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <span class="nav-section-title">Espaço Pedagógico</span>
         <ul class="nav-list">
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Início/Dashboard oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
                 </svg>
@@ -921,10 +869,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <!-- Item ativo no Penpot: Minhas turmas -->
             <a href="minhas-turmas.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -936,7 +882,6 @@
           <li class="nav-item">
             <a href="registro-selecionar-estudante.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Documento de registros oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.666 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
                 </svg>
@@ -947,7 +892,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé: Perfil do Usuário -->
       <div class="sidebar-footer">
         <button type="button" class="user-profile-button">
           <div class="user-avatar">
@@ -969,13 +913,8 @@
       </div>
     </aside>
 
-    <!-- ========================================================================
-         ÁREA PRINCIPAL COM HEADER, CONTEÚDO E BARRA DE AÇÕES
-         ======================================================================== -->
     <div class="main-wrapper">
-      <!-- Cabeçalho Superior Fixo (76px) -->
       <header class="top-header">
-        <!-- Breadcrumbs -->
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-link">Área do professor</a>
           <span class="breadcrumb-separator">/</span>
@@ -986,9 +925,7 @@
           <span class="breadcrumb-current">Ana Beatriz Ferraz</span>
         </nav>
 
-        <!-- Ações do Cabeçalho -->
         <div class="header-actions">
-          <!-- Botão Mensagens (Ícone oficial do Penpot: dois balões sobrepostos) -->
           <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
@@ -997,29 +934,22 @@
             </svg>
           </a>
 
-          <!-- Botão Notificações com Indicador -->
           <button type="button" class="header-icon-btn" title="Notificações" aria-label="Notificações">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.334"/>
             </svg>
-            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
             <span class="notification-dot" aria-hidden="true"></span>
           </button>
         </div>
       </header>
 
-      <!-- Conteúdo Principal -->
       <main class="content-area">
-        <!-- Título e Descrição Principal -->
         <div class="page-header">
           <h1 class="page-title">Histórico de evidências</h1>
           <p class="page-desc">Observações registradas sobre a estudante ao longo do período.</p>
         </div>
 
-        <!-- ====================================================================
-             Cartão da Estudante (1128 × 76px)
-             ==================================================================== -->
         <div class="student-summary-card">
           <div class="student-summary-left">
             <div class="student-summary-avatar" aria-hidden="true">AB</div>
@@ -1033,11 +963,7 @@
           </div>
         </div>
 
-        <!-- ====================================================================
-             Barra de Busca e Filtros Padronizada (100% HTML/CSS)
-             ==================================================================== -->
         <div class="filters-bar" aria-label="Filtros de observações">
-          <!-- Campo de Busca -->
           <div class="search-box">
             <span class="search-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1048,7 +974,6 @@
             <input type="text" id="input-busca-observacao" class="search-input" placeholder="Buscar por palavra-chave..." aria-label="Buscar por palavra-chave" autocomplete="off">
           </div>
 
-          <!-- Filtro Ano Letivo -->
           <details class="filter-dropdown-details box-ano">
             <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
               <span class="filter-label">ANO LETIVO</span>
@@ -1063,7 +988,6 @@
             </div>
           </details>
 
-          <!-- Filtro Bimestre -->
           <details class="filter-dropdown-details box-bimestre">
             <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
               <span class="filter-label">BIMESTRE</span>
@@ -1080,7 +1004,6 @@
             </div>
           </details>
 
-          <!-- Filtro Dimensão -->
           <details class="filter-dropdown-details box-dimensao">
             <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
               <span class="filter-label">DIMENSÃO</span>
@@ -1100,18 +1023,13 @@
           </details>
         </div>
 
-        <!-- ====================================================================
-             Faixa de Resumo das Observações (100% HTML/CSS)
-             ==================================================================== -->
         <div class="summary-banner">
           <span class="summary-total">22 observações</span>
           <span class="summary-status">1 A desenvolver</span>
         </div>
 
-        <!-- Área de Rolagem Interna das Observações -->
         <div class="observations-scroll-area">
           <div class="observations-section">
-            <!-- Observação 1: 21 nov. 2026 · Autonomia · Positiva -->
             <a href="detalhe-observacao.html" class="observation-card">
               <div class="observation-card-left">
                 <span class="observation-date">21 nov. 2026</span>
@@ -1128,7 +1046,6 @@
               </div>
             </a>
 
-            <!-- Observação 2: 18 nov. 2026 · Colaboração · Positiva -->
             <a href="detalhe-observacao.html" class="observation-card">
               <div class="observation-card-left">
                 <span class="observation-date">18 nov. 2026</span>
@@ -1145,7 +1062,6 @@
               </div>
             </a>
 
-            <!-- Observação 3: 14 nov. 2026 · Responsabilidade · Positiva -->
             <a href="detalhe-observacao.html" class="observation-card">
               <div class="observation-card-left">
                 <span class="observation-date">14 nov. 2026</span>
@@ -1162,7 +1078,6 @@
               </div>
             </a>
 
-            <!-- Observação 4: 28 out. 2026 · Responsabilidade · A desenvolver -->
             <a href="detalhe-observacao.html" class="observation-card">
               <div class="observation-card-left">
                 <span class="observation-date">28 out. 2026</span>
@@ -1180,16 +1095,11 @@
             </a>
           </div>
 
-          <!-- Rodapé de contagem exibida -->
           <span class="list-footer-text">Exibindo 4 de 22 observações</span>
         </div>
       </main>
 
-      <!-- ========================================================================
-           BARRA INFERIOR DE AÇÕES (Voltar)
-           ======================================================================== -->
       <footer class="bottom-bar">
-        <!-- Botão Voltar -->
         <a href="historico-evidencias.html" class="btn-back" title="Voltar">
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
@@ -1200,7 +1110,5 @@
     </div>
   </div>
 
-  <!-- Script leve para filtragem reativa das observações ao digitar na busca -->
 </body>
 </html>
-

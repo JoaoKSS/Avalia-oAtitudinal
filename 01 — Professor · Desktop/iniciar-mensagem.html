@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iniciar mensagem · Professor · Desktop · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -49,7 +46,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
@@ -57,9 +53,6 @@
       overflow: hidden;
     }
 
-    /* ==========================================================================
-       Barra Lateral do Professor (248px) - Padrão Unificado Penpot
-       ========================================================================== */
     .sidebar {
       width: 248px;
       background-color: var(--color-bg-card);
@@ -73,7 +66,6 @@
       z-index: 30;
     }
 
-    /* Topo da Sidebar: Marca */
     .sidebar-brand {
       display: flex;
       align-items: center;
@@ -114,7 +106,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -191,7 +182,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Usuário */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -258,9 +248,6 @@
       flex-shrink: 0;
     }
 
-    /* ==========================================================================
-       Área de Conteúdo Principal (Fluida, Sem Dead Space)
-       ========================================================================== */
     .content-area {
       flex: 1;
       display: flex;
@@ -271,7 +258,6 @@
       background-color: var(--color-bg-page);
     }
 
-    /* Cabeçalho Superior Desktop (76px) - Padronizado */
     .top-header {
       height: 76px;
       background-color: var(--color-bg-card);
@@ -285,7 +271,6 @@
       z-index: 20;
     }
 
-    /* Breadcrumbs Padronizados */
     .breadcrumb,
     .breadcrumb-nav {
       display: flex;
@@ -324,7 +309,6 @@
       font-size: 13px;
     }
 
-/* Ações do Cabeçalho (Mensagens & Notificações) */
     .header-actions {
       display: flex;
       align-items: center;
@@ -353,7 +337,6 @@
       color: #172b4d;
     }
 
-    /* Estado Ativo do botão de mensagens na tela de Mensagens */
     .header-icon-btn.active {
       border: 2px solid var(--color-primary);
       background-color: #ffffff;
@@ -370,7 +353,6 @@
       border-radius: 50%;
     }
 
-    /* Conteúdo da Página */
     .page-main-container {
       flex: 1;
       width: 100%;
@@ -383,7 +365,6 @@
       min-height: 0;
     }
 
-    /* Linha do Título da Página com Botão Nova Mensagem */
     .page-header-row {
       display: flex;
       align-items: center;
@@ -413,7 +394,6 @@
       line-height: 1.43;
     }
 
-    /* Botão Nova Mensagem */
     .btn-new-conversation {
       height: 42px;
       padding: 0 20px;
@@ -436,10 +416,6 @@
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
     }
 
-    /* ==========================================================================
-       Painel Principal: Seleção de Responsável (Fidelidade Penpot 1148 × 770px)
-       ========================================================================== */
-    /* Botão Voltar para Mensagens (Oficial Penpot: 230 × 46px, fundo #60758b, r=10px, texto #ffffff 12px) */
     .btn-back-messages {
       width: 230px;
       height: 46px;
@@ -523,7 +499,6 @@
       flex-shrink: 0;
     }
 
-    /* Campo de Busca de Responsáveis (46px) */
     .responsavel-search-box {
       width: 100%;
       height: 46px;
@@ -577,7 +552,6 @@
       flex-shrink: 0;
     }
 
-    /* Lista Rolável de Responsáveis */
     .responsaveis-scroll-area {
       flex: 1;
       overflow-y: auto;
@@ -603,7 +577,6 @@
       border-radius: 3px;
     }
 
-    /* Cartão Compacto de Responsável (60px) */
     .contact-card-compact {
       height: 60px;
       padding: 0 16px;
@@ -704,14 +677,9 @@
 <body>
 
   <div class="app-layout">
-    <!-- ========================================================================
-         Barra Lateral do Professor (248px)
-         ======================================================================== -->
     <aside class="sidebar">
-      <!-- Marca -->
       <div class="sidebar-brand">
         <div class="brand-icon">
-          <!-- Ícone oficial do Penpot: Livro aberto -->
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"></path>
           </svg>
@@ -722,14 +690,12 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <span class="nav-section-title">Espaço Pedagógico</span>
         <ul class="nav-list">
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Início/Dashboard oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
                 </svg>
@@ -740,7 +706,6 @@
           <li class="nav-item">
             <a href="minhas-turmas.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -752,7 +717,6 @@
           <li class="nav-item">
             <a href="registro-selecionar-estudante.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Documento de registros oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
                 </svg>
@@ -763,7 +727,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé da Barra Lateral: Perfil do Professor -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button">
           <div class="user-avatar">
@@ -785,11 +748,7 @@
       </div>
     </aside>
 
-    <!-- ========================================================================
-         Área de Conteúdo Principal
-         ======================================================================== -->
     <main class="content-area">
-      <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-link">Área do professor</a>
@@ -800,7 +759,6 @@
         </nav>
 
         <div class="header-actions">
-          <!-- Botão Mensagens (Ativo com borda azul) -->
           <a href="mensagens.html" class="header-icon-btn active" title="Mensagens">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
@@ -809,27 +767,22 @@
             </svg>
           </a>
 
-          <!-- Botão Notificações com Indicador -->
           <button type="button" class="header-icon-btn" title="Notificações">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.334"/>
             </svg>
-            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
             <span class="notification-dot" aria-hidden="true"></span>
           </button>
         </div>
       </header>
 
-      <!-- Conteúdo Interno da Página -->
       <div class="page-main-container">
-        <!-- Linha do Título & Ação Principal -->
         <div class="page-header-row">
           <div class="page-header-text">
             <h1 class="page-title">Iniciar mensagem</h1>
             <p class="page-description">Selecione um responsável para iniciar uma conversa.</p>
           </div>
-          <!-- Botão Voltar para Mensagens (Oficial Penpot: 230x46px, fundo #60758b, r=10px, texto #ffffff 12px) -->
           <a href="mensagens.html" class="btn-back-messages" title="Voltar para a caixa de mensagens">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
               <path d="M8 1 2 6l6 5M2 6h10"></path>
@@ -838,9 +791,7 @@
           </a>
         </div>
 
-        <!-- Painel Principal de Seleção de Responsáveis (Penpot 1148 × 770px) -->
         <section class="responsavel-selection-panel" aria-label="Seleção de responsável para nova mensagem">
-          <!-- Cabeçalho do Painel com Contador -->
           <div class="panel-header-row">
             <div class="panel-heading-text">
               <h2 class="panel-title">Selecione um responsável</h2>
@@ -849,7 +800,6 @@
             <span class="counter-pill">64 responsáveis</span>
           </div>
 
-          <!-- Campo de Busca -->
           <div class="responsavel-search-box">
             <span class="responsavel-search-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -862,9 +812,7 @@
 
           <span class="responsavel-section-caption">RESPONSÁVEIS DISPONÍVEIS</span>
 
-          <!-- Lista Rolável de Responsáveis -->
           <div class="responsaveis-scroll-area" role="list">
-              <!-- Cartão João Carvalho -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com João Carvalho">
                 <div class="contact-card-left">
                   <div class="contact-avatar">JC</div>
@@ -880,7 +828,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Mariana Souza -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Mariana Souza">
                 <div class="contact-card-left">
                   <div class="contact-avatar">MS</div>
@@ -896,7 +843,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Rafael Oliveira -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Rafael Oliveira">
                 <div class="contact-card-left">
                   <div class="contact-avatar">RO</div>
@@ -912,7 +858,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Carla Pereira -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Carla Pereira">
                 <div class="contact-card-left">
                   <div class="contact-avatar">CP</div>
@@ -928,7 +873,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Paulo Mendes -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Paulo Mendes">
                 <div class="contact-card-left">
                   <div class="contact-avatar">PM</div>
@@ -944,7 +888,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Fernanda Lima -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Fernanda Lima">
                 <div class="contact-card-left">
                   <div class="contact-avatar">FL</div>
@@ -960,7 +903,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Ana Almeida -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Ana Almeida">
                 <div class="contact-card-left">
                   <div class="contact-avatar">AA</div>
@@ -976,7 +918,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Patrícia Rocha -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Patrícia Rocha">
                 <div class="contact-card-left">
                   <div class="contact-avatar">PR</div>
@@ -992,7 +933,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão André Santos -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com André Santos">
                 <div class="contact-card-left">
                   <div class="contact-avatar">AS</div>
@@ -1008,7 +948,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Juliana Costa -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Juliana Costa">
                 <div class="contact-card-left">
                   <div class="contact-avatar">JC</div>
@@ -1024,7 +963,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Marcos Ribeiro -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Marcos Ribeiro">
                 <div class="contact-card-left">
                   <div class="contact-avatar">MR</div>
@@ -1040,7 +978,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Denise Ferreira -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Denise Ferreira">
                 <div class="contact-card-left">
                   <div class="contact-avatar">DF</div>
@@ -1056,7 +993,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Renata Alves -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Renata Alves">
                 <div class="contact-card-left">
                   <div class="contact-avatar">RA</div>
@@ -1072,7 +1008,6 @@
                   </svg>
                 </span>
               </a>
-              <!-- Cartão Bruno Martins -->
               <a href="conversa.html" class="contact-card-compact" title="Iniciar conversa com Bruno Martins">
                 <div class="contact-card-left">
                   <div class="contact-avatar">BM</div>
@@ -1094,7 +1029,5 @@
     </main>
   </div>
 
-  <!-- JavaScript Interativo (Filtros e Busca de Conversas) -->
 </body>
 </html>
-

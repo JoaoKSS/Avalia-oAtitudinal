@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conversa · Professor · Desktop · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -49,7 +46,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
@@ -57,9 +53,6 @@
       overflow: hidden;
     }
 
-    /* ==========================================================================
-       Barra Lateral do Professor (248px) - Padrão Unificado Penpot
-       ========================================================================== */
     .sidebar {
       width: 248px;
       background-color: var(--color-bg-card);
@@ -73,7 +66,6 @@
       z-index: 30;
     }
 
-    /* Topo da Sidebar: Marca */
     .sidebar-brand {
       display: flex;
       align-items: center;
@@ -114,7 +106,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -191,7 +182,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Usuário */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -258,9 +248,6 @@
       flex-shrink: 0;
     }
 
-    /* ==========================================================================
-       Área de Conteúdo Principal (Fluida, Sem Dead Space)
-       ========================================================================== */
     .content-area {
       flex: 1;
       display: flex;
@@ -271,7 +258,6 @@
       background-color: var(--color-bg-page);
     }
 
-    /* Cabeçalho Superior Desktop (76px) - Padronizado */
     .top-header {
       height: 76px;
       background-color: var(--color-bg-card);
@@ -285,7 +271,6 @@
       z-index: 20;
     }
 
-    /* Breadcrumbs Padronizados */
     .breadcrumb,
     .breadcrumb-nav {
       display: flex;
@@ -324,7 +309,6 @@
       font-size: 13px;
     }
 
-/* Ações do Cabeçalho (Mensagens & Notificações) */
     .header-actions {
       display: flex;
       align-items: center;
@@ -353,7 +337,6 @@
       color: #172b4d;
     }
 
-    /* Estado Ativo do botão de mensagens na tela de Mensagens */
     .header-icon-btn.active {
       border: 2px solid var(--color-primary);
       background-color: #ffffff;
@@ -370,7 +353,6 @@
       border-radius: 50%;
     }
 
-    /* Conteúdo da Página */
     .page-main-container {
       flex: 1;
       width: 100%;
@@ -383,7 +365,6 @@
       min-height: 0;
     }
 
-    /* Linha do Título da Página com Botão Nova Mensagem */
     .page-header-row {
       display: flex;
       align-items: center;
@@ -413,7 +394,6 @@
       line-height: 1.43;
     }
 
-    /* Botão Nova Mensagem */
     .btn-new-conversation {
       height: 42px;
       padding: 0 20px;
@@ -436,9 +416,6 @@
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
     }
 
-    /* ==========================================================================
-       Layout Dividido: Lista de Conversas (Esquerda) e Painel Chat (Direita)
-       ========================================================================== */
     .messaging-layout {
       display: flex;
       gap: 20px;
@@ -448,7 +425,6 @@
       overflow: hidden;
     }
 
-    /* Painel Esquerdo: Lista de Conversas (360px) */
     .conversations-sidebar {
       width: 360px;
       background-color: #ffffff;
@@ -468,7 +444,6 @@
       margin-bottom: 14px;
     }
 
-    /* Campo de Busca */
     .search-box {
       width: 100%;
       height: 44px;
@@ -508,7 +483,6 @@
       color: #8194aa;
     }
 
-    /* Filtros Rápidos */
     .filter-chips {
       display: flex;
       align-items: center;
@@ -550,7 +524,6 @@
       color: #172b4d;
     }
 
-    /* Rótulo Recentes */
     .section-caption {
       font-size: 11px;
       font-weight: 700;
@@ -560,7 +533,6 @@
       margin-bottom: 10px;
     }
 
-    /* Lista de Itens de Conversa */
     .conversations-list {
       display: flex;
       flex-direction: column;
@@ -677,10 +649,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
-    /* ==========================================================================
-       Painel Direito: Chat Interno Ativo (Substitui .empty-state-panel)
-       Fidelidade estrita a mensagens.html e Penpot
-       ========================================================================== */
     .chat-panel {
       flex: 1;
       background-color: var(--color-bg-card);
@@ -692,7 +660,6 @@
       position: relative;
     }
 
-    /* Cabeçalho da Conversa (84px) */
     .chat-panel-header {
       height: 84px;
       padding: 0 24px;
@@ -792,7 +759,6 @@
       color: var(--color-text-main);
     }
 
-    /* Corpo das Mensagens (Scrollable) */
     .chat-messages-container {
       flex: 1;
       padding: 24px;
@@ -818,7 +784,6 @@
       border-radius: 3px;
     }
 
-    /* Separador de Data */
     .chat-date-separator {
       display: flex;
       justify-content: center;
@@ -836,7 +801,6 @@
       border-radius: 12px;
     }
 
-    /* Balões de Mensagem */
     .message-row {
       display: flex;
       width: 100%;
@@ -906,7 +870,6 @@
       color: var(--color-primary);
     }
 
-    /* Área de Composição e Envio (58px) */
     .chat-composer-section {
       padding: 16px 24px 20px 24px;
       background-color: var(--color-bg-card);
@@ -1014,14 +977,9 @@
 <body>
 
   <div class="app-layout">
-    <!-- ========================================================================
-         Barra Lateral do Professor (248px)
-         ======================================================================== -->
     <aside class="sidebar">
-      <!-- Marca -->
       <div class="sidebar-brand">
         <div class="brand-icon">
-          <!-- Ícone oficial do Penpot: Livro aberto -->
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"></path>
           </svg>
@@ -1032,14 +990,12 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <span class="nav-section-title">Espaço Pedagógico</span>
         <ul class="nav-list">
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Início/Dashboard oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
                 </svg>
@@ -1050,7 +1006,6 @@
           <li class="nav-item">
             <a href="minhas-turmas.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -1062,7 +1017,6 @@
           <li class="nav-item">
             <a href="registro-selecionar-estudante.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Documento de registros oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
                 </svg>
@@ -1073,7 +1027,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé da Barra Lateral: Perfil do Professor -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button">
           <div class="user-avatar">
@@ -1095,11 +1048,7 @@
       </div>
     </aside>
 
-    <!-- ========================================================================
-         Área de Conteúdo Principal
-         ======================================================================== -->
     <main class="content-area">
-      <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-link">Área do professor</a>
@@ -1110,7 +1059,6 @@
         </nav>
 
         <div class="header-actions">
-          <!-- Botão Mensagens (Ativo com borda azul) -->
           <a href="mensagens.html" class="header-icon-btn active" title="Mensagens">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
@@ -1119,27 +1067,22 @@
             </svg>
           </a>
 
-          <!-- Botão Notificações com Indicador -->
           <button type="button" class="header-icon-btn" title="Notificações">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.334"/>
             </svg>
-            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
             <span class="notification-dot" aria-hidden="true"></span>
           </button>
         </div>
       </header>
 
-      <!-- Conteúdo Interno da Página -->
       <div class="page-main-container">
-        <!-- Linha do Título & Ação Principal -->
         <div class="page-header-row">
           <div class="page-header-text">
             <h1 class="page-title">Mensagens</h1>
             <p class="page-description">Converse com responsáveis e equipe pedagógica em um só lugar.</p>
           </div>
-          <!-- Botão Nova mensagem -->
           <a href="iniciar-mensagem.html" class="btn-new-conversation">
             <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
               <line x1="10" y1="4" x2="10" y2="16"></line>
@@ -1149,13 +1092,10 @@
           </a>
         </div>
 
-        <!-- Layout Dividido (Sidebar de Conversas + Painel Vazio) -->
         <div class="messaging-layout">
-          <!-- Painel Esquerdo: Lista de Conversas -->
           <aside class="conversations-sidebar">
             <h2 class="conversations-sidebar-title">Conversas</h2>
 
-            <!-- Campo de Busca -->
             <div class="search-box">
               <span class="search-icon">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1166,19 +1106,15 @@
               <input type="text" id="chatSearchInput" class="search-input" placeholder="Buscar conversa ou responsável" autocomplete="off">
             </div>
 
-            <!-- Filtros Rápidos -->
             <div class="filter-chips">
               <button type="button" class="filter-chip active" data-filter="all">Todas</button>
               <button type="button" class="filter-chip secondary" data-filter="unread">Não lidas</button>
               <button type="button" class="filter-chip secondary" data-filter="team">Equipe</button>
             </div>
 
-            <!-- Título da Seção Recentes -->
             <div class="section-caption">Mais recentes</div>
 
-            <!-- Lista de Conversas -->
             <ul class="conversations-list" id="conversationsList">
-              <!-- Item 1: João Carvalho (Aberta / Ativa) -->
               <li class="conversation-item" data-type="parent" data-unread="false" data-name="João Carvalho" data-preview="Obrigado por compartilhar a evolução dele.">
                 <a href="conversa.html" class="conversation-item-link active" title="Conversa com João Carvalho" aria-current="true">
                   <div class="chat-avatar">JC</div>
@@ -1192,7 +1128,6 @@
                 </a>
               </li>
 
-              <!-- Item 2: Mariana Souza -->
               <li class="conversation-item" data-type="parent" data-unread="false" data-name="Mariana Souza" data-preview="A Sofia contou sobre a atividade em grupo.">
                 <a href="conversa.html" class="conversation-item-link" title="Abrir conversa com Mariana Souza">
                   <div class="chat-avatar">MS</div>
@@ -1206,7 +1141,6 @@
                 </a>
               </li>
 
-              <!-- Item 3: César Pereira (Coordenação pedagógica) -->
               <li class="conversation-item" data-type="team" data-unread="false" data-name="César Pereira" data-preview="Vamos alinhar os próximos acompanhame...">
                 <a href="conversa.html" class="conversation-item-link" title="Abrir conversa com César Pereira">
                   <div class="chat-avatar">CP</div>
@@ -1228,7 +1162,6 @@
                 </a>
               </li>
 
-              <!-- Item 4: Rafael Oliveira -->
               <li class="conversation-item" data-type="parent" data-unread="false" data-name="Rafael Oliveira" data-preview="Obrigado pelas orientações, professora.">
                 <a href="conversa.html" class="conversation-item-link" title="Abrir conversa com Rafael Oliveira">
                   <div class="chat-avatar">RO</div>
@@ -1244,9 +1177,7 @@
             </ul>
           </aside>
 
-          <!-- Coluna Direita: Chat Interno (Conversa com João Carvalho) -->
           <section class="chat-panel" aria-label="Painel de mensagens da conversa com João Carvalho">
-            <!-- Cabeçalho do Chat (84px) -->
             <header class="chat-panel-header">
               <div class="chat-interlocutor-info">
                 <div class="chat-interlocutor-avatar">JC</div>
@@ -1267,14 +1198,11 @@
               </div>
             </header>
 
-            <!-- Histórico de Mensagens da Conversa -->
             <div class="chat-messages-container" role="log" aria-live="polite">
-              <!-- Pílula de Data Oficial do Penpot -->
               <div class="chat-date-separator">
                 <span class="chat-date-pill">HOJE</span>
               </div>
 
-              <!-- Mensagem Recebida 1 -->
               <div class="message-row incoming">
                 <div class="message-bubble incoming-bubble">
                   <p class="message-text">Bom dia, professora! O Lucas comentou sobre a atividade em grupo de hoje.</p>
@@ -1284,7 +1212,6 @@
                 </div>
               </div>
 
-              <!-- Mensagem Enviada 1 -->
               <div class="message-row outgoing">
                 <div class="message-bubble outgoing-bubble">
                   <p class="message-text">Bom dia, João! Ele participou bastante e ajudou os colegas a organizar a tarefa.</p>
@@ -1300,7 +1227,6 @@
                 </div>
               </div>
 
-              <!-- Mensagem Recebida 2 -->
               <div class="message-row incoming">
                 <div class="message-bubble incoming-bubble">
                   <p class="message-text">Que bom saber! Ele ficou feliz em contar sobre o que conseguiu fazer.</p>
@@ -1310,7 +1236,6 @@
                 </div>
               </div>
 
-              <!-- Mensagem Enviada 2 -->
               <div class="message-row outgoing">
                 <div class="message-bubble outgoing-bubble">
                   <p class="message-text">Vou seguir acompanhando e te manter informado.</p>
@@ -1326,7 +1251,6 @@
                 </div>
               </div>
 
-              <!-- Mensagem Recebida 3 -->
               <div class="message-row incoming">
                 <div class="message-bubble incoming-bubble">
                   <p class="message-text">Obrigado por compartilhar a evolução dele.</p>
@@ -1337,7 +1261,6 @@
               </div>
             </div>
 
-            <!-- Área de Composição e Envio (58px) -->
             <div class="chat-composer-section">
               <form class="composer-container" action="conversa.html" method="get">
                 <button type="button" class="composer-btn-attach" title="Anexar arquivo" aria-label="Anexar arquivo">
@@ -1360,7 +1283,5 @@
     </main>
   </div>
 
-  <!-- JavaScript Interativo (Filtros e Busca de Conversas) -->
 </body>
 </html>
-

@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de Observação · Confirmação · Professor · Desktop · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -45,7 +42,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
@@ -53,9 +49,6 @@
       overflow: hidden;
     }
 
-    /* ==========================================================================
-       Barra Lateral do Professor (248px) - Padrão Unificado Penpot
-       ========================================================================== */
     .sidebar {
       width: 248px;
       background-color: var(--color-bg-card);
@@ -69,7 +62,6 @@
       z-index: 30;
     }
 
-    /* Topo da Sidebar: Marca */
     .sidebar-brand {
       display: flex;
       align-items: center;
@@ -110,7 +102,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -159,7 +150,6 @@
       color: var(--color-text-main);
     }
 
-    /* Estado Ativo: Registros de observação */
     .nav-link.active {
       background-color: var(--color-primary-light);
       color: var(--color-primary);
@@ -188,7 +178,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Usuário */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -255,9 +244,6 @@
       flex-shrink: 0;
     }
 
-    /* ==========================================================================
-       Área Principal de Conteúdo (Fluida, Sem Dead Space)
-       ========================================================================== */
     .content-wrapper {
       flex: 1;
       display: flex;
@@ -268,7 +254,6 @@
       overflow: hidden;
     }
 
-    /* Cabeçalho Superior Desktop (76px) - Padronizado */
     .top-header {
       height: 76px;
       flex-shrink: 0;
@@ -281,7 +266,6 @@
       z-index: 20;
     }
 
-    /* Breadcrumbs Padronizados */
     .breadcrumb,
     .breadcrumb-nav {
       display: flex;
@@ -320,7 +304,6 @@
       font-size: 13px;
     }
 
-/* Ações do Cabeçalho (Mensagens & Notificações) */
     .header-actions {
       display: flex;
       align-items: center;
@@ -359,9 +342,6 @@
       border-radius: 50%;
     }
 
-    /* ==========================================================================
-       Conteúdo Principal: Confirmação de Sucesso (Padrão Autoavaliação Estudante)
-       ========================================================================== */
     .content-area {
       flex: 1;
       display: flex;
@@ -400,7 +380,6 @@
       color: var(--color-success);
     }
 
-    /* Mensagem Principal de Confirmação */
     .success-title {
       font-size: 28px;
       font-weight: 700;
@@ -410,7 +389,6 @@
       margin-bottom: 32px;
     }
 
-    /* Card de Resumo de Envio (960px) */
     .confirmation-card {
       width: 100%;
       max-width: 960px;
@@ -421,7 +399,6 @@
       box-sizing: border-box;
     }
 
-    /* Linha do Estudante */
     .confirmation-student-row {
       display: flex;
       align-items: center;
@@ -462,7 +439,6 @@
       line-height: 1.38;
     }
 
-    /* Linha Divisória */
     .confirmation-divider {
       height: 1px;
       background-color: var(--color-border-card);
@@ -470,7 +446,6 @@
       width: 100%;
     }
 
-    /* Linha de Status de Envio */
     .confirmation-status-row {
       display: flex;
       align-items: center;
@@ -492,9 +467,6 @@
       line-height: 1.4;
     }
 
-    /* ==========================================================================
-       Barra Inferior Fixa de Ações (Voltar aos registros) - Altura 76px
-       ========================================================================== */
     .bottom-bar,
     .bottom-action-bar {
       height: 76px;
@@ -509,7 +481,6 @@
       z-index: 20;
     }
 
-    /* Botão Voltar aos registros (Fundo #60758b, Borda var(--color-border-header), Texto #ffffff, Altura 44px, r=10px) */
     .btn-back,
     .btn-voltar-registros {
       height: 44px;
@@ -545,14 +516,9 @@
 <body>
 
   <div class="app-layout">
-    <!-- ========================================================================
-         Barra Lateral do Professor (248px)
-         ======================================================================== -->
     <aside class="sidebar">
-      <!-- Marca -->
       <div class="sidebar-brand">
         <div class="brand-icon">
-          <!-- Ícone oficial do Penpot: Livro aberto -->
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"></path>
           </svg>
@@ -563,14 +529,12 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <span class="nav-section-title">Espaço Pedagógico</span>
         <ul class="nav-list">
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Início/Dashboard oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
                 </svg>
@@ -581,7 +545,6 @@
           <li class="nav-item">
             <a href="minhas-turmas.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -591,10 +554,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <!-- Item ativo nesta tela: Registros de observação -->
             <a href="registro-selecionar-estudante.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Documento de registros oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.666 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
                 </svg>
@@ -605,7 +566,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé da Barra Lateral: Perfil do Professor -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button">
           <div class="user-avatar">
@@ -627,11 +587,7 @@
       </div>
     </aside>
 
-    <!-- ========================================================================
-         Área de Conteúdo Principal
-         ======================================================================== -->
     <div class="content-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-link">Área do professor</a>
@@ -646,7 +602,6 @@
         </nav>
 
         <div class="header-actions">
-          <!-- Botão Mensagens -->
           <a href="mensagens.html" class="header-icon-btn" title="Mensagens">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
@@ -655,21 +610,17 @@
             </svg>
           </a>
 
-          <!-- Botão Notificações com Indicador -->
           <button type="button" class="header-icon-btn" title="Notificações">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.334"/>
             </svg>
-            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
             <span class="notification-dot" aria-hidden="true"></span>
           </button>
         </div>
       </header>
 
-      <!-- Conteúdo da Confirmação -->
       <main class="content-area">
-        <!-- Ícone de Sucesso Circular com Checkmark Verde Oficial -->
         <div class="success-icon-wrapper" aria-hidden="true">
           <div class="success-icon-inner">
             <svg class="success-icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -678,12 +629,9 @@
           </div>
         </div>
 
-        <!-- Mensagem Principal de Confirmação -->
         <h1 class="success-title">Observação registrada</h1>
 
-        <!-- Card de Resumo de Envio (836 × 150px no Penpot) -->
         <section class="confirmation-card" aria-label="Detalhes da observação registrada">
-          <!-- Linha do Estudante -->
           <div class="confirmation-student-row">
             <div class="confirmation-avatar" aria-hidden="true">AB</div>
             <div class="confirmation-student-info">
@@ -692,10 +640,8 @@
             </div>
           </div>
 
-          <!-- Divisor -->
           <div class="confirmation-divider"></div>
 
-          <!-- Linha de Status de Envio -->
           <div class="confirmation-status-row">
             <span class="status-dot-green" aria-hidden="true"></span>
             <span class="status-text-green">Registro salvo no histórico do estudante.</span>
@@ -703,7 +649,6 @@
         </section>
       </main>
 
-      <!-- Barra Inferior de Ações (Voltar) -->
       <footer class="bottom-bar">
         <a href="registro-selecionar-estudante.html" class="btn-back" title="Voltar">
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -717,4 +662,3 @@
 
 </body>
 </html>
-

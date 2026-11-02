@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel Inicial do Professor · Desktop · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -29,14 +26,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
       min-height: 100vh;
     }
 
-    /* Barra Lateral do Professor (248px) */
     .sidebar {
       width: 248px;
       background-color: #ffffff;
@@ -49,7 +44,6 @@
       height: 100vh;
     }
 
-    /* Topo da Sidebar: Marca */
     .sidebar-brand {
       display: flex;
       align-items: center;
@@ -90,7 +84,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -145,7 +138,6 @@
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -168,7 +160,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Usuário */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -234,7 +225,6 @@
       justify-content: center;
     }
 
-    /* Área Principal (1192px) */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -242,7 +232,6 @@
       min-width: 0;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -312,7 +301,6 @@
       transition: all 0.15s ease;
     }
 
-    /* Indicador de notificação · desktop (7×7px azul #2563eb) */
     .notification-dot {
       position: absolute;
       top: 10px;
@@ -329,13 +317,11 @@
       color: #172b4d;
     }
 
-    /* Conteúdo do Painel */
     .content-area {
       padding: 32px;
       width: 100%;
     }
 
-    /* Boas-vindas */
     .welcome-header {
       margin-bottom: 20px;
     }
@@ -355,7 +341,6 @@
       color: #60758b;
     }
 
-    /* Busca rápida · Campo desktop (1128 × 48px, r: 10px) */
     .quick-search {
       width: 100%;
       height: 48px;
@@ -401,7 +386,6 @@
       color: #8194aa;
     }
 
-    /* Seções com Grid */
     .section-block {
       margin-bottom: 36px;
     }
@@ -436,7 +420,6 @@
       text-decoration: underline;
     }
 
-    /* Grid de Cards (2 colunas proporcionais, gap 26px) */
     .two-column-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -444,7 +427,6 @@
       width: 100%;
     }
 
-    /* Cards de Turmas: Altura 78px */
     .turma-card {
       background-color: #ffffff;
       border: 1px solid #d8e4f3;
@@ -514,7 +496,6 @@
       transform: translateX(2px);
     }
 
-    /* Cards de Atalhos Rápidos: Altura 98px */
     .shortcut-card {
       background-color: #ffffff;
       border: 1px solid #d8e4f3;
@@ -550,7 +531,6 @@
       flex-shrink: 0;
     }
 
-    /* Variações de cor dos ícones dos atalhos */
     .shortcut-icon-wrapper.devolutiva {
       background-color: #e8f0ff;
       color: #2563eb;
@@ -589,12 +569,9 @@
 <body>
 
   <div class="app-layout">
-    <!-- Barra Lateral (248px) -->
     <aside class="sidebar">
-      <!-- Marca -->
       <div class="sidebar-brand">
         <div class="brand-icon">
-          <!-- Ícone do Penpot: Livro aberto -->
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
           </svg>
@@ -605,15 +582,12 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Espaço Pedagógico</div>
         <ul class="nav-list">
-          <!-- Visão Geral (Ativo) -->
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Início/Dashboard oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
                 </svg>
@@ -622,11 +596,9 @@
             </a>
           </li>
 
-          <!-- Minhas Turmas -->
           <li class="nav-item">
             <a href="minhas-turmas.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -636,11 +608,9 @@
             </a>
           </li>
 
-          <!-- Registros de Observação -->
           <li class="nav-item">
             <a href="registro-selecionar-estudante.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Documento de registros oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
                 </svg>
@@ -651,7 +621,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé: Perfil do Usuário -->
       <div class="sidebar-footer">
         <button type="button" class="user-profile-button">
           <div class="user-avatar">
@@ -673,9 +642,7 @@
       </div>
     </aside>
 
-    <!-- Área Principal de Conteúdo (1192px) -->
     <main class="main-wrapper">
-      <!-- Cabeçalho Superior (76px) -->
       <header class="top-header">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <span class="breadcrumb-link">Área do professor</span>
@@ -684,7 +651,6 @@
         </nav>
 
         <div class="header-actions">
-          <!-- Botão Mensagens (Ícone oficial do Penpot: dois balões sobrepostos) -->
           <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
@@ -693,30 +659,24 @@
             </svg>
           </a>
 
-          <!-- Botão Notificações com Indicador -->
           <button type="button" class="header-icon-btn" title="Notificações">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.334"/>
             </svg>
-            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
             <span class="notification-dot" aria-hidden="true"></span>
           </button>
         </div>
       </header>
 
-      <!-- Conteúdo da Visão Geral -->
       <div class="content-area">
-        <!-- Boas-vindas -->
         <section class="welcome-header">
           <h1 class="welcome-title">Olá, Professor!</h1>
           <p class="welcome-desc">Acesse rapidamente suas atividades pedagógicas.</p>
         </section>
 
-        <!-- Busca rápida · Campo desktop (1128 × 48px) -->
         <div class="quick-search">
           <span class="search-icon" aria-hidden="true">
-            <!-- Ícone oficial de busca do Penpot -->
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"/>
               <path d="M16.667 16.667L13.333 13.333"/>
@@ -725,7 +685,6 @@
           <input type="text" class="search-input" placeholder="Buscar turma ou estudante" aria-label="Buscar turma ou estudante">
         </div>
 
-        <!-- Seção: Minhas Turmas -->
         <section class="section-block">
           <div class="section-header">
             <h2 class="section-title">Minhas turmas</h2>
@@ -738,11 +697,9 @@
           </div>
 
           <div class="two-column-grid">
-            <!-- Turma 1: 6º ano A -->
             <a href="minhas-turmas-expandida.html" class="turma-card" title="Ver detalhes do 6º ano A">
               <div class="turma-left">
                 <div class="turma-icon-wrapper">
-                  <!-- Ícone oficial de estudantes do Penpot -->
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <ellipse cx="8.272" cy="7.334" rx="2.954" ry="2.979"/>
                     <path d="M3.273 18.333v-1.146c0-2.4 1.933-4.354 4.318-4.354h1.364c2.384 0 4.318 1.954 4.318 4.354v1.146"/>
@@ -762,11 +719,9 @@
               </div>
             </a>
 
-            <!-- Turma 2: 7º ano B -->
             <a href="minhas-turmas-expandida.html" class="turma-card" title="Ver turmas">
               <div class="turma-left">
                 <div class="turma-icon-wrapper">
-                  <!-- Ícone oficial de estudantes do Penpot -->
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <ellipse cx="8.272" cy="7.334" rx="2.954" ry="2.979"/>
                     <path d="M3.273 18.333v-1.146c0-2.4 1.933-4.354 4.318-4.354h1.364c2.384 0 4.318 1.954 4.318 4.354v1.146"/>
@@ -788,14 +743,12 @@
           </div>
         </section>
 
-        <!-- Seção: Atalhos Rápidos -->
         <section class="section-block">
           <div class="section-header">
             <h2 class="section-title">Atalhos rápidos</h2>
           </div>
 
           <div class="two-column-grid">
-            <!-- Atalho 1: Devolutiva individual -->
             <a href="devolutiva-individual.html" class="shortcut-card">
               <div class="shortcut-left">
                 <div class="shortcut-icon-wrapper devolutiva">
@@ -816,7 +769,6 @@
               </div>
             </a>
 
-            <!-- Atalho 2: Histórico de evidências -->
             <a href="historico-evidencias.html" class="shortcut-card">
               <div class="shortcut-left">
                 <div class="shortcut-icon-wrapper historico">
@@ -840,7 +792,6 @@
               </div>
             </a>
 
-            <!-- Atalho 3: Registro de observação -->
             <a href="registro-selecionar-estudante.html" class="shortcut-card">
               <div class="shortcut-left">
                 <div class="shortcut-icon-wrapper registro">
@@ -869,4 +820,3 @@
 
 </body>
 </html>
-

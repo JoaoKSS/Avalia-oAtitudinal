@@ -4,18 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resumo do Período · Professor · Desktop · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ==========================================================================
-       Reset & Design Tokens Oficiais Penpot
-       ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -56,7 +51,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop */
     .app-layout {
       display: flex;
       width: 100%;
@@ -64,9 +58,6 @@
       overflow: hidden;
     }
 
-    /* ==========================================================================
-       Barra Lateral do Professor (248px) - Padrão Idêntico ao Painel Inicial
-       ========================================================================== */
     .sidebar {
       width: 248px;
       background-color: #ffffff;
@@ -80,7 +71,6 @@
       z-index: 100;
     }
 
-    /* Topo da Sidebar: Marca */
     .sidebar-brand {
       display: flex;
       align-items: center;
@@ -121,7 +111,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -170,14 +159,12 @@
       color: #172b4d;
     }
 
-    /* Minhas turmas ativo nesta seção */
     .nav-link.active {
       background-color: #e8f1ff;
       color: #2563eb;
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -200,7 +187,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Usuário */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -266,9 +252,6 @@
       justify-content: center;
     }
 
-    /* ==========================================================================
-       Área Principal de Conteúdo
-       ========================================================================== */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -279,7 +262,6 @@
       position: relative;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: var(--header-height);
       background-color: var(--color-bg-card);
@@ -369,9 +351,6 @@
       border-radius: 50%;
     }
 
-    /* ==========================================================================
-       Conteúdo da Página (Preenchimento Total sem max-width fixo)
-       ========================================================================== */
     .content-area {
       flex: 1;
       padding: 32px 32px 24px 32px;
@@ -383,7 +362,6 @@
       min-height: 0;
     }
 
-    /* Cabeçalho da Página */
     .page-header {
       display: flex;
       flex-direction: column;
@@ -406,9 +384,6 @@
       color: #60758b;
     }
 
-    /* ==========================================================================
-       Cartão do Estudante (1128x68 base no Penpot, 100% fluido aqui)
-       ========================================================================== */
     .student-summary-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border);
@@ -472,9 +447,6 @@
       white-space: nowrap;
     }
 
-    /* ==========================================================================
-       Barra de Métricas / Indicadores (3 colunas fluidas)
-       ========================================================================== */
     .metrics-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -520,9 +492,6 @@
       line-height: 1.3;
     }
 
-    /* ==========================================================================
-       Grid Principal em 2 Colunas (Gráfico Radar + Lista de Evidências)
-       ========================================================================== */
     .dashboard-grid {
       display: grid;
       grid-template-columns: 480px 1fr;
@@ -539,7 +508,6 @@
       }
     }
 
-    /* Coluna Esquerda: Cartão Radar */
     .radar-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border);
@@ -591,7 +559,6 @@
       overflow: visible;
     }
 
-    /* Rótulos de Texto do Radar */
     .radar-label {
       font-size: 12px;
       font-weight: 600;
@@ -604,7 +571,6 @@
       fill: var(--color-text-main);
     }
 
-    /* Coluna Direita: Seção de Evidências */
     .evidence-section {
       display: flex;
       flex-direction: column;
@@ -622,7 +588,6 @@
       flex-shrink: 0;
     }
 
-    /* Lista com Scrollbar customizada */
     .evidence-scroll-list {
       display: flex;
       flex-direction: column;
@@ -651,7 +616,6 @@
       background: #94a3b8;
     }
 
-    /* Item de Evidência */
     .evidence-item {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border);
@@ -753,9 +717,6 @@
       transition: color 0.15s ease, transform 0.15s ease;
     }
 
-    /* ==========================================================================
-       Barra Inferior de Ações (Voltar) - Altura 76px
-       ========================================================================== */
     .bottom-bar,
     .bottom-action-bar {
       height: var(--bottom-bar-height);
@@ -770,7 +731,6 @@
       flex-shrink: 0;
     }
 
-    /* Botão Voltar (Fundo #60758b, Borda #d9e4f2, Texto #ffffff, Altura 44px, r=10px) */
     .btn-back,
     .btn-voltar {
       height: 44px;
@@ -806,14 +766,9 @@
 <body>
 
   <div class="app-layout">
-    <!-- ========================================================================
-         BARRA LATERAL DO PROFESSOR (248px)
-         ======================================================================== -->
     <aside class="sidebar">
-      <!-- Marca -->
       <div class="sidebar-brand">
         <div class="brand-icon">
-          <!-- Ícone do Penpot: Livro aberto -->
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
           </svg>
@@ -824,15 +779,12 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Espaço Pedagógico</div>
         <ul class="nav-list">
-          <!-- Visão Geral -->
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Início/Dashboard oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
                 </svg>
@@ -841,11 +793,9 @@
             </a>
           </li>
 
-          <!-- Minhas Turmas (Ativo nesta seção) -->
           <li class="nav-item">
             <a href="minhas-turmas.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -855,11 +805,9 @@
             </a>
           </li>
 
-          <!-- Registros de Observação -->
           <li class="nav-item">
             <a href="registro-selecionar-estudante.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Documento de registros oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
                 </svg>
@@ -870,7 +818,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé: Perfil do Usuário -->
       <div class="sidebar-footer">
         <button type="button" class="user-profile-button">
           <div class="user-avatar">
@@ -892,11 +839,7 @@
       </div>
     </aside>
 
-    <!-- ========================================================================
-         ÁREA PRINCIPAL DE CONTEÚDO
-         ======================================================================== -->
     <div class="main-wrapper">
-      <!-- Cabeçalho Superior (76px) -->
       <header class="top-header">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-link">Área do professor</a>
@@ -909,7 +852,6 @@
         </nav>
 
         <div class="header-actions">
-          <!-- Botão Mensagens (Ícone oficial do Penpot: dois balões sobrepostos) -->
           <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
@@ -918,27 +860,22 @@
             </svg>
           </a>
 
-          <!-- Botão Notificações com Indicador -->
           <button type="button" class="header-icon-btn" title="Notificações" aria-label="Notificações">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.334"/>
             </svg>
-            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
             <span class="notification-dot" aria-hidden="true"></span>
           </button>
         </div>
       </header>
 
-      <!-- Conteúdo da Página -->
       <main class="content-area">
-        <!-- Cabeçalho com Título e Descrição -->
         <div class="page-header">
           <h1 class="page-title">Resumo do período</h1>
           <p class="page-desc">Confira as evidências antes de escrever a devolutiva.</p>
         </div>
 
-        <!-- Cartão do Estudante Selecionado -->
         <section class="student-summary-card">
           <div class="student-left-info">
             <div class="student-avatar" aria-hidden="true">AB</div>
@@ -950,90 +887,69 @@
           <span class="observations-badge">22 observações</span>
         </section>
 
-        <!-- Barra de Métricas / Indicadores (3 Cards) -->
         <section class="metrics-row" aria-label="Resumo das evidências">
-          <!-- Indicador 1: Positivas -->
           <div class="metric-card">
             <span class="metric-value positive">14 positivas</span>
             <span class="metric-label">evidências positivas</span>
           </div>
 
-          <!-- Indicador 2: A Desenvolver -->
           <div class="metric-card">
             <span class="metric-value warning">8 a desenvolver</span>
             <span class="metric-label">evidências a desenvolver</span>
           </div>
 
-          <!-- Indicador 3: Neutras -->
           <div class="metric-card">
             <span class="metric-value neutral">0 neutras</span>
             <span class="metric-label">evidências neutras</span>
           </div>
         </section>
 
-        <!-- Grade Principal com Gráfico Radar e Evidências -->
         <div class="dashboard-grid">
-          
-          <!-- Coluna Esquerda: Cartão Radar de Percepção -->
+
           <section class="radar-card">
             <div class="radar-header">
               <h2 class="radar-title">Percepção do professor por dimensão</h2>
               <span class="radar-subtitle">Escala de referência · 1 a 5</span>
             </div>
 
-            <!-- Gráfico Radar SVG de 5 Eixos Oficial do Penpot -->
             <div class="radar-svg-container">
               <svg class="radar-svg" viewBox="50 50 364 320" fill="none">
-                <!-- Anel 1 (Escala 1) -->
                 <polygon points="232.0,199.0 252.0,213.5 244.3,237.0 219.7,237.0 212.0,213.5" fill="none" stroke="#d9e4f2" stroke-width="1"/>
-                <!-- Anel 2 (Escala 2) -->
                 <polygon points="232.0,178.0 271.9,207.0 256.7,254.0 207.3,254.0 192.1,207.0" fill="none" stroke="#d9e4f2" stroke-width="1"/>
-                <!-- Anel 3 (Escala 3) -->
                 <polygon points="232.0,157.0 291.9,200.5 269.0,271.0 195.0,271.0 172.1,200.5" fill="none" stroke="#d9e4f2" stroke-width="1"/>
-                <!-- Anel 4 (Escala 4) -->
                 <polygon points="232.0,136.0 311.9,194.0 281.4,288.0 182.6,288.0 152.1,194.0" fill="none" stroke="#d9e4f2" stroke-width="1"/>
-                <!-- Anel 5 (Escala 5 - Borda Externa) -->
                 <polygon points="232.0,115.0 331.9,187.6 293.7,304.9 170.3,304.9 132.1,187.6" fill="none" stroke="#d9e4f2" stroke-width="1"/>
 
-                <!-- 5 Eixos Radiais a partir do Centro (232, 220) -->
                 <line x1="232" y1="220" x2="232.0" y2="115.0" stroke="#d9e4f2" stroke-width="1"/>
                 <line x1="232" y1="220" x2="331.9" y2="187.6" stroke="#d9e4f2" stroke-width="1"/>
                 <line x1="232" y1="220" x2="293.7" y2="304.9" stroke="#d9e4f2" stroke-width="1"/>
                 <line x1="232" y1="220" x2="170.3" y2="304.9" stroke="#d9e4f2" stroke-width="1"/>
                 <line x1="232" y1="220" x2="132.1" y2="187.6" stroke="#d9e4f2" stroke-width="1"/>
 
-                <!-- Polígono de Dados do Aluno: Respeito 4.5 | Colaboração 4.2 | Responsabilidade 3.8 | Autonomia 3.2 | Participação 4.0 -->
                 <polygon points="232.0,125.5 315.9,192.7 278.9,284.6 192.5,274.4 152.1,194.0" fill="rgba(37, 99, 235, 0.15)" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round"/>
 
-                <!-- Vértices / Pontos de Valor -->
                 <circle cx="232.0" cy="125.5" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
                 <circle cx="315.9" cy="192.7" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
                 <circle cx="278.9" cy="284.6" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
                 <circle cx="192.5" cy="274.4" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
                 <circle cx="152.1" cy="194.0" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
 
-                <!-- Rótulos com Dimensão e Pontuação -->
-                <!-- Topo: Respeito · 4,5 -->
                 <text x="232" y="100" text-anchor="middle" class="radar-label">
                   Respeito · <tspan class="radar-label-score">4,5</tspan>
                 </text>
 
-                <!-- Topo Direito: Colaboração · 4,2 -->
                 <text x="340" y="188" text-anchor="start" class="radar-label">
                   Colaboração · <tspan class="radar-label-score">4,2</tspan>
                 </text>
 
-                <!-- Baixo Direito: Responsabilidade · 3,8 -->
                 <text x="298" y="322" text-anchor="start" class="radar-label">
                   Responsabilidade · <tspan class="radar-label-score">3,8</tspan>
                 </text>
 
-                <!-- Baixo Esquerdo: Autonomia · 3,2 -->
                 <text x="166" y="322" text-anchor="end" class="radar-label">
                   Autonomia · <tspan class="radar-label-score">3,2</tspan>
                 </text>
 
-                <!-- Topo Esquerdo: Participação · 4,0 -->
                 <text x="124" y="188" text-anchor="end" class="radar-label">
                   Participação · <tspan class="radar-label-score">4,0</tspan>
                 </text>
@@ -1041,12 +957,10 @@
             </div>
           </section>
 
-          <!-- Coluna Direita: Lista de Evidências do Período -->
           <section class="evidence-section">
             <h2 class="evidence-section-title">Evidências do período</h2>
 
             <div class="evidence-scroll-list" role="feed" aria-label="Lista de evidências">
-              <!-- Evidência 1: Positiva -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
@@ -1062,7 +976,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 2: A desenvolver -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker warning" aria-hidden="true"></span>
@@ -1078,7 +991,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 3: Neutra -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker neutral" aria-hidden="true"></span>
@@ -1094,7 +1006,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 4: Positiva -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
@@ -1110,7 +1021,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 5: Positiva -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
@@ -1126,7 +1036,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 6: Positiva -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
@@ -1142,7 +1051,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 7: Positiva -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
@@ -1158,7 +1066,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 8: Positiva -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
@@ -1174,7 +1081,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 9: Positiva -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
@@ -1190,7 +1096,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 10: Positiva -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
@@ -1206,7 +1111,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 11: A desenvolver -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker warning" aria-hidden="true"></span>
@@ -1222,7 +1126,6 @@
                 </span>
               </a>
 
-              <!-- Evidência 12: Positiva -->
               <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
@@ -1243,11 +1146,7 @@
         </div>
       </main>
 
-      <!-- ========================================================================
-           BARRA INFERIOR DE AÇÕES (Voltar)
-           ======================================================================== -->
       <footer class="bottom-bar">
-        <!-- Botão Voltar -->
         <a href="devolutiva-individual.html" class="btn-back" title="Voltar para Devolutiva individual">
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
@@ -1260,4 +1159,3 @@
 
 </body>
 </html>
-
