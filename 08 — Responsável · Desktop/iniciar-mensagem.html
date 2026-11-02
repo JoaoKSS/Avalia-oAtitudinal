@@ -3,53 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar mensagem · Responsável · Educar & Aprender</title>
-
-  <!-- Favicons adaptativos -->
+  <title>Iniciar mensagem · Responsável · Desktop · Educar & Aprender</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="alternate icon" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
-  <link rel="alternate icon" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-
-  <!-- Google Fonts: Inter -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f1ff;
+      --color-bg-page: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-placeholder: #8194aa;
+      --color-border-card: #d9e4f2;
+      --color-border-header: #d9e4f2;
+      --color-unread: #3aff2e;
+    }
+
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #f5f8fc;
-      color: #172b4d;
-      min-height: 100vh;
+      background-color: var(--color-bg-page);
+      color: var(--color-text-main);
+      height: 100vh;
+      overflow: hidden;
       display: flex;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    /* Barra Lateral do Responsável (248px) */
     .sidebar {
       width: 248px;
-      background-color: #ffffff;
-      border-right: 1px solid #d9e4f2;
+      background-color: var(--color-bg-card);
+      border-right: 1px solid var(--color-border-header);
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
       position: sticky;
       top: 0;
       height: 100vh;
+      z-index: 30;
     }
 
     .sidebar-brand {
@@ -63,7 +77,7 @@
     .brand-icon {
       width: 40px;
       height: 40px;
-      background-color: #2563eb;
+      background-color: var(--color-primary);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -80,7 +94,7 @@
       font-size: 16px;
       font-weight: 600;
       line-height: 1.38;
-      color: #172b4d;
+      color: var(--color-text-main);
     }
 
     .brand-role {
@@ -88,11 +102,10 @@
       font-weight: 600;
       line-height: 1.4;
       letter-spacing: 0.5px;
-      color: #2563eb;
+      color: var(--color-primary);
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -131,23 +144,22 @@
       text-decoration: none;
       font-size: 13px;
       font-weight: 500;
-      color: #60758b;
+      color: var(--color-text-muted);
       position: relative;
       transition: background-color 0.15s ease, color 0.15s ease;
     }
 
     .nav-link:hover {
       background-color: #f1f5f9;
-      color: #172b4d;
+      color: var(--color-text-main);
     }
 
     .nav-link.active {
-      background-color: #e8f1ff;
-      color: #2563eb;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -156,7 +168,7 @@
       transform: translateY(-50%);
       width: 3px;
       height: 28px;
-      background-color: #2563eb;
+      background-color: var(--color-primary);
       border-radius: 2px;
     }
 
@@ -170,7 +182,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Responsável */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -199,11 +210,11 @@
       width: 40px;
       height: 40px;
       border-radius: 20px;
-      background-color: #e8f1ff;
+      background-color: var(--color-primary-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #2563eb;
+      color: var(--color-primary);
       flex-shrink: 0;
     }
 
@@ -217,7 +228,7 @@
     .user-name {
       font-size: 14px;
       font-weight: 600;
-      color: #172b4d;
+      color: var(--color-text-main);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -226,7 +237,7 @@
     .user-role {
       font-size: 10px;
       font-weight: 400;
-      color: #60758b;
+      color: var(--color-text-muted);
     }
 
     .user-chevron {
@@ -236,23 +247,27 @@
       justify-content: center;
     }
 
-    /* Área Principal */
-    .main-wrapper {
+    .content-area {
       flex: 1;
       display: flex;
       flex-direction: column;
       min-width: 0;
+      height: 100vh;
+      overflow: hidden;
+      background-color: var(--color-bg-page);
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: 76px;
-      background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-header);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
     .breadcrumb,
@@ -314,6 +329,7 @@
       cursor: pointer;
       position: relative;
       transition: all 0.15s ease;
+      text-decoration: none;
     }
 
     .header-icon-btn:hover {
@@ -323,9 +339,9 @@
     }
 
     .header-icon-btn.active {
-      border: 2px solid #2563eb;
+      border: 2px solid var(--color-primary);
       background-color: #ffffff;
-      color: #2563eb;
+      color: var(--color-primary);
     }
 
     .notification-dot {
@@ -338,22 +354,24 @@
       border-radius: 50%;
     }
 
-    /* Conteúdo Principal */
-    .content-area {
-      padding: 24px 32px 32px 32px;
+    .page-main-container {
+      flex: 1;
       width: 100%;
+      padding: 24px 32px 32px 32px;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      flex: 1;
+      gap: 16px;
+      overflow: hidden;
+      min-height: 0;
     }
 
-    /* Cabeçalho da Página com Título e Botão Voltar */
     .page-header-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      flex-shrink: 0;
     }
 
     .page-header-text {
@@ -363,109 +381,113 @@
     }
 
     .page-title {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
-      line-height: 1.25;
-      color: #172b4d;
+      color: var(--color-text-main);
+      line-height: 1.39;
+      margin-bottom: 6px;
     }
 
-    .page-desc {
-      font-size: 15px;
+    .page-description {
+      font-size: 14px;
       font-weight: 400;
-      line-height: 1.4;
-      color: #60758b;
+      color: var(--color-text-muted);
+      line-height: 1.43;
     }
 
-    .btn-back-messages {
+    .btn-new-conversation {
       height: 42px;
       padding: 0 20px;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      color: #60758b;
+      background-color: var(--color-primary);
+      color: #ffffff;
       border-radius: 10px;
-      text-decoration: none;
       font-size: 14px;
       font-weight: 600;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.15s ease;
-    }
-
-    .btn-back-messages:hover {
-      background-color: #f8fafc;
-      border-color: #cbd5e1;
-      color: #172b4d;
-    }
-
-    /* Painel Principal de Seleção de Professores */
-    .teacher-selection-panel {
-      width: 100%;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 14px;
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-    }
-
-    /* Cabeçalho do Painel com Contador */
-    .panel-header-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
-
-    .panel-heading-text {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .panel-title {
-      font-size: 20px;
-      font-weight: 700;
-      color: #172b4d;
-      letter-spacing: -0.01em;
-    }
-
-    .panel-subtitle {
-      font-size: 14px;
-      color: #60758b;
-    }
-
-    .teacher-counter-pill {
-      height: 29px;
-      padding: 0 16px;
-      background-color: #e8f0ff;
-      color: #2563eb;
-      font-size: 11px;
-      font-weight: 600;
-      border-radius: 15px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
       flex-shrink: 0;
     }
 
-    /* Campo de Busca Grande */
-    .teacher-search-box {
-      width: 100%;
-      height: 46px;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      padding: 0 16px;
-      gap: 12px;
-      margin-bottom: 24px;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    .btn-new-conversation:hover {
+      background-color: var(--color-primary-hover);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
     }
 
-    .teacher-search-box:focus-within {
+    .btn-back-messages {
+      width: 230px;
+      height: 46px;
+      background-color: #60758b;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      flex-shrink: 0;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    .btn-back-messages:hover {
+      background-color: #4b5d6f;
+    }
+
+    .btn-back-messages:active {
+      transform: scale(0.98);
+    }
+
+    .messaging-layout {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .conversations-sidebar {
+      width: 360px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      flex-shrink: 0;
+      overflow-y: auto;
+    }
+
+    .conversations-sidebar-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #172b4d;
+      margin-bottom: 14px;
+    }
+
+    .search-box {
+      width: 100%;
+      height: 44px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 10px;
+      margin-bottom: 14px;
+      transition: border-color 0.15s ease;
+    }
+
+    .search-box:focus-within {
       border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
@@ -474,7 +496,6 @@
       color: #60758b;
       display: flex;
       align-items: center;
-      flex-shrink: 0;
     }
 
     .search-input {
@@ -482,7 +503,7 @@
       background: transparent;
       outline: none;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 14px;
       color: #172b4d;
       width: 100%;
     }
@@ -491,150 +512,791 @@
       color: #8194aa;
     }
 
-    /* Rótulo de Seção */
-    .section-caption {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-      color: #8194aa;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    /* Lista de Professores */
-    .teachers-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .teacher-card-item {
+    .filter-chips {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      height: 68px;
-      padding: 0 20px;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .filter-chip {
+      height: 30px;
+      padding: 0 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      font-family: inherit;
+    }
+
+    .filter-chip.active {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .filter-chip.secondary {
+      background-color: #ffffff;
+      border-color: #d9e4f2;
+      color: #60758b;
+    }
+
+    .filter-chip.secondary:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .section-caption {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .conversations-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      list-style: none;
+      padding-top: 6px;
+    }
+
+    .conversation-item-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 10px;
       text-decoration: none;
       color: inherit;
       transition: all 0.15s ease;
+      position: relative;
     }
 
-    .teacher-card-item:hover {
+    .conversation-item-link:hover {
       background-color: #f8fafc;
-      border-color: #2563eb;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+      border-color: #cbd5e1;
     }
 
-    .teacher-card-left {
+    .conversation-item-link.unread {
+      border: 2px solid #3aff2e;
+    }
+
+    .conversation-item-link.unread .chat-time {
+      color: #3aff2e;
+      font-weight: 600;
+    }
+
+    .conversation-item-link.active {
+      border-color: var(--color-primary);
+      background-color: #f8fafc;
+    }
+
+    .chat-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 23px;
+      background-color: #e8f0ff;
+      color: #2563eb;
       display: flex;
       align-items: center;
-      gap: 16px;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .chat-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
       min-width: 0;
     }
 
-    .teacher-avatar {
-      width: 42px;
-      height: 42px;
+    .chat-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .chat-sender {
+      font-size: 15px;
+      font-weight: 700;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .chat-time {
+      font-size: 12px;
+      font-weight: 500;
+      color: #60758b;
+      flex-shrink: 0;
+    }
+
+    .chat-preview {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+    }
+
+    .unread-counter-badge {
+      position: absolute;
+      top: -10px;
+      right: -6px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #3aff2e;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .empty-state-panel {
+      flex: 1;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .empty-state-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 440px;
+    }
+
+    .empty-illustration-circle {
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background-color: #e8f0ff;
-      color: #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .empty-state-title {
+      font-size: 24px;
       font-weight: 700;
-      font-size: 12px;
+      color: var(--color-text-main);
+      margin-bottom: 12px;
+      line-height: 1.33;
+    }
+
+    .empty-state-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .btn-filter-unread {
+      height: 40px;
+      padding: 0 20px;
+      background-color: #e8f0ff;
+      color: var(--color-primary);
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn-filter-unread:hover {
+      background-color: #dbeafe;
+    }
+
+    .empty-state-footer-note {
+      position: absolute;
+      bottom: 24px;
+      font-size: 13px;
+      color: var(--color-text-placeholder);
+    }
+
+    .chat-panel {
+      flex: 1;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .chat-panel-header {
+      height: 84px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-border-card);
+      background-color: var(--color-bg-card);
+      flex-shrink: 0;
+    }
+
+    .chat-interlocutor-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .chat-interlocutor-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #e8f0ff;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .teacher-details {
+    .chat-interlocutor-details {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .chat-interlocutor-name-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-interlocutor-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .chat-interlocutor-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-online-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #16a34a;
+    }
+
+    .status-online-text {
+      font-size: 12px;
+      font-weight: 500;
+      color: #16a34a;
+    }
+
+    .chat-interlocutor-role {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .chat-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chat-options-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .chat-options-btn:hover {
+      background-color: #f1f5f9;
+      border-color: var(--color-border-card);
+      color: var(--color-text-main);
+    }
+
+    .chat-messages-container {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background-color: var(--color-bg-card);
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .chat-messages-container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chat-messages-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .chat-messages-container::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    .chat-date-separator {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+
+    .chat-date-pill {
+      background-color: #f1f5f9;
+      color: var(--color-text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 12px;
+    }
+
+    .message-row {
+      display: flex;
+      width: 100%;
+    }
+
+    .message-row.incoming {
+      justify-content: flex-start;
+    }
+
+    .message-row.outgoing {
+      justify-content: flex-end;
+    }
+
+    .message-bubble {
+      max-width: 500px;
+      padding: 14px 18px 10px 18px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+
+    .incoming-bubble {
+      background-color: #f8fafc;
+      border: 1px solid #e1e8f0;
+      color: var(--color-text-main);
+    }
+
+    .outgoing-bubble {
+      background-color: #e8f1ff;
+      border: none;
+      color: var(--color-text-main);
+    }
+
+    .message-text {
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--color-text-main);
+      word-break: break-word;
+    }
+
+    .message-meta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .message-time {
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .incoming-bubble .message-time {
+      color: var(--color-text-placeholder);
+    }
+
+    .outgoing-bubble .message-time {
+      color: var(--color-primary);
+    }
+
+    .read-ticks {
+      display: inline-flex;
+      align-items: center;
+      color: var(--color-primary);
+    }
+
+    .chat-composer-section {
+      padding: 16px 24px 20px 24px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid #f1f5f9;
+      flex-shrink: 0;
+    }
+
+    .composer-container {
+      width: 100%;
+      height: 58px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px 0 14px;
+      gap: 12px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .composer-container:focus-within {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .composer-btn-attach {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #f1f5f9;
+      color: var(--color-text-muted);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 600;
+      flex-shrink: 0;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .composer-btn-attach:hover {
+      background-color: #e2e8f0;
+      color: var(--color-text-main);
+    }
+
+    .composer-input {
+      flex: 1;
+      height: 100%;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--color-text-main);
+      background: transparent;
+    }
+
+    .composer-input::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    .btn-send-message {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-send-message:hover {
+      background-color: var(--color-primary-hover);
+      transform: scale(1.05);
+    }
+
+    .btn-send-message:active {
+      transform: scale(0.95);
+    }
+
+    .btn-send-message svg {
+      margin-left: 2px;
+    }
+
+    .responsavel-selection-panel {
+      width: 100%;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 14px;
+      padding: 24px 32px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .panel-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .panel-heading-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .panel-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      letter-spacing: -0.3px;
+    }
+
+    .panel-subtitle {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .counter-pill {
+      height: 27px;
+      padding: 0 16px;
+      background-color: #e8f0ff;
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .responsavel-search-box {
+      width: 100%;
+      height: 46px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+      margin-bottom: 18px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .responsavel-search-box:focus-within {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .responsavel-search-icon {
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .responsavel-search-input {
+      flex: 1;
+      height: 100%;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--color-text-main);
+      background: transparent;
+    }
+
+    .responsavel-search-input::placeholder {
+      color: var(--color-text-placeholder);
+    }
+
+    .responsavel-section-caption {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .responsaveis-scroll-area {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-right: 4px;
+      min-height: 0;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .responsaveis-scroll-area::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .responsaveis-scroll-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .responsaveis-scroll-area::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    .contact-card-compact {
+      height: 60px;
+      padding: 0 16px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s ease;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .contact-card-compact:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transform: translateY(-1px);
+    }
+
+    .contact-card-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .contact-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: #e8f0ff;
+      color: var(--color-primary);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-info {
       display: flex;
       flex-direction: column;
       gap: 2px;
       min-width: 0;
     }
 
-    .teacher-name {
+    .contact-name {
       font-size: 15px;
       font-weight: 700;
-      color: #172b4d;
+      color: var(--color-text-main);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .teacher-discipline {
+    .contact-vinculo {
       font-size: 12px;
-      color: #60758b;
+      color: var(--color-text-muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .teacher-card-action {
+    .contact-action-arrow {
+      color: var(--color-text-muted);
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      color: #8194aa;
-      transition: all 0.15s ease;
       flex-shrink: 0;
+      transition: transform 0.15s ease, color 0.15s ease;
     }
 
-    .teacher-card-item:hover .teacher-card-action {
-      color: #2563eb;
+    .contact-card-compact:hover .contact-action-arrow {
+      color: var(--color-primary);
       transform: translateX(3px);
     }
 
-    /* Estado Vazio de Busca */
-    .empty-search-state {
-      display: none;
-      padding: 48px 24px;
-      text-align: center;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .empty-search-state.show {
-      display: flex;
-    }
-
-    .empty-search-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background-color: #f1f5f9;
-      color: #8194aa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 4px;
-    }
-
-    .empty-search-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: #172b4d;
-    }
-
-    .empty-search-desc {
-      font-size: 13px;
-      color: #60758b;
-      max-width: 360px;
+    @media (max-width: 1024px) {
+      .messaging-layout {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .conversations-sidebar {
+        width: 100%;
+        max-height: 400px;
+      }
+      .empty-state-panel {
+        min-height: 400px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="app-layout">
-    <!-- Barra Lateral do Responsável (248px) -->
     <aside class="sidebar">
       <div class="sidebar-brand">
         <div class="brand-icon">
@@ -648,11 +1310,9 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Acompanhamento Escolar</div>
         <ul class="nav-list">
-          <!-- Início -->
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
@@ -663,8 +1323,6 @@
               <span>Início</span>
             </a>
           </li>
-
-          <!-- Evolução do estudante -->
           <li class="nav-item">
             <a href="evolucao-estudante.html" class="nav-link">
               <span class="nav-icon">
@@ -676,8 +1334,6 @@
               <span>Evolução do estudante</span>
             </a>
           </li>
-
-          <!-- Histórico de registros -->
           <li class="nav-item">
             <a href="historico-registros.html" class="nav-link">
               <span class="nav-icon">
@@ -689,8 +1345,6 @@
               <span>Histórico de registros</span>
             </a>
           </li>
-
-          <!-- Devolutivas -->
           <li class="nav-item">
             <a href="devolutivas.html" class="nav-link">
               <span class="nav-icon">
@@ -703,8 +1357,6 @@
               <span>Devolutivas</span>
             </a>
           </li>
-
-          <!-- Mensagens -->
           <li class="nav-item">
             <a href="mensagens.html" class="nav-link active">
               <span class="nav-icon">
@@ -720,7 +1372,6 @@
         </ul>
       </nav>
 
-      <!-- Perfil do Responsável no Rodapé -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button" aria-label="Menu do responsável">
           <div class="user-avatar">
@@ -742,16 +1393,14 @@
       </div>
     </aside>
 
-    <!-- Área Principal -->
-    <main class="main-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
+    <main class="content-area">
       <header class="top-header">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="painel-inicial.html" class="breadcrumb-link">Responsável</a>
           <span class="breadcrumb-separator">/</span>
-          <a href="mensagens.html" class="breadcrumb-item">Mensagens</a>
+          <a href="mensagens.html" class="breadcrumb-link">Mensagens</a>
           <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-current">Nova mensagem</span>
+          <span class="breadcrumb-current">Iniciar mensagem</span>
         </nav>
 
         <div class="header-actions">
@@ -773,183 +1422,137 @@
         </div>
       </header>
 
-      <!-- Conteúdo Principal -->
-      <div class="content-area">
-        <!-- Linha do Título com Botão Voltar -->
+      <div class="page-main-container">
         <div class="page-header-row">
           <div class="page-header-text">
             <h1 class="page-title">Iniciar mensagem</h1>
-            <p class="page-desc">Escolha um professor para iniciar uma conversa.</p>
+            <p class="page-description">Selecione um professor para iniciar uma conversa.</p>
           </div>
-          <a href="mensagens.html" class="btn-back-messages" title="Voltar para a lista de conversas">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
+          <a href="mensagens.html" class="btn-back-messages" title="Voltar para a caixa de mensagens">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 1 2 6l6 5M2 6h10"></path>
             </svg>
-            <span>Voltar para conversas</span>
+            <span>Voltar para mensagens</span>
           </a>
         </div>
 
-        <!-- Painel Principal de Seleção de Professores -->
-        <section class="teacher-selection-panel" aria-label="Seleção de professores disponíveis">
-          <!-- Cabeçalho do Painel com Contador -->
+        <section class="responsavel-selection-panel" aria-label="Seleção de professor para nova mensagem">
           <div class="panel-header-row">
             <div class="panel-heading-text">
               <h2 class="panel-title">Selecione um professor</h2>
               <p class="panel-subtitle">Escolha um contato da escola para iniciar uma nova conversa.</p>
             </div>
-            <div class="teacher-counter-pill" id="teacherCounterPill">6 professores</div>
+            <span class="counter-pill">6 professores</span>
           </div>
 
-          <!-- Campo de Busca de Professores -->
-          <div class="teacher-search-box">
-            <span class="search-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <div class="responsavel-search-box">
+            <span class="responsavel-search-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="9" r="6"></circle>
+                <line x1="13.5" y1="13.5" x2="18" y2="18"></line>
               </svg>
             </span>
-            <input 
-              type="text" 
-              class="search-input" 
-              id="teacherSearchInput" 
-              placeholder="Buscar por nome do professor ou disciplina" 
-              aria-label="Buscar por nome do professor ou disciplina"
-              oninput="handleTeacherSearch()"
-            >
+            <input type="text" class="responsavel-search-input" placeholder="Buscar por nome do professor ou disciplina" autocomplete="off" aria-label="Buscar professor ou disciplina">
           </div>
 
-          <!-- Rótulo de Seção -->
-          <span class="section-caption">PROFESSORES DISPONÍVEIS</span>
+          <span class="responsavel-section-caption">PROFESSORES DISPONÍVEIS</span>
 
-          <!-- Lista de Professores -->
-          <ul class="teachers-list" id="teachersList">
-            <!-- Professor 1: Prof. Ana Almeida -->
-            <li class="teacher-item" data-name="prof. ana almeida" data-discipline="língua portuguesa · 6º ano a">
-              <a href="conversa-prof-ana-almeida.html" class="teacher-card-item" title="Iniciar conversa com Prof.ª Ana Almeida">
-                <div class="teacher-card-left">
-                  <div class="teacher-avatar" aria-hidden="true">AA</div>
-                  <div class="teacher-details">
-                    <span class="teacher-name">Prof. Ana Almeida</span>
-                    <span class="teacher-discipline">Língua Portuguesa · 6º ano A</span>
-                  </div>
+          <div class="responsaveis-scroll-area" role="list">
+            <a href="conversa-prof-ana-almeida.html" class="contact-card-compact" title="Iniciar conversa com Prof.ª Ana Almeida">
+              <div class="contact-card-left">
+                <div class="contact-avatar">AA</div>
+                <div class="contact-info">
+                  <span class="contact-name">Prof.ª Ana Almeida</span>
+                  <span class="contact-vinculo">Língua Portuguesa · 6º ano A</span>
                 </div>
-                <div class="teacher-card-action" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </a>
-            </li>
+              </div>
+              <span class="contact-action-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
 
-            <!-- Professor 2: Prof. João Martins -->
-            <li class="teacher-item" data-name="prof. joão martins" data-discipline="matemática · 6º ano a">
-              <a href="conversa-prof-ana-almeida.html" class="teacher-card-item" title="Iniciar conversa com Prof. João Martins">
-                <div class="teacher-card-left">
-                  <div class="teacher-avatar" aria-hidden="true">JM</div>
-                  <div class="teacher-details">
-                    <span class="teacher-name">Prof. João Martins</span>
-                    <span class="teacher-discipline">Matemática · 6º ano A</span>
-                  </div>
+            <a href="conversa-prof-ana-almeida.html" class="contact-card-compact" title="Iniciar conversa com Prof. João Martins">
+              <div class="contact-card-left">
+                <div class="contact-avatar">JM</div>
+                <div class="contact-info">
+                  <span class="contact-name">Prof. João Martins</span>
+                  <span class="contact-vinculo">Matemática · 6º ano A</span>
                 </div>
-                <div class="teacher-card-action" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </a>
-            </li>
+              </div>
+              <span class="contact-action-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
 
-            <!-- Professor 3: Prof. Camila Rocha -->
-            <li class="teacher-item" data-name="prof. camila rocha" data-discipline="ciências · 6º ano a">
-              <a href="conversa-prof-ana-almeida.html" class="teacher-card-item" title="Iniciar conversa com Prof.ª Camila Rocha">
-                <div class="teacher-card-left">
-                  <div class="teacher-avatar" aria-hidden="true">CR</div>
-                  <div class="teacher-details">
-                    <span class="teacher-name">Prof. Camila Rocha</span>
-                    <span class="teacher-discipline">Ciências · 6º ano A</span>
-                  </div>
+            <a href="conversa-prof-ana-almeida.html" class="contact-card-compact" title="Iniciar conversa com Prof.ª Camila Rocha">
+              <div class="contact-card-left">
+                <div class="contact-avatar">CR</div>
+                <div class="contact-info">
+                  <span class="contact-name">Prof.ª Camila Rocha</span>
+                  <span class="contact-vinculo">Ciências · 6º ano A</span>
                 </div>
-                <div class="teacher-card-action" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </a>
-            </li>
+              </div>
+              <span class="contact-action-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
 
-            <!-- Professor 4: Prof. Pedro Henrique -->
-            <li class="teacher-item" data-name="prof. pedro henrique" data-discipline="história · 6º ano a">
-              <a href="conversa-prof-ana-almeida.html" class="teacher-card-item" title="Iniciar conversa com Prof. Pedro Henrique">
-                <div class="teacher-card-left">
-                  <div class="teacher-avatar" aria-hidden="true">PH</div>
-                  <div class="teacher-details">
-                    <span class="teacher-name">Prof. Pedro Henrique</span>
-                    <span class="teacher-discipline">História · 6º ano A</span>
-                  </div>
+            <a href="conversa-prof-ana-almeida.html" class="contact-card-compact" title="Iniciar conversa com Prof. Pedro Henrique">
+              <div class="contact-card-left">
+                <div class="contact-avatar">PH</div>
+                <div class="contact-info">
+                  <span class="contact-name">Prof. Pedro Henrique</span>
+                  <span class="contact-vinculo">História · 6º ano A</span>
                 </div>
-                <div class="teacher-card-action" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </a>
-            </li>
+              </div>
+              <span class="contact-action-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
 
-            <!-- Professor 5: Prof. Beatriz Costa -->
-            <li class="teacher-item" data-name="prof. beatriz costa" data-discipline="geografia · 6º ano a">
-              <a href="conversa-prof-ana-almeida.html" class="teacher-card-item" title="Iniciar conversa com Prof.ª Beatriz Costa">
-                <div class="teacher-card-left">
-                  <div class="teacher-avatar" aria-hidden="true">BC</div>
-                  <div class="teacher-details">
-                    <span class="teacher-name">Prof. Beatriz Costa</span>
-                    <span class="teacher-discipline">Geografia · 6º ano A</span>
-                  </div>
+            <a href="conversa-prof-ana-almeida.html" class="contact-card-compact" title="Iniciar conversa com Prof.ª Beatriz Costa">
+              <div class="contact-card-left">
+                <div class="contact-avatar">BC</div>
+                <div class="contact-info">
+                  <span class="contact-name">Prof.ª Beatriz Costa</span>
+                  <span class="contact-vinculo">Geografia · 6º ano A</span>
                 </div>
-                <div class="teacher-card-action" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </a>
-            </li>
+              </div>
+              <span class="contact-action-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
 
-            <!-- Professor 6: Prof. Marcos Lima -->
-            <li class="teacher-item" data-name="prof. marcos lima" data-discipline="educação física · 6º ano a">
-              <a href="conversa-prof-ana-almeida.html" class="teacher-card-item" title="Iniciar conversa com Prof. Marcos Lima">
-                <div class="teacher-card-left">
-                  <div class="teacher-avatar" aria-hidden="true">ML</div>
-                  <div class="teacher-details">
-                    <span class="teacher-name">Prof. Marcos Lima</span>
-                    <span class="teacher-discipline">Educação Física · 6º ano A</span>
-                  </div>
+            <a href="conversa-prof-ana-almeida.html" class="contact-card-compact" title="Iniciar conversa com Prof. Marcos Lima">
+              <div class="contact-card-left">
+                <div class="contact-avatar">ML</div>
+                <div class="contact-info">
+                  <span class="contact-name">Prof. Marcos Lima</span>
+                  <span class="contact-vinculo">Educação Física · 6º ano A</span>
                 </div>
-                <div class="teacher-card-action" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </a>
-            </li>
-          </ul>
-
-          <!-- Estado Vazio para Busca sem Resultados -->
-          <div class="empty-search-state" id="emptySearchState">
-            <div class="empty-search-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                <line x1="8" y1="11" x2="14" y2="11"></line>
-              </svg>
-            </div>
-            <h3 class="empty-search-title">Nenhum professor encontrado</h3>
-            <p class="empty-search-desc">Verifique o nome do professor ou a disciplina digitada e tente novamente.</p>
+              </div>
+              <span class="contact-action-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
           </div>
         </section>
       </div>

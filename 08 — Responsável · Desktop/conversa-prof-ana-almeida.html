@@ -3,53 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conversa com Prof.ª Ana Almeida · Responsável · Educar & Aprender</title>
-
-  <!-- Favicons adaptativos -->
+  <title>Conversa com Prof.ª Ana Almeida · Responsável · Desktop · Educar & Aprender</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="alternate icon" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
-  <link rel="alternate icon" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-
-  <!-- Google Fonts: Inter -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f1ff;
+      --color-bg-page: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-placeholder: #8194aa;
+      --color-border-card: #d9e4f2;
+      --color-border-header: #d9e4f2;
+      --color-unread: #3aff2e;
+    }
+
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #f5f8fc;
-      color: #172b4d;
-      min-height: 100vh;
+      background-color: var(--color-bg-page);
+      color: var(--color-text-main);
+      height: 100vh;
+      overflow: hidden;
       display: flex;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    /* Barra Lateral do Responsável (248px) */
     .sidebar {
       width: 248px;
-      background-color: #ffffff;
-      border-right: 1px solid #d9e4f2;
+      background-color: var(--color-bg-card);
+      border-right: 1px solid var(--color-border-header);
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
       position: sticky;
       top: 0;
       height: 100vh;
+      z-index: 30;
     }
 
     .sidebar-brand {
@@ -63,7 +77,7 @@
     .brand-icon {
       width: 40px;
       height: 40px;
-      background-color: #2563eb;
+      background-color: var(--color-primary);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -80,7 +94,7 @@
       font-size: 16px;
       font-weight: 600;
       line-height: 1.38;
-      color: #172b4d;
+      color: var(--color-text-main);
     }
 
     .brand-role {
@@ -88,11 +102,10 @@
       font-weight: 600;
       line-height: 1.4;
       letter-spacing: 0.5px;
-      color: #2563eb;
+      color: var(--color-primary);
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -131,23 +144,22 @@
       text-decoration: none;
       font-size: 13px;
       font-weight: 500;
-      color: #60758b;
+      color: var(--color-text-muted);
       position: relative;
       transition: background-color 0.15s ease, color 0.15s ease;
     }
 
     .nav-link:hover {
       background-color: #f1f5f9;
-      color: #172b4d;
+      color: var(--color-text-main);
     }
 
     .nav-link.active {
-      background-color: #e8f1ff;
-      color: #2563eb;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -156,7 +168,7 @@
       transform: translateY(-50%);
       width: 3px;
       height: 28px;
-      background-color: #2563eb;
+      background-color: var(--color-primary);
       border-radius: 2px;
     }
 
@@ -170,7 +182,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Responsável */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -199,11 +210,11 @@
       width: 40px;
       height: 40px;
       border-radius: 20px;
-      background-color: #e8f1ff;
+      background-color: var(--color-primary-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #2563eb;
+      color: var(--color-primary);
       flex-shrink: 0;
     }
 
@@ -217,7 +228,7 @@
     .user-name {
       font-size: 14px;
       font-weight: 600;
-      color: #172b4d;
+      color: var(--color-text-main);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -226,7 +237,7 @@
     .user-role {
       font-size: 10px;
       font-weight: 400;
-      color: #60758b;
+      color: var(--color-text-muted);
     }
 
     .user-chevron {
@@ -236,23 +247,27 @@
       justify-content: center;
     }
 
-    /* Área Principal */
-    .main-wrapper {
+    .content-area {
       flex: 1;
       display: flex;
       flex-direction: column;
       min-width: 0;
+      height: 100vh;
+      overflow: hidden;
+      background-color: var(--color-bg-page);
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: 76px;
-      background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-header);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
     .breadcrumb,
@@ -314,6 +329,7 @@
       cursor: pointer;
       position: relative;
       transition: all 0.15s ease;
+      text-decoration: none;
     }
 
     .header-icon-btn:hover {
@@ -323,9 +339,9 @@
     }
 
     .header-icon-btn.active {
-      border: 2px solid #2563eb;
+      border: 2px solid var(--color-primary);
       background-color: #ffffff;
-      color: #2563eb;
+      color: var(--color-primary);
     }
 
     .notification-dot {
@@ -338,22 +354,24 @@
       border-radius: 50%;
     }
 
-    /* Conteúdo Principal */
-    .content-area {
-      padding: 24px 32px 32px 32px;
+    .page-main-container {
+      flex: 1;
       width: 100%;
+      padding: 24px 32px 32px 32px;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      flex: 1;
+      gap: 16px;
+      overflow: hidden;
+      min-height: 0;
     }
 
-    /* Cabeçalho da Página com Título e Botão Nova Conversa */
     .page-header-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      flex-shrink: 0;
     }
 
     .page-header-text {
@@ -363,49 +381,79 @@
     }
 
     .page-title {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
-      line-height: 1.25;
-      color: #172b4d;
+      color: var(--color-text-main);
+      line-height: 1.39;
+      margin-bottom: 6px;
     }
 
-    .page-desc {
-      font-size: 15px;
+    .page-description {
+      font-size: 14px;
       font-weight: 400;
-      line-height: 1.4;
-      color: #60758b;
+      color: var(--color-text-muted);
+      line-height: 1.43;
     }
 
     .btn-new-conversation {
       height: 42px;
-      padding: 0 24px;
-      background-color: #2563eb;
+      padding: 0 20px;
+      background-color: var(--color-primary);
       color: #ffffff;
       border-radius: 10px;
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 600;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       transition: background-color 0.15s ease, box-shadow 0.15s ease;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .btn-new-conversation:hover {
-      background-color: #1d4ed8;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      background-color: var(--color-primary-hover);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
     }
 
-    /* Layout Dividido (Sidebar 360px + Painel Direito flex: 1) */
+    .btn-back-messages {
+      width: 230px;
+      height: 46px;
+      background-color: #60758b;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      flex-shrink: 0;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    .btn-back-messages:hover {
+      background-color: #4b5d6f;
+    }
+
+    .btn-back-messages:active {
+      transform: scale(0.98);
+    }
+
     .messaging-layout {
       display: flex;
       gap: 20px;
-      height: calc(100vh - 200px);
-      min-height: 700px;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
     }
 
-    /* Painel Esquerdo: Lista de Conversas (360px) */
     .conversations-sidebar {
       width: 360px;
       background-color: #ffffff;
@@ -425,7 +473,6 @@
       margin-bottom: 14px;
     }
 
-    /* Campo de Busca */
     .search-box {
       width: 100%;
       height: 44px;
@@ -456,7 +503,7 @@
       background: transparent;
       outline: none;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 14px;
       color: #172b4d;
       width: 100%;
     }
@@ -465,7 +512,6 @@
       color: #8194aa;
     }
 
-    /* Filtros Rápidos */
     .filter-chips {
       display: flex;
       align-items: center;
@@ -507,7 +553,6 @@
       color: #172b4d;
     }
 
-    /* Rótulo Recentes */
     .section-caption {
       font-size: 11px;
       font-weight: 700;
@@ -517,7 +562,6 @@
       margin-bottom: 10px;
     }
 
-    /* Lista de Itens de Conversa */
     .conversations-list {
       display: flex;
       flex-direction: column;
@@ -545,12 +589,6 @@
       border-color: #cbd5e1;
     }
 
-    .conversation-item-link.active {
-      background-color: #f5f8fc;
-      border-color: #2563eb;
-      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
-    }
-
     .conversation-item-link.unread {
       border: 2px solid #3aff2e;
     }
@@ -558,6 +596,11 @@
     .conversation-item-link.unread .chat-time {
       color: #3aff2e;
       font-weight: 600;
+    }
+
+    .conversation-item-link.active {
+      border-color: var(--color-primary);
+      background-color: #f8fafc;
     }
 
     .chat-avatar {
@@ -590,7 +633,7 @@
     }
 
     .chat-sender {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: #172b4d;
       white-space: nowrap;
@@ -605,12 +648,6 @@
       flex-shrink: 0;
     }
 
-    .chat-preview-row {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
     .chat-preview {
       font-size: 13px;
       font-weight: 400;
@@ -619,13 +656,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: 1.3;
-    }
-
-    .read-ticks-mini {
-      display: inline-flex;
-      align-items: center;
-      color: #2563eb;
-      flex-shrink: 0;
     }
 
     .unread-counter-badge {
@@ -646,13 +676,88 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
-    /* ==========================================================================
-       Painel Direito: Conversa Selecionada (flex: 1)
-       ========================================================================== */
+    .empty-state-panel {
+      flex: 1;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .empty-state-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 440px;
+    }
+
+    .empty-illustration-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .empty-state-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 12px;
+      line-height: 1.33;
+    }
+
+    .empty-state-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .btn-filter-unread {
+      height: 40px;
+      padding: 0 20px;
+      background-color: #e8f0ff;
+      color: var(--color-primary);
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn-filter-unread:hover {
+      background-color: #dbeafe;
+    }
+
+    .empty-state-footer-note {
+      position: absolute;
+      bottom: 24px;
+      font-size: 13px;
+      color: var(--color-text-placeholder);
+    }
+
     .chat-panel {
       flex: 1;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
       border-radius: 14px;
       display: flex;
       flex-direction: column;
@@ -660,15 +765,14 @@
       position: relative;
     }
 
-    /* Cabeçalho da Conversa (84px) */
     .chat-panel-header {
       height: 84px;
       padding: 0 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #e5ebf3;
-      background-color: #ffffff;
+      border-bottom: 1px solid var(--color-border-card);
+      background-color: var(--color-bg-card);
       flex-shrink: 0;
     }
 
@@ -683,7 +787,7 @@
       height: 48px;
       border-radius: 50%;
       background-color: #e8f0ff;
-      color: #2563eb;
+      color: var(--color-primary);
       font-weight: 700;
       font-size: 15px;
       display: flex;
@@ -698,15 +802,40 @@
       gap: 3px;
     }
 
+    .chat-interlocutor-name-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .chat-interlocutor-name {
       font-size: 17px;
       font-weight: 700;
-      color: #172b4d;
+      color: var(--color-text-main);
+    }
+
+    .chat-interlocutor-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-online-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #16a34a;
+    }
+
+    .status-online-text {
+      font-size: 12px;
+      font-weight: 500;
+      color: #16a34a;
     }
 
     .chat-interlocutor-role {
       font-size: 12px;
-      color: #60758b;
+      color: var(--color-text-muted);
     }
 
     .chat-header-actions {
@@ -721,7 +850,7 @@
       border-radius: 8px;
       border: 1px solid transparent;
       background: transparent;
-      color: #60758b;
+      color: var(--color-text-muted);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -731,32 +860,45 @@
 
     .chat-options-btn:hover {
       background-color: #f1f5f9;
-      border-color: #d9e4f2;
-      color: #172b4d;
+      border-color: var(--color-border-card);
+      color: var(--color-text-main);
     }
 
-    /* Corpo das Mensagens (Scrollable) */
     .chat-messages-container {
       flex: 1;
       padding: 24px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      background-color: #ffffff;
+      gap: 16px;
+      background-color: var(--color-bg-card);
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
     }
 
-    /* Separador de Data */
+    .chat-messages-container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chat-messages-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .chat-messages-container::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 3px;
+    }
+
     .chat-date-separator {
       display: flex;
       justify-content: center;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .chat-date-pill {
       background-color: #f1f5f9;
-      color: #60758b;
-      font-size: 10px;
+      color: var(--color-text-muted);
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.6px;
       text-transform: uppercase;
@@ -764,7 +906,6 @@
       border-radius: 12px;
     }
 
-    /* Balões de Mensagem */
     .message-row {
       display: flex;
       width: 100%;
@@ -779,7 +920,7 @@
     }
 
     .message-bubble {
-      max-width: 520px;
+      max-width: 500px;
       padding: 14px 18px 10px 18px;
       border-radius: 12px;
       display: flex;
@@ -790,20 +931,20 @@
 
     .incoming-bubble {
       background-color: #f8fafc;
-      border: 1px solid #eef2f6;
-      color: #172b4d;
+      border: 1px solid #e1e8f0;
+      color: var(--color-text-main);
     }
 
     .outgoing-bubble {
       background-color: #e8f1ff;
-      border: 1px solid #d9e4f2;
-      color: #172b4d;
+      border: none;
+      color: var(--color-text-main);
     }
 
     .message-text {
       font-size: 14px;
       line-height: 1.45;
-      color: #172b4d;
+      color: var(--color-text-main);
       word-break: break-word;
     }
 
@@ -816,28 +957,27 @@
     }
 
     .message-time {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 500;
     }
 
     .incoming-bubble .message-time {
-      color: #8194aa;
+      color: var(--color-text-placeholder);
     }
 
     .outgoing-bubble .message-time {
-      color: #2563eb;
+      color: var(--color-primary);
     }
 
     .read-ticks {
       display: inline-flex;
       align-items: center;
-      color: #2563eb;
+      color: var(--color-primary);
     }
 
-    /* Área de Composição e Envio (Footer) */
     .chat-composer-section {
       padding: 16px 24px 20px 24px;
-      background-color: #ffffff;
+      background-color: var(--color-bg-card);
       border-top: 1px solid #f1f5f9;
       flex-shrink: 0;
     }
@@ -845,19 +985,41 @@
     .composer-container {
       width: 100%;
       height: 58px;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 12px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
       display: flex;
       align-items: center;
-      padding: 0 12px 0 20px;
+      padding: 0 12px 0 14px;
       gap: 12px;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .composer-container:focus-within {
-      border-color: #2563eb;
+      border-color: var(--color-primary);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .composer-btn-attach {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #f1f5f9;
+      color: var(--color-text-muted);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 600;
+      flex-shrink: 0;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .composer-btn-attach:hover {
+      background-color: #e2e8f0;
+      color: var(--color-text-main);
     }
 
     .composer-input {
@@ -867,19 +1029,19 @@
       outline: none;
       font-family: inherit;
       font-size: 14px;
-      color: #172b4d;
+      color: var(--color-text-main);
       background: transparent;
     }
 
     .composer-input::placeholder {
-      color: #60758b;
+      color: var(--color-text-muted);
     }
 
     .btn-send-message {
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background-color: #2563eb;
+      background-color: var(--color-primary);
       color: #ffffff;
       border: none;
       display: flex;
@@ -891,7 +1053,7 @@
     }
 
     .btn-send-message:hover {
-      background-color: #1d4ed8;
+      background-color: var(--color-primary-hover);
       transform: scale(1.05);
     }
 
@@ -903,24 +1065,238 @@
       margin-left: 2px;
     }
 
+    .responsavel-selection-panel {
+      width: 100%;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 14px;
+      padding: 24px 32px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .panel-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .panel-heading-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .panel-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      letter-spacing: -0.3px;
+    }
+
+    .panel-subtitle {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .counter-pill {
+      height: 27px;
+      padding: 0 16px;
+      background-color: #e8f0ff;
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .responsavel-search-box {
+      width: 100%;
+      height: 46px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+      margin-bottom: 18px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .responsavel-search-box:focus-within {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .responsavel-search-icon {
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .responsavel-search-input {
+      flex: 1;
+      height: 100%;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--color-text-main);
+      background: transparent;
+    }
+
+    .responsavel-search-input::placeholder {
+      color: var(--color-text-placeholder);
+    }
+
+    .responsavel-section-caption {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .responsaveis-scroll-area {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-right: 4px;
+      min-height: 0;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .responsaveis-scroll-area::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .responsaveis-scroll-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .responsaveis-scroll-area::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    .contact-card-compact {
+      height: 60px;
+      padding: 0 16px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s ease;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .contact-card-compact:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transform: translateY(-1px);
+    }
+
+    .contact-card-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .contact-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: #e8f0ff;
+      color: var(--color-primary);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .contact-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contact-vinculo {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contact-action-arrow {
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .contact-card-compact:hover .contact-action-arrow {
+      color: var(--color-primary);
+      transform: translateX(3px);
+    }
+
     @media (max-width: 1024px) {
       .messaging-layout {
         flex-direction: column;
-        height: auto;
+        min-height: auto;
       }
       .conversations-sidebar {
         width: 100%;
         max-height: 400px;
       }
-      .chat-panel {
-        min-height: 600px;
+      .empty-state-panel {
+        min-height: 400px;
       }
     }
   </style>
 </head>
 <body>
   <div class="app-layout">
-    <!-- Barra Lateral do Responsável (248px) -->
     <aside class="sidebar">
       <div class="sidebar-brand">
         <div class="brand-icon">
@@ -934,11 +1310,9 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Acompanhamento Escolar</div>
         <ul class="nav-list">
-          <!-- Início -->
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
@@ -949,8 +1323,6 @@
               <span>Início</span>
             </a>
           </li>
-
-          <!-- Evolução do estudante -->
           <li class="nav-item">
             <a href="evolucao-estudante.html" class="nav-link">
               <span class="nav-icon">
@@ -962,8 +1334,6 @@
               <span>Evolução do estudante</span>
             </a>
           </li>
-
-          <!-- Histórico de registros -->
           <li class="nav-item">
             <a href="historico-registros.html" class="nav-link">
               <span class="nav-icon">
@@ -975,8 +1345,6 @@
               <span>Histórico de registros</span>
             </a>
           </li>
-
-          <!-- Devolutivas -->
           <li class="nav-item">
             <a href="devolutivas.html" class="nav-link">
               <span class="nav-icon">
@@ -989,8 +1357,6 @@
               <span>Devolutivas</span>
             </a>
           </li>
-
-          <!-- Mensagens -->
           <li class="nav-item">
             <a href="mensagens.html" class="nav-link active">
               <span class="nav-icon">
@@ -1006,7 +1372,6 @@
         </ul>
       </nav>
 
-      <!-- Perfil do Responsável no Rodapé -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button" aria-label="Menu do responsável">
           <div class="user-avatar">
@@ -1028,14 +1393,14 @@
       </div>
     </aside>
 
-    <!-- Área Principal -->
-    <main class="main-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
+    <main class="content-area">
       <header class="top-header">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="painel-inicial.html" class="breadcrumb-link">Responsável</a>
           <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-current">Mensagens</span>
+          <a href="mensagens.html" class="breadcrumb-link">Mensagens</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Prof.ª Ana Almeida</span>
         </nav>
 
         <div class="header-actions">
@@ -1057,72 +1422,58 @@
         </div>
       </header>
 
-      <!-- Conteúdo Principal -->
-      <div class="content-area">
-        <!-- Linha do Título com Ação de Nova Conversa -->
+      <div class="page-main-container">
         <div class="page-header-row">
           <div class="page-header-text">
-            <h1 class="page-title">Conversas</h1>
-            <p class="page-desc">Fale com a equipe da escola por aqui.</p>
+            <h1 class="page-title">Mensagens</h1>
+            <p class="page-description">Converse com os professores e equipe pedagógica em um só lugar.</p>
           </div>
-          <a href="iniciar-mensagem.html" class="btn-new-conversation" title="Criar nova conversa">
-            <span>+ &nbsp; Nova conversa</span>
+          <a href="iniciar-mensagem.html" class="btn-new-conversation">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <line x1="10" y1="4" x2="10" y2="16"></line>
+              <line x1="4" y1="10" x2="16" y2="10"></line>
+            </svg>
+            <span>Nova mensagem</span>
           </a>
         </div>
 
-        <!-- Layout Dividido (Lista de Conversas / Painel da Conversa) -->
         <div class="messaging-layout">
-          <!-- Painel Esquerdo: Lista de Conversas (360px) -->
-          <section class="conversations-sidebar" aria-label="Lista de conversas">
+          <aside class="conversations-sidebar" aria-label="Lista de conversas">
             <h2 class="conversations-sidebar-title">Conversas</h2>
 
-            <!-- Campo de Busca -->
             <div class="search-box">
               <span class="search-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="8" cy="8" r="5.5"></circle>
+                  <path d="m12.5 12.5 3.5 3.5"></path>
                 </svg>
               </span>
-              <input type="text" id="chatSearchInput" class="search-input" placeholder="Buscar conversa" aria-label="Buscar conversa" autocomplete="off">
+              <input type="text" class="search-input" placeholder="Buscar conversa ou professor" autocomplete="off" aria-label="Buscar conversa ou professor">
             </div>
 
-            <!-- Filtros Rápidos -->
             <div class="filter-chips">
-              <button class="filter-chip active" type="button" data-filter="all">Todas</button>
-              <button class="filter-chip secondary" type="button" data-filter="unread">Não lidas</button>
-              <button class="filter-chip secondary" type="button" data-filter="team">Equipe</button>
+              <button type="button" class="filter-chip active" data-filter="all">Todas</button>
+              <button type="button" class="filter-chip secondary" data-filter="unread">Não lidas</button>
+              <button type="button" class="filter-chip secondary" data-filter="team">Equipe</button>
             </div>
 
-            <!-- Rótulo Seção Recentes -->
-            <span class="section-caption">MAIS RECENTES</span>
+            <div class="section-caption">Mais recentes</div>
 
-            <!-- Lista de Conversas -->
-            <ul class="conversations-list" id="conversationsList">
-              <!-- Conversa 1: Prof. Ana Almeida (Aberta / Ativa) -->
-              <li class="conversation-item" data-type="teacher" data-unread="true" data-name="Prof. Ana Almeida" data-preview="Fico feliz! Vou conversar com ele sobre...">
-                <a href="conversa-prof-ana-almeida.html" class="conversation-item-link active" title="Conversa aberta com Prof.ª Ana Almeida" aria-current="true">
+            <ul class="conversations-list">
+              <li class="conversation-item" data-type="teacher" data-unread="false" data-name="Prof.ª Ana Almeida">
+                <a href="conversa-prof-ana-almeida.html" class="conversation-item-link active" title="Conversa com Prof.ª Ana Almeida" aria-current="true">
                   <div class="chat-avatar">AA</div>
                   <div class="chat-content">
                     <div class="chat-header-row">
-                      <span class="chat-sender">Prof. Ana Almeida</span>
+                      <span class="chat-sender">Prof.ª Ana Almeida</span>
                       <span class="chat-time">14:28</span>
                     </div>
-                    <div class="chat-preview-row">
-                      <span class="read-ticks-mini" title="Mensagem enviada e lida" aria-label="Lida">
-                        <svg width="14" height="10" viewBox="0 0 16 11" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <polyline points="1.5 6 5.5 10 11.5 2"></polyline>
-                          <polyline points="6 6 10 10 15 2"></polyline>
-                        </svg>
-                      </span>
-                      <p class="chat-preview">Fico feliz! Vou conversar com ele sobre ...</p>
-                    </div>
+                    <p class="chat-preview">Olá, João! Gostaria de compartilhar uma ob...</p>
                   </div>
                 </a>
               </li>
 
-              <!-- Conversa 2: Prof. Carlos Pimenta (Coordenação) -->
-              <li class="conversation-item" data-type="team" data-unread="false" data-name="Prof. Carlos Pimenta" data-preview="Podemos combinar um horário para conversar...">
+              <li class="conversation-item" data-type="teacher" data-unread="false" data-name="Prof. Carlos Pimenta">
                 <a href="conversa-prof-ana-almeida.html" class="conversation-item-link" title="Abrir conversa com Prof. Carlos Pimenta">
                   <div class="chat-avatar">CP</div>
                   <div class="chat-content">
@@ -1130,13 +1481,20 @@
                       <span class="chat-sender">Prof. Carlos Pimenta</span>
                       <span class="chat-time">Ontem</span>
                     </div>
-                    <p class="chat-preview">Podemos combinar um horário para conver...</p>
+                    <p class="chat-preview">
+                      <span class="chat-status-icon" title="Mensagem lida" style="margin-right: 4px;">
+                        <svg width="14" height="10" viewBox="0 0 16 11" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 6l3.5 3.5L11 1"></path>
+                          <path d="M5 6l3.5 3.5L15 1"></path>
+                        </svg>
+                      </span>
+                      Podemos combinar um horário para conver...
+                    </p>
                   </div>
                 </a>
               </li>
 
-              <!-- Conversa 3: Prof. João Martins -->
-              <li class="conversation-item" data-type="teacher" data-unread="false" data-name="Prof. João Martins" data-preview="Enviei algumas orientações para esta semana...">
+              <li class="conversation-item" data-type="teacher" data-unread="false" data-name="Prof. João Martins">
                 <a href="conversa-prof-ana-almeida.html" class="conversation-item-link" title="Abrir conversa com Prof. João Martins">
                   <div class="chat-avatar">JM</div>
                   <div class="chat-content">
@@ -1149,13 +1507,12 @@
                 </a>
               </li>
 
-              <!-- Conversa 4: Prof. Ana Almeida (Anterior) -->
-              <li class="conversation-item" data-type="teacher" data-unread="false" data-name="Prof. Ana Almeida" data-preview="Obrigada pelo retorno! Seguimos em contato.">
-                <a href="conversa-prof-ana-almeida.html" class="conversation-item-link" title="Abrir conversa anterior com Prof. Ana Almeida">
+              <li class="conversation-item" data-type="teacher" data-unread="false" data-name="Prof.ª Ana Almeida 2">
+                <a href="conversa-prof-ana-almeida.html" class="conversation-item-link" title="Abrir conversa com Prof.ª Ana Almeida">
                   <div class="chat-avatar">AA</div>
                   <div class="chat-content">
                     <div class="chat-header-row">
-                      <span class="chat-sender">Prof. Ana Almeida</span>
+                      <span class="chat-sender">Prof.ª Ana Almeida</span>
                       <span class="chat-time">17 out.</span>
                     </div>
                     <p class="chat-preview">Obrigada pelo retorno! Seguimos em contato.</p>
@@ -1163,39 +1520,34 @@
                 </a>
               </li>
             </ul>
-          </section>
+          </aside>
 
-          <!-- Painel Direito: Janela da Conversa (flex: 1) -->
-          <section class="chat-panel" aria-label="Janela de mensagens com Prof.ª Ana Almeida">
-            <!-- Cabeçalho da Conversa (84px) -->
-            <div class="chat-panel-header">
+          <section class="chat-panel" aria-label="Painel de mensagens da conversa com Prof.ª Ana Almeida">
+            <header class="chat-panel-header">
               <div class="chat-interlocutor-info">
-                <div class="chat-interlocutor-avatar" aria-hidden="true">AA</div>
+                <div class="chat-interlocutor-avatar">AA</div>
                 <div class="chat-interlocutor-details">
-                  <h2 class="chat-interlocutor-name">Prof. Ana Almeida</h2>
-                  <span class="chat-interlocutor-role">Professora · 6º ano A</span>
+                  <h2 class="chat-interlocutor-name">Prof.ª Ana Almeida</h2>
+                  <span class="chat-interlocutor-role">Língua Portuguesa · 6º ano A</span>
                 </div>
               </div>
 
               <div class="chat-header-actions">
-                <button class="chat-options-btn" type="button" title="Mais opções da conversa" aria-label="Mais opções da conversa">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="5" cy="11" r="1.2" fill="currentColor"></circle>
-                    <circle cx="11" cy="11" r="1.2" fill="currentColor"></circle>
-                    <circle cx="17" cy="11" r="1.2" fill="currentColor"></circle>
+                <button type="button" class="chat-options-btn" title="Mais opções da conversa" aria-label="Mais opções">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1.5"></circle>
+                    <circle cx="5" cy="12" r="1.5"></circle>
+                    <circle cx="19" cy="12" r="1.5"></circle>
                   </svg>
                 </button>
               </div>
-            </div>
+            </header>
 
-            <!-- Fluxo de Mensagens -->
-            <div class="chat-messages-container" id="chatMessagesContainer">
-              <!-- Separador de Data: HOJE -->
+            <div class="chat-messages-container" role="log" aria-live="polite">
               <div class="chat-date-separator">
                 <span class="chat-date-pill">HOJE</span>
               </div>
 
-              <!-- Mensagem Recebida 1 -->
               <div class="message-row incoming">
                 <div class="message-bubble incoming-bubble">
                   <p class="message-text">Olá, João! Gostaria de compartilhar uma observação positiva sobre a participação do Lucas na atividade de hoje.</p>
@@ -1205,7 +1557,6 @@
                 </div>
               </div>
 
-              <!-- Mensagem Enviada 1 -->
               <div class="message-row outgoing">
                 <div class="message-bubble outgoing-bubble">
                   <p class="message-text">Olá, professora! Que bom saber disso. O que ele fez durante a atividade?</p>
@@ -1214,14 +1565,13 @@
                     <span class="read-ticks" title="Mensagem lida" aria-label="Lida">
                       <svg width="14" height="10" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="1.5 6 5.5 10 11.5 2"></polyline>
-                        <polyline points="6 6 10 10 15 2"></polyline>
+                        <polyline points="5.5 6 9.5 10 15.5 2"></polyline>
                       </svg>
                     </span>
                   </div>
                 </div>
               </div>
 
-              <!-- Mensagem Recebida 2 -->
               <div class="message-row incoming">
                 <div class="message-bubble incoming-bubble">
                   <p class="message-text">Ele compartilhou ideias com o grupo e ajudou os colegas a organizarem a tarefa. Foi uma boa demonstração de colaboração.</p>
@@ -1231,7 +1581,6 @@
                 </div>
               </div>
 
-              <!-- Mensagem Enviada 2 -->
               <div class="message-row outgoing">
                 <div class="message-bubble outgoing-bubble">
                   <p class="message-text">Fico feliz! Vou conversar com ele sobre essa experiência em casa.</p>
@@ -1240,7 +1589,7 @@
                     <span class="read-ticks" title="Mensagem lida" aria-label="Lida">
                       <svg width="14" height="10" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="1.5 6 5.5 10 11.5 2"></polyline>
-                        <polyline points="6 6 10 10 15 2"></polyline>
+                        <polyline points="5.5 6 9.5 10 15.5 2"></polyline>
                       </svg>
                     </span>
                   </div>
@@ -1248,17 +1597,15 @@
               </div>
             </div>
 
-            <!-- Área de Composição e Envio -->
             <div class="chat-composer-section">
-              <form class="composer-container" id="chatComposerForm">
-                <input 
-                  type="text" 
-                  class="composer-input" 
-                  id="composerInput" 
-                  placeholder="Escreva uma mensagem…" 
-                  aria-label="Escreva uma mensagem para a Prof.ª Ana Almeida" 
-                  autocomplete="off"
-                >
+              <form class="composer-container" action="conversa-prof-ana-almeida.html" method="get">
+                <button type="button" class="composer-btn-attach" title="Anexar arquivo" aria-label="Anexar arquivo">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </button>
+                <input type="text" class="composer-input" placeholder="Escreva uma mensagem para Prof.ª Ana Almeida…" autocomplete="off" aria-label="Mensagem para Prof.ª Ana Almeida">
                 <button type="submit" class="btn-send-message" title="Enviar mensagem" aria-label="Enviar mensagem">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
