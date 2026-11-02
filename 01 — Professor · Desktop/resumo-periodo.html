@@ -38,7 +38,7 @@
       --color-slate: #64748b;
       --sidebar-width: 248px;
       --header-height: 76px;
-      --bottom-bar-height: 106px;
+      --bottom-bar-height: 76px;
     }
 
     body {
@@ -718,8 +718,9 @@
     }
 
     /* ==========================================================================
-       Barra Inferior Fixa de Ações (Voltar) - Altura 106px
+       Barra Inferior de Ações (Voltar) - Altura 76px
        ========================================================================== */
+    .bottom-bar,
     .bottom-action-bar {
       position: fixed;
       bottom: 0;
@@ -731,33 +732,41 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: 0 40px;
+      padding: 0 24px 0 32px;
+      box-shadow: 0 -4px 12px rgba(16, 24, 40, 0.05);
       z-index: 85;
     }
 
-    /* Botão Voltar (150x46px, fundo #60758b, r=10px) */
+    /* Botão Voltar (Fundo #60758b, Borda #d9e4f2, Texto #ffffff, Altura 44px, r=10px) */
+    .btn-back,
     .btn-voltar {
-      width: 150px;
-      height: 46px;
+      height: 44px;
+      padding: 0 24px;
       background-color: #60758b;
       border: 1px solid var(--color-border);
       border-radius: 10px;
       color: #ffffff;
-      display: flex;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
       cursor: pointer;
-      font-family: inherit;
-      transition: background-color 0.15s ease, transform 0.1s ease;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
     }
 
+    .btn-back:hover,
     .btn-voltar:hover {
-      background-color: #4b5d6f;
+      background-color: #475569;
       transform: translateY(-1px);
+    }
+
+    .btn-back:active,
+    .btn-voltar:active {
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -1202,13 +1211,13 @@
       </main>
 
       <!-- ========================================================================
-           BARRA INFERIOR FIXA DE AÇÕES (Voltar)
+           BARRA INFERIOR DE AÇÕES (Voltar)
            ======================================================================== -->
-      <footer class="bottom-action-bar">
+      <footer class="bottom-bar">
         <!-- Botão Voltar -->
-        <a href="devolutiva-individual.html" class="btn-voltar" title="Voltar para Devolutiva individual">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12.5 7H1.5M6 11.5 1.5 7 6 2.5"/>
+        <a href="devolutiva-individual.html" class="btn-back" title="Voltar para Devolutiva individual">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
           </svg>
           <span>Voltar</span>
         </a>
