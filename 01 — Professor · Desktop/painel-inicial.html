@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel Inicial do Professor · Desktop · Educar & Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
   <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -168,6 +172,7 @@
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
+      border-top: none;
     }
 
     .user-profile-button {
@@ -274,27 +279,27 @@
     .header-icon-btn {
       width: 44px;
       height: 44px;
-      border-radius: 14px;
-      background-color: #ffffff;
+      border-radius: 12px;
       border: 1px solid #d9e4f2;
+      background-color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #60758b;
       cursor: pointer;
       position: relative;
-      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      transition: all 0.15s ease;
     }
 
-    /* Indicador de notificação · desktop (Círculo 7×7px em x:28px, y:7px) */
+    /* Indicador de notificação · desktop (7×7px azul #2563eb) */
     .notification-dot {
       position: absolute;
-      top: 7px;
-      left: 28px;
+      top: 10px;
+      right: 10px;
       width: 7px;
       height: 7px;
-      border-radius: 50%;
       background-color: #2563eb;
+      border-radius: 50%;
     }
 
     .header-icon-btn:hover {
@@ -769,7 +774,7 @@
 
           <div class="two-column-grid">
             <!-- Atalho 1: Devolutiva individual -->
-            <a href="#devolutiva" class="shortcut-card">
+            <a href="devolutiva-individual.html" class="shortcut-card">
               <div class="shortcut-left">
                 <div class="shortcut-icon-wrapper devolutiva">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

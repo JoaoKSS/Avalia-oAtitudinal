@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minhas turmas · Desktop · Educar & Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
   <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,11 +102,10 @@
       font-size: 9px;
       font-weight: 600;
       line-height: 1.4;
-      letter-spacing: 0.8px;
-      color: #60758b;
+      letter-spacing: 0.5px;
+      color: #8194aa;
       text-transform: uppercase;
-      padding: 0 24px;
-      margin-bottom: 12px;
+      padding: 12px 24px 8px 24px;
     }
 
     .nav-list {
@@ -110,6 +113,9 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
+    }
+
+    .nav-item {
       padding: 0 12px;
     }
 
@@ -117,14 +123,15 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 12px 14px;
+      height: 44px;
+      padding: 0 14px;
       border-radius: 12px;
-      font-size: 14px;
+      text-decoration: none;
+      font-size: 13px;
       font-weight: 500;
       color: #60758b;
-      text-decoration: none;
-      transition: all 0.15s ease;
       position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
     }
 
     .nav-link:hover {
@@ -139,8 +146,9 @@
       font-weight: 600;
     }
 
+    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 50%;
@@ -148,7 +156,7 @@
       width: 3px;
       height: 28px;
       background-color: #2563eb;
-      border-radius: 0 2px 2px 0;
+      border-radius: 2px;
     }
 
     .nav-icon {
@@ -158,26 +166,27 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      color: currentColor;
     }
 
-    /* Rodapé: Perfil do Professor */
+    /* Rodapé da Sidebar: Perfil do Usuário */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
+      border-top: none;
     }
 
     .user-profile-button {
-      width: 100%;
       display: flex;
       align-items: center;
       gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
       background: transparent;
       border: none;
-      padding: 8px 10px;
-      border-radius: 10px;
+      border-radius: 14px;
       cursor: pointer;
       text-align: left;
-      font-family: inherit;
       transition: background-color 0.15s ease;
     }
 
@@ -186,41 +195,44 @@
     }
 
     .user-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
       background-color: #e8f1ff;
-      color: #2563eb;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #2563eb;
       flex-shrink: 0;
     }
 
     .user-info {
-      flex: 1;
       display: flex;
       flex-direction: column;
+      flex: 1;
+      min-width: 0;
     }
 
     .user-name {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: #172b4d;
-      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .user-role {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 400;
       color: #60758b;
-      line-height: 1.3;
     }
 
     .user-chevron {
-      color: #60758b;
+      color: #8194aa;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     /* Área Principal */
