@@ -513,6 +513,9 @@
         gap: 16px;
         width: 100%;
         box-shadow: 0 2px 8px rgba(22, 163, 74, 0.06);
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
         transition:
           box-shadow 0.15s ease,
           transform 0.15s ease;
@@ -962,8 +965,12 @@
             </div>
           </section>
 
-          <!-- Card de Atividade da Autoavaliação -->
-          <section class="activity-card" aria-label="Autoavaliação atitudinal">
+          <!-- Card de Atividade da Autoavaliação (Redireciona para o Comparativo) -->
+          <a
+            href="comparativo-autoavaliacao.html"
+            class="activity-card"
+            aria-label="Autoavaliação atitudinal - Ver comparativo"
+          >
             <div class="activity-header">
               <div class="activity-header-left">
                 <div class="activity-icon-wrapper" aria-hidden="true">
@@ -1011,10 +1018,7 @@
               </div>
               <div class="progress-footer">
                 <span class="progress-value">86% preenchido</span>
-                <a
-                  href="comparativo-autoavaliacao.html"
-                  class="comparative-link"
-                >
+                <span class="comparative-link">
                   <span>Comparativo</span>
                   <svg
                     width="14"
@@ -1029,10 +1033,10 @@
                   >
                     <path d="M6 12l4-4-4-4" />
                   </svg>
-                </a>
+                </span>
               </div>
             </div>
-          </section>
+          </a>
         </div>
 
         <!-- Rodapé Fixo de Ações (Oficial do Penpot) -->
