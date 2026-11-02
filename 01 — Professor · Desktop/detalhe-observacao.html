@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhe da Observação · Professor · Desktop · Educar & Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f1ff;
+      --color-bg-page: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-border-card: #d8e4f3;
+      --color-border-header: #d9e4f2;
+      --color-border-hover: #bfdbfe;
+      --color-status-dev-bg: #fff4d8;
+      --color-status-dev-text: #a86200;
+      --color-divider: #e5edf7;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-page);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================================
+       Barra Lateral do Professor (248px) - Padronização Unificada
+       ========================================================================== */
+    .sidebar {
+      width: 248px;
+      background-color: var(--color-bg-card);
+      border-right: 1px solid var(--color-border-header);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 30;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--color-text-main);
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    /* Navegação */
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--color-text-main);
+    }
+
+    /* Estado Ativo: Minhas Turmas */
+    .nav-link.active {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil do Usuário */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: none;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+
+    .user-chevron {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       Área Principal
+       ========================================================================== */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background-color: var(--color-bg-page);
+    }
+
+    /* Cabeçalho Superior Fixo (76px) */
+    .top-header {
+      height: 76px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-header);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      line-height: 1.4;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb-link {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+
+    .breadcrumb-link:hover {
+      color: var(--color-text-main);
+    }
+
+    .breadcrumb-separator {
+      color: var(--color-text-muted);
+      user-select: none;
+    }
+
+    .breadcrumb-current {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* Ações do Cabeçalho */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--color-border-header);
+      background-color: var(--color-bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: var(--color-text-main);
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 10px;
+      right: 11px;
+      width: 7px;
+      height: 7px;
+      border-radius: 4px;
+      background-color: var(--color-primary);
+    }
+
+    /* ==========================================================================
+       Conteúdo Principal (Totalmente Fluido)
+       ========================================================================== */
+    .content-area {
+      flex: 1;
+      padding: 32px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Cabeçalho da Página */
+    .page-header {
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.36;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+    }
+
+    .page-desc {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.43;
+      color: var(--color-text-muted);
+    }
+
+    /* ==========================================================================
+       Cartão da Estudante (1128 × 72px no Penpot)
+       ========================================================================== */
+    .student-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      height: 72px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .student-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .student-details {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .student-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      line-height: 1.2;
+    }
+
+    .student-meta {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.2;
+    }
+
+    /* ==========================================================================
+       Cartão Principal do Registro (1128 × 186px no Penpot)
+       ========================================================================== */
+    .main-record-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .record-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .record-date {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+
+    .record-status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 14px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.4;
+      background-color: var(--color-status-dev-bg);
+      color: var(--color-status-dev-text);
+      white-space: nowrap;
+    }
+
+    .record-dimension {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 14px;
+    }
+
+    .record-obs-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .record-obs-text {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-text-main);
+    }
+
+    /* ==========================================================================
+       Grid de Contexto e Justificativa (2 Colunas: 386px + 1fr)
+       ========================================================================== */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 386px 1fr;
+      gap: 24px;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 1024px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Cartão de Contexto */
+    .context-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 144px;
+    }
+
+    .context-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .context-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      line-height: 1.3;
+    }
+
+    /* Cartão de Justificativa Pedagógica */
+    .justification-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 144px;
+    }
+
+    .justification-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+    }
+
+    .justification-text {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-text-main);
+    }
+
+    .justification-divider {
+      height: 1px;
+      background-color: var(--color-divider);
+      width: 100%;
+      margin: 12px 0 8px 0;
+    }
+
+    .justification-meta {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+    }
+
+    /* ==========================================================================
+       Barra Inferior Fixa de Ações (Voltar + Editar Registro)
+       ========================================================================== */
+    .bottom-action-bar {
+      position: sticky;
+      bottom: 0;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-header);
+      height: 106px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 32px;
+      gap: 18px;
+      z-index: 20;
+    }
+
+    /* Botão Voltar (150x46px, fundo #60758b, r=10px, texto #ffffff) */
+    .btn-voltar {
+      width: 150px;
+      height: 46px;
+      background-color: #60758b;
+      border: 1px solid var(--color-border-header);
+      border-radius: 10px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-voltar:hover {
+      background-color: #4b5d6f;
+    }
+
+    /* Botão Editar Registro (170x46px, fundo #2563eb, r=10px, texto #ffffff) */
+    .btn-editar {
+      width: 170px;
+      height: 46px;
+      background-color: var(--color-primary);
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-editar:hover {
+      background-color: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- ========================================================================
+         BARRA LATERAL DO PROFESSOR (248px) - Padronização Unificada
+         ======================================================================== -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <!-- Ícone oficial do Penpot: Livro aberto -->
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-role">Área do professor</span>
+        </div>
+      </div>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <span class="nav-section-title">Espaço Pedagógico</span>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Início/Dashboard oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Visão geral</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- Item ativo no Penpot: Minhas turmas -->
+            <a href="minhas-turmas.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 5.833v11.667"/>
+                  <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+                </svg>
+              </span>
+              <span>Minhas turmas</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#registros" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Documento de registros oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.666 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
+                </svg>
+              </span>
+              <span>Registros de observação</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé: Perfil do Usuário -->
+      <div class="sidebar-footer">
+        <button type="button" class="user-profile-button">
+          <div class="user-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="8" rx="4" ry="4"></ellipse>
+              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"></path>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Meu perfil</span>
+            <span class="user-role">Professor</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ========================================================================
+         ÁREA PRINCIPAL COM HEADER, CONTEÚDO E BARRA DE AÇÕES
+         ======================================================================== -->
+    <div class="main-wrapper">
+      <!-- Cabeçalho Superior Fixo (76px) -->
+      <header class="top-header">
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="painel-inicial.html" class="breadcrumb-link">Área do professor</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="minhas-turmas.html" class="breadcrumb-link">Minhas turmas</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="historico-evidencias.html" class="breadcrumb-link">Histórico de evidências</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="historico-observacao-1.html" class="breadcrumb-link">Ana Beatriz Ferraz</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Detalhe da observação</span>
+        </nav>
+
+        <!-- Ações do Cabeçalho -->
+        <div class="header-actions">
+          <!-- Botão Mensagens (Ícone oficial do Penpot: dois balões sobrepostos) -->
+          <a href="#mensagens" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+              <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
+            </svg>
+          </a>
+
+          <!-- Botão Notificações com Indicador -->
+          <button type="button" class="header-icon-btn" title="Notificações" aria-label="Notificações">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.334"/>
+            </svg>
+            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Conteúdo Principal -->
+      <main class="content-area">
+        <!-- Título e Descrição Principal -->
+        <div class="page-header">
+          <h1 class="page-title">Detalhe da observação</h1>
+          <p class="page-desc">Registro completo e contexto pedagógico.</p>
+        </div>
+
+        <!-- ====================================================================
+             Cartão da Estudante (1128 × 72px)
+             ==================================================================== -->
+        <div class="student-card">
+          <div class="student-avatar" aria-hidden="true">AB</div>
+          <div class="student-details">
+            <h2 class="student-name">Ana Beatriz Ferraz</h2>
+            <span class="student-meta">6º ano A · 1º bimestre de 2026</span>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             Cartão Principal do Registro (1128 × 186px)
+             ==================================================================== -->
+        <article class="main-record-card">
+          <div class="record-card-top">
+            <span class="record-date">28 de outubro de 2026 · 10h35</span>
+            <span class="record-status-badge">A desenvolver</span>
+          </div>
+          <h3 class="record-dimension">Responsabilidade</h3>
+          <span class="record-obs-label">Observação registrada</span>
+          <p class="record-obs-text">
+            Compareceu sem os materiais necessários em duas aulas. A situação foi observada durante atividades que exigiam o uso do caderno e dos materiais de apoio.
+          </p>
+        </article>
+
+        <!-- ====================================================================
+             Grid de 2 Colunas: Contexto da Observação e Justificativa Pedagógica
+             ==================================================================== -->
+        <div class="details-grid">
+          <!-- Coluna 1: Contexto da Observação -->
+          <div class="context-card">
+            <span class="context-label">Contexto da observação</span>
+            <span class="context-value">Preparação para a aula</span>
+          </div>
+
+          <!-- Coluna 2: Justificativa Pedagógica -->
+          <div class="justification-card">
+            <div>
+              <h4 class="justification-title">Justificativa pedagógica</h4>
+              <p class="justification-text">
+                A observação ajuda a combinar uma estratégia de organização dos materiais, considerando a rotina e o apoio de que a estudante precisa.
+              </p>
+            </div>
+            <div>
+              <div class="justification-divider"></div>
+              <span class="justification-meta">Registrado por: Professor responsável · 28 out. 2026</span>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- ========================================================================
+           BARRA INFERIOR FIXA DE AÇÕES (Voltar + Editar Registro)
+           ======================================================================== -->
+      <footer class="bottom-action-bar">
+        <!-- Botão Voltar -->
+        <a href="historico-observacao-1.html" class="btn-voltar">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 5H1M5 9L1 5L5 1"/>
+          </svg>
+          <span>Voltar</span>
+        </a>
+
+        <!-- Botão Editar Registro -->
+        <a href="editar-observacao.html" class="btn-editar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+          <span>Editar registro</span>
+        </a>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
+
