@@ -284,15 +284,21 @@
 
     .radar-svg {
       width: 100%;
-      height: 190px;
+      height: auto;
+      max-height: 190px;
       overflow: visible;
     }
 
     .radar-label {
-      font-size: 8px;
+      font-size: 8.5px;
       font-weight: 600;
-      fill: var(--color-text-main);
+      fill: #60758b;
       font-family: inherit;
+    }
+
+    .radar-label-score {
+      font-weight: 700;
+      fill: #172b4d;
     }
 
     .score-badge {
@@ -430,9 +436,9 @@
         <div class="chart-card-header">
           <div>
             <h2 class="chart-title">Seu perfil por dimensão</h2>
-            <p class="chart-subtitle">Comparação entre cinco dimensões</p>
+            <p class="chart-subtitle">Escala de referência · 1 a 5</p>
           </div>
-          <span class="radar-scale-tag">0–5</span>
+          <span class="radar-scale-tag">1–5</span>
         </div>
 
         <div class="radar-container">
@@ -450,19 +456,29 @@
               <line x1="0" y1="0" x2="-29.4" y2="40.5" stroke="#d9e4f2" stroke-width="1"/>
               <line x1="0" y1="0" x2="-47.6" y2="-15.5" stroke="#d9e4f2" stroke-width="1"/>
 
-              <polygon points="0,-42 36.1,-11.8 23.5,32.4 -21.2,29.1 -41.9,-13.6" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="2"/>
+              <polygon points="0,-44 36.1,-11.7 24.7,34.0 -23.5,32.4 -34.2,-11.1" fill="rgba(37, 99, 235, 0.15)" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
 
-              <circle cx="0" cy="-42" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
-              <circle cx="36.1" cy="-11.8" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
-              <circle cx="23.5" cy="32.4" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
-              <circle cx="-21.2" cy="29.1" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
-              <circle cx="-41.9" cy="-13.6" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+              <circle cx="0" cy="-44" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+              <circle cx="36.1" cy="-11.7" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+              <circle cx="24.7" cy="34.0" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+              <circle cx="-23.5" cy="32.4" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+              <circle cx="-34.2" cy="-11.1" r="3.3" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
 
-              <text x="0" y="-58" text-anchor="middle" class="radar-label">Responsabilidade · 4,2</text>
-              <text x="56" y="-12" text-anchor="start" class="radar-label">Colaboração · 3,8</text>
-              <text x="36" y="52" text-anchor="start" class="radar-label">Autonomia · 4,0</text>
-              <text x="-36" y="52" text-anchor="end" class="radar-label">Participação · 3,6</text>
-              <text x="-56" y="-16" text-anchor="end" class="radar-label">Respeito e convivência · 4,4</text>
+              <text x="0" y="-58" text-anchor="middle" class="radar-label">
+                Respeito · <tspan class="radar-label-score">4,4</tspan>
+              </text>
+              <text x="56" y="-12" text-anchor="start" class="radar-label">
+                Colaboração · <tspan class="radar-label-score">3,8</tspan>
+              </text>
+              <text x="36" y="54" text-anchor="start" class="radar-label">
+                Responsabilidade · <tspan class="radar-label-score">4,2</tspan>
+              </text>
+              <text x="-36" y="54" text-anchor="end" class="radar-label">
+                Autonomia · <tspan class="radar-label-score">4,0</tspan>
+              </text>
+              <text x="-56" y="-12" text-anchor="end" class="radar-label">
+                Participação · <tspan class="radar-label-score">3,6</tspan>
+              </text>
             </g>
           </svg>
         </div>

@@ -558,24 +558,18 @@
       color: #60758b;
     }
 
-    .radar-card-body {
+    .radar-svg-container {
+      width: 100%;
       display: flex;
-      align-items: center;
-      gap: 20px;
-      flex: 1;
-    }
-
-    .radar-diagram-container {
-      flex: 1;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      min-width: 0;
+      align-items: center;
+      padding: 8px 0;
+      flex: 1;
     }
 
     .radar-svg {
       width: 100%;
-      max-width: 330px;
+      max-width: 440px;
       height: auto;
       overflow: visible;
     }
@@ -583,60 +577,13 @@
     .radar-label {
       font-size: 11px;
       font-weight: 600;
-      fill: #172b4d;
+      fill: #60758b;
       font-family: inherit;
     }
 
-    .radar-dimensions-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 240px;
-      flex-shrink: 0;
-    }
-
-    .radar-dimension-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 7px 12px;
-      border-radius: 10px;
-      background-color: #f8fafc;
-      border: 1px solid #edf2f7;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .radar-dimension-row:hover {
-      background-color: #f1f5f9;
-      border-color: #d9e4f2;
-    }
-
-    .radar-dimension-label-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .radar-pill-indicator {
-      width: 5px;
-      height: 24px;
-      background-color: var(--color-primary);
-      border-radius: 3px;
-      flex-shrink: 0;
-    }
-
-    .radar-dimension-name {
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.4;
-      color: #172b4d;
-    }
-
-    .radar-dimension-score {
-      font-size: 15px;
+    .radar-label-score {
       font-weight: 700;
-      color: var(--color-primary);
+      fill: #172b4d;
     }
 
     .line-card-body {
@@ -832,7 +779,7 @@
             </div>
             <div class="kpi-content">
               <span class="kpi-label">MAIOR PONTUAÇÃO</span>
-              <span class="kpi-value-highlight">Respeito e convivência</span>
+              <span class="kpi-value-highlight">Respeito</span>
               <span class="kpi-score-highlight">4,4 de 5</span>
             </div>
           </div>
@@ -843,86 +790,53 @@
             <div class="chart-card-header">
               <div class="chart-header-left">
                 <h2 class="chart-title">Seu perfil por dimensão</h2>
-                <span class="chart-subtitle">Comparação entre cinco dimensões</span>
+                <span class="chart-subtitle">Escala de referência · 1 a 5</span>
               </div>
               <span class="chart-badge">ESCALA 1–5</span>
             </div>
 
-            <div class="radar-card-body">
-              <div class="radar-diagram-container">
-                <svg class="radar-svg" viewBox="-25 5 330 205" fill="none" aria-hidden="true">
-                  <polygon points="130,98.6 145.6,109.9 139.6,128.3 120.4,128.3 114.4,109.9" fill="none" stroke="#d9e4f2" stroke-width="1"/>
-                  <polygon points="130,82.2 161.2,104.9 149.3,141.5 110.7,141.5 98.8,104.9" fill="none" stroke="#d9e4f2" stroke-width="1"/>
-                  <polygon points="130,65.8 176.8,99.8 158.9,154.8 101.1,154.8 83.2,99.8" fill="none" stroke="#d9e4f2" stroke-width="1"/>
-                  <polygon points="130,49.4 192.4,94.7 168.6,168.1 91.4,168.1 67.6,94.7" fill="none" stroke="#d9e4f2" stroke-width="1"/>
-                  <polygon points="130,33.0 208.0,89.7 178.2,181.3 81.8,181.3 52.0,89.7" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+            <div class="radar-svg-container">
+              <svg class="radar-svg" viewBox="50 50 364 320" fill="none" aria-hidden="true">
+                <polygon points="232.0,199.0 252.0,213.5 244.3,237.0 219.7,237.0 212.0,213.5" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+                <polygon points="232.0,178.0 271.9,207.0 256.7,254.0 207.3,254.0 192.1,207.0" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+                <polygon points="232.0,157.0 291.9,200.5 269.0,271.0 195.0,271.0 172.1,200.5" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+                <polygon points="232.0,136.0 311.9,194.0 281.4,288.0 182.6,288.0 152.1,194.0" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+                <polygon points="232.0,115.0 331.9,187.6 293.7,304.9 170.3,304.9 132.1,187.6" fill="none" stroke="#d9e4f2" stroke-width="1"/>
 
-                  <line x1="130" y1="115" x2="130" y2="33.0" stroke="#d9e4f2" stroke-width="1"/>
-                  <line x1="130" y1="115" x2="208.0" y2="89.7" stroke="#d9e4f2" stroke-width="1"/>
-                  <line x1="130" y1="115" x2="178.2" y2="181.3" stroke="#d9e4f2" stroke-width="1"/>
-                  <line x1="130" y1="115" x2="81.8" y2="181.3" stroke="#d9e4f2" stroke-width="1"/>
-                  <line x1="130" y1="115" x2="52.0" y2="89.7" stroke="#d9e4f2" stroke-width="1"/>
+                <line x1="232" y1="220" x2="232.0" y2="115.0" stroke="#d9e4f2" stroke-width="1"/>
+                <line x1="232" y1="220" x2="331.9" y2="187.6" stroke="#d9e4f2" stroke-width="1"/>
+                <line x1="232" y1="220" x2="293.7" y2="304.9" stroke="#d9e4f2" stroke-width="1"/>
+                <line x1="232" y1="220" x2="170.3" y2="304.9" stroke="#d9e4f2" stroke-width="1"/>
+                <line x1="232" y1="220" x2="132.1" y2="187.6" stroke="#d9e4f2" stroke-width="1"/>
 
-                  <polygon points="130,46.1 189.3,95.7 168.6,168.1 95.3,162.8 61.4,92.7" fill="#2563eb" fill-opacity="0.16" stroke="#2563eb" stroke-width="2.4"/>
+                <polygon points="232.0,127.6 307.9,195.4 283.8,291.3 182.6,287.9 160.1,196.7" fill="rgba(37, 99, 235, 0.15)" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round"/>
 
-                  <circle cx="130" cy="46.1" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
-                  <circle cx="189.3" cy="95.7" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
-                  <circle cx="168.6" cy="168.1" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
-                  <circle cx="95.3" cy="162.8" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
-                  <circle cx="61.4" cy="92.7" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+                <circle cx="232.0" cy="127.6" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="307.9" cy="195.4" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="283.8" cy="291.3" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="182.6" cy="287.9" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="160.1" cy="196.7" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
 
-                  <text x="130" y="19" text-anchor="middle" class="radar-label">Responsabilidade · 4,2</text>
-                  <text x="216" y="93" text-anchor="start" class="radar-label">Colaboração · 3,8</text>
-                  <text x="185" y="196" text-anchor="start" class="radar-label">Autonomia · 4,0</text>
-                  <text x="75" y="196" text-anchor="end" class="radar-label">Participação · 3,6</text>
-                  <text x="44" y="85" text-anchor="end" class="radar-label">
-                    <tspan x="44" dy="0">Respeito e</tspan>
-                    <tspan x="44" dy="13">convivência · 4,4</tspan>
-                  </text>
-                </svg>
-              </div>
+                <text x="232" y="100" text-anchor="middle" class="radar-label">
+                  Respeito · <tspan class="radar-label-score">4,4</tspan>
+                </text>
 
-              <div class="radar-dimensions-list">
-                <div class="radar-dimension-row">
-                  <div class="radar-dimension-label-group">
-                    <span class="radar-pill-indicator"></span>
-                    <span class="radar-dimension-name">Responsabilidade</span>
-                  </div>
-                  <span class="radar-dimension-score">4,2</span>
-                </div>
+                <text x="340" y="188" text-anchor="start" class="radar-label">
+                  Colaboração · <tspan class="radar-label-score">3,8</tspan>
+                </text>
 
-                <div class="radar-dimension-row">
-                  <div class="radar-dimension-label-group">
-                    <span class="radar-pill-indicator"></span>
-                    <span class="radar-dimension-name">Respeito e convivência</span>
-                  </div>
-                  <span class="radar-dimension-score">4,4</span>
-                </div>
+                <text x="298" y="322" text-anchor="start" class="radar-label">
+                  Responsabilidade · <tspan class="radar-label-score">4,2</tspan>
+                </text>
 
-                <div class="radar-dimension-row">
-                  <div class="radar-dimension-label-group">
-                    <span class="radar-pill-indicator"></span>
-                    <span class="radar-dimension-name">Autonomia</span>
-                  </div>
-                  <span class="radar-dimension-score">4,0</span>
-                </div>
+                <text x="166" y="322" text-anchor="end" class="radar-label">
+                  Autonomia · <tspan class="radar-label-score">4,0</tspan>
+                </text>
 
-                <div class="radar-dimension-row">
-                  <div class="radar-dimension-label-group">
-                    <span class="radar-pill-indicator"></span>
-                    <span class="radar-dimension-name">Colaboração</span>
-                  </div>
-                  <span class="radar-dimension-score">3,8</span>
-                </div>
-
-                <div class="radar-dimension-row">
-                  <div class="radar-dimension-label-group">
-                    <span class="radar-pill-indicator"></span>
-                    <span class="radar-dimension-name">Participação</span>
-                  </div>
-                  <span class="radar-dimension-score">3,6</span>
-                </div>
-              </div>
+                <text x="124" y="188" text-anchor="end" class="radar-label">
+                  Participação · <tspan class="radar-label-score">3,6</tspan>
+                </text>
+              </svg>
             </div>
           </div>
 
