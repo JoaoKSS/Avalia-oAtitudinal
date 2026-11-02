@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responder autoavaliação · Estudante · Mobile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      --radius-sm: 8px;
+      --radius-md: 10px;
+      --radius-btn: 11px;
+      --radius-card: 13px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100vw;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .mobile-screen-wrapper {
+      width: 100%;
+      max-width: 390px;
+      height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .notif-button {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      padding: 0;
+    }
+
+    .notif-button:hover {
+      background-color: #f8fafc;
+      border-color: #c7d7eb;
+    }
+
+    .notif-badge-dot {
+      position: absolute;
+      left: 27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 16px 98px 16px;
+      display: flex;
+      flex-direction: column;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .activity-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.36;
+      color: var(--color-text-main);
+      margin-bottom: 2px;
+    }
+
+    .activity-subtitle {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--color-text-muted);
+      margin-bottom: 14px;
+    }
+
+    .progress-section {
+      width: 100%;
+      margin-bottom: 14px;
+    }
+
+    .progress-label {
+      font-size: 9.6px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 5px;
+      background-color: var(--color-border-subtle);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background-color: var(--color-primary);
+      border-radius: 999px;
+    }
+
+    .enunciado-card {
+      width: 100%;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+
+    .enunciado-badge {
+      font-size: 8.5px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .enunciado-question {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--color-text-main);
+      margin-bottom: 4px;
+    }
+
+    .enunciado-guide {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--color-text-muted);
+    }
+
+    .instruction-label {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+    }
+
+    .options-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .option-row {
+      width: 100%;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .option-row:hover {
+      border-color: #cbd5e1;
+    }
+
+    .option-row.selected {
+      background-color: var(--color-primary-light);
+      border-color: var(--color-primary);
+    }
+
+    .option-radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.2px solid #9eadbd;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+    }
+
+    .option-row.selected .option-radio {
+      border-color: var(--color-primary);
+      background-color: var(--color-primary);
+    }
+
+    .option-radio-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: none;
+    }
+
+    .option-row.selected .option-radio-dot {
+      display: block;
+    }
+
+    .option-number {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      width: 12px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .option-row.selected .option-number {
+      color: var(--color-primary);
+    }
+
+    .option-text {
+      font-size: 9.6px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      flex: 1;
+      line-height: 1.25;
+    }
+
+    .option-row.selected .option-text {
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .reflection-block {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+    }
+
+    .reflection-title {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--color-text-main);
+      margin-bottom: 2px;
+    }
+
+    .reflection-subtitle {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--color-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .reflection-textarea {
+      width: 100%;
+      height: 78px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 11px;
+      color: var(--color-text-main);
+      resize: none;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .reflection-textarea:focus {
+      border-color: var(--color-primary);
+    }
+
+    .reflection-textarea::placeholder {
+      color: #8194aa;
+    }
+
+    .bottom-actions-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 82px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      gap: 12px;
+      z-index: 20;
+    }
+
+    .btn-action {
+      height: 46px;
+      border-radius: var(--radius-btn);
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-draft {
+      width: 142px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      color: var(--color-primary);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .btn-draft:hover {
+      background-color: #f8fafc;
+      border-color: #c7d7eb;
+    }
+
+    .btn-next {
+      flex: 1;
+      background-color: var(--color-primary);
+      border: none;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .btn-next:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="mobile-screen-wrapper">
+
+    <header class="mobile-header">
+      <a href="painel-inicial-estudante-mobile.html" class="brand-section" aria-label="Educar & Aprender - Área do Estudante">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3.333 16.25C3.333 15.1 4.266 14.167 5.416 14.167H16.666M5.416 1.667H16.666V18.333H5.416C4.266 18.333 3.333 17.401 3.333 16.25V3.75C3.333 2.6 4.266 1.667 5.416 1.667Z" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-category">Área do Estudante</span>
+        </div>
+      </a>
+
+      <button class="notif-button" aria-label="Ver notificações">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="notif-badge-dot"></span>
+      </button>
+    </header>
+
+    <section class="main-content">
+      <h1 class="activity-title">Convivência e respeito</h1>
+      <p class="activity-subtitle">Solicitada pela Prof.ª Ana Costa · Prazo: 28 out. 2026</p>
+
+      <div class="progress-section">
+        <span class="progress-label">DIMENSÃO 1 DE 5</span>
+        <div class="progress-track" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+      <article class="enunciado-card">
+        <div class="enunciado-badge">DIMENSÃO 1 · RESPEITO E CONVIVÊNCIA</div>
+        <h2 class="enunciado-question">Como você percebe essa atitude no seu dia a dia?</h2>
+        <p class="enunciado-guide">Pense nas suas atitudes ao conviver com colegas e professores.</p>
+      </article>
+
+      <p class="instruction-label">Escolha a opção que mais representa você</p>
+
+      <div class="options-group" role="radiogroup" aria-label="Escala de autoavaliação">
+        <div class="option-row" role="radio" aria-checked="false" tabindex="0" data-value="1">
+          <div class="option-radio">
+            <span class="option-radio-dot"></span>
+          </div>
+          <span class="option-number">1</span>
+          <span class="option-text">Ainda estou desenvolvendo essa atitude</span>
+        </div>
+
+        <div class="option-row" role="radio" aria-checked="false" tabindex="0" data-value="2">
+          <div class="option-radio">
+            <span class="option-radio-dot"></span>
+          </div>
+          <span class="option-number">2</span>
+          <span class="option-text">Consigo em poucas situações</span>
+        </div>
+
+        <div class="option-row selected" role="radio" aria-checked="true" tabindex="0" data-value="3">
+          <div class="option-radio">
+            <span class="option-radio-dot"></span>
+          </div>
+          <span class="option-number">3</span>
+          <span class="option-text">Consigo em algumas situações</span>
+        </div>
+
+        <div class="option-row" role="radio" aria-checked="false" tabindex="0" data-value="4">
+          <div class="option-radio">
+            <span class="option-radio-dot"></span>
+          </div>
+          <span class="option-number">4</span>
+          <span class="option-text">Consigo na maioria das situações</span>
+        </div>
+
+        <div class="option-row" role="radio" aria-checked="false" tabindex="0" data-value="5">
+          <div class="option-radio">
+            <span class="option-radio-dot"></span>
+          </div>
+          <span class="option-number">5</span>
+          <span class="option-text">Pratico essa atitude com frequência</span>
+        </div>
+      </div>
+
+      <div class="reflection-block">
+        <h3 class="reflection-title">Reflexão (opcional)</h3>
+        <p class="reflection-subtitle">Quer registrar um exemplo ou contexto?</p>
+        <textarea class="reflection-textarea" placeholder="Escreva aqui…" aria-label="Reflexão opcional"></textarea>
+      </div>
+    </section>
+
+    <footer class="bottom-actions-bar">
+      <a href="autoavaliacoes-estudante-mobile.html" class="btn-action btn-draft">Salvar rascunho</a>
+      <a href="finalizar-autoavaliacao-estudante-mobile.html" class="btn-action btn-next">Próxima dimensão &nbsp;→</a>
+    </footer>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.option-row').forEach(row => {
+      row.addEventListener('click', () => {
+        document.querySelectorAll('.option-row').forEach(r => {
+          r.classList.remove('selected');
+          r.setAttribute('aria-checked', 'false');
+        });
+        row.classList.add('selected');
+        row.setAttribute('aria-checked', 'true');
+      });
+
+      row.addEventListener('keydown', e => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          row.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

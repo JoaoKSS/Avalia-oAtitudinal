@@ -148,8 +148,8 @@
 
     .notif-badge-dot {
       position: absolute;
-      left: 26px;
-      top: 5px;
+      left: 27px;
+      top: 6px;
       width: 7px;
       height: 7px;
       background: var(--color-primary);
@@ -162,6 +162,11 @@
       padding: 18px 16px 98px 16px;
       display: flex;
       flex-direction: column;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
     }
 
     .greeting-title {
@@ -424,11 +429,10 @@
   <main class="mobile-screen-wrapper">
 
     <header class="mobile-header">
-      <a href="#" class="brand-section" aria-label="Educar & Aprender - Área do Estudante">
+      <a href="painel-inicial-estudante-mobile.html" class="brand-section" aria-label="Educar & Aprender - Área do Estudante">
         <div class="brand-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3.333 16.25C3.333 15.1 4.266 14.167 5.416 14.167H16.666M5.416 1.667H16.666V18.333H5.416C4.266 18.333 3.333 17.401 3.333 16.25V3.75C3.333 2.6 4.266 1.667 5.416 1.667Z" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <div class="brand-text">
@@ -438,9 +442,9 @@
       </a>
 
       <button class="notif-button" aria-label="Ver notificações">
-        <svg width="24" height="24" viewBox="439 126 24 24" fill="none">
-          <path d="M456 134.667C456 131.905 453.761 129.667 451 129.667C448.239 129.667 446 131.905 446 134.667C446 140.5 443.5 140.5 443.5 142.167H458.5C458.5 140.5 456 140.5 456 134.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M449.333 145.5H452.667" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="notif-badge-dot"></span>
       </button>
