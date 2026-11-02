@@ -38,11 +38,17 @@
       --color-status-dev-text: #a86200;
     }
 
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--color-bg-page);
       color: var(--color-text-main);
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
       display: flex;
       -webkit-font-smoothing: antialiased;
     }
@@ -51,7 +57,8 @@
     .app-layout {
       display: flex;
       width: 100%;
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
     }
 
     /* ==========================================================================
@@ -234,7 +241,7 @@
     }
 
     .user-name {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--color-text-main);
       white-space: nowrap;
@@ -263,6 +270,8 @@
       display: flex;
       flex-direction: column;
       min-width: 0;
+      height: 100vh;
+      overflow: hidden;
       background-color: var(--color-bg-page);
     }
 
@@ -278,6 +287,7 @@
       position: sticky;
       top: 0;
       z-index: 20;
+      flex-shrink: 0;
     }
 
     /* Breadcrumbs */
@@ -363,14 +373,19 @@
        ========================================================================== */
     .content-area {
       flex: 1;
-      padding: 32px;
+      padding: 32px 32px 20px 32px;
       width: 100%;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 0;
     }
 
     /* Cabeçalho da Página */
     .page-header {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      flex-shrink: 0;
     }
 
     .page-title {
@@ -400,7 +415,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+      flex-shrink: 0;
       transition: border-color 0.15s ease;
     }
 
@@ -411,14 +427,14 @@
     }
 
     .student-summary-avatar {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background-color: var(--color-primary-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--color-primary);
       flex-shrink: 0;
@@ -432,10 +448,10 @@
     }
 
     .student-summary-name {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: var(--color-text-main);
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     .student-summary-meta {
@@ -456,7 +472,7 @@
     }
 
     .student-evidence-text {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--color-primary);
       line-height: 1;
@@ -469,8 +485,11 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       width: 100%;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 25;
     }
 
     /* Campo de Busca */
@@ -648,8 +667,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       width: 100%;
+      flex-shrink: 0;
     }
 
     .summary-total {
@@ -665,13 +685,43 @@
     }
 
     /* ==========================================================================
-       Lista de Observações
+       Área de Scroll Interno das Observações
        ========================================================================== */
+    .observations-scroll-area {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding-right: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .observations-scroll-area::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .observations-scroll-area::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+    }
+
+    .observations-scroll-area::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    .observations-scroll-area::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Lista de Observações */
     .observations-section {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 24px;
     }
 
     /* Cartão de Observação (78px no Penpot) */
@@ -705,24 +755,24 @@
     }
 
     .observation-date {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
       color: var(--color-text-muted);
       line-height: 1.2;
     }
 
     .observation-dimension {
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: var(--color-text-main);
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     .observation-desc {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       color: var(--color-text-muted);
-      line-height: 1.3;
+      line-height: 1.35;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -735,17 +785,20 @@
       flex-shrink: 0;
     }
 
-    /* Badges de Status: Positiva e A desenvolver */
+    /* Badges de Status: Positiva e A desenvolver (Tamanho Padronizado e Alinhado) */
     .obs-status-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 3px 14px;
-      border-radius: 11px;
+      width: 120px;
+      height: 26px;
+      border-radius: 13px;
       font-size: 11px;
       font-weight: 600;
-      line-height: 1.4;
+      line-height: 1;
       white-space: nowrap;
+      text-align: center;
+      box-sizing: border-box;
     }
 
     .obs-status-badge.positiva {
@@ -774,10 +827,12 @@
 
     /* Rodapé da lista de observações */
     .list-footer-text {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--color-primary);
-      margin-top: 4px;
+      margin-top: 0;
+      padding-bottom: 8px;
+      flex-shrink: 0;
     }
 
     /* ==========================================================================
@@ -785,8 +840,6 @@
        ========================================================================== */
     .bottom-bar,
     .bottom-action-bar {
-      position: sticky;
-      bottom: 0;
       background-color: var(--color-bg-card);
       border-top: 1px solid var(--color-border-header);
       height: 76px;
@@ -796,6 +849,7 @@
       padding: 0 24px 0 32px;
       box-shadow: 0 -4px 12px rgba(16, 24, 40, 0.05);
       z-index: 20;
+      flex-shrink: 0;
     }
 
     /* Botão Voltar (Fundo #60758b, Borda var(--color-border-header), Texto #ffffff, Altura 44px, r=10px) */
@@ -1054,78 +1108,81 @@
           <span class="summary-status">1 A desenvolver</span>
         </div>
 
-        <div class="observations-section">
-          <!-- Observação 1: 21 nov. 2026 · Autonomia · Positiva -->
-          <a href="detalhe-observacao.html" class="observation-card">
-            <div class="observation-card-left">
-              <span class="observation-date">21 nov. 2026</span>
-              <h3 class="observation-dimension">Autonomia</h3>
-              <p class="observation-desc">Concluiu uma etapa após reler as orientações.</p>
-            </div>
-            <div class="observation-card-right">
-              <span class="obs-status-badge positiva">Positiva</span>
-              <span class="observation-action-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
-                </svg>
-              </span>
-            </div>
-          </a>
+        <!-- Área de Rolagem Interna das Observações -->
+        <div class="observations-scroll-area">
+          <div class="observations-section">
+            <!-- Observação 1: 21 nov. 2026 · Autonomia · Positiva -->
+            <a href="detalhe-observacao.html" class="observation-card">
+              <div class="observation-card-left">
+                <span class="observation-date">21 nov. 2026</span>
+                <h3 class="observation-dimension">Autonomia</h3>
+                <p class="observation-desc">Concluiu uma etapa após reler as orientações.</p>
+              </div>
+              <div class="observation-card-right">
+                <span class="obs-status-badge positiva">Positiva</span>
+                <span class="observation-action-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
 
-          <!-- Observação 2: 18 nov. 2026 · Colaboração · Positiva -->
-          <a href="detalhe-observacao.html" class="observation-card">
-            <div class="observation-card-left">
-              <span class="observation-date">18 nov. 2026</span>
-              <h3 class="observation-dimension">Colaboração</h3>
-              <p class="observation-desc">Apoiou um colega durante uma atividade em dupla.</p>
-            </div>
-            <div class="observation-card-right">
-              <span class="obs-status-badge positiva">Positiva</span>
-              <span class="observation-action-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
-                </svg>
-              </span>
-            </div>
-          </a>
+            <!-- Observação 2: 18 nov. 2026 · Colaboração · Positiva -->
+            <a href="detalhe-observacao.html" class="observation-card">
+              <div class="observation-card-left">
+                <span class="observation-date">18 nov. 2026</span>
+                <h3 class="observation-dimension">Colaboração</h3>
+                <p class="observation-desc">Apoiou um colega durante uma atividade em dupla.</p>
+              </div>
+              <div class="observation-card-right">
+                <span class="obs-status-badge positiva">Positiva</span>
+                <span class="observation-action-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
 
-          <!-- Observação 3: 14 nov. 2026 · Responsabilidade · Positiva -->
-          <a href="detalhe-observacao.html" class="observation-card">
-            <div class="observation-card-left">
-              <span class="observation-date">14 nov. 2026</span>
-              <h3 class="observation-dimension">Responsabilidade</h3>
-              <p class="observation-desc">Conferiu os materiais com apoio de uma lista.</p>
-            </div>
-            <div class="observation-card-right">
-              <span class="obs-status-badge positiva">Positiva</span>
-              <span class="observation-action-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
-                </svg>
-              </span>
-            </div>
-          </a>
+            <!-- Observação 3: 14 nov. 2026 · Responsabilidade · Positiva -->
+            <a href="detalhe-observacao.html" class="observation-card">
+              <div class="observation-card-left">
+                <span class="observation-date">14 nov. 2026</span>
+                <h3 class="observation-dimension">Responsabilidade</h3>
+                <p class="observation-desc">Conferiu os materiais com apoio de uma lista.</p>
+              </div>
+              <div class="observation-card-right">
+                <span class="obs-status-badge positiva">Positiva</span>
+                <span class="observation-action-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
 
-          <!-- Observação 4: 28 out. 2026 · Responsabilidade · A desenvolver -->
-          <a href="detalhe-observacao.html" class="observation-card">
-            <div class="observation-card-left">
-              <span class="observation-date">28 out. 2026</span>
-              <h3 class="observation-dimension">Responsabilidade</h3>
-              <p class="observation-desc">Compareceu sem os materiais necessários em duas aulas.</p>
-            </div>
-            <div class="observation-card-right">
-              <span class="obs-status-badge desenvolver">A desenvolver</span>
-              <span class="observation-action-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
-                </svg>
-              </span>
-            </div>
-          </a>
+            <!-- Observação 4: 28 out. 2026 · Responsabilidade · A desenvolver -->
+            <a href="detalhe-observacao.html" class="observation-card">
+              <div class="observation-card-left">
+                <span class="observation-date">28 out. 2026</span>
+                <h3 class="observation-dimension">Responsabilidade</h3>
+                <p class="observation-desc">Compareceu sem os materiais necessários em duas aulas.</p>
+              </div>
+              <div class="observation-card-right">
+                <span class="obs-status-badge desenvolver">A desenvolver</span>
+                <span class="observation-action-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Rodapé de contagem exibida -->
+          <span class="list-footer-text">Exibindo 4 de 22 observações</span>
         </div>
-
-        <!-- Rodapé de contagem exibida -->
-        <span class="list-footer-text">Exibindo 4 de 22 observações</span>
       </main>
 
       <!-- ========================================================================

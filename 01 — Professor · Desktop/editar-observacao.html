@@ -28,6 +28,7 @@
       --color-bg-card: #ffffff;
       --color-text-main: #172b4d;
       --color-text-muted: #60758b;
+      --color-text-placeholder: #8295ad;
       --color-border-card: #d8e4f3;
       --color-border-header: #d9e4f2;
       --color-border-hover: #bfdbfe;
@@ -229,7 +230,7 @@
     }
 
     .user-name {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--color-text-main);
       white-space: nowrap;
@@ -384,30 +385,37 @@
     }
 
     /* ==========================================================================
-       Cartão da Estudante (1128 × 72px no Penpot)
+       Cartão da Estudante (Padrão Unificado de Tipografia)
        ========================================================================== */
     .student-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-card);
       border-radius: 12px;
-      height: 72px;
-      padding: 0 20px;
+      min-height: 76px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .student-card-left {
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 24px;
-      width: 100%;
     }
 
     .student-avatar {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background-color: var(--color-primary-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--color-primary);
       flex-shrink: 0;
@@ -417,21 +425,37 @@
     .student-details {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
     }
 
     .student-name {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: var(--color-text-main);
-      line-height: 1.2;
+      line-height: 1.35;
     }
 
     .student-meta {
       font-size: 12px;
       font-weight: 400;
       color: var(--color-text-muted);
-      line-height: 1.2;
+      line-height: 1.38;
+    }
+
+    .student-badge {
+      height: 28px;
+      padding: 0 16px;
+      border-radius: 14px;
+      background-color: #e8f0ff;
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+      line-height: 1;
     }
 
     /* ==========================================================================
@@ -443,9 +467,10 @@
     }
 
     .field-label {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--color-text-main);
+      line-height: 1.4;
       margin-bottom: 8px;
       display: block;
     }
@@ -498,7 +523,7 @@
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--color-text-main);
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -540,7 +565,7 @@
       display: block;
       text-decoration: none;
       padding: 10px 16px;
-      font-size: 13px;
+      font-size: 14px;
       color: var(--color-text-main);
       cursor: pointer;
       transition: background-color 0.15s ease, color 0.15s ease;
@@ -571,8 +596,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 600;
       cursor: pointer;
       border: 1px solid transparent;
       transition: all 0.15s ease;
@@ -637,16 +662,16 @@
       box-shadow: 0 0 0 1px #b86a00;
     }
 
-    /* Campo de Texto da Descrição (132px) */
+    /* Campo de Texto da Descrição (120px) */
     .form-textarea {
       width: 100%;
-      height: 132px;
+      height: 120px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-card);
       border-radius: 10px;
       padding: 16px;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
       line-height: 1.5;
       color: var(--color-text-main);
@@ -655,15 +680,20 @@
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
+    .form-textarea::placeholder {
+      font-size: 14px;
+      color: var(--color-text-placeholder);
+    }
+
     .form-textarea:focus {
       border-color: var(--color-primary);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
-    /* Linha 3: Contexto e Justificativa Pedagógica */
+    /* Linha 3: Contexto e Justificativa Pedagógica (2 colunas iguais de 50%) */
     .form-row-bottom {
       display: grid;
-      grid-template-columns: 420px 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 24px;
       margin-top: 24px;
       margin-bottom: 32px;
@@ -894,15 +924,18 @@
         </div>
 
         <!-- ====================================================================
-             Cartão da Estudante (1128 × 72px)
+             Cartão da Estudante (1128 × 76px)
              ==================================================================== -->
-        <div class="student-card">
-          <div class="student-avatar" aria-hidden="true">AB</div>
-          <div class="student-details">
-            <h2 class="student-name">Ana Beatriz Ferraz</h2>
-            <span class="student-meta">6º ano A · 1º bimestre de 2026</span>
+        <section class="student-card" aria-label="Informações da estudante selecionada">
+          <div class="student-card-left">
+            <div class="student-avatar" aria-hidden="true">AB</div>
+            <div class="student-details">
+              <span class="student-name">Ana Beatriz Ferraz</span>
+              <span class="student-meta">6º ano A · 1º bimestre de 2026</span>
+            </div>
           </div>
-        </div>
+          <div class="student-badge">Estudante selecionado</div>
+        </section>
 
         <!-- ====================================================================
              Formulário de Edição
@@ -911,7 +944,7 @@
           <!-- Linha 1: Dimensão e Tipo de Observação -->
           <div class="form-row-top">
             <!-- Coluna Dimensão Atitudinal -->
-            <div class="edit-form-group">
+            <div class="edit-form-group" style="margin-bottom: 0;">
               <label id="label-dimensao" class="field-label">Dimensão atitudinal <span class="required-asterisk">*</span></label>
               <details class="dimension-dropdown-details">
                 <summary class="dimension-select-box" role="button" aria-haspopup="listbox" aria-labelledby="label-dimensao">
@@ -930,7 +963,7 @@
             </div>
 
             <!-- Coluna Tipo de Observação -->
-            <div class="edit-form-group">
+            <div class="edit-form-group" style="margin-bottom: 0;">
               <span class="field-label">Tipo de observação <span class="required-asterisk">*</span></span>
               <div class="type-options-container" role="radiogroup" aria-label="Tipo de observação">
                 <div class="type-btn positiva" role="radio" aria-checked="false" tabindex="0">
@@ -955,13 +988,13 @@
           <!-- Linha 3: Contexto e Justificativa Pedagógica -->
           <div class="form-row-bottom">
             <!-- Coluna Contexto da Observação -->
-            <div class="edit-form-group">
+            <div class="edit-form-group" style="margin-bottom: 0;">
               <label for="obs-contexto" class="field-label">Contexto da observação</label>
               <textarea id="obs-contexto" class="form-textarea" spellcheck="false">Preparação para a aula</textarea>
             </div>
 
             <!-- Coluna Justificativa Pedagógica -->
-            <div class="edit-form-group">
+            <div class="edit-form-group" style="margin-bottom: 0;">
               <label for="obs-justificativa" class="field-label">Justificativa pedagógica</label>
               <textarea id="obs-justificativa" class="form-textarea" spellcheck="false">Registrar para combinar uma estratégia de organização dos materiais e identificar o apoio necessário à rotina escolar.</textarea>
             </div>

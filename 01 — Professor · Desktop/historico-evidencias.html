@@ -230,7 +230,7 @@
     }
 
     .user-name {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--color-text-main);
       white-space: nowrap;
@@ -599,8 +599,8 @@
     }
 
     .turma-title {
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 700;
       color: var(--color-text-main);
       margin-bottom: 10px;
     }
@@ -617,25 +617,26 @@
       gap: 24px;
     }
 
-    /* Cartão do Estudante (360 × 112px no Penpot) */
+    /* Cartão do Estudante (Padrão Unificado com registro-selecionar-estudante.html) */
     .student-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-card);
-      border-radius: 10px;
-      padding: 16px 20px;
-      min-height: 112px;
+      border-radius: 12px;
+      padding: 16px;
+      min-height: 78px;
       display: flex;
-      align-items: flex-start;
-      gap: 16px;
+      align-items: center;
+      gap: 14px;
       text-decoration: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      cursor: pointer;
       position: relative;
     }
 
     .student-card:hover {
-      border-color: var(--color-border-hover);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
-      transform: translateY(-2px);
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
     }
 
     .student-avatar {
@@ -646,7 +647,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--color-primary);
       flex-shrink: 0;
@@ -656,26 +657,27 @@
     .student-info {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
       flex: 1;
       min-width: 0;
     }
 
     .student-name {
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: var(--color-text-main);
-      line-height: 1.3;
+      line-height: 1.35;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin: 0;
     }
 
     .student-obs {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
       color: var(--color-text-muted);
-      line-height: 1.4;
+      line-height: 1.38;
     }
 
     .student-obs.muted {
@@ -683,13 +685,12 @@
     }
 
     .student-action-link {
-      position: absolute;
-      bottom: 16px;
-      right: 20px;
       color: var(--color-text-muted);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
+      margin-left: auto;
       transition: color 0.15s ease, transform 0.15s ease;
     }
 

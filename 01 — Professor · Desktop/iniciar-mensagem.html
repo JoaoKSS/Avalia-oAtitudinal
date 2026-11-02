@@ -34,11 +34,17 @@
       --color-unread: #3aff2e;
     }
 
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--color-bg-page);
       color: var(--color-text-main);
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
       display: flex;
       -webkit-font-smoothing: antialiased;
     }
@@ -47,7 +53,8 @@
     .app-layout {
       display: flex;
       width: 100%;
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
     }
 
     /* ==========================================================================
@@ -229,7 +236,7 @@
     }
 
     .user-name {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--color-text-main);
       white-space: nowrap;
@@ -259,6 +266,8 @@
       display: flex;
       flex-direction: column;
       min-width: 0;
+      height: 100vh;
+      overflow: hidden;
       background-color: var(--color-bg-page);
     }
 
@@ -365,11 +374,13 @@
     .page-main-container {
       flex: 1;
       width: 100%;
-      padding: 32px;
+      padding: 24px 32px 32px 32px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
+      overflow: hidden;
+      min-height: 0;
     }
 
     /* Linha do Título da Página com Botão Nova Mensagem */
@@ -378,6 +389,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      flex-shrink: 0;
     }
 
     .page-header-text {
@@ -436,7 +448,7 @@
       border-radius: 10px;
       color: #ffffff;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
@@ -461,12 +473,13 @@
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-card);
       border-radius: 14px;
-      padding: 28px 32px 32px 32px;
+      padding: 24px 32px 28px 32px;
       display: flex;
       flex-direction: column;
       box-sizing: border-box;
-      height: calc(100vh - 200px);
-      min-height: 700px;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
     }
 
     .panel-header-row {
@@ -475,6 +488,7 @@
       justify-content: space-between;
       margin-bottom: 20px;
       gap: 16px;
+      flex-shrink: 0;
     }
 
     .panel-heading-text {
@@ -523,6 +537,7 @@
       margin-bottom: 18px;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
       box-sizing: border-box;
+      flex-shrink: 0;
     }
 
     .responsavel-search-box:focus-within {
@@ -543,7 +558,7 @@
       border: none;
       outline: none;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 14px;
       color: var(--color-text-main);
       background: transparent;
     }
@@ -559,6 +574,7 @@
       color: var(--color-text-muted);
       text-transform: uppercase;
       margin-bottom: 12px;
+      flex-shrink: 0;
     }
 
     /* Lista Rolável de Responsáveis */
@@ -569,6 +585,7 @@
       flex-direction: column;
       gap: 8px;
       padding-right: 4px;
+      min-height: 0;
       scrollbar-width: thin;
       scrollbar-color: #cbd5e1 transparent;
     }
@@ -639,7 +656,7 @@
     }
 
     .contact-name {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--color-text-main);
       white-space: nowrap;
