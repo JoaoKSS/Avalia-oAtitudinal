@@ -252,31 +252,44 @@
       padding: 0 32px;
     }
 
-    .breadcrumb {
+    .breadcrumb,
+    .breadcrumb-nav {
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 13px;
+      line-height: 1.4;
+      flex-wrap: wrap;
     }
 
+    .breadcrumb-path,
+    .breadcrumb-link,
     .breadcrumb-item {
-      font-weight: 400;
       color: #60758b;
+      font-weight: 500;
       text-decoration: none;
       transition: color 0.15s ease;
     }
 
-    .breadcrumb-item:hover {
+    .breadcrumb-path a,
+    .breadcrumb-link:hover,
+    .breadcrumb-path:hover,
+    .breadcrumb-item:hover,
+    .breadcrumb-path a:hover {
       color: #172b4d;
+      text-decoration: none;
     }
 
     .breadcrumb-separator {
-      color: #60758b;
+      color: #8194aa;
+      font-size: 13px;
+      user-select: none;
     }
 
     .breadcrumb-current {
-      font-weight: 700;
       color: #2563eb;
+      font-weight: 600;
+      font-size: 13px;
     }
 
     .header-actions {
@@ -288,16 +301,16 @@
     .header-icon-btn {
       width: 44px;
       height: 44px;
-      border-radius: 10px;
-      background-color: #ffffff;
+      border-radius: 12px;
       border: 1px solid #d9e4f2;
+      background-color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #60758b;
       cursor: pointer;
       position: relative;
-      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      transition: all 0.15s ease;
     }
 
     .header-icon-btn:hover {
@@ -306,15 +319,20 @@
       color: #172b4d;
     }
 
+    .header-icon-btn.active {
+      border: 2px solid #2563eb;
+      background-color: #ffffff;
+      color: #2563eb;
+    }
+
     .notification-dot {
       position: absolute;
-      top: 6px;
-      right: 6px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+      top: 10px;
+      right: 10px;
+      width: 7px;
+      height: 7px;
       background-color: #2563eb;
-      border: 2px solid #ffffff;
+      border-radius: 50%;
     }
 
     /* Área de Conteúdo */
@@ -897,22 +915,18 @@
         </nav>
 
         <div class="header-actions">
-          <!-- Botão Mensagens -->
           <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
-            <!-- Ícone Conversas oficial do Penpot -->
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
-              <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
-              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+              <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
             </svg>
           </a>
 
-          <!-- Botão Notificações -->
-          <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
-            <!-- Ícone Sino de Notificação oficial do Penpot -->
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 6.667C15 3.905 12.761 1.667 10 1.667C7.239 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167h15C17.5 12.5 15 12.5 15 6.667z"/>
-              <path d="M8.333 17.5h3.334"/>
+          <button type="button" class="header-icon-btn" title="Notificações" aria-label="Notificações">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.334"/>
             </svg>
             <span class="notification-dot" aria-hidden="true"></span>
           </button>
