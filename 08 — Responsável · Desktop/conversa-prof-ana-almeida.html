@@ -1071,23 +1071,23 @@
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
               </span>
-              <input type="text" class="search-input" placeholder="Buscar conversa" aria-label="Buscar conversa">
+              <input type="text" id="chatSearchInput" class="search-input" placeholder="Buscar conversa" aria-label="Buscar conversa" autocomplete="off">
             </div>
 
             <!-- Filtros Rápidos -->
             <div class="filter-chips">
-              <button class="filter-chip active" type="button">Todas</button>
-              <button class="filter-chip secondary" type="button">Não lidas</button>
-              <button class="filter-chip secondary" type="button">Equipe</button>
+              <button class="filter-chip active" type="button" data-filter="all">Todas</button>
+              <button class="filter-chip secondary" type="button" data-filter="unread">Não lidas</button>
+              <button class="filter-chip secondary" type="button" data-filter="team">Equipe</button>
             </div>
 
             <!-- Rótulo Seção Recentes -->
             <span class="section-caption">MAIS RECENTES</span>
 
             <!-- Lista de Conversas -->
-            <ul class="conversations-list">
+            <ul class="conversations-list" id="conversationsList">
               <!-- Conversa 1: Prof. Ana Almeida (Aberta / Ativa) -->
-              <li>
+              <li class="conversation-item" data-type="teacher" data-unread="true" data-name="Prof. Ana Almeida" data-preview="Fico feliz! Vou conversar com ele sobre...">
                 <a href="conversa-prof-ana-almeida.html" class="conversation-item-link active" title="Conversa aberta com Prof.ª Ana Almeida" aria-current="true">
                   <div class="chat-avatar">AA</div>
                   <div class="chat-content">
@@ -1109,7 +1109,7 @@
               </li>
 
               <!-- Conversa 2: Prof. Carlos Pimenta (Coordenação) -->
-              <li>
+              <li class="conversation-item" data-type="team" data-unread="false" data-name="Prof. Carlos Pimenta" data-preview="Podemos combinar um horário para conversar...">
                 <a href="conversa-prof-ana-almeida.html" class="conversation-item-link" title="Abrir conversa com Prof. Carlos Pimenta">
                   <div class="chat-avatar">CP</div>
                   <div class="chat-content">
@@ -1123,7 +1123,7 @@
               </li>
 
               <!-- Conversa 3: Prof. João Martins -->
-              <li>
+              <li class="conversation-item" data-type="teacher" data-unread="false" data-name="Prof. João Martins" data-preview="Enviei algumas orientações para esta semana...">
                 <a href="conversa-prof-ana-almeida.html" class="conversation-item-link" title="Abrir conversa com Prof. João Martins">
                   <div class="chat-avatar">JM</div>
                   <div class="chat-content">
@@ -1137,7 +1137,7 @@
               </li>
 
               <!-- Conversa 4: Prof. Ana Almeida (Anterior) -->
-              <li>
+              <li class="conversation-item" data-type="teacher" data-unread="false" data-name="Prof. Ana Almeida" data-preview="Obrigada pelo retorno! Seguimos em contato.">
                 <a href="conversa-prof-ana-almeida.html" class="conversation-item-link" title="Abrir conversa anterior com Prof. Ana Almeida">
                   <div class="chat-avatar">AA</div>
                   <div class="chat-content">
@@ -1298,6 +1298,62 @@
       div.innerText = str;
       return div.innerHTML;
     }
+
+    // Interatividade da barra lateral (Busca e Filtros)
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('chatSearchInput');
+      const filterChips = document.querySelectorAll('.filter-chip');
+      const conversationItems = document.querySelectorAll('.conversation-item');
+
+      let currentFilter = 'all';
+
+      function applyFilters() {
+        const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+        conversationItems.forEach(item => {
+          const type = item.getAttribute('data-type');
+          const isUnread = item.getAttribute('data-unread') === 'true';
+          const name = (item.getAttribute('data-name') || '').toLowerCase();
+          const preview = (item.getAttribute('data-preview') || '').toLowerCase();
+
+          // Filtro por categoria / status
+          let matchesFilter = true;
+          if (currentFilter === 'unread') {
+            matchesFilter = isUnread;
+          } else if (currentFilter === 'team') {
+            matchesFilter = (type === 'team');
+          }
+
+          // Filtro por texto da busca
+          const matchesQuery = !query || name.includes(query) || preview.includes(query);
+
+          if (matchesFilter && matchesQuery) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      }
+
+      // Eventos dos botões de filtro (Todas / Não lidas / Equipe)
+      filterChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          filterChips.forEach(c => {
+            c.classList.remove('active');
+            c.classList.add('secondary');
+          });
+          chip.classList.add('active');
+          chip.classList.remove('secondary');
+          currentFilter = chip.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      // Busca interativa
+      if (searchInput) {
+        searchInput.addEventListener('input', applyFilters);
+      }
+    });
   </script>
 </body>
 </html>
