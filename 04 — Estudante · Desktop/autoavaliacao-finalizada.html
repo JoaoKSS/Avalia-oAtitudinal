@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autoavaliação finalizada · Estudante · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f1ff;
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-subtle: #8194aa;
+      --color-button-gray: #60758b;
+      --color-status-green: #16a34a;
+      --color-status-green-bg: #e8f7ee;
+      --radius-sm: 8px;
+      --radius-card: 12px;
+      --radius-btn: 10px;
+      --bottom-bar-height: 106px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 248px;
+      background-color: var(--color-bg-card);
+      border-right: 1px solid var(--color-border-subtle);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .sidebar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--color-text-main);
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: var(--color-text-subtle);
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--color-text-main);
+    }
+
+    .nav-link.active {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background-color: var(--color-primary);
+      border-radius: 0 3px 3px 0;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: none;
+    }
+
+    .user-profile-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-path {
+      font-weight: 500;
+      color: #60758b;
+    }
+
+    .breadcrumb-current {
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid #d9e4f2;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+      padding: 0;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 7px;
+      height: 7px;
+      background-color: #2563eb;
+      border-radius: 50%;
+    }
+
+    .content-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 136px 32px calc(var(--bottom-bar-height) + 32px) 32px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .success-icon-wrapper {
+      width: 102px;
+      height: 102px;
+      border-radius: 50%;
+      background-color: var(--color-status-green-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .success-icon-inner {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 2px solid var(--color-status-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-icon-svg {
+      color: var(--color-status-green);
+    }
+
+    .finalized-title {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #172b4d;
+      text-align: center;
+      margin-bottom: 78px;
+    }
+
+    .confirmation-card {
+      width: 100%;
+      max-width: 960px;
+      background-color: #ffffff;
+      border: 1px solid #d8e4f3;
+      border-radius: var(--radius-card);
+      padding: 20px 28px;
+      box-sizing: border-box;
+    }
+
+    .student-profile-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .student-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .student-info-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .student-name-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: #172b4d;
+      line-height: 1.3;
+    }
+
+    .student-class-period {
+      font-size: 12px;
+      font-weight: 400;
+      color: #60758b;
+      line-height: 1.3;
+    }
+
+    .card-divider {
+      height: 1px;
+      background-color: #d8e4f3;
+      margin: 16px 0;
+      width: 100%;
+    }
+
+    .status-confirmation-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-dot-indicator {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: var(--color-status-green);
+      flex-shrink: 0;
+    }
+
+    .status-confirmation-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-status-green);
+      line-height: 1.3;
+    }
+
+    .bottom-action-bar {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 248px;
+      height: var(--bottom-bar-height);
+      background-color: #ffffff;
+      border-top: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 32px;
+      z-index: 85;
+    }
+
+    .btn-action-back {
+      width: 150px;
+      height: 46px;
+      background-color: var(--color-button-gray);
+      border: 1px solid #d9e4f2;
+      border-radius: var(--radius-btn);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-action-back:hover {
+      background-color: #475569;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-role">Área do Estudante</span>
+        </div>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegação principal">
+        <span class="nav-section-title">Seu espaço de aprendizagem</span>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Início</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minhas-autoavaliacoes.html" class="nav-link active" aria-current="page">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3.5 10.5L7.5 14.5L16.5 5.5"/>
+                </svg>
+              </span>
+              <span>Autoavaliações</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minha-evolucao.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 14.5L7.5 9.5L11 13L17.5 5"/>
+                  <path d="M12.5 5H17.5V10"/>
+                </svg>
+              </span>
+              <span>Minha evolução</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minhas-devolutivas.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3.5" y1="6" x2="16.5" y2="6"/>
+                  <line x1="3.5" y1="10" x2="16.5" y2="10"/>
+                  <line x1="3.5" y1="14" x2="16.5" y2="14"/>
+                </svg>
+              </span>
+              <span>Minhas devolutivas</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button type="button" class="user-profile-button" aria-label="Abrir menu de perfil do estudante">
+          <div class="user-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="8" rx="4" ry="4"/>
+              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Meu perfil</span>
+            <span class="user-role">Estudante</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="top-header">
+        <nav class="breadcrumb" aria-label="Trilha de navegação">
+          <span class="breadcrumb-path">Área do estudante  /</span>
+          <span class="breadcrumb-current">Autoavaliação finalizada</span>
+        </nav>
+
+        <div class="header-actions">
+          <button class="header-icon-btn" type="button" aria-label="Notificações">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 6.667a5 5 0 10-10 0c0 5.833-2.5 7.5-2.5 7.5h15s-2.5-1.667-2.5-7.5zM11.442 16.667a1.667 1.667 0 01-2.884 0"/>
+            </svg>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <div class="success-icon-wrapper" aria-hidden="true">
+          <div class="success-icon-inner">
+            <svg class="success-icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+        </div>
+
+        <h1 class="finalized-title">Autoavaliação finalizada</h1>
+
+        <section class="confirmation-card" aria-label="Resumo de envio">
+          <div class="student-profile-row">
+            <div class="student-avatar" aria-hidden="true">AB</div>
+            <div class="student-info-meta">
+              <strong class="student-name-text">Ana Beatriz Ferraz</strong>
+              <span class="student-class-period">6º ano A · 1º bimestre de 2026</span>
+            </div>
+          </div>
+
+          <div class="card-divider" role="separator"></div>
+
+          <div class="status-confirmation-row">
+            <span class="status-dot-indicator" aria-hidden="true"></span>
+            <span class="status-confirmation-label">Autoavaliação finalizada com sucesso</span>
+          </div>
+        </section>
+      </main>
+
+      <footer class="bottom-action-bar">
+        <a href="minhas-autoavaliacoes.html" class="btn-action-back" title="Voltar para a lista de autoavaliações">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12.5 7H1.5M6 11.5 1.5 7 6 2.5"/>
+          </svg>
+          <span>Voltar</span>
+        </a>
+      </footer>
+    </div>
+
+  </div>
+
+</body>
+</html>
