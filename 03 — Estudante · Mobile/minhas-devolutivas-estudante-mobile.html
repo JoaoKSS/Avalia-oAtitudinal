@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Devolutivas · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f0ff;
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-border-subtle: #d7e4f5;
+      --color-success-text: #16a34a;
+      --color-success-bg: #e8f7ee;
+      --color-viewed-text: #60758b;
+      --color-viewed-bg: #eef2f7;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-card: 14px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid #d9e4f2;
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .notif-button {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid #d9e4f2;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      padding: 0;
+    }
+
+    .notif-button:hover {
+      background-color: #f8fafc;
+      border-color: #c7d7eb;
+    }
+
+    .notif-badge-dot {
+      position: absolute;
+      left: 27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 12px 16px 32px 16px;
+      display: flex;
+      flex-direction: column;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      margin-bottom: 12px;
+      width: fit-content;
+      transition: opacity 0.15s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .back-link-icon {
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.36;
+      color: var(--color-text-main);
+      margin-bottom: 2px;
+    }
+
+    .page-subtitle {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--color-text-muted);
+      margin-bottom: 18px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .devolutiva-card {
+      width: 100%;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .devolutiva-card:hover {
+      border-color: #b9d2f2;
+      box-shadow: 0px 6px 20px rgba(20, 51, 97, 0.08);
+    }
+
+    .card-top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card-author-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .card-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .card-title-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--color-text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-author {
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    .card-status-badge {
+      font-size: 9px;
+      font-weight: 700;
+      line-height: 1;
+      padding: 4px 10px;
+      border-radius: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-status-badge.nova {
+      background-color: var(--color-success-bg);
+      color: var(--color-success-text);
+    }
+
+    .card-status-badge.vista {
+      background-color: var(--color-viewed-bg);
+      color: var(--color-viewed-text);
+    }
+
+    .card-date {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+
+    .card-summary {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--color-text-main);
+    }
+
+    .card-action-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 2px;
+    }
+
+    .card-action-link {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-action-link svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.15s ease;
+    }
+
+    .devolutiva-card:hover .card-action-link svg {
+      transform: translateX(2px);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="mobile-screen-wrapper">
+
+    <header class="mobile-header">
+      <a href="painel-inicial-estudante-mobile.html" class="brand-section" aria-label="Educar & Aprender - Área do Estudante">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3.333 16.25C3.333 15.1 4.266 14.167 5.416 14.167H16.666M5.416 1.667H16.666V18.333H5.416C4.266 18.333 3.333 17.401 3.333 16.25V3.75C3.333 2.6 4.266 1.667 5.416 1.667Z" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-category">Área do Estudante</span>
+        </div>
+      </a>
+
+      <button class="notif-button" aria-label="Ver notificações">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="notif-badge-dot"></span>
+      </button>
+    </header>
+
+    <section class="main-content">
+      <a href="painel-inicial-estudante-mobile.html" class="back-link">
+        <span class="back-link-icon">‹</span> Voltar ao Início
+      </a>
+
+      <h1 class="page-title">Minhas Devolutivas</h1>
+      <p class="page-subtitle">Mensagens do professor sobre seu percurso.</p>
+
+      <h2 class="section-label">Recentes</h2>
+
+      <a href="#" class="devolutiva-card" aria-label="Ver parecer formativo do 1º bimestre">
+        <div class="card-top-row">
+          <div class="card-author-group">
+            <div class="card-avatar">PF</div>
+            <div class="card-title-group">
+              <h3 class="card-title">Parecer formativo · 1º bim.</h3>
+              <p class="card-author">Prof.ª Marina Costa</p>
+            </div>
+          </div>
+          <span class="card-status-badge nova">Nova</span>
+        </div>
+
+        <p class="card-date">Publicado em 18 nov. 2026</p>
+        <p class="card-summary">Coopera e inclui colegas nas atividades.</p>
+
+        <div class="card-action-row">
+          <span class="card-action-link">
+            Ver devolutiva
+            <svg viewBox="0 0 16 16" fill="none">
+              <path d="M6 3.5L10.5 8L6 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="#" class="devolutiva-card" aria-label="Ver acompanhamento de outubro">
+        <div class="card-top-row">
+          <div class="card-author-group">
+            <div class="card-avatar">PF</div>
+            <div class="card-title-group">
+              <h3 class="card-title">Acompanhamento · outubro</h3>
+              <p class="card-author">Prof.ª Marina Costa</p>
+            </div>
+          </div>
+          <span class="card-status-badge vista">Vista</span>
+        </div>
+
+        <p class="card-date">Publicado em 24 out. 2026</p>
+        <p class="card-summary">Confira os pontos fortes e os próximos passos.</p>
+
+        <div class="card-action-row">
+          <span class="card-action-link">
+            Ver devolutiva
+            <svg viewBox="0 0 16 16" fill="none">
+              <path d="M6 3.5L10.5 8L6 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+    </section>
+
+  </main>
+
+</body>
+</html>
