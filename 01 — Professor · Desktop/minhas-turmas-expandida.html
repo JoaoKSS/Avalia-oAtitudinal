@@ -555,13 +555,20 @@
       color: #60758b;
     }
 
-    /* Grid de Turmas: 2 Colunas Proporcionais */
+    /* Grid de Turmas: 2 Colunas Proporcionais Independentes */
     .turmas-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
       gap: 24px;
       width: 100%;
-      align-items: start;
+      align-items: flex-start;
+    }
+
+    .turmas-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      min-width: 0;
     }
 
     /* Card Padrão de Turma (552 × 112px no Penpot) */
@@ -918,12 +925,93 @@
           <span class="summary-students-count" id="summaryStudentsCount">118 estudantes</span>
         </div>
 
-        <!-- Grid de Cards de Turmas (6º ano A expandida) -->
+        <!-- Grid de Cards de Turmas (6º ano A expandida em 2 colunas independentes) -->
         <div class="turmas-grid" id="turmasGrid">
-          <!-- Turma 1: 6º ano A (EXPANDIDA - 552 × 282px) -->
-          <div class="turma-card-expanded" data-turma="6a" data-name="6º ano A" data-students="28">
-            <!-- Cabeçalho do Card Expandido -->
-            <div class="card-expanded-header">
+          <!-- Coluna 1 (Esquerda): 6º ano A e 8º ano C -->
+          <div class="turmas-column">
+            <!-- Turma 1: 6º ano A (EXPANDIDA - 552 × 282px) -->
+            <div class="turma-card-expanded" data-turma="6a" data-name="6º ano A" data-students="28">
+              <!-- Cabeçalho do Card Expandido -->
+              <div class="card-expanded-header">
+                <div class="turma-card-left">
+                  <div class="turma-avatar">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979"/>
+                      <path d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"/>
+                      <path d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"/>
+                      <path d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"/>
+                    </svg>
+                  </div>
+                  <div class="turma-info">
+                    <span class="turma-name">6º ano A</span>
+                    <span class="turma-level">Ensino Fundamental II</span>
+                    <div class="turma-students-badge">
+                      <span class="students-badge-icon" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                          <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2"/>
+                          <path d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"/>
+                          <path d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"/>
+                          <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7"/>
+                        </svg>
+                      </span>
+                      <span>28 estudantes</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Botão Recolher (-) oficial do Penpot -->
+                <a href="minhas-turmas.html" class="turma-action-btn" title="Recolher opções da turma">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3.75 9h10.5"/>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Lista de Ações da Turma Expandida -->
+              <div class="expanded-actions-list">
+                <!-- Ação 1: Devolutiva individual -->
+                <a href="devolutiva-individual.html" class="expanded-action-item">
+                  <span class="action-item-icon" aria-hidden="true">
+                    <!-- Ícone oficial de Devolutiva do Penpot (ID 644b7976-7f30-8041-8008-d476a751abad) -->
+                    <svg width="18" height="18" viewBox="3635 1870 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3649.5227 1880.8409C3649.5227 1881.8577 3648.6982 1882.6818 3647.6819 1882.6818H3641.5454L3638.4773 1884.5227V1875.3182C3638.4773 1874.3015 3639.3018 1873.4773 3640.3181 1873.4773H3647.6819C3648.6982 1873.4773 3649.5227 1874.3015 3649.5227 1875.3182V1880.8409Z"/>
+                      <path d="M3641.5454 1877.1591H3646.4546M3641.5454 1879.6136H3645.2273"/>
+                    </svg>
+                  </span>
+                  <span>Devolutiva individual</span>
+                </a>
+
+                <!-- Ação 2: Histórico de evidências -->
+                <a href="historico-evidencias.html" class="expanded-action-item item-historico">
+                  <span class="action-item-icon" aria-hidden="true">
+                    <!-- Ícone oficial de Histórico do Penpot (ID 644b7976-7f30-8041-8008-d476a76ef094) -->
+                    <svg width="18" height="18" viewBox="3635 1917.864 18 18.273" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3645.2273 1920.8636H3640.3181C3639.6404 1920.8636 3639.0908 1921.4131 3639.0908 1922.0909V1931.9091C3639.0908 1932.5869 3639.6404 1933.1364 3640.3181 1933.1364H3645.2273"/>
+                      <path d="M3645.2273 1920.8636V1924.5454H3648.9092"/>
+                      <path d="M3645.2273 1920.8636L3648.9092 1924.5454"/>
+                      <ellipse cx="3647.0682" cy="1930.0682" rx="2.4545" ry="2.4545"/>
+                      <path d="M3647.0681 1928.8409V1930.0682L3647.8044 1930.6818"/>
+                    </svg>
+                  </span>
+                  <span>Histórico de evidências</span>
+                </a>
+
+                <!-- Ação 3: Registro de observação -->
+                <a href="registro-selecionar-estudante.html" class="expanded-action-item">
+                  <span class="action-item-icon" aria-hidden="true">
+                    <!-- Ícone oficial de Registro com + do Penpot (ID 644b7976-7f30-8041-8008-d476a7942e81) -->
+                    <svg width="18" height="18" viewBox="3635 1966 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect rx="2" ry="2" x="3639.7045" y="1970.0909" width="8.5909" height="10.4318"/>
+                      <path d="M3642.1592 1970.0909V1969.4773H3645.8408V1970.0909"/>
+                      <path d="M3644 1973.7727V1977.4546M3642.1592 1975.6136H3645.8408"/>
+                    </svg>
+                  </span>
+                  <span>Registro de observação</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Turma 3: 8º ano C -->
+            <a href="#turma-8c" class="turma-card" data-turma="8c" data-name="8º ano C" data-students="29">
               <div class="turma-card-left">
                 <div class="turma-avatar">
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -934,7 +1022,7 @@
                   </svg>
                 </div>
                 <div class="turma-info">
-                  <span class="turma-name">6º ano A</span>
+                  <span class="turma-name">8º ano C</span>
                   <span class="turma-level">Ensino Fundamental II</span>
                   <div class="turma-students-badge">
                     <span class="students-badge-icon" aria-hidden="true">
@@ -945,163 +1033,88 @@
                         <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7"/>
                       </svg>
                     </span>
-                    <span>28 estudantes</span>
+                    <span>29 estudantes</span>
                   </div>
                 </div>
               </div>
-              <!-- Botão Recolher (-) oficial do Penpot -->
-              <a href="minhas-turmas.html" class="turma-action-btn" title="Recolher opções da turma">
+              <div class="turma-action-btn" title="Expandir opções da turma">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3.75 9h10.5"/>
+                  <path d="M9 3.75v10.5M3.75 9h10.5"/>
                 </svg>
-              </a>
-            </div>
-
-            <!-- Lista de Ações da Turma Expandida -->
-            <div class="expanded-actions-list">
-              <!-- Ação 1: Devolutiva individual -->
-              <a href="devolutiva-individual.html" class="expanded-action-item">
-                <span class="action-item-icon" aria-hidden="true">
-                  <!-- Ícone oficial de Devolutiva do Penpot (ID 644b7976-7f30-8041-8008-d476a751abad) -->
-                  <svg width="18" height="18" viewBox="3635 1870 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3649.5227 1880.8409C3649.5227 1881.8577 3648.6982 1882.6818 3647.6819 1882.6818H3641.5454L3638.4773 1884.5227V1875.3182C3638.4773 1874.3015 3639.3018 1873.4773 3640.3181 1873.4773H3647.6819C3648.6982 1873.4773 3649.5227 1874.3015 3649.5227 1875.3182V1880.8409Z"/>
-                    <path d="M3641.5454 1877.1591H3646.4546M3641.5454 1879.6136H3645.2273"/>
-                  </svg>
-                </span>
-                <span>Devolutiva individual</span>
-              </a>
-
-              <!-- Ação 2: Histórico de evidências -->
-              <a href="historico-evidencias.html" class="expanded-action-item item-historico">
-                <span class="action-item-icon" aria-hidden="true">
-                  <!-- Ícone oficial de Histórico do Penpot (ID 644b7976-7f30-8041-8008-d476a76ef094) -->
-                  <svg width="18" height="18" viewBox="3635 1917.864 18 18.273" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3645.2273 1920.8636H3640.3181C3639.6404 1920.8636 3639.0908 1921.4131 3639.0908 1922.0909V1931.9091C3639.0908 1932.5869 3639.6404 1933.1364 3640.3181 1933.1364H3645.2273"/>
-                    <path d="M3645.2273 1920.8636V1924.5454H3648.9092"/>
-                    <path d="M3645.2273 1920.8636L3648.9092 1924.5454"/>
-                    <ellipse cx="3647.0682" cy="1930.0682" rx="2.4545" ry="2.4545"/>
-                    <path d="M3647.0681 1928.8409V1930.0682L3647.8044 1930.6818"/>
-                  </svg>
-                </span>
-                <span>Histórico de evidências</span>
-              </a>
-
-              <!-- Ação 3: Registro de observação -->
-              <a href="registro-selecionar-estudante.html" class="expanded-action-item">
-                <span class="action-item-icon" aria-hidden="true">
-                  <!-- Ícone oficial de Registro com + do Penpot (ID 644b7976-7f30-8041-8008-d476a7942e81) -->
-                  <svg width="18" height="18" viewBox="3635 1966 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect rx="2" ry="2" x="3639.7045" y="1970.0909" width="8.5909" height="10.4318"/>
-                    <path d="M3642.1592 1970.0909V1969.4773H3645.8408V1970.0909"/>
-                    <path d="M3644 1973.7727V1977.4546M3642.1592 1975.6136H3645.8408"/>
-                  </svg>
-                </span>
-                <span>Registro de observação</span>
-              </a>
-            </div>
+              </div>
+            </a>
           </div>
 
-          <!-- Turma 2: 7º ano B -->
-          <a href="#turma-7b" class="turma-card" data-turma="7b" data-name="7º ano B" data-students="31">
-            <div class="turma-card-left">
-              <div class="turma-avatar">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979"/>
-                  <path d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"/>
-                  <path d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"/>
-                  <path d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"/>
-                </svg>
-              </div>
-              <div class="turma-info">
-                <span class="turma-name">7º ano B</span>
-                <span class="turma-level">Ensino Fundamental II</span>
-                <div class="turma-students-badge">
-                  <span class="students-badge-icon" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2"/>
-                      <path d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"/>
-                      <path d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"/>
-                      <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7"/>
-                    </svg>
-                  </span>
-                  <span>31 estudantes</span>
+          <!-- Coluna 2 (Direita): 7º ano B e 9º ano A -->
+          <div class="turmas-column">
+            <!-- Turma 2: 7º ano B -->
+            <a href="#turma-7b" class="turma-card" data-turma="7b" data-name="7º ano B" data-students="31">
+              <div class="turma-card-left">
+                <div class="turma-avatar">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979"/>
+                    <path d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"/>
+                    <path d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"/>
+                    <path d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"/>
+                  </svg>
+                </div>
+                <div class="turma-info">
+                  <span class="turma-name">7º ano B</span>
+                  <span class="turma-level">Ensino Fundamental II</span>
+                  <div class="turma-students-badge">
+                    <span class="students-badge-icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2"/>
+                        <path d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"/>
+                        <path d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"/>
+                        <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7"/>
+                      </svg>
+                    </span>
+                    <span>31 estudantes</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="turma-action-btn" title="Expandir opções da turma">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 3.75v10.5M3.75 9h10.5"/>
-              </svg>
-            </div>
-          </a>
+              <div class="turma-action-btn" title="Expandir opções da turma">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 3.75v10.5M3.75 9h10.5"/>
+                </svg>
+              </div>
+            </a>
 
-          <!-- Turma 3: 8º ano C -->
-          <a href="#turma-8c" class="turma-card" data-turma="8c" data-name="8º ano C" data-students="29">
-            <div class="turma-card-left">
-              <div class="turma-avatar">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979"/>
-                  <path d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"/>
-                  <path d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"/>
-                  <path d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"/>
-                </svg>
-              </div>
-              <div class="turma-info">
-                <span class="turma-name">8º ano C</span>
-                <span class="turma-level">Ensino Fundamental II</span>
-                <div class="turma-students-badge">
-                  <span class="students-badge-icon" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2"/>
-                      <path d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"/>
-                      <path d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"/>
-                      <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7"/>
-                    </svg>
-                  </span>
-                  <span>29 estudantes</span>
+            <!-- Turma 4: 9º ano A -->
+            <a href="#turma-9a" class="turma-card" data-turma="9a" data-name="9º ano A" data-students="30">
+              <div class="turma-card-left">
+                <div class="turma-avatar">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979"/>
+                    <path d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"/>
+                    <path d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"/>
+                    <path d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"/>
+                  </svg>
+                </div>
+                <div class="turma-info">
+                  <span class="turma-name">9º ano A</span>
+                  <span class="turma-level">Ensino Fundamental II</span>
+                  <div class="turma-students-badge">
+                    <span class="students-badge-icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2"/>
+                        <path d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"/>
+                        <path d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"/>
+                        <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7"/>
+                      </svg>
+                    </span>
+                    <span>30 estudantes</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="turma-action-btn" title="Expandir opções da turma">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 3.75v10.5M3.75 9h10.5"/>
-              </svg>
-            </div>
-          </a>
-
-          <!-- Turma 4: 9º ano A -->
-          <a href="#turma-9a" class="turma-card" data-turma="9a" data-name="9º ano A" data-students="30">
-            <div class="turma-card-left">
-              <div class="turma-avatar">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979"/>
-                  <path d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"/>
-                  <path d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"/>
-                  <path d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"/>
+              <div class="turma-action-btn" title="Expandir opções da turma">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 3.75v10.5M3.75 9h10.5"/>
                 </svg>
               </div>
-              <div class="turma-info">
-                <span class="turma-name">9º ano A</span>
-                <span class="turma-level">Ensino Fundamental II</span>
-                <div class="turma-students-badge">
-                  <span class="students-badge-icon" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                      <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2"/>
-                      <path d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"/>
-                      <path d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"/>
-                      <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7"/>
-                    </svg>
-                  </span>
-                  <span>30 estudantes</span>
-                </div>
-              </div>
-            </div>
-            <div class="turma-action-btn" title="Expandir opções da turma">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 3.75v10.5M3.75 9h10.5"/>
-              </svg>
-            </div>
-          </a>
+            </a>
+          </div>
 
           <!-- Estado Vazio -->
           <div class="turmas-empty-state" id="emptyState">

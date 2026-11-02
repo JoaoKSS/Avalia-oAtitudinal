@@ -576,6 +576,12 @@
       border-color: #cbd5e1;
     }
 
+    .conversation-item-link.active {
+      background-color: #ffffff;
+      border-color: #2563eb;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+    }
+
     .conversation-item-link.unread {
       border: 2px solid #3aff2e;
     }
@@ -627,6 +633,7 @@
       font-size: 12px;
       font-weight: 500;
       color: #60758b;
+      white-space: nowrap;
       flex-shrink: 0;
     }
 
@@ -1159,9 +1166,9 @@
 
             <!-- Lista de Conversas -->
             <ul class="conversations-list" id="conversationsList">
-              <!-- Item 1: João Carvalho (Não lida, 2 mensagens) -->
-              <li class="conversation-item" data-type="parent" data-unread="true" data-name="João Carvalho" data-preview="Obrigado por compartilhar a evolução dele.">
-                <a href="conversa.html" class="conversation-item-link unread active" title="Conversa com João Carvalho">
+              <!-- Item 1: João Carvalho (Aberta / Ativa) -->
+              <li class="conversation-item" data-type="parent" data-unread="false" data-name="João Carvalho" data-preview="Obrigado por compartilhar a evolução dele.">
+                <a href="conversa.html" class="conversation-item-link active" title="Conversa com João Carvalho" aria-current="true">
                   <div class="chat-avatar">JC</div>
                   <div class="chat-content">
                     <div class="chat-header-row">
@@ -1170,7 +1177,6 @@
                     </div>
                     <p class="chat-preview">Obrigado por compartilhar a evolução dele.</p>
                   </div>
-                  <span class="unread-counter-badge" title="2 mensagens não lidas">2</span>
                 </a>
               </li>
 
