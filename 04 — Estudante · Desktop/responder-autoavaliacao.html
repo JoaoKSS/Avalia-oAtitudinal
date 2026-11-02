@@ -648,6 +648,27 @@
       z-index: 85;
     }
 
+    .btn-action-back {
+      height: 46px;
+      min-width: 120px;
+      padding: 0 20px;
+      background-color: var(--color-button-gray);
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-action-back:hover {
+      background-color: #475569;
+    }
+
     .btn-action-draft {
       height: 46px;
       min-width: 180px;
@@ -802,8 +823,6 @@
       <main class="content-area">
         <section class="page-header">
           <h1 class="page-title">Convivência e respeito</h1>
-          <p class="page-desc">Sua reflexão ajuda você a reconhecer como aprende e convive.</p>
-          <p class="page-meta">Solicitada pela Prof.ª Ana Costa · Prazo: 28 out. 2026</p>
         </section>
 
         <div class="progress-section">
@@ -887,7 +906,7 @@
               <ul class="dimensions-list">
                 <li class="dimension-item current">
                   <span class="dimension-status-dot"></span>
-                  <span>Respeito e convivência</span>
+                  <span>Respeito</span>
                 </li>
                 <li class="dimension-item">
                   <span class="dimension-status-dot"></span>
@@ -912,8 +931,8 @@
       </main>
 
       <footer class="bottom-action-bar">
+        <a href="minhas-autoavaliacoes.html" class="btn-action-back">Voltar</a>
         <a href="minhas-autoavaliacoes.html" class="btn-action-draft">Salvar rascunho</a>
-
         <a href="finalizar-autoavaliacao.html" class="btn-action-next">
           <span>Próxima dimensão &nbsp;→</span>
         </a>
