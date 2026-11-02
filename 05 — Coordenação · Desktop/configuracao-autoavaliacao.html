@@ -1,0 +1,1345 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Configuração de Autoavaliação · Coordenação · Desktop · Educar &amp; Aprender
+    </title>
+    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-light.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <!-- Tipografia Inter oficial do Penpot -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & Base */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #f5f8fc;
+        color: #172b4d;
+        min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Layout Geral Desktop */
+      .app-layout {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
+      .sidebar {
+        width: 248px;
+        min-width: 248px;
+        background-color: #ffffff;
+        border-right: 1px solid #d9e4f2;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        z-index: 20;
+      }
+
+      /* Topo da Sidebar: Marca */
+      .sidebar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 20px 24px;
+        height: 76px;
+        border-bottom: 1px solid transparent;
+        text-decoration: none;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #2563eb;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-name {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #172b4d;
+      }
+
+      .brand-role {
+        font-size: 8px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #2563eb;
+        text-transform: uppercase;
+      }
+
+      /* Navegação Principal */
+      .sidebar-nav {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-top: 14px;
+      }
+
+      .nav-section-title {
+        font-size: 9px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #8194aa;
+        text-transform: uppercase;
+        padding: 12px 24px 8px 24px;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .nav-item {
+        padding: 0 12px;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 44px;
+        padding: 0 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        color: #60758b;
+        position: relative;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .nav-link:hover {
+        background-color: #f1f5f9;
+        color: #172b4d;
+      }
+
+      .nav-link.active {
+        background-color: #e8f1ff;
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      /* Barra indicadora azul ativa no item do menu */
+      .nav-link.active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 28px;
+        background-color: #2563eb;
+        border-radius: 2px;
+      }
+
+      .nav-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: currentColor;
+      }
+
+      /* Rodapé da Sidebar: Perfil da Coordenação */
+      .sidebar-footer {
+        padding: 16px 12px;
+        margin-top: auto;
+        border-top: 1px solid #d9e4f2;
+      }
+
+      .user-profile-button {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 8px 10px;
+        background: transparent;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.15s ease;
+      }
+
+      .user-profile-button:hover {
+        background-color: #f1f5f9;
+      }
+
+      .user-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background-color: #eef5ff;
+        color: #2563eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .user-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .user-name {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #172b4d;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .user-role {
+        display: block;
+        font-size: 11px;
+        color: #60758b;
+        margin-top: 2px;
+      }
+
+      .user-chevron {
+        color: #8194aa;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      /* Wrapper do Conteúdo Principal */
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        min-height: 100vh;
+        background-color: #f5f8fc;
+      }
+
+      /* Cabeçalho Superior Desktop (76px) */
+      .top-header {
+        height: 76px;
+        min-height: 76px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .breadcrumb-trail {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .breadcrumb-item {
+        color: #60758b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.15s ease;
+      }
+
+      .breadcrumb-item:hover {
+        color: #172b4d;
+      }
+
+      .breadcrumb-separator {
+        color: #8194aa;
+        font-size: 12px;
+      }
+
+      .breadcrumb-current {
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .notification-btn {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #60758b;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .notification-btn:hover {
+        background-color: #f8fafc;
+        border-color: #cbd5e1;
+        color: #172b4d;
+      }
+
+      .notification-dot {
+        position: absolute;
+        top: 11px;
+        right: 12px;
+        width: 7px;
+        height: 7px;
+        background-color: #2563eb;
+        border-radius: 4px;
+        border: 1.5px solid #ffffff;
+      }
+
+      /* Área de Conteúdo */
+      .content-area {
+        flex: 1;
+        width: 100%;
+        padding: 32px 32px 110px 32px;
+      }
+
+      /* Cabeçalho da Página */
+      .page-title-row {
+        margin-bottom: 24px;
+      }
+
+      .page-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #172b4d;
+        letter-spacing: -0.3px;
+        line-height: 1.35;
+      }
+
+      .page-description {
+        font-size: 14px;
+        color: #60758b;
+        margin-top: 6px;
+        line-height: 1.4;
+      }
+
+      /* Painel: Turma Selecionada */
+      .turma-selected-card {
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 14px;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        width: 100%;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+      }
+
+      .turma-selected-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .turma-selected-icon-box {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background-color: #eef5ff;
+        color: #2563eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .turma-selected-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .turma-selected-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        color: #8194aa;
+      }
+
+      .turma-selected-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #172b4d;
+        margin-top: 2px;
+      }
+
+      .turma-selected-details {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        color: #60758b;
+        margin-top: 2px;
+      }
+
+      .turma-students-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: #60758b;
+      }
+
+      .btn-change-turma {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 42px;
+        padding: 0 20px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        color: #2563eb;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .btn-change-turma:hover {
+        background-color: #f8fafc;
+        border-color: #cbd5e1;
+        color: #1d4ed8;
+      }
+
+      /* Grid Principal do Formulário */
+      .form-grid {
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .form-main-col {
+        flex: 1.8;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        min-width: 0;
+      }
+
+      .form-side-col {
+        flex: 1;
+        min-width: 320px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      /* Painéis Padrão do Formulário */
+      .form-panel {
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 14px;
+        padding: 24px;
+        width: 100%;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+      }
+
+      .form-panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+
+      .form-panel-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #172b4d;
+      }
+
+      .badge-selection {
+        background-color: #e8f1ff;
+        color: #2563eb;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 13px;
+      }
+
+      .form-panel-desc {
+        font-size: 13px;
+        color: #60758b;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+
+      /* Campos de Texto */
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .form-group:last-child {
+        margin-bottom: 0;
+      }
+
+      .form-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #172b4d;
+      }
+
+      .form-input {
+        height: 44px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 10px;
+        padding: 0 16px;
+        font-size: 14px;
+        color: #172b4d;
+        font-family: inherit;
+        outline: none;
+        transition:
+          border-color 0.15s ease,
+          box-shadow 0.15s ease;
+        width: 100%;
+      }
+
+      .form-input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .form-textarea {
+        height: 110px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 13px;
+        color: #172b4d;
+        font-family: inherit;
+        outline: none;
+        resize: vertical;
+        transition:
+          border-color 0.15s ease,
+          box-shadow 0.15s ease;
+        width: 100%;
+      }
+
+      .form-textarea:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .form-textarea::placeholder {
+        color: #8194aa;
+      }
+
+      /* Grade de Dimensões Atitudinais */
+      .dimensions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+      }
+
+      .dimension-checkbox-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 56px;
+        padding: 0 16px;
+        border-radius: 10px;
+        border: 1px solid #d9e4f2;
+        background-color: #ffffff;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.15s ease;
+      }
+
+      .dimension-checkbox-card.checked {
+        background-color: #eef5ff;
+        border-color: #b7d2ff;
+      }
+
+      .dimension-checkbox-box {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        border: 1.5px solid #cbd5e1;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.15s ease;
+      }
+
+      .dimension-checkbox-card.checked .dimension-checkbox-box {
+        background-color: #2563eb;
+        border-color: #2563eb;
+        color: #ffffff;
+      }
+
+      .dimension-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: #172b4d;
+      }
+
+      /* Painel de Prazo para Responder */
+      .deadline-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 10px;
+        padding: 14px 16px;
+        margin-top: 10px;
+      }
+
+      .deadline-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .deadline-calendar-icon {
+        width: 32px;
+        height: 32px;
+        color: #2563eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .deadline-text-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .deadline-date {
+        font-size: 14px;
+        font-weight: 600;
+        color: #172b4d;
+      }
+
+      .deadline-desc {
+        font-size: 12px;
+        color: #60758b;
+        margin-top: 2px;
+      }
+
+      /* Rodapé Fixo de Ações (Voltar, Prévia e Criar Autoavaliação) */
+      .fixed-footer {
+        position: fixed;
+        bottom: 0;
+        left: 248px;
+        right: 0;
+        height: 72px;
+        background-color: #ffffff;
+        border-top: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 0 32px;
+        z-index: 15;
+        box-shadow: 0 -4px 12px rgba(15, 23, 42, 0.04);
+      }
+
+      .btn-footer-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 46px;
+        padding: 0 20px;
+        border-radius: 10px;
+        background-color: #60758b;
+        border: 1px solid #d9e4f2;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .btn-footer-back:hover {
+        background-color: #475569;
+        border-color: #cbd5e1;
+      }
+
+      .btn-footer-preview {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 46px;
+        padding: 0 20px;
+        border-radius: 10px;
+        background-color: #e7ecf2;
+        border: 1px solid #d7e0e9;
+        color: #475569;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .btn-footer-preview:hover {
+        background-color: #dbe2ea;
+        border-color: #cbd5e1;
+        color: #1e293b;
+      }
+
+      .btn-footer-submit {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 46px;
+        padding: 0 24px;
+        border-radius: 10px;
+        background-color: #2563eb;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+        transition: all 0.15s ease;
+      }
+
+      .btn-footer-submit:hover {
+        background-color: #1d4ed8;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        transform: translateY(-1px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- Barra Lateral da Coordenação (248px) - Padrão Unificado de Ícones -->
+      <aside class="sidebar">
+        <!-- Marca -->
+        <a
+          href="painel-inicial.html"
+          class="sidebar-brand"
+          aria-label="Educar &amp; Aprender - Início"
+        >
+          <div class="brand-icon">
+            <!-- Ícone oficial do Penpot: Livro -->
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Educar &amp; Aprender</span>
+            <span class="brand-role">Área da Coordenação</span>
+          </div>
+        </a>
+
+        <!-- Navegação Principal -->
+        <nav class="sidebar-nav">
+          <div class="nav-section-title">Gestão Pedagógica</div>
+          <ul class="nav-list">
+            <!-- Visão Geral -->
+            <li class="nav-item">
+              <a href="painel-inicial.html" class="nav-link">
+                <span class="nav-icon">
+                  <!-- Ícone Início oficial do Penpot -->
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"
+                    />
+                  </svg>
+                </span>
+                <span>Visão geral</span>
+              </a>
+            </li>
+
+            <!-- Sistema de Alertas -->
+            <li class="nav-item">
+              <a href="sistema-alerta-precoce.html" class="nav-link">
+                <span class="nav-icon">
+                  <!-- Ícone Notificações / Sino oficial do Penpot -->
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
+                    />
+                    <path d="M8.33 17.5h3.34" />
+                  </svg>
+                </span>
+                <span>Sistema de alertas</span>
+              </a>
+            </li>
+
+            <!-- Clima Escolar -->
+            <li class="nav-item">
+              <a href="clima-escolar.html" class="nav-link">
+                <span class="nav-icon">
+                  <!-- Ícone Comunidade Escolar oficial do Penpot -->
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="10" cy="5" r="2.2" />
+                    <circle cx="5" cy="7.2" r="1.5" />
+                    <circle cx="15" cy="7.2" r="1.5" />
+                    <path d="M2.5 18c0-3.4 2.6-5.3 7.5-5.3s7.5 1.9 7.5 5.3" />
+                    <path d="M1.2 17.5c.2-2.4 1.2-3.3 2.8-3.5" />
+                    <path d="M16 14c1.6.2 2.6 1.1 2.8 3.5" />
+                  </svg>
+                </span>
+                <span>Clima escolar</span>
+              </a>
+            </li>
+
+            <!-- Dashboards Agregadores -->
+            <li class="nav-item">
+              <a
+                href="dashboard-agregador-visao-central.html"
+                class="nav-link"
+              >
+                <span class="nav-icon">
+                  <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5" />
+                    <path d="M12.5 5h5v5" />
+                  </svg>
+                </span>
+                <span>Dashboards agregadores</span>
+              </a>
+            </li>
+
+            <!-- Turmas (Ativo) -->
+            <li class="nav-item">
+              <a href="turmas.html" class="nav-link active">
+                <span class="nav-icon">
+                  <!-- Ícone Turmas oficial do Penpot -->
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="7.5" cy="6.67" r="2.71" />
+                    <path
+                      d="M2.92 16.67v-1.05c0-2.18 1.77-3.95 3.95-3.95h1.25c2.19 0 3.96 1.77 3.96 3.95v1.05"
+                    />
+                    <path
+                      d="M13.33 4.08c1.13.36 1.9 1.4 1.9 2.59 0 1.18-.77 2.22-1.9 2.58"
+                    />
+                    <path d="M14.17 11.83c1.71.47 2.9 2.02 2.91 3.79v1.05" />
+                  </svg>
+                </span>
+                <span>Turmas</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Rodapé: Perfil da Coordenação -->
+        <div class="sidebar-footer">
+          <button
+            type="button"
+            class="user-profile-button"
+            aria-label="Perfil do Núcleo Pedagógico"
+          >
+            <div class="user-avatar" aria-hidden="true">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M5 21v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2" />
+              </svg>
+            </div>
+            <div class="user-info">
+              <span class="user-name">Núcleo Pedagógico</span>
+              <span class="user-role">Coordenação escolar</span>
+            </div>
+            <div class="user-chevron" aria-hidden="true">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 18 18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M6.75 4.5l4.5 4.5-4.5 4.5" />
+              </svg>
+            </div>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Conteúdo Principal -->
+      <main class="main-wrapper">
+        <!-- Cabeçalho Superior Desktop (76px) -->
+        <header class="top-header">
+          <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
+            <a href="painel-inicial.html" class="breadcrumb-item"
+              >Área da coordenação</a
+            >
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <a href="autoavaliacoes.html" class="breadcrumb-item"
+              >Autoavaliações</a
+            >
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <span class="breadcrumb-current">Configuração de autoavaliação</span>
+          </nav>
+
+          <div class="header-actions">
+            <button
+              type="button"
+              class="notification-btn"
+              aria-label="Notificações da coordenação"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
+                />
+                <path d="M8.33 17.5h3.34" />
+              </svg>
+              <span class="notification-dot" aria-hidden="true"></span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Área de Conteúdo -->
+        <div class="content-area">
+          <!-- Título e Descrição da Página -->
+          <section class="page-title-row">
+            <h1 class="page-title">Configuração de Autoavaliação</h1>
+            <p class="page-description">
+              Organize a atividade, escolha as dimensões atitudinais e defina
+              até quando os estudantes poderão responder.
+            </p>
+          </section>
+
+          <!-- Painel: Turma Selecionada -->
+          <section
+            class="turma-selected-card"
+            aria-label="Turma selecionada para a autoavaliação"
+          >
+            <div class="turma-selected-left">
+              <div class="turma-selected-icon-box" aria-hidden="true">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="7.5" cy="6.67" r="2.71" />
+                  <path
+                    d="M2.92 16.67v-1.05c0-2.18 1.77-3.95 3.95-3.95h1.25c2.19 0 3.96 1.77 3.96 3.95v1.05"
+                  />
+                  <path
+                    d="M13.33 4.08c1.13.36 1.9 1.4 1.9 2.59 0 1.18-.77 2.22-1.9 2.58"
+                  />
+                  <path d="M14.17 11.83c1.71.47 2.9 2.02 2.91 3.79v1.05" />
+                </svg>
+              </div>
+              <div class="turma-selected-info">
+                <span class="turma-selected-label">TURMA SELECIONADA</span>
+                <span class="turma-selected-name">6º ano A</span>
+                <div class="turma-selected-details">
+                  <span>Ensino Fundamental II</span>
+                  <span>•</span>
+                  <span class="turma-students-tag">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="8" cy="5" r="3" />
+                      <path d="M3 14v-1.5c0-2 2-3.5 5-3.5s5 1.5 5 3.5V14" />
+                    </svg>
+                    28 estudantes
+                  </span>
+                </div>
+              </div>
+            </div>
+            <a href="turmas.html" class="btn-change-turma">Alterar turma</a>
+          </section>
+
+          <!-- Grid Principal do Formulário -->
+          <div class="form-grid">
+            <!-- Coluna Principal (Esquerda) -->
+            <div class="form-main-col">
+              <!-- Painel: Detalhes da Atividade -->
+              <section class="form-panel" aria-label="Detalhes da atividade">
+                <div class="form-panel-header">
+                  <h2 class="form-panel-title">Detalhes da atividade</h2>
+                </div>
+
+                <div class="form-group">
+                  <label for="tituloAutoavaliacao" class="form-label"
+                    >Título da autoavaliação *</label
+                  >
+                  <input
+                    type="text"
+                    id="tituloAutoavaliacao"
+                    class="form-input"
+                    value="Autoavaliação atitudinal — 1º 2026"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="descricaoAutoavaliacao" class="form-label"
+                    >Descrição (opcional)</label
+                  >
+                  <textarea
+                    id="descricaoAutoavaliacao"
+                    class="form-textarea"
+                    placeholder="Digite a descrição aqui..."
+                  ></textarea>
+                </div>
+              </section>
+
+              <!-- Painel: Dimensões Atitudinais -->
+              <section class="form-panel" aria-label="Dimensões atitudinais">
+                <div class="form-panel-header">
+                  <h2 class="form-panel-title">Dimensões atitudinais</h2>
+                  <span class="badge-selection" id="badgeSelecao"
+                    >3 de 5 selecionadas</span
+                  >
+                </div>
+                <p class="form-panel-desc">
+                  Escolha as dimensões que farão parte desta atividade.
+                </p>
+
+                <div class="dimensions-grid">
+                  <!-- Dimensão 1: Autonomia (Selecionada) -->
+                  <div class="dimension-checkbox-card checked">
+                    <div class="dimension-checkbox-box" aria-hidden="true">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M2 6l3 3 5-5" />
+                      </svg>
+                    </div>
+                    <span class="dimension-name">Autonomia</span>
+                  </div>
+
+                  <!-- Dimensão 2: Responsabilidade (Selecionada) -->
+                  <div class="dimension-checkbox-card checked">
+                    <div class="dimension-checkbox-box" aria-hidden="true">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M2 6l3 3 5-5" />
+                      </svg>
+                    </div>
+                    <span class="dimension-name">Responsabilidade</span>
+                  </div>
+
+                  <!-- Dimensão 3: Respeito e Convivência (Selecionada) -->
+                  <div class="dimension-checkbox-card checked">
+                    <div class="dimension-checkbox-box" aria-hidden="true">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M2 6l3 3 5-5" />
+                      </svg>
+                    </div>
+                    <span class="dimension-name">Respeito e Convivência</span>
+                  </div>
+
+                  <!-- Dimensão 4: Colaboração -->
+                  <div class="dimension-checkbox-card">
+                    <div class="dimension-checkbox-box" aria-hidden="true"></div>
+                    <span class="dimension-name">Colaboração</span>
+                  </div>
+
+                  <!-- Dimensão 5: Participação -->
+                  <div class="dimension-checkbox-card">
+                    <div class="dimension-checkbox-box" aria-hidden="true"></div>
+                    <span class="dimension-name">Participação</span>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <!-- Coluna Lateral (Direita) -->
+            <div class="form-side-col">
+              <!-- Painel: Prazo de Resposta -->
+              <section class="form-panel" aria-label="Prazo de resposta">
+                <div class="form-panel-header">
+                  <h2 class="form-panel-title">Prazo para responder</h2>
+                </div>
+
+                <div class="deadline-box">
+                  <div class="deadline-info">
+                    <div class="deadline-calendar-icon" aria-hidden="true">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <rect x="3" y="4" width="14" height="13" rx="2" />
+                        <path d="M7 2v4M13 2v4M3 8h14" />
+                      </svg>
+                    </div>
+                    <div class="deadline-text-group">
+                      <span class="deadline-date">30 out. 2026</span>
+                      <span class="deadline-desc"
+                        >Sexta-feira · Data limite</span
+                      >
+                    </div>
+                  </div>
+                  <div style="color: #334155" aria-hidden="true">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M4 6l4 4 4-4" />
+                    </svg>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rodapé Fixo de Ações -->
+        <footer class="fixed-footer">
+          <!-- Botão Voltar (redireciona para autoavaliacoes.html) -->
+          <a href="autoavaliacoes.html" class="btn-footer-back">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M16 10H4M9 5l-5 5 5 5" />
+            </svg>
+            Voltar
+          </a>
+
+          <!-- Botão Prévia (com ícone de lupa) -->
+          <a href="" class="btn-footer-preview">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="8.5" cy="8.5" r="5.5" />
+              <path d="M12.5 12.5l4 4" />
+            </svg>
+            Prévia
+          </a>
+
+          <!-- Botão Criar Autoavaliação (href vazio conforme solicitado) -->
+          <a href="" class="btn-footer-submit">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M9 3v12M3 9h12" />
+            </svg>
+            Criar Autoavaliação
+          </a>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
+

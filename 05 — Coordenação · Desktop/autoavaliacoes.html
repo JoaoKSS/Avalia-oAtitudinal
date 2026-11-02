@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Autoavaliações · Turma 6º ano A · Coordenação · Desktop · Educar &amp;
+      Aprender
+    </title>
+    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-light.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <!-- Tipografia Inter oficial do Penpot -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & Base */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #f5f8fc;
+        color: #172b4d;
+        min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Layout Geral Desktop */
+      .app-layout {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
+      .sidebar {
+        width: 248px;
+        min-width: 248px;
+        background-color: #ffffff;
+        border-right: 1px solid #d9e4f2;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        z-index: 20;
+      }
+
+      /* Topo da Sidebar: Marca */
+      .sidebar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 20px 24px;
+        height: 76px;
+        border-bottom: 1px solid transparent;
+        text-decoration: none;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #2563eb;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-name {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #172b4d;
+      }
+
+      .brand-role {
+        font-size: 8px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #2563eb;
+        text-transform: uppercase;
+      }
+
+      /* Navegação Principal */
+      .sidebar-nav {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-top: 14px;
+      }
+
+      .nav-section-title {
+        font-size: 9px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #8194aa;
+        text-transform: uppercase;
+        padding: 12px 24px 8px 24px;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .nav-item {
+        padding: 0 12px;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 44px;
+        padding: 0 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        color: #60758b;
+        position: relative;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .nav-link:hover {
+        background-color: #f1f5f9;
+        color: #172b4d;
+      }
+
+      .nav-link.active {
+        background-color: #e8f1ff;
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      /* Barra indicadora azul ativa no item do menu */
+      .nav-link.active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 28px;
+        background-color: #2563eb;
+        border-radius: 2px;
+      }
+
+      .nav-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: currentColor;
+      }
+
+      /* Rodapé da Sidebar: Perfil da Coordenação */
+      .sidebar-footer {
+        padding: 16px 12px;
+        margin-top: auto;
+        border-top: 1px solid #d9e4f2;
+      }
+
+      .user-profile-button {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 8px 10px;
+        background: transparent;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.15s ease;
+      }
+
+      .user-profile-button:hover {
+        background-color: #f1f5f9;
+      }
+
+      .user-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background-color: #eef5ff;
+        color: #2563eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .user-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .user-name {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #172b4d;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .user-role {
+        display: block;
+        font-size: 11px;
+        color: #60758b;
+        margin-top: 2px;
+      }
+
+      .user-chevron {
+        color: #8194aa;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      /* Wrapper do Conteúdo Principal */
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        min-height: 100vh;
+        background-color: #f5f8fc;
+      }
+
+      /* Cabeçalho Superior Desktop (76px) */
+      .top-header {
+        height: 76px;
+        min-height: 76px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .breadcrumb-trail {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .breadcrumb-item {
+        color: #60758b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.15s ease;
+      }
+
+      .breadcrumb-item:hover {
+        color: #172b4d;
+      }
+
+      .breadcrumb-separator {
+        color: #8194aa;
+        font-size: 12px;
+      }
+
+      .breadcrumb-current {
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .notification-btn {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #60758b;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .notification-btn:hover {
+        background-color: #f8fafc;
+        border-color: #cbd5e1;
+        color: #172b4d;
+      }
+
+      .notification-dot {
+        position: absolute;
+        top: 11px;
+        right: 12px;
+        width: 7px;
+        height: 7px;
+        background-color: #2563eb;
+        border-radius: 4px;
+        border: 1.5px solid #ffffff;
+      }
+
+      /* Área de Conteúdo */
+      .content-area {
+        flex: 1;
+        width: 100%;
+        padding: 32px 32px 100px 32px;
+      }
+
+      /* Cabeçalho da Página */
+      .page-title-row {
+        margin-bottom: 24px;
+      }
+
+      .page-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #172b4d;
+        letter-spacing: -0.3px;
+        line-height: 1.35;
+      }
+
+      .page-description {
+        font-size: 14px;
+        color: #60758b;
+        margin-top: 6px;
+        line-height: 1.4;
+      }
+
+      /* Indicador / Resumo de Autoavaliações Criadas */
+      .summary-indicator-card {
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 16px;
+        height: 76px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        width: 100%;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+      }
+
+      .indicator-icon-wrapper {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background-color: #f0edff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6554c0;
+        flex-shrink: 0;
+      }
+
+      .indicator-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .indicator-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #172b4d;
+        line-height: 1.3;
+      }
+
+      .indicator-desc {
+        font-size: 13px;
+        font-weight: 500;
+        color: #60758b;
+        margin-top: 2px;
+      }
+
+      /* Linha de Título de Seção + Contador */
+      .section-header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        width: 100%;
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #172b4d;
+      }
+
+      .section-counter {
+        font-size: 13px;
+        font-weight: 500;
+        color: #60758b;
+      }
+
+      /* Barra de Filtros (Turma e Período) */
+      .filters-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        width: 100%;
+      }
+
+      .filter-item {
+        position: relative;
+        width: 264px;
+        height: 44px;
+      }
+
+      .filter-select {
+        width: 100%;
+        height: 100%;
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 11px;
+        padding: 0 36px 0 16px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #172b4d;
+        font-family: inherit;
+        cursor: pointer;
+        outline: none;
+        transition:
+          border-color 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+
+      .filter-select:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .filter-chevron {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #60758b;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Painel de Atividade da Autoavaliação (Borda Verde Penpot) */
+      .activity-card {
+        background-color: #ffffff;
+        border: 2px solid #16a34a;
+        border-radius: 16px;
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        box-shadow: 0 2px 8px rgba(22, 163, 74, 0.06);
+        transition:
+          box-shadow 0.15s ease,
+          transform 0.15s ease;
+      }
+
+      .activity-card:hover {
+        box-shadow: 0 4px 16px rgba(22, 163, 74, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .activity-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .activity-header-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .activity-icon-wrapper {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background-color: #e8f7ee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #16a34a;
+        flex-shrink: 0;
+      }
+
+      .activity-title-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .activity-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #172b4d;
+        line-height: 1.35;
+      }
+
+      .activity-meta {
+        font-size: 13px;
+        color: #60758b;
+        margin-top: 3px;
+      }
+
+      /* Badge de Status "Em andamento" */
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 12px;
+        height: 24px;
+        border-radius: 6px;
+        background-color: #fef9c3;
+        border: 1px solid #fde047;
+        color: #b7791f;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+
+      /* Barra de Progresso */
+      .progress-section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .progress-track {
+        width: 100%;
+        height: 6px;
+        background-color: #e5ebf3;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background-color: #2563eb;
+        border-radius: 3px;
+        width: 86%;
+      }
+
+      .progress-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .progress-value {
+        font-size: 12px;
+        font-weight: 600;
+        color: #2563eb;
+      }
+
+      .comparative-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #2563eb;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.15s ease, transform 0.15s ease;
+      }
+
+      .comparative-link:hover {
+        color: #1d4ed8;
+        transform: translateX(2px);
+      }
+
+      /* Rodapé Fixo de Ações (Voltar e Criar Autoavaliação) */
+      .fixed-footer {
+        position: fixed;
+        bottom: 0;
+        left: 248px;
+        right: 0;
+        height: 72px;
+        background-color: #ffffff;
+        border-top: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 0 32px;
+        z-index: 15;
+        box-shadow: 0 -4px 12px rgba(15, 23, 42, 0.04);
+      }
+
+      .btn-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 46px;
+        padding: 0 20px;
+        border-radius: 10px;
+        background-color: #60758b;
+        border: 1px solid #d9e4f2;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .btn-back:hover {
+        background-color: #475569;
+        border-color: #cbd5e1;
+      }
+
+      .btn-back svg {
+        color: #ffffff;
+        stroke: #ffffff;
+      }
+
+      .btn-create {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 46px;
+        padding: 0 24px;
+        border-radius: 10px;
+        background-color: #2563eb;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+        transition: all 0.15s ease;
+      }
+
+      .btn-create:hover {
+        background-color: #1d4ed8;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        transform: translateY(-1px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- Barra Lateral da Coordenação (248px) - Padrão Unificado de Ícones -->
+      <aside class="sidebar">
+      <!-- Marca -->
+      <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
+        <div class="brand-icon">
+          <!-- Ícone oficial do Penpot: Livro -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-role">Área da Coordenação</span>
+        </div>
+      </a>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Gestão Pedagógica</div>
+        <ul class="nav-list">
+          <!-- Visão Geral (Ativo) -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Início oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
+                </svg>
+              </span>
+              <span>Visão geral</span>
+            </a>
+          </li>
+
+          <!-- Sistema de Alertas -->
+          <li class="nav-item">
+            <a href="sistema-alerta-precoce.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Notificações / Sino oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+                  <path d="M8.33 17.5h3.34"/>
+                </svg>
+              </span>
+              <span>Sistema de alertas</span>
+            </a>
+          </li>
+
+          <!-- Clima Escolar -->
+          <li class="nav-item">
+            <a href="clima-escolar.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Comunidade Escolar oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="10" cy="5" r="2.2"/>
+                  <circle cx="5" cy="7.2" r="1.5"/>
+                  <circle cx="15" cy="7.2" r="1.5"/>
+                  <path d="M2.5 18c0-3.4 2.6-5.3 7.5-5.3s7.5 1.9 7.5 5.3"/>
+                  <path d="M1.2 17.5c.2-2.4 1.2-3.3 2.8-3.5"/>
+                  <path d="M16 14c1.6.2 2.6 1.1 2.8 3.5"/>
+                </svg>
+              </span>
+              <span>Clima escolar</span>
+            </a>
+          </li>
+
+          <!-- Dashboards Agregadores -->
+          <li class="nav-item">
+            <a href="dashboard-agregador-visao-central.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
+                  <path d="M12.5 5h5v5"/>
+                </svg>
+              </span>
+              <span>Dashboards agregadores</span>
+            </a>
+          </li>
+
+          <!-- Turmas -->
+          <li class="nav-item">
+            <a href="turmas.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Turmas oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="7.5" cy="6.67" r="2.71"/>
+                  <path d="M2.92 16.67v-1.05c0-2.18 1.77-3.95 3.95-3.95h1.25c2.19 0 3.96 1.77 3.96 3.95v1.05"/>
+                  <path d="M13.33 4.08c1.13.36 1.9 1.4 1.9 2.59 0 1.18-.77 2.22-1.9 2.58"/>
+                  <path d="M14.17 11.83c1.71.47 2.9 2.02 2.91 3.79v1.05"/>
+                </svg>
+              </span>
+              <span>Turmas</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé: Perfil da Coordenação -->
+      <div class="sidebar-footer">
+        <button type="button" class="user-profile-button" aria-label="Perfil do Núcleo Pedagógico">
+          <div class="user-avatar" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M5 21v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Núcleo Pedagógico</span>
+            <span class="user-role">Coordenação escolar</span>
+          </div>
+          <div class="user-chevron" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.75 4.5l4.5 4.5-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+      <!-- Conteúdo Principal -->
+      <main class="main-wrapper">
+        <!-- Cabeçalho Superior Desktop (76px) -->
+        <header class="top-header">
+          <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
+            <a href="painel-inicial.html" class="breadcrumb-item"
+              >Área da coordenação</a
+            >
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <a href="turmas.html" class="breadcrumb-item">Turmas</a>
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <span class="breadcrumb-current">Autoavaliações</span>
+          </nav>
+
+          <div class="header-actions">
+            <button
+              type="button"
+              class="notification-btn"
+              aria-label="Notificações da coordenação"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
+                />
+                <path d="M8.33 17.5h3.34" />
+              </svg>
+              <span class="notification-dot" aria-hidden="true"></span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Área de Conteúdo -->
+        <div class="content-area">
+          <!-- Título e Descrição da Página -->
+          <section class="page-title-row">
+            <h1 class="page-title">Autoavaliações</h1>
+            <p class="page-description">
+              Consulte as atividades criadas e acompanhe a participação.
+            </p>
+          </section>
+
+          <!-- Card Resumo / Indicador: Autoavaliações criadas -->
+          <section
+            class="summary-indicator-card"
+            aria-label="Resumo de autoavaliações criadas"
+          >
+            <div class="indicator-icon-wrapper" aria-hidden="true">
+              <!-- Ícone indicador oficial do Penpot -->
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M19 8v6M22 11h-6" />
+              </svg>
+            </div>
+            <div class="indicator-info">
+              <span class="indicator-title">Autoavaliações criadas</span>
+              <span class="indicator-desc">1 em andamento · 0 concluídas</span>
+            </div>
+          </section>
+
+          <!-- Cabeçalho da Seção: Todas as autoavaliações -->
+          <div class="section-header-row">
+            <h2 class="section-title">Todas as autoavaliações</h2>
+            <span class="section-counter">1 atividade</span>
+          </div>
+
+          <!-- Barra de Filtros (Turma e Período) -->
+          <section class="filters-row" aria-label="Filtros de autoavaliação">
+            <div class="filter-item">
+              <select class="filter-select" aria-label="Filtrar por turma">
+                <option value="6a" selected>6º ano A</option>
+                <option value="7b">7º ano B</option>
+                <option value="8c">8º ano C</option>
+                <option value="9a">9º ano A</option>
+              </select>
+              <span class="filter-chevron" aria-hidden="true">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 6l4 4 4-4" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="filter-item">
+              <select class="filter-select" aria-label="Filtrar por período">
+                <option value="all" selected>Todos os períodos</option>
+                <option value="1bim">1º Bimestre</option>
+                <option value="2bim">2º Bimestre</option>
+                <option value="3bim">3º Bimestre</option>
+                <option value="4bim">4º Bimestre</option>
+              </select>
+              <span class="filter-chevron" aria-hidden="true">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 6l4 4 4-4" />
+                </svg>
+              </span>
+            </div>
+          </section>
+
+          <!-- Card de Atividade da Autoavaliação -->
+          <section class="activity-card" aria-label="Autoavaliação atitudinal">
+            <div class="activity-header">
+              <div class="activity-header-left">
+                <div class="activity-icon-wrapper" aria-hidden="true">
+                  <!-- Ícone oficial de Atividade / Avaliação do Penpot -->
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M9 11l3 3L22 4"
+                    />
+                    <path
+                      d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+                    />
+                  </svg>
+                </div>
+                <div class="activity-title-group">
+                  <h3 class="activity-title">
+                    Autoavaliação atitudinal - 1º 2026
+                  </h3>
+                  <span class="activity-meta"
+                    >6º ano A · Prazo: 30 out. 2026</span
+                  >
+                </div>
+              </div>
+              <span class="status-badge">Em andamento</span>
+            </div>
+
+            <!-- Progresso de Preenchimento -->
+            <div class="progress-section">
+              <div
+                class="progress-track"
+                role="progressbar"
+                aria-valuenow="86"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-fill" style="width: 86%"></div>
+              </div>
+              <div class="progress-footer">
+                <span class="progress-value">86% preenchido</span>
+                <a
+                  href="comparativo-autoavaliacao.html"
+                  class="comparative-link"
+                >
+                  <span>Comparativo</span>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M6 12l4-4-4-4" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Rodapé Fixo de Ações (Oficial do Penpot) -->
+        <footer class="fixed-footer">
+          <a href="minhas-turmas-6ano-a-expandida.html" class="btn-back">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M16 10H4M9 5l-5 5 5 5" />
+            </svg>
+            Voltar
+          </a>
+
+          <a href="configuracao-autoavaliacao.html" class="btn-create">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M9 3v12M3 9h12" />
+            </svg>
+            Criar autoavaliação
+          </a>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

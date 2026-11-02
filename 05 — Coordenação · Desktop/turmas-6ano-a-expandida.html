@@ -1,0 +1,1350 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Minhas turmas · 6º ano A expandida · Coordenação · Desktop 1440 × 1024 ·
+      Educar &amp; Aprender
+    </title>
+    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-light.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <!-- Tipografia Inter oficial do Penpot -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & Base */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #f5f8fc;
+        color: #172b4d;
+        min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Layout Geral Desktop 1440 × 1024 */
+      .app-layout {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
+      .sidebar {
+        width: 248px;
+        min-width: 248px;
+        background-color: #ffffff;
+        border-right: 1px solid #d9e4f2;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        z-index: 20;
+      }
+
+      /* Topo da Sidebar: Marca */
+      .sidebar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 20px 24px;
+        height: 76px;
+        border-bottom: 1px solid transparent;
+        text-decoration: none;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #2563eb;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-name {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #172b4d;
+      }
+
+      .brand-role {
+        font-size: 8px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #2563eb;
+        text-transform: uppercase;
+      }
+
+      /* Navegação Principal */
+      .sidebar-nav {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-top: 14px;
+      }
+
+      .nav-section-title {
+        font-size: 9px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #8194aa;
+        text-transform: uppercase;
+        padding: 12px 24px 8px 24px;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .nav-item {
+        padding: 0 12px;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 44px;
+        padding: 0 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        color: #60758b;
+        position: relative;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .nav-link:hover {
+        background-color: #f1f5f9;
+        color: #172b4d;
+      }
+
+      .nav-link.active {
+        background-color: #e8f1ff;
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      /* Barra indicadora azul ativa no item do menu */
+      .nav-link.active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 28px;
+        background-color: #2563eb;
+        border-radius: 2px;
+      }
+
+      .nav-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: currentColor;
+      }
+
+      /* Rodapé da Sidebar: Perfil da Coordenação */
+      .sidebar-footer {
+        padding: 16px 12px;
+        margin-top: auto;
+        border-top: 1px solid #d9e4f2;
+      }
+
+      .user-profile-button {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 8px 10px;
+        background: transparent;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.15s ease;
+      }
+
+      .user-profile-button:hover {
+        background-color: #f1f5f9;
+      }
+
+      .user-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background-color: #eef5ff;
+        color: #2563eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .user-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .user-name {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #172b4d;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .user-role {
+        display: block;
+        font-size: 11px;
+        color: #60758b;
+        margin-top: 2px;
+      }
+
+      .user-chevron {
+        color: #8194aa;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      /* Wrapper do Conteúdo Principal */
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        min-height: 100vh;
+        background-color: #f5f8fc;
+      }
+
+      /* Cabeçalho Superior Desktop (76px) */
+      .top-header {
+        height: 76px;
+        min-height: 76px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .breadcrumb-trail {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .breadcrumb-item {
+        color: #60758b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.15s ease;
+      }
+
+      .breadcrumb-item:hover {
+        color: #172b4d;
+      }
+
+      .breadcrumb-separator {
+        color: #8194aa;
+        font-size: 12px;
+      }
+
+      .breadcrumb-current {
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .notification-btn {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #60758b;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .notification-btn:hover {
+        background-color: #f8fafc;
+        border-color: #cbd5e1;
+        color: #172b4d;
+      }
+
+      .notification-dot {
+        position: absolute;
+        top: 11px;
+        right: 12px;
+        width: 7px;
+        height: 7px;
+        background-color: #2563eb;
+        border-radius: 4px;
+        border: 1.5px solid #ffffff;
+      }
+
+      /* Área de Conteúdo */
+      .content-area {
+        flex: 1;
+        width: 100%;
+        padding: 32px;
+      }
+
+      /* Cabeçalho da Página */
+      .page-title-row {
+        margin-bottom: 24px;
+      }
+
+      .page-title {
+        font-size: 28px;
+        font-weight: 600;
+        color: #172b4d;
+        letter-spacing: -0.3px;
+        line-height: 1.35;
+      }
+
+      .page-description {
+        font-size: 13px;
+        color: #60758b;
+        margin-top: 6px;
+        line-height: 1.4;
+      }
+
+      /* Barra de Busca e Filtro */
+      .search-filter-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        width: 100%;
+      }
+
+      .search-input-wrapper {
+        flex: 1;
+        height: 44px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 11px;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        gap: 12px;
+        transition:
+          border-color 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+
+      .search-input-wrapper:focus-within {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .search-icon {
+        color: #60758b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .search-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 13px;
+        color: #172b4d;
+        font-family: inherit;
+      }
+
+      .search-input::placeholder {
+        color: #8194aa;
+      }
+
+      .filter-dropdown-wrapper {
+        position: relative;
+        width: 264px;
+        height: 44px;
+        flex-shrink: 0;
+      }
+
+      .filter-select {
+        width: 100%;
+        height: 100%;
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 11px;
+        padding: 0 36px 0 14px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #172b4d;
+        font-family: inherit;
+        cursor: pointer;
+        outline: none;
+        transition:
+          border-color 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+
+      .filter-select:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .filter-chevron {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #60758b;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Faixa de Resumo Oficial do Penpot */
+      .summary-banner {
+        width: 100%;
+        background-color: #e8f1ff;
+        border-radius: 12px;
+        height: 40px;
+        padding: 0 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
+
+      .summary-left {
+        font-size: 13px;
+        font-weight: 600;
+        color: #2563eb;
+      }
+
+      .summary-right {
+        font-size: 13px;
+        font-weight: 500;
+        color: #60758b;
+      }
+
+      /* Duas Colunas Independentes de Turmas (Permite que 8º ano C seja empurrado sem mover o 9º ano A) */
+      .turmas-columns {
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .turmas-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        min-width: 0;
+      }
+
+      /* Card Padrão de Turma (Sem barra vertical colorida) */
+      .turma-card {
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 16px;
+        height: 112px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .turma-card:hover {
+        border-color: #2563eb;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+      }
+
+      .turma-card-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .turma-avatar {
+        width: 56px;
+        height: 56px;
+        background-color: #e8f1ff;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2563eb;
+        flex-shrink: 0;
+      }
+
+      .turma-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .turma-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #172b4d;
+        line-height: 1.35;
+      }
+
+      .turma-level {
+        font-size: 12px;
+        font-weight: 400;
+        color: #60758b;
+        margin-top: 2px;
+        line-height: 1.35;
+      }
+
+      .turma-students-badge {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #60758b;
+        margin-top: 6px;
+      }
+
+      .students-badge-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .turma-action-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid #d9e4f2;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #60758b;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        flex-shrink: 0;
+      }
+
+      .turma-action-btn:hover {
+        border-color: #2563eb;
+        background-color: #e8f1ff;
+        color: #2563eb;
+      }
+
+      /* Card Expandido Oficial do Penpot (6º ano A) */
+      .turma-card-expanded {
+        background-color: #ffffff;
+        border: 1px solid #2563eb;
+        border-radius: 16px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+      }
+
+      .turma-card-expanded-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* Lista de Ações Rápidas da Turma Expandida */
+      .expanded-actions-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+      }
+
+      /* ==========================================================================
+       Itens de Ação da Turma Expandida (Devolutiva, Histórico, Registro)
+       Estado Normal: Fundo Neutro Suave (#f8fafc), Borda (#d9e4f2), Texto (#172b4d)
+       Estado Hover: Fundo Azul Primário / Marinho (#2563eb), Ícone e Texto Brancos (#ffffff)
+       ========================================================================== */
+      .expanded-action-item {
+        height: 42px;
+        background-color: #f8fafc;
+        border: 1px solid #d9e4f2;
+        border-radius: 10px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #172b4d;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        transition:
+          background-color 0.15s ease,
+          border-color 0.15s ease,
+          color 0.15s ease,
+          transform 0.12s ease;
+      }
+
+      .expanded-action-item .action-item-icon {
+        color: #2563eb;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: color 0.15s ease;
+      }
+
+      .expanded-action-item.item-historico .action-item-icon {
+        color: #0f766e;
+      }
+
+      .expanded-action-item svg {
+        stroke: currentColor;
+        transition: stroke 0.15s ease;
+      }
+
+      /* Efeito Hover Unificado: Fundo Azul, Texto Branco e Ícone Branco */
+      .expanded-action-item:hover {
+        background-color: #2563eb !important;
+        border-color: #2563eb !important;
+        color: #ffffff !important;
+        transform: translateX(2px);
+      }
+
+      .expanded-action-item:hover .action-item-icon,
+      .expanded-action-item:hover svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- Barra Lateral da Coordenação (248px) - Padrão Unificado -->
+      <aside class="sidebar">
+      <!-- Marca -->
+      <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
+        <div class="brand-icon">
+          <!-- Ícone oficial do Penpot: Livro -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-role">Área da Coordenação</span>
+        </div>
+      </a>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Gestão Pedagógica</div>
+        <ul class="nav-list">
+          <!-- Visão Geral (Ativo) -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Início oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
+                </svg>
+              </span>
+              <span>Visão geral</span>
+            </a>
+          </li>
+
+          <!-- Sistema de Alertas -->
+          <li class="nav-item">
+            <a href="sistema-alerta-precoce.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Notificações / Sino oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+                  <path d="M8.33 17.5h3.34"/>
+                </svg>
+              </span>
+              <span>Sistema de alertas</span>
+            </a>
+          </li>
+
+          <!-- Clima Escolar -->
+          <li class="nav-item">
+            <a href="clima-escolar.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Comunidade Escolar oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="10" cy="5" r="2.2"/>
+                  <circle cx="5" cy="7.2" r="1.5"/>
+                  <circle cx="15" cy="7.2" r="1.5"/>
+                  <path d="M2.5 18c0-3.4 2.6-5.3 7.5-5.3s7.5 1.9 7.5 5.3"/>
+                  <path d="M1.2 17.5c.2-2.4 1.2-3.3 2.8-3.5"/>
+                  <path d="M16 14c1.6.2 2.6 1.1 2.8 3.5"/>
+                </svg>
+              </span>
+              <span>Clima escolar</span>
+            </a>
+          </li>
+
+          <!-- Dashboards Agregadores -->
+          <li class="nav-item">
+            <a href="dashboard-agregador-visao-central.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
+                  <path d="M12.5 5h5v5"/>
+                </svg>
+              </span>
+              <span>Dashboards agregadores</span>
+            </a>
+          </li>
+
+          <!-- Turmas -->
+          <li class="nav-item">
+            <a href="turmas.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Turmas oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="7.5" cy="6.67" r="2.71"/>
+                  <path d="M2.92 16.67v-1.05c0-2.18 1.77-3.95 3.95-3.95h1.25c2.19 0 3.96 1.77 3.96 3.95v1.05"/>
+                  <path d="M13.33 4.08c1.13.36 1.9 1.4 1.9 2.59 0 1.18-.77 2.22-1.9 2.58"/>
+                  <path d="M14.17 11.83c1.71.47 2.9 2.02 2.91 3.79v1.05"/>
+                </svg>
+              </span>
+              <span>Turmas</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé: Perfil da Coordenação -->
+      <div class="sidebar-footer">
+        <button type="button" class="user-profile-button" aria-label="Perfil do Núcleo Pedagógico">
+          <div class="user-avatar" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M5 21v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Núcleo Pedagógico</span>
+            <span class="user-role">Coordenação escolar</span>
+          </div>
+          <div class="user-chevron" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.75 4.5l4.5 4.5-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+      <!-- Conteúdo Principal -->
+      <main class="main-wrapper">
+        <!-- Cabeçalho Superior Desktop (76px) -->
+        <header class="top-header">
+          <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
+            <a href="painel-inicial.html" class="breadcrumb-item"
+              >Área da coordenação</a
+            >
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <span class="breadcrumb-current">Turmas</span>
+          </nav>
+
+          <div class="header-actions">
+            <button
+              type="button"
+              class="notification-btn"
+              aria-label="Notificações da coordenação"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
+                />
+                <path d="M8.33 17.5h3.34" />
+              </svg>
+              <span class="notification-dot" aria-hidden="true"></span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Área de Conteúdo -->
+        <div class="content-area">
+          <!-- Título e Subtítulo -->
+          <section class="page-title-row">
+            <h1 class="page-title">Turmas</h1>
+            <p class="page-description">
+              Consulte as turmas da unidade e acompanhe a quantidade de
+              estudantes em cada grupo.
+            </p>
+          </section>
+
+          <!-- Barra de Busca e Filtro de Status -->
+          <section
+            class="search-filter-row"
+            aria-label="Busca e filtros de turmas"
+          >
+            <div class="search-input-wrapper">
+              <!-- Ícone de lupa diagonal oficial com cabo inclinado para baixo e à esquerda -->
+              <span class="search-icon" aria-hidden="true">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11.5" cy="8.5" r="5.5" />
+                  <path d="M7.5 12.5L3.5 16.5" />
+                </svg>
+              </span>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Buscar turma por nome ou ano..."
+                aria-label="Buscar turma por nome ou ano"
+              />
+            </div>
+
+            <div class="filter-dropdown-wrapper">
+              <select
+                class="filter-select"
+                aria-label="Filtro de status de turmas"
+              >
+                <option value="all">Todas as turmas</option>
+                <option value="fundamental2">Ensino Fundamental II</option>
+              </select>
+              <span class="filter-chevron" aria-hidden="true">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 8l4 4 4-4" />
+                </svg>
+              </span>
+            </div>
+          </section>
+
+          <!-- Faixa de Resumo Oficial do Penpot -->
+          <section class="summary-banner" aria-label="Resumo das turmas">
+            <span class="summary-left">4 turmas ativas</span>
+            <span class="summary-right">118 estudantes</span>
+          </section>
+
+          <!-- Duas Colunas Independentes de Turmas: Coluna 1 (6º ano A e 8º ano C) / Coluna 2 (7º ano B e 9º ano A) -->
+          <div class="turmas-columns">
+            <!-- Coluna 1 (Esquerda): 6º ano A Expandido + 8º ano C abaixo dele -->
+            <div class="turmas-col">
+              <!-- Turma 1: 6º ano A (EXPANDIDO) -->
+              <div class="turma-card-expanded">
+                <div class="turma-card-expanded-header">
+                  <div class="turma-card-left">
+                    <div class="turma-avatar" aria-hidden="true">
+                      <!-- Ícone oficial de turma do Penpot -->
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979" />
+                        <path
+                          d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"
+                        />
+                        <path
+                          d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"
+                        />
+                        <path
+                          d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"
+                        />
+                      </svg>
+                    </div>
+                    <div class="turma-info">
+                      <span class="turma-name">6º ano A</span>
+                      <span class="turma-level">Ensino Fundamental II</span>
+                      <div class="turma-students-badge">
+                        <span class="students-badge-icon" aria-hidden="true">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2" />
+                            <path
+                              d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"
+                            />
+                            <path
+                              d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"
+                            />
+                            <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7" />
+                          </svg>
+                        </span>
+                        <span>28 estudantes</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Botão Recolher (-) que retorna para a tela turmas.html -->
+                  <a
+                    href="turmas.html"
+                    class="turma-action-btn"
+                    title="Recolher 6º ano A"
+                    aria-label="Recolher 6º ano A"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M4 9h10" />
+                    </svg>
+                  </a>
+                </div>
+
+                <!-- Lista de Ações da Turma Expandida (Idêntica à tela do Professor) -->
+                <div class="expanded-actions-list">
+                  <a href="" class="expanded-action-item">
+                    <span class="action-item-icon" aria-hidden="true">
+                      <!-- Ícone oficial de Devolutiva do Penpot (ID 644b7976-7f30-8041-8008-d476a751abad) -->
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="3635 1870 18 18"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M3649.5227 1880.8409C3649.5227 1881.8577 3648.6982 1882.6818 3647.6819 1882.6818H3641.5454L3638.4773 1884.5227V1875.3182C3638.4773 1874.3015 3639.3018 1873.4773 3640.3181 1873.4773H3647.6819C3648.6982 1873.4773 3649.5227 1874.3015 3649.5227 1875.3182V1880.8409Z"
+                        />
+                        <path
+                          d="M3641.5454 1877.1591H3646.4546M3641.5454 1879.6136H3645.2273"
+                        />
+                      </svg>
+                    </span>
+                    <span>Ver estudantes</span>
+                  </a>
+
+                  <a
+                    href="../05 — Coordenação · Desktop/autoavaliacoes.html"
+                    class="expanded-action-item item-historico"
+                  >
+                    <span class="action-item-icon" aria-hidden="true">
+                      <!-- Ícone oficial de Histórico do Penpot (ID 644b7976-7f30-8041-8008-d476a76ef094) -->
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="3635 1917.864 18 18.273"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M3645.2273 1920.8636H3640.3181C3639.6404 1920.8636 3639.0908 1921.4131 3639.0908 1922.0909V1931.9091C3639.0908 1932.5869 3639.6404 1933.1364 3640.3181 1933.1364H3645.2273"
+                        />
+                        <path d="M3645.2273 1920.8636V1924.5454H3648.9092" />
+                        <path d="M3645.2273 1920.8636L3648.9092 1924.5454" />
+                        <ellipse
+                          cx="3647.0682"
+                          cy="1930.0682"
+                          rx="2.4545"
+                          ry="2.4545"
+                        />
+                        <path
+                          d="M3647.0681 1928.8409V1930.0682L3647.8044 1930.6818"
+                        />
+                      </svg>
+                    </span>
+                    <span>Autoavaliações</span>
+                  </a>
+
+                  <a href="" class="expanded-action-item">
+                    <span class="action-item-icon" aria-hidden="true">
+                      <!-- Ícone oficial de Registro com + do Penpot (ID 644b7976-7f30-8041-8008-d476a7942e81) -->
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="3635 1966 18 18"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <rect
+                          rx="2"
+                          ry="2"
+                          x="3639.7045"
+                          y="1970.0909"
+                          width="8.5909"
+                          height="10.4318"
+                        />
+                        <path
+                          d="M3642.1592 1970.0909V1969.4773H3645.8408V1970.0909"
+                        />
+                        <path
+                          d="M3644 1973.7727V1977.4546M3642.1592 1975.6136H3645.8408"
+                        />
+                      </svg>
+                    </span>
+                    <span>Ver análise por turma</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Turma 3: 8º ano C (Empurrada para baixo apenas dentro desta coluna) -->
+              <div class="turma-card">
+                <div class="turma-card-left">
+                  <div class="turma-avatar" aria-hidden="true">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979" />
+                      <path
+                        d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"
+                      />
+                      <path
+                        d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"
+                      />
+                      <path
+                        d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"
+                      />
+                    </svg>
+                  </div>
+                  <div class="turma-info">
+                    <span class="turma-name">8º ano C</span>
+                    <span class="turma-level">Ensino Fundamental II</span>
+                    <div class="turma-students-badge">
+                      <span class="students-badge-icon" aria-hidden="true">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2" />
+                          <path
+                            d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"
+                          />
+                          <path
+                            d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"
+                          />
+                          <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7" />
+                        </svg>
+                      </span>
+                      <span>29 estudantes</span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="turma-action-btn"
+                  title="Expandir 8º ano C"
+                  aria-label="Expandir 8º ano C"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M9 3.75v10.5M3.75 9h10.5" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna 2 (Direita): 7º ano B no topo e 9º ano A logo abaixo (Permanece no mesmo lugar!) -->
+            <div class="turmas-col">
+              <!-- Turma 2: 7º ano B -->
+              <div class="turma-card">
+                <div class="turma-card-left">
+                  <div class="turma-avatar" aria-hidden="true">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979" />
+                      <path
+                        d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"
+                      />
+                      <path
+                        d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"
+                      />
+                      <path
+                        d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"
+                      />
+                    </svg>
+                  </div>
+                  <div class="turma-info">
+                    <span class="turma-name">7º ano B</span>
+                    <span class="turma-level">Ensino Fundamental II</span>
+                    <div class="turma-students-badge">
+                      <span class="students-badge-icon" aria-hidden="true">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2" />
+                          <path
+                            d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"
+                          />
+                          <path
+                            d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"
+                          />
+                          <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7" />
+                        </svg>
+                      </span>
+                      <span>31 estudantes</span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="turma-action-btn"
+                  title="Expandir 7º ano B"
+                  aria-label="Expandir 7º ano B"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M9 3.75v10.5M3.75 9h10.5" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Turma 4: 9º ano A (Fixa na posição y=460 logo abaixo do 7º ano B) -->
+              <div class="turma-card">
+                <div class="turma-card-left">
+                  <div class="turma-avatar" aria-hidden="true">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979" />
+                      <path
+                        d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"
+                      />
+                      <path
+                        d="M14.667 4.492c1.24.39 2.085 1.54 2.085 2.841 0 1.3-.845 2.451-2.085 2.842"
+                      />
+                      <path
+                        d="M15.583 13.017c1.884.514 3.195 2.219 3.209 4.17v1.146"
+                      />
+                    </svg>
+                  </div>
+                  <div class="turma-info">
+                    <span class="turma-name">9º ano A</span>
+                    <span class="turma-level">Ensino Fundamental II</span>
+                    <div class="turma-students-badge">
+                      <span class="students-badge-icon" aria-hidden="true">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <ellipse cx="6" cy="5.5" rx="2.2" ry="2.2" />
+                          <path
+                            d="M2.5 13.5v-.8c0-1.8 1.4-3.2 3.2-3.2h1c1.8 0 3.2 1.4 3.2 3.2v.8"
+                          />
+                          <path
+                            d="M10.8 3.5c.9.3 1.5 1.1 1.5 2s-.6 1.7-1.5 2"
+                          />
+                          <path d="M11.5 9.8c1.3.4 2.3 1.6 2.3 3v.7" />
+                        </svg>
+                      </span>
+                      <span>30 estudantes</span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="turma-action-btn"
+                  title="Expandir 9º ano A"
+                  aria-label="Expandir 9º ano A"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M9 3.75v10.5M3.75 9h10.5" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
