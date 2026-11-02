@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Inicial do Estudante · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-subtle: #8194aa;
+      --color-border-subtle: #d9e4f2;
+      --color-card-blue-bg: #eaf2ff;
+      --color-trend-green: #16804a;
+      --color-status-orange-bg: #fff3d6;
+      --color-status-orange-text: #a85b00;
+      --color-status-green-bg: #e7f7ef;
+      --color-status-green-text: #16a34a;
+      --radius-sm: 8px;
+      --radius-btn: 9px;
+      --radius-icon: 12px;
+      --radius-card: 14px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 248px;
+      background-color: var(--color-bg-card);
+      border-right: 1px solid var(--color-border-subtle);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .sidebar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-primary);
+      border-radius: var(--radius-icon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--color-text-main);
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: var(--color-text-subtle);
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: var(--radius-icon);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--color-text-main);
+    }
+
+    .nav-link.active {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    .nav-icon-text {
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-card);
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+
+    .user-chevron {
+      color: var(--color-text-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .top-header {
+      height: 76px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-path {
+      font-weight: 500;
+      color: var(--color-text-muted);
+    }
+
+    .breadcrumb-current {
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--color-border-subtle);
+      background-color: var(--color-bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      padding: 0;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: var(--color-text-main);
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 7px;
+      height: 7px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    .content-area {
+      padding: 24px 20px 48px 20px;
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .welcome-header {
+      margin-bottom: 24px;
+    }
+
+    .welcome-title {
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+    }
+
+    .welcome-desc {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-text-muted);
+    }
+
+    .hero-card {
+      width: 100%;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .hero-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hero-title {
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-text-muted);
+      margin-bottom: 14px;
+    }
+
+    .hero-trend {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-trend-green);
+      margin-bottom: 18px;
+    }
+
+    .hero-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 34px;
+      padding: 0 16px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-btn);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      width: fit-content;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .hero-action-btn:hover {
+      background-color: #f8fafc;
+      border-color: #c7d7eb;
+      transform: translateY(-1px);
+    }
+
+    .hero-action-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .hero-stats-box {
+      width: 238px;
+      height: 140px;
+      background-color: var(--color-card-blue-bg);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .stats-data {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stats-label {
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 4px;
+    }
+
+    .stats-value {
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+
+    .stats-scale {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--color-text-muted);
+    }
+
+    .stats-icon-box {
+      width: 48px;
+      height: 48px;
+      background-color: var(--color-bg-card);
+      border: 1px solid #d6e6fc;
+      border-radius: var(--radius-icon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-text-main);
+      margin-bottom: 16px;
+    }
+
+    .two-column-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 34px;
+      margin-bottom: 36px;
+    }
+
+    .action-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+    }
+
+    .action-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 6px 20px rgba(20, 51, 97, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .card-icon-wrapper {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-icon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card-icon-wrapper.orange {
+      background-color: var(--color-status-orange-bg);
+      color: var(--color-status-orange-text);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .card-icon-wrapper.green {
+      background-color: var(--color-status-green-bg);
+      color: var(--color-status-green-text);
+      font-size: 23px;
+      font-weight: 600;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--color-text-main);
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      height: 26px;
+      padding: 0 12px;
+      border-radius: 13px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .card-badge.orange {
+      background-color: var(--color-status-orange-bg);
+      color: var(--color-status-orange-text);
+    }
+
+    .card-badge.green {
+      background-color: var(--color-status-green-bg);
+      color: var(--color-status-green-text);
+    }
+
+    .card-desc {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--color-text-muted);
+      margin-left: 58px;
+      margin-bottom: 14px;
+    }
+
+    .card-action-link {
+      margin-left: 58px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .recent-activity-title {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-text-main);
+      margin-bottom: 14px;
+    }
+
+    .recent-activity-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .recent-activity-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .recent-activity-name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-text-main);
+    }
+
+    .recent-activity-detail {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+            <path d="M3.333 16.25C3.333 15.1 4.266 14.167 5.416 14.167H16.666M5.416 1.667H16.666V18.333H5.416C4.266 18.333 3.333 17.401 3.333 16.25V3.75C3.333 2.6 4.266 1.667 5.416 1.667Z" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-role">Área do Estudante</span>
+        </div>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegação principal">
+        <span class="nav-section-title">Seu espaço de aprendizagem</span>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link active" aria-current="page">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4.5 10.333L12 4.5L19.5 10.333V18.667C19.5 19.127 19.127 19.5 18.667 19.5H14.5V13.667H9.5V19.5H5.333C4.873 19.5 4.5 19.127 4.5 18.667V10.333Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Início</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minhas-autoavaliacoes.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4.167 10L7.5 13.333L15.833 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Autoavaliações</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minha-evolucao.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M2.5 14.167L7.5 9.167L10.833 12.5L17.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12.5 5H17.5V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Minha evolução</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minhas-devolutivas.html" class="nav-link">
+              <span class="nav-icon">
+                <span class="nav-icon-text">≡</span>
+              </span>
+              <span>Minhas devolutivas</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="user-profile-button" aria-label="Abrir menu de perfil do estudante">
+          <div class="user-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M5 20V18C5 15.239 7.239 13 10 13H14C16.761 13 19 15.239 19 18V20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Meu perfil</span>
+            <span class="user-role">Estudante</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M6.75 4.5L11.25 9L6.75 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="top-header">
+        <nav class="breadcrumb" aria-label="Caminho da página">
+          <span class="breadcrumb-path">Área do estudante &nbsp;/</span>
+          <span class="breadcrumb-current">Painel inicial do estudante</span>
+        </nav>
+
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Ver notificações">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="notification-dot"></span>
+          </button>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <section class="welcome-header">
+          <h1 class="welcome-title">Olá, estudante!</h1>
+          <p class="welcome-desc">Acompanhe suas atividades, reconheça avanços e veja o que está esperando por você.</p>
+        </section>
+
+        <section class="hero-card">
+          <div class="hero-info">
+            <h2 class="hero-title">Minha evolução</h2>
+            <p class="hero-desc">Veja seu caminho, reconheça avanços e descubra novos passos.</p>
+            <p class="hero-trend">Seu percurso segue em desenvolvimento.</p>
+            <a href="minha-evolucao.html" class="hero-action-btn">
+              <span>Acompanhar evolução</span>
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M6 3.5L10.5 8L6 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-stats-box">
+            <div class="stats-data">
+              <span class="stats-label">Sua média geral</span>
+              <span class="stats-value">4,0</span>
+              <span class="stats-scale">de 5,0 · dados ilustrativos</span>
+            </div>
+            <div class="stats-icon-box" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M3 17L8.5 11.5L12 15L20 7" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 7H20V13" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="section-accompaniment">
+          <h2 id="section-accompaniment" class="section-title">Seu acompanhamento</h2>
+
+          <div class="two-column-grid">
+            <a href="minhas-autoavaliacoes.html" class="action-card">
+              <div class="card-top-row">
+                <div class="card-title-group">
+                  <div class="card-icon-wrapper orange" aria-hidden="true">✓</div>
+                  <h3 class="card-title">Autoavaliações</h3>
+                </div>
+                <span class="card-badge orange">1 EM ABERTO</span>
+              </div>
+              <p class="card-desc">Uma atividade está aguardando sua reflexão.</p>
+              <span class="card-action-link">Acessar atividades  →</span>
+            </a>
+
+            <a href="minhas-devolutivas.html" class="action-card">
+              <div class="card-top-row">
+                <div class="card-title-group">
+                  <div class="card-icon-wrapper green" aria-hidden="true">≡</div>
+                  <h3 class="card-title">Minhas devolutivas</h3>
+                </div>
+                <span class="card-badge green">NOVA</span>
+              </div>
+              <p class="card-desc">Confira a mensagem do(a) professor(a).</p>
+              <span class="card-action-link">Ler devolutivas  →</span>
+            </a>
+          </div>
+        </section>
+
+        <section aria-labelledby="section-recent-activity">
+          <h2 id="section-recent-activity" class="recent-activity-title">Atividade recente</h2>
+
+          <article class="recent-activity-card">
+            <div class="recent-activity-info">
+              <h3 class="recent-activity-name">Autoavaliação · Convivência e respeito</h3>
+              <p class="recent-activity-detail">Solicitada pela Prof.ª Ana Costa · Prazo: 28 out. 2026</p>
+            </div>
+            <span class="card-badge orange">PENDENTE</span>
+          </article>
+        </section>
+      </main>
+    </div>
+
+  </div>
+
+</body>
+</html>
