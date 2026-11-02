@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <style>
+    .glyph-path {
+      stroke: #2563eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      .glyph-path {
+        stroke: #60a5fa;
+      }
+    }
+  </style>
+  <g transform="translate(2, 2)">
+    <path class="glyph-path" d="M3.333 16.25C3.333 15.1 4.266 14.167 5.416 14.167L16.666 14.167M5.416 1.667L16.666 1.667L16.666 18.333L5.416 18.333C4.266 18.333 3.333 17.4 3.333 16.25L3.333 3.75C3.333 2.6 4.266 1.667 5.416 1.667L5.416 1.667" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
+
