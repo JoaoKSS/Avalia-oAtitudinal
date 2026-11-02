@@ -278,36 +278,45 @@
     }
 
     /* Breadcrumbs Padronizados */
+    .breadcrumb,
     .breadcrumb-nav {
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 13px;
       line-height: 1.4;
+      flex-wrap: wrap;
     }
 
+    .breadcrumb-path,
     .breadcrumb-link {
-      color: var(--color-text-muted);
-      text-decoration: none;
+      color: #60758b;
       font-weight: 500;
+      text-decoration: none;
       transition: color 0.15s ease;
     }
 
-    .breadcrumb-link:hover {
-      color: var(--color-text-main);
+    .breadcrumb-path a,
+    .breadcrumb-link:hover,
+    .breadcrumb-path:hover,
+    .breadcrumb-path a:hover {
+      color: #172b4d;
+      text-decoration: none;
     }
 
     .breadcrumb-separator {
-      color: var(--color-text-muted);
+      color: #8194aa;
+      font-size: 13px;
       user-select: none;
     }
 
     .breadcrumb-current {
-      color: var(--color-primary);
+      color: #2563eb;
       font-weight: 600;
+      font-size: 13px;
     }
 
-    /* Ações do Cabeçalho (Mensagens & Notificações) */
+/* Ações do Cabeçalho (Mensagens & Notificações) */
     .header-actions {
       display: flex;
       align-items: center;

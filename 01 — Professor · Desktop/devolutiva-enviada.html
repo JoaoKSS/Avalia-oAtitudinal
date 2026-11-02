@@ -285,35 +285,45 @@
       z-index: 90;
     }
 
-    .breadcrumb {
+    .breadcrumb,
+    .breadcrumb-nav {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       font-size: 13px;
+      line-height: 1.4;
       flex-wrap: wrap;
     }
 
-    .breadcrumb-path {
+    .breadcrumb-path,
+    .breadcrumb-link {
+      color: #60758b;
       font-weight: 500;
-      color: var(--color-text-muted);
-    }
-
-    .breadcrumb-path a {
-      color: inherit;
       text-decoration: none;
       transition: color 0.15s ease;
     }
 
+    .breadcrumb-path a,
+    .breadcrumb-link:hover,
+    .breadcrumb-path:hover,
     .breadcrumb-path a:hover {
-      color: var(--color-text-main);
+      color: #172b4d;
+      text-decoration: none;
+    }
+
+    .breadcrumb-separator {
+      color: #8194aa;
+      font-size: 13px;
+      user-select: none;
     }
 
     .breadcrumb-current {
+      color: #2563eb;
       font-weight: 600;
-      color: var(--color-primary-blue);
+      font-size: 13px;
     }
 
-    .header-actions {
+.header-actions {
       display: flex;
       align-items: center;
       gap: 12px;
@@ -611,16 +621,19 @@
     <div class="main-wrapper">
       <!-- Cabeçalho Superior (76px) -->
       <header class="top-header">
-        <div class="breadcrumb">
-          <span class="breadcrumb-path">
-            <a href="painel-inicial.html">Área do professor</a> &nbsp;/&nbsp;
-            <a href="minhas-turmas.html">Minhas turmas</a> &nbsp;/&nbsp;
-            <a href="devolutiva-individual.html">Devolutiva individual</a> &nbsp;/&nbsp;
-            <a href="resumo-periodo.html">Resumo do período</a> &nbsp;/&nbsp;
-            <a href="parecer-formativo.html">Parecer formativo</a> &nbsp;/
-          </span>
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="painel-inicial.html" class="breadcrumb-link">Área do professor</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="minhas-turmas.html" class="breadcrumb-link">Minhas turmas</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="devolutiva-individual.html" class="breadcrumb-link">Devolutiva individual</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="resumo-periodo.html" class="breadcrumb-link">Resumo do período</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="parecer-formativo.html" class="breadcrumb-link">Parecer formativo</a>
+          <span class="breadcrumb-separator">/</span>
           <span class="breadcrumb-current">Devolutiva enviada</span>
-        </div>
+        </nav>
 
         <div class="header-actions">
           <!-- Botão Mensagens (Ícone oficial do Penpot: dois balões sobrepostos) -->
