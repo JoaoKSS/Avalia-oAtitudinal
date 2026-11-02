@@ -442,6 +442,12 @@
       display: block;
     }
 
+    .required-asterisk {
+      color: #dc2626;
+      font-weight: 600;
+      margin-left: 2px;
+    }
+
     /* Linha 1: Dimensão e Tipo de Observação */
     .form-row-top {
       display: grid;
@@ -837,7 +843,7 @@
           <div class="form-row-top">
             <!-- Coluna Dimensão Atitudinal -->
             <div class="edit-form-group">
-              <label for="dimensao-select" class="field-label">Dimensão atitudinal</label>
+              <label for="dimensao-select" class="field-label">Dimensão atitudinal <span class="required-asterisk">*</span></label>
               <div class="dimension-select-box">
                 <span id="dimension-selected-text">Responsabilidade</span>
                 <span class="select-chevron" aria-hidden="true">▾</span>
@@ -853,7 +859,7 @@
 
             <!-- Coluna Tipo de Observação -->
             <div class="edit-form-group">
-              <span class="field-label">Tipo de observação</span>
+              <span class="field-label">Tipo de observação <span class="required-asterisk">*</span></span>
               <div class="type-options-container" role="radiogroup" aria-label="Tipo de observação">
                 <div class="type-btn positiva" role="radio" aria-checked="false" tabindex="0" onclick="selectType(this)">
                   <span>Positiva</span>
