@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Dashboard Agregador · Dimensões Atitudinais · Coordenação · Educar &amp; Aprender
+    </title>
+    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-light.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <!-- Fonte Inter oficial do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset e Variáveis Globais */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #f5f8fc;
+        color: #172b4d;
+        line-height: 1.5;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Estrutura Principal em 2 Colunas */
+      .app-layout {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
+      .sidebar {
+        width: 248px;
+        min-width: 248px;
+        background-color: #ffffff;
+        border-right: 1px solid #d9e4f2;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        z-index: 20;
+      }
+
+      /* Topo da Sidebar: Marca */
+      .sidebar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 20px 24px;
+        height: 76px;
+        border-bottom: 1px solid transparent;
+        text-decoration: none;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #2563eb;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-name {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #172b4d;
+      }
+
+      .brand-role {
+        font-size: 8px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #2563eb;
+        text-transform: uppercase;
+      }
+
+      /* Navegação Principal */
+      .sidebar-nav {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-top: 14px;
+      }
+
+      .nav-section-title {
+        font-size: 9px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #8194aa;
+        text-transform: uppercase;
+        padding: 12px 24px 8px 24px;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .nav-item {
+        padding: 0 12px;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 44px;
+        padding: 0 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        color: #60758b;
+        position: relative;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .nav-link:hover {
+        background-color: #f1f5f9;
+        color: #172b4d;
+      }
+
+      .nav-link.active {
+        background-color: #e8f1ff;
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      /* Barra indicadora azul ativa no item do menu */
+      .nav-link.active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 28px;
+        background-color: #2563eb;
+        border-radius: 2px;
+      }
+
+      .nav-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: currentColor;
+      }
+
+      /* Rodapé da Sidebar: Perfil da Coordenação */
+      .sidebar-footer {
+        padding: 16px 12px;
+        margin-top: auto;
+        border-top: 1px solid #d9e4f2;
+      }
+
+      .user-profile-button {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 8px 10px;
+        background: transparent;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.15s ease;
+      }
+
+      .user-profile-button:hover {
+        background-color: #f1f5f9;
+      }
+
+      .user-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background-color: #eef5ff;
+        color: #2563eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .user-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .user-name {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #172b4d;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .user-role {
+        display: block;
+        font-size: 11px;
+        color: #60758b;
+        margin-top: 2px;
+      }
+
+      .user-chevron {
+        color: #8194aa;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      /* Área Principal */
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #f5f8fc;
+      }
+
+      /* Cabeçalho Superior Desktop (76px) */
+      .top-header {
+        height: 76px;
+        min-height: 76px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        flex-shrink: 0;
+        z-index: 10;
+      }
+
+      .breadcrumb-trail {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .breadcrumb-item {
+        color: #60758b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.15s ease;
+      }
+
+      .breadcrumb-item:hover {
+        color: #172b4d;
+      }
+
+      .breadcrumb-separator {
+        color: #8194aa;
+        font-size: 12px;
+      }
+
+      .breadcrumb-current {
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .notification-btn {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #60758b;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .notification-btn:hover {
+        background-color: #f8fafc;
+        border-color: #cbd5e1;
+        color: #172b4d;
+      }
+
+      .notification-dot {
+        position: absolute;
+        top: 11px;
+        right: 12px;
+        width: 7px;
+        height: 7px;
+        background-color: #2563eb;
+        border-radius: 4px;
+        border: 1.5px solid #ffffff;
+      }
+
+      /* Área de Conteúdo com Rolagem Independente */
+      .content-area {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 32px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .content-area::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .content-area::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .content-area::-webkit-scrollbar-thumb {
+        background-color: #cbd5e1;
+        border-radius: 4px;
+      }
+
+      .content-area::-webkit-scrollbar-thumb:hover {
+        background-color: #94a3b8;
+      }
+
+      /* Título e Descrição */
+      .page-title-row {
+        margin-bottom: 20px;
+      }
+
+      .page-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #172b4d;
+        letter-spacing: -0.3px;
+        line-height: 1.35;
+      }
+
+      .page-description {
+        font-size: 14px;
+        color: #60758b;
+        margin-top: 4px;
+      }
+
+      /* Barra de Filtros e Busca */
+      .filters-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 16px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .filter-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: #8194aa;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .filter-control-wrap {
+        position: relative;
+        display: inline-block;
+      }
+
+      .filter-select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 8px;
+        padding: 8px 36px 8px 14px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: #172b4d;
+        cursor: pointer;
+        min-width: 210px;
+        transition: all 0.15s ease;
+        font-family: inherit;
+      }
+
+      .filter-select:hover {
+        border-color: #cbd5e1;
+      }
+
+      .filter-select:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      }
+
+      .select-arrow {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #60758b;
+        font-size: 11px;
+      }
+
+      /* Campo de Busca */
+      .search-box-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-width: 280px;
+      }
+
+      .search-input {
+        width: 100%;
+        height: 38px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 8px;
+        padding: 8px 14px 8px 38px;
+        font-size: 13px;
+        color: #172b4d;
+        font-family: inherit;
+        transition: all 0.15s ease;
+      }
+
+      .search-input::placeholder {
+        color: #8194aa;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8194aa;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Grade dos 4 Indicadores Principais (KPIs) */
+      .kpi-indicators-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      @media (max-width: 1200px) {
+        .kpi-indicators-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 680px) {
+        .kpi-indicators-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .kpi-card {
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 13px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        min-height: 82px;
+      }
+
+      .kpi-icon-box {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .kpi-text-group {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+
+      .kpi-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: #60758b;
+        line-height: 1.25;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .kpi-value {
+        font-size: 22px;
+        font-weight: 700;
+        color: #172b4d;
+        line-height: 1.25;
+        margin-top: 2px;
+      }
+
+      .kpi-subtext {
+        font-size: 11px;
+        color: #60758b;
+        margin-top: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Grade Superior BI (Evolução + Comparação por Turma) */
+      .bi-grid-top {
+        display: grid;
+        grid-template-columns: 1.62fr 1fr;
+        gap: 20px;
+        margin-bottom: 24px;
+        align-items: stretch;
+      }
+
+      @media (max-width: 1100px) {
+        .bi-grid-top {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Regra Especial de Zoom solicitada: Apenas no card Evolução de Colaboração */
+      .card-evolucao-colaboracao {
+        zoom: 1.25;
+      }
+
+      /* Painel Padrão BI */
+      .bi-panel-card {
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bi-panel-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+
+      .bi-panel-title-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bi-panel-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #172b4d;
+        line-height: 1.3;
+      }
+
+      .bi-panel-subtitle {
+        font-size: 12.5px;
+        color: #60758b;
+        margin-top: 3px;
+      }
+
+      /* Gráfico de Linha Vetorial */
+      .chart-container {
+        position: relative;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 12px;
+      }
+
+      .chart-content-row {
+        display: flex;
+        align-items: stretch;
+        gap: 12px;
+        height: 160px;
+      }
+
+      .chart-y-axis {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        font-size: 11px;
+        color: #8194aa;
+        font-weight: 500;
+        text-align: right;
+        user-select: none;
+        line-height: 1;
+      }
+
+      .chart-plot-area {
+        flex: 1;
+        position: relative;
+        height: 100%;
+      }
+
+      .chart-svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        overflow: visible;
+      }
+
+      .chart-grid-line {
+        stroke: #d9e4f2;
+        stroke-width: 1;
+      }
+
+      .chart-trend-line {
+        fill: none;
+        stroke: #2563eb;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .chart-dot {
+        fill: #ffffff;
+        stroke: #2563eb;
+        stroke-width: 2;
+        transition: r 0.15s ease;
+      }
+
+      .chart-dot:hover {
+        r: 6;
+      }
+
+      .chart-x-axis {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 36px;
+        margin-top: 12px;
+        user-select: none;
+      }
+
+      .chart-x-axis span {
+        width: 32px;
+        text-align: center;
+        font-size: 11px;
+        color: #60758b;
+        font-weight: 500;
+      }
+
+      /* Caixa de Insight no Rodapé do Card */
+      .insight-box {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 14px;
+        font-size: 12.5px;
+        font-weight: 500;
+        color: #15803d;
+      }
+
+      .insight-box.warning {
+        color: #b45309;
+      }
+
+      /* Lista de Barras de Comparação por Turma */
+      .turmas-bars-list {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 14px;
+      }
+
+      .turma-bar-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .turma-bar-name {
+        width: 76px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #172b4d;
+        flex-shrink: 0;
+      }
+
+      .turma-bar-track {
+        flex: 1;
+        height: 12px;
+        background-color: #edf2f7;
+        border-radius: 9999px;
+        overflow: hidden;
+      }
+
+      .turma-bar-fill {
+        height: 100%;
+        border-radius: 9999px;
+        background-color: #6d5bd0;
+        transition: width 0.3s ease;
+      }
+
+      .turma-bar-score {
+        width: 32px;
+        text-align: right;
+        font-size: 14px;
+        font-weight: 700;
+        color: #172b4d;
+        flex-shrink: 0;
+      }
+
+      .turma-insight-warning {
+        margin-top: 24px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: #b45309;
+        margin-bottom: 0;
+      }
+
+      /* Painel Inferior: Tabela de Insights por Dimensão */
+      .insights-card {
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 14px;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        overflow: hidden;
+        margin-bottom: 24px;
+      }
+
+      .insights-header-block {
+        padding: 22px 24px 14px 24px;
+      }
+
+      .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .insights-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      .insights-table th {
+        background-color: #f8fafd;
+        border-top: 1px solid #d9e4f2;
+        border-bottom: 1px solid #d9e4f2;
+        padding: 10px 24px;
+        font-size: 10.5px;
+        font-weight: 700;
+        color: #8194aa;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .insights-table th:nth-child(1),
+      .insights-table td:nth-child(1) {
+        width: 15%;
+        min-width: 120px;
+      }
+
+      .insights-table th:nth-child(2),
+      .insights-table td:nth-child(2) {
+        width: 18%;
+        min-width: 140px;
+      }
+
+      .insights-table th:nth-child(3),
+      .insights-table td:nth-child(3) {
+        width: 18%;
+        min-width: 140px;
+      }
+
+      .insights-table th:nth-child(4),
+      .insights-table td:nth-child(4) {
+        width: 20%;
+        min-width: 160px;
+      }
+
+      .insights-table th:nth-child(5),
+      .insights-table td:nth-child(5) {
+        width: 29%;
+        min-width: 220px;
+      }
+
+      .insights-table td {
+        padding: 15px 24px;
+        border-bottom: 1px solid #d9e4f2;
+        font-size: 12.5px;
+        color: #172b4d;
+        vertical-align: middle;
+      }
+
+      .insights-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .insights-table tr.row-alt {
+        background-color: #fbfcfe;
+      }
+
+      .insights-table tr:hover {
+        background-color: #f8fafd;
+      }
+
+      .td-turma {
+        font-weight: 600;
+        color: #172b4d;
+        white-space: nowrap;
+      }
+
+      .td-media {
+        font-weight: 700;
+        color: #172b4d;
+        white-space: nowrap;
+      }
+
+      .trend-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 3px 9px;
+        border-radius: 6px;
+        white-space: nowrap;
+      }
+
+      .trend-up {
+        background-color: #e8f7ee;
+        color: #15803d;
+      }
+
+      .trend-stable {
+        background-color: #e8f1ff;
+        color: #2563eb;
+      }
+
+      .trend-warning {
+        background-color: #fff4d6;
+        color: #b45309;
+      }
+
+      .trend-down {
+        background-color: #fee2e2;
+        color: #dc2626;
+      }
+
+      .td-volume {
+        color: #60758b;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .td-sugestao {
+        color: #172b4d;
+        font-weight: 500;
+      }
+
+      /* Barra Inferior de Ações (Igual a ver-todas-as-turmas.html) */
+      .bottom-bar {
+        height: 76px;
+        background-color: #ffffff;
+        border-top: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 24px 0 32px;
+        flex-shrink: 0;
+        box-shadow: 0 -4px 12px rgba(16, 24, 40, 0.05);
+        z-index: 20;
+      }
+
+      .btn-back {
+        height: 44px;
+        padding: 0 24px;
+        border-radius: 10px;
+        background-color: #60758b;
+        border: 1px solid #d9e4f2;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          background-color 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      .btn-back:hover {
+        background-color: #475569;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- Barra Lateral da Coordenação (248px) - Dashboards Agregadores Ativo -->
+      <aside class="sidebar">
+        <!-- Marca -->
+        <a
+          href="painel-inicial.html"
+          class="sidebar-brand"
+          aria-label="Educar &amp; Aprender - Início"
+        >
+          <div class="brand-icon">
+            <!-- Ícone oficial do Penpot: Livro -->
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Educar &amp; Aprender</span>
+            <span class="brand-role">ÁREA DA COORDENAÇÃO</span>
+          </div>
+        </a>
+
+        <!-- Navegação Principal -->
+        <nav class="sidebar-nav" aria-label="Menu principal">
+          <span class="nav-section-title">Gestão Pedagógica</span>
+          <ul class="nav-list">
+            <!-- 1. Visão geral -->
+            <li class="nav-item">
+              <a href="painel-inicial.html" class="nav-link">
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
+                </span>
+                <span>Visão geral</span>
+              </a>
+            </li>
+
+            <!-- 2. Sistema de alertas -->
+            <li class="nav-item">
+              <a href="sistema-alerta-precoce.html" class="nav-link">
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
+                    />
+                    <path d="M8.33 17.5h3.34" />
+                  </svg>
+                </span>
+                <span>Sistema de alertas</span>
+              </a>
+            </li>
+
+            <!-- 3. Clima escolar -->
+            <li class="nav-item">
+              <a href="clima-escolar.html" class="nav-link">
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="10" cy="10" r="7.5" />
+                    <path d="M7.5 8.33h.01M12.5 8.33h.01" />
+                    <path d="M7.5 12.5c.83 1.25 2.5 1.67 5 0" />
+                  </svg>
+                </span>
+                <span>Clima escolar</span>
+              </a>
+            </li>
+
+            <!-- 4. Dashboards agregadores (Item Ativo) -->
+            <li class="nav-item">
+              <a
+                href="dashboard-agregador-visao-central.html"
+                class="nav-link active"
+              >
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg>
+                </span>
+                <span>Dashboards agregadores</span>
+              </a>
+            </li>
+
+            <!-- 5. Turmas -->
+            <li class="nav-item">
+              <a href="turmas.html" class="nav-link">
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="7.5" cy="6.67" r="2.71" />
+                    <path
+                      d="M2.92 16.67v-1.05c0-2.18 1.77-3.95 3.95-3.95h1.25c2.19 0 3.96 1.77 3.96 3.95v1.05"
+                    />
+                    <path
+                      d="M13.33 4.08c1.13.36 1.9 1.4 1.9 2.59 0 1.18-.77 2.22-1.9 2.58"
+                    />
+                    <path
+                      d="M14.17 11.83c1.71.47 2.9 2.02 2.91 3.79v1.05"
+                    />
+                  </svg>
+                </span>
+                <span>Turmas</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Perfil da Coordenação no Rodapé da Sidebar -->
+        <div class="sidebar-footer">
+          <button
+            type="button"
+            class="user-profile-button"
+            aria-label="Opções do usuário: Núcleo Pedagógico"
+          >
+            <div class="user-avatar" aria-hidden="true">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16.67 17.5v-1.67A3.33 3.33 0 0 0 13.33 12.5H6.67a3.33 3.33 0 0 0-3.34 3.33v1.67" />
+                <circle cx="10" cy="5.83" r="3.33" />
+              </svg>
+            </div>
+            <div class="user-info">
+              <span class="user-name">Núcleo Pedagógico</span>
+              <span class="user-role">Coordenação escolar</span>
+            </div>
+            <div class="user-chevron" aria-hidden="true">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4.17 10h11.66M10.83 5l5 5-5 5" />
+              </svg>
+            </div>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Conteúdo Principal -->
+      <main class="main-wrapper">
+        <!-- Cabeçalho Superior Desktop (76px) -->
+        <header class="top-header">
+          <!-- Trilha de Navegação -->
+          <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
+            <span class="breadcrumb-item">Área da coordenação</span>
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <a
+              href="dashboard-agregador-visao-central.html"
+              class="breadcrumb-item"
+              >Dashboards agregadores</a
+            >
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <span class="breadcrumb-current" aria-current="page"
+              >Dimensões atitudinais</span
+            >
+          </nav>
+
+          <!-- Ações do Topo -->
+          <div class="header-actions">
+            <button
+              type="button"
+              class="notification-btn"
+              aria-label="Notificações"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
+                />
+                <path d="M8.33 17.5h3.34" />
+              </svg>
+              <span class="notification-dot" aria-hidden="true"></span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Área de Conteúdo da Página com Rolagem Independente -->
+        <div class="content-area">
+          <!-- Título e Descrição -->
+          <div class="page-title-row">
+            <h1 class="page-title">Análise por dimensão atitudinal</h1>
+            <p class="page-description">
+              Pesquise uma dimensão e compare sua distribuição entre turmas e períodos.
+            </p>
+          </div>
+
+          <!-- Barra de Filtros e Busca -->
+          <section class="filters-row" aria-label="Filtros e busca">
+            <!-- Filtro 1: Dimensão Selecionada -->
+            <div class="filter-group">
+              <span class="filter-label">Dimensão</span>
+              <div class="filter-control-wrap">
+                <select class="filter-select" aria-label="Selecionar dimensão atitudinal">
+                  <option value="colaboracao" selected>Colaboração</option>
+                  <option value="responsabilidade">Responsabilidade</option>
+                  <option value="autonomia">Autonomia</option>
+                  <option value="participacao">Participação</option>
+                  <option value="respeito">Respeito</option>
+                </select>
+                <span class="select-arrow" aria-hidden="true">&#9662;</span>
+              </div>
+            </div>
+
+            <!-- Filtro 2: Período -->
+            <div class="filter-group">
+              <span class="filter-label">Período</span>
+              <div class="filter-control-wrap">
+                <select class="filter-select" aria-label="Selecionar período">
+                  <option value="6-meses" selected>Últimos 6 meses</option>
+                  <option value="1-bimestre">1º Bimestre</option>
+                  <option value="2-bimestre">2º Bimestre</option>
+                  <option value="ano-atual">Ano letivo atual</option>
+                </select>
+                <span class="select-arrow" aria-hidden="true">&#9662;</span>
+              </div>
+            </div>
+
+            <!-- Filtro 3: Busca de dimensão -->
+            <div class="filter-group" style="flex: 1; min-width: 260px;">
+              <span class="filter-label" style="opacity: 0;">Busca</span>
+              <div class="search-box-wrap">
+                <span class="search-icon" aria-hidden="true">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Pesquisar dimensão…"
+                  aria-label="Pesquisar dimensão"
+                />
+              </div>
+            </div>
+          </section>
+
+          <!-- Grade dos 4 Indicadores (KPIs) -->
+          <section
+            class="kpi-indicators-grid"
+            aria-label="Indicadores da dimensão"
+          >
+            <!-- KPI 1: Média da dimensão -->
+            <article class="kpi-card">
+              <div
+                class="kpi-icon-box"
+                style="background-color: #e8f1ff; color: #2563eb;"
+                aria-hidden="true"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="10" cy="10" r="7.5" stroke="#60758b" />
+                  <path d="M10 5.5v4.5l2.5 1.7" stroke="#2563eb" />
+                </svg>
+              </div>
+              <div class="kpi-text-group">
+                <span class="kpi-label">Média da dimensão</span>
+                <span class="kpi-value">3,6</span>
+                <span class="kpi-subtext">de 5,0</span>
+              </div>
+            </article>
+
+            <!-- KPI 2: Turmas abaixo de 3,0 -->
+            <article class="kpi-card">
+              <div
+                class="kpi-icon-box"
+                style="background-color: #fff4d6; color: #b45309;"
+                aria-hidden="true"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="#b45309"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="7.5" cy="6.67" r="2.71" />
+                  <path
+                    d="M2.92 16.67v-1.05c0-2.18 1.77-3.95 3.95-3.95h1.25c2.19 0 3.96 1.77 3.96 3.95v1.05"
+                  />
+                  <path
+                    d="M13.33 4.08c1.13.36 1.9 1.4 1.9 2.59 0 1.18-.77 2.22-1.9 2.58"
+                  />
+                  <path
+                    d="M14.17 11.83c1.71.47 2.9 2.02 2.91 3.79v1.05"
+                  />
+                </svg>
+              </div>
+              <div class="kpi-text-group">
+                <span class="kpi-label">Turmas abaixo de 3,0</span>
+                <span class="kpi-value">2</span>
+                <span class="kpi-subtext">revisar contexto</span>
+              </div>
+            </article>
+
+            <!-- KPI 3: Evolução no período -->
+            <article class="kpi-card">
+              <div
+                class="kpi-icon-box"
+                style="background-color: #e8f7ee; color: #15803d;"
+                aria-hidden="true"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#15803d"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg>
+              </div>
+              <div class="kpi-text-group">
+                <span class="kpi-label">Evolução no período</span>
+                <span class="kpi-value" style="color: #15803d;">+0,3</span>
+                <span class="kpi-subtext">últimos 6 meses</span>
+              </div>
+            </article>
+
+            <!-- KPI 4: Registros recentes -->
+            <article class="kpi-card">
+              <div
+                class="kpi-icon-box"
+                style="background-color: #f1edff; color: #6d5bd0;"
+                aria-hidden="true"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#6d5bd0"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+              </div>
+              <div class="kpi-text-group">
+                <span class="kpi-label">Registros recentes</span>
+                <span class="kpi-value">46</span>
+                <span class="kpi-subtext">evidências agregadas</span>
+              </div>
+            </article>
+          </section>
+
+          <!-- Grade Superior BI (Evolução + Comparação por Turma) -->
+          <div class="bi-grid-top">
+            <!-- 1. Evolução de Colaboração (Card com ZOOM aplicado somente nele) -->
+            <section
+              class="bi-panel-card card-evolucao-colaboracao"
+              aria-label="Evolução de colaboração"
+            >
+              <div class="bi-panel-header">
+                <div class="bi-panel-title-group">
+                  <h2 class="bi-panel-title">Evolução de colaboração</h2>
+                  <p class="bi-panel-subtitle">
+                    Média consolidada de todas as turmas · escala 0–5
+                  </p>
+                </div>
+              </div>
+
+              <!-- Gráfico de Evolução com HTML nativo + SVG sem distorção -->
+              <div class="chart-container" aria-hidden="true">
+                <div class="chart-content-row">
+                  <!-- Eixo Y em HTML nativo -->
+                  <div class="chart-y-axis">
+                    <span>5,0</span>
+                    <span>2,5</span>
+                    <span>0,0</span>
+                  </div>
+
+                  <!-- Área Gráfica com 3 Linhas e Curva de Pontos -->
+                  <div class="chart-plot-area">
+                    <svg
+                      class="chart-svg"
+                      viewBox="0 0 500 160"
+                      preserveAspectRatio="none"
+                    >
+                      <!-- Linhas Horizontais de Grade (5,0 / 2,5 / 0,0) -->
+                      <line
+                        x1="0"
+                        y1="2"
+                        x2="500"
+                        y2="2"
+                        class="chart-grid-line"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <line
+                        x1="0"
+                        y1="80"
+                        x2="500"
+                        y2="80"
+                        class="chart-grid-line"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <line
+                        x1="0"
+                        y1="158"
+                        x2="500"
+                        y2="158"
+                        class="chart-grid-line"
+                        vector-effect="non-scaling-stroke"
+                      />
+
+                      <!-- Linha de Evolução Contínua (Mai a Out: 3.3 a 3.6) -->
+                      <polyline
+                        points="18,54 111,51 204,51 296,48 389,48 482,45"
+                        class="chart-trend-line"
+                        vector-effect="non-scaling-stroke"
+                      />
+
+                      <!-- Pontos dos 6 Meses -->
+                      <circle
+                        cx="18"
+                        cy="54"
+                        r="4.5"
+                        class="chart-dot"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <circle
+                        cx="111"
+                        cy="51"
+                        r="4.5"
+                        class="chart-dot"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <circle
+                        cx="204"
+                        cy="51"
+                        r="4.5"
+                        class="chart-dot"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <circle
+                        cx="296"
+                        cy="48"
+                        r="4.5"
+                        class="chart-dot"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <circle
+                        cx="389"
+                        cy="48"
+                        r="4.5"
+                        class="chart-dot"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <circle
+                        cx="482"
+                        cy="45"
+                        r="4.5"
+                        class="chart-dot"
+                        vector-effect="non-scaling-stroke"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Eixo X com 6 meses em texto HTML puro -->
+                <div class="chart-x-axis">
+                  <span>Mai</span>
+                  <span>Jun</span>
+                  <span>Jul</span>
+                  <span>Ago</span>
+                  <span>Set</span>
+                  <span>Out</span>
+                </div>
+              </div>
+
+              <!-- Insight de Tendência no Rodapé do Card -->
+              <div class="insight-box">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>A evolução é positiva, embora gradual.</span>
+              </div>
+            </section>
+
+            <!-- 2. Comparação da Dimensão entre Turmas -->
+            <section
+              class="bi-panel-card"
+              aria-label="Colaboração por turma"
+            >
+              <div class="bi-panel-header">
+                <div class="bi-panel-title-group">
+                  <h2 class="bi-panel-title">Colaboração por turma</h2>
+                  <p class="bi-panel-subtitle">
+                    Comparação da mesma dimensão
+                  </p>
+                </div>
+              </div>
+
+              <!-- Lista de Barras de Turmas -->
+              <div class="turmas-bars-list">
+                <!-- 7º ano B (4,0) -->
+                <div class="turma-bar-item">
+                  <span class="turma-bar-name">7º ano B</span>
+                  <div class="turma-bar-track">
+                    <div class="turma-bar-fill" style="width: 80%;"></div>
+                  </div>
+                  <span class="turma-bar-score">4,0</span>
+                </div>
+
+                <!-- 6º ano A (3,8) -->
+                <div class="turma-bar-item">
+                  <span class="turma-bar-name">6º ano A</span>
+                  <div class="turma-bar-track">
+                    <div class="turma-bar-fill" style="width: 76%;"></div>
+                  </div>
+                  <span class="turma-bar-score">3,8</span>
+                </div>
+
+                <!-- 9º ano B (3,7) -->
+                <div class="turma-bar-item">
+                  <span class="turma-bar-name">9º ano B</span>
+                  <div class="turma-bar-track">
+                    <div class="turma-bar-fill" style="width: 74%;"></div>
+                  </div>
+                  <span class="turma-bar-score">3,7</span>
+                </div>
+
+                <!-- 8º ano A (3,1) -->
+                <div class="turma-bar-item">
+                  <span class="turma-bar-name">8º ano A</span>
+                  <div class="turma-bar-track">
+                    <div class="turma-bar-fill" style="width: 62%;"></div>
+                  </div>
+                  <span class="turma-bar-score">3,1</span>
+                </div>
+
+                <!-- 6º ano C (2,9) -->
+                <div class="turma-bar-item">
+                  <span class="turma-bar-name">6º ano C</span>
+                  <div class="turma-bar-track">
+                    <div class="turma-bar-fill" style="width: 58%;"></div>
+                  </div>
+                  <span class="turma-bar-score">2,9</span>
+                </div>
+              </div>
+
+              <!-- Insight no Rodapé da Comparação -->
+              <p class="turma-insight-warning">2 turmas abaixo da referência 3,0.</p>
+            </section>
+          </div>
+
+          <!-- 3. Tabela de Insights por Dimensão -->
+          <section
+            class="insights-card"
+            aria-label="Leituras para investigação pedagógica"
+          >
+            <div class="insights-header-block">
+              <h2 class="bi-panel-title">Leituras para investigação pedagógica</h2>
+              <p class="bi-panel-subtitle">
+                Dados agregados; não expõe estudante individual.
+              </p>
+            </div>
+
+            <div class="table-responsive">
+              <table class="insights-table">
+                <thead>
+                  <tr>
+                    <th>TURMA</th>
+                    <th>MÉDIA NA DIMENSÃO</th>
+                    <th>TENDÊNCIA</th>
+                    <th>VOLUME DE EVIDÊNCIAS</th>
+                    <th>SUGESTÃO DE ANÁLISE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Linha 1: 7º ano B -->
+                  <tr>
+                    <td class="td-turma">7º ano B</td>
+                    <td class="td-media">4,0</td>
+                    <td>
+                      <span class="trend-pill trend-up">
+                        <span aria-hidden="true">&uarr;</span> melhorando
+                      </span>
+                    </td>
+                    <td class="td-volume">18 registros</td>
+                    <td class="td-sugestao">Verificar práticas colaborativas</td>
+                  </tr>
+
+                  <!-- Linha 2: 6º ano A (Alternada) -->
+                  <tr class="row-alt">
+                    <td class="td-turma">6º ano A</td>
+                    <td class="td-media">3,8</td>
+                    <td>
+                      <span class="trend-pill trend-stable">
+                        <span aria-hidden="true">&rarr;</span> estável
+                      </span>
+                    </td>
+                    <td class="td-volume">12 registros</td>
+                    <td class="td-sugestao">Manter acompanhamento</td>
+                  </tr>
+
+                  <!-- Linha 3: 8º ano A -->
+                  <tr>
+                    <td class="td-turma">8º ano A</td>
+                    <td class="td-media">3,1</td>
+                    <td>
+                      <span class="trend-pill trend-warning">
+                        <span aria-hidden="true">&darr;</span> oscilação
+                      </span>
+                    </td>
+                    <td class="td-volume">9 registros</td>
+                    <td class="td-sugestao">Investigar contexto e frequência</td>
+                  </tr>
+
+                  <!-- Linha 4: 6º ano C (Alternada) -->
+                  <tr class="row-alt">
+                    <td class="td-turma">6º ano C</td>
+                    <td class="td-media" style="color: #dc2626;">2,9</td>
+                    <td>
+                      <span class="trend-pill trend-down">
+                        <span aria-hidden="true">&darr;</span> queda recente
+                      </span>
+                    </td>
+                    <td class="td-volume">7 registros</td>
+                    <td class="td-sugestao">Analisar com equipe pedagógica</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <!-- Barra Inferior de Ações (Igual a ver-todas-as-turmas.html) -->
+        <footer class="bottom-bar">
+          <a href="dashboard-agregador-visao-central.html" class="btn-back">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167" />
+            </svg>
+            <span>Voltar</span>
+          </a>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
+
