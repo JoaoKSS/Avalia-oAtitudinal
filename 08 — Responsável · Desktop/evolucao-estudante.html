@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolução do Estudante · Lucas Martins · Responsável · Educar & Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f8fc;
+      color: #172b4d;
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Barra Lateral do Responsável (248px) */
+    .sidebar {
+      width: 248px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+    }
+
+    .brand-logo-container {
+      width: 40px;
+      height: 40px;
+      background-color: #2563eb;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #172b4d;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Navegação Lateral */
+    .sidebar-nav {
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .nav-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      padding: 12px 12px 8px 12px;
+      text-transform: uppercase;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      width: 100%;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #60758b;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: #172b4d;
+    }
+
+    .nav-link.active {
+      background-color: #e8f0ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: #2563eb;
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil do Responsável */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 11px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #60758b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Área Principal */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Cabeçalho Superior Desktop (76px) */
+    .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-item {
+      font-weight: 400;
+      color: #60758b;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .breadcrumb-item:hover {
+      color: #172b4d;
+    }
+
+    .breadcrumb-separator {
+      color: #60758b;
+    }
+
+    .breadcrumb-current {
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #2563eb;
+      border: 2px solid #ffffff;
+    }
+
+    /* Área de Conteúdo */
+    .content-area {
+      padding: 24px 32px 40px 32px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Cabeçalho da Tela */
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .page-title {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #172b4d;
+    }
+
+    .page-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #60758b;
+    }
+
+    /* Cartão de Identificação do Estudante (1088 × 75px) */
+    .student-id-card {
+      width: 100%;
+      min-height: 75px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 14px;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .student-id-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .student-id-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .student-id-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .student-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+    }
+
+    .student-id-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .student-id-class {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    /* Seletor de Período (Dropdown) */
+    .period-selector {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #172b4d;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+      font-family: inherit;
+    }
+
+    .period-selector:hover {
+      border-color: #2563eb;
+      background-color: #f8fafc;
+    }
+
+    .period-icon {
+      color: #60758b;
+      display: flex;
+      align-items: center;
+    }
+
+    .period-chevron {
+      color: #60758b;
+      font-size: 12px;
+      margin-left: 2px;
+    }
+
+    /* Linha de KPIs (3 Cards) */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .kpi-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 84px;
+    }
+
+    .kpi-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .kpi-icon-blue {
+      background-color: #e8f0ff;
+      color: #2563eb;
+    }
+
+    .kpi-icon-green {
+      background-color: #e8f6ee;
+      color: #287d4f;
+    }
+
+    .kpi-icon-amber {
+      background-color: #fff4d8;
+      color: #a86200;
+    }
+
+    .kpi-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .kpi-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+    }
+
+    .kpi-value-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .kpi-value-large {
+      font-size: 24px;
+      font-weight: 700;
+      color: #172b4d;
+      line-height: 1.1;
+    }
+
+    .kpi-value-green {
+      font-size: 22px;
+      font-weight: 700;
+      color: #287d4f;
+      line-height: 1.1;
+    }
+
+    .kpi-value-highlight {
+      font-size: 15px;
+      font-weight: 700;
+      color: #172b4d;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .kpi-subtext {
+      font-size: 12px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    /* Grid de Gráficos Principais (2 Colunas) */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .chart-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 345px;
+    }
+
+    .chart-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .chart-card-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .chart-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .chart-subtitle {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .chart-score-pill {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      text-align: right;
+    }
+
+    .chart-big-score {
+      font-size: 28px;
+      font-weight: 700;
+      color: #172b4d;
+      line-height: 1;
+    }
+
+    .chart-score-scale {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    /* Painel do Gráfico Radar (Esquerda) */
+    .radar-container {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex: 1;
+    }
+
+    .radar-visual {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .radar-svg {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      overflow: visible;
+    }
+
+    /* Lista de Dimensões (Direita do Radar) */
+    .dimensions-list {
+      width: 210px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .dimensions-scale-header {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .dimension-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .dimension-item-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .dimension-bar-indicator {
+      width: 5px;
+      height: 24px;
+      background-color: #2563eb;
+      border-radius: 2.5px;
+      flex-shrink: 0;
+    }
+
+    .dimension-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dimension-score {
+      font-size: 14px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    /* Painel do Gráfico de Linha (Direita) */
+    .line-chart-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .line-svg {
+      width: 100%;
+      height: 180px;
+      overflow: visible;
+    }
+
+    .line-chart-months {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 28px;
+      margin-top: 4px;
+    }
+
+    .month-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #60758b;
+      text-align: center;
+    }
+
+    .line-chart-footer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #16804a;
+    }
+
+    /* Card de Aviso Formativo */
+    .formative-notice-card {
+      width: 100%;
+      min-height: 80px;
+      background-color: #e8f0ff;
+      border: 1px solid #d0e1fd;
+      border-radius: 15px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .notice-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #2563eb;
+    }
+
+    .notice-text-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .notice-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .notice-desc {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #3f5878;
+    }
+
+    /* Responsividade */
+    @media (max-width: 1200px) {
+      .kpi-row {
+        grid-template-columns: 1fr;
+      }
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+      .radar-container {
+        flex-direction: column;
+      }
+      .dimensions-list {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Barra Lateral do Responsável (248px) -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-logo-container">
+          <!-- Ícone vetorial da marca oficial do Penpot -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Educar & Aprender</span>
+          <span class="brand-subtitle">ÁREA DO RESPONSÁVEL</span>
+        </div>
+      </div>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Menu Lateral</div>
+        <ul class="nav-list">
+          <!-- Início -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Início oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Início</span>
+            </a>
+          </li>
+
+          <!-- Evolução do estudante (Ativo) -->
+          <li class="nav-item">
+            <a href="evolucao-estudante.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Gráfico de Evolução / Trending Up -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                  <polyline points="17 6 23 6 23 12"/>
+                </svg>
+              </span>
+              <span>Evolução do estudante</span>
+            </a>
+          </li>
+
+          <!-- Histórico de registros -->
+          <li class="nav-item">
+            <a href="historico-registros.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Histórico / Lupa do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="8.5" cy="8.5" r="5.5"/>
+                  <line x1="12.5" y1="12.5" x2="16.5" y2="16.5"/>
+                </svg>
+              </span>
+              <span>Histórico de registros</span>
+            </a>
+          </li>
+
+          <!-- Devolutivas -->
+          <li class="nav-item">
+            <a href="devolutivas.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Devolutivas (≡) -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3.5" y1="6" x2="16.5" y2="6"/>
+                  <line x1="3.5" y1="10" x2="16.5" y2="10"/>
+                  <line x1="3.5" y1="14" x2="16.5" y2="14"/>
+                </svg>
+              </span>
+              <span>Devolutivas</span>
+            </a>
+          </li>
+
+          <!-- Mensagens -->
+          <li class="nav-item">
+            <a href="mensagens.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Mensagens / Conversas oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+                  <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
+                  <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+                </svg>
+              </span>
+              <span>Mensagens</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé da Sidebar: Perfil do Responsável -->
+      <div class="sidebar-footer">
+        <button class="user-profile-button" type="button" aria-label="Menu do responsável">
+          <div class="user-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">João Martins</span>
+            <span class="user-role">Responsável</span>
+          </div>
+          <div class="user-chevron">
+            <!-- Seta direita de navegação -->
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.75 4.5l4.5 4.5-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Área Principal de Conteúdo -->
+    <main class="main-wrapper">
+      <!-- Cabeçalho Superior Desktop (76px) -->
+      <header class="top-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="painel-inicial.html" class="breadcrumb-item">Aluno</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Evolução</span>
+        </nav>
+
+        <div class="header-actions">
+          <!-- Botão Mensagens -->
+          <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+            <!-- Ícone Conversas oficial do Penpot -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+              <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
+              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+            </svg>
+          </a>
+
+          <!-- Botão Notificações -->
+          <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
+            <!-- Ícone Sino de Notificação oficial do Penpot -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 6.667C15 3.905 12.761 1.667 10 1.667C7.239 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167h15C17.5 12.5 15 12.5 15 6.667z"/>
+              <path d="M8.333 17.5h3.334"/>
+            </svg>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Conteúdo da Página -->
+      <div class="content-area">
+        <!-- Título e Subtítulo -->
+        <div class="page-header">
+          <h1 class="page-title">Evolução do Lucas</h1>
+          <p class="page-desc">Acompanhe o desenvolvimento ao longo do tempo.</p>
+        </div>
+
+        <!-- Cartão de Identificação do Estudante com Seletor de Período -->
+        <section class="student-id-card">
+          <div class="student-id-left">
+            <div class="student-id-avatar">LM</div>
+            <div class="student-id-info">
+              <span class="student-tag">ACOMPANHAMENTO DO ESTUDANTE</span>
+              <h2 class="student-id-name">Lucas Martins</h2>
+              <span class="student-id-class">6º ano A · Ensino Fundamental</span>
+            </div>
+          </div>
+          <button class="period-selector" type="button" aria-label="Selecionar período">
+            <span class="period-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </span>
+            <span>Últimos 6 meses</span>
+            <span class="period-chevron">⌄</span>
+          </button>
+        </section>
+
+        <!-- Linha de KPIs (3 Cards) -->
+        <section class="kpi-row" aria-label="Indicadores chave">
+          <!-- KPI 1: Média Geral -->
+          <div class="kpi-card">
+            <div class="kpi-icon-box kpi-icon-blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">MÉDIA GERAL</span>
+              <div class="kpi-value-row">
+                <span class="kpi-value-large">4,0</span>
+                <span class="kpi-subtext">de 5,0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 2: Tendência Desde Maio -->
+          <div class="kpi-card">
+            <div class="kpi-icon-box kpi-icon-green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">TENDÊNCIA DESDE MAIO</span>
+              <div class="kpi-value-row">
+                <span class="kpi-value-green">+1,0 ponto</span>
+              </div>
+              <span class="kpi-subtext">Evolução no período</span>
+            </div>
+          </div>
+
+          <!-- KPI 3: Maior Pontuação -->
+          <div class="kpi-card">
+            <div class="kpi-icon-box kpi-icon-amber">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">MAIOR PONTUAÇÃO</span>
+              <span class="kpi-value-highlight" title="Respeito e convivência">Respeito e convivência</span>
+              <span class="kpi-subtext">4,4 de 5</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Grid de Gráficos Principais (2 Colunas) -->
+        <section class="charts-grid">
+          <!-- Gráfico Esquerdo: Perfil por Dimensão (Radar + Lista) -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <div class="chart-card-header-left">
+                <h3 class="chart-title">Seu perfil por dimensão</h3>
+                <span class="chart-subtitle">Comparação entre cinco dimensões</span>
+              </div>
+            </div>
+
+            <div class="radar-container">
+              <!-- Radar Visual com SVG Exato do Penpot -->
+              <div class="radar-visual">
+                <svg class="radar-svg" viewBox="0 0 280 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Grelha Concreta do Radar (Polígonos concêntricos de nível) -->
+                  <!-- Nível 5 (Externo) -->
+                  <polygon points="140,24 220.9,82.5 189.9,178.1 90.1,178.1 59.1,82.5" stroke="#d9e4f2" stroke-width="1" fill="none" />
+                  <!-- Nível 4 -->
+                  <polygon points="140,40.8 204.7,87.8 179.9,164.3 100.1,164.3 75.3,87.8" stroke="#d9e4f2" stroke-width="1" fill="none" />
+                  <!-- Nível 3 -->
+                  <polygon points="140,57.9 188.6,93.0 169.8,150.6 110.2,150.6 91.4,93.0" stroke="#d9e4f2" stroke-width="1" fill="none" />
+                  <!-- Nível 2 -->
+                  <polygon points="140,74.9 172.3,98.3 159.7,136.9 120.3,136.9 107.7,98.3" stroke="#d9e4f2" stroke-width="1" fill="none" />
+
+                  <!-- Eixos Radiais do Centro (140, 109) -->
+                  <line x1="140" y1="109" x2="140" y2="24" stroke="#d9e4f2" stroke-width="1" />
+                  <line x1="140" y1="109" x2="220.9" y2="82.5" stroke="#d9e4f2" stroke-width="1" />
+                  <line x1="140" y1="109" x2="189.9" y2="178.1" stroke="#d9e4f2" stroke-width="1" />
+                  <line x1="140" y1="109" x2="90.1" y2="178.1" stroke="#d9e4f2" stroke-width="1" />
+                  <line x1="140" y1="109" x2="59.1" y2="82.5" stroke="#d9e4f2" stroke-width="1" />
+
+                  <!-- Polígono Preenchido dos Dados do Estudante -->
+                  <polygon points="140,37.7 201.1,89.1 179.9,164.3 104.0,158.8 78.7,89.0"
+                           fill="#2563eb" fill-opacity="0.16"
+                           stroke="#2563eb" stroke-width="2.4" stroke-linejoin="round" />
+
+                  <!-- Pontos Marcadores das Dimensões -->
+                  <circle cx="140.0" cy="37.7" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+                  <circle cx="201.1" cy="89.1" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+                  <circle cx="179.9" cy="164.3" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+                  <circle cx="104.0" cy="158.8" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+                  <circle cx="78.7" cy="89.0" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+
+                  <!-- Rótulos em volta do Radar -->
+                  <text x="140" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60758b">Responsabilidade · 4,2</text>
+                  <text x="228" y="86" text-anchor="start" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60758b">Colaboração · 3,8</text>
+                  <text x="195" y="196" text-anchor="start" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60758b">Autonomia · 4,0</text>
+                  <text x="85" y="196" text-anchor="end" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60758b">Participação · 3,6</text>
+                  <text x="52" y="80" text-anchor="end" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60758b">Respeito e convivência · 4,4</text>
+                </svg>
+              </div>
+
+              <!-- Lista Lateral de Valores e Escala -->
+              <div class="dimensions-list">
+                <span class="dimensions-scale-header">ESCALA 1–5</span>
+
+                <!-- Responsabilidade -->
+                <div class="dimension-item">
+                  <div class="dimension-item-left">
+                    <span class="dimension-bar-indicator"></span>
+                    <span class="dimension-name">Responsabilidade</span>
+                  </div>
+                  <span class="dimension-score">4,2</span>
+                </div>
+
+                <!-- Respeito e convivência -->
+                <div class="dimension-item">
+                  <div class="dimension-item-left">
+                    <span class="dimension-bar-indicator"></span>
+                    <span class="dimension-name">Respeito e convivência</span>
+                  </div>
+                  <span class="dimension-score">4,4</span>
+                </div>
+
+                <!-- Autonomia -->
+                <div class="dimension-item">
+                  <div class="dimension-item-left">
+                    <span class="dimension-bar-indicator"></span>
+                    <span class="dimension-name">Autonomia</span>
+                  </div>
+                  <span class="dimension-score">4,0</span>
+                </div>
+
+                <!-- Colaboração -->
+                <div class="dimension-item">
+                  <div class="dimension-item-left">
+                    <span class="dimension-bar-indicator"></span>
+                    <span class="dimension-name">Colaboração</span>
+                  </div>
+                  <span class="dimension-score">3,8</span>
+                </div>
+
+                <!-- Participação -->
+                <div class="dimension-item">
+                  <div class="dimension-item-left">
+                    <span class="dimension-bar-indicator"></span>
+                    <span class="dimension-name">Participação</span>
+                  </div>
+                  <span class="dimension-score">3,6</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gráfico Direito: Média Geral (Linha Temporal) -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <div class="chart-card-header-left">
+                <h3 class="chart-title">Média geral</h3>
+                <span class="chart-subtitle">Evolução por período · escala de 1 a 5</span>
+              </div>
+              <div class="chart-score-pill">
+                <span class="chart-big-score">4,0</span>
+                <span class="chart-score-scale">de 5,0</span>
+              </div>
+            </div>
+
+            <div class="line-chart-container">
+              <!-- SVG do Gráfico de Linha Mensal Exato do Penpot -->
+              <svg class="line-svg" viewBox="0 0 454 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2563eb" stop-opacity="0.16" />
+                    <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Linhas Horizontais da Grade -->
+                <line x1="36" y1="24" x2="439" y2="24" stroke="#e2e8f0" stroke-width="1" />
+                <line x1="36" y1="62" x2="439" y2="62" stroke="#e2e8f0" stroke-width="1" />
+                <line x1="36" y1="100" x2="439" y2="100" stroke="#e2e8f0" stroke-width="1" />
+                <line x1="36" y1="138" x2="439" y2="138" stroke="#e2e8f0" stroke-width="1" />
+
+                <!-- Gradiente de Preenchimento da Curva Temporal -->
+                <path d="M47.9,120 L123.7,105 L199.6,93 L275.4,98 L351.2,75 L427.1,57 L427.1,138 L47.9,138 Z" fill="url(#areaGradient)" />
+
+                <!-- Linha Principal dos Dados -->
+                <path d="M47.9,120 L123.7,105 L199.6,93 L275.4,98 L351.2,75 L427.1,57"
+                      stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Marcadores Circulares dos 6 Meses -->
+                <circle cx="47.9" cy="120" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+                <circle cx="123.7" cy="105" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+                <circle cx="199.6" cy="93" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+                <circle cx="275.4" cy="98" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+                <circle cx="351.2" cy="75" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+                <circle cx="427.1" cy="57" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
+              </svg>
+
+              <!-- Meses Eixo X -->
+              <div class="line-chart-months">
+                <span class="month-label">Mai</span>
+                <span class="month-label">Jun</span>
+                <span class="month-label">Jul</span>
+                <span class="month-label">Ago</span>
+                <span class="month-label">Set</span>
+                <span class="month-label">Out</span>
+              </div>
+
+              <!-- Indicador de Tendência -->
+              <div class="line-chart-footer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                <span>+1,0 ponto desde maio</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card de Aviso Formativo (Leitura para apoiar o desenvolvimento) -->
+        <section class="formative-notice-card" aria-label="Aviso formativo">
+          <div class="notice-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <div class="notice-text-content">
+            <h4 class="notice-title">Uma leitura para apoiar o desenvolvimento</h4>
+            <p class="notice-desc">Os indicadores ajudam a acompanhar avanços e conversar com a escola. Não são uma classificação do estudante nem devem ser usados para comparações entre colegas.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+

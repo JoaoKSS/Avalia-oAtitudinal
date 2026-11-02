@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Devolutivas · Lucas Martins · Responsável · Educar & Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f8fc;
+      color: #172b4d;
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Barra Lateral do Responsável (248px) */
+    .sidebar {
+      width: 248px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+    }
+
+    .brand-logo-container {
+      width: 40px;
+      height: 40px;
+      background-color: #2563eb;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #172b4d;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Navegação Lateral */
+    .sidebar-nav {
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .nav-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      padding: 12px 12px 8px 12px;
+      text-transform: uppercase;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      width: 100%;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #60758b;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: #172b4d;
+    }
+
+    .nav-link.active {
+      background-color: #e8f0ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: #2563eb;
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil do Responsável */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 11px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #60758b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Área Principal */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Cabeçalho Superior Desktop (76px) */
+    .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-item {
+      font-weight: 400;
+      color: #60758b;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .breadcrumb-item:hover {
+      color: #172b4d;
+    }
+
+    .breadcrumb-separator {
+      color: #60758b;
+    }
+
+    .breadcrumb-current {
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      text-decoration: none;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #2563eb;
+      border: 2px solid #ffffff;
+    }
+
+    /* Área de Conteúdo */
+    .content-area {
+      padding: 24px 32px 40px 32px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Cabeçalho da Tela */
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .page-title {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #172b4d;
+    }
+
+    .page-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #60758b;
+    }
+
+    /* Cartão de Identificação do Estudante (1088 × 79px) */
+    .student-id-card {
+      width: 100%;
+      min-height: 79px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 14px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .student-id-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .student-id-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .student-id-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .student-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+    }
+
+    .student-id-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .student-id-class {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    /* Badge Cápsula (VISUALIZANDO DEVOLUTIVAS) */
+    .status-capsule {
+      padding: 8px 18px;
+      background-color: #f0f4fa;
+      border-radius: 17px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Seção de Filtros e Contagem */
+    .controls-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .controls-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+    }
+
+    .count-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    /* Barra de Filtros */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      height: 36px;
+      padding: 0 20px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .filter-btn.active {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 700;
+      border-color: #2563eb;
+    }
+
+    .filter-btn.secondary {
+      background-color: #ffffff;
+      border-color: #d9e4f2;
+      color: #60758b;
+    }
+
+    .filter-btn.secondary:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .period-dropdown-btn {
+      height: 36px;
+      padding: 0 16px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #60758b;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .period-dropdown-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    /* Lista de Devolutivas (Cards) */
+    .devolutivas-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .devolutiva-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .devolutiva-card:hover {
+      box-shadow: 0 6px 18px rgba(23, 43, 77, 0.06);
+      border-color: #cbd5e1;
+    }
+
+    /* Indicador de destaque vertical para novas devolutivas */
+    .card-highlight-bar {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 111px;
+      background-color: #2563eb;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+
+    .devolutiva-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .devolutiva-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .devolutiva-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .devolutiva-icon-blue {
+      background-color: #e8f0ff;
+      color: #2563eb;
+    }
+
+    .devolutiva-icon-gray {
+      background-color: #f0f4fa;
+      color: #60758b;
+    }
+
+    .devolutiva-title-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .devolutiva-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #172b4d;
+      line-height: 1.25;
+    }
+
+    .devolutiva-author {
+      font-size: 14px;
+      font-weight: 500;
+      color: #60758b;
+    }
+
+    /* Badges de Status (NOVA / VISTA) */
+    .status-badge {
+      height: 26px;
+      padding: 0 14px;
+      border-radius: 13px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .status-badge-new {
+      background-color: #e7f0ff;
+      color: #2563eb;
+    }
+
+    .status-badge-seen {
+      background-color: #eef2f7;
+      color: #60758b;
+    }
+
+    /* Conteúdo Inferior do Card */
+    .devolutiva-card-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 6px;
+    }
+
+    .devolutiva-body-left {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .devolutiva-date {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .devolutiva-summary {
+      font-size: 14px;
+      font-weight: 400;
+      color: #172b4d;
+      line-height: 1.4;
+    }
+
+    .devolutiva-action-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #2563eb;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: gap 0.15s ease;
+    }
+
+    .devolutiva-card:hover .devolutiva-action-link {
+      gap: 11px;
+    }
+
+    /* Card de Orientação (Como aproveitar as devolutivas) */
+    .formative-notice-card {
+      width: 100%;
+      min-height: 96px;
+      background-color: #e8f0ff;
+      border: 1px solid #d0e1fd;
+      border-radius: 15px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .notice-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #2563eb;
+    }
+
+    .notice-text-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .notice-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .notice-desc {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #3f5878;
+    }
+
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .student-id-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .devolutiva-card-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Barra Lateral do Responsável (248px) -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-logo-container">
+          <!-- Ícone vetorial da marca oficial do Penpot -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Educar & Aprender</span>
+          <span class="brand-subtitle">ÁREA DO RESPONSÁVEL</span>
+        </div>
+      </div>
+
+      <!-- Navegação Lateral -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Menu Lateral</div>
+        <ul class="nav-list">
+          <!-- Início -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Início oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Início</span>
+            </a>
+          </li>
+
+          <!-- Evolução do estudante -->
+          <li class="nav-item">
+            <a href="evolucao-estudante.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Gráfico de Evolução / Trending Up -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                  <polyline points="17 6 23 6 23 12"/>
+                </svg>
+              </span>
+              <span>Evolução do estudante</span>
+            </a>
+          </li>
+
+          <!-- Histórico de registros -->
+          <li class="nav-item">
+            <a href="historico-registros.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Histórico / Lupa do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="8.5" cy="8.5" r="5.5"/>
+                  <line x1="12.5" y1="12.5" x2="16.5" y2="16.5"/>
+                </svg>
+              </span>
+              <span>Histórico de registros</span>
+            </a>
+          </li>
+
+          <!-- Devolutivas (ATIVO) -->
+          <li class="nav-item">
+            <a href="devolutivas.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Devolutivas (≡) oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3.5" y1="6" x2="16.5" y2="6"/>
+                  <line x1="3.5" y1="10" x2="16.5" y2="10"/>
+                  <line x1="3.5" y1="14" x2="16.5" y2="14"/>
+                </svg>
+              </span>
+              <span>Devolutivas</span>
+            </a>
+          </li>
+
+          <!-- Mensagens -->
+          <li class="nav-item">
+            <a href="mensagens.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Mensagens / Conversas oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+                  <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
+                  <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+                </svg>
+              </span>
+              <span>Mensagens</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé da Sidebar: Perfil do Responsável -->
+      <div class="sidebar-footer">
+        <button class="user-profile-button" type="button" aria-label="Menu do responsável">
+          <div class="user-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">João Martins</span>
+            <span class="user-role">Responsável</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.75 4.5l4.5 4.5-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Área Principal de Conteúdo -->
+    <main class="main-wrapper">
+      <!-- Cabeçalho Superior Desktop (76px) -->
+      <header class="top-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="painel-inicial.html" class="breadcrumb-item">Aluno</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Devolutivas</span>
+        </nav>
+
+        <div class="header-actions">
+          <!-- Botão Mensagens -->
+          <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+            <!-- Ícone Conversas oficial do Penpot -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+              <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
+              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+            </svg>
+          </a>
+
+          <!-- Botão Notificações -->
+          <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
+            <!-- Ícone Sino de Notificação oficial do Penpot -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 6.667C15 3.905 12.761 1.667 10 1.667C7.239 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167h15C17.5 12.5 15 12.5 15 6.667z"/>
+              <path d="M8.333 17.5h3.334"/>
+            </svg>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Conteúdo da Página -->
+      <div class="content-area">
+        <!-- Título e Subtítulo -->
+        <div class="page-header">
+          <h1 class="page-title">Devolutivas do Lucas</h1>
+          <p class="page-desc">Mensagens do professor sobre o percurso do estudante.</p>
+        </div>
+
+        <!-- Cartão de Identificação do Estudante -->
+        <section class="student-id-card">
+          <div class="student-id-left">
+            <div class="student-id-avatar">LM</div>
+            <div class="student-id-info">
+              <span class="student-tag">DEVOLUTIVAS DO ESTUDANTE</span>
+              <h2 class="student-id-name">Lucas Martins</h2>
+              <span class="student-id-class">6º ano A · Ensino Fundamental</span>
+            </div>
+          </div>
+          <div class="status-capsule">
+            VISUALIZANDO DEVOLUTIVAS
+          </div>
+        </section>
+
+        <!-- Seção de Filtros e Contagem -->
+        <section class="controls-section" aria-label="Filtros de devolutivas">
+          <div class="controls-header">
+            <span class="section-label">RECENTES</span>
+            <span class="count-label">2 devolutivas</span>
+          </div>
+
+          <div class="filter-bar">
+            <!-- Abas de Filtro -->
+            <button class="filter-btn active" type="button">Todas</button>
+            <button class="filter-btn secondary" type="button">Novas</button>
+            <button class="filter-btn secondary" type="button">Vistas</button>
+
+            <!-- Seletor de Período -->
+            <button class="period-dropdown-btn" type="button" aria-label="Filtrar por período">
+              <!-- Ícone de Relógio oficial do Penpot -->
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8.5" cy="8.5" r="6.375"></circle>
+                <polyline points="8.5 4.5 8.5 8.5 10.6 9.9"></polyline>
+              </svg>
+              <span>Todos os períodos</span>
+              <span style="font-size: 11px; margin-left: 2px;">⌄</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Lista de Devolutivas (2 Cards) -->
+        <section class="devolutivas-list" aria-label="Devolutivas pedagógicas">
+          <!-- Card 1: Parecer Formativo · 1º Bimestre (NOVA) -->
+          <article class="devolutiva-card">
+            <!-- Borda Destaque Azul à Esquerda -->
+            <div class="card-highlight-bar" aria-hidden="true"></div>
+
+            <div class="devolutiva-card-top">
+              <div class="devolutiva-header-left">
+                <div class="devolutiva-icon-wrapper devolutiva-icon-blue">
+                  <!-- Ícone Livro/Parecer Formativo oficial do Penpot -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6.5C4 5.119 5.119 4 6.5 4H12v15H6.5C5.293 18.976 4.241 19.817 4 21V6.5z"></path>
+                    <path d="M20 6.5C20 5.119 18.881 4 17.5 4H12v15h5.5c1.207-.024 2.259.817 2.5 2V6.5z"></path>
+                    <line x1="12" y1="4" x2="12" y2="19"></line>
+                  </svg>
+                </div>
+                <div class="devolutiva-title-info">
+                  <h3 class="devolutiva-title">Parecer formativo · 1º bimestre</h3>
+                  <span class="devolutiva-author">Prof.ª Marina Costa</span>
+                </div>
+              </div>
+
+              <!-- Badge NOVA -->
+              <span class="status-badge status-badge-new">NOVA</span>
+            </div>
+
+            <div class="devolutiva-card-bottom">
+              <div class="devolutiva-body-left">
+                <span class="devolutiva-date">Publicado em 18 nov. 2026</span>
+                <p class="devolutiva-summary">Coopera e inclui colegas nas atividades.</p>
+              </div>
+
+              <a href="devolutiva-selecionada.html" class="devolutiva-action-link" title="Ver detalhes do parecer">
+                <span>Ver devolutiva</span>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3" y1="9" x2="15" y2="9"></line>
+                  <polyline points="10.5 4.5 15 9 10.5 13.5"></polyline>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: Acompanhamento · Outubro (VISTA) -->
+          <article class="devolutiva-card">
+            <div class="devolutiva-card-top">
+              <div class="devolutiva-header-left">
+                <div class="devolutiva-icon-wrapper devolutiva-icon-gray">
+                  <!-- Ícone Conversa/Acompanhamento oficial do Penpot -->
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </div>
+                <div class="devolutiva-title-info">
+                  <h3 class="devolutiva-title">Acompanhamento · outubro</h3>
+                  <span class="devolutiva-author">Prof.ª Marina Costa</span>
+                </div>
+              </div>
+
+              <!-- Badge VISTA -->
+              <span class="status-badge status-badge-seen">VISTA</span>
+            </div>
+
+            <div class="devolutiva-card-bottom">
+              <div class="devolutiva-body-left">
+                <span class="devolutiva-date">Publicado em 24 out. 2026</span>
+                <p class="devolutiva-summary">Confira os pontos fortes e os próximos passos.</p>
+              </div>
+
+              <a href="devolutiva-selecionada.html" class="devolutiva-action-link" title="Ver detalhes do acompanhamento">
+                <span>Ver devolutiva</span>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3" y1="9" x2="15" y2="9"></line>
+                  <polyline points="10.5 4.5 15 9 10.5 13.5"></polyline>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </section>
+
+        <!-- Card de Orientação (Como aproveitar as devolutivas) -->
+        <section class="formative-notice-card" aria-label="Orientações de devolutivas">
+          <div class="notice-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <div class="notice-text-content">
+            <h4 class="notice-title">Como aproveitar as devolutivas</h4>
+            <p class="notice-desc">Leia as observações com Lucas, reconheça seus avanços e converse com a equipe pedagógica quando precisar de esclarecimentos.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+

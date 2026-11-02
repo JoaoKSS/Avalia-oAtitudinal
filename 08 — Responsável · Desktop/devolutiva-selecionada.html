@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parecer Formativo · Lucas Martins · Responsável · Educar & Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f8fc;
+      color: #172b4d;
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Barra Lateral do Responsável (248px) */
+    .sidebar {
+      width: 248px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+    }
+
+    .brand-logo-container {
+      width: 40px;
+      height: 40px;
+      background-color: #2563eb;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #172b4d;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Navegação Lateral */
+    .sidebar-nav {
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .nav-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      padding: 12px 12px 8px 12px;
+      text-transform: uppercase;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      width: 100%;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #60758b;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: #172b4d;
+    }
+
+    .nav-link.active {
+      background-color: #e8f0ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: #2563eb;
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil do Responsável */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 11px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #60758b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Área Principal */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Cabeçalho Superior Desktop (76px) */
+    .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-item {
+      font-weight: 400;
+      color: #60758b;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .breadcrumb-item:hover {
+      color: #172b4d;
+    }
+
+    .breadcrumb-separator {
+      color: #60758b;
+    }
+
+    .breadcrumb-current {
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      text-decoration: none;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #2563eb;
+      border: 2px solid #ffffff;
+    }
+
+    /* Área de Conteúdo */
+    .content-area {
+      padding: 24px 32px 40px 32px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Cabeçalho da Tela */
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .page-title {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #172b4d;
+    }
+
+    .page-subtitle-meta {
+      font-size: 15px;
+      font-weight: 500;
+      color: #60758b;
+    }
+
+    .page-date-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+      margin-top: 2px;
+    }
+
+    .date-icon {
+      color: #60758b;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Cartão de Identificação do Estudante (1088 × 78px) */
+    .student-id-card {
+      width: 100%;
+      min-height: 78px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 14px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .student-id-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .student-id-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .student-id-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .student-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+    }
+
+    .student-id-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .student-id-class {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    /* Badge Parecer Disponível */
+    .status-capsule {
+      padding: 7px 18px;
+      background-color: #eef2f7;
+      border-radius: 16px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #60758b;
+      white-space: nowrap;
+    }
+
+    /* Cartão Mensagem de Abertura / Celebrativo (1088 × 104px) */
+    .celebration-card {
+      width: 100%;
+      min-height: 104px;
+      background-color: #eaf2ff;
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .celebration-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #2563eb;
+    }
+
+    .celebration-text-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .celebration-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #1d4ed8;
+      line-height: 1.25;
+    }
+
+    .celebration-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: #35527a;
+    }
+
+    /* Grid de Detalhes em 2 Colunas (Pontos Fortes & Mensagem) */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .detail-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 185px;
+      gap: 16px;
+    }
+
+    .detail-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .detail-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .detail-icon-green {
+      background-color: #e8f6ee;
+      color: #16a34a;
+    }
+
+    .detail-icon-blue {
+      background-color: #eaf1ff;
+      color: #2563eb;
+    }
+
+    .detail-header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .detail-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .detail-card-subtitle {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .detail-divider {
+      height: 1px;
+      background-color: #e2e8f0;
+      width: 100%;
+    }
+
+    /* Bloco Ponto Forte */
+    .strength-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .strength-indicator {
+      width: 5px;
+      height: 54px;
+      background-color: #16a34a;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .strength-text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .strength-dimension {
+      font-size: 15px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .strength-description {
+      font-size: 14px;
+      font-weight: 400;
+      color: #60758b;
+      line-height: 1.4;
+    }
+
+    /* Bloco Mensagem do Professor */
+    .teacher-quote-content {
+      display: flex;
+      align-items: flex-start;
+      padding-top: 2px;
+    }
+
+    .teacher-quote-text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #172b4d;
+    }
+
+    /* Card Orientação (Como conversar sobre esta devolutiva) */
+    .guidance-card {
+      width: 100%;
+      min-height: 88px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 15px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .guidance-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #2563eb;
+    }
+
+    .guidance-text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .guidance-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .guidance-desc {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #3f5878;
+    }
+
+    /* Barra Inferior de Ações (Rodapé 86px) */
+    .bottom-actions-bar {
+      height: 86px;
+      background-color: #ffffff;
+      border-top: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 32px;
+      margin-top: auto;
+    }
+
+    .btn-back {
+      height: 46px;
+      padding: 0 24px;
+      background-color: #60758b;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn-back:hover {
+      background-color: #475569;
+      border-color: #cbd5e1;
+    }
+
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+      .celebration-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .student-id-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Barra Lateral do Responsável (248px) -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-logo-container">
+          <!-- Ícone vetorial da marca oficial do Penpot -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Educar & Aprender</span>
+          <span class="brand-subtitle">ÁREA DO RESPONSÁVEL</span>
+        </div>
+      </div>
+
+      <!-- Navegação Lateral -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Menu Lateral</div>
+        <ul class="nav-list">
+          <!-- Início -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Início oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Início</span>
+            </a>
+          </li>
+
+          <!-- Evolução do estudante -->
+          <li class="nav-item">
+            <a href="evolucao-estudante.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Gráfico de Evolução / Trending Up -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                  <polyline points="17 6 23 6 23 12"/>
+                </svg>
+              </span>
+              <span>Evolução do estudante</span>
+            </a>
+          </li>
+
+          <!-- Histórico de registros -->
+          <li class="nav-item">
+            <a href="historico-registros.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Histórico / Lupa do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="8.5" cy="8.5" r="5.5"/>
+                  <line x1="12.5" y1="12.5" x2="16.5" y2="16.5"/>
+                </svg>
+              </span>
+              <span>Histórico de registros</span>
+            </a>
+          </li>
+
+          <!-- Devolutivas (ATIVO) -->
+          <li class="nav-item">
+            <a href="devolutivas.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Devolutivas (≡) oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3.5" y1="6" x2="16.5" y2="6"/>
+                  <line x1="3.5" y1="10" x2="16.5" y2="10"/>
+                  <line x1="3.5" y1="14" x2="16.5" y2="14"/>
+                </svg>
+              </span>
+              <span>Devolutivas</span>
+            </a>
+          </li>
+
+          <!-- Mensagens -->
+          <li class="nav-item">
+            <a href="mensagens.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Mensagens / Conversas oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+                  <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
+                  <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+                </svg>
+              </span>
+              <span>Mensagens</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé da Sidebar: Perfil do Responsável -->
+      <div class="sidebar-footer">
+        <button class="user-profile-button" type="button" aria-label="Menu do responsável">
+          <div class="user-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">João Martins</span>
+            <span class="user-role">Responsável</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.75 4.5l4.5 4.5-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Área Principal de Conteúdo -->
+    <main class="main-wrapper">
+      <!-- Cabeçalho Superior Desktop (76px) -->
+      <header class="top-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="painel-inicial.html" class="breadcrumb-item">Aluno</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="devolutivas.html" class="breadcrumb-item">Devolutivas</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Detalhes</span>
+        </nav>
+
+        <div class="header-actions">
+          <!-- Botão Mensagens -->
+          <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+            <!-- Ícone Conversas oficial do Penpot -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+              <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
+              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+            </svg>
+          </a>
+
+          <!-- Botão Notificações -->
+          <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
+            <!-- Ícone Sino de Notificação oficial do Penpot -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 6.667C15 3.905 12.761 1.667 10 1.667C7.239 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167h15C17.5 12.5 15 12.5 15 6.667z"/>
+              <path d="M8.333 17.5h3.334"/>
+            </svg>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Conteúdo da Página -->
+      <div class="content-area">
+        <!-- Título e Subtítulo Metadados -->
+        <div class="page-header">
+          <h1 class="page-title">Parecer formativo</h1>
+          <span class="page-subtitle-meta">Prof.ª Marina Costa &nbsp;·&nbsp; 6º ano A</span>
+          <div class="page-date-meta">
+            <!-- Ícone Calendário oficial do Penpot -->
+            <span class="date-icon">
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="13" height="12" rx="2"></rect>
+                <line x1="12" y1="1.5" x2="12" y2="4.5"></line>
+                <line x1="5" y1="1.5" x2="5" y2="4.5"></line>
+                <line x1="2" y1="7" x2="15" y2="7"></line>
+              </svg>
+            </span>
+            <span>1º bimestre &nbsp;·&nbsp; 18 de novembro de 2026</span>
+          </div>
+        </div>
+
+        <!-- Cartão de Identificação do Estudante -->
+        <section class="student-id-card">
+          <div class="student-id-left">
+            <div class="student-id-avatar">LM</div>
+            <div class="student-id-info">
+              <span class="student-tag">DEVOLUTIVA DO ESTUDANTE</span>
+              <h2 class="student-id-name">Lucas Martins</h2>
+              <span class="student-id-class">6º ano A · Ensino Fundamental</span>
+            </div>
+          </div>
+          <div class="status-capsule">
+            Parecer disponível
+          </div>
+        </section>
+
+        <!-- Cartão Mensagem de Abertura / Celebrativo -->
+        <section class="celebration-card" aria-label="Mensagem motivacional">
+          <div class="celebration-icon-box">
+            <!-- Ícone Estrela de Conquista oficial do Penpot -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <div class="celebration-text-content">
+            <h3 class="celebration-title">Você tem motivos para se orgulhar!</h3>
+            <p class="celebration-desc">Veja o que você já conquistou e o que pode desenvolver.</p>
+          </div>
+        </section>
+
+        <!-- Grid de Detalhes em 2 Colunas -->
+        <section class="details-grid">
+          <!-- Coluna 1: Pontos Fortes -->
+          <article class="detail-card">
+            <div class="detail-card-header">
+              <div class="detail-icon-box detail-icon-green">
+                <!-- Ícone Coração / Colaboração oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <div class="detail-header-text">
+                <h3 class="detail-card-title">Pontos fortes</h3>
+                <span class="detail-card-subtitle">Aspectos positivos observados no período.</span>
+              </div>
+            </div>
+
+            <div class="detail-divider"></div>
+
+            <div class="strength-content">
+              <!-- Indicador Vertical Verde 5px -->
+              <span class="strength-indicator"></span>
+              <div class="strength-text-block">
+                <h4 class="strength-dimension">Colaboração</h4>
+                <p class="strength-description">Coopera e inclui colegas nas atividades.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Coluna 2: Mensagem do Professor -->
+          <article class="detail-card">
+            <div class="detail-card-header">
+              <div class="detail-icon-box detail-icon-blue">
+                <!-- Ícone Livro / Aspas do Professor oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+              </div>
+              <div class="detail-header-text">
+                <h3 class="detail-card-title">Mensagem do professor</h3>
+                <span class="detail-card-subtitle">Prof.ª Marina Costa</span>
+              </div>
+            </div>
+
+            <div class="detail-divider"></div>
+
+            <div class="teacher-quote-content">
+              <p class="teacher-quote-text">“Cooperou e incluiu seus colegas durante a atividade.”</p>
+            </div>
+          </article>
+        </section>
+
+        <!-- Card Orientação (Como conversar sobre esta devolutiva) -->
+        <section class="guidance-card" aria-label="Orientação para diálogo">
+          <div class="guidance-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <div class="guidance-text-block">
+            <h4 class="guidance-title">Como conversar sobre esta devolutiva</h4>
+            <p class="guidance-desc">Reconheça com Lucas os avanços descritos e converse sobre como a colaboração ajuda a turma a aprender em conjunto.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Barra Inferior de Ações com Botão Voltar -->
+      <footer class="bottom-actions-bar">
+        <a href="devolutivas.html" class="btn-back" title="Voltar para Minhas Devolutivas">
+          <!-- Ícone Seta para a Esquerda -->
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 9H3M8.25 3.75L3 9l5.25 5.25"/>
+          </svg>
+          <span>Voltar</span>
+        </a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Registro · Colaboração · Lucas Martins · Responsável · Educar & Aprender</title>
+  <!-- Favicon transparente adaptativo para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f8fc;
+      color: #172b4d;
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Barra Lateral do Responsável (248px) */
+    .sidebar {
+      width: 248px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #2563eb;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.38;
+      color: #172b4d;
+    }
+
+    .brand-role {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+    }
+
+    /* Navegação */
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 24px;
+    }
+
+    .nav-section-title {
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+      padding: 0 24px 12px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: #425b76;
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: #172b4d;
+    }
+
+    .nav-link.active {
+      background-color: #e8f0ff;
+      color: #2563eb;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* Barra indicadora azul ativa no item do menu */
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: #2563eb;
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil do Responsável */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 11px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #60758b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Área Principal */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Cabeçalho Superior Desktop (76px) */
+    .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-item {
+      font-weight: 400;
+      color: #60758b;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .breadcrumb-item:hover {
+      color: #172b4d;
+    }
+
+    .breadcrumb-separator {
+      color: #60758b;
+    }
+
+    .breadcrumb-current {
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #2563eb;
+      border: 2px solid #ffffff;
+    }
+
+    /* Área de Conteúdo Fluida */
+    .content-area {
+      padding: 24px 32px 32px 32px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Cabeçalho da Tela */
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .page-title {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #172b45;
+    }
+
+    .page-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #64748b;
+    }
+
+    /* Cartão de Identificação do Dependente (85px de altura) */
+    .student-id-card {
+      width: 100%;
+      min-height: 85px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 14px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .student-id-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .student-id-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .student-id-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .student-id-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+    }
+
+    .student-id-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .student-id-class {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .student-id-badge {
+      padding: 6px 16px;
+      background-color: #f0f4fa;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #60758b;
+      white-space: nowrap;
+    }
+
+    /* Seção do Registro Pedagógico */
+    .record-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      font-weight: 400;
+      color: #64748b;
+    }
+
+    /* Grade de 2 colunas do Registro (Card Principal + Resumo) */
+    .record-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 16px;
+    }
+
+    /* Card Principal */
+    .card-main-record {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 245px;
+    }
+
+    .record-dimension-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .record-divider {
+      height: 1px;
+      background-color: #d9e4f2;
+      margin: 14px 0;
+    }
+
+    .record-observation-box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .observation-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1f3045;
+    }
+
+    .observation-desc {
+      font-size: 15px;
+      font-weight: 400;
+      color: #58677b;
+      line-height: 1.4;
+    }
+
+    .record-context-box {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .context-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #718096;
+      text-transform: uppercase;
+    }
+
+    .context-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: #58677b;
+      line-height: 1.4;
+    }
+
+    /* Card Resumo */
+    .card-summary-record {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 245px;
+    }
+
+    .summary-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .summary-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+
+    .summary-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #718096;
+      text-transform: uppercase;
+    }
+
+    .summary-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: #25364b;
+    }
+
+    .pill-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 4px 16px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      background-color: #e8f6ee;
+      color: #287d4f;
+    }
+
+    .shared-info {
+      font-size: 12px;
+      font-weight: 400;
+      color: #64748b;
+      margin-top: auto;
+    }
+
+    /* Card Orientação da Família (Como apoiar em casa) */
+    .card-guidance {
+      width: 100%;
+      background-color: #e8f0ff;
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .guidance-icon-box {
+      width: 40px;
+      height: 38px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .guidance-content {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .guidance-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .guidance-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #3f5878;
+    }
+
+    /* Card Contato Pedagógico (Fale com a equipe) */
+    .card-contact {
+      width: 100%;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #20334a;
+    }
+
+    .contact-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: #65758a;
+    }
+
+    .btn-message {
+      height: 44px;
+      padding: 0 24px;
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-message:hover {
+      background-color: #1d4ed8;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Barra de Ações Inferior (Rodapé) */
+    .bottom-actions-bar {
+      height: 86px;
+      background-color: #ffffff;
+      border-top: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 32px;
+      margin-top: auto;
+    }
+
+    .btn-back {
+      height: 46px;
+      padding: 0 24px;
+      background-color: #60758b;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn-back:hover {
+      background-color: #475569;
+      transform: translateX(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Barra Lateral do Responsável (248px) -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <!-- Ícone do Penpot: Livro aberto oficial -->
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-role">Área do Responsável</span>
+        </div>
+      </div>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Menu Lateral</div>
+        <ul class="nav-list">
+          <!-- Início -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Início</span>
+            </a>
+          </li>
+
+          <!-- Evolução do estudante -->
+          <li class="nav-item">
+            <a href="evolucao-estudante.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                  <polyline points="17 6 23 6 23 12"/>
+                </svg>
+              </span>
+              <span>Evolução do estudante</span>
+            </a>
+          </li>
+
+          <!-- Histórico de registros (Ativo) -->
+          <li class="nav-item">
+            <a href="historico-registros.html" class="nav-link active">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="8.5" cy="8.5" r="5.5"/>
+                  <line x1="12.5" y1="12.5" x2="16.5" y2="16.5"/>
+                </svg>
+              </span>
+              <span>Histórico de registros</span>
+            </a>
+          </li>
+
+          <!-- Devolutivas -->
+          <li class="nav-item">
+            <a href="devolutivas.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3.5" y1="6" x2="16.5" y2="6"/>
+                  <line x1="3.5" y1="10" x2="16.5" y2="10"/>
+                  <line x1="3.5" y1="14" x2="16.5" y2="14"/>
+                </svg>
+              </span>
+              <span>Devolutivas</span>
+            </a>
+          </li>
+
+          <!-- Mensagens -->
+          <li class="nav-item">
+            <a href="mensagens.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+                  <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
+                  <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+                </svg>
+              </span>
+              <span>Mensagens</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Perfil do Responsável no Rodapé -->
+      <div class="sidebar-footer">
+        <button class="user-profile-button" type="button" aria-label="Menu do responsável">
+          <div class="user-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">João Martins</span>
+            <span class="user-role">Responsável</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.75 4.5l4.5 4.5-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Área Principal Desktop -->
+    <main class="main-wrapper">
+      <!-- Cabeçalho Superior Desktop (76px) -->
+      <header class="top-header">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+          <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="painel-inicial.html" class="breadcrumb-item">Aluno</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="historico-registros.html" class="breadcrumb-item">Histórico de registros</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Detalhes</span>
+        </nav>
+
+        <div class="header-actions">
+          <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+              <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
+              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+            </svg>
+          </a>
+
+          <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 6.667C15 3.905 12.761 1.667 10 1.667C7.239 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167h15C17.5 12.5 15 12.5 15 6.667z"/>
+              <path d="M8.333 17.5h3.334"/>
+            </svg>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Conteúdo da Tela -->
+      <section class="content-area">
+        <!-- Título e Subtítulo -->
+        <div class="page-header">
+          <h1 class="page-title">Detalhes do registro</h1>
+          <p class="page-desc">Registro compartilhado pela equipe pedagógica</p>
+        </div>
+
+        <!-- Identificação do Dependente -->
+        <div class="student-id-card">
+          <div class="student-id-left">
+            <div class="student-id-avatar" aria-hidden="true">LM</div>
+            <div class="student-id-info">
+              <span class="student-id-tag">VISUALIZANDO REGISTRO</span>
+              <h2 class="student-id-name">Lucas Martins</h2>
+              <span class="student-id-class">6º ano A · Ensino Fundamental</span>
+            </div>
+          </div>
+          <div class="student-id-badge">
+            Registro
+          </div>
+        </div>
+
+        <!-- Seção do Registro Pedagógico -->
+        <div class="record-section">
+          <div class="section-header">
+            <h2 class="section-title">Registro pedagógico</h2>
+            <p class="section-subtitle">Detalhes da observação e sua contextualização.</p>
+          </div>
+
+          <div class="record-grid">
+            <!-- Card Principal -->
+            <div class="card-main-record">
+              <h3 class="record-dimension-title">Colaboração</h3>
+              <div class="record-divider"></div>
+              
+              <div class="record-observation-box">
+                <h4 class="observation-title">Cooperou na atividade em grupo</h4>
+                <p class="observation-desc">Compartilhou ideias e contribuiu com o grupo.</p>
+              </div>
+
+              <div class="record-divider"></div>
+
+              <div class="record-context-box">
+                <span class="context-tag">CONTEXTO DA OBSERVAÇÃO</span>
+                <p class="context-desc">Atividade em grupo realizada em sala de aula.</p>
+              </div>
+            </div>
+
+            <!-- Card Resumo -->
+            <div class="card-summary-record">
+              <h3 class="summary-title">Resumo do registro</h3>
+              <div class="record-divider"></div>
+
+              <div class="summary-item">
+                <span class="summary-label">DATA DO REGISTRO</span>
+                <span class="summary-value">21 de outubro de 2026</span>
+              </div>
+
+              <div class="summary-item">
+                <span class="summary-label">CLASSIFICAÇÃO</span>
+                <span class="pill-status">Positiva</span>
+              </div>
+
+              <p class="shared-info">Compartilhado pela equipe pedagógica</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Como apoiar em casa (Orientação da Família) -->
+        <div class="card-guidance">
+          <div class="guidance-icon-box">
+            <!-- Ícone Livro Aberto / Orientação oficial do Penpot -->
+            <svg width="24" height="23" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 6.71v13.41M3 4.31C3 2.99 4.12 1.92 5.5 1.92h6.5v18.2H5.5c-1.21-.02-2.26.79-2.5 1.92V4.31zM21 4.31c0-1.32-1.12-2.39-2.5-2.39H12v18.2h6.5c1.21-.02 2.26.79 2.5 1.92V4.31z"/>
+            </svg>
+          </div>
+          <div class="guidance-content">
+            <h3 class="guidance-title">Como apoiar em casa</h3>
+            <p class="guidance-desc">Converse com Lucas sobre como as ideias de cada colega ajudaram o grupo e incentive-o a continuar colaborando.</p>
+          </div>
+        </div>
+
+        <!-- Card Contato Pedagógico -->
+        <div class="card-contact">
+          <div class="contact-info">
+            <h3 class="contact-title">Quer conversar sobre este registro?</h3>
+            <p class="contact-desc">Se precisar de mais informações, entre em contato com a equipe pedagógica.</p>
+          </div>
+          <a href="mensagens.html" class="btn-message">
+            Enviar mensagem
+          </a>
+        </div>
+      </section>
+
+      <!-- Barra Inferior de Ações com Botão Voltar -->
+      <footer class="bottom-actions-bar">
+        <a href="historico-registros.html" class="btn-back">
+          <!-- Ícone Seta para a Esquerda -->
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 9H3M8.25 3.75L3 9l5.25 5.25"/>
+          </svg>
+          <span>Voltar</span>
+        </a>
+      </footer>
+    </main>
+  </div>
+
+</body>
+</html>
+
