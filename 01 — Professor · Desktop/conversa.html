@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversa · Professor · Desktop · Educar & Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f1ff;
+      --color-bg-page: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-placeholder: #8194aa;
+      --color-border-card: #d9e4f2;
+      --color-border-header: #d9e4f2;
+      --color-unread: #3aff2e;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-page);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================================
+       Barra Lateral do Professor (248px) - Padrão Unificado Penpot
+       ========================================================================== */
+    .sidebar {
+      width: 248px;
+      background-color: var(--color-bg-card);
+      border-right: 1px solid var(--color-border-header);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 30;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--color-text-main);
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    /* Navegação */
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--color-text-main);
+    }
+
+    .nav-link.active {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil do Usuário */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: none;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+
+    .user-chevron {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       Área de Conteúdo Principal (Fluida, Sem Dead Space)
+       ========================================================================== */
+    .content-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background-color: var(--color-bg-page);
+    }
+
+    /* Cabeçalho Superior Desktop (76px) - Padronizado */
+    .top-header {
+      height: 76px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-header);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    /* Breadcrumbs Padronizados */
+    .breadcrumb-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .breadcrumb-link {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+
+    .breadcrumb-link:hover {
+      color: var(--color-text-main);
+    }
+
+    .breadcrumb-separator {
+      color: var(--color-text-muted);
+      user-select: none;
+    }
+
+    .breadcrumb-current {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* Ações do Cabeçalho (Mensagens & Notificações) */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid #d9e4f2;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    /* Estado Ativo do botão de mensagens na tela de Mensagens */
+    .header-icon-btn.active {
+      border: 2px solid var(--color-primary);
+      background-color: #ffffff;
+      color: var(--color-primary);
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 7px;
+      height: 7px;
+      background-color: #2563eb;
+      border-radius: 50%;
+    }
+
+    /* Conteúdo da Página */
+    .page-main-container {
+      flex: 1;
+      width: 100%;
+      padding: 32px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Linha do Título da Página com Botão Nova Mensagem */
+    .page-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .page-header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.39;
+      margin-bottom: 6px;
+    }
+
+    .page-description {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.43;
+    }
+
+    /* Botão Nova Mensagem */
+    .btn-new-conversation {
+      height: 42px;
+      padding: 0 20px;
+      background-color: var(--color-primary);
+      color: #ffffff;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-new-conversation:hover {
+      background-color: var(--color-primary-hover);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    /* ==========================================================================
+       Layout Dividido: Lista de Conversas (Esquerda) e Painel Chat (Direita)
+       Altura exatamente idêntica a 08 — Responsável · Desktop/mensagens.html
+       ========================================================================== */
+    .messaging-layout {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      height: calc(100vh - 200px);
+      min-height: 700px;
+    }
+
+    /* Painel Esquerdo: Lista de Conversas (360px) */
+    .conversations-sidebar {
+      width: 360px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      flex-shrink: 0;
+      overflow-y: auto;
+    }
+
+    .conversations-sidebar-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #172b4d;
+      margin-bottom: 14px;
+    }
+
+    /* Campo de Busca */
+    .search-box {
+      width: 100%;
+      height: 44px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 10px;
+      margin-bottom: 14px;
+      transition: border-color 0.15s ease;
+    }
+
+    .search-box:focus-within {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .search-icon {
+      color: #60758b;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      color: #172b4d;
+      width: 100%;
+    }
+
+    .search-input::placeholder {
+      color: #8194aa;
+    }
+
+    /* Filtros Rápidos */
+    .filter-chips {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .filter-chip {
+      height: 30px;
+      padding: 0 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      font-family: inherit;
+    }
+
+    .filter-chip.active {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .filter-chip.secondary {
+      background-color: #ffffff;
+      border-color: #d9e4f2;
+      color: #60758b;
+    }
+
+    .filter-chip.secondary:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    /* Rótulo Recentes */
+    .section-caption {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    /* Lista de Itens de Conversa */
+    .conversations-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      list-style: none;
+      padding-top: 6px;
+    }
+
+    .conversation-item-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+
+    .conversation-item-link:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .conversation-item-link.unread {
+      border: 2px solid #3aff2e;
+    }
+
+    .conversation-item-link.unread .chat-time {
+      color: #3aff2e;
+      font-weight: 600;
+    }
+
+    .chat-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 23px;
+      background-color: #e8f0ff;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .chat-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .chat-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .chat-sender {
+      font-size: 14px;
+      font-weight: 700;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .chat-time {
+      font-size: 12px;
+      font-weight: 500;
+      color: #60758b;
+      flex-shrink: 0;
+    }
+
+    .chat-preview {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+    }
+
+    .unread-counter-badge {
+      position: absolute;
+      top: -10px;
+      right: -6px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #3aff2e;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ==========================================================================
+       Painel Direito: Chat Interno Ativo (Substitui .empty-state-panel)
+       Fidelidade estrita a mensagens.html e Penpot
+       ========================================================================== */
+    .chat-panel {
+      flex: 1;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Cabeçalho da Conversa (84px) */
+    .chat-panel-header {
+      height: 84px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-border-card);
+      background-color: var(--color-bg-card);
+      flex-shrink: 0;
+    }
+
+    .chat-interlocutor-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .chat-interlocutor-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #e8f0ff;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .chat-interlocutor-details {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .chat-interlocutor-name-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-interlocutor-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .chat-interlocutor-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-online-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #16a34a;
+    }
+
+    .status-online-text {
+      font-size: 12px;
+      font-weight: 500;
+      color: #16a34a;
+    }
+
+    .chat-interlocutor-role {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .chat-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chat-options-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .chat-options-btn:hover {
+      background-color: #f1f5f9;
+      border-color: var(--color-border-card);
+      color: var(--color-text-main);
+    }
+
+    /* Corpo das Mensagens (Scrollable) */
+    .chat-messages-container {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background-color: var(--color-bg-card);
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .chat-messages-container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chat-messages-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .chat-messages-container::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    /* Separador de Data */
+    .chat-date-separator {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+
+    .chat-date-pill {
+      background-color: #f1f5f9;
+      color: var(--color-text-muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 12px;
+    }
+
+    /* Balões de Mensagem */
+    .message-row {
+      display: flex;
+      width: 100%;
+    }
+
+    .message-row.incoming {
+      justify-content: flex-start;
+    }
+
+    .message-row.outgoing {
+      justify-content: flex-end;
+    }
+
+    .message-bubble {
+      max-width: 500px;
+      padding: 14px 18px 10px 18px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+
+    .incoming-bubble {
+      background-color: #f8fafc;
+      border: 1px solid #e1e8f0;
+      color: var(--color-text-main);
+    }
+
+    .outgoing-bubble {
+      background-color: #e8f1ff;
+      border: none;
+      color: var(--color-text-main);
+    }
+
+    .message-text {
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--color-text-main);
+      word-break: break-word;
+    }
+
+    .message-meta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .message-time {
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .incoming-bubble .message-time {
+      color: var(--color-text-placeholder);
+    }
+
+    .outgoing-bubble .message-time {
+      color: var(--color-primary);
+    }
+
+    .read-ticks {
+      display: inline-flex;
+      align-items: center;
+      color: var(--color-primary);
+    }
+
+    /* Área de Composição e Envio (58px) */
+    .chat-composer-section {
+      padding: 16px 24px 20px 24px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid #f1f5f9;
+      flex-shrink: 0;
+    }
+
+    .composer-container {
+      width: 100%;
+      height: 58px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px 0 14px;
+      gap: 12px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .composer-container:focus-within {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .composer-btn-attach {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #f1f5f9;
+      color: var(--color-text-muted);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 600;
+      flex-shrink: 0;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .composer-btn-attach:hover {
+      background-color: #e2e8f0;
+      color: var(--color-text-main);
+    }
+
+    .composer-input {
+      flex: 1;
+      height: 100%;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--color-text-main);
+      background: transparent;
+    }
+
+    .composer-input::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    .btn-send-message {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-send-message:hover {
+      background-color: var(--color-primary-hover);
+      transform: scale(1.05);
+    }
+
+    .btn-send-message:active {
+      transform: scale(0.95);
+    }
+
+    .btn-send-message svg {
+      margin-left: 2px;
+    }
+    @media (max-width: 1024px) {
+      .messaging-layout {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .conversations-sidebar {
+        width: 100%;
+        max-height: 400px;
+      }
+      .empty-state-panel {
+        min-height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- ========================================================================
+         Barra Lateral do Professor (248px)
+         ======================================================================== -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <!-- Ícone oficial do Penpot: Livro aberto -->
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-role">Área do professor</span>
+        </div>
+      </div>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <span class="nav-section-title">Espaço Pedagógico</span>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Início/Dashboard oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Visão geral</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minhas-turmas.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 5.833v11.667"/>
+                  <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+                </svg>
+              </span>
+              <span>Minhas turmas</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="registro-selecionar-estudante.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Documento de registros oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
+                </svg>
+              </span>
+              <span>Registros de observação</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé da Barra Lateral: Perfil do Professor -->
+      <div class="sidebar-footer">
+        <button class="user-profile-button" type="button">
+          <div class="user-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="8" rx="4" ry="4"></ellipse>
+              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"></path>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Meu perfil</span>
+            <span class="user-role">Professor</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ========================================================================
+         Área de Conteúdo Principal
+         ======================================================================== -->
+    <main class="content-area">
+      <!-- Cabeçalho Superior Desktop (76px) -->
+      <header class="top-header">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="painel-inicial.html" class="breadcrumb-link">Área do professor</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="mensagens.html" class="breadcrumb-link">Mensagens</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">João Carvalho</span>
+        </nav>
+
+        <div class="header-actions">
+          <!-- Botão Mensagens (Ativo com borda azul) -->
+          <a href="mensagens.html" class="header-icon-btn active" title="Mensagens">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+              <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
+            </svg>
+          </a>
+
+          <!-- Botão Notificações com Indicador -->
+          <button type="button" class="header-icon-btn" title="Notificações">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.334"/>
+            </svg>
+            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Conteúdo Interno da Página -->
+      <div class="page-main-container">
+        <!-- Linha do Título & Ação Principal -->
+        <div class="page-header-row">
+          <div class="page-header-text">
+            <h1 class="page-title">Mensagens</h1>
+            <p class="page-description">Converse com responsáveis e equipe pedagógica em um só lugar.</p>
+          </div>
+          <!-- Botão Nova mensagem -->
+          <a href="iniciar-mensagem.html" class="btn-new-conversation">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <line x1="10" y1="4" x2="10" y2="16"></line>
+              <line x1="4" y1="10" x2="16" y2="10"></line>
+            </svg>
+            <span>Nova mensagem</span>
+          </a>
+        </div>
+
+        <!-- Layout Dividido (Sidebar de Conversas + Painel Vazio) -->
+        <div class="messaging-layout">
+          <!-- Painel Esquerdo: Lista de Conversas -->
+          <aside class="conversations-sidebar">
+            <h2 class="conversations-sidebar-title">Conversas</h2>
+
+            <!-- Campo de Busca -->
+            <div class="search-box">
+              <span class="search-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="8" cy="8" r="5.5"></circle>
+                  <path d="m12.5 12.5 3.5 3.5"></path>
+                </svg>
+              </span>
+              <input type="text" id="chatSearchInput" class="search-input" placeholder="Buscar conversa ou responsável" autocomplete="off">
+            </div>
+
+            <!-- Filtros Rápidos -->
+            <div class="filter-chips">
+              <button type="button" class="filter-chip active" data-filter="all">Todas</button>
+              <button type="button" class="filter-chip secondary" data-filter="unread">Não lidas</button>
+              <button type="button" class="filter-chip secondary" data-filter="team">Equipe</button>
+            </div>
+
+            <!-- Título da Seção Recentes -->
+            <div class="section-caption">Mais recentes</div>
+
+            <!-- Lista de Conversas -->
+            <ul class="conversations-list" id="conversationsList">
+              <!-- Item 1: João Carvalho (Não lida, 2 mensagens) -->
+              <li class="conversation-item" data-type="parent" data-unread="true" data-name="João Carvalho" data-preview="Obrigado por compartilhar a evolução dele.">
+                <a href="conversa.html" class="conversation-item-link unread active" title="Conversa com João Carvalho">
+                  <div class="chat-avatar">JC</div>
+                  <div class="chat-content">
+                    <div class="chat-header-row">
+                      <span class="chat-sender">João Carvalho</span>
+                      <span class="chat-time">10:57</span>
+                    </div>
+                    <p class="chat-preview">Obrigado por compartilhar a evolução dele.</p>
+                  </div>
+                  <span class="unread-counter-badge" title="2 mensagens não lidas">2</span>
+                </a>
+              </li>
+
+              <!-- Item 2: Mariana Souza -->
+              <li class="conversation-item" data-type="parent" data-unread="false" data-name="Mariana Souza" data-preview="A Sofia contou sobre a atividade em grupo.">
+                <a href="conversa.html" class="conversation-item-link" title="Abrir conversa com Mariana Souza">
+                  <div class="chat-avatar">MS</div>
+                  <div class="chat-content">
+                    <div class="chat-header-row">
+                      <span class="chat-sender">Mariana Souza</span>
+                      <span class="chat-time">Ontem</span>
+                    </div>
+                    <p class="chat-preview">A Sofia contou sobre a atividade em grupo.</p>
+                  </div>
+                </a>
+              </li>
+
+              <!-- Item 3: César Pereira (Coordenação pedagógica) -->
+              <li class="conversation-item" data-type="team" data-unread="false" data-name="César Pereira" data-preview="Vamos alinhar os próximos acompanhame...">
+                <a href="conversa.html" class="conversation-item-link" title="Abrir conversa com César Pereira">
+                  <div class="chat-avatar">CP</div>
+                  <div class="chat-content">
+                    <div class="chat-header-row">
+                      <span class="chat-sender">César Pereira</span>
+                      <span class="chat-time">Ontem</span>
+                    </div>
+                    <p class="chat-preview">
+                      <span class="chat-status-icon" title="Mensagem lida" style="margin-right: 4px;">
+                        <svg width="14" height="10" viewBox="0 0 16 11" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 6l3.5 3.5L11 1"></path>
+                          <path d="M5 6l3.5 3.5L15 1"></path>
+                        </svg>
+                      </span>
+                      Vamos alinhar os próximos acompanhame...
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <!-- Item 4: Rafael Oliveira -->
+              <li class="conversation-item" data-type="parent" data-unread="false" data-name="Rafael Oliveira" data-preview="Obrigado pelas orientações, professora.">
+                <a href="conversa.html" class="conversation-item-link" title="Abrir conversa com Rafael Oliveira">
+                  <div class="chat-avatar">RO</div>
+                  <div class="chat-content">
+                    <div class="chat-header-row">
+                      <span class="chat-sender">Rafael Oliveira</span>
+                      <span class="chat-time">21 out.</span>
+                    </div>
+                    <p class="chat-preview">Obrigado pelas orientações, professora.</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- Coluna Direita: Chat Interno (Conversa com João Carvalho) -->
+          <section class="chat-panel" aria-label="Painel de mensagens da conversa com João Carvalho">
+            <!-- Cabeçalho do Chat (84px) -->
+            <header class="chat-panel-header">
+              <div class="chat-interlocutor-info">
+                <div class="chat-interlocutor-avatar">JC</div>
+                <div class="chat-interlocutor-details">
+                  <h2 class="chat-interlocutor-name">João Carvalho</h2>
+                  <span class="chat-interlocutor-role">Responsável por Lucas · 6º ano A</span>
+                </div>
+              </div>
+
+              <div class="chat-header-actions">
+                <button type="button" class="chat-options-btn" title="Mais opções da conversa" aria-label="Mais opções">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1.5"></circle>
+                    <circle cx="5" cy="12" r="1.5"></circle>
+                    <circle cx="19" cy="12" r="1.5"></circle>
+                  </svg>
+                </button>
+              </div>
+            </header>
+
+            <!-- Histórico de Mensagens da Conversa -->
+            <div class="chat-messages-container" role="log" aria-live="polite">
+              <!-- Pílula de Data Oficial do Penpot -->
+              <div class="chat-date-separator">
+                <span class="chat-date-pill">HOJE</span>
+              </div>
+
+              <!-- Mensagem Recebida 1 -->
+              <div class="message-row incoming">
+                <div class="message-bubble incoming-bubble">
+                  <p class="message-text">Bom dia, professora! O Lucas comentou sobre a atividade em grupo de hoje.</p>
+                  <div class="message-meta">
+                    <span class="message-time">10:38</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mensagem Enviada 1 -->
+              <div class="message-row outgoing">
+                <div class="message-bubble outgoing-bubble">
+                  <p class="message-text">Bom dia, João! Ele participou bastante e ajudou os colegas a organizar a tarefa.</p>
+                  <div class="message-meta">
+                    <span class="message-time">10:40</span>
+                    <span class="read-ticks" title="Mensagem lida" aria-label="Lida">
+                      <svg width="14" height="10" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="1.5 6 5.5 10 11.5 2"></polyline>
+                        <polyline points="5.5 6 9.5 10 15.5 2"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mensagem Recebida 2 -->
+              <div class="message-row incoming">
+                <div class="message-bubble incoming-bubble">
+                  <p class="message-text">Que bom saber! Ele ficou feliz em contar sobre o que conseguiu fazer.</p>
+                  <div class="message-meta">
+                    <span class="message-time">10:42</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mensagem Enviada 2 -->
+              <div class="message-row outgoing">
+                <div class="message-bubble outgoing-bubble">
+                  <p class="message-text">Vou seguir acompanhando e te manter informado.</p>
+                  <div class="message-meta">
+                    <span class="message-time">10:43</span>
+                    <span class="read-ticks" title="Mensagem lida" aria-label="Lida">
+                      <svg width="14" height="10" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="1.5 6 5.5 10 11.5 2"></polyline>
+                        <polyline points="5.5 6 9.5 10 15.5 2"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mensagem Recebida 3 -->
+              <div class="message-row incoming">
+                <div class="message-bubble incoming-bubble">
+                  <p class="message-text">Obrigado por compartilhar a evolução dele.</p>
+                  <div class="message-meta">
+                    <span class="message-time">10:44</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Área de Composição e Envio (58px) -->
+            <div class="chat-composer-section">
+              <form class="composer-container" action="conversa.html" method="get">
+                <button type="button" class="composer-btn-attach" title="Anexar arquivo" aria-label="Anexar arquivo">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </button>
+                <input type="text" class="composer-input" placeholder="Escreva uma mensagem para João…" autocomplete="off" aria-label="Mensagem para João">
+                <button type="submit" class="btn-send-message" title="Enviar mensagem" aria-label="Enviar mensagem">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Interativo (Filtros e Busca de Conversas) -->
+</body>
+</html>
+
