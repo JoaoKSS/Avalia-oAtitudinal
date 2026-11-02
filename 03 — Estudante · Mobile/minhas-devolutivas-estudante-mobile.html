@@ -172,7 +172,7 @@
       flex: 1;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 12px 16px 32px 16px;
+      padding: 12px 16px 96px 16px;
       display: flex;
       flex-direction: column;
       scrollbar-width: none;
@@ -340,29 +340,242 @@
       color: var(--color-text-main);
     }
 
-    .card-action-row {
+    .card-arrow-row {
       display: flex;
       justify-content: flex-end;
       margin-top: 2px;
     }
 
-    .card-action-link {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--color-primary);
-      display: inline-flex;
+    .card-arrow {
+      color: #8194aa;
+      display: flex;
       align-items: center;
-      gap: 4px;
+      justify-content: center;
+      transition: transform 0.15s ease, color 0.15s ease;
+      flex-shrink: 0;
     }
 
-    .card-action-link svg {
-      width: 12px;
-      height: 12px;
-      transition: transform 0.15s ease;
-    }
-
-    .devolutiva-card:hover .card-action-link svg {
+    .devolutiva-card:hover .card-arrow {
+      color: #2563eb;
       transform: translateX(2px);
+    }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid #d9e4f2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-top: 8px;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      position: relative;
+      width: 78px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
+    .profile-modal-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 99;
+      display: none;
+    }
+
+    .profile-modal-overlay:target {
+      display: block;
+    }
+
+    .profile-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      cursor: default;
+      z-index: 99;
+    }
+
+    .profile-modal-card {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 88px;
+      width: 346px;
+      max-width: calc(100% - 32px);
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 13px;
+      padding: 14px 16px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+      box-sizing: border-box;
+      z-index: 100;
+    }
+
+    .profile-modal-pointer {
+      position: absolute;
+      bottom: -8px;
+      right: 20px;
+      width: 14px;
+      height: 14px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d9e4f2;
+      transform: rotate(45deg);
+      z-index: 101;
+    }
+
+    .profile-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 24px;
+    }
+
+    .profile-modal-title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #172b4d;
+      margin: 0;
+    }
+
+    .profile-modal-close {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #f5f8fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      font-size: 15px;
+      font-weight: 400;
+      text-decoration: none;
+      line-height: 1;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .profile-modal-close:hover {
+      background-color: #e2e8f0;
+      color: #172b4d;
+    }
+
+    .profile-modal-divider {
+      height: 1px;
+      background-color: #e8eef5;
+      margin: 10px 0;
+    }
+
+    .profile-modal-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-modal-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .profile-modal-user-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .profile-modal-user-name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #172b4d;
+    }
+
+    .profile-modal-user-role {
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #60758b;
+      margin-top: 3px;
+    }
+
+    .profile-modal-logout {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 48px;
+      padding: 0 14px;
+      background-color: #fff5f5;
+      border: 1px solid #fee2e2;
+      border-radius: 9px;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .profile-modal-logout:hover {
+      background-color: #fef2f2;
+      border-color: #fca5a5;
+    }
+
+    .profile-modal-logout-text {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #b91c1c;
     }
   </style>
 </head>
@@ -417,13 +630,12 @@
         <p class="card-date">Publicado em 18 nov. 2026</p>
         <p class="card-summary">Coopera e inclui colegas nas atividades.</p>
 
-        <div class="card-action-row">
-          <span class="card-action-link">
-            Ver devolutiva
-            <svg viewBox="0 0 16 16" fill="none">
-              <path d="M6 3.5L10.5 8L6 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="card-arrow-row">
+          <div class="card-arrow">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
             </svg>
-          </span>
+          </div>
         </div>
       </a>
 
@@ -442,15 +654,84 @@
         <p class="card-date">Publicado em 24 out. 2026</p>
         <p class="card-summary">Confira os pontos fortes e os próximos passos.</p>
 
-        <div class="card-action-row">
-          <span class="card-action-link">
-            Ver devolutiva
-            <svg viewBox="0 0 16 16" fill="none">
-              <path d="M6 3.5L10.5 8L6 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="card-arrow-row">
+          <div class="card-arrow">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
             </svg>
-          </span>
+          </div>
         </div>
       </a>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="painel-inicial-estudante-mobile.html" class="nav-tab active" aria-current="page">
+        <span class="nav-indicator-bar"></span>
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M4.5 10.333L12 4.5L19.5 10.333V18.667C19.5 19.127 19.127 19.5 18.667 19.5H14.5V13.667H9.5V19.5H5.333C4.873 19.5 4.5 19.127 4.5 18.667V10.333Z" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <a href="autoavaliacoes-estudante-mobile.html" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M6.16 12L9.5 15.33L17.83 7" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Autoavaliações</span>
+      </a>
+
+      <a href="evolucao-estudante-mobile.html" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M4.5 16.167L9.5 11.167L12.833 14.5L19.5 7" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.5 7H19.5V12" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Evolução</span>
+      </a>
+
+      <a href="#modal-perfil" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <ellipse cx="12" cy="8.667" rx="3.333" ry="3.333" stroke="#60758b" stroke-width="1.8"/>
+            <path d="M6.166 19.5V17.833C6.166 14.612 8.778 12 12 12C15.222 12 17.834 14.612 17.834 17.833V19.5" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <div id="modal-perfil" class="profile-modal-overlay">
+      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
+      <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
+        <div class="profile-modal-header">
+          <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
+          <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <div class="profile-modal-user">
+          <div class="profile-modal-avatar">AB</div>
+          <div class="profile-modal-user-info">
+            <span class="profile-modal-user-name">Ana Beatriz Ferraz</span>
+            <span class="profile-modal-user-role">Estudante</span>
+          </div>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <a href="../00 — Acesso e autenticação/login-mobile.html" class="profile-modal-logout">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span class="profile-modal-logout-text">Sair da conta</span>
+        </a>
+        <div class="profile-modal-pointer"></div>
+      </div>
+    </div>
     </section>
 
   </main>

@@ -527,12 +527,16 @@
       justify-content: space-between;
       gap: 24px;
       box-shadow: var(--shadow-card);
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+      box-sizing: border-box;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
     }
 
     .devolutiva-card:hover {
-      border-color: #c0d4ec;
+      border-color: #2563eb;
       box-shadow: 0 6px 20px rgba(20, 51, 97, 0.07);
+      transform: translateY(-1px);
     }
 
     .card-left {
@@ -599,7 +603,7 @@
       flex-direction: column;
       align-items: flex-end;
       justify-content: space-between;
-      height: 96px;
+      height: 72px;
       flex-shrink: 0;
     }
 
@@ -625,42 +629,18 @@
       color: var(--color-status-viewed);
     }
 
-    .btn-devolutiva {
-      height: 38px;
-      width: 190px;
-      border-radius: var(--radius-btn);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 600;
-      display: inline-flex;
+    .card-arrow {
+      color: #8194aa;
+      display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-      white-space: nowrap;
+      transition: transform 0.15s ease, color 0.15s ease;
+      flex-shrink: 0;
     }
 
-    .btn-devolutiva.primary {
-      background-color: var(--color-primary);
-      border: 1px solid var(--color-primary);
-      color: #ffffff;
-    }
-
-    .btn-devolutiva.primary:hover {
-      background-color: var(--color-primary-hover);
-      border-color: var(--color-primary-hover);
-    }
-
-    .btn-devolutiva.outline {
-      background-color: #ffffff;
-      border: 1px solid var(--color-border-subtle);
-      color: var(--color-primary);
-    }
-
-    .btn-devolutiva.outline:hover {
-      background-color: #f8fafc;
-      border-color: #c7d7eb;
+    .devolutiva-card:hover .card-arrow {
+      color: #2563eb;
+      transform: translateX(2px);
     }
   </style>
 </head>
@@ -776,7 +756,7 @@
         <p class="section-label">RECENTES</p>
 
         <div class="devolutivas-list">
-          <article class="devolutiva-card">
+          <a href="parecer-formativo.html" class="devolutiva-card" aria-label="Ver parecer formativo · 1º bimestre">
             <div class="card-left">
               <div class="devolutiva-avatar" aria-hidden="true">PF</div>
               <div class="devolutiva-info">
@@ -789,13 +769,15 @@
 
             <div class="card-right">
               <span class="badge-status new">NOVA</span>
-              <a href="parecer-formativo.html" class="btn-devolutiva primary" aria-label="Ver devolutiva do Parecer formativo · 1º bimestre">
-                Ver devolutiva &nbsp;→
-              </a>
+              <div class="card-arrow">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="devolutiva-card">
+          <a href="parecer-formativo.html" class="devolutiva-card" aria-label="Ver acompanhamento · outubro">
             <div class="card-left">
               <div class="devolutiva-avatar" aria-hidden="true">PF</div>
               <div class="devolutiva-info">
@@ -808,11 +790,13 @@
 
             <div class="card-right">
               <span class="badge-status viewed">VISTA</span>
-              <a href="parecer-formativo.html" class="btn-devolutiva outline" aria-label="Ver devolutiva de Acompanhamento · outubro">
-                Ver devolutiva &nbsp;→
-              </a>
+              <div class="card-arrow">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
+              </div>
             </div>
-          </article>
+          </a>
         </div>
       </main>
     </div>
