@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel da Coordenação / Núcleo Pedagógico · Desktop 1440 × 1024 · Educar &amp; Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f8fc;
+      color: #172b4d;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Barra Lateral da Coordenação (248px) */
+    .sidebar {
+      width: 248px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 20;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 24px;
+      height: 76px;
+      border-bottom: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #2563eb;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: #172b4d;
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+    }
+
+    /* Navegação */
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: #60758b;
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: #172b4d;
+    }
+
+    .nav-link.active {
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    /* Barra indicadora azul ativa no item do menu */
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: #2563eb;
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil da Coordenação */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: 1px solid #d9e4f2;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 10px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Área Principal (1192px) */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Cabeçalho Superior Desktop (76px) */
+    .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px 0 32px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-item {
+      color: #60758b;
+      font-weight: 500;
+    }
+
+    .breadcrumb-separator {
+      color: #8194aa;
+      user-select: none;
+    }
+
+    .breadcrumb-current {
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid #d9e4f2;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      text-decoration: none;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: 10px;
+      right: 11px;
+      width: 7px;
+      height: 7px;
+      background-color: #2563eb;
+      border-radius: 50%;
+    }
+
+    /* Conteúdo do Painel */
+    .content-area {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 24px 24px 48px 32px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .content-area::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .content-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .content-area::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .content-area::-webkit-scrollbar-thumb:hover {
+      background-color: #94a3b8;
+    }
+
+    /* Título & Descrição da Página */
+    .page-header {
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #172b4d;
+      margin-bottom: 4px;
+    }
+
+    .page-desc {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #60758b;
+    }
+
+    /* Linha 1: 3 Indicadores / KPIs (Altura: 100px) */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 16px;
+      position: relative;
+      text-decoration: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    }
+
+    .kpi-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .kpi-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .kpi-icon-wrapper.critical {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .kpi-icon-wrapper.warning {
+      background-color: #fff4d6;
+      color: #b45309;
+    }
+
+    .kpi-icon-wrapper.primary {
+      background-color: #e8f1ff;
+      color: #2563eb;
+    }
+
+    .kpi-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #60758b;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: #172b4d;
+      margin: 2px 0 1px 0;
+    }
+
+    .kpi-hint {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #60758b;
+    }
+
+    /* Linha 2 & 3: Layout Bi-coluna (690px + 418px com gap 20px) */
+    .two-panels-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    /* Painéis Gerais */
+    .panel-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .panel-header-simple {
+      margin-bottom: 14px;
+    }
+
+    .panel-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #172b4d;
+    }
+
+    .panel-subtitle {
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #60758b;
+      margin-top: 2px;
+    }
+
+    .panel-link {
+      font-size: 10px;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .panel-link:hover {
+      background-color: #e8f1ff;
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    .panel-divider {
+      height: 1px;
+      background-color: #d9e4f2;
+      margin: 4px 0 12px 0;
+      border: none;
+    }
+
+    /* Painel: Alertas Ativos */
+    .alerts-list {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .alert-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #d9e4f2;
+      text-decoration: none;
+      color: inherit;
+      transition: background-color 0.15s ease;
+    }
+
+    .alert-row:hover {
+      background-color: #f8fafc;
+      border-radius: 8px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .alert-student-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 220px;
+      flex-shrink: 0;
+    }
+
+    .alert-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .alert-student-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .alert-student-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #172b4d;
+      line-height: 1.3;
+    }
+
+    .alert-student-class {
+      font-size: 10px;
+      font-weight: 400;
+      color: #60758b;
+      line-height: 1.3;
+    }
+
+    .alert-reason {
+      flex: 1;
+      font-size: 11px;
+      font-weight: 400;
+      color: #60758b;
+      padding: 0 12px;
+    }
+
+    .alert-badge {
+      height: 22px;
+      padding: 0 10px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .alert-badge.critical {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .alert-badge.warning {
+      background-color: #fff4d6;
+      color: #b45309;
+    }
+
+    .panel-footer-count {
+      margin-top: 14px;
+      font-size: 10px;
+      font-weight: 400;
+      color: #8194aa;
+    }
+
+    /* Painel: Clima Escolar */
+    .clima-score-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .clima-score-value {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #15803d;
+    }
+
+    .clima-score-scale {
+      font-size: 9px;
+      font-weight: 500;
+      color: #60758b;
+    }
+
+    .clima-dimensions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 8px 0 16px 0;
+      flex: 1;
+    }
+
+    .dimension-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dimension-name {
+      width: 130px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #172b4d;
+      flex-shrink: 0;
+    }
+
+    .dimension-track {
+      flex: 1;
+      height: 7px;
+      background-color: #edf2f7;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .dimension-bar {
+      height: 100%;
+      background-color: #2563eb;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    .dimension-value {
+      width: 32px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #172b4d;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .clima-footer-link {
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    .clima-action-link {
+      font-size: 11px;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .clima-action-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Painel: Dashboards Agregadores */
+    .shortcuts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .shortcut-item {
+      display: flex;
+      align-items: center;
+      height: 44px;
+      border: 1px solid #d9e4f2;
+      border-radius: 12px;
+      padding: 0 12px;
+      gap: 12px;
+      text-decoration: none;
+      background-color: #ffffff;
+      transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .shortcut-item:hover {
+      border-color: #2563eb;
+      background-color: #fcfdfe;
+      transform: translateX(2px);
+    }
+
+    .shortcut-icon-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .shortcut-icon-badge.turma {
+      background-color: #e8f1ff;
+      color: #2563eb;
+    }
+
+    .shortcut-icon-badge.aluno {
+      background-color: #f1edff;
+      color: #6d5bd0;
+    }
+
+    .shortcut-icon-badge.dimensao {
+      background-color: #e8f7ee;
+      color: #15803d;
+    }
+
+    .shortcut-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .shortcut-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #172b4d;
+      line-height: 1.25;
+    }
+
+    .shortcut-desc {
+      font-size: 10px;
+      font-weight: 400;
+      color: #60758b;
+      line-height: 1.25;
+    }
+
+    .shortcut-arrow {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    /* Card: Todas as Turmas */
+    .turmas-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    }
+
+    .turmas-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .turmas-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background-color: #e8f1ff;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .turmas-card-title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: #172b4d;
+      margin-bottom: 6px;
+    }
+
+    .turmas-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #60758b;
+      margin-bottom: auto;
+    }
+
+    .turmas-meta-icon {
+      display: inline-flex;
+      align-items: center;
+      color: #60758b;
+    }
+
+    .turmas-card-action {
+      margin-top: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2563eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .turmas-card:hover .turmas-card-action {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Barra Lateral da Coordenação (248px) -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
+        <div class="brand-icon">
+          <!-- Ícone oficial do Penpot: Livro -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-role">Área da Coordenação</span>
+        </div>
+      </a>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Gestão Pedagógica</div>
+        <ul class="nav-list">
+          <!-- Visão Geral (Ativo) -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Início oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
+                </svg>
+              </span>
+              <span>Visão geral</span>
+            </a>
+          </li>
+
+          <!-- Sistema de Alertas -->
+          <li class="nav-item">
+            <a href="sistema-alerta-precoce.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Notificações / Sino oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+                  <path d="M8.33 17.5h3.34"/>
+                </svg>
+              </span>
+              <span>Sistema de alertas</span>
+            </a>
+          </li>
+
+          <!-- Clima Escolar -->
+          <li class="nav-item">
+            <a href="clima-escolar.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Comunidade Escolar oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="10" cy="5" r="2.2"/>
+                  <circle cx="5" cy="7.2" r="1.5"/>
+                  <circle cx="15" cy="7.2" r="1.5"/>
+                  <path d="M2.5 18c0-3.4 2.6-5.3 7.5-5.3s7.5 1.9 7.5 5.3"/>
+                  <path d="M1.2 17.5c.2-2.4 1.2-3.3 2.8-3.5"/>
+                  <path d="M16 14c1.6.2 2.6 1.1 2.8 3.5"/>
+                </svg>
+              </span>
+              <span>Clima escolar</span>
+            </a>
+          </li>
+
+          <!-- Dashboards Agregadores -->
+          <li class="nav-item">
+            <a href="dashboard-agregador-visao-central.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
+                  <path d="M12.5 5h5v5"/>
+                </svg>
+              </span>
+              <span>Dashboards agregadores</span>
+            </a>
+          </li>
+
+          <!-- Turmas -->
+          <li class="nav-item">
+            <a href="turmas.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Turmas oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="7.5" cy="6.67" r="2.71"/>
+                  <path d="M2.92 16.67v-1.05c0-2.18 1.77-3.95 3.95-3.95h1.25c2.19 0 3.96 1.77 3.96 3.95v1.05"/>
+                  <path d="M13.33 4.08c1.13.36 1.9 1.4 1.9 2.59 0 1.18-.77 2.22-1.9 2.58"/>
+                  <path d="M14.17 11.83c1.71.47 2.9 2.02 2.91 3.79v1.05"/>
+                </svg>
+              </span>
+              <span>Turmas</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé: Perfil da Coordenação -->
+      <div class="sidebar-footer">
+        <button type="button" class="user-profile-button" aria-label="Perfil do Núcleo Pedagógico">
+          <div class="user-avatar" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M5 21v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Núcleo Pedagógico</span>
+            <span class="user-role">Coordenação escolar</span>
+          </div>
+          <div class="user-chevron" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.75 4.5l4.5 4.5-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Área Principal (1192px) -->
+    <main class="main-wrapper">
+      <!-- Cabeçalho Superior -->
+      <header class="top-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <span class="breadcrumb-item">Área da coordenação</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Visão geral</span>
+        </nav>
+
+        <div class="header-actions">
+          <a href="sistema-alerta-precoce.html" class="header-icon-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
+            <!-- Ícone de notificações oficial com indicador -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+              <path d="M8.33 17.5h3.34"/>
+            </svg>
+            <span class="notification-badge" aria-hidden="true"></span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Conteúdo do Painel -->
+      <div class="content-area">
+        <!-- Título da Página -->
+        <div class="page-header">
+          <h1 class="page-title">Visão geral da escola</h1>
+          <p class="page-desc">Acompanhe alertas ativos, clima escolar e intervenções pedagógicas em um só lugar.</p>
+        </div>
+
+        <!-- Linha 1: Indicadores Críticos, Atenção e Estudantes em Acompanhamento -->
+        <section class="kpi-grid" aria-label="Indicadores principais">
+          <!-- Card Críticos -->
+          <a href="sistema-alerta-precoce.html?status=critico" class="kpi-card">
+            <div class="kpi-icon-wrapper critical" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+                <path d="M8.33 17.5h3.34"/>
+              </svg>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Alertas Críticos</span>
+              <span class="kpi-value">3</span>
+              <span class="kpi-hint">Intervenção prioritária</span>
+            </div>
+          </a>
+
+          <!-- Card Atenção -->
+          <a href="sistema-alerta-precoce.html?status=atencao" class="kpi-card">
+            <div class="kpi-icon-wrapper warning" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+                <path d="M8.33 17.5h3.34"/>
+              </svg>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Alertas de Atenção</span>
+              <span class="kpi-value">9</span>
+              <span class="kpi-hint">Acompanhamento próximo</span>
+            </div>
+          </a>
+
+          <!-- Card Estudantes Acompanhados -->
+          <a href="ver-todos-estudantes.html?filtro=acompanhados" class="kpi-card">
+            <div class="kpi-icon-wrapper primary" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7.5" cy="6.67" r="2.71"/>
+                <path d="M2.92 16.67v-1.05c0-2.18 1.77-3.95 3.95-3.95h1.25c2.19 0 3.96 1.77 3.96 3.95v1.05"/>
+                <path d="M13.33 4.08c1.13.36 1.9 1.4 1.9 2.59 0 1.18-.77 2.22-1.9 2.58"/>
+                <path d="M14.17 11.83c1.71.47 2.9 2.02 2.91 3.79v1.05"/>
+              </svg>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Estudantes acompanhados</span>
+              <span class="kpi-value">8</span>
+              <span class="kpi-hint">2 novos nesta semana</span>
+            </div>
+          </a>
+        </section>
+
+        <!-- Linha 2: Alertas que precisam de atenção & Clima escolar -->
+        <section class="two-panels-row" aria-label="Alertas e Clima escolar">
+          <!-- Painel Alertas Ativos -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Alertas que precisam de atenção</h2>
+                <p class="panel-subtitle">Cruzamento de indicadores atitudinais, frequência e desempenho</p>
+              </div>
+              <a href="sistema-alerta-precoce.html" class="panel-link">Ver todos &rarr;</a>
+            </div>
+            <hr class="panel-divider">
+
+            <div class="alerts-list">
+              <!-- Alerta 1: Gabriel Oliveira -->
+              <a href="dashboard-agregador-aluno.html?aluno=gabriel-oliveira" class="alert-row">
+                <div class="alert-student-group">
+                  <div class="alert-avatar">MS</div>
+                  <div class="alert-student-info">
+                    <span class="alert-student-name">Gabriel Oliveira</span>
+                    <span class="alert-student-class">7º ano B</span>
+                  </div>
+                </div>
+                <span class="alert-reason">Queda atitudinal + faltas recentes</span>
+                <span class="alert-badge critical">CRÍTICO</span>
+              </a>
+
+              <!-- Alerta 2: Bruno Cardoso Lima -->
+              <a href="dashboard-agregador-aluno.html?aluno=bruno-cardoso" class="alert-row">
+                <div class="alert-student-group">
+                  <div class="alert-avatar">JL</div>
+                  <div class="alert-student-info">
+                    <span class="alert-student-name">Bruno Cardoso Lima</span>
+                    <span class="alert-student-class">8º ano A</span>
+                  </div>
+                </div>
+                <span class="alert-reason">Frequência em queda + desempenho</span>
+                <span class="alert-badge warning">ATENÇÃO</span>
+              </a>
+
+              <!-- Alerta 3: Ana Beatriz Ferraz -->
+              <a href="dashboard-agregador-aluno.html?aluno=ana-beatriz" class="alert-row">
+                <div class="alert-student-group">
+                  <div class="alert-avatar">AR</div>
+                  <div class="alert-student-info">
+                    <span class="alert-student-name">Ana Beatriz Ferraz</span>
+                    <span class="alert-student-class">6º ano A</span>
+                  </div>
+                </div>
+                <span class="alert-reason">Queda em colaboração e participação</span>
+                <span class="alert-badge warning">ATENÇÃO</span>
+              </a>
+            </div>
+
+            <div class="panel-footer-count">3 de 12 alertas exibidos</div>
+          </div>
+
+          <!-- Painel Clima Escolar -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Clima escolar</h2>
+                <p class="panel-subtitle">Distribuição por dimensão atitudinal</p>
+              </div>
+              <div class="clima-score-wrapper">
+                <span class="clima-score-value">3,8</span>
+                <span class="clima-score-scale">de 5,0</span>
+              </div>
+            </div>
+            <hr class="panel-divider">
+
+            <div class="clima-dimensions-list">
+              <!-- Responsabilidade -->
+              <div class="dimension-row">
+                <span class="dimension-name">Responsabilidade</span>
+                <div class="dimension-track">
+                  <div class="dimension-bar" style="width: 82%;"></div>
+                </div>
+                <span class="dimension-value">4,1</span>
+              </div>
+
+              <!-- Colaboração -->
+              <div class="dimension-row">
+                <span class="dimension-name">Colaboração</span>
+                <div class="dimension-track">
+                  <div class="dimension-bar" style="width: 72%;"></div>
+                </div>
+                <span class="dimension-value">3,6</span>
+              </div>
+
+              <!-- Autonomia -->
+              <div class="dimension-row">
+                <span class="dimension-name">Autonomia</span>
+                <div class="dimension-track">
+                  <div class="dimension-bar" style="width: 78%;"></div>
+                </div>
+                <span class="dimension-value">3,9</span>
+              </div>
+
+              <!-- Participação -->
+              <div class="dimension-row">
+                <span class="dimension-name">Participação</span>
+                <div class="dimension-track">
+                  <div class="dimension-bar" style="width: 68%;"></div>
+                </div>
+                <span class="dimension-value">3,4</span>
+              </div>
+
+              <!-- Respeito -->
+              <div class="dimension-row">
+                <span class="dimension-name">Respeito</span>
+                <div class="dimension-track">
+                  <div class="dimension-bar" style="width: 84%;"></div>
+                </div>
+                <span class="dimension-value">4,2</span>
+              </div>
+            </div>
+
+            <div class="clima-footer-link">
+              <a href="clima-escolar.html" class="clima-action-link">Ver análise de clima &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Linha 3: Dashboards Agregadores & Card Todas as Turmas -->
+        <section class="two-panels-row" aria-label="Acessos Rápidos e Turmas">
+          <!-- Painel Dashboards Agregadores -->
+          <div class="panel-card">
+            <div class="panel-header-simple">
+              <h2 class="panel-title">Dashboards agregadores</h2>
+              <p class="panel-subtitle">Explore os indicadores por recorte</p>
+            </div>
+
+            <div class="shortcuts-list">
+              <!-- Atalho 1: Por Turma -->
+              <a href="dashboard-agregador-turma.html" class="shortcut-item">
+                <div class="shortcut-icon-badge turma" aria-hidden="true">
+                  <!-- Ícone Livro / Turmas oficial do Penpot -->
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 5.83v11.67"/>
+                    <path d="M2.5 15c-.46 0-.83-.37-.83-.83V3.33C1.67 2.87 2.04 2.5 2.5 2.5h4.17c1.84 0 3.33 1.49 3.33 3.33 0-1.84 1.49-3.33 3.33-3.33h4.17c.46 0 .83.37.83.83v10.84c0 .46-.37.83-.83.83h-5c-1.38 0-2.5 1.12-2.5 2.5 0-1.38-1.12-2.5-2.5-2.5H2.5z"/>
+                  </svg>
+                </div>
+                <div class="shortcut-info">
+                  <span class="shortcut-title">Por turma</span>
+                  <span class="shortcut-desc">Perfil coletivo e distribuição</span>
+                </div>
+                <span class="shortcut-arrow">&rarr;</span>
+              </a>
+
+              <!-- Atalho 2: Por Aluno -->
+              <a href="dashboard-agregador-aluno.html" class="shortcut-item">
+                <div class="shortcut-icon-badge aluno" aria-hidden="true">
+                  <!-- Ícone Perfil Aluno oficial do Penpot -->
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M5 21v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2"/>
+                  </svg>
+                </div>
+                <div class="shortcut-info">
+                  <span class="shortcut-title">Por aluno</span>
+                  <span class="shortcut-desc">Evolução e histórico individual</span>
+                </div>
+                <span class="shortcut-arrow">&rarr;</span>
+              </a>
+
+              <!-- Atalho 3: Por Dimensão Atitudinal -->
+              <a href="dashboard-agregador-dimensoes.html" class="shortcut-item">
+                <div class="shortcut-icon-badge dimensao" aria-hidden="true">
+                  <!-- Ícone Histórico de Dimensões / Radar oficial do Penpot -->
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="10" cy="10" r="7.5"/>
+                    <path d="M10 5.83V10l2.5 1.67"/>
+                  </svg>
+                </div>
+                <div class="shortcut-info">
+                  <span class="shortcut-title">Por dimensão atitudinal</span>
+                  <span class="shortcut-desc">Pesquisar e comparar dimensões</span>
+                </div>
+                <span class="shortcut-arrow">&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card Todas as Turmas -->
+          <a href="turmas.html" class="turmas-card">
+            <div class="turmas-icon-wrapper" aria-hidden="true">
+              <!-- Ícone Turmas oficial do Penpot -->
+              <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 5.83v11.67"/>
+                <path d="M2.5 15c-.46 0-.83-.37-.83-.83V3.33C1.67 2.87 2.04 2.5 2.5 2.5h4.17c1.84 0 3.33 1.49 3.33 3.33 0-1.84 1.49-3.33 3.33-3.33h4.17c.46 0 .83.37.83.83v10.84c0 .46-.37.83-.83.83h-5c-1.38 0-2.5 1.12-2.5 2.5 0-1.38-1.12-2.5-2.5-2.5H2.5z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="turmas-card-title">Todas as turmas</h3>
+              <div class="turmas-card-meta">
+                <span>4 turmas ativas</span>
+                <span aria-hidden="true">&middot;</span>
+                <span class="turmas-meta-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7.5 9v-1c0-1.1-1.12-2-2.5-2H2.5C1.12 6 0 6.9 0 8v1"/>
+                    <circle cx="3.75" cy="2" r="2"/>
+                    <path d="M10 9v-1c0-.91-.77-1.71-1.88-1.94"/>
+                    <path d="M7.5 0.06c1.11.23 1.88 1.03 1.88 1.94 0 .92-.77 1.71-1.88 1.94"/>
+                  </svg>
+                </span>
+                <span>118 estudantes</span>
+              </div>
+            </div>
+            <div class="turmas-card-action">
+              <span>Acessar listagem completa</span>
+              <span aria-hidden="true">&rarr;</span>
+            </div>
+          </a>
+        </section>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
+

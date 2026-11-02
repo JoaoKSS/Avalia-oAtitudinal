@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos os estudantes em alerta · Coordenação · Desktop 1440 × 1024 · Educar &amp; Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f8fc;
+      color: #172b4d;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Barra Lateral da Coordenação (248px) */
+    .sidebar {
+      width: 248px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 20;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 24px;
+      height: 76px;
+      border-bottom: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #2563eb;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: #172b4d;
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+    }
+
+    /* Navegação */
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: #60758b;
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: #172b4d;
+    }
+
+    .nav-link.active {
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    /* Barra indicadora azul ativa no item do menu */
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: #2563eb;
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil da Coordenação */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: 1px solid #d9e4f2;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 10px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Área Principal (1192px) */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Cabeçalho Superior Desktop (76px) */
+    .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px 0 32px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-item {
+      color: #60758b;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .breadcrumb-item:hover {
+      color: #2563eb;
+    }
+
+    .breadcrumb-separator {
+      color: #8194aa;
+      user-select: none;
+    }
+
+    .breadcrumb-current {
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid #d9e4f2;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      text-decoration: none;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: 10px;
+      right: 11px;
+      width: 7px;
+      height: 7px;
+      background-color: #2563eb;
+      border-radius: 50%;
+    }
+
+    /* Conteúdo do Painel */
+    .content-area {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 24px 24px 32px 32px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .content-area::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .content-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .content-area::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .content-area::-webkit-scrollbar-thumb:hover {
+      background-color: #94a3b8;
+    }
+
+    /* Título & Descrição da Página */
+    .page-header {
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #172b4d;
+      margin-bottom: 4px;
+    }
+
+    .page-desc {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #60758b;
+    }
+
+    /* Linha 1: 4 Cards de Resumo (Altura 66px) */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .summary-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 12px;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 14px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .summary-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+    }
+
+    .summary-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .summary-icon-box.blue {
+      background-color: #e8f1ff;
+      color: #2563eb;
+    }
+
+    .summary-icon-box.red {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .summary-icon-box.amber {
+      background-color: #fff4d6;
+      color: #b45309;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .summary-icon-box.purple {
+      background-color: #f1edff;
+      color: #6d5bd0;
+    }
+
+    .summary-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .summary-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #60758b;
+      line-height: 1.2;
+    }
+
+    .summary-value {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    .summary-value.blue {
+      color: #2563eb;
+    }
+
+    .summary-value.red {
+      color: #b91c1c;
+    }
+
+    .summary-value.amber {
+      color: #b45309;
+    }
+
+    .summary-value.purple {
+      color: #6d5bd0;
+    }
+
+    /* Linha de Controles: Filtros Dropdown + Busca */
+    .controls-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 140px;
+      flex: 1;
+    }
+
+    .filter-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #60758b;
+    }
+
+    .filter-select-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .filter-select {
+      width: 100%;
+      height: 34px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 8px;
+      padding: 0 28px 0 10px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      color: #172b4d;
+      appearance: none;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.15s ease;
+    }
+
+    .filter-select:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .filter-chevron {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #60758b;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 2.2;
+      min-width: 280px;
+    }
+
+    .search-box-wrapper {
+      position: relative;
+      width: 100%;
+      height: 34px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 8px;
+      transition: border-color 0.15s ease;
+    }
+
+    .search-box-wrapper:focus-within {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .search-icon-symbol {
+      color: #60758b;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-text-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 12px;
+      color: #172b4d;
+      background: transparent;
+    }
+
+    .search-text-input::placeholder {
+      color: #8194aa;
+    }
+
+    /* Painel / Card da Tabela de Estudantes */
+    .table-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+      margin-bottom: 32px;
+    }
+
+    .table-top-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .table-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #172b4d;
+    }
+
+    .table-tabs-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .table-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn {
+      height: 32px;
+      padding: 0 14px;
+      border-radius: 8px;
+      border: 1px solid #d9e4f2;
+      background-color: #ffffff;
+      color: #60758b;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .tab-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .tab-btn.active {
+      background-color: #e8f1ff;
+      border-color: #2563eb;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .sort-indicator {
+      font-size: 12px;
+      font-weight: 500;
+      color: #60758b;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .sort-indicator:hover {
+      color: #172b4d;
+    }
+
+    /* Estrutura da Tabela */
+    .data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .data-table th {
+      background-color: #ffffff;
+      padding: 12px 14px;
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      color: #8194aa;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #d9e4f2;
+      border-top: 1px solid #d9e4f2;
+    }
+
+    .data-table td {
+      padding: 12px 14px;
+      font-size: 12px;
+      color: #172b4d;
+      border-bottom: 1px solid #d9e4f2;
+      vertical-align: middle;
+    }
+
+    .data-table tbody tr {
+      transition: background-color 0.15s ease;
+    }
+
+    .data-table tbody tr:hover {
+      background-color: #f8fafc;
+    }
+
+    .data-table tbody tr.row-alt {
+      background-color: #fafcff;
+    }
+
+    .student-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .student-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #e8f1ff;
+      font-size: 9px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .student-avatar.blue {
+      color: #2563eb;
+    }
+
+    .student-avatar.purple {
+      color: #6d5bd0;
+    }
+
+    .student-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #172b4d;
+    }
+
+    .turma-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: #172b4d;
+    }
+
+    .alert-type-text {
+      font-size: 12px;
+      color: #172b4d;
+    }
+
+    .signal-detect-text {
+      font-size: 12px;
+      color: #60758b;
+    }
+
+    .badge-level {
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .badge-level.critical {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .badge-level.warning {
+      background-color: #fff4d6;
+      color: #b45309;
+    }
+
+    .timestamp-text {
+      font-size: 11px;
+      color: #60758b;
+      white-space: nowrap;
+    }
+
+    .table-action-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+
+    .table-action-link:hover {
+      text-decoration: underline;
+      color: #1d4ed8;
+    }
+
+    .table-pagination-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      padding-top: 16px;
+      font-size: 12px;
+      color: #60758b;
+    }
+
+    .pagination-page {
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .pagination-page.active {
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .pagination-nav {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .pagination-nav:hover {
+      color: #172b4d;
+    }
+
+    /* Barra Inferior de Ações (Fixa no rodapé do viewport) */
+    .bottom-bar {
+      height: 76px;
+      background-color: #ffffff;
+      border-top: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 24px 0 32px;
+      flex-shrink: 0;
+      box-shadow: 0 -4px 12px rgba(16, 24, 40, 0.05);
+      z-index: 20;
+    }
+
+    .btn-back {
+      height: 44px;
+      padding: 0 24px;
+      border-radius: 10px;
+      background-color: #60758b;
+      border: 1px solid #d9e4f2;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-back:hover {
+      background-color: #475569;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Barra Lateral da Coordenação (248px) -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
+        <div class="brand-icon">
+          <!-- Ícone oficial do Penpot: Livro -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-role">Área da Coordenação</span>
+        </div>
+      </a>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Gestão Pedagógica</div>
+        <ul class="nav-list">
+          <!-- Visão Geral -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Início oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
+                </svg>
+              </span>
+              <span>Visão geral</span>
+            </a>
+          </li>
+
+          <!-- Sistema de Alertas (Ativo) -->
+          <li class="nav-item">
+            <a href="sistema-alerta-precoce.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Notificações / Sino oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+                  <path d="M8.33 17.5h3.34"/>
+                </svg>
+              </span>
+              <span>Sistema de alertas</span>
+            </a>
+          </li>
+
+          <!-- Clima Escolar -->
+          <li class="nav-item">
+            <a href="clima-escolar.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Comunidade Escolar oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="10" cy="5" r="2.2"/>
+                  <circle cx="5" cy="7.2" r="1.5"/>
+                  <circle cx="15" cy="7.2" r="1.5"/>
+                  <path d="M2.5 18c0-3.4 2.6-5.3 7.5-5.3s7.5 1.9 7.5 5.3"/>
+                  <path d="M1.2 17.5c.2-2.4 1.2-3.3 2.8-3.5"/>
+                  <path d="M16 14c1.6.2 2.6 1.1 2.8 3.5"/>
+                </svg>
+              </span>
+              <span>Clima escolar</span>
+            </a>
+          </li>
+
+          <!-- Dashboards Agregadores -->
+          <li class="nav-item">
+            <a href="dashboard-agregador-visao-central.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
+                  <path d="M12.5 5h5v5"/>
+                </svg>
+              </span>
+              <span>Dashboards agregadores</span>
+            </a>
+          </li>
+
+          <!-- Turmas -->
+          <li class="nav-item">
+            <a href="ver-todas-as-turmas.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Turmas oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="7.5" cy="6.67" r="2.71"/>
+                  <path d="M2.92 16.67v-1.05c0-2.18 1.77-3.95 3.95-3.95h1.25c2.19 0 3.96 1.77 3.96 3.95v1.05"/>
+                  <path d="M13.33 4.08c1.13.36 1.9 1.4 1.9 2.59 0 1.18-.77 2.22-1.9 2.58"/>
+                  <path d="M14.17 11.83c1.71.47 2.9 2.02 2.91 3.79v1.05"/>
+                </svg>
+              </span>
+              <span>Turmas</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé: Perfil da Coordenação -->
+      <div class="sidebar-footer">
+        <button type="button" class="user-profile-button" aria-label="Perfil do Núcleo Pedagógico">
+          <div class="user-avatar" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M5 21v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Núcleo Pedagógico</span>
+            <span class="user-role">Coordenação escolar</span>
+          </div>
+          <div class="user-chevron" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.75 4.5l4.5 4.5-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Área Principal (1192px) -->
+    <main class="main-wrapper">
+      <!-- Cabeçalho Superior -->
+      <header class="top-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="painel-inicial.html" class="breadcrumb-item">Área da coordenação</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="sistema-alerta-precoce.html" class="breadcrumb-item">Sistema de alertas</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Todos os alunos</span>
+        </nav>
+
+        <div class="header-actions">
+          <a href="sistema-alerta-precoce.html" class="header-icon-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
+            <!-- Ícone de notificações oficial com indicador -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+              <path d="M8.33 17.5h3.34"/>
+            </svg>
+            <span class="notification-badge" aria-hidden="true"></span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Conteúdo do Painel -->
+      <div class="content-area">
+        <!-- Título da Página -->
+        <div class="page-header">
+          <h1 class="page-title">Todos os estudantes em alerta</h1>
+          <p class="page-desc">Consulte os casos individuais, filtre por turma ou tipo de alerta e priorize os próximos passos.</p>
+        </div>
+
+        <!-- Linha 1: 4 Cards de Resumo -->
+        <section class="summary-grid" aria-label="Resumo de alertas">
+          <!-- Card Estudantes em Alerta -->
+          <div class="summary-card">
+            <div class="summary-icon-box blue" aria-hidden="true">
+              <!-- Ícone Perfil Oficial -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M5 21v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2"/>
+              </svg>
+            </div>
+            <div class="summary-content">
+              <span class="summary-label">Estudantes em alerta</span>
+              <span class="summary-value blue">12</span>
+            </div>
+          </div>
+
+          <!-- Card Críticos -->
+          <div class="summary-card">
+            <div class="summary-icon-box red" aria-hidden="true">
+              <!-- Ícone Notificação / Sino Vermelho -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+                <path d="M8.33 17.5h3.34"/>
+              </svg>
+            </div>
+            <div class="summary-content">
+              <span class="summary-label">Críticos</span>
+              <span class="summary-value red">3</span>
+            </div>
+          </div>
+
+          <!-- Card Atenção -->
+          <div class="summary-card">
+            <div class="summary-icon-box amber" aria-hidden="true">!</div>
+            <div class="summary-content">
+              <span class="summary-label">Atenção</span>
+              <span class="summary-value amber">9</span>
+            </div>
+          </div>
+
+          <!-- Card Tipos Combinados -->
+          <div class="summary-card">
+            <div class="summary-icon-box purple" aria-hidden="true">
+              <!-- Ícone Tipos Combinados oficial do Penpot -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="12" r="3"/>
+                <path d="M8.5 7.5l7 3M8.5 16.5l7-3"/>
+              </svg>
+            </div>
+            <div class="summary-content">
+              <span class="summary-label">Tipos combinados</span>
+              <span class="summary-value purple">6</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Linha de Controles: Filtros + Busca -->
+        <section class="controls-row" aria-label="Filtros e busca">
+          <!-- Filtro Turma -->
+          <div class="filter-item">
+            <label for="filtro-turma" class="filter-label">Turma</label>
+            <div class="filter-select-wrapper">
+              <select id="filtro-turma" class="filter-select">
+                <option value="todas" selected>Todas as turmas</option>
+                <option value="7b">7º ano B</option>
+                <option value="8a">8º ano A</option>
+                <option value="6c">6º ano C</option>
+                <option value="9a">9º ano A</option>
+                <option value="8b">8º ano B</option>
+                <option value="9b">9º ano B</option>
+              </select>
+              <span class="filter-chevron" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Filtro Tipo de Alerta -->
+          <div class="filter-item">
+            <label for="filtro-tipo" class="filter-label">Tipo de alerta</label>
+            <div class="filter-select-wrapper">
+              <select id="filtro-tipo" class="filter-select">
+                <option value="todos" selected>Todos os tipos</option>
+                <option value="atitudinal">Queda atitudinal</option>
+                <option value="faltas">Aumento de faltas</option>
+                <option value="participacao">Participação</option>
+                <option value="desempenho">Desempenho</option>
+              </select>
+              <span class="filter-chevron" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Filtro Nível de Criticidade -->
+          <div class="filter-item">
+            <label for="filtro-nivel" class="filter-label">Nível de criticidade</label>
+            <div class="filter-select-wrapper">
+              <select id="filtro-nivel" class="filter-select">
+                <option value="todos" selected>Todos os níveis</option>
+                <option value="critico">Crítico</option>
+                <option value="atencao">Atenção</option>
+              </select>
+              <span class="filter-chevron" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Filtro Período -->
+          <div class="filter-item">
+            <label for="filtro-periodo" class="filter-label">Período</label>
+            <div class="filter-select-wrapper">
+              <select id="filtro-periodo" class="filter-select">
+                <option value="30" selected>Últimos 30 dias</option>
+                <option value="15">Últimos 15 dias</option>
+                <option value="60">Últimos 60 dias</option>
+                <option value="semestre">Neste semestre</option>
+              </select>
+              <span class="filter-chevron" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Busca de Estudante -->
+          <div class="search-filter-item">
+            <div class="search-box-wrapper">
+              <span class="search-icon-symbol" aria-hidden="true">&#9906;</span>
+              <input type="text" class="search-text-input" placeholder="Buscar pelo nome do estudante…" aria-label="Buscar pelo nome do estudante">
+            </div>
+          </div>
+        </section>
+
+        <!-- Card da Tabela de Estudantes -->
+        <section class="table-card" aria-label="Tabela de estudantes em alerta">
+          <div class="table-top-bar">
+            <h2 class="table-title">Lista de estudantes</h2>
+            <div class="table-tabs-row">
+              <!-- Abas de Filtro de Nível -->
+              <div class="table-tabs" role="tablist">
+                <button type="button" class="tab-btn active" role="tab" aria-selected="true">Todos (12)</button>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false">Críticos (3)</button>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false">Atenção (9)</button>
+              </div>
+
+              <!-- Ordenação -->
+              <span class="sort-indicator" title="Alterar ordenação">
+                Ordenar por: criticidade &darr;
+              </span>
+            </div>
+          </div>
+
+          <!-- Tabela de Dados -->
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th scope="col">ESTUDANTE</th>
+                <th scope="col">TURMA</th>
+                <th scope="col">TIPO DE ALERTA</th>
+                <th scope="col">SINAIS DETECTADOS</th>
+                <th scope="col">NÍVEL</th>
+                <th scope="col">ATUALIZADO</th>
+                <th scope="col">PRÓXIMO PASSO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Linha 1: Marina Santos -->
+              <tr>
+                <td>
+                  <div class="student-cell">
+                    <div class="student-avatar blue">MS</div>
+                    <span class="student-name">Marina Santos</span>
+                  </div>
+                </td>
+                <td class="turma-tag">7º ano B</td>
+                <td class="alert-type-text">Queda atitudinal + Aumento de faltas</td>
+                <td class="signal-detect-text">3 indicadores</td>
+                <td><span class="badge-level critical">CRÍTICO</span></td>
+                <td class="timestamp-text">Hoje, 09:14</td>
+                <td>
+                  <a href="dashboard-agregador-aluno.html?aluno=marina-santos" class="table-action-link">
+                    <span>Ver perfil individual</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </td>
+              </tr>
+
+              <!-- Linha 2: Pedro Costa -->
+              <tr class="row-alt">
+                <td>
+                  <div class="student-cell">
+                    <div class="student-avatar purple">PC</div>
+                    <span class="student-name">Pedro Costa</span>
+                  </div>
+                </td>
+                <td class="turma-tag">7º ano B</td>
+                <td class="alert-type-text">Participação + Aumento de faltas</td>
+                <td class="signal-detect-text">2 indicadores</td>
+                <td><span class="badge-level critical">CRÍTICO</span></td>
+                <td class="timestamp-text">Hoje, 08:42</td>
+                <td>
+                  <a href="dashboard-agregador-aluno.html?aluno=pedro-costa" class="table-action-link">
+                    <span>Ver perfil individual</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </td>
+              </tr>
+
+              <!-- Linha 3: Gabriel Barros -->
+              <tr>
+                <td>
+                  <div class="student-cell">
+                    <div class="student-avatar blue">GB</div>
+                    <span class="student-name">Gabriel Barros</span>
+                  </div>
+                </td>
+                <td class="turma-tag">8º ano A</td>
+                <td class="alert-type-text">Aumento de faltas + Desempenho</td>
+                <td class="signal-detect-text">3 indicadores</td>
+                <td><span class="badge-level critical">CRÍTICO</span></td>
+                <td class="timestamp-text">Ontem, 16:30</td>
+                <td>
+                  <a href="dashboard-agregador-aluno.html?aluno=gabriel-barros" class="table-action-link">
+                    <span>Ver perfil individual</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </td>
+              </tr>
+
+              <!-- Linha 4: João Lima -->
+              <tr class="row-alt">
+                <td>
+                  <div class="student-cell">
+                    <div class="student-avatar purple">JL</div>
+                    <span class="student-name">João Lima</span>
+                  </div>
+                </td>
+                <td class="turma-tag">8º ano A</td>
+                <td class="alert-type-text">Queda atitudinal</td>
+                <td class="signal-detect-text">2 indicadores</td>
+                <td><span class="badge-level warning">ATENÇÃO</span></td>
+                <td class="timestamp-text">Hoje, 07:55</td>
+                <td>
+                  <a href="dashboard-agregador-aluno.html?aluno=joao-lima" class="table-action-link">
+                    <span>Ver perfil individual</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </td>
+              </tr>
+
+              <!-- Linha 5: Ana Ribeiro -->
+              <tr>
+                <td>
+                  <div class="student-cell">
+                    <div class="student-avatar blue">AR</div>
+                    <span class="student-name">Ana Ribeiro</span>
+                  </div>
+                </td>
+                <td class="turma-tag">6º ano C</td>
+                <td class="alert-type-text">Queda atitudinal</td>
+                <td class="signal-detect-text">1 dimensão</td>
+                <td><span class="badge-level warning">ATENÇÃO</span></td>
+                <td class="timestamp-text">Ontem, 14:18</td>
+                <td>
+                  <a href="dashboard-agregador-aluno.html?aluno=ana-ribeiro" class="table-action-link">
+                    <span>Ver perfil individual</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </td>
+              </tr>
+
+              <!-- Linha 6: Lucas Martins -->
+              <tr class="row-alt">
+                <td>
+                  <div class="student-cell">
+                    <div class="student-avatar purple">LM</div>
+                    <span class="student-name">Lucas Martins</span>
+                  </div>
+                </td>
+                <td class="turma-tag">9º ano A</td>
+                <td class="alert-type-text">Aumento de faltas</td>
+                <td class="signal-detect-text">3 faltas recentes</td>
+                <td><span class="badge-level warning">ATENÇÃO</span></td>
+                <td class="timestamp-text">Ontem, 11:02</td>
+                <td>
+                  <a href="dashboard-agregador-aluno.html?aluno=lucas-martins" class="table-action-link">
+                    <span>Ver perfil individual</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </td>
+              </tr>
+
+              <!-- Linha 7: Beatriz Nunes -->
+              <tr>
+                <td>
+                  <div class="student-cell">
+                    <div class="student-avatar blue">BN</div>
+                    <span class="student-name">Beatriz Nunes</span>
+                  </div>
+                </td>
+                <td class="turma-tag">8º ano B</td>
+                <td class="alert-type-text">Desempenho</td>
+                <td class="signal-detect-text">Queda no período</td>
+                <td><span class="badge-level warning">ATENÇÃO</span></td>
+                <td class="timestamp-text">21 out., 09:30</td>
+                <td>
+                  <a href="dashboard-agregador-aluno.html?aluno=beatriz-nunes" class="table-action-link">
+                    <span>Ver perfil individual</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </td>
+              </tr>
+
+              <!-- Linha 8: Sofia Alves -->
+              <tr class="row-alt">
+                <td>
+                  <div class="student-cell">
+                    <div class="student-avatar purple">SA</div>
+                    <span class="student-name">Sofia Alves</span>
+                  </div>
+                </td>
+                <td class="turma-tag">9º ano B</td>
+                <td class="alert-type-text">Participação</td>
+                <td class="signal-detect-text">1 dimensão</td>
+                <td><span class="badge-level warning">ATENÇÃO</span></td>
+                <td class="timestamp-text">20 out., 15:42</td>
+                <td>
+                  <a href="dashboard-agregador-aluno.html?aluno=sofia-alves" class="table-action-link">
+                    <span>Ver perfil individual</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Paginação -->
+          <div class="table-pagination-footer">
+            <span>1–8 de 12</span>
+            <span class="pagination-nav" title="Página anterior">&lsaquo;</span>
+            <span class="pagination-page active">1</span>
+            <span class="pagination-page">2</span>
+            <span class="pagination-nav" title="Próxima página">&rsaquo;</span>
+          </div>
+        </section>
+      </div>
+
+      <!-- Barra Inferior de Ações -->
+      <footer class="bottom-bar">
+        <a href="sistema-alerta-precoce.html" class="btn-back">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"/>
+          </svg>
+          <span>Voltar</span>
+        </a>
+      </footer>
+    </main>
+  </div>
+
+</body>
+</html>
+
