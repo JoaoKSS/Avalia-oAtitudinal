@@ -682,19 +682,20 @@
       color: #64748b;
     }
 
-    .student-action {
-      display: inline-flex;
+    .student-action-link {
+      position: absolute;
+      bottom: 16px;
+      right: 20px;
+      color: var(--color-text-muted);
+      display: flex;
       align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--color-primary);
-      margin-top: 4px;
-      line-height: 1.3;
+      justify-content: center;
+      transition: color 0.15s ease, transform 0.15s ease;
     }
 
-    .student-card:hover .student-action {
-      text-decoration: underline;
+    .student-card:hover .student-action-link {
+      color: var(--color-primary);
+      transform: translateX(3px);
     }
 
     /* ==========================================================================
@@ -958,11 +959,12 @@
               <div class="student-info">
                 <h3 class="student-name">Ana Beatriz Ferraz</h3>
                 <span class="student-obs">22 observações</span>
-                <span class="student-action">
-                  <span>Ver histórico</span>
-                  <span aria-hidden="true">›</span>
-                </span>
               </div>
+              <span class="student-action-link" aria-label="Ver histórico">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
+                </svg>
+              </span>
             </a>
 
             <!-- Estudante: Bruno Cardoso Lima -->
@@ -971,11 +973,12 @@
               <div class="student-info">
                 <h3 class="student-name">Bruno Cardoso Lima</h3>
                 <span class="student-obs">18 observações</span>
-                <span class="student-action">
-                  <span>Ver histórico</span>
-                  <span aria-hidden="true">›</span>
-                </span>
               </div>
+              <span class="student-action-link" aria-label="Ver histórico">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
+                </svg>
+              </span>
             </a>
 
             <!-- Estudante: Cecília Nogueira -->
@@ -984,11 +987,12 @@
               <div class="student-info">
                 <h3 class="student-name">Cecília Nogueira</h3>
                 <span class="student-obs">12 observações</span>
-                <span class="student-action">
-                  <span>Ver histórico</span>
-                  <span aria-hidden="true">›</span>
-                </span>
               </div>
+              <span class="student-action-link" aria-label="Ver histórico">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
+                </svg>
+              </span>
             </a>
           </div>
         </section>
@@ -1009,11 +1013,12 @@
               <div class="student-info">
                 <h3 class="student-name">Diego Ribeiro Alencar</h3>
                 <span class="student-obs">9 observações</span>
-                <span class="student-action">
-                  <span>Ver histórico</span>
-                  <span aria-hidden="true">›</span>
-                </span>
               </div>
+              <span class="student-action-link" aria-label="Ver histórico">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
+                </svg>
+              </span>
             </a>
 
             <!-- Estudante: Elisa Monteiro Duarte -->
@@ -1022,11 +1027,12 @@
               <div class="student-info">
                 <h3 class="student-name">Elisa Monteiro Duarte</h3>
                 <span class="student-obs muted">Sem observações recentes</span>
-                <span class="student-action">
-                  <span>Ver histórico</span>
-                  <span aria-hidden="true">›</span>
-                </span>
               </div>
+              <span class="student-action-link" aria-label="Ver histórico">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
+                </svg>
+              </span>
             </a>
           </div>
         </section>
@@ -1047,11 +1053,12 @@
               <div class="student-info">
                 <h3 class="student-name">Gabriel Oliveira</h3>
                 <span class="student-obs">14 observações</span>
-                <span class="student-action">
-                  <span>Ver histórico</span>
-                  <span aria-hidden="true">›</span>
-                </span>
               </div>
+              <span class="student-action-link" aria-label="Ver histórico">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
+                </svg>
+              </span>
             </a>
           </div>
         </section>
