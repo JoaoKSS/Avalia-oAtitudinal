@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Observação · Selecionar estudante · Professor · Desktop · Educar & Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f1ff;
+      --color-bg-page: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-placeholder: #8295ad;
+      --color-border-card: #d8e4f3;
+      --color-border-header: #d9e4f2;
+      --color-border-hover: #bfdbfe;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-page);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop 1440 × 1024 */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================================
+       Barra Lateral do Professor (248px) - Padrão Unificado Penpot
+       ========================================================================== */
+    .sidebar {
+      width: 248px;
+      background-color: var(--color-bg-card);
+      border-right: 1px solid var(--color-border-header);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 30;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--color-text-main);
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    /* Navegação */
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--color-text-main);
+    }
+
+    /* Estado Ativo: Registros de observação */
+    .nav-link.active {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil do Usuário */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: none;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+
+    .user-chevron {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       Área de Conteúdo Principal (Fluida, Sem Dead Space)
+       ========================================================================== */
+    .content-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background-color: var(--color-bg-page);
+    }
+
+    /* Cabeçalho Superior Desktop (76px) */
+    .main-header {
+      height: 76px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-header);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-path {
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    .breadcrumb-path a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .breadcrumb-path a:hover {
+      color: var(--color-text-main);
+    }
+
+    .breadcrumb-current {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* Ações do Cabeçalho (Mensagens & Notificações) */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: transparent;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      text-decoration: none;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 7px;
+      height: 7px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    /* Conteúdo da Página */
+    .page-main-container {
+      flex: 1;
+      width: 100%;
+      padding: 32px 40px 0 40px;
+    }
+
+    .page-inner-content {
+      max-width: 1128px;
+      margin: 0 auto;
+    }
+
+    /* Título & Descrição */
+    .page-title-section {
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      line-height: 1.39;
+      margin-bottom: 4px;
+    }
+
+    .page-description {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.57;
+    }
+
+    /* ==========================================================================
+       Barra de Busca & Filtro de Turma (700px + 414px no Penpot)
+       ========================================================================== */
+    .search-filter-row {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    /* Campo de Busca (700px) */
+    .search-box {
+      flex: 1;
+      height: 50px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .search-icon {
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-text-main);
+      width: 100%;
+    }
+
+    .search-input::placeholder {
+      color: var(--color-text-placeholder);
+    }
+
+    /* Filtro de Turma Dropdown (414px) */
+    .turma-filter-select {
+      width: 414px;
+      height: 50px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
+      padding: 6px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      user-select: none;
+    }
+
+    .turma-filter-select:hover {
+      border-color: var(--color-border-hover);
+    }
+
+    .turma-filter-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .turma-filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .turma-filter-value {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-main);
+    }
+
+    .turma-filter-chevron {
+      color: var(--color-text-muted);
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    /* Menu dropdown de turmas */
+    .turma-dropdown-menu {
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 40;
+      display: none;
+      overflow: hidden;
+    }
+
+    .turma-dropdown-menu.open {
+      display: block;
+    }
+
+    .turma-dropdown-item {
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--color-text-main);
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .turma-dropdown-item:hover {
+      background-color: #f1f5f9;
+      color: var(--color-primary);
+    }
+
+    .turma-dropdown-item.selected {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       Faixa de Resumo de Estudantes (1128 × 42px no Penpot)
+       ========================================================================== */
+    .summary-banner {
+      background-color: #e8f0ff;
+      border-radius: 10px;
+      height: 42px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .summary-total {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .summary-instruction {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+    }
+
+    /* ==========================================================================
+       Seções de Turmas & Cards de Estudantes
+       ========================================================================== */
+    .turma-section {
+      margin-bottom: 32px;
+    }
+
+    .turma-header {
+      margin-bottom: 16px;
+    }
+
+    .turma-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 10px;
+    }
+
+    .turma-divider {
+      height: 1px;
+      background-color: var(--color-border-card);
+      width: 100%;
+    }
+
+    .students-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 360px);
+      gap: 24px;
+    }
+
+    @media (max-width: 1400px) {
+      .students-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      }
+    }
+
+    /* Cartão do Estudante (360 × 104px no Penpot) */
+    .student-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 11px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .student-card:hover {
+      border-color: var(--color-primary);
+      box-shadow: 0 6px 16px -2px rgba(37, 99, 235, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .student-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 21px;
+      background-color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .student-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .student-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      line-height: 1.38;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .student-obs {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.45;
+      margin-bottom: 4px;
+    }
+
+    .student-action-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-primary);
+      line-height: 1.3;
+    }
+
+    .student-card:hover .student-action-row {
+      text-decoration: underline;
+    }
+
+    .student-action-row svg {
+      transition: transform 0.15s ease;
+    }
+
+    .student-card:hover .student-action-row svg {
+      transform: translateX(3px);
+    }
+
+    /* Estado vazio quando a busca não encontra resultados */
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .empty-state-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+    }
+
+    .empty-state-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    /* ==========================================================================
+       Barra Inferior Fixa de Ações (Voltar) - 106px no Penpot
+       ========================================================================== */
+    .bottom-action-bar {
+      position: sticky;
+      bottom: 0;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-header);
+      height: 106px;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      margin-top: 40px;
+      z-index: 20;
+    }
+
+    .bottom-bar-inner {
+      max-width: 1128px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-voltar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #60758b;
+      color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      width: 150px;
+      height: 46px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+      cursor: pointer;
+    }
+
+    .btn-voltar:hover {
+      background-color: #475569;
+      border-color: #cbd5e1;
+    }
+
+    .btn-voltar:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- ========================================================================
+         Barra Lateral do Professor (248px)
+         ======================================================================== -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <!-- Ícone oficial do Penpot: Livro aberto -->
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-role">ÁREA DO PROFESSOR</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-title">ESPAÇO PEDAGÓGICO</span>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m2.5 7.5 7.5-5.833 7.5 5.833v8.334a1.667 1.667 0 0 1-1.667 1.666H4.167A1.667 1.667 0 0 1 2.5 15.834V7.5Z"></path>
+                  <path d="M7.5 17.5V10h5v7.5"></path>
+                </svg>
+              </span>
+              <span>Visão geral</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minhas-turmas-expandida.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.167 17.5v-1.667a3.333 3.333 0 0 0-3.334-3.333H5.833a3.333 3.333 0 0 0-3.333 3.333v1.667"></path>
+                  <circle cx="8.333" cy="5.833" r="3.333"></circle>
+                  <path d="M17.5 17.5v-1.667a3.333 3.333 0 0 0-2.5-3.225M13.333 2.608a3.333 3.333 0 0 1 0 6.45"></path>
+                </svg>
+              </span>
+              <span>Minhas turmas</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="registro-selecionar-estudante.html" class="nav-link active">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11.667 3.667H5a1.667 1.667 0 0 0-1.667 1.667v13.333A1.667 1.667 0 0 0 5 20.333h10a1.667 1.667 0 0 0 1.667-1.667V8.667L11.667 3.667Z"></path>
+                  <path d="M11.667 3.667V8.667h5M6.667 12.833h6.666M6.667 16.167h6.666"></path>
+                </svg>
+              </span>
+              <span>Registros de observação</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé da Barra Lateral: Perfil do Professor -->
+      <div class="sidebar-footer">
+        <button class="user-profile-button" type="button">
+          <div class="user-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="8" rx="4" ry="4"></ellipse>
+              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"></path>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Meu perfil</span>
+            <span class="user-role">Professor</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ========================================================================
+         Área de Conteúdo Principal
+         ======================================================================== -->
+    <main class="content-area">
+      <!-- Cabeçalho Superior Desktop (76px) -->
+      <header class="main-header">
+        <div class="breadcrumbs">
+          <span class="breadcrumb-path">
+            <a href="painel-inicial.html">Área do professor</a> &nbsp;/&nbsp; 
+            <a href="minhas-turmas-expandida.html">Minhas turmas</a> &nbsp;/&nbsp; 
+            <a href="registro-selecionar-estudante.html">Registro de observação</a> &nbsp;/
+          </span>
+          <span class="breadcrumb-current">Selecionar estudante</span>
+        </div>
+
+        <div class="header-actions">
+          <!-- Mensagens -->
+          <a href="mensagens.html" class="header-icon-btn" title="Mensagens">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 3.333A1.667 1.667 0 0 1 4.167 1.667h6.666A1.667 1.667 0 0 1 12.5 3.333V7.5a1.667 1.667 0 0 1-1.667 1.667H5.833L2.5 11.667V3.333Z"></path>
+              <path d="M6.667 12.5h5.416a1.667 1.667 0 0 0 1.667-1.667v-.416"></path>
+              <path d="M14.167 4.167h1.25A1.667 1.667 0 0 1 17.083 5.833V14.167l-3.333-2.5h-1.25"></path>
+            </svg>
+          </a>
+
+          <!-- Notificações -->
+          <button class="header-icon-btn" title="Notificações" type="button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 6.667a5 5 0 1 0-10 0c0 5.833-2.5 7.5-2.5 7.5h15s-2.5-1.667-2.5-7.5Z"></path>
+              <path d="M8.583 17.5a1.667 1.667 0 0 0 2.834 0"></path>
+            </svg>
+            <span class="notification-badge"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Conteúdo Interno da Página -->
+      <div class="page-main-container">
+        <div class="page-inner-content">
+          <!-- Título & Descrição -->
+          <div class="page-title-section">
+            <h1 class="page-title">Novo registro</h1>
+            <p class="page-description">Escolha um estudante para registrar uma observação.</p>
+          </div>
+
+          <!-- Barra de Busca e Filtro de Turma -->
+          <div class="search-filter-row">
+            <!-- Busca por nome -->
+            <div class="search-box">
+              <span class="search-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="8" cy="8" r="5.5"></circle>
+                  <path d="m12.5 12.5 3.5 3.5"></path>
+                </svg>
+              </span>
+              <input type="text" id="searchInput" class="search-input" placeholder="Buscar estudante pelo nome" autocomplete="off">
+            </div>
+
+            <!-- Filtro de Turma -->
+            <div class="turma-filter-select" id="turmaFilterBtn" tabindex="0">
+              <span class="turma-filter-label">TURMA</span>
+              <div class="turma-filter-row">
+                <span class="turma-filter-value" id="currentTurmaLabel">Todas as turmas</span>
+                <span class="turma-filter-chevron">▾</span>
+              </div>
+              <div class="turma-dropdown-menu" id="turmaDropdown">
+                <div class="turma-dropdown-item selected" data-value="todas">Todas as turmas</div>
+                <div class="turma-dropdown-item" data-value="6a">6º ano A</div>
+                <div class="turma-dropdown-item" data-value="7b">7º ano B</div>
+                <div class="turma-dropdown-item" data-value="8c">8º ano C</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Faixa de Resumo de Estudantes -->
+          <div class="summary-banner">
+            <span class="summary-total" id="summaryCounter">6 estudantes · 3 turmas</span>
+            <span class="summary-instruction">Selecione um estudante para continuar</span>
+          </div>
+
+          <!-- Seções de Estudantes por Turma -->
+          <div id="studentsContainer">
+            <!-- Turma 6º ano A -->
+            <section class="turma-section" data-turma="6a">
+              <div class="turma-header">
+                <h2 class="turma-title">6º ano A</h2>
+                <div class="turma-divider"></div>
+              </div>
+              <div class="students-grid">
+                <!-- Ana Beatriz Ferraz -->
+                <a href="registro-formulario.html?estudante=ana-beatriz" class="student-card" data-name="ana beatriz ferraz">
+                  <div class="student-avatar">AB</div>
+                  <div class="student-info">
+                    <span class="student-name">Ana Beatriz Ferraz</span>
+                    <span class="student-obs">22 observações</span>
+                    <span class="student-action-row">
+                      Selecionar
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M0 5h10M6.25 1 10 5l-3.75 4"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+
+                <!-- Bruno Cardoso Lima -->
+                <a href="registro-formulario.html?estudante=bruno-cardoso" class="student-card" data-name="bruno cardoso lima">
+                  <div class="student-avatar">BC</div>
+                  <div class="student-info">
+                    <span class="student-name">Bruno Cardoso Lima</span>
+                    <span class="student-obs">18 observações</span>
+                    <span class="student-action-row">
+                      Selecionar
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M0 5h10M6.25 1 10 5l-3.75 4"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+
+                <!-- Cecília Nogueira -->
+                <a href="registro-formulario.html?estudante=cecilia-nogueira" class="student-card" data-name="cecilia nogueira">
+                  <div class="student-avatar">CN</div>
+                  <div class="student-info">
+                    <span class="student-name">Cecília Nogueira</span>
+                    <span class="student-obs">12 observações</span>
+                    <span class="student-action-row">
+                      Selecionar
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M0 5h10M6.25 1 10 5l-3.75 4"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </section>
+
+            <!-- Turma 7º ano B -->
+            <section class="turma-section" data-turma="7b">
+              <div class="turma-header">
+                <h2 class="turma-title">7º ano B</h2>
+                <div class="turma-divider"></div>
+              </div>
+              <div class="students-grid">
+                <!-- Diego Ribeiro Alencar -->
+                <a href="registro-formulario.html?estudante=diego-ribeiro" class="student-card" data-name="diego ribeiro alencar">
+                  <div class="student-avatar">DR</div>
+                  <div class="student-info">
+                    <span class="student-name">Diego Ribeiro Alencar</span>
+                    <span class="student-obs">9 observações</span>
+                    <span class="student-action-row">
+                      Selecionar
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M0 5h10M6.25 1 10 5l-3.75 4"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+
+                <!-- Elisa Monteiro Duarte -->
+                <a href="registro-formulario.html?estudante=elisa-monteiro" class="student-card" data-name="elisa monteiro duarte">
+                  <div class="student-avatar">EM</div>
+                  <div class="student-info">
+                    <span class="student-name">Elisa Monteiro Duarte</span>
+                    <span class="student-obs">Sem observações recentes</span>
+                    <span class="student-action-row">
+                      Selecionar
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M0 5h10M6.25 1 10 5l-3.75 4"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </section>
+
+            <!-- Turma 8º ano C -->
+            <section class="turma-section" data-turma="8c">
+              <div class="turma-header">
+                <h2 class="turma-title">8º ano C</h2>
+                <div class="turma-divider"></div>
+              </div>
+              <div class="students-grid">
+                <!-- Gabriel Oliveira -->
+                <a href="registro-formulario.html?estudante=gabriel-oliveira" class="student-card" data-name="gabriel oliveira">
+                  <div class="student-avatar">GO</div>
+                  <div class="student-info">
+                    <span class="student-name">Gabriel Oliveira</span>
+                    <span class="student-obs">14 observações</span>
+                    <span class="student-action-row">
+                      Selecionar
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M0 5h10M6.25 1 10 5l-3.75 4"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </section>
+          </div>
+
+          <!-- Estado Vazio -->
+          <div class="empty-state" id="emptyState">
+            <h3 class="empty-state-title">Nenhum estudante encontrado</h3>
+            <p class="empty-state-desc">Verifique o termo buscado ou selecione outra turma.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra Inferior Fixa de Ações (Voltar) -->
+      <footer class="bottom-action-bar">
+        <div class="bottom-bar-inner">
+          <a href="minhas-turmas-expandida.html" class="btn-voltar">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 1 2 6l6 5M2 6h10"></path>
+            </svg>
+            <span>Voltar</span>
+          </a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Script Interativo: Busca Reativa e Filtro de Turma -->
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const turmaFilterBtn = document.getElementById('turmaFilterBtn');
+    const currentTurmaLabel = document.getElementById('currentTurmaLabel');
+    const turmaDropdown = document.getElementById('turmaDropdown');
+    const summaryCounter = document.getElementById('summaryCounter');
+    const emptyState = document.getElementById('emptyState');
+    const studentCards = document.querySelectorAll('.student-card');
+    const turmaSections = document.querySelectorAll('.turma-section');
+
+    let selectedTurma = 'todas';
+
+    // Dropdown de Turmas
+    turmaFilterBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      turmaDropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!turmaFilterBtn.contains(e.target)) {
+        turmaDropdown.classList.remove('open');
+      }
+    });
+
+    document.querySelectorAll('.turma-dropdown-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.turma-dropdown-item').forEach(i => i.classList.remove('selected'));
+        item.classList.add('selected');
+
+        selectedTurma = item.getAttribute('data-value');
+        currentTurmaLabel.textContent = item.textContent;
+        turmaDropdown.classList.remove('open');
+
+        filterStudents();
+      });
+    });
+
+    // Busca por Texto Reativa
+    searchInput.addEventListener('input', () => {
+      filterStudents();
+    });
+
+    function filterStudents() {
+      const term = searchInput.value.toLowerCase().trim();
+      let visibleStudentsCount = 0;
+      let visibleTurmasCount = 0;
+
+      turmaSections.forEach(section => {
+        const turmaKey = section.getAttribute('data-turma');
+        const matchesTurma = (selectedTurma === 'todas' || selectedTurma === turmaKey);
+
+        let sectionVisibleCards = 0;
+        const cards = section.querySelectorAll('.student-card');
+
+        cards.forEach(card => {
+          const name = card.getAttribute('data-name');
+          const matchesSearch = !term || name.includes(term);
+
+          if (matchesTurma && matchesSearch) {
+            card.style.display = 'flex';
+            sectionVisibleCards++;
+            visibleStudentsCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (sectionVisibleCards > 0) {
+          section.style.display = 'block';
+          visibleTurmasCount++;
+        } else {
+          section.style.display = 'none';
+        }
+      });
+
+      // Atualiza banner de resumo
+      const turmaText = visibleTurmasCount === 1 ? '1 turma' : `${visibleTurmasCount} turmas`;
+      const estudanteText = visibleStudentsCount === 1 ? '1 estudante' : `${visibleStudentsCount} estudantes`;
+      summaryCounter.textContent = `${estudanteText} · ${turmaText}`;
+
+      // Exibe estado vazio se nada encontrado
+      if (visibleStudentsCount === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
+
