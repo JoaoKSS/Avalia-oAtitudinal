@@ -390,7 +390,8 @@
 
     /* Campo de Busca */
     .search-box {
-      flex: 1;
+      flex: 1.15;
+      min-width: 0;
       height: 50px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-card);
@@ -432,7 +433,8 @@
 
     /* Filtro de Turma Dropdown */
     .turma-filter-select {
-      width: 500px;
+      flex: 1;
+      min-width: 0;
       height: 50px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-card);
@@ -445,7 +447,6 @@
       position: relative;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
       user-select: none;
-      flex-shrink: 0;
     }
 
     .turma-filter-select:hover {
