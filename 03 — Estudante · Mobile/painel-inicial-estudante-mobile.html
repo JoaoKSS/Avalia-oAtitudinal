@@ -4,44 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel Inicial do Estudante · Mobile · Educar & Aprender</title>
-  <!-- Fonte oficial utilizada no design Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ==========================================================================
-       Design Tokens & CSS Variables (Extraídos fielmente do Penpot)
-       ========================================================================== */
     :root {
-      /* Cores Neutras e Estruturais */
       --color-bg-canvas: #f5f8fc;
       --color-bg-card: #ffffff;
       --color-border-subtle: #d9e4f2;
-      
-      /* Tipografia / Textos */
       --color-text-main: #172b4d;
       --color-text-muted: #60758b;
-      
-      /* Paleta Primária (Azul Institucional) */
       --color-primary: #2563eb;
       --color-primary-light: #e8f1ff;
-      
-      /* Paleta de Alertas & Status */
       --color-warning-text: #b45309;
       --color-warning-bg: #fff4d6;
       --color-success-text: #16a34a;
       --color-success-bg: #e8f7ee;
 
-      /* Sombras & Arredondamentos */
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 14px;
       --radius-xl: 16px;
-      --radius-full: 9999px;
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -62,12 +48,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .text-node {
-      background-clip: text !important;
-      -webkit-background-clip: text !important;
-    }
-
-    /* Viewport Mobile Penpot: 390px × 844px */
     .mobile-screen-wrapper {
       width: 100%;
       max-width: 390px;
@@ -94,9 +74,6 @@
       }
     }
 
-    /* ==========================================================================
-       Cabeçalho Mobile (Altura 72px)
-       ========================================================================== */
     .mobile-header {
       width: 100%;
       height: 72px;
@@ -149,7 +126,6 @@
       text-transform: uppercase;
     }
 
-    /* Botão de Notificações com Badge */
     .notif-button {
       width: 42px;
       height: 42px;
@@ -170,7 +146,6 @@
       border-color: #c7d7eb;
     }
 
-    /* Indicador de nova notificação (posicionamento exato do Penpot) */
     .notif-badge-dot {
       position: absolute;
       left: 26px;
@@ -179,12 +154,8 @@
       height: 7px;
       background: var(--color-primary);
       border-radius: 50%;
-      mix-blend-mode: normal;
     }
 
-    /* ==========================================================================
-       Conteúdo Principal (Scrollável)
-       ========================================================================== */
     .main-content {
       flex: 1;
       overflow-y: auto;
@@ -193,7 +164,6 @@
       flex-direction: column;
     }
 
-    /* Saudação */
     .greeting-title {
       font-size: 22px;
       font-weight: 700;
@@ -202,7 +172,6 @@
       margin-bottom: 16px;
     }
 
-    /* Card Destaque: Minha Evolução (358 × 132) */
     .evolution-card {
       width: 100%;
       height: 132px;
@@ -267,7 +236,6 @@
       flex-shrink: 0;
     }
 
-    /* Seção de Atalhos */
     .shortcuts-section {
       margin-top: 24px;
     }
@@ -294,7 +262,6 @@
       gap: 16px;
     }
 
-    /* Card de Atalho (358 × 88) */
     .shortcut-card {
       width: 100%;
       min-height: 88px;
@@ -316,7 +283,6 @@
       box-shadow: 0px 8px 20px rgba(20, 51, 97, 0.08);
     }
 
-    /* Caixa de Ícone do Atalho */
     .shortcut-icon-box {
       width: 42px;
       height: 42px;
@@ -359,7 +325,6 @@
       color: var(--color-text-main);
     }
 
-    /* Badges de Status */
     .status-badge {
       font-size: 9px;
       font-weight: 600;
@@ -394,9 +359,6 @@
       flex-shrink: 0;
     }
 
-    /* ==========================================================================
-       Barra de Navegação Inferior Mobile (Altura 82px)
-       ========================================================================== */
     .bottom-nav {
       position: absolute;
       bottom: 0;
@@ -459,14 +421,11 @@
 </head>
 <body>
 
-  <!-- Container de visualização 390 × 844 (Viewport Mobile Penpot) -->
   <main class="mobile-screen-wrapper">
 
-    <!-- 1. Cabeçalho Mobile -->
     <header class="mobile-header">
       <a href="#" class="brand-section" aria-label="Educar & Aprender - Área do Estudante">
         <div class="brand-icon">
-          <!-- Ícone oficial Penpot (Livro aberto / Educação) -->
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
@@ -478,9 +437,7 @@
         </div>
       </a>
 
-      <!-- Botão de Notificações com Indicador Azul Fiel ao Penpot -->
       <button class="notif-button" aria-label="Ver notificações">
-        <!-- Ícone do Sino 24 × 24 oficial Penpot -->
         <svg width="24" height="24" viewBox="439 126 24 24" fill="none">
           <path d="M456 134.667C456 131.905 453.761 129.667 451 129.667C448.239 129.667 446 131.905 446 134.667C446 140.5 443.5 140.5 443.5 142.167H458.5C458.5 140.5 456 140.5 456 134.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M449.333 145.5H452.667" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -489,13 +446,9 @@
       </button>
     </header>
 
-    <!-- 2. Conteúdo Principal -->
     <section class="main-content">
-
-      <!-- Saudação -->
       <h1 class="greeting-title">Olá, estudante!</h1>
 
-      <!-- Card Destaque: Minha Evolução -->
       <a href="#" class="evolution-card" aria-label="Acessar Minha Evolução">
         <div class="evolution-info">
           <div>
@@ -504,14 +457,12 @@
           </div>
           <span class="evolution-action">
             Acompanhar evolução
-            <!-- Seta extraída diretamente do SVG Penpot -->
             <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3.75 9H14.25M9.75 4.5L14.25 9L9.75 13.5"></path>
             </svg>
           </span>
         </div>
 
-        <!-- Ilustração de Gráfico Crescente -->
         <div class="evolution-badge-circle">
           <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 35L17 24L25 32L41 14M31 14H41V24"></path>
@@ -519,17 +470,13 @@
         </div>
       </a>
 
-      <!-- Seção: Seu acompanhamento -->
       <section class="shortcuts-section">
         <h2 class="shortcuts-title">Seu acompanhamento</h2>
         <p class="shortcuts-subtitle">Acesse suas atividades e conversas.</p>
 
         <div class="shortcuts-list">
-          
-          <!-- Atalho 1: Autoavaliação -->
-          <a href="#" class="shortcut-card" aria-label="Acessar Autoavaliação">
+          <a href="autoavaliacoes-estudante-mobile.html" class="shortcut-card" aria-label="Acessar Autoavaliação">
             <div class="shortcut-icon-box warning">
-              <!-- Ícone Autoavaliação (Checkmark idêntico ao Penpot) -->
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 10.5L8 14.5L16 6.5"></path>
               </svg>
@@ -548,10 +495,8 @@
             </div>
           </a>
 
-          <!-- Atalho 2: Devolutivas -->
           <a href="#" class="shortcut-card" aria-label="Acessar Devolutivas">
             <div class="shortcut-icon-box success">
-              <!-- Ícone ≡ Devolutivas -->
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round">
                 <line x1="3" y1="4.5" x2="15" y2="4.5"></line>
                 <line x1="3" y1="9" x2="15" y2="9"></line>
@@ -571,20 +516,15 @@
               </svg>
             </div>
           </a>
-
         </div>
       </section>
 
     </section>
 
-    <!-- 3. Barra de Navegação Inferior Mobile -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      
-      <!-- Início (Ativo) -->
       <a href="#" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar"></span>
         <div class="nav-icon">
-          <!-- Ícone Início (Home 24 × 24, stroke 1.8, vetor oficial do Penpot) -->
           <svg width="24" height="24" viewBox="133 874 24 24" fill="none">
             <path d="M137.5 884.333L145 878.5L152.5 884.333V892.667C152.5 893.127 152.127 893.5 151.667 893.5H147.5V887.667H142.5V893.5H138.333C137.873 893.5 137.5 893.127 137.5 892.667V884.333Z" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -592,10 +532,8 @@
         <span class="nav-label">Início</span>
       </a>
 
-      <!-- Autoavaliações -->
-      <a href="#" class="nav-tab">
+      <a href="autoavaliacoes-estudante-mobile.html" class="nav-tab">
         <div class="nav-icon">
-          <!-- Ícone Autoavaliações (Checkmark 24 × 24, stroke 1.8 oficial Penpot) -->
           <svg width="24" height="24" viewBox="231.96 875 24 24" fill="none">
             <path d="M238.129 887L241.463 890.333L249.796 882" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -603,10 +541,8 @@
         <span class="nav-label">Autoavaliações</span>
       </a>
 
-      <!-- Evolução -->
       <a href="#" class="nav-tab">
         <div class="nav-icon">
-          <!-- Ícone Evolução (Trend 24 × 24, stroke 2 oficial Penpot) -->
           <svg width="24" height="24" viewBox="333 874 24 24" fill="none">
             <path d="M337.5 890.167L342.5 885.167L345.833 888.5L352.5 881" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M347.5 881H352.5V886" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -615,10 +551,8 @@
         <span class="nav-label">Evolução</span>
       </a>
 
-      <!-- Perfil -->
       <a href="#" class="nav-tab">
         <div class="nav-icon">
-          <!-- Ícone Perfil (User 24 × 24, stroke 1.8 oficial Penpot) -->
           <svg width="24" height="24" viewBox="433 874 24 24" fill="none">
             <ellipse cx="445" cy="882.667" rx="3.333" ry="3.333" stroke="#60758b" stroke-width="1.8"/>
             <path d="M439.166 893.5V891.833C439.166 888.612 441.778 886 445 886C448.222 886 450.834 888.612 450.834 891.833V893.5" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -626,7 +560,6 @@
         </div>
         <span class="nav-label">Perfil</span>
       </a>
-
     </nav>
 
   </main>
