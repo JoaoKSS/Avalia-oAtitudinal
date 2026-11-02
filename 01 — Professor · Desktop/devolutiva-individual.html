@@ -362,18 +362,15 @@
 
     /* Conteúdo Central da Página */
     .content-area {
+      flex: 1;
       padding: 32px 32px calc(var(--bottom-bar-height) + 32px) 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
       width: 100%;
+      box-sizing: border-box;
     }
 
     /* Cabeçalho da Página */
     .page-header {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 4px;
+      margin-bottom: 24px;
     }
 
     .page-title {
@@ -392,140 +389,204 @@
     }
 
     /* ==========================================================================
-       Barra de Filtros (Ano, Bimestre, Busca, Turma) - Altura 52px
+       Barra de Filtros (Ano, Bimestre, Busca, Turma) - Altura 48px Padronizada
        ========================================================================== */
     .filters-bar {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
+      margin-bottom: 24px;
       width: 100%;
     }
 
-    /* Filtro com Rótulo Superior (Ano e Bimestre) */
-    .filter-select-box {
-      height: 52px;
-      background-color: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      padding: 6px 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      cursor: pointer;
-      user-select: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .filter-select-box:hover {
-      border-color: #cbd5e1;
-    }
-
-    .filter-select-box.box-ano {
-      width: 150px;
-      flex-shrink: 0;
-    }
-
-    .filter-select-box.box-bimestre {
-      width: 180px;
-      flex-shrink: 0;
-    }
-
-    .filter-box-label {
-      font-size: 9px;
-      font-weight: 600;
-      color: var(--color-text-light);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      line-height: 1;
-      margin-bottom: 3px;
-    }
-
-    .filter-box-value-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-    }
-
-    .filter-box-value {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--color-text-main);
-    }
-
-    .filter-box-arrow {
-      font-size: 15px;
-      color: var(--color-text-muted);
-      line-height: 1;
-    }
-
-    /* Campo de Busca de Estudante */
-    .search-input-box {
-      height: 52px;
+    /* Campo de Busca */
+    .search-box {
       flex: 1;
-      background-color: var(--color-bg-card);
-      border: 1px solid var(--color-border);
+      height: 48px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
       border-radius: 10px;
-      padding: 0 16px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      padding: 0 16px;
+      gap: 10px;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .search-input-box:focus-within {
-      border-color: var(--color-primary-blue);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    .search-box:focus-within {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
 
-    .search-icon-wrapper {
-      color: var(--color-text-muted);
+    .search-icon {
+      width: 20px;
+      height: 20px;
+      color: #60758b;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .search-input-field {
+    .search-input {
+      flex: 1;
+      height: 100%;
       border: none;
       outline: none;
       background: transparent;
       font-family: inherit;
-      font-size: 12px;
-      color: var(--color-text-main);
-      width: 100%;
+      font-size: 13px;
+      font-weight: 400;
+      color: #172b4d;
     }
 
-    .search-input-field::placeholder {
-      color: var(--color-text-light);
+    .search-input::placeholder {
+      color: #8194aa;
     }
 
-    /* Filtro de Turma (Dropdown simples) */
-    .filter-turma-box {
-      height: 52px;
-      width: 342px;
-      flex-shrink: 0;
-      background-color: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      padding: 0 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
+    /* Dropdowns de Filtro em Puro HTML & CSS */
+    .filter-dropdown-details {
+      position: relative;
+    }
+
+    .filter-dropdown-details summary {
+      list-style: none;
+      outline: none;
       user-select: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .filter-turma-box:hover {
+    .filter-dropdown-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .filter-dropdown-details.box-ano {
+      width: 150px;
+      flex-shrink: 0;
+    }
+
+    .filter-dropdown-details.box-bimestre {
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    .filter-dropdown-details.box-turma {
+      width: 260px;
+      flex-shrink: 0;
+    }
+
+    .filter-dropdown {
+      width: 100%;
+      height: 48px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6px 16px;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    .filter-dropdown:hover {
       border-color: #cbd5e1;
     }
 
-    .filter-turma-value {
+    .filter-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #60758b;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-text {
       font-size: 12px;
       font-weight: 500;
-      color: var(--color-text-main);
+      color: #172b4d;
+    }
+
+    .filter-chevron {
+      color: #60758b;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    /* Menu do Dropdown */
+    .filter-dropdown-menu {
+      position: absolute;
+      top: 54px;
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 40;
+      display: none;
+      overflow: hidden;
+    }
+
+    .filter-dropdown-details[open] .filter-dropdown-menu {
+      display: block;
+    }
+
+    .filter-dropdown-item {
+      display: block;
+      text-decoration: none;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: #172b4d;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .filter-dropdown-item:hover {
+      background-color: #f1f5f9;
+      color: #2563eb;
+    }
+
+    .filter-dropdown-item.selected {
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       Faixa de Resumo de Estudantes (Padronizada)
+       ========================================================================== */
+    .summary-banner {
+      background-color: #e8f1ff;
+      border-radius: 12px;
+      height: 40px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .summary-total {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .summary-status {
+      font-size: 13px;
+      font-weight: 500;
+      color: #60758b;
     }
 
     /* ==========================================================================
@@ -549,12 +610,6 @@
       font-size: 20px;
       font-weight: 600;
       color: var(--color-text-main);
-    }
-
-    .students-section-count {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--color-text-muted);
     }
 
     /* Grupo de Turma */
@@ -894,46 +949,77 @@
       <!-- Barra de Filtros (Ano, Bimestre, Busca, Turma) -->
       <section class="filters-bar" aria-label="Filtros de estudantes">
         <!-- Filtro 1: Ano -->
-        <div class="filter-select-box box-ano" tabindex="0" role="button" aria-label="Selecionar Ano">
-          <span class="filter-box-label">ANO</span>
-          <div class="filter-box-value-row">
-            <span class="filter-box-value">2026</span>
-            <span class="filter-box-arrow" aria-hidden="true">⌄</span>
+        <details class="filter-dropdown-details box-ano">
+          <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+            <span class="filter-label">ANO</span>
+            <div class="filter-row">
+              <span class="filter-text">2026</span>
+              <span class="filter-chevron" aria-hidden="true">▾</span>
+            </div>
+          </summary>
+          <div class="filter-dropdown-menu">
+            <a href="#ano-2026" class="filter-dropdown-item selected">2026</a>
+            <a href="#ano-2025" class="filter-dropdown-item">2025</a>
           </div>
-        </div>
+        </details>
 
         <!-- Filtro 2: Bimestre -->
-        <div class="filter-select-box box-bimestre" tabindex="0" role="button" aria-label="Selecionar Bimestre">
-          <span class="filter-box-label">BIMESTRE</span>
-          <div class="filter-box-value-row">
-            <span class="filter-box-value">1º bimestre</span>
-            <span class="filter-box-arrow" aria-hidden="true">⌄</span>
+        <details class="filter-dropdown-details box-bimestre">
+          <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+            <span class="filter-label">BIMESTRE</span>
+            <div class="filter-row">
+              <span class="filter-text">1º bimestre</span>
+              <span class="filter-chevron" aria-hidden="true">▾</span>
+            </div>
+          </summary>
+          <div class="filter-dropdown-menu">
+            <a href="#bim-1" class="filter-dropdown-item selected">1º bimestre</a>
+            <a href="#bim-2" class="filter-dropdown-item">2º bimestre</a>
+            <a href="#bim-3" class="filter-dropdown-item">3º bimestre</a>
+            <a href="#bim-4" class="filter-dropdown-item">4º bimestre</a>
           </div>
-        </div>
+        </details>
 
         <!-- Filtro 3: Busca de Estudante -->
-        <div class="search-input-box">
-          <div class="search-icon-wrapper" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="8" cy="8" r="5"/>
-              <path d="m11.5 11.5 3.5 3.5"/>
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"></ellipse>
+              <path d="M16.667 16.667L13.333 13.333"></path>
             </svg>
-          </div>
-          <input type="text" class="search-input-field" placeholder="Buscar estudante" aria-label="Buscar estudante">
+          </span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar estudante..." aria-label="Buscar estudante" autocomplete="off">
         </div>
 
         <!-- Filtro 4: Turma -->
-        <div class="filter-turma-box" tabindex="0" role="button" aria-label="Selecionar Turma">
-          <span class="filter-turma-value">Todas as turmas</span>
-          <span class="filter-box-arrow" aria-hidden="true">⌄</span>
-        </div>
+        <details class="filter-dropdown-details box-turma">
+          <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+            <span class="filter-label">TURMA</span>
+            <div class="filter-row">
+              <span class="filter-text">Todas as turmas</span>
+              <span class="filter-chevron" aria-hidden="true">▾</span>
+            </div>
+          </summary>
+          <div class="filter-dropdown-menu">
+            <a href="#todas" class="filter-dropdown-item selected">Todas as turmas</a>
+            <a href="#6a" class="filter-dropdown-item">6º ano A</a>
+            <a href="#7b" class="filter-dropdown-item">7º ano B</a>
+            <a href="#8c" class="filter-dropdown-item">8º ano C</a>
+            <a href="#9a" class="filter-dropdown-item">9º ano A</a>
+          </div>
+        </details>
       </section>
+
+      <!-- Faixa de Resumo de Estudantes -->
+      <div class="summary-banner">
+        <span class="summary-total">6 estudantes · 3 turmas</span>
+        <span class="summary-status">1 Em rascunho</span>
+      </div>
 
       <!-- Lista de Estudantes por Turma -->
       <section class="students-section" aria-label="Estudantes agrupados por turma">
         <div class="students-section-header">
           <h2 class="students-section-title">Estudantes por turma</h2>
-          <span class="students-section-count">6 estudantes · 3 turmas</span>
         </div>
 
         <!-- Grupo 1: 6º ano A -->

@@ -463,36 +463,40 @@
     }
 
     /* ==========================================================================
-       Barra de Busca e Filtros (Altura: 46px no Penpot)
+       Barra de Busca e Filtros - 48px Padronizada
        ========================================================================== */
     .filters-bar {
       display: flex;
+      align-items: center;
       gap: 16px;
       margin-bottom: 24px;
-      flex-wrap: wrap;
+      width: 100%;
     }
 
-    .filter-search {
-      flex: 1.6;
-      min-width: 260px;
-      height: 46px;
-      background-color: var(--color-bg-card);
-      border: 1px solid var(--color-border-card);
+    /* Campo de Busca */
+    .search-box {
+      flex: 1.4;
+      min-width: 240px;
+      height: 48px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
       border-radius: 10px;
-      padding: 0 16px;
       display: flex;
       align-items: center;
+      padding: 0 16px;
       gap: 10px;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .filter-search:focus-within {
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    .search-box:focus-within {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
 
     .search-icon {
-      color: var(--color-text-muted);
+      width: 20px;
+      height: 20px;
+      color: #60758b;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -500,77 +504,164 @@
     }
 
     .search-input {
+      flex: 1;
+      height: 100%;
       border: none;
-      background: transparent;
       outline: none;
+      background: transparent;
       font-family: inherit;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
-      color: var(--color-text-main);
-      width: 100%;
+      color: #172b4d;
     }
 
     .search-input::placeholder {
-      color: var(--color-text-placeholder);
+      color: #8194aa;
     }
 
-    .filter-item {
-      height: 46px;
-      background-color: var(--color-bg-card);
-      border: 1px solid var(--color-border-card);
+    /* Dropdowns de Filtro em Puro HTML & CSS */
+    .filter-dropdown-details {
+      position: relative;
+    }
+
+    .filter-dropdown-details summary {
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    .filter-dropdown-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .filter-dropdown-details.box-ano {
+      width: 150px;
+      flex-shrink: 0;
+    }
+
+    .filter-dropdown-details.box-bimestre {
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    .filter-dropdown-details.box-dimensao {
+      width: 260px;
+      flex-shrink: 0;
+    }
+
+    .filter-dropdown {
+      width: 100%;
+      height: 48px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
       border-radius: 10px;
-      padding: 6px 14px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 6px 16px;
       cursor: pointer;
-      user-select: none;
+      position: relative;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      user-select: none;
+      box-sizing: border-box;
     }
 
-    .filter-item:hover {
-      border-color: var(--color-border-hover);
-    }
-
-    .filter-item-ano {
-      width: 160px;
-    }
-
-    .filter-item-bimestre {
-      width: 190px;
-    }
-
-    .filter-item-dimensao {
-      width: 300px;
+    .filter-dropdown:hover {
+      border-color: #cbd5e1;
     }
 
     .filter-label {
       font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.5px;
-      color: var(--color-text-muted);
+      color: #60758b;
       text-transform: uppercase;
-      line-height: 1.1;
-      margin-bottom: 2px;
+      line-height: 1.2;
     }
 
-    .filter-value-row {
+    .filter-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .filter-value {
+    .filter-text {
       font-size: 12px;
       font-weight: 500;
-      color: var(--color-text-main);
-      line-height: 1.2;
+      color: #172b4d;
     }
 
     .filter-chevron {
-      color: var(--color-text-muted);
+      color: #60758b;
       font-size: 12px;
       line-height: 1;
+    }
+
+    /* Menu do Dropdown */
+    .filter-dropdown-menu {
+      position: absolute;
+      top: 54px;
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 40;
+      display: none;
+      overflow: hidden;
+    }
+
+    .filter-dropdown-details[open] .filter-dropdown-menu {
+      display: block;
+    }
+
+    .filter-dropdown-item {
+      display: block;
+      text-decoration: none;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: #172b4d;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .filter-dropdown-item:hover {
+      background-color: #f1f5f9;
+      color: #2563eb;
+    }
+
+    .filter-dropdown-item.selected {
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       Faixa de Resumo das Observações (Padronizada)
+       ========================================================================== */
+    .summary-banner {
+      background-color: #e8f1ff;
+      border-radius: 12px;
+      height: 40px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .summary-total {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .summary-status {
+      font-size: 13px;
+      font-weight: 500;
+      color: #60758b;
     }
 
     /* ==========================================================================
@@ -581,16 +672,6 @@
       flex-direction: column;
       gap: 12px;
       margin-bottom: 24px;
-    }
-
-    .observations-header {
-      margin-bottom: 4px;
-    }
-
-    .observations-count {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-text-main);
     }
 
     /* Cartão de Observação (78px no Penpot) */
@@ -889,53 +970,78 @@
         </div>
 
         <!-- ====================================================================
-             Barra de Busca e Filtros
+             Barra de Busca e Filtros Padronizada (100% HTML/CSS)
              ==================================================================== -->
-        <div class="filters-bar">
+        <div class="filters-bar" aria-label="Filtros de observações">
           <!-- Campo de Busca -->
-          <div class="filter-search">
+          <div class="search-box">
             <span class="search-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"/>
+                <path d="M16.667 16.667L13.333 13.333"/>
               </svg>
             </span>
-            <input type="text" id="input-busca-observacao" class="search-input" placeholder="Buscar por palavra-chave" aria-label="Buscar por palavra-chave">
+            <input type="text" id="input-busca-observacao" class="search-input" placeholder="Buscar por palavra-chave..." aria-label="Buscar por palavra-chave" autocomplete="off">
           </div>
 
           <!-- Filtro Ano Letivo -->
-          <div class="filter-item filter-item-ano" tabindex="0" role="button" aria-label="Filtrar por Ano letivo">
-            <span class="filter-label">Ano letivo</span>
-            <div class="filter-value-row">
-              <span class="filter-value">2026</span>
-              <span class="filter-chevron" aria-hidden="true">▾</span>
+          <details class="filter-dropdown-details box-ano">
+            <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+              <span class="filter-label">ANO LETIVO</span>
+              <div class="filter-row">
+                <span class="filter-text">2026</span>
+                <span class="filter-chevron" aria-hidden="true">▾</span>
+              </div>
+            </summary>
+            <div class="filter-dropdown-menu">
+              <a href="#ano-2026" class="filter-dropdown-item selected">2026</a>
+              <a href="#ano-2025" class="filter-dropdown-item">2025</a>
             </div>
-          </div>
+          </details>
 
           <!-- Filtro Bimestre -->
-          <div class="filter-item filter-item-bimestre" tabindex="0" role="button" aria-label="Filtrar por Bimestre">
-            <span class="filter-label">Bimestre</span>
-            <div class="filter-value-row">
-              <span class="filter-value">1º bimestre</span>
-              <span class="filter-chevron" aria-hidden="true">▾</span>
+          <details class="filter-dropdown-details box-bimestre">
+            <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+              <span class="filter-label">BIMESTRE</span>
+              <div class="filter-row">
+                <span class="filter-text">1º bimestre</span>
+                <span class="filter-chevron" aria-hidden="true">▾</span>
+              </div>
+            </summary>
+            <div class="filter-dropdown-menu">
+              <a href="#bim-1" class="filter-dropdown-item selected">1º bimestre</a>
+              <a href="#bim-2" class="filter-dropdown-item">2º bimestre</a>
+              <a href="#bim-3" class="filter-dropdown-item">3º bimestre</a>
+              <a href="#bim-4" class="filter-dropdown-item">4º bimestre</a>
             </div>
-          </div>
+          </details>
 
           <!-- Filtro Dimensão -->
-          <div class="filter-item filter-item-dimensao" tabindex="0" role="button" aria-label="Filtrar por Dimensão">
-            <span class="filter-label">Dimensão</span>
-            <div class="filter-value-row">
-              <span class="filter-value">Todas as dimensões</span>
-              <span class="filter-chevron" aria-hidden="true">▾</span>
+          <details class="filter-dropdown-details box-dimensao">
+            <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+              <span class="filter-label">DIMENSÃO</span>
+              <div class="filter-row">
+                <span class="filter-text">Todas as dimensões</span>
+                <span class="filter-chevron" aria-hidden="true">▾</span>
+              </div>
+            </summary>
+            <div class="filter-dropdown-menu">
+              <a href="#todas" class="filter-dropdown-item selected">Todas as dimensões</a>
+              <a href="#responsabilidade" class="filter-dropdown-item">Responsabilidade</a>
+              <a href="#colaboracao" class="filter-dropdown-item">Colaboração</a>
+              <a href="#comunicacao" class="filter-dropdown-item">Comunicação</a>
+              <a href="#autonomia" class="filter-dropdown-item">Autonomia</a>
+              <a href="#criatividade" class="filter-dropdown-item">Criatividade</a>
             </div>
-          </div>
+          </details>
         </div>
 
         <!-- ====================================================================
-             Lista de Observações (4 Itens Exibidos)
+             Faixa de Resumo das Observações (100% HTML/CSS)
              ==================================================================== -->
-        <div class="observations-header">
-          <span class="observations-count">22 observações</span>
+        <div class="summary-banner">
+          <span class="summary-total">22 observações</span>
+          <span class="summary-status">1 A desenvolver</span>
         </div>
 
         <div class="observations-section">
