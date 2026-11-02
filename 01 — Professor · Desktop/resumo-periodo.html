@@ -595,7 +595,7 @@
       gap: 10px;
       max-height: 480px;
       overflow-y: auto;
-      padding-right: 8px;
+      padding: 4px 8px 4px 2px;
     }
 
     .evidence-scroll-list::-webkit-scrollbar {
@@ -626,12 +626,20 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .evidence-item:hover {
-      border-color: #cbd5e1;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      border-color: #2563eb;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+    }
+
+    .evidence-item:hover .evidence-toggle-btn {
+      color: var(--color-primary);
+      transform: translateX(3px);
     }
 
     .evidence-item-left {
@@ -704,19 +712,13 @@
       align-items: center;
       justify-content: center;
       color: var(--color-text-muted);
-      cursor: pointer;
       border-radius: 6px;
       flex-shrink: 0;
-      transition: background-color 0.15s ease, color 0.15s ease;
-    }
-
-    .evidence-toggle-btn:hover {
-      background-color: #f1f5f9;
-      color: var(--color-text-main);
+      transition: color 0.15s ease, transform 0.15s ease;
     }
 
     /* ==========================================================================
-       Barra Inferior Fixa de Ações (Voltar e Parecer Formativo) - Altura 106px
+       Barra Inferior Fixa de Ações (Voltar) - Altura 106px
        ========================================================================== */
     .bottom-action-bar {
       position: fixed;
@@ -729,7 +731,6 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 16px;
       padding: 0 40px;
       z-index: 85;
     }
@@ -751,36 +752,12 @@
       font-weight: 600;
       cursor: pointer;
       font-family: inherit;
-      transition: background-color 0.15s ease;
+      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .btn-voltar:hover {
       background-color: #4b5d6f;
-    }
-
-    /* Botão Parecer Formativo (234x46px, fundo #2563eb, r=10px) */
-    .btn-parecer {
-      width: 234px;
-      height: 46px;
-      background-color: var(--color-primary-blue);
-      border: 1px solid var(--color-primary-blue);
-      border-radius: 10px;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: inherit;
-      transition: background-color 0.15s ease;
-    }
-
-    .btn-parecer:hover {
-      background-color: var(--color-primary-hover);
-      border-color: var(--color-primary-hover);
+      transform: translateY(-1px);
     }
   </style>
 </head>
@@ -1028,7 +1005,7 @@
 
             <div class="evidence-scroll-list" role="feed" aria-label="Lista de evidências">
               <!-- Evidência 1: Positiva -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1036,16 +1013,15 @@
                     <span class="evidence-item-desc">Incluiu os colegas na organização do grupo.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 2: A desenvolver -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker warning" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1053,16 +1029,15 @@
                     <span class="evidence-item-desc">Esqueceu os materiais em duas aulas.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 3: Neutra -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker neutral" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1070,16 +1045,15 @@
                     <span class="evidence-item-desc">Solicitou apoio para iniciar uma atividade individual.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 4: Positiva -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1087,16 +1061,15 @@
                     <span class="evidence-item-desc">Compartilhou uma estratégia durante a discussão em sala.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 5: Positiva -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1104,16 +1077,15 @@
                     <span class="evidence-item-desc">Ouviu opiniões diferentes antes de responder.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 6: Positiva -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1121,16 +1093,15 @@
                     <span class="evidence-item-desc">Conferiu os materiais com apoio de uma lista.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 7: Positiva -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1138,16 +1109,15 @@
                     <span class="evidence-item-desc">Apoiou um colega durante uma atividade em dupla.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 8: Positiva -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1155,16 +1125,15 @@
                     <span class="evidence-item-desc">Concluiu uma etapa após reler as orientações.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 9: Positiva -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1172,16 +1141,15 @@
                     <span class="evidence-item-desc">Compartilhou uma ideia durante a atividade em grupo.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 10: Positiva -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1189,16 +1157,15 @@
                     <span class="evidence-item-desc">Organizou as etapas da tarefa com orientação inicial.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 11: A desenvolver -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker warning" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1206,16 +1173,15 @@
                     <span class="evidence-item-desc">Precisou de lembrete para entregar a atividade.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
 
               <!-- Evidência 12: Positiva -->
-              <div class="evidence-item">
+              <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
                 <div class="evidence-item-left">
                   <span class="evidence-marker positive" aria-hidden="true"></span>
                   <div class="evidence-item-content">
@@ -1223,13 +1189,12 @@
                     <span class="evidence-item-desc">Ajudou a resolver um desacordo entre colegas.</span>
                   </div>
                 </div>
-                <button type="button" class="evidence-toggle-btn" aria-label="Detalhes da evidência">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <line x1="6" y1="2" x2="6" y2="10"/>
-                    <line x1="2" y1="6" x2="10" y2="6"/>
+                <span class="evidence-toggle-btn" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"></path>
                   </svg>
-                </button>
-              </div>
+                </span>
+              </a>
             </div>
           </section>
 
@@ -1237,23 +1202,15 @@
       </main>
 
       <!-- ========================================================================
-           BARRA INFERIOR FIXA DE AÇÕES (Voltar e Parecer Formativo)
+           BARRA INFERIOR FIXA DE AÇÕES (Voltar)
            ======================================================================== -->
       <footer class="bottom-action-bar">
         <!-- Botão Voltar -->
-        <a href="devolutiva-individual.html" class="btn-voltar">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11 7H3M7 11L3 7L7 3"/>
+        <a href="devolutiva-individual.html" class="btn-voltar" title="Voltar para Devolutiva individual">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12.5 7H1.5M6 11.5 1.5 7 6 2.5"/>
           </svg>
           <span>Voltar</span>
-        </a>
-
-        <!-- Botão Parecer Formativo -->
-        <a href="parecer-formativo.html" class="btn-parecer">
-          <span>Parecer formativo</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 7H11M7 3L11 7L7 11"/>
-          </svg>
         </a>
       </footer>
     </div>
