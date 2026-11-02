@@ -20,11 +20,17 @@
       padding: 0;
     }
 
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: #f5f8fc;
       color: #172b4d;
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
       display: flex;
       -webkit-font-smoothing: antialiased;
     }
@@ -33,7 +39,8 @@
     .app-layout {
       display: flex;
       width: 100%;
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
     }
 
     /* Barra Lateral do Responsável (248px) */
@@ -44,8 +51,6 @@
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
-      position: sticky;
-      top: 0;
       height: 100vh;
     }
 
@@ -239,6 +244,9 @@
       display: flex;
       flex-direction: column;
       min-width: 0;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #f5f8fc;
     }
 
     /* Cabeçalho Superior Desktop (76px) */
@@ -250,6 +258,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 32px;
+      flex-shrink: 0;
     }
 
     .breadcrumb,
@@ -337,11 +346,15 @@
 
     /* Área de Conteúdo */
     .content-area {
-      padding: 24px 32px 40px 32px;
+      flex: 1;
+      padding: 32px 32px 20px 32px;
       width: 100%;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      overflow: hidden;
+      min-height: 0;
     }
 
     /* Cabeçalho da Tela */
@@ -349,33 +362,35 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      flex-shrink: 0;
     }
 
     .page-title {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
-      line-height: 1.25;
+      line-height: 1.39;
       color: #172b4d;
     }
 
     .page-desc {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 1.4;
+      line-height: 1.43;
       color: #60758b;
     }
 
     /* Cartão de Identificação do Estudante (1088 × 86px) */
     .student-id-card {
       width: 100%;
-      min-height: 86px;
+      min-height: 76px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
-      padding: 18px 24px;
+      border-radius: 12px;
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-shrink: 0;
     }
 
     .student-id-left {
@@ -385,14 +400,14 @@
     }
 
     .student-id-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 26px;
       background-color: #e8f0ff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       color: #2563eb;
       flex-shrink: 0;
@@ -405,27 +420,30 @@
     }
 
     .student-id-name {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
       color: #172b4d;
+      line-height: 1.35;
     }
 
     .student-id-class {
       font-size: 13px;
       font-weight: 400;
       color: #60758b;
+      line-height: 1.4;
     }
 
     .student-id-badge {
-      padding: 6px 14px;
-      background-color: #f0f4fa;
-      border-radius: 15px;
-      font-size: 11px;
-      font-weight: 700;
+      padding: 6px 12px;
+      background-color: #f1f5f9;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 600;
       letter-spacing: 0.5px;
       color: #60758b;
       text-transform: uppercase;
       white-space: nowrap;
+      line-height: 1.4;
     }
 
     /* Seção de Filtros */
@@ -433,13 +451,14 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 4px;
+      flex-shrink: 0;
     }
 
     .filters-title {
       font-size: 16px;
       font-weight: 700;
       color: #172b4d;
+      line-height: 1.35;
     }
 
     .filters-bar {
@@ -457,13 +476,13 @@
 
     .filter-btn-all {
       height: 38px;
-      padding: 0 24px;
+      padding: 0 20px;
       background-color: #2563eb;
       color: #ffffff;
       border: none;
       border-radius: 10px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -477,13 +496,13 @@
 
     .filter-btn-dropdown {
       height: 38px;
-      padding: 0 18px;
+      padding: 0 16px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
       border-radius: 10px;
       font-size: 13px;
-      font-weight: 400;
-      color: #60758b;
+      font-weight: 500;
+      color: #172b4d;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -497,24 +516,54 @@
       color: #172b4d;
     }
 
-    .records-count {
-      font-size: 12px;
-      font-weight: 400;
+    .filter-chevron {
       color: #60758b;
+      font-size: 12px;
+      line-height: 1;
     }
 
-    /* Lista de Registros (Cards) */
+    .records-count {
+      font-size: 13px;
+      font-weight: 400;
+      color: #60758b;
+      line-height: 1.4;
+    }
+
+    /* Lista de Registros (Cards) com Scroll Interno */
     .records-list {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding-right: 6px;
+      padding-bottom: 16px;
       display: flex;
       flex-direction: column;
       gap: 16px;
-      margin-top: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .records-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .records-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .records-list::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    .records-list::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
     }
 
     .record-card {
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 20px 24px;
       display: flex;
       flex-direction: column;
@@ -536,27 +585,36 @@
 
     .record-date {
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #60758b;
+      color: #8194aa;
       text-transform: uppercase;
+      line-height: 1.4;
     }
 
     .dimension-badge {
-      padding: 3px 12px;
-      border-radius: 10px;
-      background-color: #eaf1ff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 136px;
+      height: 24px;
+      border-radius: 8px;
+      background-color: #e8f0ff;
       color: #2563eb;
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 10px;
+      font-weight: 600;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
     }
 
     .record-title {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
       color: #172b4d;
+      line-height: 1.35;
       margin-top: 10px;
     }
 
@@ -581,15 +639,19 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 3px 12px;
-      border-radius: 10px;
+      width: 112px;
+      height: 26px;
+      border-radius: 8px;
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 600;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
     }
 
     .status-badge.positiva {
       background-color: #e8f6ee;
-      color: #287d4f;
+      color: #16804a;
     }
 
     .status-badge.desenvolver {
@@ -599,16 +661,19 @@
 
     .record-action {
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       color: #2563eb;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: transform 0.15s ease;
+      text-decoration: none;
+      transition: gap 0.15s ease;
     }
 
+    .record-action:hover,
     .record-card:hover .record-action {
-      transform: translateX(4px);
+      text-decoration: none;
+      gap: 9px;
     }
   </style>
 </head>
@@ -806,7 +871,9 @@
               <span class="status-badge positiva">Positiva</span>
               <a href="detalhe-registro-colaboracao.html" class="record-action">
                 <span>Ver registro</span>
-                <span aria-hidden="true">→</span>
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
               </a>
             </div>
           </article>
@@ -823,7 +890,9 @@
               <span class="status-badge positiva">Positiva</span>
               <a href="detalhe-registro-participacao.html" class="record-action">
                 <span>Ver registro</span>
-                <span aria-hidden="true">→</span>
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
               </a>
             </div>
           </article>
@@ -840,7 +909,9 @@
               <span class="status-badge desenvolver">A desenvolver</span>
               <a href="detalhe-registro-responsabilidade.html" class="record-action">
                 <span>Ver registro</span>
-                <span aria-hidden="true">→</span>
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                </svg>
               </a>
             </div>
           </article>
