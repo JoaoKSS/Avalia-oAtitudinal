@@ -372,7 +372,6 @@
 
     .progress-track {
       width: 100%;
-      max-width: 720px;
       height: 6px;
       background-color: #eef3f8;
       border-radius: 3px;
@@ -388,9 +387,10 @@
 
     .evaluation-grid {
       display: grid;
-      grid-template-columns: minmax(0, 720px) 354px;
+      grid-template-columns: 1fr 354px;
       gap: 32px;
       align-items: start;
+      width: 100%;
     }
 
     .question-card {
@@ -648,29 +648,9 @@
       z-index: 85;
     }
 
-    .btn-action-back {
-      height: 46px;
-      padding: 0 20px;
-      background-color: var(--color-button-gray);
-      border: 1px solid #d9e4f2;
-      border-radius: 10px;
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .btn-action-back:hover {
-      background-color: #475569;
-    }
-
     .btn-action-draft {
       height: 46px;
+      min-width: 180px;
       padding: 0 24px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
@@ -692,6 +672,7 @@
 
     .btn-action-next {
       height: 46px;
+      min-width: 202px;
       padding: 0 28px;
       background-color: #2563eb;
       border: none;
@@ -931,13 +912,6 @@
       </main>
 
       <footer class="bottom-action-bar">
-        <a href="minhas-autoavaliacoes.html" class="btn-action-back" title="Voltar para Minhas autoavaliações">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12.5 7H1.5M6 11.5 1.5 7 6 2.5"/>
-          </svg>
-          <span>Voltar</span>
-        </a>
-
         <a href="minhas-autoavaliacoes.html" class="btn-action-draft">Salvar rascunho</a>
 
         <a href="finalizar-autoavaliacao.html" class="btn-action-next">
@@ -948,24 +922,5 @@
 
   </div>
 
-  <script>
-    document.querySelectorAll('.option-item').forEach(item => {
-      item.addEventListener('click', () => {
-        document.querySelectorAll('.option-item').forEach(i => {
-          i.classList.remove('selected');
-          i.setAttribute('aria-checked', 'false');
-        });
-        item.classList.add('selected');
-        item.setAttribute('aria-checked', 'true');
-      });
-
-      item.addEventListener('keydown', e => {
-        if (e.key === ' ' || e.key === 'Enter') {
-          e.preventDefault();
-          item.click();
-        }
-      });
-    });
-  </script>
 </body>
 </html>
