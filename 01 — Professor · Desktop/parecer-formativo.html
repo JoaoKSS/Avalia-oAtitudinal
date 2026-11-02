@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parecer Formativo · Professor · Desktop · Educar & Aprender</title>
+  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tipografia Inter oficial do Penpot -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       Reset & Design Tokens Oficiais Penpot
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary-blue: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f0ff;
+      --color-primary-active-bg: #e8f1ff;
+      --color-bg-page: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border: #d9e4f2;
+      --color-border-card: #d8e4f3;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-light: #8194aa;
+      --color-success: #16a34a;
+      --color-warning-bg: #fff4d8;
+      --color-warning-text: #b86a00;
+      --sidebar-width: 248px;
+      --header-height: 76px;
+      --bottom-bar-height: 106px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-page);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral Desktop */
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================================
+       Barra Lateral do Professor (248px) - Padrão Idêntico ao Painel Inicial
+       ========================================================================== */
+    .sidebar {
+      width: 248px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 100;
+    }
+
+    /* Topo da Sidebar: Marca */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #2563eb;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: #172b4d;
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+    }
+
+    /* Navegação */
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: #60758b;
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: #172b4d;
+    }
+
+    /* Minhas turmas ativo nesta seção */
+    .nav-link.active {
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    /* Barra indicadora azul ativa no item do menu */
+    .nav-link.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 28px;
+      background-color: #2563eb;
+      border-radius: 2px;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: currentColor;
+    }
+
+    /* Rodapé da Sidebar: Perfil do Usuário */
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+      border-top: none;
+    }
+
+    .user-profile-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       Área Principal de Conteúdo
+       ========================================================================== */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Cabeçalho Superior Desktop (76px) */
+    .top-header {
+      height: var(--header-height);
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-path {
+      font-weight: 500;
+      color: var(--color-text-muted);
+    }
+
+    .breadcrumb-path a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .breadcrumb-path a:hover {
+      color: var(--color-text-main);
+    }
+
+    .breadcrumb-current {
+      font-weight: 600;
+      color: var(--color-primary-blue);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid #d9e4f2;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 7px;
+      height: 7px;
+      background-color: #2563eb;
+      border-radius: 50%;
+    }
+
+    /* ==========================================================================
+       Conteúdo da Página (Preenchimento Total sem max-width fixo)
+       ========================================================================== */
+    .content-area {
+      padding: 32px 32px calc(var(--bottom-bar-height) + 32px) 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    /* Cabeçalho da Página */
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 4px;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.36;
+      color: #172b4d;
+      margin-bottom: 6px;
+    }
+
+    .page-desc {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.43;
+      color: #60758b;
+    }
+
+    /* ==========================================================================
+       Cartão do Estudante (1128x76 no Penpot, fluido aqui)
+       ========================================================================== */
+    .student-summary-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .student-left-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .student-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .student-details {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .student-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    .student-meta {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .status-badge-pendente {
+      background-color: var(--color-warning-bg);
+      color: var(--color-warning-text);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 14px;
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
+       Grid de 2 Colunas (Pontos para Abordar + Devolutiva para a Estudante)
+       ========================================================================== */
+    .parecer-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 24px;
+      width: 100%;
+      align-items: start;
+    }
+
+    @media (max-width: 1100px) {
+      .parecer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Coluna Esquerda: Pontos para Abordar */
+    .column-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    /* Card Potencialidade */
+    .card-potencialidade {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .potencialidade-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .potencialidade-marker {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: var(--color-success);
+      flex-shrink: 0;
+    }
+
+    .potencialidade-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    .potencialidade-content {
+      font-size: 13px;
+      color: var(--color-text-main);
+      line-height: 1.45;
+      padding-left: 19px;
+    }
+
+    /* Card das 5 Barras de Dimensões */
+    .card-dimensoes {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .dimensoes-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .dimension-slider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .dimension-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dimension-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    .dimension-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      width: 52px;
+      height: 22px;
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+    }
+
+    .dimension-value {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1d4ed8;
+      line-height: 1;
+    }
+
+    .dimension-suffix {
+      font-size: 10px;
+      font-weight: 400;
+      color: #64748b;
+      line-height: 1;
+    }
+
+    /* Sliders de Avaliação HTML5 (<input type="range">) */
+    .dimension-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(to right, var(--color-primary-blue) var(--fill-pct, 80%), #e2e8f0 var(--fill-pct, 80%));
+      border-radius: 3px;
+      outline: none;
+      margin: 8px 0 4px 0;
+      cursor: pointer;
+    }
+
+    /* WebKit (Chrome, Safari, Edge) */
+    .dimension-range::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 6px;
+      background: transparent;
+      border-radius: 3px;
+    }
+
+    .dimension-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 2px solid var(--color-primary-blue);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+      margin-top: -5px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .dimension-range::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+    }
+
+    .dimension-range::-webkit-slider-thumb:active {
+      transform: scale(1.22);
+      box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Firefox */
+    .dimension-range::-moz-range-track {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 3px;
+    }
+
+    .dimension-range::-moz-range-progress {
+      height: 6px;
+      background: var(--color-primary-blue);
+      border-radius: 3px;
+    }
+
+    .dimension-range::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 2px solid var(--color-primary-blue);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .dimension-scale {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--color-text-light);
+      margin-top: 2px;
+    }
+
+    .dimensoes-divider {
+      height: 1px;
+      background-color: #f1f5f9;
+      margin: 2px 0;
+    }
+
+    .dimensoes-footer-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #16a34a;
+    }
+
+    /* Coluna Direita: Campo de Devolutiva */
+    .column-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .devolutiva-box {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 586px;
+      position: relative;
+    }
+
+    .devolutiva-textarea {
+      flex: 1;
+      width: 100%;
+      border: none;
+      outline: none;
+      resize: vertical;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-text-main);
+      background: transparent;
+      min-height: 480px;
+    }
+
+    .devolutiva-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 16px;
+      border-top: 1px solid #f8fafc;
+    }
+
+    .char-counter {
+      font-size: 12px;
+      color: var(--color-text-light);
+    }
+
+    /* ==========================================================================
+       Barra Inferior Fixa de Ações (Voltar, Salvar Rascunho, Enviar Devolutiva)
+       ========================================================================== */
+    .bottom-action-bar {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: var(--sidebar-width);
+      height: var(--bottom-bar-height);
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      padding: 0 40px;
+      z-index: 85;
+    }
+
+    /* Botão Voltar (150x46px, fundo #60758b, r=10px) */
+    .btn-voltar {
+      width: 150px;
+      height: 46px;
+      background-color: #60758b;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-voltar:hover {
+      background-color: #4b5d6f;
+    }
+
+    /* Botão Salvar Rascunho (190x46px, fundo #ffffff, borda #d8e4f3, r=10px) */
+    .btn-salvar-rascunho {
+      width: 190px;
+      height: 46px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-card);
+      border-radius: 10px;
+      color: var(--color-text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-salvar-rascunho:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    /* Botão Enviar Devolutiva (272x46px, fundo #2563eb, r=10px) */
+    .btn-enviar {
+      width: 272px;
+      height: 46px;
+      background-color: var(--color-primary-blue);
+      border: 1px solid var(--color-primary-blue);
+      border-radius: 10px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-enviar:hover {
+      background-color: var(--color-primary-hover);
+      border-color: var(--color-primary-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- ========================================================================
+         BARRA LATERAL DO PROFESSOR (248px)
+         ======================================================================== -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <!-- Ícone do Penpot: Livro aberto -->
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-role">Área do Professor</span>
+        </div>
+      </div>
+
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Espaço Pedagógico</div>
+        <ul class="nav-list">
+          <!-- Visão Geral -->
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Início/Dashboard oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Visão geral</span>
+            </a>
+          </li>
+
+          <!-- Minhas Turmas (Ativo nesta seção) -->
+          <li class="nav-item">
+            <a href="minhas-turmas.html" class="nav-link active">
+              <span class="nav-icon">
+                <!-- Ícone Livro aberto · Minhas turmas · oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 5.833v11.667"/>
+                  <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+                </svg>
+              </span>
+              <span>Minhas turmas</span>
+            </a>
+          </li>
+
+          <!-- Registros de Observação -->
+          <li class="nav-item">
+            <a href="#registros" class="nav-link">
+              <span class="nav-icon">
+                <!-- Ícone Documento de registros oficial do Penpot -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
+                </svg>
+              </span>
+              <span>Registros de observação</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé: Perfil do Usuário -->
+      <div class="sidebar-footer">
+        <button type="button" class="user-profile-button">
+          <div class="user-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="8" rx="4" ry="4"/>
+              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Meu perfil</span>
+            <span class="user-role">Professor</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ========================================================================
+         ÁREA PRINCIPAL DE CONTEÚDO
+         ======================================================================== -->
+    <div class="main-wrapper">
+      <!-- Cabeçalho Superior (76px) -->
+      <header class="top-header">
+        <div class="breadcrumb">
+          <span class="breadcrumb-path">
+            <a href="painel-inicial.html">Área do professor</a> &nbsp;/&nbsp;
+            <a href="minhas-turmas.html">Minhas turmas</a> &nbsp;/&nbsp;
+            <a href="devolutiva-individual.html">Devolutiva individual</a> &nbsp;/&nbsp;
+            <a href="resumo-periodo.html">Resumo do período</a> &nbsp;/
+          </span>
+          <span class="breadcrumb-current">Parecer formativo</span>
+        </div>
+
+        <div class="header-actions">
+          <!-- Botão Mensagens (Ícone oficial do Penpot: dois balões sobrepostos) -->
+          <button type="button" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+              <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
+            </svg>
+          </button>
+
+          <!-- Botão Notificações com Indicador -->
+          <button type="button" class="header-icon-btn" title="Notificações" aria-label="Notificações">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.334"/>
+            </svg>
+            <!-- Indicador de notificação · desktop (7×7px azul #2563eb) -->
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Conteúdo da Página -->
+      <main class="content-area">
+        <!-- Cabeçalho com Título e Descrição (Tipografia idêntica a Minhas turmas) -->
+        <div class="page-header">
+          <h1 class="page-title">Parecer formativo</h1>
+          <p class="page-desc">Registre avanços, contextos e próximos passos possíveis.</p>
+        </div>
+
+        <!-- Cartão do Estudante Selecionado -->
+        <section class="student-summary-card">
+          <div class="student-left-info">
+            <div class="student-avatar" aria-hidden="true">AB</div>
+            <div class="student-details">
+              <span class="student-name">Ana Beatriz Ferraz</span>
+              <span class="student-meta">6º ano A &nbsp;·&nbsp; 1º bimestre</span>
+            </div>
+          </div>
+          <span class="status-badge-pendente">Pendente</span>
+        </section>
+
+        <!-- Grid Principal em 2 Colunas (Pontos para Abordar + Devolutiva para a Estudante) -->
+        <div class="parecer-grid">
+          
+          <!-- Coluna Esquerda: Pontos para Abordar -->
+          <div class="column-left">
+            <h2 class="section-title">Pontos para abordar</h2>
+
+            <!-- Card Potencialidade -->
+            <div class="card-potencialidade">
+              <div class="potencialidade-header">
+                <span class="potencialidade-marker" aria-hidden="true"></span>
+                <span class="potencialidade-label">Potencialidade</span>
+              </div>
+              <p class="potencialidade-content">Coopera e inclui colegas nas atividades.</p>
+            </div>
+
+            <!-- Card das 5 Barras de Dimensões -->
+            <div class="card-dimensoes">
+              <span class="dimensoes-badge-tag">Barras de avaliação</span>
+
+              <!-- Barra 1: Respeito e convivência (4.2 / 5.0) -->
+              <div class="dimension-slider-item">
+                <div class="dimension-header">
+                  <label for="dim-respeito" class="dimension-title">Respeito e convivência</label>
+                  <div class="dimension-badge">
+                    <span class="dimension-value">4,2</span>
+                    <span class="dimension-suffix">/ 5</span>
+                  </div>
+                </div>
+                <input type="range" id="dim-respeito" class="dimension-range" min="1.0" max="5.0" step="0.1" value="4.2" style="--fill-pct: 80%;" aria-label="Respeito e convivência" oninput="updateSlider(this)">
+                <div class="dimension-scale">
+                  <span>1.0</span>
+                  <span>5.0</span>
+                </div>
+              </div>
+
+              <!-- Barra 2: Colaboração (4.0 / 5.0) -->
+              <div class="dimension-slider-item">
+                <div class="dimension-header">
+                  <label for="dim-colaboracao" class="dimension-title">Colaboração</label>
+                  <div class="dimension-badge">
+                    <span class="dimension-value">4,0</span>
+                    <span class="dimension-suffix">/ 5</span>
+                  </div>
+                </div>
+                <input type="range" id="dim-colaboracao" class="dimension-range" min="1.0" max="5.0" step="0.1" value="4.0" style="--fill-pct: 75%;" aria-label="Colaboração" oninput="updateSlider(this)">
+                <div class="dimension-scale">
+                  <span>1.0</span>
+                  <span>5.0</span>
+                </div>
+              </div>
+
+              <!-- Barra 3: Responsabilidade (3.8 / 5.0) -->
+              <div class="dimension-slider-item">
+                <div class="dimension-header">
+                  <label for="dim-responsabilidade" class="dimension-title">Responsabilidade</label>
+                  <div class="dimension-badge">
+                    <span class="dimension-value">3,8</span>
+                    <span class="dimension-suffix">/ 5</span>
+                  </div>
+                </div>
+                <input type="range" id="dim-responsabilidade" class="dimension-range" min="1.0" max="5.0" step="0.1" value="3.8" style="--fill-pct: 70%;" aria-label="Responsabilidade" oninput="updateSlider(this)">
+                <div class="dimension-scale">
+                  <span>1.0</span>
+                  <span>5.0</span>
+                </div>
+              </div>
+
+              <!-- Barra 4: Autonomia (3.5 / 5.0) -->
+              <div class="dimension-slider-item">
+                <div class="dimension-header">
+                  <label for="dim-autonomia" class="dimension-title">Autonomia</label>
+                  <div class="dimension-badge">
+                    <span class="dimension-value">3,5</span>
+                    <span class="dimension-suffix">/ 5</span>
+                  </div>
+                </div>
+                <input type="range" id="dim-autonomia" class="dimension-range" min="1.0" max="5.0" step="0.1" value="3.5" style="--fill-pct: 62.5%;" aria-label="Autonomia" oninput="updateSlider(this)">
+                <div class="dimension-scale">
+                  <span>1.0</span>
+                  <span>5.0</span>
+                </div>
+              </div>
+
+              <!-- Barra 5: Participação (5.0 / 5.0) -->
+              <div class="dimension-slider-item">
+                <div class="dimension-header">
+                  <label for="dim-participacao" class="dimension-title">Participação</label>
+                  <div class="dimension-badge">
+                    <span class="dimension-value">5,0</span>
+                    <span class="dimension-suffix">/ 5</span>
+                  </div>
+                </div>
+                <input type="range" id="dim-participacao" class="dimension-range" min="1.0" max="5.0" step="0.1" value="5.0" style="--fill-pct: 100%;" aria-label="Participação" oninput="updateSlider(this)">
+                <div class="dimension-scale">
+                  <span>1.0</span>
+                  <span>5.0</span>
+                </div>
+              </div>
+
+              <!-- Divisor e Média Resultante -->
+              <div class="dimensoes-divider"></div>
+              <span class="dimensoes-footer-text">Média resultante: 4,1 / 5,0</span>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Campo de Devolutiva para a Estudante -->
+          <div class="column-right">
+            <h2 class="section-title">Devolutiva para a estudante</h2>
+
+            <div class="devolutiva-box">
+              <textarea class="devolutiva-textarea" aria-label="Texto do parecer formativo" spellcheck="false">Ana, neste bimestre você contribuiu para o trabalho em grupo e ajudou a incluir as ideias dos colegas. Esse é um ponto forte que vale continuar desenvolvendo.
+
+Como próximo passo, vamos combinar uma estratégia simples para conferir os materiais antes das atividades. Na próxima etapa, conversaremos sobre o que funcionou e sobre o apoio de que você precisa.</textarea>
+
+              <div class="devolutiva-footer">
+                <span class="char-counter">296 / 5000 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <!-- ========================================================================
+           BARRA INFERIOR FIXA DE AÇÕES (Voltar, Salvar Rascunho, Enviar Devolutiva)
+           ======================================================================== -->
+      <footer class="bottom-action-bar">
+        <!-- Botão Voltar -->
+        <a href="resumo-periodo.html" class="btn-voltar">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 7H3M7 11L3 7L7 3"/>
+          </svg>
+          <span>Voltar</span>
+        </a>
+
+        <!-- Botão Salvar Rascunho -->
+        <button type="button" class="btn-salvar-rascunho">
+          <span>Salvar rascunho</span>
+        </button>
+
+        <!-- Botão Enviar Devolutiva -->
+        <a href="devolutiva-enviada.html" class="btn-enviar">
+          <span>Enviar devolutiva</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7H11M7 3L11 7L7 11"/>
+          </svg>
+        </a>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Script leve para reatividade imediata dos sliders HTML5 ao arrastar -->
+  <script>
+    function updateSlider(input) {
+      const min = parseFloat(input.min) || 1.0;
+      const max = parseFloat(input.max) || 5.0;
+      const val = parseFloat(input.value);
+      const pct = ((val - min) / (max - min)) * 100;
+      input.style.setProperty('--fill-pct', pct + '%');
+
+      const badge = input.closest('.dimension-slider-item').querySelector('.dimension-value');
+      if (badge) {
+        badge.textContent = val.toFixed(1).replace('.', ',');
+      }
+
+      // Recalcular a média resultante
+      const sliders = document.querySelectorAll('.dimension-range');
+      let sum = 0;
+      sliders.forEach(s => sum += parseFloat(s.value));
+      const avg = sum / sliders.length;
+      const avgEl = document.querySelector('.dimensoes-footer-text');
+      if (avgEl) {
+        avgEl.textContent = 'Média resultante: ' + avg.toFixed(1).replace('.', ',') + ' / 5,0';
+      }
+    }
+  </script>
+</body>
+</html>
+
