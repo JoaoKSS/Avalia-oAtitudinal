@@ -659,11 +659,14 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      text-decoration: none;
+      color: inherit;
+      box-sizing: border-box;
       transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
     }
 
     .activity-card:hover {
-      border-color: #cbd5e1;
+      border-color: #2563eb;
       box-shadow: 0 6px 20px rgba(20, 51, 97, 0.08);
       transform: translateY(-1px);
     }
@@ -733,9 +736,8 @@
 
     .activity-actions {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
+      align-items: center;
+      gap: 16px;
       flex-shrink: 0;
     }
 
@@ -766,44 +768,18 @@
       color: var(--color-status-done-text);
     }
 
-    .action-button {
-      display: inline-flex;
+    .card-arrow {
+      color: #8194aa;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      width: 260px;
-      height: 34px;
-      padding: 0 16px;
-      border-radius: 9px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+      transition: transform 0.15s ease, color 0.15s ease;
+      flex-shrink: 0;
     }
 
-    .action-button.primary {
-      background-color: var(--color-primary);
-      color: #ffffff;
-      border: 1px solid var(--color-primary);
-    }
-
-    .action-button.primary:hover {
-      background-color: #1d4ed8;
-      border-color: #1d4ed8;
-      transform: translateY(-1px);
-    }
-
-    .action-button.secondary {
-      background-color: var(--color-bg-card);
-      color: var(--color-primary);
-      border: 1px solid var(--color-border-subtle);
-    }
-
-    .action-button.secondary:hover {
-      background-color: #f8fafc;
-      border-color: #c7d7eb;
-      transform: translateY(-1px);
+    .activity-card:hover .card-arrow {
+      color: #2563eb;
+      transform: translateX(2px);
     }
   </style>
 </head>
@@ -980,7 +956,7 @@
 
         <section aria-label="Lista de autoavaliações">
           <div class="activities-list">
-            <article class="activity-card">
+            <a href="responder-autoavaliacao.html" class="activity-card" aria-label="Avaliação de Convivência e respeito">
               <div class="activity-main">
                 <div class="activity-avatar orange">C</div>
                 <div class="activity-details">
@@ -991,11 +967,15 @@
               </div>
               <div class="activity-actions">
                 <span class="status-badge pending">Pendente</span>
-                <a href="responder-autoavaliacao.html" class="action-button primary">Começar avaliação  →</a>
+                <div class="card-arrow">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </div>
               </div>
-            </article>
+            </a>
 
-            <article class="activity-card">
+            <a href="finalizar-autoavaliacao.html" class="activity-card" aria-label="Avaliação de Colaboração e participação">
               <div class="activity-main">
                 <div class="activity-avatar blue">C</div>
                 <div class="activity-details">
@@ -1006,11 +986,15 @@
               </div>
               <div class="activity-actions">
                 <span class="status-badge in-progress">Andamento</span>
-                <a href="responder-autoavaliacao.html" class="action-button primary">Continuar avaliação  →</a>
+                <div class="card-arrow">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </div>
               </div>
-            </article>
+            </a>
 
-            <article class="activity-card">
+            <a href="responder-autoavaliacao.html" class="activity-card" aria-label="Avaliação de Responsabilidade e autonomia">
               <div class="activity-main">
                 <div class="activity-avatar orange">R</div>
                 <div class="activity-details">
@@ -1021,11 +1005,15 @@
               </div>
               <div class="activity-actions">
                 <span class="status-badge pending">Pendente</span>
-                <a href="responder-autoavaliacao.html" class="action-button primary">Começar avaliação  →</a>
+                <div class="card-arrow">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </div>
               </div>
-            </article>
+            </a>
 
-            <article class="activity-card">
+            <a href="visualizar-autoavaliacao-respondida-etapa-intermediaria.html" class="activity-card" aria-label="Ver respostas da avaliação de Participação nas atividades">
               <div class="activity-main">
                 <div class="activity-avatar green">P</div>
                 <div class="activity-details">
@@ -1036,9 +1024,13 @@
               </div>
               <div class="activity-actions">
                 <span class="status-badge done">Concluída</span>
-                <a href="visualizar-autoavaliacao-respondida-etapa-intermediaria.html" class="action-button secondary">Ver respostas</a>
+                <div class="card-arrow">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </div>
               </div>
-            </article>
+            </a>
           </div>
         </section>
       </main>

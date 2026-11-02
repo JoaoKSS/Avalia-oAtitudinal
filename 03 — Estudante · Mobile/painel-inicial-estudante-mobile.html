@@ -226,6 +226,7 @@
       font-weight: 600;
       line-height: 1.38;
       color: var(--color-text-main);
+      margin-bottom: 4px;
     }
 
     .evolution-desc {
@@ -283,7 +284,8 @@
 
     .shortcut-card {
       width: 100%;
-      min-height: 84px;
+      height: 88px;
+      min-height: 88px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-xl);
@@ -294,6 +296,7 @@
       text-decoration: none;
       box-shadow: var(--shadow-card);
       cursor: pointer;
+      box-sizing: border-box;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
@@ -345,12 +348,18 @@
     }
 
     .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 76px;
+      height: 22px;
+      border-radius: var(--radius-sm);
       font-size: 10px;
       font-weight: 600;
-      line-height: 1.4;
-      padding: 3px 8px;
-      border-radius: var(--radius-sm);
       white-space: nowrap;
+      text-align: center;
+      box-sizing: border-box;
+      flex-shrink: 0;
     }
 
     .status-badge.primary {
@@ -371,11 +380,17 @@
     }
 
     .shortcut-arrow {
-      color: var(--color-text-muted);
+      color: #8194aa;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .shortcut-card:hover .shortcut-arrow {
+      color: #2563eb;
+      transform: translateX(2px);
     }
 
     .bottom-nav {
@@ -666,8 +681,8 @@
               <p class="shortcut-description">Uma atividade está aguardando sua reflexão.</p>
             </div>
             <div class="shortcut-arrow">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6.5 4.5L11 9L6.5 13.5"></path>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
               </svg>
             </div>
           </a>
@@ -688,8 +703,8 @@
               <p class="shortcut-description">Confira a nova devolutiva do professor.</p>
             </div>
             <div class="shortcut-arrow">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6.5 4.5L11 9L6.5 13.5"></path>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
               </svg>
             </div>
           </a>
