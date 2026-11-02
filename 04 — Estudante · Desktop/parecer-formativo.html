@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parecer formativo · Estudante · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f1ff;
+      --color-primary-soft: #eaf2ff;
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-subtle: #8194aa;
+      --color-status-green: #16804a;
+      --color-status-green-bg: #e7f7ef;
+      --color-btn-neutral: #60758b;
+      --color-btn-neutral-hover: #475569;
+      --radius-sm: 8px;
+      --radius-card: 16px;
+      --radius-btn: 12px;
+      --shadow-card: 0 4px 14px rgba(20, 51, 97, 0.04);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 248px;
+      background-color: var(--color-bg-card);
+      border-right: 1px solid var(--color-border-subtle);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .sidebar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 24px;
+      height: 76px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--color-text-main);
+    }
+
+    .brand-role {
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+
+    .nav-section-title {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+      color: var(--color-text-subtle);
+      text-transform: uppercase;
+      padding: 12px 24px 8px 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      position: relative;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--color-text-main);
+    }
+
+    .nav-link.active {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background-color: var(--color-primary);
+      border-radius: 0 3px 3px 0;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sidebar-footer {
+      padding: 16px 12px;
+      margin-top: auto;
+    }
+
+    .user-profile-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile-button:hover {
+      background-color: #f1f5f9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .user-chevron {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      position: relative;
+    }
+
+    .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .breadcrumb-path {
+      font-weight: 500;
+      color: #60758b;
+    }
+
+    .breadcrumb-current {
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid #d9e4f2;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+      padding: 0;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 7px;
+      height: 7px;
+      background-color: #2563eb;
+      border-radius: 50%;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 32px 32px 120px 32px;
+      max-width: 1168px;
+      width: 100%;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.39;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+    }
+
+    .page-desc {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.43;
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+    }
+
+    .meta-details {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--color-text-muted);
+      margin-bottom: 2px;
+    }
+
+    .meta-date {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--color-text-subtle);
+      margin-bottom: 24px;
+    }
+
+    .content-columns {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      width: 100%;
+    }
+
+    .left-column {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .welcome-card {
+      background-color: var(--color-primary-soft);
+      border: 1px solid #c2dbfe;
+      border-radius: var(--radius-card);
+      padding: 18px 22px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .welcome-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #1d4ed8;
+      margin-bottom: 4px;
+    }
+
+    .welcome-desc {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #35527a;
+    }
+
+    .detail-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .card-heading {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-text-main);
+      margin-bottom: 16px;
+    }
+
+    .strength-row {
+      display: flex;
+      align-items: stretch;
+      gap: 14px;
+    }
+
+    .strength-indicator {
+      width: 5px;
+      background-color: var(--color-status-green);
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .strength-text-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .strength-title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-status-green);
+      margin-bottom: 4px;
+    }
+
+    .strength-desc {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--color-text-main);
+    }
+
+    .feedback-message {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--color-text-main);
+    }
+
+    .right-column {
+      width: 314px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-info-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-card);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .sidebar-info-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-text-main);
+      margin-bottom: 14px;
+    }
+
+    .sidebar-info-divider {
+      height: 1px;
+      background-color: var(--color-border-subtle);
+      margin-bottom: 16px;
+    }
+
+    .info-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .info-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .info-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+    }
+
+    .info-value {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-text-main);
+    }
+
+    .bottom-actions-bar {
+      position: fixed;
+      bottom: 0;
+      left: 248px;
+      right: 0;
+      height: 80px;
+      background-color: #ffffff;
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 32px;
+      z-index: 100;
+    }
+
+    .btn-back {
+      width: 150px;
+      height: 46px;
+      border-radius: var(--radius-btn);
+      background-color: var(--color-btn-neutral);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+      border: none;
+    }
+
+    .btn-back:hover {
+      background-color: var(--color-btn-neutral-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-role">Área do Estudante</span>
+        </div>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegação principal">
+        <span class="nav-section-title">Seu espaço de aprendizagem</span>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="painel-inicial.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+                </svg>
+              </span>
+              <span>Início</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minhas-autoavaliacoes.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3.5 10.5L7.5 14.5L16.5 5.5"/>
+                </svg>
+              </span>
+              <span>Autoavaliações</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minha-evolucao.html" class="nav-link">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 14.5L7.5 9.5L11 13L17.5 5"/>
+                  <path d="M12.5 5H17.5V10"/>
+                </svg>
+              </span>
+              <span>Minha evolução</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="minhas-devolutivas.html" class="nav-link active" aria-current="page">
+              <span class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3.5" y1="6" x2="16.5" y2="6"/>
+                  <line x1="3.5" y1="10" x2="16.5" y2="10"/>
+                  <line x1="3.5" y1="14" x2="16.5" y2="14"/>
+                </svg>
+              </span>
+              <span>Minhas devolutivas</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button type="button" class="user-profile-button" aria-label="Abrir menu de perfil do estudante">
+          <div class="user-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="8" rx="4" ry="4"/>
+              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+            </svg>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Meu perfil</span>
+            <span class="user-role">Estudante</span>
+          </div>
+          <div class="user-chevron">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="top-header">
+        <nav class="breadcrumb" aria-label="Caminho da página">
+          <span class="breadcrumb-path">Área do estudante &nbsp;/</span>
+          <span class="breadcrumb-current">Parecer formativo</span>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.334"/>
+            </svg>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <h1 class="page-title">Parecer Formativo</h1>
+        <p class="page-desc">Leia a mensagem do(a) professor(a) e os pontos positivos destacados no seu percurso.</p>
+        <p class="meta-details">Prof.ª Marina Costa &nbsp;·&nbsp; 6º ano A &nbsp;·&nbsp; 1º bimestre</p>
+        <p class="meta-date">Publicado em 18 de novembro de 2026</p>
+
+        <div class="content-columns">
+          <div class="left-column">
+            <article class="welcome-card">
+              <h2 class="welcome-title">Você tem motivos para se orgulhar!</h2>
+              <p class="welcome-desc">Reconheça o que você já faz bem e continue desenvolvendo suas atitudes.</p>
+            </article>
+
+            <article class="detail-card">
+              <h2 class="card-heading">Seus pontos fortes</h2>
+              <div class="strength-row">
+                <div class="strength-indicator" aria-hidden="true"></div>
+                <div class="strength-text-group">
+                  <h3 class="strength-title">Colaboração</h3>
+                  <p class="strength-desc">Coopera e inclui colegas nas atividades.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h2 class="card-heading">Mensagem do(a) professor(a)</h2>
+              <p class="feedback-message">Coopera e inclui colegas nas atividades.</p>
+            </article>
+          </div>
+
+          <aside class="right-column">
+            <div class="sidebar-info-card">
+              <h2 class="sidebar-info-title">Sobre esta devolutiva</h2>
+              <div class="sidebar-info-divider" aria-hidden="true"></div>
+              <div class="info-field-group">
+                <div class="info-field">
+                  <span class="info-label">Professor(a)</span>
+                  <span class="info-value">Marina Costa</span>
+                </div>
+                <div class="info-field">
+                  <span class="info-label">Turma</span>
+                  <span class="info-value">6º ano A</span>
+                </div>
+                <div class="info-field">
+                  <span class="info-label">Período</span>
+                  <span class="info-value">1º bimestre</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="bottom-actions-bar">
+        <a href="minhas-devolutivas.html" class="btn-back" aria-label="Voltar para Minhas Devolutivas">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12.5 15L7.5 10L12.5 5"/>
+          </svg>
+          <span>Voltar</span>
+        </a>
+      </footer>
+    </div>
+
+  </div>
+
+</body>
+</html>
