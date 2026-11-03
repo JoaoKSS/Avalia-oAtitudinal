@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Agregador · Dimensões Atitudinais · Coordenação · Mobile · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-subtle: #8194aa;
+      --color-primary: #2563eb;
+      --color-primary-light: #eff6ff;
+      --color-danger: #ef4444;
+      --color-danger-light: #fee2e2;
+      --color-warning: #b45309;
+      --color-warning-light: #fef3c7;
+      --color-success: #16a34a;
+      --color-success-light: #dcfce7;
+      --color-purple: #9333ea;
+      --color-purple-light: #f3e8ff;
+      --color-indigo: #6366f1;
+      --color-amber: #ea580c;
+      --color-amber-light: #ffedd5;
+      --color-teal: #0f766e;
+      --color-teal-light: #ccfbf1;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
+
+    /* Ocultar barra de rolagem visual mantendo a rolagem ativa */
+    * {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    *::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Container de visualização Mobile (390px x 844px) */
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    /* Cabeçalho Superior Mobile (72px) - Padrão */
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brand-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+    }
+
+    .brand-badge {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .header-notification-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .header-notification-btn:hover {
+      background-color: #f8fafc;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 9px;
+      right: 10px;
+      width: 7.5px;
+      height: 7.5px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      border: 1.5px solid #ffffff;
+    }
+
+    /* Conteúdo Rolável (Main) */
+    .screen-content {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 16px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Título da Página */
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+    }
+
+    /* Seção Filtros */
+    .filters-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .filters-row-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    .select-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .filter-select {
+      width: 100%;
+      height: 35px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0 28px 0 10px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #1e293b;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .filter-select:focus {
+      border-color: var(--color-primary);
+    }
+
+    .select-chevron {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    /* Campo de Pesquisa */
+    .search-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 35px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0 12px 0 34px;
+      font-size: 11.5px;
+      color: #1e293b;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--color-primary);
+    }
+
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    /* Grid de KPIs 2x2 */
+    .kpi-row-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .kpi-card {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .kpi-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .kpi-icon-box.blue { background-color: var(--color-primary-light); color: var(--color-primary); }
+    .kpi-icon-box.amber { background-color: var(--color-amber-light); color: var(--color-amber); }
+    .kpi-icon-box.green { background-color: var(--color-success-light); color: var(--color-success); }
+    .kpi-icon-box.purple { background-color: var(--color-purple-light); color: var(--color-purple); }
+
+    .kpi-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .kpi-label {
+      font-size: 10px;
+      font-weight: 500;
+      color: #64748b;
+      line-height: 1.2;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .kpi-val {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.15;
+    }
+
+    .kpi-subtext {
+      font-size: 9px;
+      color: #64748b;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    /* Cards Gerais (Painéis) */
+    .panel-card {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .panel-header {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .panel-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: -0.2px;
+    }
+
+    .panel-subtitle {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .panel-legend-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 2px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .legend-dot.purple { background-color: var(--color-indigo); }
+
+    .legend-text {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    /* Gráfico de Linha */
+    .chart-svg {
+      width: 100%;
+      height: 110px;
+      overflow: visible;
+      margin-top: 4px;
+    }
+
+    .panel-insight-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-success);
+      border-top: 1px solid #f1f5f9;
+      padding-top: 10px;
+      margin-top: -2px;
+    }
+
+    .panel-warning-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-amber);
+      border-top: 1px solid #f1f5f9;
+      padding-top: 10px;
+      margin-top: -2px;
+    }
+
+    /* Colaboração por Turma (Barras Roxas com Valor) */
+    .turmas-bar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .turma-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .turma-bar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .turma-bar-name {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .turma-bar-score {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .turma-bar-track {
+      width: 100%;
+      height: 6px;
+      background-color: #f1f5f9;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .turma-bar-fill {
+      height: 100%;
+      background-color: var(--color-indigo);
+      border-radius: var(--radius-full);
+      transition: width 0.3s ease;
+    }
+
+    /* Seção: Leituras para investigação pedagógica */
+    .leituras-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .leituras-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .leituras-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: -0.2px;
+    }
+
+    .leituras-subtitle {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    .table-container {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .leituras-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .leituras-table th {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--color-border-subtle);
+      background-color: #fafcff;
+    }
+
+    .leituras-table th:last-child {
+      text-align: right;
+    }
+
+    .leituras-table td {
+      font-size: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #1e293b;
+    }
+
+    .leituras-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .col-turma {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .col-media {
+      text-align: right;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .scroll-instruction-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .scroll-instruction-text {
+      font-size: 11px;
+      color: #64748b;
+      text-align: center;
+    }
+
+    .scroll-track {
+      width: 100%;
+      height: 4px;
+      background-color: #f1f5f9;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .scroll-thumb {
+      width: 32%;
+      height: 100%;
+      background-color: var(--color-primary);
+      border-radius: var(--radius-full);
+    }
+
+    /* Barra de Navegação Inferior (Mobile) - Padrão com Agregadores Ativo */
+    .bottom-nav {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: stretch;
+      justify-content: space-around;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .nav-tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      position: relative;
+      transition: color 0.15s ease;
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 3px;
+      background-color: var(--color-primary);
+      border-radius: 0 0 3px 3px;
+      display: none;
+    }
+
+    .nav-tab.active .nav-indicator-bar {
+      display: block;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mockup Mobile Screen Wrapper (390px x 844px) -->
+  <div class="mobile-screen-wrapper">
+
+    <!-- Cabeçalho Mobile: Coordenação -->
+    <header class="mobile-header">
+      <div class="brand-section">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <span class="brand-text">Educar &amp; Aprender</span>
+          <span class="brand-badge">Coordenação Pedagógica</span>
+        </div>
+      </div>
+
+      <a href="sistema-alerta-precoce.html" class="header-notification-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="notification-dot" aria-hidden="true"></span>
+      </a>
+    </header>
+
+    <!-- Conteúdo Rolável -->
+    <main class="screen-content">
+
+      <!-- Título da Página -->
+      <h1 class="page-title">Análise por dimensão atitudinal</h1>
+
+      <!-- Seção Filtros -->
+      <section class="filters-section" aria-label="Filtros da dimensão">
+        <div class="filters-row-grid">
+          <div class="filter-group">
+            <label class="filter-label" for="filter-dimensao">DIMENSÃO EM ANÁLISE</label>
+            <div class="select-wrapper">
+              <select id="filter-dimensao" class="filter-select">
+                <option value="colaboracao" selected>Colaboração</option>
+                <option value="responsabilidade">Responsabilidade</option>
+                <option value="respeito">Respeito</option>
+                <option value="autonomia">Autonomia</option>
+                <option value="participacao">Participação</option>
+              </select>
+              <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="filter-periodo">Período</label>
+            <div class="select-wrapper">
+              <select id="filter-periodo" class="filter-select">
+                <option value="6m" selected>Últimos 6 meses</option>
+                <option value="3m">Últimos 3 meses</option>
+                <option value="12m">Último ano</option>
+              </select>
+              <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="search-dim">Pesquisar dimensão</label>
+          <div class="search-wrapper">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-dim" class="search-input" placeholder="Pesquisar dimensão..." />
+          </div>
+        </div>
+      </section>
+
+      <!-- KPIs - Linha 1 -->
+      <div class="kpi-row-grid">
+        <!-- Média da dimensão -->
+        <article class="kpi-card">
+          <div class="kpi-icon-box blue" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">Média da dimensão</span>
+            <span class="kpi-val">3,6</span>
+            <span class="kpi-subtext">de 5,0</span>
+          </div>
+        </article>
+
+        <!-- Turmas abaixo de 3,0 -->
+        <article class="kpi-card">
+          <div class="kpi-icon-box amber" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 5.833v11.667"/>
+              <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+            </svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">Turmas abaixo de 3,0</span>
+            <span class="kpi-val">2</span>
+            <span class="kpi-subtext">revisar contexto</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- KPIs - Linha 2 -->
+      <div class="kpi-row-grid">
+        <!-- Evolução no período -->
+        <article class="kpi-card">
+          <div class="kpi-icon-box green" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">Evolução no período</span>
+            <span class="kpi-val">+0,3</span>
+            <span class="kpi-subtext">últimos 6 meses</span>
+          </div>
+        </article>
+
+        <!-- Registros recentes -->
+        <article class="kpi-card">
+          <div class="kpi-icon-box purple" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">Registros recentes</span>
+            <span class="kpi-val">46</span>
+            <span class="kpi-subtext">evidências agregadas</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Painel: Evolução de colaboração -->
+      <section class="panel-card" aria-label="Evolução de colaboração">
+        <div class="panel-header">
+          <h2 class="panel-title">Evolução de colaboração</h2>
+          <p class="panel-subtitle">Média consolidada de todas as turmas · escala 0–5</p>
+        </div>
+
+        <div class="panel-legend-row">
+          <div class="legend-item">
+            <span class="legend-dot purple"></span>
+            <span class="legend-text">Média da dimensão</span>
+          </div>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 326 110" preserveAspectRatio="none">
+          <!-- Horizontal Light Grid Lines -->
+          <line x1="10" y1="18" x2="316" y2="18" stroke="#f1f5f9" stroke-width="1" />
+          <line x1="10" y1="58" x2="316" y2="58" stroke="#f1f5f9" stroke-width="1" />
+          <line x1="10" y1="92" x2="316" y2="92" stroke="#f1f5f9" stroke-width="1" />
+
+          <!-- Trend line (Purple) -->
+          <polyline
+            fill="none"
+            stroke="#6366f1"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            points="24,78 80,76 136,73 192,72 248,70 302,68"
+          />
+
+          <!-- Data Points -->
+          <circle cx="24" cy="78" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
+          <circle cx="80" cy="76" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
+          <circle cx="136" cy="73" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
+          <circle cx="192" cy="72" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
+          <circle cx="248" cy="70" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
+          <circle cx="302" cy="68" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
+
+          <!-- X Months Labels -->
+          <text x="24" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Mai</text>
+          <text x="80" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Jun</text>
+          <text x="136" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Jul</text>
+          <text x="192" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Ago</text>
+          <text x="248" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Set</text>
+          <text x="302" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Out</text>
+        </svg>
+
+        <p class="panel-insight-text">A evolução é positiva, embora gradual.</p>
+      </section>
+
+      <!-- Painel: Colaboração por turma -->
+      <section class="panel-card" aria-label="Colaboração por turma">
+        <div class="panel-header">
+          <h2 class="panel-title">Colaboração por turma</h2>
+          <p class="panel-subtitle">Comparação da mesma dimensão · escala de 0 a 5</p>
+        </div>
+
+        <div class="turmas-bar-list">
+          <!-- 7º ano B: 4,0 -->
+          <div class="turma-bar-item">
+            <div class="turma-bar-top">
+              <span class="turma-bar-name">7º ano B</span>
+              <span class="turma-bar-score">4,0</span>
+            </div>
+            <div class="turma-bar-track">
+              <div class="turma-bar-fill" style="width: 80%;"></div>
+            </div>
+          </div>
+
+          <!-- 6º ano A: 3,8 -->
+          <div class="turma-bar-item">
+            <div class="turma-bar-top">
+              <span class="turma-bar-name">6º ano A</span>
+              <span class="turma-bar-score">3,8</span>
+            </div>
+            <div class="turma-bar-track">
+              <div class="turma-bar-fill" style="width: 76%;"></div>
+            </div>
+          </div>
+
+          <!-- 9º ano B: 3,7 -->
+          <div class="turma-bar-item">
+            <div class="turma-bar-top">
+              <span class="turma-bar-name">9º ano B</span>
+              <span class="turma-bar-score">3,7</span>
+            </div>
+            <div class="turma-bar-track">
+              <div class="turma-bar-fill" style="width: 74%;"></div>
+            </div>
+          </div>
+
+          <!-- 8º ano A: 3,1 -->
+          <div class="turma-bar-item">
+            <div class="turma-bar-top">
+              <span class="turma-bar-name">8º ano A</span>
+              <span class="turma-bar-score">3,1</span>
+            </div>
+            <div class="turma-bar-track">
+              <div class="turma-bar-fill" style="width: 62%;"></div>
+            </div>
+          </div>
+
+          <!-- 6º ano C: 2,9 -->
+          <div class="turma-bar-item">
+            <div class="turma-bar-top">
+              <span class="turma-bar-name">6º ano C</span>
+              <span class="turma-bar-score">2,9</span>
+            </div>
+            <div class="turma-bar-track">
+              <div class="turma-bar-fill" style="width: 58%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="panel-warning-text">2 turmas abaixo da referência 3,0.</p>
+      </section>
+
+      <!-- Seção: Leituras para investigação pedagógica -->
+      <section class="leituras-section" aria-label="Leituras para investigação pedagógica">
+        <div class="leituras-title-group">
+          <h2 class="leituras-title">Leituras para investigação pedagógica</h2>
+          <p class="leituras-subtitle">Dados agregados; não expõe estudante individual.</p>
+        </div>
+
+        <!-- Tabela com rolagem horizontal -->
+        <div class="table-container">
+          <table class="leituras-table">
+            <thead>
+              <tr>
+                <th>Turma</th>
+                <th>Média na dimensão</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-turma">7º ano B</td>
+                <td class="col-media">4,0</td>
+              </tr>
+              <tr>
+                <td class="col-turma">6º ano A</td>
+                <td class="col-media">3,8</td>
+              </tr>
+              <tr>
+                <td class="col-turma">8º ano A</td>
+                <td class="col-media">3,1</td>
+              </tr>
+              <tr>
+                <td class="col-turma">6º ano C</td>
+                <td class="col-media">2,9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Instrução e barra visual de rolagem horizontal -->
+        <div class="scroll-instruction-row">
+          <span class="scroll-instruction-text">&harr; Deslize horizontalmente para acessar as demais colunas</span>
+          <div class="scroll-track">
+            <div class="scroll-thumb"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Barra de Navegação Inferior (Mobile) - Padrão com Agregadores Ativo -->
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <!-- 1. Início -->
+      <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <!-- 2. Alertas -->
+      <a href="sistema-alerta-precoce.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+            <path d="M8.33 17.5h3.34"/>
+          </svg>
+        </div>
+        <span class="nav-label">Alertas</span>
+      </a>
+
+      <!-- 3. Turmas -->
+      <a href="turmas.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 5.833v11.667"/>
+            <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Turmas</span>
+      </a>
+
+      <!-- 4. Agregadores (Ativo) -->
+      <a href="dashboard-agregador-visao-central.html" class="nav-tab active" aria-current="page">
+        <span class="nav-indicator-bar" aria-hidden="true"></span>
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
+            <path d="M12.5 5h5v5"/>
+          </svg>
+        </div>
+        <span class="nav-label">Agregadores</span>
+      </a>
+
+      <!-- 5. Perfil -->
+      <a href="#modal-perfil" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="8" rx="4" ry="4"/>
+            <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+  </div>
+
+</body>
+</html>
+

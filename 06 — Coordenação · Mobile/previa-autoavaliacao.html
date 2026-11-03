@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prévia da Autoavaliação · Coordenação · Mobile 390 × 1650</title>
+
+    <!-- Favicon adaptativo oficial -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-light.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="alternate icon" href="../assets/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --color-bg-canvas: #f5f8fc;
+        --color-bg-card: #ffffff;
+        --color-border-subtle: #d9e4f2;
+        --color-border-divider: #eef3f9;
+        --color-text-main: #172b4d;
+        --color-text-muted: #60758b;
+        --color-text-subtle: #8194aa;
+        --color-primary: #2563eb;
+        --color-primary-light: #e8f1ff;
+        --color-success: #16a34a;
+        --color-success-light: #e8f7ee;
+      }
+
+      /* Ocultar barra de rolagem visual mantendo a rolagem ativa em todo o container mobile */
+      * {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      *::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: var(--color-bg-canvas);
+        color: var(--color-text-main);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 16px;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      /* Container do Mockup Mobile: 390px × 844px padrão */
+      .mobile-screen-wrapper {
+        width: 390px;
+        min-width: 390px;
+        max-width: 390px;
+        height: 844px;
+        min-height: 844px;
+        max-height: 844px;
+        background-color: var(--color-bg-canvas);
+        border-radius: 36px;
+        border: 1px solid var(--color-border-subtle);
+        box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 0;
+        }
+        .mobile-screen-wrapper {
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+          height: 100vh;
+          min-height: 100vh;
+          max-height: 100vh;
+          border-radius: 0;
+          border: none;
+          box-shadow: none;
+        }
+      }
+
+      /* Cabeçalho Superior Mobile (72px) - Idêntico a turmas.html */
+      .mobile-header {
+        width: 100%;
+        height: 72px;
+        background-color: var(--color-bg-card);
+        border-bottom: 1px solid var(--color-border-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        flex-shrink: 0;
+        z-index: 10;
+      }
+
+      .brand-section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .brand-icon {
+        width: 38px;
+        height: 38px;
+        background-color: var(--color-primary);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+      }
+
+      .brand-titles {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .brand-text {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--color-text-main);
+        line-height: 1.2;
+      }
+
+      .brand-badge {
+        font-size: 8.5px;
+        font-weight: 700;
+        color: var(--color-primary);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .header-notification-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        border: 1px solid var(--color-border-subtle);
+        background-color: var(--color-bg-card);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-text-muted);
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+        transition: background-color 0.15s ease;
+      }
+
+      .header-notification-btn:hover {
+        background-color: #f8fafc;
+      }
+
+      .notification-dot {
+        position: absolute;
+        top: 8px;
+        right: 9px;
+        width: 7px;
+        height: 7px;
+        background-color: var(--color-primary);
+        border: 1.5px solid var(--color-bg-card);
+        border-radius: 50%;
+      }
+
+      /* Conteúdo Principal com Rolagem */
+      .screen-content {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding-bottom: 96px; /* espaço para o rodapé */
+      }
+
+      /* Título & Descrição */
+      .page-hero {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-top: 2px;
+      }
+
+      .page-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--color-text-main);
+        letter-spacing: -0.3px;
+      }
+
+      .page-subtitle {
+        font-size: 11px;
+        color: var(--color-text-muted);
+        line-height: 1.4;
+      }
+
+      /* Cartão Resumo da Atividade */
+      .activity-summary-card {
+        background-color: var(--color-bg-card);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: 12px;
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .summary-icon-box {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background-color: var(--color-primary-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--color-primary);
+      }
+
+      .summary-info {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        min-width: 0;
+      }
+
+      .summary-title {
+        font-size: 14.5px;
+        font-weight: 700;
+        color: var(--color-text-main);
+        line-height: 1.3;
+      }
+
+      .summary-meta {
+        font-size: 11.5px;
+        color: var(--color-text-muted);
+      }
+
+      /* Legenda Informativa */
+      .preview-caption {
+        font-size: 10px;
+        color: var(--color-text-muted);
+        margin-top: -4px;
+        margin-bottom: -2px;
+      }
+
+      /* Cartão de Pergunta */
+      .question-card {
+        background-color: var(--color-bg-card);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .question-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .dimension-badge {
+        padding: 4px 14px;
+        background-color: var(--color-primary-light);
+        color: var(--color-primary);
+        font-size: 10px;
+        font-weight: 700;
+        border-radius: 12px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .edit-link {
+        font-size: 10.5px;
+        font-weight: 600;
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: opacity 0.15s ease;
+      }
+
+      .edit-link:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+
+      .question-statement {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--color-text-main);
+        line-height: 1.4;
+        margin-top: 2px;
+      }
+
+      .question-divider {
+        height: 1px;
+        background-color: var(--color-border-divider);
+        width: 100%;
+        margin: 2px 0;
+      }
+
+      .options-header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2px;
+      }
+
+      .options-label {
+        font-size: 10.5px;
+        font-weight: 600;
+        color: var(--color-text-muted);
+      }
+
+      /* Lista de Alternativas */
+      .options-list {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .option-item {
+        height: 38px;
+        background-color: #ffffff;
+        border: 1px solid var(--color-border-subtle);
+        border-radius: 8px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition:
+          border-color 0.15s ease,
+          background-color 0.15s ease;
+      }
+
+      .option-item:hover {
+        border-color: #b9d0ee;
+        background-color: #fbfdff;
+      }
+
+    /* Botão Salvar e Voltar */
+    .btn-salvar-voltar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 44px;
+      background-color: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: none;
+      margin-top: 8px;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+      .option-text {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--color-text-main);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Botão Salvar e Voltar */
+      .btn-salvar-voltar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        height: 52px;
+        background-color: var(--color-primary);
+        color: #ffffff;
+        border: none;
+        border-radius: 14px;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: none;
+        margin-top: 8px;
+        transition:
+          background-color 0.15s ease,
+          transform 0.1s ease;
+      }
+
+      .btn-salvar-voltar:hover {
+        background-color: #1d4ed8;
+      }
+
+      .btn-salvar-voltar:active {
+        transform: scale(0.99);
+      }
+
+      /* Barra de Navegação Inferior (Mobile) - Idêntica a turmas.html */
+      .bottom-nav {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 72px;
+        background-color: var(--color-bg-card);
+        border-top: 1px solid var(--color-border-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        z-index: 20;
+      }
+
+      .nav-tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        text-decoration: none;
+        color: var(--color-text-muted);
+        flex: 1;
+        height: 100%;
+        position: relative;
+        transition: color 0.15s ease;
+      }
+
+      .nav-tab.active {
+        color: var(--color-primary);
+        font-weight: 600;
+      }
+
+      .nav-indicator-bar {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 32px;
+        height: 3px;
+        background-color: var(--color-primary);
+        border-radius: 0 0 3px 3px;
+      }
+
+      .nav-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+      }
+
+      .nav-label {
+        font-size: 10px;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mobile-screen-wrapper">
+      <!-- Cabeçalho Mobile: Coordenação (Idêntico a turmas.html) -->
+      <header class="mobile-header">
+        <a href="painel-inicial-coordenacao-mobile.html" class="brand-section">
+          <div class="brand-icon" aria-hidden="true">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              />
+            </svg>
+          </div>
+          <div class="brand-titles">
+            <span class="brand-text">Educar &amp; Aprender</span>
+            <span class="brand-badge">COORDENAÇÃO PEDAGÓGICA</span>
+          </div>
+        </a>
+
+        <a
+          href="sistema-alerta-precoce.html"
+          class="header-notification-btn"
+          title="Notificações e alertas"
+          aria-label="Notificações e alertas"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#60758b"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+          <span class="notification-dot" aria-hidden="true"></span>
+        </a>
+      </header>
+
+      <!-- Conteúdo Rolável -->
+      <main class="screen-content">
+        <!-- Título & Subtítulo da Página -->
+        <section class="page-hero" aria-label="Apresentação da prévia">
+          <h1 class="page-title">Prévia da Autoavaliação</h1>
+          <p class="page-subtitle">
+            Confira as perguntas e alternativas antes de disponibilizar a
+            atividade.
+          </p>
+        </section>
+
+        <!-- Cartão Resumo da Atividade -->
+        <section class="activity-summary-card" aria-label="Resumo da atividade">
+          <div class="summary-icon-box" aria-hidden="true">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#2563eb"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="summary-info">
+            <h2 class="summary-title">Autoavaliação atitudinal - 1º 2026</h2>
+            <span class="summary-meta">6º ano A · Prazo 30 out. 2026</span>
+          </div>
+        </section>
+
+        <!-- Legenda Informativa -->
+        <p class="preview-caption">
+          3 perguntas padrão · 5 alternativas de resposta
+        </p>
+
+        <!-- Cartão Pergunta 1: Autonomia -->
+        <article class="question-card" aria-label="Pergunta sobre Autonomia">
+          <div class="question-header">
+            <span class="dimension-badge">AUTONOMIA</span>
+            <a
+              href="configuracao-autoavaliacao.html"
+              class="edit-link"
+              aria-label="Editar questão de Autonomia"
+              >Editar questão</a
+            >
+          </div>
+
+          <h3 class="question-statement">
+            Como você percebe essa atitude no seu dia a dia?
+          </h3>
+
+          <div class="question-divider" aria-hidden="true"></div>
+
+          <div class="options-header-row">
+            <span class="options-label">Alternativas de resposta</span>
+            <a
+              href="configuracao-autoavaliacao.html"
+              class="edit-link"
+              aria-label="Editar alternativas de Autonomia"
+              >Editar alternativas</a
+            >
+          </div>
+
+          <div class="options-list">
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">1</span>
+              <span class="option-text"
+                >Ainda estou desenvolvendo essa atitude</span
+              >
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">2</span>
+              <span class="option-text">Consigo em poucas situações</span>
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">3</span>
+              <span class="option-text">Consigo em algumas situações</span>
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">4</span>
+              <span class="option-text">Consigo na maioria das situações</span>
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">5</span>
+              <span class="option-text"
+                >Pratico essa atitude com frequência</span
+              >
+            </div>
+          </div>
+        </article>
+
+        <!-- Cartão Pergunta 2: Responsabilidade -->
+        <article
+          class="question-card"
+          aria-label="Pergunta sobre Responsabilidade"
+        >
+          <div class="question-header">
+            <span class="dimension-badge">RESPONSABILIDADE</span>
+            <a
+              href="configuracao-autoavaliacao.html"
+              class="edit-link"
+              aria-label="Editar questão de Responsabilidade"
+              >Editar questão</a
+            >
+          </div>
+
+          <h3 class="question-statement">
+            Como você percebe essa atitude no seu dia a dia?
+          </h3>
+
+          <div class="question-divider" aria-hidden="true"></div>
+
+          <div class="options-header-row">
+            <span class="options-label">Alternativas de resposta</span>
+            <a
+              href="configuracao-autoavaliacao.html"
+              class="edit-link"
+              aria-label="Editar alternativas de Responsabilidade"
+              >Editar alternativas</a
+            >
+          </div>
+
+          <div class="options-list">
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">1</span>
+              <span class="option-text"
+                >Ainda estou desenvolvendo essa atitude</span
+              >
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">2</span>
+              <span class="option-text">Consigo em poucas situações</span>
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">3</span>
+              <span class="option-text">Consigo em algumas situações</span>
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">4</span>
+              <span class="option-text">Consigo na maioria das situações</span>
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">5</span>
+              <span class="option-text"
+                >Pratico essa atitude com frequência</span
+              >
+            </div>
+          </div>
+        </article>
+
+        <!-- Cartão Pergunta 3: Respeito e Convivência -->
+        <article
+          class="question-card"
+          aria-label="Pergunta sobre Respeito e Convivência"
+        >
+          <div class="question-header">
+            <span class="dimension-badge">RESPEITO E CONVIVÊNCIA</span>
+            <a
+              href="configuracao-autoavaliacao.html"
+              class="edit-link"
+              aria-label="Editar questão de Respeito e Convivência"
+              >Editar questão</a
+            >
+          </div>
+
+          <h3 class="question-statement">
+            Como você percebe essa atitude no seu dia a dia?
+          </h3>
+
+          <div class="question-divider" aria-hidden="true"></div>
+
+          <div class="options-header-row">
+            <span class="options-label">Alternativas de resposta</span>
+            <a
+              href="configuracao-autoavaliacao.html"
+              class="edit-link"
+              aria-label="Editar alternativas de Respeito e Convivência"
+              >Editar alternativas</a
+            >
+          </div>
+
+          <div class="options-list">
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">1</span>
+              <span class="option-text"
+                >Ainda estou desenvolvendo essa atitude</span
+              >
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">2</span>
+              <span class="option-text">Consigo em poucas situações</span>
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">3</span>
+              <span class="option-text">Consigo em algumas situações</span>
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">4</span>
+              <span class="option-text">Consigo na maioria das situações</span>
+            </div>
+            <div class="option-item">
+              <span class="option-number" aria-hidden="true">5</span>
+              <span class="option-text"
+                >Pratico essa atitude com frequência</span
+              >
+            </div>
+          </div>
+        </article>
+
+        <!-- Botão Salvar e Voltar -->
+        <a
+          href="configuracao-autoavaliacao.html"
+          class="btn-salvar-voltar"
+          aria-label="Salvar e voltar para Configuração de Autoavaliação"
+        >
+          <svg
+            width="16"
+            height="14"
+            viewBox="0 0 14 12"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M13 6H1M6 11L1 6L6 1" />
+          </svg>
+          <span>Salvar e voltar</span>
+        </a>
+      </main>
+
+      <!-- Barra de Navegação Inferior (Mobile) - Idêntica a turmas.html -->
+      <nav class="bottom-nav" aria-label="Navegação principal">
+        <!-- 1. Início -->
+        <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
+          <div class="nav-icon" aria-hidden="true">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"
+              />
+            </svg>
+          </div>
+          <span class="nav-label">Início</span>
+        </a>
+
+        <!-- 2. Alertas -->
+        <a href="sistema-alerta-precoce.html" class="nav-tab">
+          <div class="nav-icon" aria-hidden="true">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
+              />
+              <path d="M8.33 17.5h3.34" />
+            </svg>
+          </div>
+          <span class="nav-label">Alertas</span>
+        </a>
+
+        <!-- 3. Turmas (Ativo) -->
+        <a href="turmas.html" class="nav-tab active" aria-current="page">
+          <span class="nav-indicator-bar" aria-hidden="true"></span>
+          <div class="nav-icon" aria-hidden="true">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M10 5.833v11.667" />
+              <path
+                d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"
+              />
+            </svg>
+          </div>
+          <span class="nav-label">Turmas</span>
+        </a>
+
+        <!-- 4. Agregadores -->
+        <a href="dashboard-agregador-visao-central.html" class="nav-tab">
+          <div class="nav-icon" aria-hidden="true">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5" />
+              <path d="M12.5 5h5v5" />
+            </svg>
+          </div>
+          <span class="nav-label">Agregadores</span>
+        </a>
+
+        <!-- 5. Perfil -->
+        <a href="#modal-perfil" class="nav-tab">
+          <div class="nav-icon" aria-hidden="true">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <ellipse cx="12" cy="8" rx="4" ry="4" />
+              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2" />
+            </svg>
+          </div>
+          <span class="nav-label">Perfil</span>
+        </a>
+      </nav>
+    </div>
+  </body>
+</html>

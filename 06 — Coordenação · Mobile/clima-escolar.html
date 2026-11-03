@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Clima Escolar · Coordenação · Mobile · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-subtle: #8194aa;
+      --color-primary: #2563eb;
+      --color-primary-light: #eff6ff;
+      --color-danger: #ef4444;
+      --color-danger-light: #fee2e2;
+      --color-warning: #b45309;
+      --color-warning-light: #fef3c7;
+      --color-success: #16a34a;
+      --color-success-light: #dcfce7;
+      --color-purple: #9333ea;
+      --color-purple-light: #f3e8ff;
+      --color-amber: #ea580c;
+      --color-amber-light: #ffedd5;
+      --color-teal: #0f766e;
+      --color-teal-light: #ccfbf1;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
+
+    /* Ocultar barra de rolagem visual mantendo a rolagem ativa */
+    * {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    *::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Container de visualização Mobile (390px x 844px) */
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    /* Cabeçalho Superior Mobile (72px) - Idêntico a painel-inicial */
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brand-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+    }
+
+    .brand-badge {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .header-notification-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .header-notification-btn:hover {
+      background-color: #f8fafc;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 9px;
+      right: 10px;
+      width: 7.5px;
+      height: 7.5px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      border: 1.5px solid #ffffff;
+    }
+
+    /* Conteúdo Rolável (Main) */
+    .screen-content {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 16px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Título & Subtítulo da Página */
+    .page-hero {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .page-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+    }
+
+    .page-subtitle {
+      font-size: 12.5px;
+      font-weight: 400;
+      color: #64748b;
+      line-height: 1.45;
+    }
+
+    /* Seção Filtros */
+    .filters-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .filters-heading {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: -0.2px;
+    }
+
+    .filters-row-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .filter-group.full-width {
+      width: 100%;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    .select-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .filter-select {
+      width: 100%;
+      height: 34px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0 28px 0 10px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #1e293b;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .filter-select:focus {
+      border-color: var(--color-primary);
+    }
+
+    .select-chevron {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .filter-actions-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 2px;
+    }
+
+    .btn-exportar-resumo {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      height: 30px;
+      padding: 0 12px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-primary);
+      border-radius: var(--radius-sm);
+      color: var(--color-primary);
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-exportar-resumo:hover {
+      background-color: var(--color-primary-light);
+    }
+
+    .btn-exportar-resumo:active {
+      transform: scale(0.98);
+    }
+
+    /* Grid de KPIs 2x2 */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .kpi-card {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      bottom: 10px;
+      width: 3px;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .kpi-card.accent-blue::before { background-color: var(--color-primary); }
+    .kpi-card.accent-green::before { background-color: var(--color-success); }
+    .kpi-card.accent-amber::before { background-color: #ea580c; }
+    .kpi-card.accent-purple::before { background-color: var(--color-purple); }
+
+    .kpi-top-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .kpi-score-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 24px;
+      padding: 0 4px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .kpi-score-badge.blue { background-color: var(--color-primary-light); color: var(--color-primary); }
+    .kpi-score-badge.green { background-color: var(--color-success-light); color: var(--color-success); }
+    .kpi-score-badge.amber { background-color: var(--color-amber-light); color: var(--color-amber); }
+    .kpi-score-badge.purple { background-color: var(--color-purple-light); color: var(--color-purple); }
+
+    .kpi-title {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: #64748b;
+      line-height: 1.25;
+      padding-top: 2px;
+    }
+
+    .kpi-main-val {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 2px;
+    }
+
+    .kpi-detail-text {
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+
+    .kpi-detail-text.blue { color: var(--color-primary); }
+    .kpi-detail-text.green { color: var(--color-success); }
+    .kpi-detail-text.amber { color: #d97706; }
+    .kpi-detail-text.purple { color: var(--color-purple); }
+
+    /* Cards Gerais (Gráficos e Listas) */
+    .chart-card {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .chart-card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .chart-card-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: -0.2px;
+    }
+
+    .chart-card-subtitle {
+      font-size: 11px;
+      font-weight: 400;
+      color: #64748b;
+    }
+
+    .chart-legend-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .legend-color-box {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .legend-color-box.blue { background-color: var(--color-primary); }
+    .legend-color-box.green { background-color: var(--color-success); }
+    .legend-color-box.yellow { background-color: #f59e0b; }
+    .legend-color-box.red { background-color: #ef4444; }
+
+    .legend-text {
+      font-size: 11px;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    /* Gráfico de Evolução (Barras com Grid Y) */
+    .bar-chart-container {
+      position: relative;
+      height: 180px;
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bar-chart-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .grid-line-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .y-label {
+      width: 12px;
+      font-size: 10px;
+      color: #94a3b8;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .grid-line {
+      flex: 1;
+      height: 1px;
+      background-color: #f1f5f9;
+    }
+
+    .bars-plot-area {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 4px;
+    }
+
+    .bar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      justify-content: flex-end;
+      width: 32px;
+    }
+
+    .bar-val-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 5px;
+    }
+
+    .bar-val-label.bold-blue {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .bar-fill-track {
+      width: 22px;
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .bar-fill {
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+      transition: height 0.3s ease;
+    }
+
+    .bar-fill.light-blue {
+      background-color: #93c5fd;
+    }
+
+    .bar-fill.solid-blue {
+      background-color: var(--color-primary);
+    }
+
+    .bar-x-label {
+      font-size: 10.5px;
+      color: #64748b;
+      margin-top: 6px;
+      height: 18px;
+    }
+
+    /* Dimensões do Clima */
+    .dim-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .dim-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .dim-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dim-name {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .dim-score {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .dim-track {
+      width: 100%;
+      height: 6px;
+      background-color: #f1f5f9;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .dim-fill {
+      height: 100%;
+      background-color: var(--color-primary);
+      border-radius: var(--radius-full);
+      transition: width 0.3s ease;
+    }
+
+    /* Distribuição das Percepções */
+    .stacked-legend-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .stacked-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .distrib-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .distrib-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .distrib-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .distrib-name {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .distrib-pcts {
+      font-size: 11px;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    .distrib-stacked-bar {
+      width: 100%;
+      height: 8px;
+      background-color: #f1f5f9;
+      border-radius: 4px;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .stack-seg {
+      height: 100%;
+    }
+
+    .stack-seg.green { background-color: var(--color-success); }
+    .stack-seg.yellow { background-color: #f59e0b; }
+    .stack-seg.red { background-color: #ef4444; }
+
+    /* Ações de Fortalecimento */
+    .actions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .action-card-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .action-item-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .action-item-meta {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .action-item-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .status-badge.blue {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+
+    .status-badge.amber {
+      background-color: var(--color-warning-light);
+      color: var(--color-warning);
+    }
+
+    .status-badge.teal {
+      background-color: var(--color-teal-light);
+      color: var(--color-teal);
+    }
+
+    .action-item-date {
+      font-size: 10.5px;
+      color: #64748b;
+    }
+
+    .action-divider {
+      border: none;
+      border-top: 1px solid #f1f5f9;
+      margin: 0;
+    }
+
+    /* Barra de Navegação Inferior (Mobile) - Idêntica a painel-inicial */
+    .bottom-nav {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: stretch;
+      justify-content: space-around;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .nav-tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      position: relative;
+      transition: color 0.15s ease;
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 3px;
+      background-color: var(--color-primary);
+      border-radius: 0 0 3px 3px;
+      display: none;
+    }
+
+    .nav-tab.active .nav-indicator-bar {
+      display: block;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mockup Mobile Screen Wrapper (390px x 844px) -->
+  <div class="mobile-screen-wrapper">
+
+    <!-- Cabeçalho Mobile: Coordenação -->
+    <header class="mobile-header">
+      <div class="brand-section">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <span class="brand-text">Educar &amp; Aprender</span>
+          <span class="brand-badge">Coordenação Pedagógica</span>
+        </div>
+      </div>
+
+      <a href="sistema-alerta-precoce.html" class="header-notification-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="notification-dot" aria-hidden="true"></span>
+      </a>
+    </header>
+
+    <!-- Conteúdo Rolável -->
+    <main class="screen-content">
+
+      <!-- Título & Descrição da Página -->
+      <section class="page-hero">
+        <h1 class="page-title">Dashboard de clima escolar</h1>
+        <p class="page-subtitle">Percepções coletivas, tendências e ações de fortalecimento.</p>
+      </section>
+
+      <!-- Filtros do Painel -->
+      <section class="filters-section" aria-label="Filtros do painel">
+        <h2 class="filters-heading">Filtros do painel</h2>
+
+        <div class="filters-row-grid">
+          <div class="filter-group">
+            <label class="filter-label" for="filter-periodo">Período</label>
+            <div class="select-wrapper">
+              <select id="filter-periodo" class="filter-select">
+                <option value="6m" selected>Últimos 6 meses</option>
+                <option value="3m">Últimos 3 meses</option>
+                <option value="12m">Último ano</option>
+              </select>
+              <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="filter-unidade">Unidade escolar</label>
+            <div class="select-wrapper">
+              <select id="filter-unidade" class="filter-select">
+                <option value="todas" selected>Todas as unidades</option>
+                <option value="sede">Unidade Sede</option>
+                <option value="norte">Unidade Norte</option>
+              </select>
+              <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group full-width">
+          <label class="filter-label" for="filter-segmento">Segmento</label>
+          <div class="select-wrapper">
+            <select id="filter-segmento" class="filter-select">
+              <option value="fundamental" selected>Ensino fundamental</option>
+              <option value="medio">Ensino médio</option>
+              <option value="todos">Todos os segmentos</option>
+            </select>
+            <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+
+        <div class="filter-actions-row">
+          <button type="button" class="btn-exportar-resumo" aria-label="Exportar resumo">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+            <span>Exportar resumo</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Indicadores Rápidos (KPIs 2x2) -->
+      <div class="kpi-grid">
+        <!-- Card 1: Índice de clima escolar -->
+        <article class="kpi-card accent-blue">
+          <div class="kpi-top-row">
+            <span class="kpi-score-badge blue">3,8</span>
+            <span class="kpi-title">Índice de clima escolar</span>
+          </div>
+          <div class="kpi-main-val">3,8 / 5</div>
+          <div class="kpi-detail-text blue">Percepção geral favorável</div>
+        </article>
+
+        <!-- Card 2: Pertencimento -->
+        <article class="kpi-card accent-green">
+          <div class="kpi-top-row">
+            <span class="kpi-score-badge green">4,1</span>
+            <span class="kpi-title">Pertencimento</span>
+          </div>
+          <div class="kpi-main-val">4,1 / 5</div>
+          <div class="kpi-detail-text green">Maior resultado</div>
+        </article>
+
+        <!-- Card 3: Colaboração -->
+        <article class="kpi-card accent-amber">
+          <div class="kpi-top-row">
+            <span class="kpi-score-badge amber">3,4</span>
+            <span class="kpi-title">Colaboração</span>
+          </div>
+          <div class="kpi-main-val">3,4 / 5</div>
+          <div class="kpi-detail-text amber">Fortalecer</div>
+        </article>
+
+        <!-- Card 4: Turmas para acompanhamento -->
+        <article class="kpi-card accent-purple">
+          <div class="kpi-top-row">
+            <span class="kpi-score-badge purple">4</span>
+            <span class="kpi-title">Turmas para acompanhamento</span>
+          </div>
+          <div class="kpi-main-val">4 de 12</div>
+          <div class="kpi-detail-text purple">Sinal coletivo</div>
+        </article>
+      </div>
+
+      <!-- Evolução do Clima Escolar -->
+      <section class="chart-card" aria-label="Evolução do clima escolar">
+        <div class="chart-card-header">
+          <h2 class="chart-card-title">Evolução do clima escolar</h2>
+          <p class="chart-card-subtitle">Índice médio das respostas · escala de 1 a 5</p>
+          <div class="chart-legend-row">
+            <span class="legend-color-box blue"></span>
+            <span class="legend-text">Índice geral</span>
+          </div>
+        </div>
+
+        <div class="bar-chart-container">
+          <div class="bar-chart-grid">
+            <div class="grid-line-row"><span class="y-label">5</span><div class="grid-line"></div></div>
+            <div class="grid-line-row"><span class="y-label">4</span><div class="grid-line"></div></div>
+            <div class="grid-line-row"><span class="y-label">3</span><div class="grid-line"></div></div>
+            <div class="grid-line-row"><span class="y-label">2</span><div class="grid-line"></div></div>
+            <div class="grid-line-row"><span class="y-label">1</span><div class="grid-line"></div></div>
+          </div>
+          <div class="bars-plot-area">
+            <!-- Mai: 3.2 -->
+            <div class="bar-col">
+              <span class="bar-val-label">3,2</span>
+              <div class="bar-fill-track">
+                <div class="bar-fill light-blue" style="height: 64%;"></div>
+              </div>
+              <span class="bar-x-label">Mai</span>
+            </div>
+            <!-- Jun: 3.4 -->
+            <div class="bar-col">
+              <span class="bar-val-label">3,4</span>
+              <div class="bar-fill-track">
+                <div class="bar-fill light-blue" style="height: 68%;"></div>
+              </div>
+              <span class="bar-x-label">Jun</span>
+            </div>
+            <!-- Jul: 3.5 -->
+            <div class="bar-col">
+              <span class="bar-val-label">3,5</span>
+              <div class="bar-fill-track">
+                <div class="bar-fill light-blue" style="height: 70%;"></div>
+              </div>
+              <span class="bar-x-label">Jul</span>
+            </div>
+            <!-- Ago: 3.5 -->
+            <div class="bar-col">
+              <span class="bar-val-label">3,5</span>
+              <div class="bar-fill-track">
+                <div class="bar-fill light-blue" style="height: 70%;"></div>
+              </div>
+              <span class="bar-x-label">Ago</span>
+            </div>
+            <!-- Set: 3.6 -->
+            <div class="bar-col">
+              <span class="bar-val-label">3,6</span>
+              <div class="bar-fill-track">
+                <div class="bar-fill light-blue" style="height: 72%;"></div>
+              </div>
+              <span class="bar-x-label">Set</span>
+            </div>
+            <!-- Out: 3.8 (Ativo / Destaque) -->
+            <div class="bar-col">
+              <span class="bar-val-label bold-blue">3,8</span>
+              <div class="bar-fill-track">
+                <div class="bar-fill solid-blue" style="height: 76%;"></div>
+              </div>
+              <span class="bar-x-label">Out</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dimensões do Clima -->
+      <section class="chart-card" aria-label="Dimensões do clima">
+        <div class="chart-card-header">
+          <h2 class="chart-card-title">Dimensões do clima</h2>
+          <p class="chart-card-subtitle">Média por dimensão · escala de 1 a 5</p>
+        </div>
+
+        <div class="dim-list">
+          <div class="dim-item">
+            <div class="dim-top">
+              <span class="dim-name">Pertencimento</span>
+              <span class="dim-score">4,1</span>
+            </div>
+            <div class="dim-track">
+              <div class="dim-fill" style="width: 82%;"></div>
+            </div>
+          </div>
+
+          <div class="dim-item">
+            <div class="dim-top">
+              <span class="dim-name">Respeito</span>
+              <span class="dim-score">3,9</span>
+            </div>
+            <div class="dim-track">
+              <div class="dim-fill" style="width: 78%;"></div>
+            </div>
+          </div>
+
+          <div class="dim-item">
+            <div class="dim-top">
+              <span class="dim-name">Segurança emocional</span>
+              <span class="dim-score">3,7</span>
+            </div>
+            <div class="dim-track">
+              <div class="dim-fill" style="width: 74%;"></div>
+            </div>
+          </div>
+
+          <div class="dim-item">
+            <div class="dim-top">
+              <span class="dim-name">Colaboração</span>
+              <span class="dim-score">3,4</span>
+            </div>
+            <div class="dim-track">
+              <div class="dim-fill" style="width: 68%;"></div>
+            </div>
+          </div>
+
+          <div class="dim-item">
+            <div class="dim-top">
+              <span class="dim-name">Participação</span>
+              <span class="dim-score">3,2</span>
+            </div>
+            <div class="dim-track">
+              <div class="dim-fill" style="width: 64%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Distribuição das Percepções -->
+      <section class="chart-card" aria-label="Distribuição das percepções">
+        <div class="chart-card-header">
+          <h2 class="chart-card-title">Distribuição das percepções</h2>
+          <p class="chart-card-subtitle">Proporção de respostas registradas no período</p>
+          <div class="stacked-legend-row">
+            <div class="stacked-legend-item">
+              <span class="legend-color-box green"></span>
+              <span class="legend-text">Favorável</span>
+            </div>
+            <div class="stacked-legend-item">
+              <span class="legend-color-box yellow"></span>
+              <span class="legend-text">Intermediária</span>
+            </div>
+            <div class="stacked-legend-item">
+              <span class="legend-color-box red"></span>
+              <span class="legend-text">Desfavorável</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="distrib-list">
+          <!-- Pertencimento: 87 / 10 / 3% -->
+          <div class="distrib-item">
+            <div class="distrib-top">
+              <span class="distrib-name">Pertencimento</span>
+              <span class="distrib-pcts">87 / 10 / 3%</span>
+            </div>
+            <div class="distrib-stacked-bar">
+              <div class="stack-seg green" style="width: 87%;"></div>
+              <div class="stack-seg yellow" style="width: 10%;"></div>
+              <div class="stack-seg red" style="width: 3%;"></div>
+            </div>
+          </div>
+
+          <!-- Respeito: 83 / 13 / 4% -->
+          <div class="distrib-item">
+            <div class="distrib-top">
+              <span class="distrib-name">Respeito</span>
+              <span class="distrib-pcts">83 / 13 / 4%</span>
+            </div>
+            <div class="distrib-stacked-bar">
+              <div class="stack-seg green" style="width: 83%;"></div>
+              <div class="stack-seg yellow" style="width: 13%;"></div>
+              <div class="stack-seg red" style="width: 4%;"></div>
+            </div>
+          </div>
+
+          <!-- Segurança emocional: 78 / 16 / 6% -->
+          <div class="distrib-item">
+            <div class="distrib-top">
+              <span class="distrib-name">Segurança emocional</span>
+              <span class="distrib-pcts">78 / 16 / 6%</span>
+            </div>
+            <div class="distrib-stacked-bar">
+              <div class="stack-seg green" style="width: 78%;"></div>
+              <div class="stack-seg yellow" style="width: 16%;"></div>
+              <div class="stack-seg red" style="width: 6%;"></div>
+            </div>
+          </div>
+
+          <!-- Colaboração: 72 / 20 / 8% -->
+          <div class="distrib-item">
+            <div class="distrib-top">
+              <span class="distrib-name">Colaboração</span>
+              <span class="distrib-pcts">72 / 20 / 8%</span>
+            </div>
+            <div class="distrib-stacked-bar">
+              <div class="stack-seg green" style="width: 72%;"></div>
+              <div class="stack-seg yellow" style="width: 20%;"></div>
+              <div class="stack-seg red" style="width: 8%;"></div>
+            </div>
+          </div>
+
+          <!-- Participação: 66 / 24 / 10% -->
+          <div class="distrib-item">
+            <div class="distrib-top">
+              <span class="distrib-name">Participação</span>
+              <span class="distrib-pcts">66 / 24 / 10%</span>
+            </div>
+            <div class="distrib-stacked-bar">
+              <div class="stack-seg green" style="width: 66%;"></div>
+              <div class="stack-seg yellow" style="width: 24%;"></div>
+              <div class="stack-seg red" style="width: 10%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ações de Fortalecimento -->
+      <section class="chart-card" aria-label="Ações de fortalecimento">
+        <div class="chart-card-header">
+          <h2 class="chart-card-title">Ações de fortalecimento</h2>
+          <p class="chart-card-subtitle">Acompanhe iniciativas para melhorar o clima escolar.</p>
+        </div>
+
+        <div class="actions-list">
+          <!-- Ação 1 -->
+          <div class="action-card-item">
+            <h3 class="action-item-title">Rodas de diálogo por turma</h3>
+            <p class="action-item-meta">7º ano · Responsável: orientação</p>
+            <div class="action-item-footer">
+              <span class="status-badge blue">EM ANDAMENTO</span>
+              <span class="action-item-date">Revisão: 04 nov.</span>
+            </div>
+          </div>
+
+          <hr class="action-divider" />
+
+          <!-- Ação 2 -->
+          <div class="action-card-item">
+            <h3 class="action-item-title">Acordos de convivência</h3>
+            <p class="action-item-meta">6º e 7º anos · Coordenação</p>
+            <div class="action-item-footer">
+              <span class="status-badge amber">PLANEJADA</span>
+              <span class="action-item-date">Início: 29 out.</span>
+            </div>
+          </div>
+
+          <hr class="action-divider" />
+
+          <!-- Ação 3 -->
+          <div class="action-card-item">
+            <h3 class="action-item-title">Escuta sobre pertencimento</h3>
+            <p class="action-item-meta">Todas as turmas · Orientação</p>
+            <div class="action-item-footer">
+              <span class="status-badge teal">EM AVALIAÇÃO</span>
+              <span class="action-item-date">Revisão: 12 nov.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Barra de Navegação Inferior (Mobile) - Idêntica a painel-inicial com Agregadores Ativo -->
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <!-- 1. Início -->
+      <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <!-- 2. Alertas -->
+      <a href="sistema-alerta-precoce.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+            <path d="M8.33 17.5h3.34"/>
+          </svg>
+        </div>
+        <span class="nav-label">Alertas</span>
+      </a>
+
+      <!-- 3. Turmas -->
+      <a href="turmas.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 5.833v11.667"/>
+            <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Turmas</span>
+      </a>
+
+      <!-- 4. Agregadores (Ativo) -->
+      <a href="clima-escolar.html" class="nav-tab active" aria-current="page">
+        <span class="nav-indicator-bar" aria-hidden="true"></span>
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
+            <path d="M12.5 5h5v5"/>
+          </svg>
+        </div>
+        <span class="nav-label">Agregadores</span>
+      </a>
+
+      <!-- 5. Perfil -->
+      <a href="#modal-perfil" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="8" rx="4" ry="4"/>
+            <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+  </div>
+
+</body>
+</html>
+

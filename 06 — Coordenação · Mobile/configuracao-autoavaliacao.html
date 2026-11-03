@@ -243,14 +243,34 @@
       padding: 14px 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 12px;
     }
 
-    .selected-class-info {
+    .selected-class-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-primary);
+    }
+
+    .selected-class-body {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .selected-class-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
     }
 
     .selected-class-tag {
@@ -261,26 +281,8 @@
       text-transform: uppercase;
     }
 
-    .selected-class-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--color-text-main);
-    }
-
-    .selected-class-etapa {
-      font-size: 11px;
-      color: var(--color-text-muted);
-    }
-
-    .selected-class-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-    }
-
     .alterar-turma-link {
-      font-size: 10px;
+      font-size: 10.5px;
       font-weight: 600;
       color: var(--color-primary);
       text-decoration: none;
@@ -292,10 +294,29 @@
       text-decoration: underline;
     }
 
+    .selected-class-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin: 1px 0;
+    }
+
+    .selected-class-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .selected-class-etapa {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
     .students-badge {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       font-size: 11px;
       font-weight: 500;
       color: var(--color-text-muted);
@@ -325,12 +346,12 @@
     }
 
     .config-badge {
-      padding: 3px 8px;
+      padding: 4px 16px;
       background-color: var(--color-primary-light);
       color: var(--color-primary);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
     .config-card-subtitle {
@@ -357,8 +378,8 @@
       height: 42px;
       border: 1px solid var(--color-border-subtle);
       border-radius: 9px;
-      background-color: #f8fafc;
-      padding: 0 12px;
+      background-color: #ffffff;
+      padding: 0 14px;
       font-size: 12px;
       font-family: inherit;
       color: var(--color-text-main);
@@ -368,7 +389,6 @@
 
     .text-input:focus {
       border-color: var(--color-primary);
-      background-color: #ffffff;
     }
 
     /* Lista de Dimensões Atitudinais */
@@ -379,28 +399,28 @@
     }
 
     .dimension-option {
-      height: 44px;
-      background-color: #f8fafc;
+      height: 46px;
+      background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
-      border-radius: 9px;
-      padding: 0 12px;
+      border-radius: 10px;
+      padding: 0 14px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       cursor: pointer;
       user-select: none;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .dimension-option:hover {
-      background-color: #f1f5f9;
+      border-color: #b9d0ee;
     }
 
     .dimension-checkbox {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border-radius: 5px;
-      border: 1.5px solid #cbd5e1;
+      border: 1.5px solid var(--color-border-subtle);
       background-color: #ffffff;
       display: flex;
       align-items: center;
@@ -424,21 +444,23 @@
     }
 
     /* Cartão Prazo para Responder */
-    .date-display-box {
-      background-color: #f8fafc;
-      border: 1px solid var(--color-border-subtle);
-      border-radius: 9px;
-      padding: 10px 14px;
+    .prazo-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 2px;
+    }
+
+    .prazo-left {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
     .date-icon-box {
-      width: 36px;
-      height: 36px;
-      background-color: var(--color-primary-light);
-      border-radius: 8px;
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -453,14 +475,21 @@
     }
 
     .date-value {
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
       color: var(--color-text-main);
     }
 
     .date-subtext {
-      font-size: 10px;
+      font-size: 10.5px;
       color: var(--color-text-muted);
+    }
+
+    .prazo-chevron {
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Ações Inferiores (Prévia & Finalizar) */
@@ -468,19 +497,20 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-top: 6px;
+      margin-top: 2px;
+      margin-bottom: 8px;
     }
 
     .btn-secondary {
       height: 46px;
-      background-color: #e7ecf2;
-      border: 1px solid #d7e0e9;
+      background-color: #e8edf5;
+      border: none;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      color: #718096;
+      color: #60758b;
       font-size: 13px;
       font-weight: 600;
       text-decoration: none;
@@ -488,7 +518,7 @@
     }
 
     .btn-secondary:hover {
-      background-color: #d9e1ea;
+      background-color: #dde5ef;
     }
 
     .btn-primary {
@@ -504,13 +534,17 @@
       font-size: 13px;
       font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
-      transition: background-color 0.15s ease;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+      transition: background-color 0.15s ease, transform 0.1s ease;
       cursor: pointer;
     }
 
     .btn-primary:hover {
       background-color: #1d4ed8;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.99);
     }
 
     /* Barra de Navegação Inferior (Mobile) - Idêntica a turmas.html */
@@ -617,22 +651,34 @@
 
       <!-- Cartão: Turma Selecionada -->
       <section class="selected-class-card" aria-label="Turma selecionada">
-        <div class="selected-class-info">
-          <span class="selected-class-tag">TURMA SELECIONADA</span>
-          <span class="selected-class-name">6º ano A</span>
-          <span class="selected-class-etapa">Ensino Fundamental II</span>
+        <div class="selected-class-avatar" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
         </div>
 
-        <div class="selected-class-right">
-          <a href="turmas.html" class="alterar-turma-link" aria-label="Alterar turma selecionada">Alterar turma</a>
-          <div class="students-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-            <span>28 estudantes</span>
+        <div class="selected-class-body">
+          <div class="selected-class-top-row">
+            <span class="selected-class-tag">TURMA SELECIONADA</span>
+            <a href="turmas.html" class="alterar-turma-link" aria-label="Alterar turma selecionada">Alterar turma</a>
+          </div>
+
+          <h3 class="selected-class-name">6º ano A</h3>
+
+          <div class="selected-class-bottom-row">
+            <span class="selected-class-etapa">Ensino Fundamental II</span>
+            <div class="students-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <span>28 estudantes</span>
+            </div>
           </div>
         </div>
       </section>
@@ -698,37 +744,42 @@
 
       <!-- Cartão: Prazo para Responder -->
       <section class="config-card" aria-label="Prazo para responder">
-        <div class="config-card-header">
-          <h2 class="config-card-title">Prazo para responder</h2>
-        </div>
+        <label class="input-label">Prazo para responder</label>
 
-        <div class="date-display-box">
-          <div class="date-icon-box" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
+        <div class="prazo-row">
+          <div class="prazo-left">
+            <div class="date-icon-box" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div class="date-info">
+              <span class="date-value">30 out. 2026</span>
+              <span class="date-subtext">Sexta-feira · Data limite</span>
+            </div>
           </div>
-          <div class="date-info">
-            <span class="date-value">30 out. 2026</span>
-            <span class="date-subtext">Sexta-feira · Data limite</span>
+          <div class="prazo-chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </div>
         </div>
       </section>
 
       <!-- Ações: Prévia e Finalizar -->
       <section class="actions-grid" aria-label="Ações de configuração">
-        <a href="../05 — Coordenação · Desktop/previa-autoavaliacao.html" class="btn-secondary" aria-label="Visualizar prévia da autoavaliação">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-            <circle cx="12" cy="12" r="3"/>
+        <a href="previa-autoavaliacao.html" class="btn-secondary" aria-label="Visualizar prévia da autoavaliação">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
           <span>Prévia</span>
         </a>
 
-        <a href="autoavaliacoes-turma-6ano-a.html" class="btn-primary" aria-label="Finalizar e publicar autoavaliação">
+        <a href="autoavaliacao-criada.html" class="btn-primary" aria-label="Finalizar e publicar autoavaliação">
           <span>Finalizar</span>
         </a>
       </section>
