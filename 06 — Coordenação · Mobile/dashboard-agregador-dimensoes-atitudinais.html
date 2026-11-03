@@ -42,7 +42,6 @@
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
-    /* Ocultar barra de rolagem visual mantendo a rolagem ativa */
     * {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -75,7 +74,6 @@
       overflow-x: hidden;
     }
 
-    /* Container de visualização Mobile (390px x 844px) */
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -111,7 +109,6 @@
       }
     }
 
-    /* Cabeçalho Superior Mobile (72px) - Padrão */
     .mobile-header {
       width: 100%;
       height: 72px;
@@ -198,7 +195,6 @@
       border: 1.5px solid #ffffff;
     }
 
-    /* Conteúdo Rolável (Main) */
     .screen-content {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -211,7 +207,6 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Título da Página */
     .page-title {
       font-size: 22px;
       font-weight: 700;
@@ -220,7 +215,6 @@
       line-height: 1.25;
     }
 
-    /* Seção Filtros */
     .filters-section {
       display: flex;
       flex-direction: column;
@@ -279,7 +273,6 @@
       pointer-events: none;
     }
 
-    /* Campo de Pesquisa */
     .search-wrapper {
       position: relative;
       width: 100%;
@@ -315,7 +308,6 @@
       color: #94a3b8;
     }
 
-    /* Grid de KPIs 2x2 */
     .kpi-row-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -379,7 +371,6 @@
       white-space: nowrap;
     }
 
-    /* Cards Gerais (Painéis) */
     .panel-card {
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
@@ -435,7 +426,6 @@
       color: #64748b;
     }
 
-    /* Gráfico de Linha */
     .chart-svg {
       width: 100%;
       height: 110px;
@@ -461,7 +451,6 @@
       margin-top: -2px;
     }
 
-    /* Colaboração por Turma (Barras Roxas com Valor) */
     .turmas-bar-list {
       display: flex;
       flex-direction: column;
@@ -507,7 +496,6 @@
       transition: width 0.3s ease;
     }
 
-    /* Seção: Leituras para investigação pedagógica */
     .leituras-section {
       display: flex;
       flex-direction: column;
@@ -614,7 +602,6 @@
       border-radius: var(--radius-full);
     }
 
-    /* Barra de Navegação Inferior (Mobile) - Padrão com Agregadores Ativo */
     .bottom-nav {
       width: 100%;
       height: 72px;
@@ -677,10 +664,8 @@
 </head>
 <body>
 
-  <!-- Mockup Mobile Screen Wrapper (390px x 844px) -->
   <div class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile: Coordenação -->
     <header class="mobile-header">
       <div class="brand-section">
         <div class="brand-icon" aria-hidden="true">
@@ -704,13 +689,10 @@
       </a>
     </header>
 
-    <!-- Conteúdo Rolável -->
     <main class="screen-content">
 
-      <!-- Título da Página -->
       <h1 class="page-title">Análise por dimensão atitudinal</h1>
 
-      <!-- Seção Filtros -->
       <section class="filters-section" aria-label="Filtros da dimensão">
         <div class="filters-row-grid">
           <div class="filter-group">
@@ -752,9 +734,7 @@
         </div>
       </section>
 
-      <!-- KPIs - Linha 1 -->
       <div class="kpi-row-grid">
-        <!-- Média da dimensão -->
         <article class="kpi-card">
           <div class="kpi-icon-box blue" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -769,7 +749,6 @@
           </div>
         </article>
 
-        <!-- Turmas abaixo de 3,0 -->
         <article class="kpi-card">
           <div class="kpi-icon-box amber" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -785,9 +764,7 @@
         </article>
       </div>
 
-      <!-- KPIs - Linha 2 -->
       <div class="kpi-row-grid">
-        <!-- Evolução no período -->
         <article class="kpi-card">
           <div class="kpi-icon-box green" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -801,7 +778,6 @@
           </div>
         </article>
 
-        <!-- Registros recentes -->
         <article class="kpi-card">
           <div class="kpi-icon-box purple" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -816,7 +792,6 @@
         </article>
       </div>
 
-      <!-- Painel: Evolução de colaboração -->
       <section class="panel-card" aria-label="Evolução de colaboração">
         <div class="panel-header">
           <h2 class="panel-title">Evolução de colaboração</h2>
@@ -831,12 +806,10 @@
         </div>
 
         <svg class="chart-svg" viewBox="0 0 326 110" preserveAspectRatio="none">
-          <!-- Horizontal Light Grid Lines -->
           <line x1="10" y1="18" x2="316" y2="18" stroke="#f1f5f9" stroke-width="1" />
           <line x1="10" y1="58" x2="316" y2="58" stroke="#f1f5f9" stroke-width="1" />
           <line x1="10" y1="92" x2="316" y2="92" stroke="#f1f5f9" stroke-width="1" />
 
-          <!-- Trend line (Purple) -->
           <polyline
             fill="none"
             stroke="#6366f1"
@@ -846,7 +819,6 @@
             points="24,78 80,76 136,73 192,72 248,70 302,68"
           />
 
-          <!-- Data Points -->
           <circle cx="24" cy="78" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
           <circle cx="80" cy="76" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
           <circle cx="136" cy="73" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
@@ -854,7 +826,6 @@
           <circle cx="248" cy="70" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
           <circle cx="302" cy="68" r="4.5" fill="#ffffff" stroke="#6366f1" stroke-width="2.5" />
 
-          <!-- X Months Labels -->
           <text x="24" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Mai</text>
           <text x="80" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Jun</text>
           <text x="136" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Jul</text>
@@ -866,7 +837,6 @@
         <p class="panel-insight-text">A evolução é positiva, embora gradual.</p>
       </section>
 
-      <!-- Painel: Colaboração por turma -->
       <section class="panel-card" aria-label="Colaboração por turma">
         <div class="panel-header">
           <h2 class="panel-title">Colaboração por turma</h2>
@@ -874,7 +844,6 @@
         </div>
 
         <div class="turmas-bar-list">
-          <!-- 7º ano B: 4,0 -->
           <div class="turma-bar-item">
             <div class="turma-bar-top">
               <span class="turma-bar-name">7º ano B</span>
@@ -885,7 +854,6 @@
             </div>
           </div>
 
-          <!-- 6º ano A: 3,8 -->
           <div class="turma-bar-item">
             <div class="turma-bar-top">
               <span class="turma-bar-name">6º ano A</span>
@@ -896,7 +864,6 @@
             </div>
           </div>
 
-          <!-- 9º ano B: 3,7 -->
           <div class="turma-bar-item">
             <div class="turma-bar-top">
               <span class="turma-bar-name">9º ano B</span>
@@ -907,7 +874,6 @@
             </div>
           </div>
 
-          <!-- 8º ano A: 3,1 -->
           <div class="turma-bar-item">
             <div class="turma-bar-top">
               <span class="turma-bar-name">8º ano A</span>
@@ -918,7 +884,6 @@
             </div>
           </div>
 
-          <!-- 6º ano C: 2,9 -->
           <div class="turma-bar-item">
             <div class="turma-bar-top">
               <span class="turma-bar-name">6º ano C</span>
@@ -933,14 +898,12 @@
         <p class="panel-warning-text">2 turmas abaixo da referência 3,0.</p>
       </section>
 
-      <!-- Seção: Leituras para investigação pedagógica -->
       <section class="leituras-section" aria-label="Leituras para investigação pedagógica">
         <div class="leituras-title-group">
           <h2 class="leituras-title">Leituras para investigação pedagógica</h2>
           <p class="leituras-subtitle">Dados agregados; não expõe estudante individual.</p>
         </div>
 
-        <!-- Tabela com rolagem horizontal -->
         <div class="table-container">
           <table class="leituras-table">
             <thead>
@@ -970,7 +933,6 @@
           </table>
         </div>
 
-        <!-- Instrução e barra visual de rolagem horizontal -->
         <div class="scroll-instruction-row">
           <span class="scroll-instruction-text">&harr; Deslize horizontalmente para acessar as demais colunas</span>
           <div class="scroll-track">
@@ -981,9 +943,7 @@
 
     </main>
 
-    <!-- Barra de Navegação Inferior (Mobile) - Padrão com Agregadores Ativo -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <!-- 1. Início -->
       <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -993,7 +953,6 @@
         <span class="nav-label">Início</span>
       </a>
 
-      <!-- 2. Alertas -->
       <a href="sistema-alerta-precoce.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1004,7 +963,6 @@
         <span class="nav-label">Alertas</span>
       </a>
 
-      <!-- 3. Turmas -->
       <a href="turmas.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1015,7 +973,6 @@
         <span class="nav-label">Turmas</span>
       </a>
 
-      <!-- 4. Agregadores (Ativo) -->
       <a href="dashboard-agregador-visao-central.html" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar" aria-hidden="true"></span>
         <div class="nav-icon" aria-hidden="true">
@@ -1027,7 +984,6 @@
         <span class="nav-label">Agregadores</span>
       </a>
 
-      <!-- 5. Perfil -->
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

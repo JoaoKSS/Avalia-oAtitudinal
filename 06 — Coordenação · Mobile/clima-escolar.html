@@ -41,7 +41,6 @@
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
-    /* Ocultar barra de rolagem visual mantendo a rolagem ativa */
     * {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -74,7 +73,6 @@
       overflow-x: hidden;
     }
 
-    /* Container de visualização Mobile (390px x 844px) */
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -110,7 +108,6 @@
       }
     }
 
-    /* Cabeçalho Superior Mobile (72px) - Idêntico a painel-inicial */
     .mobile-header {
       width: 100%;
       height: 72px;
@@ -197,7 +194,6 @@
       border: 1.5px solid #ffffff;
     }
 
-    /* Conteúdo Rolável (Main) */
     .screen-content {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -210,7 +206,6 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Título & Subtítulo da Página */
     .page-hero {
       display: flex;
       flex-direction: column;
@@ -232,7 +227,6 @@
       line-height: 1.45;
     }
 
-    /* Seção Filtros */
     .filters-section {
       display: flex;
       flex-direction: column;
@@ -333,7 +327,6 @@
       transform: scale(0.98);
     }
 
-    /* Grid de KPIs 2x2 */
     .kpi-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -416,7 +409,6 @@
     .kpi-detail-text.amber { color: #d97706; }
     .kpi-detail-text.purple { color: var(--color-purple); }
 
-    /* Cards Gerais (Gráficos e Listas) */
     .chart-card {
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
@@ -471,7 +463,6 @@
       color: #64748b;
     }
 
-    /* Gráfico de Evolução (Barras com Grid Y) */
     .bar-chart-container {
       position: relative;
       height: 180px;
@@ -576,7 +567,6 @@
       height: 18px;
     }
 
-    /* Dimensões do Clima */
     .dim-list {
       display: flex;
       flex-direction: column;
@@ -622,7 +612,6 @@
       transition: width 0.3s ease;
     }
 
-    /* Distribuição das Percepções */
     .stacked-legend-row {
       display: flex;
       align-items: center;
@@ -684,7 +673,6 @@
     .stack-seg.yellow { background-color: #f59e0b; }
     .stack-seg.red { background-color: #ef4444; }
 
-    /* Ações de Fortalecimento */
     .actions-list {
       display: flex;
       flex-direction: column;
@@ -751,7 +739,6 @@
       margin: 0;
     }
 
-    /* Barra de Navegação Inferior (Mobile) - Idêntica a painel-inicial */
     .bottom-nav {
       width: 100%;
       height: 72px;
@@ -814,10 +801,8 @@
 </head>
 <body>
 
-  <!-- Mockup Mobile Screen Wrapper (390px x 844px) -->
   <div class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile: Coordenação -->
     <header class="mobile-header">
       <div class="brand-section">
         <div class="brand-icon" aria-hidden="true">
@@ -841,16 +826,13 @@
       </a>
     </header>
 
-    <!-- Conteúdo Rolável -->
     <main class="screen-content">
 
-      <!-- Título & Descrição da Página -->
       <section class="page-hero">
         <h1 class="page-title">Dashboard de clima escolar</h1>
         <p class="page-subtitle">Percepções coletivas, tendências e ações de fortalecimento.</p>
       </section>
 
-      <!-- Filtros do Painel -->
       <section class="filters-section" aria-label="Filtros do painel">
         <h2 class="filters-heading">Filtros do painel</h2>
 
@@ -903,9 +885,7 @@
         </div>
       </section>
 
-      <!-- Indicadores Rápidos (KPIs 2x2) -->
       <div class="kpi-grid">
-        <!-- Card 1: Índice de clima escolar -->
         <article class="kpi-card accent-blue">
           <div class="kpi-top-row">
             <span class="kpi-score-badge blue">3,8</span>
@@ -915,7 +895,6 @@
           <div class="kpi-detail-text blue">Percepção geral favorável</div>
         </article>
 
-        <!-- Card 2: Pertencimento -->
         <article class="kpi-card accent-green">
           <div class="kpi-top-row">
             <span class="kpi-score-badge green">4,1</span>
@@ -925,7 +904,6 @@
           <div class="kpi-detail-text green">Maior resultado</div>
         </article>
 
-        <!-- Card 3: Colaboração -->
         <article class="kpi-card accent-amber">
           <div class="kpi-top-row">
             <span class="kpi-score-badge amber">3,4</span>
@@ -935,7 +913,6 @@
           <div class="kpi-detail-text amber">Fortalecer</div>
         </article>
 
-        <!-- Card 4: Turmas para acompanhamento -->
         <article class="kpi-card accent-purple">
           <div class="kpi-top-row">
             <span class="kpi-score-badge purple">4</span>
@@ -946,7 +923,6 @@
         </article>
       </div>
 
-      <!-- Evolução do Clima Escolar -->
       <section class="chart-card" aria-label="Evolução do clima escolar">
         <div class="chart-card-header">
           <h2 class="chart-card-title">Evolução do clima escolar</h2>
@@ -966,7 +942,6 @@
             <div class="grid-line-row"><span class="y-label">1</span><div class="grid-line"></div></div>
           </div>
           <div class="bars-plot-area">
-            <!-- Mai: 3.2 -->
             <div class="bar-col">
               <span class="bar-val-label">3,2</span>
               <div class="bar-fill-track">
@@ -974,7 +949,6 @@
               </div>
               <span class="bar-x-label">Mai</span>
             </div>
-            <!-- Jun: 3.4 -->
             <div class="bar-col">
               <span class="bar-val-label">3,4</span>
               <div class="bar-fill-track">
@@ -982,7 +956,6 @@
               </div>
               <span class="bar-x-label">Jun</span>
             </div>
-            <!-- Jul: 3.5 -->
             <div class="bar-col">
               <span class="bar-val-label">3,5</span>
               <div class="bar-fill-track">
@@ -990,7 +963,6 @@
               </div>
               <span class="bar-x-label">Jul</span>
             </div>
-            <!-- Ago: 3.5 -->
             <div class="bar-col">
               <span class="bar-val-label">3,5</span>
               <div class="bar-fill-track">
@@ -998,7 +970,6 @@
               </div>
               <span class="bar-x-label">Ago</span>
             </div>
-            <!-- Set: 3.6 -->
             <div class="bar-col">
               <span class="bar-val-label">3,6</span>
               <div class="bar-fill-track">
@@ -1006,7 +977,6 @@
               </div>
               <span class="bar-x-label">Set</span>
             </div>
-            <!-- Out: 3.8 (Ativo / Destaque) -->
             <div class="bar-col">
               <span class="bar-val-label bold-blue">3,8</span>
               <div class="bar-fill-track">
@@ -1018,7 +988,6 @@
         </div>
       </section>
 
-      <!-- Dimensões do Clima -->
       <section class="chart-card" aria-label="Dimensões do clima">
         <div class="chart-card-header">
           <h2 class="chart-card-title">Dimensões do clima</h2>
@@ -1078,7 +1047,6 @@
         </div>
       </section>
 
-      <!-- Distribuição das Percepções -->
       <section class="chart-card" aria-label="Distribuição das percepções">
         <div class="chart-card-header">
           <h2 class="chart-card-title">Distribuição das percepções</h2>
@@ -1100,7 +1068,6 @@
         </div>
 
         <div class="distrib-list">
-          <!-- Pertencimento: 87 / 10 / 3% -->
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Pertencimento</span>
@@ -1113,7 +1080,6 @@
             </div>
           </div>
 
-          <!-- Respeito: 83 / 13 / 4% -->
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Respeito</span>
@@ -1126,7 +1092,6 @@
             </div>
           </div>
 
-          <!-- Segurança emocional: 78 / 16 / 6% -->
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Segurança emocional</span>
@@ -1139,7 +1104,6 @@
             </div>
           </div>
 
-          <!-- Colaboração: 72 / 20 / 8% -->
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Colaboração</span>
@@ -1152,7 +1116,6 @@
             </div>
           </div>
 
-          <!-- Participação: 66 / 24 / 10% -->
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Participação</span>
@@ -1167,7 +1130,6 @@
         </div>
       </section>
 
-      <!-- Ações de Fortalecimento -->
       <section class="chart-card" aria-label="Ações de fortalecimento">
         <div class="chart-card-header">
           <h2 class="chart-card-title">Ações de fortalecimento</h2>
@@ -1175,7 +1137,6 @@
         </div>
 
         <div class="actions-list">
-          <!-- Ação 1 -->
           <div class="action-card-item">
             <h3 class="action-item-title">Rodas de diálogo por turma</h3>
             <p class="action-item-meta">7º ano · Responsável: orientação</p>
@@ -1187,7 +1148,6 @@
 
           <hr class="action-divider" />
 
-          <!-- Ação 2 -->
           <div class="action-card-item">
             <h3 class="action-item-title">Acordos de convivência</h3>
             <p class="action-item-meta">6º e 7º anos · Coordenação</p>
@@ -1199,7 +1159,6 @@
 
           <hr class="action-divider" />
 
-          <!-- Ação 3 -->
           <div class="action-card-item">
             <h3 class="action-item-title">Escuta sobre pertencimento</h3>
             <p class="action-item-meta">Todas as turmas · Orientação</p>
@@ -1213,9 +1172,7 @@
 
     </main>
 
-    <!-- Barra de Navegação Inferior (Mobile) - Idêntica a painel-inicial com Agregadores Ativo -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <!-- 1. Início -->
       <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1225,7 +1182,6 @@
         <span class="nav-label">Início</span>
       </a>
 
-      <!-- 2. Alertas -->
       <a href="sistema-alerta-precoce.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1236,7 +1192,6 @@
         <span class="nav-label">Alertas</span>
       </a>
 
-      <!-- 3. Turmas -->
       <a href="turmas.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1247,7 +1202,6 @@
         <span class="nav-label">Turmas</span>
       </a>
 
-      <!-- 4. Agregadores (Ativo) -->
       <a href="clima-escolar.html" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar" aria-hidden="true"></span>
         <div class="nav-icon" aria-hidden="true">
@@ -1259,7 +1213,6 @@
         <span class="nav-label">Agregadores</span>
       </a>
 
-      <!-- 5. Perfil -->
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

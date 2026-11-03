@@ -37,8 +37,6 @@
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
-    
-    /* Ocultar barra de rolagem visual mantendo a rolagem ativa */
     * {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -71,7 +69,6 @@
       overflow-x: hidden;
     }
 
-    /* Container de visualização Mobile (390px x 844px na visualização desktop) */
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -107,7 +104,6 @@
       }
     }
 
-    /* Cabeçalho Superior Mobile (72px) */
     .mobile-header {
       width: 100%;
       height: 72px;
@@ -194,7 +190,6 @@
       border: 1.5px solid #ffffff;
     }
 
-    /* Conteúdo Rolável (Main) */
     .screen-content {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -207,7 +202,6 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Título & Subtítulo da Página */
     .page-hero {
       display: flex;
       flex-direction: column;
@@ -230,7 +224,6 @@
       line-height: 1.45;
     }
 
-    /* Coluna de KPIs Rápidos */
     .kpis-list {
       display: flex;
       flex-direction: column;
@@ -310,7 +303,6 @@
       line-height: 1.2;
     }
 
-    /* Cards Padrão do Painel */
     .mobile-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
@@ -371,7 +363,6 @@
       border: none;
     }
 
-    /* Lista de Alertas Ativos */
     .alerts-list {
       display: flex;
       flex-direction: column;
@@ -468,8 +459,12 @@
       margin-top: 12px;
     }
 
+<<<<<<< HEAD
     /* Clima Escolar */
     .clima-score-badge {
+=======
+    .clima-score-header {
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
       display: flex;
       align-items: baseline;
       gap: 4px;
@@ -538,7 +533,17 @@
       flex-shrink: 0;
     }
 
+<<<<<<< HEAD
     /* Dashboards Agregadores (Atalhos) */
+=======
+    .card-footer-end {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding-top: 2px;
+    }
+
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
     .shortcuts-list {
       display: flex;
       flex-direction: column;
@@ -617,7 +622,6 @@
       flex-shrink: 0;
     }
 
-    /* Todas as Turmas */
     .turmas-card-panel {
       display: flex;
       flex-direction: column;
@@ -689,7 +693,6 @@
       opacity: 0.85;
     }
 
-    /* Barra de Navegação Inferior Mobile (Fixed no rodapé do container) */
     .bottom-nav {
       width: 100%;
       height: 72px;
@@ -756,10 +759,8 @@
 </head>
 <body>
 
-  <!-- Mockup Mobile Screen Wrapper (390px x 844px) -->
   <div class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile: Coordenação -->
     <header class="mobile-header">
       <div class="brand-section">
         <div class="brand-icon" aria-hidden="true">
@@ -783,18 +784,14 @@
       </a>
     </header>
 
-    <!-- Conteúdo Rolável -->
     <main class="screen-content">
 
-      <!-- Título de Boas-Vindas da Coordenação -->
       <section class="page-hero">
         <h1 class="page-title">Visão geral da escola</h1>
         <p class="page-subtitle">Acompanhe alertas ativos, clima escolar e intervenções pedagógicas em um só lugar.</p>
       </section>
 
-      <!-- 3 KPIs Rápidos -->
       <section class="kpis-list" aria-label="Indicadores rápidos">
-        <!-- KPI 1: Alertas Críticos -->
         <div class="kpi-card">
           <div class="kpi-icon-box danger" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -808,7 +805,6 @@
           </div>
         </div>
 
-        <!-- KPI 2: Alertas de Atenção -->
         <div class="kpi-card">
           <div class="kpi-icon-box warning" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
@@ -822,7 +818,6 @@
           </div>
         </div>
 
-        <!-- KPI 3: Estudantes Acompanhados -->
         <div class="kpi-card">
           <div class="kpi-icon-box primary" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -842,7 +837,6 @@
         </div>
       </section>
 
-      <!-- Painel: Alertas que precisam de atenção -->
       <section class="mobile-card" aria-label="Alertas que precisam de atenção">
         <div class="card-header-flex">
           <div class="card-title-group">
@@ -856,7 +850,6 @@
         </div>
 
         <div class="alerts-list">
-          <!-- Alerta 1: Gabriel Oliveira -->
           <div class="alert-item">
             <div class="alert-avatar" aria-hidden="true">MS</div>
             <div class="alert-details">
@@ -869,7 +862,10 @@
             </div>
           </div>
 
+<<<<<<< HEAD
           <!-- Alerta 2: Bruno Cardoso Lima -->
+=======
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
           <div class="alert-item">
             <div class="alert-avatar" aria-hidden="true">JL</div>
             <div class="alert-details">
@@ -882,7 +878,10 @@
             </div>
           </div>
 
+<<<<<<< HEAD
           <!-- Alerta 3: Ana Beatriz Ferraz -->
+=======
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
           <div class="alert-item">
             <div class="alert-avatar" aria-hidden="true">AR</div>
             <div class="alert-details">
@@ -899,7 +898,6 @@
         <p class="card-footer-note">3 de 12 alertas exibidos</p>
       </section>
 
-      <!-- Painel: Clima Escolar -->
       <section class="mobile-card" aria-label="Clima escolar" onclick="window.location.href='clima-escolar.html'" style="cursor: pointer;">
         <div class="card-header-flex">
           <div class="card-title-group">
@@ -915,7 +913,6 @@
         <hr class="card-divider" />
 
         <div class="clima-dimensions-list">
-          <!-- Responsabilidade: 4,1 -->
           <div class="clima-dimension-row">
             <span class="clima-dim-name">Responsabilidade</span>
             <div class="clima-dim-track">
@@ -924,7 +921,6 @@
             <span class="clima-dim-score">4,1</span>
           </div>
 
-          <!-- Colaboração: 3,6 -->
           <div class="clima-dimension-row">
             <span class="clima-dim-name">Colaboração</span>
             <div class="clima-dim-track">
@@ -933,7 +929,6 @@
             <span class="clima-dim-score">3,6</span>
           </div>
 
-          <!-- Autonomia: 3,9 -->
           <div class="clima-dimension-row">
             <span class="clima-dim-name">Autonomia</span>
             <div class="clima-dim-track">
@@ -942,7 +937,6 @@
             <span class="clima-dim-score">3,9</span>
           </div>
 
-          <!-- Participação: 3,4 -->
           <div class="clima-dimension-row">
             <span class="clima-dim-name">Participação</span>
             <div class="clima-dim-track">
@@ -951,7 +945,6 @@
             <span class="clima-dim-score">3,4</span>
           </div>
 
-          <!-- Respeito: 4,2 -->
           <div class="clima-dimension-row">
             <span class="clima-dim-name">Respeito</span>
             <div class="clima-dim-track">
@@ -969,7 +962,6 @@
         </a>
       </section>
 
-      <!-- Painel: Dashboards Agregadores -->
       <section class="mobile-card" aria-label="Dashboards agregadores">
         <div class="card-title-group" style="margin-bottom: 12px;">
           <h2 class="card-title">Dashboards agregadores</h2>
@@ -977,7 +969,6 @@
         </div>
 
         <div class="shortcuts-list">
-          <!-- Atalho 1: Por turma -->
           <a href="dashboard-agregador-analise-por-turma.html" class="shortcut-card-btn">
             <div class="shortcut-icon blue" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -992,7 +983,6 @@
             <span class="shortcut-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
-          <!-- Atalho 2: Por aluno -->
           <a href="dashboard-agregador-perfil-do-aluno.html" class="shortcut-card-btn">
             <div class="shortcut-icon purple" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1007,7 +997,6 @@
             <span class="shortcut-arrow" aria-hidden="true">&rarr;</span>
           </a>
 
-          <!-- Atalho 3: Por dimensão atitudinal -->
           <a href="dashboard-agregador-dimensoes-atitudinais.html" class="shortcut-card-btn">
             <div class="shortcut-icon green" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1024,7 +1013,6 @@
         </div>
       </section>
 
-      <!-- Painel: Todas as turmas -->
       <section class="mobile-card turmas-card-panel" aria-label="Todas as turmas">
         <div class="turmas-header-group">
           <div class="turmas-icon-box" aria-hidden="true">
@@ -1057,9 +1045,7 @@
 
     </main>
 
-    <!-- Barra de Navegação Inferior (Mobile) -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <!-- 1. Início (Ativo) -->
       <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar" aria-hidden="true"></span>
         <div class="nav-icon" aria-hidden="true">
@@ -1070,7 +1056,6 @@
         <span class="nav-label">Início</span>
       </a>
 
-      <!-- 2. Alertas -->
       <a href="sistema-alerta-precoce.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1081,7 +1066,6 @@
         <span class="nav-label">Alertas</span>
       </a>
 
-      <!-- 3. Turmas -->
       <a href="turmas.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1092,7 +1076,6 @@
         <span class="nav-label">Turmas</span>
       </a>
 
-      <!-- 4. Agregadores -->
       <a href="dashboard-agregador-visao-central.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1103,7 +1086,6 @@
         <span class="nav-label">Agregadores</span>
       </a>
 
-      <!-- 5. Perfil -->
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

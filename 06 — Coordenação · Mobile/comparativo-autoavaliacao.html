@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Comparativo de Autoavaliação · Coordenação · Mobile 390 × 1394</title>
 
-  <!-- Favicon adaptativo oficial -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)" />
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
   <link rel="alternate icon" href="../assets/favicon.svg" />
@@ -32,7 +31,6 @@
       --color-warning-light: #fff4d6;
     }
 
-    /* Ocultar barra de rolagem visual mantendo a rolagem ativa em todo o container mobile */
     * {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -65,7 +63,6 @@
       overflow-x: hidden;
     }
 
-    /* Container do Mockup Mobile: 390px × 844px padrão */
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -101,7 +98,6 @@
       }
     }
 
-    /* Cabeçalho Superior Mobile (72px) - Idêntico a turmas.html */
     .mobile-header {
       width: 100%;
       height: 72px;
@@ -186,7 +182,6 @@
       border-radius: 50%;
     }
 
-    /* Conteúdo Principal com Rolagem */
     .screen-content {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -196,10 +191,9 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      padding-bottom: 150px; /* espaço para o rodapé + barra de ação fixa */
+      padding-bottom: 150px;
     }
 
-    /* Botão Voltar */
     .back-nav-link {
       display: inline-flex;
       align-items: center;
@@ -218,7 +212,6 @@
       text-decoration: underline;
     }
 
-    /* Título & Descrição */
     .page-hero {
       display: flex;
       flex-direction: column;
@@ -238,7 +231,6 @@
       line-height: 1.4;
     }
 
-    /* Cartão Resumo da Atividade */
     .activity-summary-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
@@ -324,7 +316,6 @@
       line-height: 1.2;
     }
 
-    /* Legenda Comparativa (Dots) */
     .legend-row {
       display: flex;
       align-items: center;
@@ -357,7 +348,6 @@
       background-color: var(--color-primary);
     }
 
-    /* Cards KPI de Média Geral (2 colunas) */
     .kpi-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -423,7 +413,6 @@
       line-height: 1.2;
     }
 
-    /* Seção Comparação por Dimensão */
     .section-title {
       font-size: 14px;
       font-weight: 700;
@@ -432,7 +421,6 @@
       margin-bottom: -4px;
     }
 
-    /* Card de Dimensão Comparativa */
     .dimension-compare-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
@@ -492,7 +480,6 @@
       background-color: var(--color-primary);
     }
 
-    /* Barra de ação fixa acima do rodapé */
     .fixed-action-bar {
       position: absolute;
       bottom: 72px;
@@ -508,7 +495,6 @@
       box-sizing: border-box;
     }
 
-    /* Botão Voltar às Autoavaliações */
     .btn-voltar-autoavaliacoes {
       display: flex;
       align-items: center;
@@ -534,7 +520,6 @@
       transform: scale(0.99);
     }
 
-    /* Barra de Navegação Inferior (Mobile) - Idêntica a turmas.html */
     .bottom-nav {
       position: absolute;
       bottom: 0;
@@ -597,7 +582,6 @@
 
   <div class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile: Coordenação (Idêntico a turmas.html) -->
     <header class="mobile-header">
       <a href="painel-inicial-coordenacao-mobile.html" class="brand-section">
         <div class="brand-icon" aria-hidden="true">
@@ -621,22 +605,18 @@
       </a>
     </header>
 
-    <!-- Conteúdo Rolável -->
     <main class="screen-content">
 
-      <!-- Voltar para Autoavaliações -->
       <a href="autoavaliacoes-turma-6ano-a.html" class="back-nav-link" aria-label="Voltar para Autoavaliações">
         <span aria-hidden="true">‹</span>
         <span>Voltar para Autoavaliações</span>
       </a>
 
-      <!-- Título & Subtítulo da Página -->
       <section class="page-hero" aria-label="Apresentação do comparativo">
         <h1 class="page-title">Comparativo</h1>
         <p class="page-subtitle">Compare as percepções para apoiar a conversa com o estudante.</p>
       </section>
 
-      <!-- Cartão Resumo da Atividade -->
       <section class="activity-summary-card" aria-label="Resumo da atividade">
         <div class="activity-top-row">
           <div class="activity-avatar-box" aria-hidden="true">
@@ -660,7 +640,6 @@
         </div>
       </section>
 
-      <!-- Legenda Comparativa (Dots) -->
       <div class="legend-row" aria-label="Legenda das avaliações">
         <div class="legend-item">
           <span class="legend-dot aluno" aria-hidden="true"></span>
@@ -672,9 +651,7 @@
         </div>
       </div>
 
-      <!-- Grid de KPIs: Média geral Aluno vs Professor -->
       <section class="kpi-grid" aria-label="Médias gerais">
-        <!-- KPI 1: Aluno -->
         <div class="kpi-card">
           <div class="kpi-icon-box aluno" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -688,7 +665,6 @@
           </div>
         </div>
 
-        <!-- KPI 2: Professor -->
         <div class="kpi-card">
           <div class="kpi-icon-box professor" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -704,14 +680,11 @@
         </div>
       </section>
 
-      <!-- Título da Seção: Comparação por dimensão -->
       <h2 class="section-title">Comparação por dimensão</h2>
 
-      <!-- Card 1: Respeito e convivência -->
       <article class="dimension-compare-card" aria-label="Comparativo: Respeito e convivência">
         <h3 class="dimension-title">Respeito e convivência</h3>
 
-        <!-- Aluno -->
         <div class="compare-bar-group">
           <div class="compare-label-row aluno">
             <span>Aluno</span>
@@ -722,7 +695,6 @@
           </div>
         </div>
 
-        <!-- Professor -->
         <div class="compare-bar-group">
           <div class="compare-label-row professor">
             <span>Professor</span>
@@ -734,11 +706,9 @@
         </div>
       </article>
 
-      <!-- Card 2: Colaboração -->
       <article class="dimension-compare-card" aria-label="Comparativo: Colaboração">
         <h3 class="dimension-title">Colaboração</h3>
 
-        <!-- Aluno -->
         <div class="compare-bar-group">
           <div class="compare-label-row aluno">
             <span>Aluno</span>
@@ -749,7 +719,6 @@
           </div>
         </div>
 
-        <!-- Professor -->
         <div class="compare-bar-group">
           <div class="compare-label-row professor">
             <span>Professor</span>
@@ -761,11 +730,9 @@
         </div>
       </article>
 
-      <!-- Card 3: Responsabilidade -->
       <article class="dimension-compare-card" aria-label="Comparativo: Responsabilidade">
         <h3 class="dimension-title">Responsabilidade</h3>
 
-        <!-- Aluno -->
         <div class="compare-bar-group">
           <div class="compare-label-row aluno">
             <span>Aluno</span>
@@ -776,7 +743,6 @@
           </div>
         </div>
 
-        <!-- Professor -->
         <div class="compare-bar-group">
           <div class="compare-label-row professor">
             <span>Professor</span>
@@ -788,11 +754,9 @@
         </div>
       </article>
 
-      <!-- Card 4: Autonomia -->
       <article class="dimension-compare-card" aria-label="Comparativo: Autonomia">
         <h3 class="dimension-title">Autonomia</h3>
 
-        <!-- Aluno -->
         <div class="compare-bar-group">
           <div class="compare-label-row aluno">
             <span>Aluno</span>
@@ -803,7 +767,6 @@
           </div>
         </div>
 
-        <!-- Professor -->
         <div class="compare-bar-group">
           <div class="compare-label-row professor">
             <span>Professor</span>
@@ -815,11 +778,9 @@
         </div>
       </article>
 
-      <!-- Card 5: Participação -->
       <article class="dimension-compare-card" aria-label="Comparativo: Participação">
         <h3 class="dimension-title">Participação</h3>
 
-        <!-- Aluno -->
         <div class="compare-bar-group">
           <div class="compare-label-row aluno">
             <span>Aluno</span>
@@ -830,7 +791,6 @@
           </div>
         </div>
 
-        <!-- Professor -->
         <div class="compare-bar-group">
           <div class="compare-label-row professor">
             <span>Professor</span>
@@ -844,16 +804,13 @@
 
     </main>
 
-    <!-- Botão fixo acima do rodapé -->
     <div class="fixed-action-bar">
       <a href="autoavaliacoes-turma-6ano-a.html" class="btn-voltar-autoavaliacoes" aria-label="Voltar para a lista de autoavaliações">
         <span>Voltar às Autoavaliações</span>
       </a>
     </div>
 
-    <!-- Barra de Navegação Inferior (Mobile) - Idêntica a turmas.html -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <!-- 1. Início -->
       <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -863,7 +820,6 @@
         <span class="nav-label">Início</span>
       </a>
 
-      <!-- 2. Alertas -->
       <a href="sistema-alerta-precoce.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -874,7 +830,6 @@
         <span class="nav-label">Alertas</span>
       </a>
 
-      <!-- 3. Turmas (Ativo) -->
       <a href="turmas.html" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar" aria-hidden="true"></span>
         <div class="nav-icon" aria-hidden="true">
@@ -886,7 +841,6 @@
         <span class="nav-label">Turmas</span>
       </a>
 
-      <!-- 4. Agregadores -->
       <a href="dashboard-agregador-visao-central.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -897,7 +851,6 @@
         <span class="nav-label">Agregadores</span>
       </a>
 
-      <!-- 5. Perfil -->
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

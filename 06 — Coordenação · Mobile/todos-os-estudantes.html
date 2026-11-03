@@ -43,8 +43,6 @@
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.03);
     }
 
-    
-    /* Ocultar barra de rolagem visual mantendo a rolagem ativa */
     * {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -77,7 +75,6 @@
       overflow-x: hidden;
     }
 
-    /* Container do Mockup Mobile (390px × 844px) */
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -113,7 +110,6 @@
       }
     }
 
-    /* Cabeçalho Superior Mobile (72px) */
     .mobile-header {
       width: 100%;
       height: 72px;
@@ -200,7 +196,6 @@
       border: 1.5px solid #ffffff;
     }
 
-    /* Conteúdo Rolável */
     .screen-content {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -213,7 +208,6 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Link de Voltar */
     .back-nav-link {
       display: inline-flex;
       align-items: center;
@@ -232,7 +226,6 @@
       opacity: 0.85;
     }
 
-    /* Título & Descrição da Página */
     .page-hero {
       display: flex;
       flex-direction: column;
@@ -255,7 +248,10 @@
       line-height: 1.45;
     }
 
+<<<<<<< HEAD
     /* 4 Indicadores Rápidos (KPIs: 358px × 78px) */
+=======
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
     .kpis-list {
       display: flex;
       flex-direction: column;
@@ -335,7 +331,6 @@
       line-height: 1.15;
     }
 
-    /* Seção de Filtros (Grid 2×2 + Campo Busca) */
     .filters-section {
       display: flex;
       flex-direction: column;
@@ -405,7 +400,6 @@
       line-height: 1;
     }
 
-    /* Campo de Busca */
     .search-group {
       display: flex;
       flex-direction: column;
@@ -460,7 +454,6 @@
       border-color: var(--color-primary);
     }
 
-    /* Seção da Lista de Estudantes */
     .list-section-header {
       display: flex;
       flex-direction: column;
@@ -475,7 +468,6 @@
       letter-spacing: -0.15px;
     }
 
-    /* Abas Horizontais (Todos, Críticos, Atenção) */
     .tabs-row-3 {
       display: flex;
       gap: 6px;
@@ -511,7 +503,6 @@
       border-color: #cbd5e1;
     }
 
-    /* Painel Lista de Estudantes */
     .students-panel {
       width: 100%;
       background-color: var(--color-bg-card);
@@ -524,6 +515,7 @@
       margin-top: 2px;
     }
 
+<<<<<<< HEAD
     .panel-header-row {
       display: flex;
       align-items: center;
@@ -552,6 +544,8 @@
     }
 
     /* Item de Estudante na Lista */
+=======
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
     .student-item-row {
       padding: 11px 14px;
       display: flex;
@@ -699,7 +693,6 @@
       margin: 0 14px;
     }
 
-    /* Rodapé do Painel (Paginação) */
     .panel-footer-row {
       display: flex;
       align-items: center;
@@ -720,7 +713,6 @@
       user-select: none;
     }
 
-    /* Barra de Navegação Inferior Mobile (Fixed no rodapé do container) */
     .bottom-nav {
       width: 100%;
       height: 72px;
@@ -787,10 +779,8 @@
 </head>
 <body>
 
-  <!-- Mockup Mobile Screen Wrapper (390px x 844px) -->
   <div class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile: Coordenação -->
     <header class="mobile-header">
       <a href="painel-inicial-coordenacao-mobile.html" class="brand-section">
         <div class="brand-icon" aria-hidden="true">
@@ -814,24 +804,19 @@
       </a>
     </header>
 
-    <!-- Conteúdo Rolável -->
     <main class="screen-content">
 
-      <!-- Link Voltar ao Histórico de Alertas -->
       <a href="sistema-alerta-precoce.html" class="back-nav-link" aria-label="Voltar para Sistemas de Alerta">
         <span aria-hidden="true">&lsaquo;</span>
         <span>Voltar para Sistemas de Alerta</span>
       </a>
 
-      <!-- Título & Descrição da Página -->
       <section class="page-hero">
         <h1 class="page-title">Todos os estudantes em alerta</h1>
         <p class="page-subtitle">Consulte os casos individuais e priorize os próximos passos.</p>
       </section>
 
-      <!-- 4 Indicadores Rápidos (KPIs: 358px × 78px) -->
       <section class="kpis-list" aria-label="Indicadores rápidos">
-        <!-- KPI 1: Estudantes com alertas -->
         <div class="kpi-card">
           <div class="kpi-icon-box primary" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -845,7 +830,6 @@
           </div>
         </div>
 
-        <!-- KPI 2: Alertas Críticos -->
         <div class="kpi-card">
           <div class="kpi-icon-box danger" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -859,7 +843,6 @@
           </div>
         </div>
 
-        <!-- KPI 3: Alertas de Atenção -->
         <div class="kpi-card">
           <div class="kpi-icon-box warning" aria-hidden="true">
             <span class="kpi-exclamation">!</span>
@@ -870,7 +853,6 @@
           </div>
         </div>
 
-        <!-- KPI 4: Tipos combinados -->
         <div class="kpi-card">
           <div class="kpi-icon-box purple" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6d5bd0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -888,12 +870,10 @@
         </div>
       </section>
 
-      <!-- Seção: Filtrar estudantes -->
       <section class="filters-section" aria-label="Filtros e busca">
         <h2 class="filters-title">Filtrar estudantes</h2>
 
         <div class="filters-grid">
-          <!-- Filtro 1: Turma -->
           <div class="filter-item">
             <label for="filtro-turma-aluno" class="filter-label">Turma</label>
             <div class="filter-select-wrapper">
@@ -908,7 +888,6 @@
             </div>
           </div>
 
-          <!-- Filtro 2: Tipo de alerta -->
           <div class="filter-item">
             <label for="filtro-tipo-aluno" class="filter-label">Tipo de alerta</label>
             <div class="filter-select-wrapper">
@@ -923,7 +902,6 @@
             </div>
           </div>
 
-          <!-- Filtro 3: Nível de criticidade -->
           <div class="filter-item">
             <label for="filtro-crit-aluno" class="filter-label">Nível de criticidade</label>
             <div class="filter-select-wrapper">
@@ -936,7 +914,6 @@
             </div>
           </div>
 
-          <!-- Filtro 4: Período -->
           <div class="filter-item">
             <label for="filtro-periodo-aluno" class="filter-label">Período</label>
             <div class="filter-select-wrapper">
@@ -951,7 +928,6 @@
           </div>
         </div>
 
-        <!-- Campo de Busca -->
         <div class="search-group">
           <label for="busca-nome-estudante" class="search-label">Buscar</label>
           <div class="search-input-wrapper">
@@ -963,19 +939,17 @@
         </div>
       </section>
 
-      <!-- Seção: Lista de Estudantes -->
       <section class="list-section-header" aria-label="Lista de estudantes">
         <h2 class="list-section-title">Lista de estudantes</h2>
 
-        <!-- 3 Abas Horizontais -->
         <div class="tabs-row-3" role="tablist">
           <button class="tab-pill-btn active" role="tab" aria-selected="true">Todos (12)</button>
           <button class="tab-pill-btn" role="tab" aria-selected="false">Críticos (3)</button>
           <button class="tab-pill-btn" role="tab" aria-selected="false">Atenção (9)</button>
         </div>
 
-        <!-- Painel Branco com a Listagem -->
         <div class="students-panel">
+<<<<<<< HEAD
           <!-- Cabeçalho do Painel -->
           <div class="panel-header-row">
             <span class="panel-count-label">Exibindo 8 de 12 estudantes</span>
@@ -985,6 +959,8 @@
           <hr class="panel-divider">
 
           <!-- Aluno 1: Marina Santos -->
+=======
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
           <article class="student-item-row" aria-label="Estudante Marina Santos">
             <div class="student-avatar purple" aria-hidden="true">MS</div>
             <div class="student-details-col">
@@ -1004,10 +980,14 @@
             </div>
           </article>
 
+<<<<<<< HEAD
           <hr class="row-divider">
 
           <!-- Aluno 2: Pedro Costa (Fundo alternado) -->
           <article class="student-item-row alt-bg" aria-label="Estudante Pedro Costa">
+=======
+          <article class="student-item-row" aria-label="Estudante Pedro Costa">
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
             <div class="student-avatar blue" aria-hidden="true">PC</div>
             <div class="student-details-col">
               <div class="student-top-line">
@@ -1026,9 +1006,12 @@
             </div>
           </article>
 
+<<<<<<< HEAD
           <hr class="row-divider">
 
           <!-- Aluno 3: Gabriel Barros -->
+=======
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
           <article class="student-item-row" aria-label="Estudante Gabriel Barros">
             <div class="student-avatar green" aria-hidden="true">GB</div>
             <div class="student-details-col">
@@ -1048,10 +1031,14 @@
             </div>
           </article>
 
+<<<<<<< HEAD
           <hr class="row-divider">
 
           <!-- Aluno 4: João Lima (Fundo alternado) -->
           <article class="student-item-row alt-bg" aria-label="Estudante João Lima">
+=======
+          <article class="student-item-row" aria-label="Estudante João Lima">
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
             <div class="student-avatar blue" aria-hidden="true">JL</div>
             <div class="student-details-col">
               <div class="student-top-line">
@@ -1070,9 +1057,12 @@
             </div>
           </article>
 
+<<<<<<< HEAD
           <hr class="row-divider">
 
           <!-- Aluno 5: Ana Ribeiro -->
+=======
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
           <article class="student-item-row" aria-label="Estudante Ana Ribeiro">
             <div class="student-avatar green" aria-hidden="true">AR</div>
             <div class="student-details-col">
@@ -1092,10 +1082,14 @@
             </div>
           </article>
 
+<<<<<<< HEAD
           <hr class="row-divider">
 
           <!-- Aluno 6: Lucas Martins (Fundo alternado) -->
           <article class="student-item-row alt-bg" aria-label="Estudante Lucas Martins">
+=======
+          <article class="student-item-row" aria-label="Estudante Lucas Martins">
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
             <div class="student-avatar purple" aria-hidden="true">LM</div>
             <div class="student-details-col">
               <div class="student-top-line">
@@ -1114,9 +1108,12 @@
             </div>
           </article>
 
+<<<<<<< HEAD
           <hr class="row-divider">
 
           <!-- Aluno 7: Beatriz Nunes -->
+=======
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
           <article class="student-item-row" aria-label="Estudante Beatriz Nunes">
             <div class="student-avatar blue" aria-hidden="true">BN</div>
             <div class="student-details-col">
@@ -1136,10 +1133,14 @@
             </div>
           </article>
 
+<<<<<<< HEAD
           <hr class="row-divider">
 
           <!-- Aluno 8: Sofia Alves (Fundo alternado) -->
           <article class="student-item-row alt-bg" aria-label="Estudante Sofia Alves">
+=======
+          <article class="student-item-row" aria-label="Estudante Sofia Alves">
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
             <div class="student-avatar green" aria-hidden="true">SA</div>
             <div class="student-details-col">
               <div class="student-top-line">
@@ -1158,9 +1159,12 @@
             </div>
           </article>
 
+<<<<<<< HEAD
           <hr class="panel-divider">
 
           <!-- Rodapé com Paginação -->
+=======
+>>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
           <div class="panel-footer-row">
             <span class="panel-pagination-note">1–8 de 12 estudantes</span>
             <span class="panel-pagination-nav" aria-label="Paginação">&lsaquo;&nbsp;&nbsp;1&nbsp;&nbsp;2&nbsp;&nbsp;&rsaquo;</span>
@@ -1170,9 +1174,7 @@
 
     </main>
 
-    <!-- Barra de Navegação Inferior (Mobile) -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <!-- 1. Início -->
       <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1182,7 +1184,6 @@
         <span class="nav-label">Início</span>
       </a>
 
-      <!-- 2. Alertas (Ativo) -->
       <a href="sistema-alerta-precoce.html" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar" aria-hidden="true"></span>
         <div class="nav-icon" aria-hidden="true">
@@ -1194,7 +1195,6 @@
         <span class="nav-label">Alertas</span>
       </a>
 
-      <!-- 3. Turmas -->
       <a href="turmas.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1205,7 +1205,6 @@
         <span class="nav-label">Turmas</span>
       </a>
 
-      <!-- 4. Agregadores -->
       <a href="dashboard-agregador-visao-central.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1216,7 +1215,6 @@
         <span class="nav-label">Agregadores</span>
       </a>
 
-      <!-- 5. Perfil -->
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
