@@ -27,9 +27,10 @@
       --color-btn-neutral-hover: #475569;
       --color-status-green: #16804a;
       --radius-sm: 8px;
-      --radius-card: 16px;
-      --radius-btn: 12px;
-      --shadow-card: 0 4px 14px rgba(20, 51, 97, 0.05);
+      --radius-btn: 10px;
+      --radius-icon: 12px;
+      --radius-card: 12px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
       --bottom-bar-height: 80px;
     }
 
@@ -494,9 +495,8 @@
     .page-title {
       font-size: 28px;
       font-weight: 700;
-      line-height: 1.39;
+      line-height: 1.36;
       color: #172b4d;
-      margin-bottom: 6px;
     }
 
     .page-desc {
@@ -519,7 +519,7 @@
     }
 
     .progress-label {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       line-height: 1.4;
       color: var(--color-primary);
@@ -547,7 +547,7 @@
     .evaluation-grid {
       display: grid;
       grid-template-columns: 1fr 354px;
-      gap: 32px;
+      gap: 24px;
       align-items: start;
       width: 100%;
     }
@@ -556,17 +556,17 @@
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-card);
-      padding: 28px;
+      padding: 22px 28px;
       box-shadow: var(--shadow-card);
     }
 
     .dimension-badge {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--color-primary);
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .question-title {
@@ -574,29 +574,29 @@
       font-weight: 700;
       line-height: 1.35;
       color: #172b4d;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .question-guide {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 1.43;
+      line-height: 1.45;
       color: #60758b;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .scale-instruction {
       font-size: 14px;
       font-weight: 600;
       color: #172b4d;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .options-group {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 28px;
+      gap: 8px;
+      margin-bottom: 20px;
     }
 
     .option-item {
@@ -604,16 +604,17 @@
       align-items: center;
       gap: 14px;
       padding: 10px 16px;
+      min-height: 46px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 10px;
+      border-radius: var(--radius-btn);
       cursor: pointer;
       user-select: none;
       transition: all 0.15s ease;
     }
 
     .option-item:hover {
-      border-color: #cbd5e1;
+      border-color: #bfdbfe;
       background-color: #fafcff;
     }
 
@@ -626,7 +627,7 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      border: 1px solid #d9e4f2;
+      border: 1.8px solid #cbd5e1;
       background-color: #ffffff;
       display: flex;
       align-items: center;
@@ -656,7 +657,7 @@
     }
 
     .option-number {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       color: #60758b;
       width: 18px;
@@ -668,7 +669,7 @@
     }
 
     .option-label {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
       color: #60758b;
       flex: 1;
@@ -682,7 +683,7 @@
     .reflection-block {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .reflection-title {
@@ -693,13 +694,15 @@
 
     .reflection-textarea {
       width: 100%;
-      height: 78px;
+      min-height: 72px;
+      height: 72px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 10px;
-      padding: 12px 14px;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      border-radius: var(--radius-btn);
+      padding: 10px 14px;
+      font-family: inherit;
       font-size: 13px;
+      line-height: 1.5;
       color: #172b4d;
       outline: none;
       resize: vertical;
@@ -718,36 +721,36 @@
     .assessment-sidebar {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
 
     .sidebar-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-card);
-      padding: 22px;
+      padding: 18px 22px;
       box-shadow: var(--shadow-card);
     }
 
     .sidebar-card-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #172b4d;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .sidebar-card-body {
       font-size: 13px;
       font-weight: 400;
-      line-height: 1.5;
+      line-height: 1.45;
       color: #60758b;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .sidebar-card-divider {
       height: 1px;
       background-color: #d9e4f2;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .sidebar-card-status {
@@ -756,39 +759,50 @@
       color: #16804a;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     .dimensions-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 10px;
     }
 
     .dimension-item {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 12px;
+      font-size: 13px;
       color: #60758b;
+      font-weight: 500;
+    }
+
+    .dimension-item.completed {
+      color: #172b4d;
     }
 
     .dimension-item.current {
       font-weight: 600;
-      color: #2563eb;
+      color: var(--color-primary);
     }
 
     .dimension-status-dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #eef3f8;
+      background-color: #e2e8f0;
       flex-shrink: 0;
+      transition: all 0.15s ease;
+    }
+
+    .dimension-item.completed .dimension-status-dot {
+      background-color: #16804a;
     }
 
     .dimension-item.current .dimension-status-dot {
-      background-color: #2563eb;
+      background-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
     }
 
     .bottom-actions-bar,
@@ -959,7 +973,7 @@
           </div>
           <div class="user-chevron">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+              <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
             </svg>
           </div>
         </a>
@@ -1058,8 +1072,8 @@
               <p class="sidebar-card-body">Não existe resposta certa ou errada. Pense nas suas atitudes e responda com sinceridade.</p>
               <div class="sidebar-card-divider"></div>
               <div class="sidebar-card-status">
-                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M16.667 5 7.5 14.167 3.333 10"/>
+                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3.5 10.5L7.5 14.5L16.5 5.5"/>
                 </svg>
                 <span>Suas respostas são pessoais.</span>
               </div>
@@ -1095,12 +1109,6 @@
       </main>
 
       <footer class="bottom-actions-bar">
-        <a href="minhas-autoavaliacoes.html" class="btn-back" aria-label="Voltar para Minhas autoavaliações">
-          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
-          </svg>
-          <span>Voltar</span>
-        </a>
         <a href="minhas-autoavaliacoes.html" class="btn-action-draft">Salvar rascunho</a>
         <a href="finalizar-autoavaliacao.html" class="btn-action-next">
           <span>Próxima dimensão</span>

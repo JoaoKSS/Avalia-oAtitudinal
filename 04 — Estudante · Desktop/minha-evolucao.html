@@ -27,9 +27,10 @@
       --color-status-orange: #a85b00;
       --color-status-orange-bg: #fff3d6;
       --radius-sm: 8px;
-      --radius-card: 16px;
       --radius-btn: 10px;
-      --shadow-card: 0 4px 14px rgba(20, 51, 97, 0.05);
+      --radius-icon: 12px;
+      --radius-card: 12px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
     *, *::before, *::after {
@@ -502,7 +503,7 @@
     .page-title {
       font-size: 28px;
       font-weight: 700;
-      line-height: 1.39;
+      line-height: 1.36;
       color: #172b4d;
     }
 
@@ -514,11 +515,12 @@
     }
 
     .period-selector {
-      height: 34px;
-      padding: 0 14px;
+      height: 36px;
+      padding: 0 16px;
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-btn);
+      font-family: inherit;
       font-size: 13px;
       font-weight: 500;
       color: #172b4d;
@@ -527,6 +529,19 @@
       gap: 8px;
       cursor: pointer;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .period-selector:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .filter-chevron {
+      color: #60758b;
+      font-size: 12px;
+      line-height: 1;
+      margin-left: 2px;
     }
 
     .kpi-grid {
@@ -541,11 +556,17 @@
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-card);
-      padding: 18px 20px;
+      padding: 20px 24px;
       box-shadow: var(--shadow-card);
       display: flex;
       align-items: center;
       gap: 16px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .kpi-card:hover {
+      border-color: #bfdbfe;
+      box-shadow: 0 6px 20px rgba(20, 51, 97, 0.08);
     }
 
     .kpi-icon-box {
@@ -581,7 +602,7 @@
     }
 
     .kpi-label {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       line-height: 1.4;
       letter-spacing: 0.5px;
@@ -651,7 +672,7 @@
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-card);
-      padding: 24px;
+      padding: 24px 28px;
       box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
@@ -685,12 +706,12 @@
     }
 
     .chart-badge {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--color-primary);
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      padding: 4px 8px;
+      padding: 4px 10px;
       background-color: var(--color-primary-soft);
       border-radius: 6px;
     }
@@ -858,7 +879,7 @@
           </div>
           <div class="user-chevron">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+              <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
             </svg>
           </div>
         </a>
@@ -868,7 +889,7 @@
     <div class="main-wrapper">
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Trilha de navegação">
-          <span class="breadcrumb-path">Área do estudante  /</span>
+          <span class="breadcrumb-path">Área do estudante &nbsp;/</span>
           <span class="breadcrumb-current">Minha evolução</span>
         </nav>
 
@@ -891,9 +912,7 @@
           </div>
           <button type="button" class="period-selector" aria-label="Selecionar período">
             <span>Últimos 6 meses</span>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2.5 4.5l3.5 3.5 3.5-3.5"/>
-            </svg>
+            <span class="filter-chevron" aria-hidden="true">▾</span>
           </button>
         </section>
 
@@ -1011,9 +1030,9 @@
 
             <div class="line-card-body">
               <svg class="line-chart-svg" viewBox="0 0 454 165" fill="none" aria-hidden="true">
-                <text x="4" y="24" font-size="10.5" font-weight="500" fill="#8194aa" font-family="inherit">5,0</text>
-                <text x="4" y="76" font-size="10.5" font-weight="500" fill="#8194aa" font-family="inherit">2,5</text>
-                <text x="4" y="128" font-size="10.5" font-weight="500" fill="#8194aa" font-family="inherit">0,0</text>
+                <text x="4" y="24" font-size="9" font-weight="500" fill="#8194aa" font-family="inherit">5,0</text>
+                <text x="4" y="76" font-size="9" font-weight="500" fill="#8194aa" font-family="inherit">2,5</text>
+                <text x="4" y="128" font-size="9" font-weight="500" fill="#8194aa" font-family="inherit">0,0</text>
 
                 <line x1="32" y1="20" x2="444" y2="20" stroke="#d9e4f2" stroke-width="1"/>
                 <line x1="32" y1="56" x2="444" y2="56" stroke="#d9e4f2" stroke-width="1"/>
@@ -1029,12 +1048,12 @@
                 <circle cx="352" cy="46" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
                 <circle cx="428" cy="42" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
 
-                <text x="48" y="150" font-size="11" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Mai</text>
-                <text x="124" y="150" font-size="11" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Jun</text>
-                <text x="200" y="150" font-size="11" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Jul</text>
-                <text x="276" y="150" font-size="11" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Ago</text>
-                <text x="352" y="150" font-size="11" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Set</text>
-                <text x="428" y="150" font-size="11" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Out</text>
+                <text x="48" y="150" font-size="9.5" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Mai</text>
+                <text x="124" y="150" font-size="9.5" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Jun</text>
+                <text x="200" y="150" font-size="9.5" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Jul</text>
+                <text x="276" y="150" font-size="9.5" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Ago</text>
+                <text x="352" y="150" font-size="9.5" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Set</text>
+                <text x="428" y="150" font-size="9.5" font-weight="500" fill="#60758b" font-family="inherit" text-anchor="middle">Out</text>
               </svg>
 
               <div class="trend-footer-banner">
