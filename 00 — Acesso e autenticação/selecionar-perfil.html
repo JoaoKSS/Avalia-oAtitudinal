@@ -159,6 +159,16 @@
       .profiles-grid {
         grid-template-columns: 1fr;
       }
+      .hub-footer {
+        justify-content: center;
+      }
+      .back-links-group {
+        width: 100%;
+      }
+      .btn-login-bordered {
+        flex: 1;
+        justify-content: center;
+      }
     }
 
     .profile-card {
@@ -278,32 +288,50 @@
     .hub-footer {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       border-top: 1px solid var(--color-border-divider);
       padding-top: 18px;
-      font-size: 12px;
-      color: var(--color-text-muted);
-      flex-wrap: wrap;
-      gap: 10px;
     }
 
     .back-links-group {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .back-login-link {
-      color: var(--color-primary);
+    .btn-login-bordered {
+      height: 38px;
+      padding: 0 16px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--color-text-main);
+      font-size: 13px;
       font-weight: 600;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
     }
 
-    .back-login-link:hover {
-      text-decoration: underline;
+    .btn-login-bordered:hover {
+      border-color: var(--color-primary);
+      background-color: var(--color-primary-soft);
+      color: var(--color-primary);
+    }
+
+    .btn-login-bordered:active {
+      transform: scale(0.98);
+    }
+
+    .btn-login-bordered svg {
+      transition: transform 0.15s ease;
+    }
+
+    .btn-login-bordered:hover svg {
+      transform: translateX(-2px);
     }
   </style>
 </head>
@@ -430,16 +458,15 @@
     </div>
 
     <footer class="hub-footer">
-      <span>Educar & Aprender · Sistema de Gestão Atitudinal</span>
       <div class="back-links-group">
-        <a href="login.html" class="back-login-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="login.html" class="btn-login-bordered">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
           <span>Login Desktop</span>
         </a>
-        <a href="login-mobile.html" class="back-login-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="login-mobile.html" class="btn-login-bordered">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
           <span>Login Mobile</span>
