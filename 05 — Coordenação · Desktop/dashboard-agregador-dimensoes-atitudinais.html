@@ -1039,7 +1039,168 @@
       .btn-back:hover {
         background-color: #475569;
       }
-    </style>
+    
+    .user-profile-button {
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+
+    .profile-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: none;
+    }
+
+    .profile-modal-overlay:target {
+      display: block;
+    }
+
+    .profile-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.35);
+      cursor: default;
+      z-index: 999;
+    }
+
+    .profile-modal-card {
+      position: fixed;
+      left: 16px;
+      bottom: 82px;
+      width: 346px;
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 13px;
+      padding: 14px 16px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16), 0 4px 12px rgba(15, 23, 42, 0.08);
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+
+    .profile-modal-pointer {
+      position: absolute;
+      bottom: -8px;
+      left: 34px;
+      width: 14px;
+      height: 14px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d9e4f2;
+      transform: rotate(45deg);
+      z-index: 1001;
+    }
+
+    .profile-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 24px;
+    }
+
+    .profile-modal-title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #172b4d;
+      margin: 0;
+    }
+
+    .profile-modal-close {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #f5f8fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      font-size: 15px;
+      font-weight: 400;
+      text-decoration: none;
+      line-height: 1;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .profile-modal-close:hover {
+      background-color: #e2e8f0;
+      color: #172b4d;
+    }
+
+    .profile-modal-divider {
+      height: 1px;
+      background-color: #e8eef5;
+      margin: 10px 0;
+    }
+
+    .profile-modal-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-modal-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .profile-modal-user-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .profile-modal-user-name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #172b4d;
+    }
+
+    .profile-modal-user-role {
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #60758b;
+      margin-top: 3px;
+    }
+
+    .profile-modal-logout {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 48px;
+      padding: 0 14px;
+      background-color: #fff5f5;
+      border: 1px solid #fee2e2;
+      border-radius: 9px;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .profile-modal-logout:hover {
+      background-color: #fef2f2;
+      border-color: #fca5a5;
+    }
+
+    .profile-modal-logout-text {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #b91c1c;
+    }
+
+  </style>
   </head>
   <body>
     <div class="app-layout">
@@ -1197,11 +1358,7 @@
         </nav>
 
         <div class="sidebar-footer">
-          <button
-            type="button"
-            class="user-profile-button"
-            aria-label="Meu perfil"
-          >
+          <a href="#modal-perfil" class="user-profile-button" aria-label="Abrir menu de perfil da coordenação">
             <div class="user-avatar" aria-hidden="true">
               <svg
                 width="24"
@@ -1235,7 +1392,7 @@
                 <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5" />
               </svg>
             </div>
-          </button>
+          </a>
         </div>
       </aside>
 
@@ -1763,5 +1920,34 @@
         </footer>
       </main>
     </div>
-  </body>
+  
+  <div id="modal-perfil" class="profile-modal-overlay">
+    <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
+    <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
+      <div class="profile-modal-header">
+        <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
+        <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
+      </div>
+      <div class="profile-modal-divider"></div>
+      <div class="profile-modal-user">
+        <div class="profile-modal-avatar">CP</div>
+        <div class="profile-modal-user-info">
+          <span class="profile-modal-user-name">Coordenação Pedagógica</span>
+          <span class="profile-modal-user-role">Coordenador</span>
+        </div>
+      </div>
+      <div class="profile-modal-divider"></div>
+      <a href="../00 — Acesso e autenticação/login.html" class="profile-modal-logout">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span class="profile-modal-logout-text">Sair da conta</span>
+      </a>
+      <div class="profile-modal-pointer"></div>
+    </div>
+  </div>
+
+</body>
 </html>
