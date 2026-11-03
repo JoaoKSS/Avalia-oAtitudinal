@@ -840,7 +840,7 @@
           <span class="turmas-list-count">4 resultados</span>
         </div>
 
-        <article class="turma-card" id="card-6a" onclick="window.location.href='turmas-6ano-a-expandida.html'" style="cursor: pointer;" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='turmas-6ano-a-expandida.html';}">
+        <article class="turma-card" id="card-6a">
           <div class="turma-card-main">
             <div class="turma-code-box" aria-hidden="true">6ºA</div>
             <div class="turma-info-col">
@@ -1012,16 +1012,6 @@
 
   </div>
 
-  <script>
-    function toggleDetails(panelId, btn) {
-      const panel = document.getElementById(panelId);
-      if (!panel) return;
-      const isHidden = panel.style.display === 'none';
-      panel.style.display = isHidden ? 'flex' : 'none';
-      btn.textContent = isHidden ? '−' : '+';
-      btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-    }
-  </script>
 
 </body>
 </html>

@@ -1022,19 +1022,6 @@
 
   </div>
 
-  <script>
-    function toggleDimension(el) {
-      el.classList.toggle('checked');
-      const checkbox = el.querySelector('.dimension-checkbox');
-      checkbox.textContent = el.classList.contains('checked') ? '✓' : '';
-
-      const totalSelected = document.querySelectorAll('.dimension-option.checked').length;
-      const badge = document.getElementById('dimensions-badge');
-      if (badge) {
-        badge.textContent = totalSelected + ' de 5';
-      }
-    }
-  </script>
 
 </body>
 </html>

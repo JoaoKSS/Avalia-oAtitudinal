@@ -1099,16 +1099,6 @@
 
   </div>
 
-  <script>
-    function toggleDetails(panelId, btn) {
-      const panel = document.getElementById(panelId);
-      if (!panel) return;
-      const isHidden = panel.style.display === 'none';
-      panel.style.display = isHidden ? 'flex' : 'none';
-      btn.textContent = isHidden ? '−' : '+';
-      btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-    }
-  </script>
 
 </body>
 </html>
