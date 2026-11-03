@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensagens · Professor · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      --color-positive: #16a34a;
+      --radius-sm: 8px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      min-height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-icon-btn {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      padding: 0;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .header-icon-btn.active {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .notif-badge-dot {
+      position: absolute;
+      left: 27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 16px 88px 16px;
+      display: flex;
+      flex-direction: column;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .back-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      margin-bottom: 6px;
+      width: fit-content;
+      transition: opacity 0.15s ease;
+    }
+
+    .back-nav-link:hover {
+      opacity: 0.85;
+    }
+
+    .page-header {
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .page-desc {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.42;
+      color: var(--color-text-muted);
+      margin-top: 3px;
+    }
+
+    .btn-new-message {
+      width: 100%;
+      height: 42px;
+      min-height: 42px;
+      background-color: var(--color-primary);
+      border-radius: var(--radius-md);
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-new-message:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .search-box {
+      width: 100%;
+      height: 42px;
+      min-height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 10px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .search-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      flex: 1;
+      height: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-text-main);
+    }
+
+    .search-input::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    .filter-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .filter-pill {
+      height: 28px;
+      padding: 0 14px;
+      border-radius: 14px;
+      font-size: 11px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      background-color: transparent;
+      transition: all 0.15s ease;
+    }
+
+    .filter-pill.active {
+      background-color: var(--color-primary);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #8194aa;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .conversation-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .conversation-card {
+      position: relative;
+      height: 82px;
+      min-height: 82px;
+      background-color: var(--color-bg-card);
+      border: 1px solid #e1e8f0;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .conversation-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(20, 51, 97, 0.06);
+    }
+
+    .conversation-card.unread {
+      border: 1.5px solid #22c55e;
+    }
+
+    .unread-count-badge {
+      position: absolute;
+      top: -8px;
+      right: 14px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(34, 197, 94, 0.3);
+    }
+
+    .conversation-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+
+    .conversation-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      gap: 3px;
+    }
+
+    .conversation-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .conversation-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .conversation-time {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+    }
+
+    .conversation-card.unread .conversation-time {
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+    .conversation-preview {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .preview-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .double-check-icon {
+      color: #929cb2;
+      font-size: 12px;
+      letter-spacing: -2px;
+      margin-right: 2px;
+      display: inline-block;
+    }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-top: 8px;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      position: relative;
+      width: 78px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-modal-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 99;
+      display: none;
+    }
+
+    .profile-modal-overlay:target {
+      display: block;
+    }
+
+    .profile-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      cursor: default;
+      z-index: 99;
+    }
+
+    .profile-modal-card {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 88px;
+      width: 346px;
+      max-width: calc(100% - 32px);
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 13px;
+      padding: 14px 16px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+      box-sizing: border-box;
+      z-index: 100;
+    }
+
+    .profile-modal-pointer {
+      position: absolute;
+      bottom: -8px;
+      right: 20px;
+      width: 14px;
+      height: 14px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d9e4f2;
+      transform: rotate(45deg);
+    }
+
+    .profile-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .profile-modal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #172b4d;
+    }
+
+    .profile-modal-close {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: #64748b;
+      border-radius: 6px;
+    }
+
+    .profile-modal-close:hover {
+      background-color: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .profile-modal-divider {
+      height: 1px;
+      background-color: #e2e8f0;
+      margin: 8px 0 10px 0;
+    }
+
+    .profile-modal-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile-modal-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .profile-modal-user-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-modal-user-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #172b4d;
+    }
+
+    .profile-modal-user-role {
+      font-size: 10px;
+      font-weight: 400;
+      color: #60758b;
+    }
+
+    .profile-modal-logout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px 14px;
+      background-color: #fef2f2;
+      border: 1px solid #fee2e2;
+      border-radius: 8px;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .profile-modal-logout:hover {
+      background-color: #fee2e2;
+      border-color: #fca5a5;
+    }
+
+    .profile-modal-logout-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="mobile-screen-wrapper">
+
+    <header class="mobile-header">
+      <a href="painel-inicial.html" class="brand-section" aria-label="Educar e Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-category">Área do Professor</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="mensagens.html" class="header-icon-btn active" title="Mensagens" aria-label="Mensagens">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+            <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
+          </svg>
+        </a>
+
+        <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+            <path d="M10.333 23.5h3.334"/>
+          </svg>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="main-content">
+      <a href="painel-inicial.html" class="back-nav-link" aria-label="Voltar ao painel inicial">
+        <span>‹ Painel inicial</span>
+      </a>
+
+      <div class="page-header">
+        <h1 class="page-title">Mensagens</h1>
+        <p class="page-desc">Converse com responsáveis e equipe pedagógica.</p>
+      </div>
+
+      <a href="iniciar-mensagem.html" class="btn-new-message">
+        <span aria-hidden="true">+</span>
+        <span>Nova mensagem</span>
+      </a>
+
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"/>
+            <path d="M16.667 16.667L13.333 13.333"/>
+          </svg>
+        </span>
+        <input type="text" class="search-input" placeholder="Buscar conversa" aria-label="Buscar conversa">
+      </div>
+
+      <div class="filter-pills-row">
+        <a href="#todas" class="filter-pill active">Todas</a>
+        <a href="#nao-lidas" class="filter-pill">Não lidas</a>
+        <a href="#equipe" class="filter-pill">Equipe</a>
+      </div>
+
+      <div class="section-label">Mais recentes</div>
+
+      <div class="conversation-list">
+        <a href="conversa.html" class="conversation-card unread" aria-label="Conversa com João Carvalho, 2 mensagens não lidas">
+          <span class="unread-count-badge">2</span>
+          <div class="conversation-avatar">JC</div>
+          <div class="conversation-content">
+            <div class="conversation-header">
+              <span class="conversation-name">João Carvalho</span>
+              <span class="conversation-time">10:57</span>
+            </div>
+            <div class="conversation-preview">
+              <span class="preview-text">Obrigado por compartilhar a evolução dele.</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="conversa.html" class="conversation-card" aria-label="Conversa com Mariana Souza">
+          <div class="conversation-avatar">MS</div>
+          <div class="conversation-content">
+            <div class="conversation-header">
+              <span class="conversation-name">Mariana Souza</span>
+              <span class="conversation-time">Ontem</span>
+            </div>
+            <div class="conversation-preview">
+              <span class="preview-text">A Sofia contou sobre a atividade em grupo.</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="conversa.html" class="conversation-card" aria-label="Conversa com Coordenação pedagógica">
+          <div class="conversation-avatar">CP</div>
+          <div class="conversation-content">
+            <div class="conversation-header">
+              <span class="conversation-name">Coordenação pedagógica</span>
+              <span class="conversation-time">Ontem</span>
+            </div>
+            <div class="conversation-preview">
+              <span class="double-check-icon" aria-label="Mensagem lida">✓✓</span>
+              <span class="preview-text">Vamos alinhar os próximos acompanhame...</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="conversa.html" class="conversation-card" aria-label="Conversa com Rafael Oliveira">
+          <div class="conversation-avatar">RO</div>
+          <div class="conversation-content">
+            <div class="conversation-header">
+              <span class="conversation-name">Rafael Oliveira</span>
+              <span class="conversation-time">21 out.</span>
+            </div>
+            <div class="conversation-preview">
+              <span class="preview-text">Obrigado pelas orientações, professora.</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <nav class="bottom-nav">
+      <a href="painel-inicial.html" class="nav-tab active" aria-current="page">
+        <span class="nav-indicator-bar"></span>
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <a href="minhas-turmas.html" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 5.833v11.667"/>
+            <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Turmas</span>
+      </a>
+
+      <a href="registro-selecionar-estudante.html" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
+          </svg>
+        </div>
+        <span class="nav-label">Registros</span>
+      </a>
+
+      <a href="#modal-perfil" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="6.667" r="3.333"/>
+            <path d="M4.167 17.5v-1.667C4.167 12.612 6.778 10 10 10s5.833 2.612 5.833 5.833V17.5"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <div id="modal-perfil" class="profile-modal-overlay">
+      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
+      <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
+        <div class="profile-modal-header">
+          <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
+          <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <div class="profile-modal-user">
+          <div class="profile-modal-avatar">RC</div>
+          <div class="profile-modal-user-info">
+            <span class="profile-modal-user-name">Rafael Costa</span>
+            <span class="profile-modal-user-role">Professor</span>
+          </div>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <a href="../00 — Acesso e autenticação/login-mobile.html" class="profile-modal-logout">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span class="profile-modal-logout-text">Sair da conta</span>
+        </a>
+        <div class="profile-modal-pointer"></div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

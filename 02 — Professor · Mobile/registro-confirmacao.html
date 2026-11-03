@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Observação Registrada · Professor · Educar &amp; Aprender</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
@@ -68,6 +68,23 @@
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
     }
 
     .mobile-header {
@@ -164,11 +181,10 @@
     .main-content {
       flex: 1;
       overflow-y: auto;
-      padding: 16px 16px 98px 16px;
+      padding: 20px 16px 92px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       scrollbar-width: none;
     }
 
@@ -181,7 +197,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 0;
+      margin-top: auto;
       margin-bottom: 24px;
       flex-shrink: 0;
     }
@@ -313,7 +329,7 @@
       gap: 8px;
       text-decoration: none;
       transition: background-color 0.15s ease, transform 0.1s ease;
-      margin-top: 24px;
+      margin-top: auto;
       margin-bottom: 0;
       flex-shrink: 0;
       box-sizing: border-box;

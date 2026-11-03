@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de Observação · Selecionar Estudante · Educar &amp; Aprender</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
@@ -66,6 +66,23 @@
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
     }
 
     .mobile-header {
@@ -180,7 +197,8 @@
       font-weight: 600;
       color: var(--color-primary);
       text-decoration: none;
-      margin-bottom: 6px;
+      margin-bottom: 2px;
+      line-height: 1.2;
       width: fit-content;
       transition: opacity 0.15s ease;
     }
@@ -190,14 +208,17 @@
     }
 
     .page-header {
+      margin-top: 0;
       margin-bottom: 12px;
     }
 
     .page-title {
       font-size: 21px;
       font-weight: 600;
-      line-height: 1.25;
+      line-height: 1.2;
       color: var(--color-text-main);
+      margin-top: 0;
+      margin-bottom: 3px;
     }
 
     .page-desc {
@@ -399,7 +420,7 @@
     .student-arrow {
       width: 16px;
       height: 16px;
-      color: var(--color-text-muted);
+      color: var(--color-primary);
       display: flex;
       align-items: center;
       justify-content: center;
