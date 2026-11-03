@@ -298,8 +298,12 @@
     }
 
     .breadcrumb-separator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
       color: #8194aa;
-      user-select: none;
+      vertical-align: middle;
     }
 
     .breadcrumb-current {
@@ -424,15 +428,9 @@
         width: 100%;
       }
 
-      .filter-dropdown-details summary {
-        list-style: none;
-        outline: none;
-        user-select: none;
-      }
+      
 
-      .filter-dropdown-details summary::-webkit-details-marker {
-        display: none;
-      }
+      
 
       .filter-dropdown {
         height: 48px;
@@ -454,7 +452,7 @@
         border-color: #cbd5e1;
       }
 
-      .filter-dropdown-details[open] .filter-dropdown {
+      .filter-dropdown-details:focus-within .filter-dropdown, .filter-dropdown-details:hover .filter-dropdown {
         border-color: #2563eb;
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
       }
@@ -465,12 +463,14 @@
       }
 
       .filter-label {
-        font-size: 9px;
+        display: block;
+        font-size: 10px;
         font-weight: 600;
         letter-spacing: 0.5px;
         color: #60758b;
         text-transform: uppercase;
-        line-height: 1.2;
+        line-height: 14px;
+        margin-bottom: 2px;
       }
 
       .filter-row {
@@ -478,6 +478,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 8px;
+        line-height: 16px;
       }
 
       .filter-text {
@@ -510,7 +511,7 @@
         overflow: hidden;
       }
 
-      .filter-dropdown-details[open] .filter-dropdown-menu {
+      .filter-dropdown-details:focus-within .filter-dropdown-menu, .filter-dropdown-details:hover .filter-dropdown-menu {
         display: block;
       }
 
@@ -833,6 +834,14 @@
         text-align: left;
       }
 
+      .students-table th:nth-child(1), .students-table td:nth-child(1) { width: 24%; }
+      .students-table th:nth-child(2), .students-table td:nth-child(2) { width: 20%; }
+      .students-table th:nth-child(3), .students-table td:nth-child(3) { width: 10%; }
+      .students-table th:nth-child(4), .students-table td:nth-child(4) { width: 14%; }
+      .students-table th:nth-child(5), .students-table td:nth-child(5) { width: 14%; }
+      .students-table th:nth-child(6), .students-table td:nth-child(6) { width: 18%; }
+
+
       .students-table th {
         background-color: #f8fafc;
         border-top: 1px solid #d8e4f3;
@@ -898,10 +907,12 @@
 
       .status-pill {
         height: 24px;
-        width: 76px;
-        padding: 0;
+        min-width: 76px;
+        width: auto;
+        padding: 0 8px;
         border-radius: 6px;
         font-size: 11px;
+        line-height: 24px;
         font-weight: 700;
         letter-spacing: 0.5px;
         text-transform: uppercase;
@@ -1209,7 +1220,7 @@
                     height="20"
                     viewBox="0 0 20 20"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#60758b"
                     stroke-width="1.8"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1232,7 +1243,7 @@
                     height="20"
                     viewBox="0 0 20 20"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#60758b"
                     stroke-width="1.8"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1256,7 +1267,7 @@
                     height="20"
                     viewBox="0 0 20 20"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#60758b"
                     stroke-width="1.8"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1285,7 +1296,7 @@
                     height="20"
                     viewBox="0 0 20 20"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#2563eb"
                     stroke-width="1.8"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1302,7 +1313,7 @@
               <a href="turmas.html" class="nav-link">
                 <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
                 </svg>
@@ -1321,7 +1332,7 @@
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="currentColor"
+              stroke="#2563eb"
               stroke-width="1.8"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1340,7 +1351,7 @@
               height="18"
               viewBox="0 0 18 18"
               fill="none"
-              stroke="currentColor"
+              stroke="#8194aa"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1358,13 +1369,13 @@
 
           <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
             <span class="breadcrumb-item">Área da coordenação</span>
-            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <svg class="breadcrumb-separator" width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="#8194aa" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><line x1="1" y1="12" x2="6" y2="1"/></svg>
             <a
               href="dashboard-agregador-visao-central.html"
               class="breadcrumb-item"
               >Dashboards agregadores</a
             >
-            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <svg class="breadcrumb-separator" width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="#8194aa" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><line x1="1" y1="12" x2="6" y2="1"/></svg>
             <span class="breadcrumb-current" aria-current="page"
               >Análise por turma</span
             >
@@ -1376,7 +1387,7 @@
               class="notification-btn"
               aria-label="Notificações"
             >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.34"/>
             </svg>
@@ -1489,36 +1500,36 @@
           <div class="filters-row-layout">
             <div class="filters-bar">
 
-            <details class="filter-dropdown-details">
-              <summary class="filter-dropdown filter-turma">
+            <div class="filter-dropdown-details" tabindex="0">
+              <div class="filter-dropdown filter-turma">
                 <span class="filter-label">TURMA</span>
                 <div class="filter-row">
                   <span class="filter-text">7º ano B</span>
-                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                  <svg class="filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </div>
-              </summary>
+              </div>
               <div class="filter-dropdown-menu">
                 <div class="filter-dropdown-item selected">7º ano B</div>
                 <div class="filter-dropdown-item">6º ano A</div>
                 <div class="filter-dropdown-item">8º ano A</div>
                 <div class="filter-dropdown-item">9º ano B</div>
               </div>
-            </details>
+            </div>
 
-            <details class="filter-dropdown-details">
-              <summary class="filter-dropdown filter-periodo">
+            <div class="filter-dropdown-details" tabindex="0">
+              <div class="filter-dropdown filter-periodo">
                 <span class="filter-label">PERÍODO</span>
                 <div class="filter-row">
                   <span class="filter-text">Últimos 6 meses</span>
-                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                  <svg class="filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </div>
-              </summary>
+              </div>
               <div class="filter-dropdown-menu">
                 <div class="filter-dropdown-item selected">Últimos 6 meses</div>
                 <div class="filter-dropdown-item">Últimos 3 meses</div>
                 <div class="filter-dropdown-item">Ano letivo atual</div>
               </div>
-            </details>
+            </div>
             </div>
           </div>
 
@@ -1616,7 +1627,7 @@
               </div>
 
               <div class="insight-box">
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M16.67 5L7.5 14.17 3.33 10" />
                 </svg>
                 <span
@@ -1747,7 +1758,7 @@
               </div>
 
               <div class="insight-box">
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M16.67 5L7.5 14.17 3.33 10" />
                 </svg>
                 <span>Melhora gradual nos últimos 6 meses.</span>
@@ -1786,7 +1797,7 @@
                     <td class="score-cell">3,2</td>
                     <td>
                       <span class="trend-tag trend-down">
-                        <span aria-hidden="true">&darr;</span> queda
+                        <svg class="trend-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg> <span>QUEDA</span>
                       </span>
                     </td>
                     <td>
@@ -1795,7 +1806,7 @@
                     <td>
                       <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile">
                         <span>Ver perfil individual</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                           <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                         </svg>
                       </a>
@@ -1808,7 +1819,7 @@
                     <td class="score-cell">3,0</td>
                     <td>
                       <span class="trend-tag trend-down">
-                        <span aria-hidden="true">&darr;</span> queda
+                        <svg class="trend-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg> <span>QUEDA</span>
                       </span>
                     </td>
                     <td>
@@ -1817,7 +1828,7 @@
                     <td>
                       <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile">
                         <span>Ver perfil individual</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                           <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                         </svg>
                       </a>
@@ -1830,7 +1841,7 @@
                     <td class="score-cell">3,5</td>
                     <td>
                       <span class="trend-tag trend-stable">
-                        <span aria-hidden="true">&rarr;</span> estável
+                        <svg class="trend-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg> <span>ESTÁVEL</span>
                       </span>
                     </td>
                     <td>
@@ -1839,7 +1850,7 @@
                     <td>
                       <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile">
                         <span>Ver perfil individual</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                           <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                         </svg>
                       </a>
@@ -1852,7 +1863,7 @@
                     <td class="score-cell">3,7</td>
                     <td>
                       <span class="trend-tag trend-up">
-                        <span aria-hidden="true">&uarr;</span> melhora
+                        <svg class="trend-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg> <span>MELHORA</span>
                       </span>
                     </td>
                     <td>
@@ -1861,7 +1872,7 @@
                     <td>
                       <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile">
                         <span>Ver perfil individual</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                           <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                         </svg>
                       </a>
@@ -1880,7 +1891,7 @@
               height="14"
               viewBox="0 0 20 20"
               fill="none"
-              stroke="currentColor"
+              stroke="#ffffff"
               stroke-width="2.2"
               stroke-linecap="round"
               stroke-linejoin="round"
