@@ -23,12 +23,14 @@
       --color-text-muted: #60758b;
       --color-text-subtle: #8194aa;
       --color-button-gray: #60758b;
+      --color-btn-neutral: #60758b;
+      --color-btn-neutral-hover: #475569;
       --color-status-green: #16804a;
       --radius-sm: 8px;
       --radius-card: 16px;
-      --radius-btn: 10px;
+      --radius-btn: 12px;
       --shadow-card: 0 4px 14px rgba(20, 51, 97, 0.05);
-      --bottom-bar-height: 106px;
+      --bottom-bar-height: 80px;
     }
 
     *, *::before, *::after {
@@ -797,20 +799,46 @@
       background-color: #2563eb;
     }
 
+    .bottom-actions-bar,
     .bottom-action-bar {
       position: fixed;
       bottom: 0;
-      right: 0;
       left: 248px;
-      height: var(--bottom-bar-height);
+      right: 0;
+      height: 80px;
       background-color: #ffffff;
-      border-top: 1px solid #d9e4f2;
+      border-top: 1px solid var(--color-border-subtle);
       display: flex;
       align-items: center;
       justify-content: flex-end;
       padding: 0 32px;
       gap: 16px;
-      z-index: 85;
+      z-index: 100;
+    }
+
+    .btn-back,
+    .btn-action-back {
+      width: 150px;
+      height: 46px;
+      border-radius: var(--radius-btn);
+      background-color: var(--color-btn-neutral);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+      border: none;
+    }
+
+    .btn-back:hover,
+    .btn-action-back:hover {
+      background-color: var(--color-btn-neutral-hover);
     }
 
     .btn-action-draft {
@@ -818,9 +846,9 @@
       min-width: 180px;
       padding: 0 24px;
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 10px;
-      color: #2563eb;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-btn);
+      color: var(--color-primary);
       font-size: 13px;
       font-weight: 600;
       text-decoration: none;
@@ -839,9 +867,9 @@
       height: 46px;
       min-width: 202px;
       padding: 0 32px;
-      background-color: #2563eb;
+      background-color: var(--color-primary);
       border: none;
-      border-radius: 10px;
+      border-radius: var(--radius-btn);
       color: #ffffff;
       font-size: 13px;
       font-weight: 600;
@@ -853,7 +881,7 @@
     }
 
     .btn-action-finish:hover {
-      background-color: #1d4ed8;
+      background-color: var(--color-primary-hover);
       transform: translateY(-1px);
     }
   </style>
@@ -1073,9 +1101,14 @@
         </div>
       </main>
 
-      <footer class="bottom-action-bar">
+      <footer class="bottom-actions-bar">
+        <a href="responder-autoavaliacao.html" class="btn-back" aria-label="Voltar para a dimensão anterior">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
+          </svg>
+          <span>Voltar</span>
+        </a>
         <a href="minhas-autoavaliacoes.html" class="btn-action-draft">Salvar rascunho</a>
-
         <a href="autoavaliacao-finalizada.html" class="btn-action-finish">Finalizar</a>
       </footer>
     </div>
