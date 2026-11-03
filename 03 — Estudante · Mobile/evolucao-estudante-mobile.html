@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minha Evolução · Educar &amp; Aprender</title>
+  <title>Minha Evolução · Educar & Aprender</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
   <link rel="alternate icon" href="../assets/favicon.svg">
@@ -23,7 +23,9 @@
       --color-trend-positive: #16804a;
       --radius-sm: 8px;
       --radius-md: 12px;
-      --radius-card: 16px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
+      --radius-card: var(--radius-xl);
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
@@ -141,7 +143,7 @@
       height: 42px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: 14px;
+      border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -170,7 +172,7 @@
       flex: 1;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 16px 16px 96px 16px;
+      padding: 18px 16px 98px 16px;
       display: flex;
       flex-direction: column;
       scrollbar-width: none;
@@ -393,6 +395,7 @@
     .nav-tab.active .nav-label {
       font-weight: 600;
     }
+
     .profile-modal-overlay {
       position: absolute;
       inset: 0;
@@ -686,8 +689,8 @@
     <nav class="bottom-nav" aria-label="Navegação principal">
       <a href="painel-inicial-estudante-mobile.html" class="nav-tab">
         <div class="nav-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M4.5 10.333L12 4.5L19.5 10.333V18.667C19.5 19.127 19.127 19.5 18.667 19.5H14.5V13.667H9.5V19.5H5.333C4.873 19.5 4.5 19.127 4.5 18.667V10.333Z" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="24" height="24" viewBox="133 874 24 24" fill="none">
+            <path d="M137.5 884.333L145 878.5L152.5 884.333V892.667C152.5 893.127 152.127 893.5 151.667 893.5H147.5V887.667H142.5V893.5H138.333C137.873 893.5 137.5 893.127 137.5 892.667V884.333Z" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <span class="nav-label">Início</span>
@@ -695,8 +698,8 @@
 
       <a href="autoavaliacoes-estudante-mobile.html" class="nav-tab">
         <div class="nav-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M6.16 12L9.5 15.33L17.83 7" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="24" height="24" viewBox="231.96 875 24 24" fill="none">
+            <path d="M238.129 887L241.463 890.333L249.796 882" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <span class="nav-label">Autoavaliações</span>
@@ -705,9 +708,9 @@
       <a href="#" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar"></span>
         <div class="nav-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M4.5 16.167L9.5 11.167L12.833 14.5L19.5 7" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M14.5 7H19.5V12" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="24" height="24" viewBox="333 874 24 24" fill="none">
+            <path d="M337.5 890.167L342.5 885.167L345.833 888.5L352.5 881" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M347.5 881H352.5V886" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <span class="nav-label">Evolução</span>
@@ -715,16 +718,14 @@
 
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <ellipse cx="12" cy="8.667" rx="3.333" ry="3.333" stroke="#60758b" stroke-width="1.8"/>
-            <path d="M6.166 19.5V17.833C6.166 14.612 8.778 12 12 12C15.222 12 17.834 14.612 17.834 17.833V19.5" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="24" height="24" viewBox="433 874 24 24" fill="none">
+            <ellipse cx="445" cy="882.667" rx="3.333" ry="3.333" stroke="#60758b" stroke-width="1.8"/>
+            <path d="M439.166 893.5V891.833C439.166 888.612 441.778 886 445 886C448.222 886 450.834 888.612 450.834 891.833V893.5" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <span class="nav-label">Perfil</span>
       </a>
     </nav>
-
-
 
     <div id="modal-perfil" class="profile-modal-overlay">
       <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>

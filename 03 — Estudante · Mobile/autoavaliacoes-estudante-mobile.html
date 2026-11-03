@@ -21,16 +21,13 @@
       --color-primary-light: #e8f1ff;
       --color-warning-text: #b45309;
       --color-warning-bg: #fff4d6;
-      --color-success-text: #15803d;
+      --color-success-text: #16a34a;
       --color-success-bg: #e8f7ee;
-      --color-purple-text: #6d5bd0;
-      --color-purple-bg: #f1edff;
 
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 14px;
-      --radius-card: 16px;
-      --radius-btn: 12px;
+      --radius-xl: 16px;
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
@@ -148,7 +145,7 @@
       height: 42px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-btn);
+      border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -176,8 +173,7 @@
     .main-content {
       flex: 1;
       overflow-y: auto;
-      overflow-x: hidden;
-      padding: 16px 16px 88px 16px;
+      padding: 18px 16px 98px 16px;
       display: flex;
       flex-direction: column;
       scrollbar-width: none;
@@ -340,19 +336,20 @@
     .assessment-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .assessment-card {
       width: 100%;
       height: 88px;
+      min-height: 88px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: 13px;
-      padding: 12px 14px;
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
       position: relative;
       box-shadow: var(--shadow-card);
       text-decoration: none;
@@ -368,17 +365,16 @@
     }
 
     .teacher-avatar {
-      width: 34px;
-      height: 34px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 10px;
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
       line-height: 1.2;
       flex-shrink: 0;
-      margin-top: 2px;
     }
 
     .teacher-avatar.blue {
@@ -387,8 +383,8 @@
     }
 
     .teacher-avatar.purple {
-      background-color: var(--color-purple-bg);
-      color: var(--color-purple-text);
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
     }
 
     .teacher-avatar.green {
@@ -409,9 +405,9 @@
     }
 
     .assessment-title {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
-      line-height: 1.25;
+      line-height: 1.35;
       color: var(--color-text-main);
       white-space: nowrap;
       overflow: hidden;
@@ -420,23 +416,23 @@
     }
 
     .assessment-meta {
-      font-size: 9.5px;
+      font-size: 11px;
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.35;
       color: var(--color-text-muted);
       margin-top: 4px;
     }
 
     .card-badge {
       position: absolute;
-      top: 10px;
-      right: 12px;
-      height: 20px;
-      padding: 0 8px;
-      border-radius: 6px;
-      font-size: 9px;
+      top: 12px;
+      right: 14px;
+      height: 22px;
+      padding: 0 10px;
+      border-radius: var(--radius-sm);
+      font-size: 10px;
       font-weight: 600;
-      line-height: 20px;
+      line-height: 22px;
       text-align: center;
       white-space: nowrap;
     }
@@ -458,8 +454,8 @@
 
     .card-arrow {
       position: absolute;
-      bottom: 12px;
-      right: 14px;
+      bottom: 14px;
+      right: 16px;
       color: #8194aa;
       display: flex;
       align-items: center;
@@ -532,6 +528,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .profile-modal-overlay {
       position: absolute;
       inset: 0;
@@ -695,19 +692,19 @@
   <main class="mobile-screen-wrapper">
 
     <header class="mobile-header">
-      <a href="painel-inicial-estudante-mobile.html" class="brand-section" aria-label="Ir para a página inicial">
+      <a href="painel-inicial-estudante-mobile.html" class="brand-section" aria-label="Educar & Aprender - Área do Estudante">
         <div class="brand-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M3.333 16.25C3.333 15.1 4.266 14.167 5.416 14.167H16.666M5.416 1.667H16.666V18.333H5.416C4.266 18.333 3.333 17.401 3.333 16.25V3.75C3.333 2.6 4.266 1.667 5.416 1.667Z" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <div class="brand-text">
-          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-name">Educar & Aprender</span>
           <span class="brand-category">Área do Estudante</span>
         </div>
       </a>
 
-      <button class="notif-button" aria-label="Notificações">
+      <button class="notif-button" aria-label="Ver notificações">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -755,8 +752,8 @@
           <div class="status-col-top">
             <div class="status-icon-box completed">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <circle cx="7" cy="7" r="4.78" stroke="#15803d" stroke-width="1.8"/>
-                <path d="M4.78 7.12L6.24 8.58L9.28 5.42" stroke="#15803d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="7" cy="7" r="4.78" stroke="#16a34a" stroke-width="1.8"/>
+                <path d="M4.78 7.12L6.24 8.58L9.28 5.42" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <span class="status-number completed">1</span>
@@ -849,8 +846,8 @@
       <a href="#" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar"></span>
         <div class="nav-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M6.16 12L9.5 15.33L17.83 7" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="24" height="24" viewBox="231.96 875 24 24" fill="none">
+            <path d="M238.129 887L241.463 890.333L249.796 882" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <span class="nav-label">Autoavaliações</span>
@@ -876,8 +873,6 @@
         <span class="nav-label">Perfil</span>
       </a>
     </nav>
-
-
 
     <div id="modal-perfil" class="profile-modal-overlay">
       <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
