@@ -1,926 +1,1117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Histórico de Registros · Lucas Martins · Responsável · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset & Base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #f5f8fc;
-      color: #172b4d;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Layout Geral Desktop 1440 × 1024 */
-    .app-layout {
-      display: flex;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    /* Barra Lateral do Responsável (248px) */
-    .sidebar {
-      width: 248px;
-      background-color: #ffffff;
-      border-right: 1px solid #d9e4f2;
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      height: 100vh;
-    }
-
-    .sidebar-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 22px 24px;
-      height: 76px;
-    }
-
-    .brand-icon {
-      width: 40px;
-      height: 40px;
-      background-color: #2563eb;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-name {
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1.38;
-      color: #172b4d;
-    }
-
-    .brand-role {
-      font-size: 8px;
-      font-weight: 600;
-      line-height: 1.4;
-      letter-spacing: 0.5px;
-      color: #2563eb;
-      text-transform: uppercase;
-    }
-
-    /* Navegação */
-    .sidebar-nav {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding-top: 14px;
-    }
-
-    .nav-section-title {
-      font-size: 9px;
-      font-weight: 600;
-      line-height: 1.4;
-      letter-spacing: 0.5px;
-      color: #8194aa;
-      text-transform: uppercase;
-      padding: 12px 24px 8px 24px;
-    }
-
-    .nav-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .nav-item {
-      padding: 0 12px;
-    }
-
-    .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      height: 44px;
-      padding: 0 14px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      color: #60758b;
-      position: relative;
-      transition: background-color 0.15s ease, color 0.15s ease;
-    }
-
-    .nav-link:hover {
-      background-color: #f1f5f9;
-      color: #172b4d;
-    }
-
-    .nav-link.active {
-      background-color: #e8f1ff;
-      color: #2563eb;
-      font-weight: 600;
-    }
-
-    /* Barra indicadora azul ativa no item do menu */
-    .nav-link.active::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 3px;
-      height: 28px;
-      background-color: #2563eb;
-      border-radius: 2px;
-    }
-
-    .nav-icon {
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: currentColor;
-    }
-
-    /* Rodapé da Sidebar: Perfil do Responsável */
-    .sidebar-footer {
-      padding: 16px 12px;
-      margin-top: auto;
-      border-top: none;
-    }
-
-    .user-profile-button {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      width: 100%;
-      padding: 8px 12px;
-      background: transparent;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      text-align: left;
-      transition: background-color 0.15s ease;
-    }
-
-    .user-profile-button:hover {
-      background-color: #f1f5f9;
-    }
-
-    .user-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 20px;
-      background-color: #e8f1ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2563eb;
-      flex-shrink: 0;
-    }
-
-    .user-info {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      min-width: 0;
-    }
-
-    .user-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #172b4d;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .user-role {
-      font-size: 10px;
-      font-weight: 400;
-      color: #60758b;
-    }
-
-    .user-chevron {
-      color: #8194aa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Área Principal (1192px) */
-    .main-wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      height: 100vh;
-      overflow: hidden;
-      background-color: #f5f8fc;
-    }
-
-    /* Cabeçalho Superior Desktop (76px) */
-    .top-header {
-      height: 76px;
-      background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-      flex-shrink: 0;
-    }
-
-    .breadcrumb,
-    .breadcrumb-nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      line-height: 1.4;
-      flex-wrap: wrap;
-    }
-
-    .breadcrumb-path,
-    .breadcrumb-link,
-    .breadcrumb-item {
-      color: #60758b;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .breadcrumb-path a,
-    .breadcrumb-link:hover,
-    .breadcrumb-path:hover,
-    .breadcrumb-item:hover,
-    .breadcrumb-path a:hover {
-      color: #172b4d;
-      text-decoration: none;
-    }
-
-    .breadcrumb-separator {
-      color: #8194aa;
-      font-size: 13px;
-      user-select: none;
-    }
-
-    .breadcrumb-current {
-      color: #2563eb;
-      font-weight: 600;
-      font-size: 13px;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .header-icon-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      border: 1px solid #d9e4f2;
-      background-color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #60758b;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.15s ease;
-    }
-
-    .header-icon-btn:hover {
-      background-color: #f8fafc;
-      border-color: #cbd5e1;
-      color: #172b4d;
-    }
-
-    .header-icon-btn.active {
-      border: 2px solid #2563eb;
-      background-color: #ffffff;
-      color: #2563eb;
-    }
-
-    .notification-dot {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 7px;
-      height: 7px;
-      background-color: #2563eb;
-      border-radius: 50%;
-    }
-
-    /* Área de Conteúdo */
-    .content-area {
-      flex: 1;
-      padding: 32px 32px 20px 32px;
-      width: 100%;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      overflow: hidden;
-      min-height: 0;
-    }
-
-    /* Cabeçalho da Tela */
-    .page-header {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-
-    .page-title {
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.39;
-      color: #172b4d;
-    }
-
-    .page-desc {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.43;
-      color: #60758b;
-    }
-
-    /* Cartão de Identificação do Estudante (1088 × 86px) */
-    .student-id-card {
-      width: 100%;
-      min-height: 76px;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 12px;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-
-    .student-id-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .student-id-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 26px;
-      background-color: #e8f0ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      font-weight: 700;
-      color: #2563eb;
-      flex-shrink: 0;
-    }
-
-    .student-id-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .student-id-name {
-      font-size: 18px;
-      font-weight: 700;
-      color: #172b4d;
-      line-height: 1.35;
-    }
-
-    .student-id-class {
-      font-size: 13px;
-      font-weight: 400;
-      color: #60758b;
-      line-height: 1.4;
-    }
-
-    .student-id-badge {
-      padding: 6px 12px;
-      background-color: #f1f5f9;
-      border-radius: 8px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: #60758b;
-      text-transform: uppercase;
-      white-space: nowrap;
-      line-height: 1.4;
-    }
-
-    /* Seção de Filtros */
-    .filters-section {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .filters-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #172b4d;
-      line-height: 1.35;
-    }
-
-    .filters-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .filters-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .filter-btn-all {
-      height: 38px;
-      padding: 0 20px;
-      background-color: #2563eb;
-      color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.15s ease;
-    }
-
-    .filter-btn-all:hover {
-      background-color: #1d4ed8;
-    }
-
-    .filter-btn-dropdown {
-      height: 38px;
-      padding: 0 16px;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #172b4d;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: border-color 0.15s ease, background-color 0.15s ease;
-    }
-
-    .filter-btn-dropdown:hover {
-      border-color: #cbd5e1;
-      background-color: #f8fafc;
-      color: #172b4d;
-    }
-
-    .filter-chevron {
-      color: #60758b;
-      font-size: 12px;
-      line-height: 1;
-    }
-
-    .records-count {
-      font-size: 13px;
-      font-weight: 400;
-      color: #60758b;
-      line-height: 1.4;
-    }
-
-    /* Lista de Registros (Cards) com Scroll Interno */
-    .records-list {
-      flex: 1;
-      min-height: 0;
-      overflow-y: auto;
-      padding: 4px 14px 16px 2px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      scrollbar-width: thin;
-      scrollbar-color: #cbd5e1 transparent;
-    }
-
-    .records-list::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .records-list::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .records-list::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 3px;
-    }
-
-    .records-list::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
-    }
-
-    .record-card {
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 12px;
-      padding: 20px 24px;
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
-    }
-
-    .record-card:hover {
-      border-color: #bfdbfe;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
-      transform: translateX(2px);
-    }
-
-    .record-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .record-date {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: #8194aa;
-      text-transform: uppercase;
-      line-height: 1.4;
-    }
-
-    .dimension-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 136px;
-      height: 24px;
-      border-radius: 8px;
-      background-color: #e8f0ff;
-      color: #2563eb;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      line-height: 1;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .record-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #172b4d;
-      line-height: 1.35;
-      margin-top: 10px;
-    }
-
-    .record-desc {
-      font-size: 13px;
-      font-weight: 400;
-      color: #60758b;
-      line-height: 1.4;
-      margin-top: 4px;
-    }
-
-    .record-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 16px;
-      padding-top: 4px;
-    }
-
-    /* Badges de Status do Registro */
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 112px;
-      height: 26px;
-      border-radius: 8px;
-      font-size: 11px;
-      font-weight: 600;
-      line-height: 1;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .status-badge.positiva {
-      background-color: #e8f6ee;
-      color: #16804a;
-    }
-
-    .status-badge.desenvolver {
-      background-color: #fff4d8;
-      color: #a86200;
-    }
-
-    .record-action {
-      font-size: 13px;
-      font-weight: 600;
-      color: #2563eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      transition: gap 0.15s ease;
-    }
-
-    .record-action:hover,
-    .record-card:hover .record-action {
-      text-decoration: none;
-      gap: 9px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="app-layout">
-    <!-- Barra Lateral do Responsável (248px) -->
-    <aside class="sidebar">
-      <div class="sidebar-brand">
-        <div class="brand-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <span class="brand-name">Educar & Aprender</span>
-          <span class="brand-role">Área do Responsável</span>
-        </div>
-      </div>
-
-      <!-- Navegação Principal -->
-      <nav class="sidebar-nav">
-        <div class="nav-section-title">Acompanhamento Escolar</div>
-        <ul class="nav-list">
-          <!-- Início -->
-          <li class="nav-item">
-            <a href="painel-inicial.html" class="nav-link">
-              <span class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
-                </svg>
-              </span>
-              <span>Início</span>
-            </a>
-          </li>
-
-          <!-- Evolução do estudante -->
-          <li class="nav-item">
-            <a href="evolucao-estudante.html" class="nav-link">
-              <span class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                  <polyline points="17 6 23 6 23 12"/>
-                </svg>
-              </span>
-              <span>Evolução do estudante</span>
-            </a>
-          </li>
-
-          <!-- Histórico de registros -->
-          <li class="nav-item">
-            <a href="historico-registros.html" class="nav-link active">
-              <span class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="8.5" cy="8.5" r="5.5"/>
-                  <line x1="12.5" y1="12.5" x2="16.5" y2="16.5"/>
-                </svg>
-              </span>
-              <span>Histórico de registros</span>
-            </a>
-          </li>
-
-          <!-- Devolutivas -->
-          <li class="nav-item">
-            <a href="devolutivas.html" class="nav-link">
-              <span class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="3.5" y1="6" x2="16.5" y2="6"/>
-                  <line x1="3.5" y1="10" x2="16.5" y2="10"/>
-                  <line x1="3.5" y1="14" x2="16.5" y2="14"/>
-                </svg>
-              </span>
-              <span>Devolutivas</span>
-            </a>
-          </li>
-
-          <!-- Mensagens -->
-          <li class="nav-item">
-            <a href="mensagens.html" class="nav-link">
-              <span class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
-                  <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
-                  <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
-                </svg>
-              </span>
-              <span>Mensagens</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <!-- Perfil do Responsável no Rodapé -->
-      <div class="sidebar-footer">
-        <button class="user-profile-button" type="button" aria-label="Menu do responsável">
-          <div class="user-avatar">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Histórico de Registros · Lucas Martins · Responsável · Educar & Aprender
+    </title>
+    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-light.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <!-- Tipografia Inter oficial do Penpot -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & Base */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #f5f8fc;
+        color: #172b4d;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Layout Geral Desktop 1440 × 1024 */
+      .app-layout {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Barra Lateral do Responsável (248px) */
+      .sidebar {
+        width: 248px;
+        background-color: #ffffff;
+        border-right: 1px solid #d9e4f2;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        height: 100vh;
+      }
+
+      .sidebar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 22px 24px;
+        height: 76px;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #2563eb;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-name {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.38;
+        color: #172b4d;
+      }
+
+      .brand-role {
+        font-size: 8px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #2563eb;
+        text-transform: uppercase;
+      }
+
+      /* Navegação */
+      .sidebar-nav {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-top: 14px;
+      }
+
+      .nav-section-title {
+        font-size: 9px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        color: #8194aa;
+        text-transform: uppercase;
+        padding: 12px 24px 8px 24px;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .nav-item {
+        padding: 0 12px;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 44px;
+        padding: 0 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        color: #60758b;
+        position: relative;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .nav-link:hover {
+        background-color: #f1f5f9;
+        color: #172b4d;
+      }
+
+      .nav-link.active {
+        background-color: #e8f1ff;
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      /* Barra indicadora azul ativa no item do menu */
+      .nav-link.active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 28px;
+        background-color: #2563eb;
+        border-radius: 2px;
+      }
+
+      .nav-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: currentColor;
+      }
+
+      /* Rodapé da Sidebar: Perfil do Responsável */
+      .sidebar-footer {
+        padding: 16px 12px;
+        margin-top: auto;
+        border-top: none;
+      }
+
+      .user-profile-button {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 8px 12px;
+        background: transparent;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.15s ease;
+      }
+
+      .user-profile-button:hover {
+        background-color: #f1f5f9;
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: #e8f1ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2563eb;
+        flex-shrink: 0;
+      }
+
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .user-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: #172b4d;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .user-role {
+        font-size: 10px;
+        font-weight: 400;
+        color: #60758b;
+      }
+
+      .user-chevron {
+        color: #8194aa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Área Principal (1192px) */
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #f5f8fc;
+      }
+
+      /* Cabeçalho Superior Desktop (76px) */
+      .top-header {
+        height: 76px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #d9e4f2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        flex-shrink: 0;
+      }
+
+      .breadcrumb,
+      .breadcrumb-nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        line-height: 1.4;
+        flex-wrap: wrap;
+      }
+
+      .breadcrumb-path,
+      .breadcrumb-link,
+      .breadcrumb-item {
+        color: #60758b;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+
+      .breadcrumb-path a,
+      .breadcrumb-link:hover,
+      .breadcrumb-path:hover,
+      .breadcrumb-item:hover,
+      .breadcrumb-path a:hover {
+        color: #172b4d;
+        text-decoration: none;
+      }
+
+      .breadcrumb-separator {
+        color: #8194aa;
+        font-size: 13px;
+        user-select: none;
+      }
+
+      .breadcrumb-current {
+        color: #2563eb;
+        font-weight: 600;
+        font-size: 13px;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .header-icon-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid #d9e4f2;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #60758b;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.15s ease;
+      }
+
+      .header-icon-btn:hover {
+        background-color: #f8fafc;
+        border-color: #cbd5e1;
+        color: #172b4d;
+      }
+
+      .header-icon-btn.active {
+        border: 2px solid #2563eb;
+        background-color: #ffffff;
+        color: #2563eb;
+      }
+
+      .notification-dot {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 7px;
+        height: 7px;
+        background-color: #2563eb;
+        border-radius: 50%;
+      }
+
+      /* Área de Conteúdo */
+      .content-area {
+        flex: 1;
+        padding: 32px 32px 20px 32px;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow: hidden;
+        min-height: 0;
+      }
+
+      /* Cabeçalho da Tela */
+      .page-header {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+
+      .page-title {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.39;
+        color: #172b4d;
+      }
+
+      .page-desc {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.43;
+        color: #60758b;
+      }
+
+      /* Cartão de Identificação do Estudante (1088 × 86px) */
+      .student-id-card {
+        width: 100%;
+        min-height: 76px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 12px;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+      }
+
+      .student-id-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .student-id-avatar {
+        width: 52px;
+        height: 52px;
+        border-radius: 26px;
+        background-color: #e8f0ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: #2563eb;
+        flex-shrink: 0;
+      }
+
+      .student-id-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .student-id-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #172b4d;
+        line-height: 1.35;
+      }
+
+      .student-id-class {
+        font-size: 13px;
+        font-weight: 400;
+        color: #60758b;
+        line-height: 1.4;
+      }
+
+      .student-id-badge {
+        padding: 6px 12px;
+        background-color: #f1f5f9;
+        border-radius: 8px;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: #60758b;
+        text-transform: uppercase;
+        white-space: nowrap;
+        line-height: 1.4;
+      }
+
+      /* Seção de Filtros */
+      .filters-section {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+
+      .filters-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #172b4d;
+        line-height: 1.35;
+      }
+
+      .filters-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .filters-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .filter-btn-all {
+        height: 38px;
+        padding: 0 20px;
+        background-color: #2563eb;
+        color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.15s ease;
+      }
+
+      .filter-btn-all:hover {
+        background-color: #1d4ed8;
+      }
+
+      .filter-btn-dropdown {
+        height: 38px;
+        padding: 0 16px;
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #172b4d;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          border-color 0.15s ease,
+          background-color 0.15s ease;
+      }
+
+      .filter-btn-dropdown:hover {
+        border-color: #cbd5e1;
+        background-color: #f8fafc;
+        color: #172b4d;
+      }
+
+      .filter-chevron {
+        color: #60758b;
+        font-size: 12px;
+        line-height: 1;
+      }
+
+      .records-count {
+        font-size: 13px;
+        font-weight: 400;
+        color: #60758b;
+        line-height: 1.4;
+      }
+
+      /* Lista de Registros (Cards) com Scroll Interno */
+      .records-list {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        padding: 4px 14px 16px 2px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        scrollbar-width: thin;
+        scrollbar-color: #cbd5e1 transparent;
+      }
+
+      .records-list::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .records-list::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .records-list::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+      }
+
+      .records-list::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+
+      .record-card {
+        background-color: #ffffff;
+        border: 1px solid #d9e4f2;
+        border-radius: 12px;
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition:
+          border-color 0.15s ease,
+          box-shadow 0.15s ease,
+          transform 0.12s ease;
+      }
+
+      .record-card:hover {
+        border-color: #bfdbfe;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+        transform: translateX(2px);
+      }
+
+      .record-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .record-date {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: #8194aa;
+        text-transform: uppercase;
+        line-height: 1.4;
+      }
+
+      .dimension-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 136px;
+        height: 24px;
+        border-radius: 8px;
+        background-color: #e8f0ff;
+        color: #2563eb;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .record-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #172b4d;
+        line-height: 1.35;
+        margin-top: 10px;
+      }
+
+      .record-desc {
+        font-size: 13px;
+        font-weight: 400;
+        color: #60758b;
+        line-height: 1.4;
+        margin-top: 4px;
+      }
+
+      .record-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 16px;
+        padding-top: 4px;
+      }
+
+      /* Badges de Status do Registro */
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 112px;
+        height: 26px;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .status-badge.positiva {
+        background-color: #e8f6ee;
+        color: #16804a;
+      }
+
+      .status-badge.desenvolver {
+        background-color: #fff4d8;
+        color: #a86200;
+      }
+
+      .record-action {
+        font-size: 13px;
+        font-weight: 600;
+        color: #2563eb;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        transition: gap 0.15s ease;
+      }
+
+      .record-action:hover,
+      .record-card:hover .record-action {
+        text-decoration: none;
+        gap: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- Barra Lateral do Responsável (248px) -->
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"
+              />
             </svg>
           </div>
-          <div class="user-info">
-            <span class="user-name">Meu perfil</span>
-            <span class="user-role">Responsável</span>
+          <div class="brand-text">
+            <span class="brand-name">Educar & Aprender</span>
+            <span class="brand-role">Área do Responsável</span>
           </div>
-          <div class="user-chevron">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
-            </svg>
-          </div>
-        </button>
-      </div>
-    </aside>
+        </div>
 
-    <!-- Área Principal Desktop (1192px) -->
-    <main class="main-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
-      <header class="top-header">
-        <nav class="breadcrumb" aria-label="Navegação estrutural">
-          <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
-          <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-item">Aluno</span>
-          <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-current">Histórico de registros</span>
+        <!-- Navegação Principal -->
+        <nav class="sidebar-nav">
+          <div class="nav-section-title">Acompanhamento Escolar</div>
+          <ul class="nav-list">
+            <!-- Início -->
+            <li class="nav-item">
+              <a href="painel-inicial.html" class="nav-link">
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"
+                    />
+                  </svg>
+                </span>
+                <span>Início</span>
+              </a>
+            </li>
+
+            <!-- Evolução do estudante -->
+            <li class="nav-item">
+              <a href="evolucao-estudante.html" class="nav-link">
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg>
+                </span>
+                <span>Evolução do estudante</span>
+              </a>
+            </li>
+
+            <!-- Histórico de registros -->
+            <li class="nav-item">
+              <a href="historico-registros.html" class="nav-link active">
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="8.5" cy="8.5" r="5.5" />
+                    <line x1="12.5" y1="12.5" x2="16.5" y2="16.5" />
+                  </svg>
+                </span>
+                <span>Histórico de registros</span>
+              </a>
+            </li>
+
+            <!-- Devolutivas -->
+            <li class="nav-item">
+              <a href="devolutivas.html" class="nav-link">
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="3.5" y1="6" x2="16.5" y2="6" />
+                    <line x1="3.5" y1="10" x2="16.5" y2="10" />
+                    <line x1="3.5" y1="14" x2="16.5" y2="14" />
+                  </svg>
+                </span>
+                <span>Devolutivas</span>
+              </a>
+            </li>
+
+            <!-- Mensagens -->
+            <li class="nav-item">
+              <a href="mensagens.html" class="nav-link">
+                <span class="nav-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"
+                    />
+                    <path
+                      d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"
+                    />
+                    <path
+                      d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"
+                    />
+                  </svg>
+                </span>
+                <span>Mensagens</span>
+              </a>
+            </li>
+          </ul>
         </nav>
 
-        <div class="header-actions">
-          <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
-              <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
-              <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
-            </svg>
-          </a>
-
-          <button type="button" class="header-icon-btn" title="Notificações" aria-label="Notificações">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
-              <path d="M10.333 23.5h3.334"/>
-            </svg>
-            <span class="notification-dot" aria-hidden="true"></span>
+        <!-- Perfil do Responsável no Rodapé -->
+        <div class="sidebar-footer">
+          <button
+            class="user-profile-button"
+            type="button"
+            aria-label="Menu do responsável"
+          >
+            <div class="user-avatar">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div class="user-info">
+              <span class="user-name">Meu perfil</span>
+              <span class="user-role">Responsável</span>
+            </div>
+            <div class="user-chevron">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5" />
+              </svg>
+            </div>
           </button>
         </div>
-      </header>
+      </aside>
 
-      <!-- Conteúdo da Tela de Histórico -->
-      <section class="content-area">
-        <!-- Título e Descrição da Tela -->
-        <div class="page-header">
-          <h1 class="page-title">Histórico de registros</h1>
-          <p class="page-desc">Consulte as observações registradas pela equipe pedagógica para Lucas.</p>
-        </div>
+      <!-- Área Principal Desktop (1192px) -->
+      <main class="main-wrapper">
+        <!-- Cabeçalho Superior Desktop (76px) -->
+        <header class="top-header">
+          <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="painel-inicial.html" class="breadcrumb-item"
+              >Responsável</a
+            >
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-item">Aluno</span>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Histórico de registros</span>
+          </nav>
 
-        <!-- Cartão de Identificação do Estudante (1088 × 86px) -->
-        <div class="student-id-card">
-          <div class="student-id-left">
-            <div class="student-id-avatar" aria-hidden="true">LM</div>
-            <div class="student-id-info">
-              <h2 class="student-id-name">Lucas Martins</h2>
-              <span class="student-id-class">6º ano A · Ensino Fundamental</span>
-            </div>
+          <div class="header-actions">
+            <a
+              href="mensagens.html"
+              class="header-icon-btn"
+              title="Mensagens"
+              aria-label="Mensagens"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"
+                />
+                <path
+                  d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"
+                />
+                <path
+                  d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"
+                />
+              </svg>
+            </a>
+
+            <button
+              type="button"
+              class="header-icon-btn"
+              title="Notificações"
+              aria-label="Notificações"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"
+                />
+                <path d="M10.333 23.5h3.334" />
+              </svg>
+              <span class="notification-dot" aria-hidden="true"></span>
+            </button>
           </div>
-          <div class="student-id-badge">
-            VISUALIZANDO REGISTROS
-          </div>
-        </div>
+        </header>
 
-        <!-- Seção de Filtros e Contagem -->
-        <div class="filters-section">
-          <h2 class="filters-title">Filtrar registros</h2>
-          
-          <div class="filters-bar">
-            <div class="filters-left">
-              <button class="filter-btn-all" type="button">Todos</button>
-              <button class="filter-btn-dropdown" type="button">
-                <span>Filtrar por dimensão</span>
-                <span aria-hidden="true">▾</span>
-              </button>
-            </div>
-            <span class="records-count">3 registros encontrados</span>
+        <!-- Conteúdo da Tela de Histórico -->
+        <section class="content-area">
+          <!-- Título e Descrição da Tela -->
+          <div class="page-header">
+            <h1 class="page-title">Histórico de registros</h1>
+            <p class="page-desc">
+              Consulte as observações registradas pela equipe pedagógica para
+              Lucas.
+            </p>
           </div>
-        </div>
 
-        <!-- Lista de Registros Avaliados -->
-        <div class="records-list">
-          <!-- Registro 1: Colaboração (Positiva) -->
-          <a href="detalhe-registro-colaboracao.html" class="record-card">
-            <div class="record-top">
-              <span class="record-date">21 OUT 2026</span>
-              <span class="dimension-badge">COLABORAÇÃO</span>
-            </div>
-            <h3 class="record-title">Cooperou na atividade em grupo</h3>
-            <p class="record-desc">Compartilhou ideias e contribuiu com o grupo.</p>
-            <div class="record-bottom">
-              <span class="status-badge positiva">Positiva</span>
-              <div class="record-action">
-                <span>Ver registro</span>
-                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
-                </svg>
+          <!-- Cartão de Identificação do Estudante (1088 × 86px) -->
+          <div class="student-id-card">
+            <div class="student-id-left">
+              <div class="student-id-avatar" aria-hidden="true">LM</div>
+              <div class="student-id-info">
+                <h2 class="student-id-name">Lucas Martins</h2>
+                <span class="student-id-class"
+                  >6º ano A · Ensino Fundamental</span
+                >
               </div>
             </div>
-          </a>
+            <div class="student-id-badge">VISUALIZANDO REGISTROS</div>
+          </div>
 
-          <!-- Registro 2: Participação (Positiva) -->
-          <a href="detalhe-registro-participacao.html" class="record-card">
-            <div class="record-top">
-              <span class="record-date">19 OUT 2026</span>
-              <span class="dimension-badge">PARTICIPAÇÃO</span>
-            </div>
-            <h3 class="record-title">Contribuiu na discussão em sala</h3>
-            <p class="record-desc">Compartilhou uma ideia durante a atividade da turma.</p>
-            <div class="record-bottom">
-              <span class="status-badge positiva">Positiva</span>
-              <div class="record-action">
-                <span>Ver registro</span>
-                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
-                </svg>
+          <!-- Seção de Filtros e Contagem -->
+          <div class="filters-section">
+            <h2 class="filters-title">Filtrar registros</h2>
+
+            <div class="filters-bar">
+              <div class="filters-left">
+                <button class="filter-btn-all" type="button">Todos</button>
+                <button class="filter-btn-dropdown" type="button">
+                  <span>Filtrar por dimensão</span>
+                  <span aria-hidden="true">▾</span>
+                </button>
               </div>
+              <span class="records-count">3 registros encontrados</span>
             </div>
-          </a>
+          </div>
 
-          <!-- Registro 3: Responsabilidade (A desenvolver) -->
-          <a href="detalhe-registro-responsabilidade.html" class="record-card">
-            <div class="record-top">
-              <span class="record-date">16 OUT 2026</span>
-              <span class="dimension-badge">RESPONSABILIDADE</span>
-            </div>
-            <h3 class="record-title">Organização dos materiais</h3>
-            <p class="record-desc">Não organizou os materiais corretamente ao final da aula.</p>
-            <div class="record-bottom">
-              <span class="status-badge desenvolver">A desenvolver</span>
-              <div class="record-action">
-                <span>Ver registro</span>
-                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
-                </svg>
+          <!-- Lista de Registros Avaliados -->
+          <div class="records-list">
+            <!-- Registro 1: Colaboração (Positiva) -->
+            <a href="detalhe-registro-colaboracao.html" class="record-card">
+              <div class="record-top">
+                <span class="record-date">21 OUT 2026</span>
+                <span class="dimension-badge">COLABORAÇÃO</span>
               </div>
-            </div>
-          </a>
-        </div>
-      </section>
-    </main>
-  </div>
+              <h3 class="record-title">Cooperou na atividade em grupo</h3>
+              <p class="record-desc">
+                Compartilhou ideias e contribuiu com o grupo.
+              </p>
+              <div class="record-bottom">
+                <span class="status-badge positiva">Positiva</span>
+                <div class="record-action">
+                  <span>Ver registro</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682" />
+                  </svg>
+                </div>
+              </div>
+            </a>
 
-</body>
+            <!-- Registro 2: Participação (Positiva) -->
+            <a href="detalhe-registro-colaboracao.html" class="record-card">
+              <div class="record-top">
+                <span class="record-date">19 OUT 2026</span>
+                <span class="dimension-badge">PARTICIPAÇÃO</span>
+              </div>
+              <h3 class="record-title">Contribuiu na discussão em sala</h3>
+              <p class="record-desc">
+                Compartilhou uma ideia durante a atividade da turma.
+              </p>
+              <div class="record-bottom">
+                <span class="status-badge positiva">Positiva</span>
+                <div class="record-action">
+                  <span>Ver registro</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+
+            <!-- Registro 3: Responsabilidade (A desenvolver) -->
+            <a href="detalhe-registro-colaboracao.html" class="record-card">
+              <div class="record-top">
+                <span class="record-date">16 OUT 2026</span>
+                <span class="dimension-badge">RESPONSABILIDADE</span>
+              </div>
+              <h3 class="record-title">Organização dos materiais</h3>
+              <p class="record-desc">
+                Não organizou os materiais corretamente ao final da aula.
+              </p>
+              <div class="record-bottom">
+                <span class="status-badge desenvolver">A desenvolver</span>
+                <div class="record-action">
+                  <span>Ver registro</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
-
