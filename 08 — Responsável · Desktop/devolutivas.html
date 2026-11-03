@@ -337,8 +337,10 @@
 
     /* Área de Conteúdo */
     .content-area {
-      padding: 24px 32px 40px 32px;
+      flex: 1;
+      padding: 32px;
       width: 100%;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -352,26 +354,26 @@
     }
 
     .page-title {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
-      line-height: 1.25;
+      line-height: 1.36;
       color: #172b4d;
     }
 
     .page-desc {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 1.4;
+      line-height: 1.43;
       color: #60758b;
     }
 
-    /* Cartão de Identificação do Estudante (1088 × 79px) */
+    /* Cartão de Identificação do Estudante */
     .student-id-card {
       width: 100%;
-      min-height: 79px;
+      min-height: 76px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 16px 24px;
       display: flex;
       align-items: center;
@@ -389,14 +391,15 @@
       width: 48px;
       height: 48px;
       border-radius: 24px;
-      background-color: #e8f0ff;
+      background-color: #e8f1ff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #2563eb;
       flex-shrink: 0;
+      line-height: 1;
     }
 
     .student-id-info {
@@ -407,43 +410,50 @@
 
     .student-tag {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #60758b;
+      color: #8194aa;
       text-transform: uppercase;
+      line-height: 1.4;
     }
 
     .student-id-name {
       font-size: 17px;
       font-weight: 700;
       color: #172b4d;
+      line-height: 1.3;
     }
 
     .student-id-class {
       font-size: 13px;
       font-weight: 400;
       color: #60758b;
+      line-height: 1.3;
     }
 
     /* Badge Cápsula (VISUALIZANDO DEVOLUTIVAS) */
     .status-capsule {
-      padding: 8px 18px;
-      background-color: #f0f4fa;
-      border-radius: 17px;
-      font-size: 10px;
-      font-weight: 700;
+      height: 28px;
+      padding: 0 16px;
+      background-color: #e8f1ff;
+      border-radius: 14px;
+      font-size: 11px;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #60758b;
+      color: #2563eb;
       text-transform: uppercase;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
     }
 
     /* Seção de Filtros e Contagem */
     .controls-section {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-top: 4px;
+      gap: 12px;
     }
 
     .controls-header {
@@ -453,32 +463,34 @@
     }
 
     .section-label {
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 10px;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #60758b;
+      color: #8194aa;
       text-transform: uppercase;
+      line-height: 1.4;
     }
 
     .count-label {
       font-size: 13px;
       font-weight: 400;
       color: #60758b;
+      line-height: 1.4;
     }
 
     /* Barra de Filtros */
     .filter-bar {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     .filter-btn {
       height: 36px;
-      padding: 0 20px;
+      padding: 0 16px;
       border-radius: 10px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -493,7 +505,6 @@
     .filter-btn.active {
       background-color: #2563eb;
       color: #ffffff;
-      font-weight: 700;
       border-color: #2563eb;
     }
 
@@ -515,7 +526,7 @@
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
       border-radius: 10px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       color: #60758b;
       cursor: pointer;
@@ -532,6 +543,14 @@
       color: #172b4d;
     }
 
+    .filter-chevron {
+      font-size: 11px;
+      color: #8194aa;
+      line-height: 1;
+      margin-left: 2px;
+      user-select: none;
+    }
+
     /* Lista de Devolutivas (Cards) */
     .devolutivas-list {
       display: flex;
@@ -542,33 +561,22 @@
     .devolutiva-card {
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 12px;
+      padding: 20px 24px;
       display: flex;
       flex-direction: column;
       gap: 16px;
       position: relative;
-      transition: box-shadow 0.15s ease, border-color 0.15s ease;
       text-decoration: none;
       color: inherit;
+      cursor: pointer;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
     }
 
     .devolutiva-card:hover {
-      box-shadow: 0 6px 18px rgba(23, 43, 77, 0.06);
-      border-color: #cbd5e1;
-    }
-
-    /* Indicador de destaque vertical para novas devolutivas */
-    .card-highlight-bar {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 4px;
-      height: 111px;
-      background-color: #2563eb;
-      border-top-right-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-color: #bfdbfe;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+      transform: translateX(2px);
     }
 
     .devolutiva-card-top {
@@ -585,9 +593,9 @@
     }
 
     .devolutiva-icon-wrapper {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -595,56 +603,58 @@
     }
 
     .devolutiva-icon-blue {
-      background-color: #e8f0ff;
+      background-color: #e8f1ff;
       color: #2563eb;
     }
 
     .devolutiva-icon-gray {
-      background-color: #f0f4fa;
+      background-color: #f1f5f9;
       color: #60758b;
     }
 
     .devolutiva-title-info {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
 
     .devolutiva-title {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: #172b4d;
-      line-height: 1.25;
+      line-height: 1.35;
     }
 
     .devolutiva-author {
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 400;
       color: #60758b;
+      line-height: 1.3;
     }
 
     /* Badges de Status (NOVA / VISTA) */
     .status-badge {
-      height: 26px;
-      padding: 0 14px;
-      border-radius: 13px;
+      height: 24px;
+      padding: 0 12px;
+      border-radius: 12px;
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       white-space: nowrap;
+      line-height: 1;
     }
 
     .status-badge-new {
-      background-color: #e7f0ff;
+      background-color: #e8f1ff;
       color: #2563eb;
     }
 
     .status-badge-seen {
-      background-color: #eef2f7;
+      background-color: #f1f5f9;
       color: #60758b;
     }
 
@@ -654,88 +664,46 @@
       align-items: flex-end;
       justify-content: space-between;
       gap: 24px;
-      padding-top: 6px;
+      padding-top: 4px;
     }
 
     .devolutiva-body-left {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
       flex: 1;
     }
 
     .devolutiva-date {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 400;
-      color: #60758b;
+      color: #8194aa;
+      line-height: 1.3;
     }
 
     .devolutiva-summary {
       font-size: 14px;
       font-weight: 400;
       color: #172b4d;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .devolutiva-action-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       color: #2563eb;
       white-space: nowrap;
       text-decoration: none;
-      transition: gap 0.15s ease;
+      transition: gap 0.15s ease, color 0.15s ease;
     }
 
     .devolutiva-card:hover .devolutiva-action-link {
-      gap: 11px;
-    }
-
-    /* Card de Orientação (Como aproveitar as devolutivas) */
-    .formative-notice-card {
-      width: 100%;
-      min-height: 96px;
-      background-color: #e8f0ff;
-      border: 1px solid #d0e1fd;
-      border-radius: 15px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-top: 4px;
-    }
-
-    .notice-icon-box {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background-color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #2563eb;
-    }
-
-    .notice-text-content {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .notice-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #2563eb;
-    }
-
-    .notice-desc {
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.45;
-      color: #3f5878;
+      gap: 9px;
+      color: #1d4ed8;
+      text-decoration: none;
     }
 
     /* Responsividade */
@@ -854,7 +822,7 @@
           </div>
           <div class="user-chevron">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+              <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
             </svg>
           </div>
         </button>
@@ -868,7 +836,7 @@
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
           <span class="breadcrumb-separator">/</span>
-          <a href="painel-inicial.html" class="breadcrumb-item">Aluno</a>
+          <a href="painel-inicial.html" class="breadcrumb-item">Lucas Martins</a>
           <span class="breadcrumb-separator">/</span>
           <span class="breadcrumb-current">Devolutivas</span>
         </nav>
@@ -936,7 +904,7 @@
                 <polyline points="8.5 4.5 8.5 8.5 10.6 9.9"></polyline>
               </svg>
               <span>Todos os períodos</span>
-              <span style="font-size: 11px; margin-left: 2px;">⌄</span>
+              <span class="filter-chevron" aria-hidden="true">▾</span>
             </button>
           </div>
         </section>
@@ -944,10 +912,7 @@
         <!-- Lista de Devolutivas (2 Cards) -->
         <section class="devolutivas-list" aria-label="Devolutivas pedagógicas">
           <!-- Card 1: Parecer Formativo · 1º Bimestre (NOVA) -->
-          <article class="devolutiva-card">
-            <!-- Borda Destaque Azul à Esquerda -->
-            <div class="card-highlight-bar" aria-hidden="true"></div>
-
+          <a href="devolutiva-selecionada.html" class="devolutiva-card">
             <div class="devolutiva-card-top">
               <div class="devolutiva-header-left">
                 <div class="devolutiva-icon-wrapper devolutiva-icon-blue">
@@ -974,18 +939,17 @@
                 <p class="devolutiva-summary">Coopera e inclui colegas nas atividades.</p>
               </div>
 
-              <a href="devolutiva-selecionada.html" class="devolutiva-action-link" title="Ver detalhes do parecer">
+              <div class="devolutiva-action-link">
                 <span>Ver devolutiva</span>
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="3" y1="9" x2="15" y2="9"></line>
-                  <polyline points="10.5 4.5 15 9 10.5 13.5"></polyline>
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
                 </svg>
-              </a>
+              </div>
             </div>
-          </article>
+          </a>
 
           <!-- Card 2: Acompanhamento · Outubro (VISTA) -->
-          <article class="devolutiva-card">
+          <a href="devolutiva-selecionada.html" class="devolutiva-card">
             <div class="devolutiva-card-top">
               <div class="devolutiva-header-left">
                 <div class="devolutiva-icon-wrapper devolutiva-icon-gray">
@@ -1010,30 +974,14 @@
                 <p class="devolutiva-summary">Confira os pontos fortes e os próximos passos.</p>
               </div>
 
-              <a href="devolutiva-selecionada.html" class="devolutiva-action-link" title="Ver detalhes do acompanhamento">
+              <div class="devolutiva-action-link">
                 <span>Ver devolutiva</span>
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="3" y1="9" x2="15" y2="9"></line>
-                  <polyline points="10.5 4.5 15 9 10.5 13.5"></polyline>
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
                 </svg>
-              </a>
+              </div>
             </div>
-          </article>
-        </section>
-
-        <!-- Card de Orientação (Como aproveitar as devolutivas) -->
-        <section class="formative-notice-card" aria-label="Orientações de devolutivas">
-          <div class="notice-icon-box">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-          </div>
-          <div class="notice-text-content">
-            <h4 class="notice-title">Como aproveitar as devolutivas</h4>
-            <p class="notice-desc">Leia as observações com Lucas, reconheça seus avanços e converse com a equipe pedagógica quando precisar de esclarecimentos.</p>
-          </div>
+          </a>
         </section>
       </div>
     </main>
