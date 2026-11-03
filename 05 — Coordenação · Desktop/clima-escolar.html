@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Variáveis Base */
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -36,7 +36,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100vw;
@@ -45,7 +44,6 @@
       overflow: hidden;
     }
 
-    /* Barra Lateral da Coordenação (248px) */
     .sidebar {
       width: 248px;
       background-color: #ffffff;
@@ -59,7 +57,6 @@
       z-index: 20;
     }
 
-    /* Topo da Sidebar: Marca */
     .sidebar-brand {
       display: flex;
       align-items: center;
@@ -103,7 +100,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -158,7 +154,6 @@
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -181,7 +176,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil da Coordenação */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -249,7 +243,6 @@
       justify-content: center;
     }
 
-    /* Área Principal */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -260,7 +253,6 @@
       overflow: hidden;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
         .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -352,7 +344,6 @@
       border: none;
     }
 
-    /* Conteúdo do Painel */
     .content-area {
       flex: 1;
       min-height: 0;
@@ -380,7 +371,6 @@
       background-color: #94a3b8;
     }
 
-    /* Título & Descrição da Página */
     .page-header {
       margin-bottom: 24px;
     }
@@ -399,7 +389,6 @@
       line-height: 1.5;
     }
 
-    /* Barra de Filtros e Ação - Padrão Professor */
     .filter-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -566,7 +555,6 @@
       box-shadow: 0 1px 3px rgba(37, 99, 235, 0.08);
     }
 
-    /* Linha de Indicadores KPI (4 Cards) - Padrão Professor */
     .kpi-grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -627,7 +615,6 @@
       color: #60758b;
     }
 
-    /* Grid de Painéis Principais (Layout bi-coluna flexível proporcional 1.65fr : 1fr) */
     .dashboard-row {
       display: grid;
       grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
@@ -705,7 +692,6 @@
       background-color: #d97770;
     }
 
-    /* Card 1: Evolução do Clima Escolar (Gráfico de Colunas) */
     .evolution-chart-container {
       position: relative;
       height: 155px;
@@ -821,7 +807,6 @@
       user-select: none;
     }
 
-    /* Card 2: Dimensões do Clima */
     .dimensions-list {
       display: flex;
       flex-direction: column;
@@ -879,7 +864,6 @@
       flex-shrink: 0;
     }
 
-    /* Card 3: Distribuição das Percepções */
     .distribution-legend-row {
       display: flex;
       align-items: center;
@@ -949,7 +933,6 @@
       flex-shrink: 0;
     }
 
-    /* Card 4: Ações de Fortalecimento */
     .actions-list {
       display: flex;
       flex-direction: column;
@@ -1029,12 +1012,12 @@
 <body>
 
   <div class="app-layout">
-    <!-- Barra Lateral da Coordenação (248px) - Ícones e Estrutura Oficial -->
+
     <aside class="sidebar">
-      <!-- Marca -->
+
       <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
         <div class="brand-icon">
-          <!-- Ícone oficial do Penpot: Livro -->
+
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
@@ -1046,15 +1029,14 @@
         </div>
       </a>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Gestão Pedagógica</div>
         <ul class="nav-list">
-          <!-- Visão Geral (Ativo) -->
+
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Início oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
                 </svg>
@@ -1063,11 +1045,10 @@
             </a>
           </li>
 
-          <!-- Sistema de Alertas -->
           <li class="nav-item">
             <a href="sistema-alerta-precoce.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Notificações / Sino oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                   <path d="M8.33 17.5h3.34"/>
@@ -1077,11 +1058,10 @@
             </a>
           </li>
 
-          <!-- Clima Escolar -->
           <li class="nav-item">
             <a href="clima-escolar.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Comunidade Escolar oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="10" cy="5" r="2.2"/>
                   <circle cx="5" cy="7.2" r="1.5"/>
@@ -1095,11 +1075,10 @@
             </a>
           </li>
 
-          <!-- Dashboards Agregadores -->
           <li class="nav-item">
             <a href="dashboard-agregador-visao-central.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
                   <path d="M12.5 5h5v5"/>
@@ -1109,11 +1088,10 @@
             </a>
           </li>
 
-          <!-- Turmas -->
           <li class="nav-item">
             <a href="turmas.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Turmas oficial: Livro -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -1125,7 +1103,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé: Perfil da Coordenação -->
       <div class="sidebar-footer">
         <button
           type="button"
@@ -1169,9 +1146,8 @@
       </div>
     </aside>
 
-    <!-- Área Principal -->
     <main class="main-wrapper">
-      <!-- Cabeçalho Superior -->
+
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-item">Área da coordenação</a>
@@ -1190,18 +1166,16 @@
         </div>
       </header>
 
-      <!-- Conteúdo do Painel -->
       <div class="content-area">
-        <!-- Título da Página -->
+
         <div class="page-header">
           <h1 class="page-title">Dashboard de clima escolar</h1>
           <p class="page-desc">Acompanhe percepções coletivas, tendências por dimensão e ações de fortalecimento do clima escolar.</p>
         </div>
 
-        <!-- Filtros e Ação de Exportar Resumo -->
         <div class="filter-bar">
           <div class="filter-controls">
-            <!-- Filtro Período -->
+
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown filter-periodo">
                 <span class="filter-label">PERÍODO</span>
@@ -1218,7 +1192,6 @@
               </div>
             </details>
 
-            <!-- Filtro Unidade Escolar -->
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown filter-unidade">
                 <span class="filter-label">UNIDADE ESCOLAR</span>
@@ -1234,7 +1207,6 @@
               </div>
             </details>
 
-            <!-- Filtro Segmento -->
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown filter-segmento">
                 <span class="filter-label">SEGMENTO</span>
@@ -1251,9 +1223,8 @@
             </details>
           </div>
 
-          <!-- Ação Exportar Resumo -->
           <div class="filter-actions">
-            <button type="button" class="btn-export" onclick="window.print()" title="Exportar resumo de clima escolar">
+            <button type="button" class="btn-export" title="Exportar resumo de clima escolar">
               <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M6 14L14 6M14 6H7M14 6V13"/>
               </svg>
@@ -1262,9 +1233,8 @@
           </div>
         </div>
 
-        <!-- Linha 1: 4 Cards de Indicadores (KPIs) -->
         <section class="kpi-grid-4" aria-label="Indicadores principais de clima escolar">
-          <!-- Card 1: Índice de clima escolar -->
+
           <div class="kpi-card">
             <span class="kpi-title">Índice de clima escolar</span>
             <div class="kpi-val-row">
@@ -1274,7 +1244,6 @@
             <span class="kpi-hint">Percepção geral favorável</span>
           </div>
 
-          <!-- Card 2: Pertencimento -->
           <div class="kpi-card">
             <span class="kpi-title">Pertencimento</span>
             <div class="kpi-val-row">
@@ -1284,7 +1253,6 @@
             <span class="kpi-hint">Maior resultado entre dimensões</span>
           </div>
 
-          <!-- Card 3: Colaboração -->
           <div class="kpi-card">
             <span class="kpi-title">Colaboração</span>
             <div class="kpi-val-row">
@@ -1294,7 +1262,6 @@
             <span class="kpi-hint">Oportunidade de fortalecimento</span>
           </div>
 
-          <!-- Card 4: Turmas para acompanhamento -->
           <div class="kpi-card">
             <span class="kpi-title">Turmas para acompanhamento</span>
             <div class="kpi-val-row">
@@ -1305,9 +1272,8 @@
           </div>
         </section>
 
-        <!-- Linha 2: Gráfico de Evolução (Proporcional 1.65fr) & Dimensões do Clima (1fr) -->
         <section class="dashboard-row" aria-label="Evolução e Dimensões do Clima">
-          <!-- Painel Esquerdo: Evolução do clima escolar -->
+
           <div class="panel-card">
             <div class="panel-header-row">
               <div class="panel-title-group">
@@ -1320,9 +1286,8 @@
               </div>
             </div>
 
-            <!-- Gráfico de Colunas / Tendência -->
             <div class="evolution-chart-container">
-              <!-- Linhas de Grade e Eixo Y -->
+
               <div class="y-axis-labels">
                 <span>5</span>
                 <span>4</span>
@@ -1338,46 +1303,39 @@
                 <div class="grid-line-item"></div>
               </div>
 
-              <!-- Barras -->
               <div class="bars-container">
-                <!-- Mai (3,2) -->
+
                 <div class="bar-col" title="Mai: 3,2">
                   <span class="bar-value">3,2</span>
                   <div class="bar-rect" style="height: 73px;"></div>
                 </div>
 
-                <!-- Jun (3,4) -->
                 <div class="bar-col" title="Jun: 3,4">
                   <span class="bar-value">3,4</span>
                   <div class="bar-rect" style="height: 78px;"></div>
                 </div>
 
-                <!-- Jul (3,5) -->
                 <div class="bar-col" title="Jul: 3,5">
                   <span class="bar-value">3,5</span>
                   <div class="bar-rect" style="height: 81px;"></div>
                 </div>
 
-                <!-- Ago (3,5) -->
                 <div class="bar-col" title="Ago: 3,5">
                   <span class="bar-value">3,5</span>
                   <div class="bar-rect" style="height: 83px;"></div>
                 </div>
 
-                <!-- Set (3,6) -->
                 <div class="bar-col" title="Set: 3,6">
                   <span class="bar-value">3,6</span>
                   <div class="bar-rect" style="height: 87px;"></div>
                 </div>
 
-                <!-- Out (3,8 - Destaque Ativo) -->
                 <div class="bar-col highlighted" title="Out: 3,8 (mês atual)">
                   <span class="bar-value">3,8</span>
                   <div class="bar-rect" style="height: 92px;"></div>
                 </div>
               </div>
 
-              <!-- Rótulos do Eixo X -->
               <div class="x-axis-labels">
                 <span class="x-label">Mai</span>
                 <span class="x-label">Jun</span>
@@ -1389,7 +1347,6 @@
             </div>
           </div>
 
-          <!-- Painel Direito: Dimensões do clima -->
           <div class="panel-card">
             <div class="panel-header-row">
               <div class="panel-title-group">
@@ -1398,9 +1355,8 @@
               </div>
             </div>
 
-            <!-- Lista de Dimensões -->
             <div class="dimensions-list">
-              <!-- Pertencimento (4,1 / 5) -->
+
               <div class="dimension-item">
                 <span class="dim-name">Pertencimento</span>
                 <div class="dim-track">
@@ -1409,7 +1365,6 @@
                 <span class="dim-score">4,1</span>
               </div>
 
-              <!-- Respeito (3,9 / 5) -->
               <div class="dimension-item">
                 <span class="dim-name">Respeito</span>
                 <div class="dim-track">
@@ -1418,7 +1373,6 @@
                 <span class="dim-score">3,9</span>
               </div>
 
-              <!-- Segurança emocional (3,7 / 5) -->
               <div class="dimension-item">
                 <span class="dim-name">Segurança emocional</span>
                 <div class="dim-track">
@@ -1427,7 +1381,6 @@
                 <span class="dim-score">3,7</span>
               </div>
 
-              <!-- Colaboração (3,4 / 5) -->
               <div class="dimension-item">
                 <span class="dim-name">Colaboração</span>
                 <div class="dim-track">
@@ -1436,7 +1389,6 @@
                 <span class="dim-score">3,4</span>
               </div>
 
-              <!-- Participação (3,2 / 5) -->
               <div class="dimension-item">
                 <span class="dim-name">Participação</span>
                 <div class="dim-track">
@@ -1448,9 +1400,8 @@
           </div>
         </section>
 
-        <!-- Linha 3: Distribuição das percepções (1.65fr) & Ações de fortalecimento (1fr) -->
         <section class="dashboard-row" aria-label="Distribuição das Percepções e Ações">
-          <!-- Painel Esquerdo: Distribuição das percepções por dimensão -->
+
           <div class="panel-card">
             <div class="panel-header-row" style="margin-bottom: 12px;">
               <div class="panel-title-group">
@@ -1459,7 +1410,6 @@
               </div>
             </div>
 
-            <!-- Legenda da Distribuição -->
             <div class="distribution-legend-row">
               <div class="dist-legend-item">
                 <span class="legend-box green" aria-hidden="true"></span>
@@ -1475,9 +1425,8 @@
               </div>
             </div>
 
-            <!-- Lista de Barras Segmentadas Empilhadas -->
             <div class="distribution-list">
-              <!-- Pertencimento (87% Favorável, 10% Intermediária, 3% Desfavorável) -->
+
               <div class="distribution-row">
                 <span class="dist-label">Pertencimento</span>
                 <div class="dist-stacked-bar" title="Favorável: 87% | Intermediária: 10% | Desfavorável: 3%">
@@ -1488,7 +1437,6 @@
                 <span class="dist-total">100%</span>
               </div>
 
-              <!-- Respeito (83% Favorável, 13% Intermediária, 4% Desfavorável) -->
               <div class="distribution-row">
                 <span class="dist-label">Respeito</span>
                 <div class="dist-stacked-bar" title="Favorável: 83% | Intermediária: 13% | Desfavorável: 4%">
@@ -1499,7 +1447,6 @@
                 <span class="dist-total">100%</span>
               </div>
 
-              <!-- Segurança emocional (78% Favorável, 16% Intermediária, 6% Desfavorável) -->
               <div class="distribution-row">
                 <span class="dist-label">Segurança emocional</span>
                 <div class="dist-stacked-bar" title="Favorável: 78% | Intermediária: 16% | Desfavorável: 6%">
@@ -1510,7 +1457,6 @@
                 <span class="dist-total">100%</span>
               </div>
 
-              <!-- Colaboração (72% Favorável, 20% Intermediária, 8% Desfavorável) -->
               <div class="distribution-row">
                 <span class="dist-label">Colaboração</span>
                 <div class="dist-stacked-bar" title="Favorável: 72% | Intermediária: 20% | Desfavorável: 8%">
@@ -1521,7 +1467,6 @@
                 <span class="dist-total">100%</span>
               </div>
 
-              <!-- Participação (66% Favorável, 24% Intermediária, 10% Desfavorável) -->
               <div class="distribution-row">
                 <span class="dist-label">Participação</span>
                 <div class="dist-stacked-bar" title="Favorável: 66% | Intermediária: 24% | Desfavorável: 10%">
@@ -1534,7 +1479,6 @@
             </div>
           </div>
 
-          <!-- Painel Direito: Ações de fortalecimento -->
           <div class="panel-card">
             <div class="panel-header-row">
               <div class="panel-title-group">
@@ -1542,9 +1486,8 @@
               </div>
             </div>
 
-            <!-- Lista de Ações -->
             <div class="actions-list">
-              <!-- Ação 1: Rodas de diálogo por turma -->
+
               <div class="action-item">
                 <span class="action-title">Rodas de diálogo por turma</span>
                 <span class="action-meta">7º ano · Responsável: orientação</span>
@@ -1554,7 +1497,6 @@
                 </div>
               </div>
 
-              <!-- Ação 2: Acordos de convivência -->
               <div class="action-item">
                 <span class="action-title">Acordos de convivência</span>
                 <span class="action-meta">6º e 7º anos · Coordenação</span>
@@ -1564,7 +1506,6 @@
                 </div>
               </div>
 
-              <!-- Ação 3: Escuta sobre pertencimento -->
               <div class="action-item">
                 <span class="action-title">Escuta sobre pertencimento</span>
                 <span class="action-meta">Todas as turmas · Orientação</span>

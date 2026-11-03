@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todos os estudantes em alerta · Coordenação · Desktop 1440 × 1024 · Educar &amp; Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -29,7 +29,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100vw;
@@ -38,7 +37,6 @@
       overflow: hidden;
     }
 
-    /* Barra Lateral da Coordenação (248px) */
     .sidebar {
       width: 248px;
       background-color: #ffffff;
@@ -52,7 +50,6 @@
       z-index: 20;
     }
 
-    /* Topo da Sidebar: Marca */
     .sidebar-brand {
       display: flex;
       align-items: center;
@@ -96,7 +93,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -151,7 +147,6 @@
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -174,7 +169,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil da Coordenação */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -242,7 +236,6 @@
       justify-content: center;
     }
 
-    /* Área Principal (1192px) */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -252,7 +245,6 @@
       overflow: hidden;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
         .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -344,7 +336,6 @@
       border: none;
     }
 
-    /* Conteúdo do Painel */
     .content-area {
       flex: 1;
       width: 100%;
@@ -370,7 +361,6 @@
       background-color: #94a3b8;
     }
 
-    /* Título & Descrição da Página */
     .page-header {
       margin-bottom: 24px;
     }
@@ -390,7 +380,6 @@
       color: #60758b;
     }
 
-    /* Linha 1: 4 Cards de Resumo (Altura 66px) */
     .summary-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -482,7 +471,6 @@
       color: #6d5bd0;
     }
 
-    /* Linha de Controles: Filtros Dropdown + Busca Padronizados */
     .controls-row {
       display: flex;
       align-items: center;
@@ -660,7 +648,6 @@
       color: #8194aa;
     }
 
-    /* Painel / Card da Tabela de Estudantes */
     .table-card {
       background-color: #ffffff;
       border: 1px solid #d8e4f3;
@@ -745,7 +732,6 @@
       color: #172b4d;
     }
 
-    /* Estrutura da Tabela */
     .data-table {
       width: 100%;
       border-collapse: separate;
@@ -915,7 +901,6 @@
       color: #172b4d;
     }
 
-    /* Barra Inferior de Ações (Fixa no rodapé do viewport) */
     .bottom-bar {
       height: 76px;
       background-color: #ffffff;
@@ -955,12 +940,12 @@
 <body>
 
   <div class="app-layout">
-    <!-- Barra Lateral da Coordenação (248px) -->
+
     <aside class="sidebar">
-      <!-- Marca -->
+
       <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
         <div class="brand-icon">
-          <!-- Ícone oficial do Penpot: Livro -->
+
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
@@ -972,15 +957,14 @@
         </div>
       </a>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Gestão Pedagógica</div>
         <ul class="nav-list">
-          <!-- Visão Geral (Ativo) -->
+
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Início oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
                 </svg>
@@ -989,11 +973,10 @@
             </a>
           </li>
 
-          <!-- Sistema de Alertas -->
           <li class="nav-item">
             <a href="sistema-alerta-precoce.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Notificações / Sino oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                   <path d="M8.33 17.5h3.34"/>
@@ -1003,11 +986,10 @@
             </a>
           </li>
 
-          <!-- Clima Escolar -->
           <li class="nav-item">
             <a href="clima-escolar.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Comunidade Escolar oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="10" cy="5" r="2.2"/>
                   <circle cx="5" cy="7.2" r="1.5"/>
@@ -1021,11 +1003,10 @@
             </a>
           </li>
 
-          <!-- Dashboards Agregadores -->
           <li class="nav-item">
             <a href="dashboard-agregador-visao-central.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
                   <path d="M12.5 5h5v5"/>
@@ -1035,11 +1016,10 @@
             </a>
           </li>
 
-          <!-- Turmas -->
           <li class="nav-item">
             <a href="turmas.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Turmas oficial: Livro -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -1051,7 +1031,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé: Perfil da Coordenação -->
       <div class="sidebar-footer">
         <button
           type="button"
@@ -1095,9 +1074,8 @@
       </div>
     </aside>
 
-    <!-- Área Principal (1192px) -->
     <main class="main-wrapper">
-      <!-- Cabeçalho Superior -->
+
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-item">Área da coordenação</a>
@@ -1118,20 +1096,18 @@
         </div>
       </header>
 
-      <!-- Conteúdo do Painel -->
       <div class="content-area">
-        <!-- Título da Página -->
+
         <div class="page-header">
           <h1 class="page-title">Todos os estudantes em alerta</h1>
           <p class="page-desc">Consulte os casos individuais, filtre por turma ou tipo de alerta e priorize os próximos passos.</p>
         </div>
 
-        <!-- Linha 1: 4 Cards de Resumo -->
         <section class="summary-grid" aria-label="Resumo de alertas">
-          <!-- Card Estudantes em Alerta -->
+
           <div class="summary-card">
             <div class="summary-icon-box blue" aria-hidden="true">
-              <!-- Ícone Perfil Oficial -->
+
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="8" r="4"/>
                 <path d="M5 21v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2"/>
@@ -1143,10 +1119,9 @@
             </div>
           </div>
 
-          <!-- Card Críticos -->
           <div class="summary-card">
             <div class="summary-icon-box red" aria-hidden="true">
-              <!-- Ícone Notificação / Sino Vermelho -->
+
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                 <path d="M8.33 17.5h3.34"/>
@@ -1158,10 +1133,9 @@
             </div>
           </div>
 
-          <!-- Card Atenção -->
           <div class="summary-card">
             <div class="summary-icon-box amber" aria-hidden="true">
-              <!-- Ícone Exclamação oficial de Atenção do Penpot -->
+
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M10.25 4.5h3.5l-.65 9.5h-2.2l-.65-9.5z"/>
                 <rect x="10.5" y="16.5" width="3" height="3" rx="0.5"/>
@@ -1173,10 +1147,9 @@
             </div>
           </div>
 
-          <!-- Card Tipos Combinados -->
           <div class="summary-card">
             <div class="summary-icon-box purple" aria-hidden="true">
-              <!-- Ícone Tipos Combinados oficial do Penpot -->
+
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="6" cy="6" r="3"/>
                 <circle cx="6" cy="18" r="3"/>
@@ -1191,9 +1164,8 @@
           </div>
         </section>
 
-        <!-- Linha de Controles: Filtros Dropdown Padronizados + Busca -->
         <section class="controls-row" aria-label="Filtros e busca">
-          <!-- Filtro Turma -->
+
           <div class="filter-item">
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
@@ -1215,7 +1187,6 @@
             </details>
           </div>
 
-          <!-- Filtro Tipo de Alerta -->
           <div class="filter-item">
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
@@ -1235,7 +1206,6 @@
             </details>
           </div>
 
-          <!-- Filtro Nível de Criticidade -->
           <div class="filter-item">
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
@@ -1253,7 +1223,6 @@
             </details>
           </div>
 
-          <!-- Filtro Período -->
           <div class="filter-item">
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
@@ -1272,7 +1241,6 @@
             </details>
           </div>
 
-          <!-- Busca de Estudante -->
           <div class="search-filter-item">
             <div class="search-box-wrapper">
               <span class="search-icon-symbol" aria-hidden="true">
@@ -1286,26 +1254,23 @@
           </div>
         </section>
 
-        <!-- Card da Tabela de Estudantes -->
         <section class="table-card" aria-label="Tabela de estudantes em alerta">
           <div class="table-top-bar">
             <h2 class="table-title">Lista de estudantes</h2>
             <div class="table-tabs-row">
-              <!-- Abas de Filtro de Nível -->
+
               <div class="table-tabs" role="tablist">
                 <button type="button" class="tab-btn active" role="tab" aria-selected="true">Todos (12)</button>
                 <button type="button" class="tab-btn" role="tab" aria-selected="false">Críticos (3)</button>
                 <button type="button" class="tab-btn" role="tab" aria-selected="false">Atenção (9)</button>
               </div>
 
-              <!-- Ordenação -->
               <span class="sort-indicator" title="Alterar ordenação">
                 Ordenar por: criticidade &darr;
               </span>
             </div>
           </div>
 
-          <!-- Tabela de Dados -->
           <table class="data-table">
             <thead>
               <tr>
@@ -1319,7 +1284,7 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Linha 1: Marina Santos -->
+
               <tr>
                 <td>
                   <div class="student-cell">
@@ -1342,7 +1307,6 @@
                 </td>
               </tr>
 
-              <!-- Linha 2: Pedro Costa -->
               <tr class="row-alt">
                 <td>
                   <div class="student-cell">
@@ -1365,7 +1329,6 @@
                 </td>
               </tr>
 
-              <!-- Linha 3: Gabriel Barros -->
               <tr>
                 <td>
                   <div class="student-cell">
@@ -1388,7 +1351,6 @@
                 </td>
               </tr>
 
-              <!-- Linha 4: João Lima -->
               <tr class="row-alt">
                 <td>
                   <div class="student-cell">
@@ -1411,7 +1373,6 @@
                 </td>
               </tr>
 
-              <!-- Linha 5: Ana Ribeiro -->
               <tr>
                 <td>
                   <div class="student-cell">
@@ -1434,7 +1395,6 @@
                 </td>
               </tr>
 
-              <!-- Linha 6: Lucas Martins -->
               <tr class="row-alt">
                 <td>
                   <div class="student-cell">
@@ -1457,7 +1417,6 @@
                 </td>
               </tr>
 
-              <!-- Linha 7: Beatriz Nunes -->
               <tr>
                 <td>
                   <div class="student-cell">
@@ -1480,7 +1439,6 @@
                 </td>
               </tr>
 
-              <!-- Linha 8: Sofia Alves -->
               <tr class="row-alt">
                 <td>
                   <div class="student-cell">
@@ -1505,7 +1463,6 @@
             </tbody>
           </table>
 
-          <!-- Paginação -->
           <div class="table-pagination-footer">
             <span>1–8 de 12</span>
             <span class="pagination-nav" title="Página anterior">&lsaquo;</span>
@@ -1516,7 +1473,6 @@
         </section>
       </div>
 
-      <!-- Barra Inferior de Ações -->
       <footer class="bottom-bar">
         <a href="sistema-alerta-precoce.html" class="btn-back">
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1529,4 +1485,3 @@
   </div>
 </body>
 </html>
-

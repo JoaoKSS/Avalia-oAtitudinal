@@ -7,7 +7,7 @@
       Dashboard Agregador · Dimensões Atitudinais · Coordenação · Educar &amp;
       Aprender
     </title>
-    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
     <link
       rel="icon"
@@ -21,7 +21,7 @@
       href="../assets/favicon-dark.svg"
       media="(prefers-color-scheme: dark)"
     />
-    <!-- Fonte Inter oficial do projeto -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,7 +29,7 @@
       rel="stylesheet"
     />
     <style>
-      /* Reset e Variáveis Globais */
+
       *,
       *::before,
       *::after {
@@ -53,14 +53,12 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Estrutura Principal em 2 Colunas */
       .app-layout {
         display: flex;
         width: 100%;
         min-height: 100vh;
       }
 
-      /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
       .sidebar {
         width: 248px;
         min-width: 248px;
@@ -75,7 +73,6 @@
         z-index: 20;
       }
 
-      /* Topo da Sidebar: Marca */
       .sidebar-brand {
         display: flex;
         align-items: center;
@@ -119,7 +116,6 @@
         text-transform: uppercase;
       }
 
-      /* Navegação Principal */
       .sidebar-nav {
         flex: 1;
         display: flex;
@@ -176,7 +172,6 @@
         font-weight: 600;
       }
 
-      /* Barra indicadora azul ativa no item do menu */
       .nav-link.active::before {
         content: "";
         position: absolute;
@@ -199,7 +194,6 @@
         color: currentColor;
       }
 
-      /* Rodapé da Sidebar: Perfil da Coordenação */
       .sidebar-footer {
         padding: 16px 12px;
         margin-top: auto;
@@ -265,7 +259,6 @@
         flex-shrink: 0;
       }
 
-      /* Área Principal */
       .main-wrapper {
         flex: 1;
         display: flex;
@@ -276,7 +269,6 @@
         background-color: #f5f8fc;
       }
 
-      /* Cabeçalho Superior Desktop (76px) */
           .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -368,7 +360,6 @@
       border: none;
     }
 
-      /* Área de Conteúdo com Rolagem Independente */
       .content-area {
         flex: 1;
         min-height: 0;
@@ -396,7 +387,6 @@
         background-color: #94a3b8;
       }
 
-      /* Título e Descrição */
       .page-title-row {
         margin-bottom: 20px;
       }
@@ -415,7 +405,6 @@
         margin-top: 4px;
       }
 
-      /* Barra de Filtros e Busca - Padrão Professor */
       .filters-row {
         display: flex;
         align-items: center;
@@ -542,7 +531,6 @@
         font-weight: 600;
       }
 
-      /* Campo de Busca */
       .search-box-wrap {
         position: relative;
         display: flex;
@@ -587,7 +575,6 @@
         justify-content: center;
       }
 
-      /* Grade dos 4 Indicadores Principais (KPIs) - Padrão Professor */
       .kpi-indicators-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -670,7 +657,6 @@
         text-overflow: ellipsis;
       }
 
-      /* Grade Superior BI (Evolução + Comparação por Turma) */
       .bi-grid-top {
         display: grid;
         grid-template-columns: 1.62fr 1fr;
@@ -685,9 +671,6 @@
         }
       }
 
-      /* .card-evolucao-colaboracao zoom removido para manter tipografia e proporções unificadas */
-
-      /* Painel Padrão BI */
       .bi-panel-card {
         background-color: #ffffff;
         border: 1px solid #d8e4f3;
@@ -725,7 +708,6 @@
         margin-top: 4px;
       }
 
-      /* Gráfico de Linha Vetorial */
       .chart-container {
         position: relative;
         width: 100%;
@@ -806,7 +788,6 @@
         font-weight: 500;
       }
 
-      /* Caixa de Insight no Rodapé do Card */
       .insight-box {
         display: flex;
         align-items: center;
@@ -822,7 +803,6 @@
         color: #b45309;
       }
 
-      /* Lista de Barras de Comparação por Turma */
       .turmas-bars-list {
         display: flex;
         flex-direction: column;
@@ -876,7 +856,6 @@
         margin-bottom: 0;
       }
 
-      /* Painel Inferior: Tabela de Insights por Dimensão */
       .insights-card {
         background-color: #ffffff;
         border: 1px solid #d8e4f3;
@@ -1024,7 +1003,6 @@
         font-weight: 500;
       }
 
-      /* Barra Inferior de Ações (Igual a ver-todas-as-turmas.html) */
       .bottom-bar {
         height: 76px;
         background-color: #ffffff;
@@ -1065,16 +1043,16 @@
   </head>
   <body>
     <div class="app-layout">
-      <!-- Barra Lateral da Coordenação (248px) - Dashboards Agregadores Ativo -->
+
       <aside class="sidebar">
-        <!-- Marca -->
+
         <a
           href="painel-inicial.html"
           class="sidebar-brand"
           aria-label="Educar &amp; Aprender - Início"
         >
           <div class="brand-icon">
-            <!-- Ícone oficial do Penpot: Livro -->
+
             <svg
               width="20"
               height="20"
@@ -1098,11 +1076,10 @@
           </div>
         </a>
 
-        <!-- Navegação Principal -->
         <nav class="sidebar-nav" aria-label="Menu principal">
           <span class="nav-section-title">Gestão Pedagógica</span>
           <ul class="nav-list">
-            <!-- 1. Visão geral -->
+
             <li class="nav-item">
               <a href="painel-inicial.html" class="nav-link">
                 <span class="nav-icon">
@@ -1125,7 +1102,6 @@
               </a>
             </li>
 
-            <!-- 2. Sistema de alertas -->
             <li class="nav-item">
               <a href="sistema-alerta-precoce.html" class="nav-link">
                 <span class="nav-icon">
@@ -1150,7 +1126,6 @@
               </a>
             </li>
 
-            <!-- 3. Clima escolar -->
             <li class="nav-item">
               <a href="clima-escolar.html" class="nav-link">
                 <span class="nav-icon">
@@ -1167,7 +1142,6 @@
               </a>
             </li>
 
-            <!-- 4. Dashboards agregadores (Item Ativo) -->
             <li class="nav-item">
               <a
                 href="dashboard-agregador-visao-central.html"
@@ -1192,7 +1166,6 @@
               </a>
             </li>
 
-            <!-- 5. Turmas -->
             <li class="nav-item">
               <a href="turmas.html" class="nav-link">
                 <span class="nav-icon">
@@ -1223,7 +1196,6 @@
           </ul>
         </nav>
 
-        <!-- Perfil da Coordenação no Rodapé da Sidebar -->
         <div class="sidebar-footer">
           <button
             type="button"
@@ -1267,11 +1239,10 @@
         </div>
       </aside>
 
-      <!-- Conteúdo Principal -->
       <main class="main-wrapper">
-        <!-- Cabeçalho Superior Desktop (76px) -->
+
         <header class="top-header">
-          <!-- Trilha de Navegação -->
+
           <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
             <span class="breadcrumb-item">Área da coordenação</span>
             <span class="breadcrumb-separator" aria-hidden="true">/</span>
@@ -1286,7 +1257,6 @@
             >
           </nav>
 
-          <!-- Ações do Topo -->
           <div class="header-actions">
             <button
               type="button"
@@ -1302,9 +1272,8 @@
           </div>
         </header>
 
-        <!-- Área de Conteúdo da Página com Rolagem Independente -->
         <div class="content-area">
-          <!-- Título e Descrição -->
+
           <div class="page-title-row">
             <h1 class="page-title">Análise por dimensão atitudinal</h1>
             <p class="page-description">
@@ -1313,9 +1282,8 @@
             </p>
           </div>
 
-          <!-- Barra de Filtros e Busca - Padrão Professor -->
           <section class="filters-row" aria-label="Filtros e busca">
-            <!-- Filtro 1: Dimensão -->
+
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown filter-dimensao">
                 <span class="filter-label">DIMENSÃO</span>
@@ -1333,7 +1301,6 @@
               </div>
             </details>
 
-            <!-- Filtro 2: Período -->
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown filter-periodo">
                 <span class="filter-label">PERÍODO</span>
@@ -1350,7 +1317,6 @@
               </div>
             </details>
 
-            <!-- Filtro 3: Busca de dimensão -->
             <div class="search-box-wrap">
               <span class="search-icon" aria-hidden="true">
                 <svg
@@ -1376,12 +1342,11 @@
             </div>
           </section>
 
-          <!-- Grade dos 4 Indicadores (KPIs) -->
           <section
             class="kpi-indicators-grid"
             aria-label="Indicadores da dimensão"
           >
-            <!-- KPI 1: Média da dimensão -->
+
             <article class="kpi-card">
               <div
                 class="kpi-icon-box"
@@ -1409,7 +1374,6 @@
               </div>
             </article>
 
-            <!-- KPI 2: Turmas abaixo de 3,0 -->
             <article class="kpi-card">
               <div
                 class="kpi-icon-box"
@@ -1443,7 +1407,6 @@
               </div>
             </article>
 
-            <!-- KPI 3: Evolução no período -->
             <article class="kpi-card">
               <div
                 class="kpi-icon-box"
@@ -1471,7 +1434,6 @@
               </div>
             </article>
 
-            <!-- KPI 4: Registros recentes -->
             <article class="kpi-card">
               <div
                 class="kpi-icon-box"
@@ -1505,9 +1467,8 @@
             </article>
           </section>
 
-          <!-- Grade Superior BI (Evolução + Comparação por Turma) -->
           <div class="bi-grid-top">
-            <!-- 1. Evolução de Colaboração (Card com ZOOM aplicado somente nele) -->
+
             <section
               class="bi-panel-card card-evolucao-colaboracao"
               aria-label="Evolução de colaboração"
@@ -1521,24 +1482,22 @@
                 </div>
               </div>
 
-              <!-- Gráfico de Evolução com HTML nativo + SVG sem distorção -->
               <div class="chart-container" aria-hidden="true">
                 <div class="chart-content-row">
-                  <!-- Eixo Y em HTML nativo -->
+
                   <div class="chart-y-axis">
                     <span>5,0</span>
                     <span>2,5</span>
                     <span>0,0</span>
                   </div>
 
-                  <!-- Área Gráfica com 3 Linhas e Curva de Pontos -->
                   <div class="chart-plot-area">
                     <svg
                       class="chart-svg"
                       viewBox="0 0 500 160"
                       preserveAspectRatio="none"
                     >
-                      <!-- Linhas Horizontais de Grade (5,0 / 2,5 / 0,0) -->
+
                       <line
                         x1="0"
                         y1="2"
@@ -1564,14 +1523,12 @@
                         vector-effect="non-scaling-stroke"
                       />
 
-                      <!-- Linha de Evolução Contínua (Mai a Out: 3.3 a 3.6) -->
                       <polyline
                         points="18,54 111,51 204,51 296,48 389,48 482,45"
                         class="chart-trend-line"
                         vector-effect="non-scaling-stroke"
                       />
 
-                      <!-- Pontos dos 6 Meses -->
                       <circle
                         cx="18"
                         cy="54"
@@ -1618,7 +1575,6 @@
                   </div>
                 </div>
 
-                <!-- Eixo X com 6 meses em texto HTML puro -->
                 <div class="chart-x-axis">
                   <span>Mai</span>
                   <span>Jun</span>
@@ -1629,7 +1585,6 @@
                 </div>
               </div>
 
-              <!-- Insight de Tendência no Rodapé do Card -->
               <div class="insight-box">
                 <svg
                   width="16"
@@ -1648,7 +1603,6 @@
               </div>
             </section>
 
-            <!-- 2. Comparação da Dimensão entre Turmas -->
             <section class="bi-panel-card" aria-label="Colaboração por turma">
               <div class="bi-panel-header">
                 <div class="bi-panel-title-group">
@@ -1657,9 +1611,8 @@
                 </div>
               </div>
 
-              <!-- Lista de Barras de Turmas -->
               <div class="turmas-bars-list">
-                <!-- 7º ano B (4,0) -->
+
                 <div class="turma-bar-item">
                   <span class="turma-bar-name">7º ano B</span>
                   <div class="turma-bar-track">
@@ -1668,7 +1621,6 @@
                   <span class="turma-bar-score">4,0</span>
                 </div>
 
-                <!-- 6º ano A (3,8) -->
                 <div class="turma-bar-item">
                   <span class="turma-bar-name">6º ano A</span>
                   <div class="turma-bar-track">
@@ -1677,7 +1629,6 @@
                   <span class="turma-bar-score">3,8</span>
                 </div>
 
-                <!-- 9º ano B (3,7) -->
                 <div class="turma-bar-item">
                   <span class="turma-bar-name">9º ano B</span>
                   <div class="turma-bar-track">
@@ -1686,7 +1637,6 @@
                   <span class="turma-bar-score">3,7</span>
                 </div>
 
-                <!-- 8º ano A (3,1) -->
                 <div class="turma-bar-item">
                   <span class="turma-bar-name">8º ano A</span>
                   <div class="turma-bar-track">
@@ -1695,7 +1645,6 @@
                   <span class="turma-bar-score">3,1</span>
                 </div>
 
-                <!-- 6º ano C (2,9) -->
                 <div class="turma-bar-item">
                   <span class="turma-bar-name">6º ano C</span>
                   <div class="turma-bar-track">
@@ -1705,14 +1654,12 @@
                 </div>
               </div>
 
-              <!-- Insight no Rodapé da Comparação -->
               <p class="turma-insight-warning">
                 2 turmas abaixo da referência 3,0.
               </p>
             </section>
           </div>
 
-          <!-- 3. Tabela de Insights por Dimensão -->
           <section
             class="insights-card"
             aria-label="Leituras para investigação pedagógica"
@@ -1738,7 +1685,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Linha 1: 7º ano B -->
+
                   <tr>
                     <td class="td-turma">7º ano B</td>
                     <td class="td-media">4,0</td>
@@ -1753,7 +1700,6 @@
                     </td>
                   </tr>
 
-                  <!-- Linha 2: 6º ano A (Alternada) -->
                   <tr class="row-alt">
                     <td class="td-turma">6º ano A</td>
                     <td class="td-media">3,8</td>
@@ -1766,7 +1712,6 @@
                     <td class="td-sugestao">Manter acompanhamento</td>
                   </tr>
 
-                  <!-- Linha 3: 8º ano A -->
                   <tr>
                     <td class="td-turma">8º ano A</td>
                     <td class="td-media">3,1</td>
@@ -1781,7 +1726,6 @@
                     </td>
                   </tr>
 
-                  <!-- Linha 4: 6º ano C (Alternada) -->
                   <tr class="row-alt">
                     <td class="td-turma">6º ano C</td>
                     <td class="td-media" style="color: #dc2626">2,9</td>
@@ -1799,7 +1743,6 @@
           </section>
         </div>
 
-        <!-- Barra Inferior de Ações (Igual a ver-todas-as-turmas.html) -->
         <footer class="bottom-bar">
           <a href="dashboard-agregador-visao-central.html" class="btn-back">
             <svg

@@ -6,7 +6,7 @@
     <title>
       Dashboard Agregador · Análise por Turma · Coordenação · Educar &amp; Aprender
     </title>
-    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
     <link
       rel="icon"
@@ -20,7 +20,7 @@
       href="../assets/favicon-dark.svg"
       media="(prefers-color-scheme: dark)"
     />
-    <!-- Fonte Inter oficial do projeto -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,7 +28,7 @@
       rel="stylesheet"
     />
     <style>
-      /* Reset e Variáveis Globais */
+
       *,
       *::before,
       *::after {
@@ -46,14 +46,12 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Estrutura Principal em 2 Colunas */
       .app-layout {
         display: flex;
         width: 100%;
         min-height: 100vh;
       }
 
-      /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
       .sidebar {
         width: 248px;
         min-width: 248px;
@@ -68,7 +66,6 @@
         z-index: 20;
       }
 
-      /* Topo da Sidebar: Marca */
       .sidebar-brand {
         display: flex;
         align-items: center;
@@ -112,7 +109,6 @@
         text-transform: uppercase;
       }
 
-      /* Navegação Principal */
       .sidebar-nav {
         flex: 1;
         display: flex;
@@ -169,7 +165,6 @@
         font-weight: 600;
       }
 
-      /* Barra indicadora azul ativa no item do menu */
       .nav-link.active::before {
         content: "";
         position: absolute;
@@ -192,7 +187,6 @@
         color: currentColor;
       }
 
-      /* Rodapé da Sidebar: Perfil da Coordenação */
       .sidebar-footer {
         padding: 16px 12px;
         margin-top: auto;
@@ -258,7 +252,6 @@
         flex-shrink: 0;
       }
 
-      /* Área Principal */
       .main-wrapper {
         flex: 1;
         display: flex;
@@ -269,7 +262,6 @@
         background-color: #f5f8fc;
       }
 
-      /* Cabeçalho Superior Desktop (76px) */
           .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -361,7 +353,6 @@
       border: none;
     }
 
-      /* Área de Conteúdo */
       .content-area {
         flex: 1;
         min-height: 0;
@@ -389,7 +380,6 @@
         background-color: #94a3b8;
       }
 
-      /* Título e Descrição */
       .page-title-row {
         margin-bottom: 24px;
       }
@@ -408,7 +398,6 @@
         margin-top: 4px;
       }
 
-      /* Linha de Filtros (Turma e Período) - Padrão Professor */
       .filters-bar {
         display: flex;
         align-items: center;
@@ -534,7 +523,6 @@
         font-weight: 600;
       }
 
-      /* Grade dos 3 Indicadores (KPIs) - Padrão Professor */
       .kpi-indicators-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -598,7 +586,6 @@
         margin: 2px 0 0 0;
       }
 
-      /* Grade BI Superior (Perfil Dimensional + Tendência da Turma) */
       .bi-grid-top {
         display: grid;
         grid-template-columns: 1.55fr 1fr;
@@ -613,7 +600,6 @@
         }
       }
 
-      /* Painéis Padrão BI */
       .bi-panel-card {
         background-color: #ffffff;
         border: 1px solid #d8e4f3;
@@ -661,7 +647,6 @@
         box-sizing: border-box;
       }
 
-      /* Barras do Perfil Dimensional da Turma */
       .dimensions-compare-list {
         display: flex;
         flex-direction: column;
@@ -722,7 +707,6 @@
         flex-shrink: 0;
       }
 
-      /* Insight Box Informativo */
       .insight-box {
         display: flex;
         align-items: center;
@@ -734,7 +718,6 @@
         color: #15803d;
       }
 
-      /* Gráfico de Tendência da Turma (Sem distorção) */
       .chart-container {
         position: relative;
         width: 100%;
@@ -815,7 +798,6 @@
         font-weight: 500;
       }
 
-      /* Painel Inferior: Tabela de Estudantes para Acompanhamento */
       .table-card {
         background-color: #ffffff;
         border: 1px solid #d8e4f3;
@@ -902,7 +884,6 @@
         color: #15803d;
       }
 
-      /* Badges de Situação - Padrão Professor */
       .status-pill {
         height: 24px;
         width: 76px;
@@ -964,7 +945,6 @@
         transform: translateX(2px);
       }
 
-      /* Barra Inferior de Ações (Igual a ver-todas-as-turmas.html) */
       .bottom-bar {
         height: 76px;
         background-color: #ffffff;
@@ -1011,16 +991,16 @@
   </head>
   <body>
     <div class="app-layout">
-      <!-- Barra Lateral da Coordenação (248px) - Dashboards Agregadores Ativo -->
+
       <aside class="sidebar">
-        <!-- Marca -->
+
         <a
           href="painel-inicial.html"
           class="sidebar-brand"
           aria-label="Educar &amp; Aprender - Início"
         >
           <div class="brand-icon">
-            <!-- Ícone oficial do Penpot: Livro -->
+
             <svg
               width="20"
               height="20"
@@ -1043,15 +1023,14 @@
           </div>
         </a>
 
-        <!-- Navegação Principal -->
         <nav class="sidebar-nav">
           <div class="nav-section-title">Gestão Pedagógica</div>
           <ul class="nav-list">
-            <!-- Visão Geral -->
+
             <li class="nav-item">
               <a href="painel-inicial.html" class="nav-link">
                 <span class="nav-icon">
-                  <!-- Ícone Início oficial do Penpot -->
+
                   <svg
                     width="20"
                     height="20"
@@ -1071,11 +1050,10 @@
               </a>
             </li>
 
-            <!-- Sistema de Alertas -->
             <li class="nav-item">
               <a href="sistema-alerta-precoce.html" class="nav-link">
                 <span class="nav-icon">
-                  <!-- Ícone Notificações / Sino oficial do Penpot -->
+
                   <svg
                     width="20"
                     height="20"
@@ -1096,11 +1074,10 @@
               </a>
             </li>
 
-            <!-- Clima Escolar -->
             <li class="nav-item">
               <a href="clima-escolar.html" class="nav-link">
                 <span class="nav-icon">
-                  <!-- Ícone Comunidade Escolar oficial do Penpot -->
+
                   <svg
                     width="20"
                     height="20"
@@ -1123,14 +1100,13 @@
               </a>
             </li>
 
-            <!-- Dashboards Agregadores (Ativo) -->
             <li class="nav-item">
               <a
                 href="dashboard-agregador-visao-central.html"
                 class="nav-link active"
               >
                 <span class="nav-icon">
-                  <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+
                   <svg
                     width="20"
                     height="20"
@@ -1149,11 +1125,10 @@
               </a>
             </li>
 
-            <!-- Turmas -->
             <li class="nav-item">
               <a href="turmas.html" class="nav-link">
                 <span class="nav-icon">
-                <!-- Ícone Turmas oficial: Livro -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -1165,7 +1140,6 @@
           </ul>
         </nav>
 
-        <!-- Rodapé: Perfil da Coordenação -->
         <div class="sidebar-footer">
         <button
           type="button"
@@ -1209,11 +1183,10 @@
       </div>
     </aside>
 
-      <!-- Conteúdo Principal -->
       <main class="main-wrapper">
-        <!-- Cabeçalho Superior Desktop (76px) -->
+
         <header class="top-header">
-          <!-- Trilha de Navegação -->
+
           <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
             <span class="breadcrumb-item">Área da coordenação</span>
             <span class="breadcrumb-separator" aria-hidden="true">/</span>
@@ -1228,7 +1201,6 @@
             >
           </nav>
 
-          <!-- Ações do Topo -->
           <div class="header-actions">
             <button
               type="button"
@@ -1244,9 +1216,8 @@
           </div>
         </header>
 
-        <!-- Área de Conteúdo da Página -->
         <div class="content-area">
-          <!-- Título e Descrição -->
+
           <div class="page-title-row">
             <h1 class="page-title">Análise por turma</h1>
             <p class="page-description">
@@ -1255,19 +1226,18 @@
             </p>
           </div>
 
-          <!-- Grade dos 3 Indicadores (KPIs) Fiéis ao Penpot -->
           <section
             class="kpi-indicators-grid"
             aria-label="Indicadores da turma"
           >
-            <!-- KPI 1: Estudantes na turma -->
+
             <article class="kpi-card">
               <div
                 class="kpi-icon-box"
                 style="background-color: #e8f1ff; color: #2563eb"
                 aria-hidden="true"
               >
-                <!-- Ícone Perfil desktop do Penpot -->
+
                 <svg
                   width="20"
                   height="20"
@@ -1290,14 +1260,13 @@
               </div>
             </article>
 
-            <!-- KPI 2: Média atitudinal -->
             <article class="kpi-card">
               <div
                 class="kpi-icon-box"
                 style="background-color: #e8f7ee; color: #15803d"
                 aria-hidden="true"
               >
-                <!-- Ícone Histórico de evidências (relógio) do Penpot -->
+
                 <svg
                   width="20"
                   height="20"
@@ -1318,14 +1287,13 @@
               </div>
             </article>
 
-            <!-- KPI 3: Em acompanhamento -->
             <article class="kpi-card">
               <div
                 class="kpi-icon-box"
                 style="background-color: #fff4d6; color: #b45309"
                 aria-hidden="true"
               >
-                <!-- Ícone Notificações (sino) do Penpot -->
+
                 <svg
                   width="20"
                   height="20"
@@ -1349,9 +1317,8 @@
             </article>
           </section>
 
-          <!-- Filtros de Seleção (Turma e Período) - Padrão Professor -->
           <div class="filters-bar">
-            <!-- Filtro Turma -->
+
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown filter-turma">
                 <span class="filter-label">TURMA</span>
@@ -1368,7 +1335,6 @@
               </div>
             </details>
 
-            <!-- Filtro Período -->
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown filter-periodo">
                 <span class="filter-label">PERÍODO</span>
@@ -1385,9 +1351,8 @@
             </details>
           </div>
 
-          <!-- Grade BI Superior (Perfil Dimensional da Turma + Tendência) -->
           <div class="bi-grid-top">
-            <!-- 1. Perfil Dimensional da Turma -->
+
             <section
               class="bi-panel-card"
               aria-label="Perfil dimensional da turma"
@@ -1401,17 +1366,16 @@
                 </div>
               </div>
 
-              <!-- Lista de 5 Dimensões com Barras Comparativas -->
               <div class="dimensions-compare-list">
-                <!-- Responsabilidade -->
+
                 <div class="dim-row">
                   <span class="dim-name">Responsabilidade</span>
                   <div class="dim-bars-wrapper">
-                    <!-- Barra de Referência (Média Escolar: 4,0) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-ref" style="width: 80%"></div>
                     </div>
-                    <!-- Barra da Turma (4,3) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-turma" style="width: 86%"></div>
                     </div>
@@ -1419,15 +1383,14 @@
                   <span class="dim-score">4,3</span>
                 </div>
 
-                <!-- Respeito -->
                 <div class="dim-row">
                   <span class="dim-name">Respeito</span>
                   <div class="dim-bars-wrapper">
-                    <!-- Barra de Referência (Média Escolar: 4,1) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-ref" style="width: 82%"></div>
                     </div>
-                    <!-- Barra da Turma (4,2) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-turma" style="width: 84%"></div>
                     </div>
@@ -1435,15 +1398,14 @@
                   <span class="dim-score">4,2</span>
                 </div>
 
-                <!-- Autonomia -->
                 <div class="dim-row">
                   <span class="dim-name">Autonomia</span>
                   <div class="dim-bars-wrapper">
-                    <!-- Barra de Referência (Média Escolar: 3,9) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-ref" style="width: 78%"></div>
                     </div>
-                    <!-- Barra da Turma (4,0) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-turma" style="width: 80%"></div>
                     </div>
@@ -1451,15 +1413,14 @@
                   <span class="dim-score">4,0</span>
                 </div>
 
-                <!-- Colaboração -->
                 <div class="dim-row">
                   <span class="dim-name">Colaboração</span>
                   <div class="dim-bars-wrapper">
-                    <!-- Barra de Referência (Média Escolar: 3,7) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-ref" style="width: 74%"></div>
                     </div>
-                    <!-- Barra da Turma (3,9) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-turma" style="width: 78%"></div>
                     </div>
@@ -1467,15 +1428,14 @@
                   <span class="dim-score">3,9</span>
                 </div>
 
-                <!-- Participação -->
                 <div class="dim-row">
                   <span class="dim-name">Participação</span>
                   <div class="dim-bars-wrapper">
-                    <!-- Barra de Referência (Média Escolar: 3,6) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-ref" style="width: 72%"></div>
                     </div>
-                    <!-- Barra da Turma (3,8) -->
+
                     <div class="dim-bar-track">
                       <div class="dim-bar-fill-turma" style="width: 76%"></div>
                     </div>
@@ -1484,7 +1444,6 @@
                 </div>
               </div>
 
-              <!-- Insight Informativo -->
               <div class="insight-box">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M16.67 5L7.5 14.17 3.33 10" />
@@ -1496,7 +1455,6 @@
               </div>
             </section>
 
-            <!-- 2. Tendência da Turma (Gráfico Mensal) -->
             <section class="bi-panel-card" aria-label="Tendência da turma">
               <div class="bi-panel-header">
                 <div>
@@ -1506,24 +1464,22 @@
                 <span class="badge-current-avg">4,1</span>
               </div>
 
-              <!-- Gráfico de Tendência com HTML + SVG sem distorção -->
               <div class="chart-container" aria-hidden="true">
                 <div class="chart-content-row">
-                  <!-- Eixo Y em HTML nativo -->
+
                   <div class="chart-y-axis">
                     <span>5,0</span>
                     <span>2,5</span>
                     <span>0,0</span>
                   </div>
 
-                  <!-- Área Gráfica com 4 Linhas e Curva de Pontos -->
                   <div class="chart-plot-area">
                     <svg
                       class="chart-svg"
                       viewBox="0 0 360 135"
                       preserveAspectRatio="none"
                     >
-                      <!-- Linhas Horizontais de Grade -->
+
                       <line
                         x1="0"
                         y1="2"
@@ -1557,14 +1513,12 @@
                         vector-effect="non-scaling-stroke"
                       />
 
-                      <!-- Linha de Tendência Contínua -->
                       <polyline
                         points="16,56 82,53 148,49 214,46 280,39 344,32"
                         class="chart-trend-line"
                         vector-effect="non-scaling-stroke"
                       />
 
-                      <!-- Pontos dos 6 Meses -->
                       <circle
                         cx="16"
                         cy="56"
@@ -1611,7 +1565,6 @@
                   </div>
                 </div>
 
-                <!-- Eixo X com 6 meses em texto HTML puro -->
                 <div class="chart-x-axis">
                   <span>Mai</span>
                   <span>Jun</span>
@@ -1622,7 +1575,6 @@
                 </div>
               </div>
 
-              <!-- Insight Informativo -->
               <div class="insight-box">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M16.67 5L7.5 14.17 3.33 10" />
@@ -1632,7 +1584,6 @@
             </section>
           </div>
 
-          <!-- 3. Tabela de Estudantes para Acompanhamento -->
           <section
             class="table-card"
             aria-label="Estudantes para acompanhamento"
@@ -1657,7 +1608,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- 1. Marina Santos -->
+
                   <tr>
                     <td class="student-name-cell">Marina Santos</td>
                     <td class="dimension-cell">Colaboração</td>
@@ -1680,7 +1631,6 @@
                     </td>
                   </tr>
 
-                  <!-- 2. Pedro Costa (Linha alternada) -->
                   <tr class="row-alt">
                     <td class="student-name-cell">Pedro Costa</td>
                     <td class="dimension-cell">Participação</td>
@@ -1703,7 +1653,6 @@
                     </td>
                   </tr>
 
-                  <!-- 3. Ana Ferreira -->
                   <tr>
                     <td class="student-name-cell">Ana Ferreira</td>
                     <td class="dimension-cell">Autonomia</td>
@@ -1726,7 +1675,6 @@
                     </td>
                   </tr>
 
-                  <!-- 4. Lucas Martins (Linha alternada) -->
                   <tr class="row-alt">
                     <td class="student-name-cell">Lucas Martins</td>
                     <td class="dimension-cell">Responsabilidade</td>
@@ -1754,7 +1702,6 @@
           </section>
       </div>
 
-        <!-- Barra Inferior de Ações (Igual a ver-todas-as-turmas.html) -->
         <footer class="bottom-bar">
           <a href="dashboard-agregador-visao-central.html" class="btn-back">
             <svg
@@ -1777,4 +1724,3 @@
     </div>
   </body>
 </html>
-

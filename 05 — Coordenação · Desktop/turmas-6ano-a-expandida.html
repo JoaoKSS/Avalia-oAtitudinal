@@ -7,7 +7,7 @@
       Minhas turmas · 6º ano A expandida · Coordenação · Desktop 1440 × 1024 ·
       Educar &amp; Aprender
     </title>
-    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
     <link
       rel="icon"
@@ -21,7 +21,7 @@
       href="../assets/favicon-dark.svg"
       media="(prefers-color-scheme: dark)"
     />
-    <!-- Tipografia Inter oficial do Penpot -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,7 +29,7 @@
       rel="stylesheet"
     />
     <style>
-      /* Reset & Base */
+
       *,
       *::before,
       *::after {
@@ -54,14 +54,12 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Layout Geral Desktop 1440 × 1024 */
       .app-layout {
         display: flex;
         width: 100%;
         min-height: 100vh;
       }
 
-      /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
       .sidebar {
         width: 248px;
         min-width: 248px;
@@ -76,7 +74,6 @@
         z-index: 20;
       }
 
-      /* Topo da Sidebar: Marca */
       .sidebar-brand {
         display: flex;
         align-items: center;
@@ -120,7 +117,6 @@
         text-transform: uppercase;
       }
 
-      /* Navegação Principal */
       .sidebar-nav {
         flex: 1;
         display: flex;
@@ -177,7 +173,6 @@
         font-weight: 600;
       }
 
-      /* Barra indicadora azul ativa no item do menu */
       .nav-link.active::before {
         content: "";
         position: absolute;
@@ -200,7 +195,6 @@
         color: currentColor;
       }
 
-      /* Rodapé da Sidebar: Perfil da Coordenação */
       .sidebar-footer {
         padding: 16px 12px;
         margin-top: auto;
@@ -266,7 +260,6 @@
         flex-shrink: 0;
       }
 
-      /* Wrapper do Conteúdo Principal */
       .main-wrapper {
         flex: 1;
         display: flex;
@@ -276,7 +269,6 @@
         background-color: #f5f8fc;
       }
 
-      /* Cabeçalho Superior Desktop (76px) */
           .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -368,7 +360,6 @@
       border: none;
     }
 
-      /* Área de Conteúdo */
       .content-area {
         flex: 1;
         width: 100%;
@@ -376,7 +367,6 @@
         box-sizing: border-box;
       }
 
-      /* Cabeçalho da Página */
       .page-title-row {
         margin-bottom: 24px;
       }
@@ -397,7 +387,6 @@
         line-height: 1.4;
       }
 
-      /* Barra de Controles: Busca + Filtro Padrão */
       .controls-row {
         display: flex;
         align-items: center;
@@ -560,7 +549,6 @@
         font-weight: 600;
       }
 
-      /* Faixa de Resumo Oficial do Penpot */
       .summary-banner {
         width: 100%;
         background-color: #e8f1ff;
@@ -585,7 +573,6 @@
         color: #60758b;
       }
 
-      /* Duas Colunas Independentes de Turmas (Permite que 8º ano C seja empurrado sem mover o 9º ano A) */
       .turmas-columns {
         display: flex;
         gap: 24px;
@@ -601,7 +588,6 @@
         min-width: 0;
       }
 
-      /* Card Padrão de Turma (Sem barra vertical colorida) */
       .turma-card {
         background-color: #ffffff;
         border: 1px solid #d8e4f3;
@@ -700,7 +686,6 @@
         color: #2563eb;
       }
 
-      /* Card Expandido Oficial do Penpot (6º ano A) */
       .turma-card-expanded {
         background-color: #ffffff;
         border: 1px solid #2563eb;
@@ -718,7 +703,6 @@
         justify-content: space-between;
       }
 
-      /* Lista de Ações Rápidas da Turma Expandida */
       .expanded-actions-list {
         display: flex;
         flex-direction: column;
@@ -726,11 +710,6 @@
         width: 100%;
       }
 
-      /* ==========================================================================
-       Itens de Ação da Turma Expandida (Devolutiva, Histórico, Registro)
-       Estado Normal: Fundo Neutro Suave (#f8fafc), Borda (#d8e4f3), Texto (#172b4d)
-       Estado Hover: Fundo Azul Primário / Marinho (#2563eb), Ícone e Texto Brancos (#ffffff)
-       ========================================================================== */
       .expanded-action-item {
         height: 42px;
         background-color: #f8fafc;
@@ -771,7 +750,6 @@
         transition: stroke 0.15s ease;
       }
 
-      /* Efeito Hover Unificado: Fundo Azul, Texto Branco e Ícone Branco */
       .expanded-action-item:hover {
         background-color: #2563eb !important;
         border-color: #2563eb !important;
@@ -788,12 +766,12 @@
   </head>
   <body>
     <div class="app-layout">
-      <!-- Barra Lateral da Coordenação (248px) - Padrão Unificado -->
+
       <aside class="sidebar">
-      <!-- Marca -->
+
       <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
         <div class="brand-icon">
-          <!-- Ícone oficial do Penpot: Livro -->
+
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
@@ -805,15 +783,14 @@
         </div>
       </a>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Gestão Pedagógica</div>
         <ul class="nav-list">
-          <!-- Visão Geral (Ativo) -->
+
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Início oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
                 </svg>
@@ -822,11 +799,10 @@
             </a>
           </li>
 
-          <!-- Sistema de Alertas -->
           <li class="nav-item">
             <a href="sistema-alerta-precoce.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Notificações / Sino oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                   <path d="M8.33 17.5h3.34"/>
@@ -836,11 +812,10 @@
             </a>
           </li>
 
-          <!-- Clima Escolar -->
           <li class="nav-item">
             <a href="clima-escolar.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Comunidade Escolar oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="10" cy="5" r="2.2"/>
                   <circle cx="5" cy="7.2" r="1.5"/>
@@ -854,11 +829,10 @@
             </a>
           </li>
 
-          <!-- Dashboards Agregadores -->
           <li class="nav-item">
             <a href="dashboard-agregador-visao-central.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
                   <path d="M12.5 5h5v5"/>
@@ -868,11 +842,10 @@
             </a>
           </li>
 
-          <!-- Turmas -->
           <li class="nav-item">
             <a href="turmas.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Turmas oficial: Livro -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -884,7 +857,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé: Perfil da Coordenação -->
       <div class="sidebar-footer">
         <button
           type="button"
@@ -928,9 +900,8 @@
       </div>
     </aside>
 
-      <!-- Conteúdo Principal -->
       <main class="main-wrapper">
-        <!-- Cabeçalho Superior Desktop (76px) -->
+
         <header class="top-header">
           <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
             <a href="painel-inicial.html" class="breadcrumb-item"
@@ -955,9 +926,8 @@
           </div>
         </header>
 
-        <!-- Área de Conteúdo -->
         <div class="content-area">
-          <!-- Título e Subtítulo -->
+
           <section class="page-title-row">
             <h1 class="page-title">Turmas</h1>
             <p class="page-description">
@@ -966,7 +936,6 @@
             </p>
           </section>
 
-          <!-- Controles: Busca e Filtro de Turma -->
           <div class="controls-row">
             <div class="search-box">
               <span class="search-icon" aria-hidden="true">
@@ -997,22 +966,20 @@
             </details>
           </div>
 
-          <!-- Faixa de Resumo Oficial do Penpot -->
           <section class="summary-banner" aria-label="Resumo das turmas">
             <span class="summary-left">4 turmas ativas</span>
             <span class="summary-right">118 estudantes</span>
           </section>
 
-          <!-- Duas Colunas Independentes de Turmas: Coluna 1 (6º ano A e 8º ano C) / Coluna 2 (7º ano B e 9º ano A) -->
           <div class="turmas-columns">
-            <!-- Coluna 1 (Esquerda): 6º ano A Expandido + 8º ano C abaixo dele -->
+
             <div class="turmas-col">
-              <!-- Turma 1: 6º ano A (EXPANDIDO) -->
+
               <div class="turma-card-expanded">
                 <div class="turma-card-expanded-header">
                   <div class="turma-card-left">
                     <div class="turma-avatar" aria-hidden="true">
-                      <!-- Ícone oficial de turma do Penpot -->
+
                       <svg
                         width="22"
                         height="22"
@@ -1064,7 +1031,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Botão Recolher (-) que retorna para a tela turmas.html -->
+
                   <a
                     href="turmas.html"
                     class="turma-action-btn"
@@ -1086,11 +1053,10 @@
                   </a>
                 </div>
 
-                <!-- Lista de Ações da Turma Expandida (Idêntica à tela do Professor) -->
                 <div class="expanded-actions-list">
                   <a href="" class="expanded-action-item">
                     <span class="action-item-icon" aria-hidden="true">
-                      <!-- Ícone oficial de Devolutiva do Penpot (ID 644b7976-7f30-8041-8008-d476a751abad) -->
+
                       <svg
                         width="18"
                         height="18"
@@ -1117,7 +1083,7 @@
                     class="expanded-action-item item-historico"
                   >
                     <span class="action-item-icon" aria-hidden="true">
-                      <!-- Ícone oficial de Histórico do Penpot (ID 644b7976-7f30-8041-8008-d476a76ef094) -->
+
                       <svg
                         width="18"
                         height="18"
@@ -1149,7 +1115,7 @@
 
                   <a href="" class="expanded-action-item">
                     <span class="action-item-icon" aria-hidden="true">
-                      <!-- Ícone oficial de Registro com + do Penpot (ID 644b7976-7f30-8041-8008-d476a7942e81) -->
+
                       <svg
                         width="18"
                         height="18"
@@ -1181,7 +1147,6 @@
                 </div>
               </div>
 
-              <!-- Turma 3: 8º ano C (Empurrada para baixo apenas dentro desta coluna) -->
               <div class="turma-card">
                 <div class="turma-card-left">
                   <div class="turma-avatar" aria-hidden="true">
@@ -1257,9 +1222,8 @@
               </div>
             </div>
 
-            <!-- Coluna 2 (Direita): 7º ano B no topo e 9º ano A logo abaixo (Permanece no mesmo lugar!) -->
             <div class="turmas-col">
-              <!-- Turma 2: 7º ano B -->
+
               <div class="turma-card">
                 <div class="turma-card-left">
                   <div class="turma-avatar" aria-hidden="true">
@@ -1334,7 +1298,6 @@
                 </div>
               </div>
 
-              <!-- Turma 4: 9º ano A (Fixa na posição y=460 logo abaixo do 7º ano B) -->
               <div class="turma-card">
                 <div class="turma-card-left">
                   <div class="turma-avatar" aria-hidden="true">

@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Turmas · Coordenação · Desktop 1440 × 1024 · Educar &amp; Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
+
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -30,14 +30,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
       min-height: 100vh;
     }
 
-    /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
       .sidebar {
         width: 248px;
         min-width: 248px;
@@ -52,7 +50,6 @@
         z-index: 20;
       }
 
-      /* Topo da Sidebar: Marca */
       .sidebar-brand {
         display: flex;
         align-items: center;
@@ -96,7 +93,6 @@
         text-transform: uppercase;
       }
 
-      /* Navegação Principal */
       .sidebar-nav {
         flex: 1;
         display: flex;
@@ -153,7 +149,6 @@
         font-weight: 600;
       }
 
-      /* Barra indicadora azul ativa no item do menu */
       .nav-link.active::before {
         content: "";
         position: absolute;
@@ -176,7 +171,6 @@
         color: currentColor;
       }
 
-      /* Rodapé da Sidebar: Perfil da Coordenação */
       .sidebar-footer {
         padding: 16px 12px;
         margin-top: auto;
@@ -242,7 +236,6 @@
         flex-shrink: 0;
       }
 
-      /* Wrapper do Conteúdo Principal */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -252,7 +245,6 @@
       background-color: #f5f8fc;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
         .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -344,7 +336,6 @@
       border: none;
     }
 
-    /* Área de Conteúdo */
     .content-area {
       flex: 1;
       width: 100%;
@@ -352,7 +343,6 @@
       box-sizing: border-box;
     }
 
-    /* Cabeçalho da Página */
     .page-title-row {
       margin-bottom: 24px;
     }
@@ -373,7 +363,6 @@
       line-height: 1.4;
     }
 
-    /* Barra de Controles: Busca + Filtro Padrão */
     .controls-row {
       display: flex;
       align-items: center;
@@ -536,7 +525,6 @@
       font-weight: 600;
     }
 
-    /* Faixa de Resumo Oficial do Penpot */
     .summary-banner {
       width: 100%;
       background-color: #e8f1ff;
@@ -561,7 +549,6 @@
       color: #60758b;
     }
 
-    /* Duas Colunas Independentes de Turmas */
     .turmas-columns {
       display: flex;
       gap: 24px;
@@ -577,7 +564,6 @@
       min-width: 0;
     }
 
-    /* Card de Turma (Sem barra vertical colorida) */
     .turma-card {
       background-color: #ffffff;
       border: 1px solid #d8e4f3;
@@ -675,7 +661,6 @@
       color: #2563eb;
     }
 
-    /* Estado Vazio de Busca */
     .empty-state {
       display: none;
       background-color: #ffffff;
@@ -702,12 +687,12 @@
 </head>
 <body>
   <div class="app-layout">
-    <!-- Barra Lateral da Coordenação (248px) - Padrão Unificado -->
+
     <aside class="sidebar">
-      <!-- Marca -->
+
       <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
         <div class="brand-icon">
-          <!-- Ícone oficial do Penpot: Livro -->
+
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
@@ -719,15 +704,14 @@
         </div>
       </a>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Gestão Pedagógica</div>
         <ul class="nav-list">
-          <!-- Visão Geral (Ativo) -->
+
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Início oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
                 </svg>
@@ -736,11 +720,10 @@
             </a>
           </li>
 
-          <!-- Sistema de Alertas -->
           <li class="nav-item">
             <a href="sistema-alerta-precoce.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Notificações / Sino oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                   <path d="M8.33 17.5h3.34"/>
@@ -750,11 +733,10 @@
             </a>
           </li>
 
-          <!-- Clima Escolar -->
           <li class="nav-item">
             <a href="clima-escolar.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Comunidade Escolar oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="10" cy="5" r="2.2"/>
                   <circle cx="5" cy="7.2" r="1.5"/>
@@ -768,11 +750,10 @@
             </a>
           </li>
 
-          <!-- Dashboards Agregadores -->
           <li class="nav-item">
             <a href="dashboard-agregador-visao-central.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
                   <path d="M12.5 5h5v5"/>
@@ -782,11 +763,10 @@
             </a>
           </li>
 
-          <!-- Turmas -->
           <li class="nav-item">
             <a href="turmas.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Turmas oficial: Livro -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -798,7 +778,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé: Perfil da Coordenação -->
       <div class="sidebar-footer">
         <button
           type="button"
@@ -842,9 +821,8 @@
       </div>
     </aside>
 
-    <!-- Conteúdo Principal -->
     <main class="main-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
+
       <header class="top-header">
         <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
           <a href="painel-inicial.html" class="breadcrumb-item">Área da coordenação</a>
@@ -863,15 +841,13 @@
         </div>
       </header>
 
-      <!-- Área de Conteúdo -->
       <div class="content-area">
-        <!-- Título e Subtítulo -->
+
         <section class="page-title-row">
           <h1 class="page-title">Turmas</h1>
           <p class="page-description">Consulte as turmas da unidade e acompanhe a quantidade de estudantes em cada grupo.</p>
         </section>
 
-        <!-- Controles: Busca e Filtro de Turma -->
         <div class="controls-row">
           <div class="search-box">
             <span class="search-icon" aria-hidden="true">
@@ -902,21 +878,19 @@
           </details>
         </div>
 
-        <!-- Faixa de Resumo Oficial do Penpot -->
         <section class="summary-banner" aria-label="Resumo das turmas">
           <span class="summary-left" id="summaryTurmasCount">4 turmas ativas</span>
           <span class="summary-right" id="summaryStudentsCount">118 estudantes</span>
         </section>
 
-        <!-- Duas Colunas Independentes de Turmas -->
         <div class="turmas-columns" id="turmasColumns">
-          <!-- Coluna 1 (Esquerda): 6º ano A e 8º ano C -->
+
           <div class="turmas-col">
-            <!-- Turma 1: 6º ano A (Ao expandir, redireciona para a tela do 6º ano A expandida) -->
+
             <a href="minhas-turmas-6ano-a-expandida.html" class="turma-card" data-turma="6a" data-name="6º ano A" data-level="fundamental2" data-students="28" title="Clique para expandir o 6º ano A e gerenciar autoavaliações">
               <div class="turma-card-left">
                 <div class="turma-avatar" aria-hidden="true">
-                  <!-- Ícone oficial de turma do Penpot -->
+
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <ellipse cx="8.25" cy="7.333" rx="2.979" ry="2.979"/>
                     <path d="M3.208 17.417c0-2.396 1.938-4.334 4.334-4.334h1.416c2.396 0 4.334 1.938 4.334 4.334v0.916"/>
@@ -941,14 +915,13 @@
                 </div>
               </div>
               <div class="turma-action-btn" title="Expandir 6º ano A" aria-label="Expandir 6º ano A">
-                <!-- Ícone (+) de expansão do Penpot -->
+
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M9 3.75v10.5M3.75 9h10.5"/>
                 </svg>
               </div>
             </a>
 
-            <!-- Turma 3: 8º ano C -->
             <div class="turma-card" data-turma="8c" data-name="8º ano C" data-level="fundamental2" data-students="29">
               <div class="turma-card-left">
                 <div class="turma-avatar" aria-hidden="true">
@@ -983,9 +956,8 @@
             </div>
           </div>
 
-          <!-- Coluna 2 (Direita): 7º ano B e 9º ano A -->
           <div class="turmas-col">
-            <!-- Turma 2: 7º ano B -->
+
             <div class="turma-card" data-turma="7b" data-name="7º ano B" data-level="fundamental2" data-students="31">
               <div class="turma-card-left">
                 <div class="turma-avatar" aria-hidden="true">
@@ -1019,7 +991,6 @@
               </div>
             </div>
 
-            <!-- Turma 4: 9º ano A -->
             <div class="turma-card" data-turma="9a" data-name="9º ano A" data-level="fundamental2" data-students="30">
               <div class="turma-card-left">
                 <div class="turma-avatar" aria-hidden="true">
@@ -1055,7 +1026,6 @@
           </div>
         </div>
 
-        <!-- Estado Vazio -->
         <div class="empty-state" id="emptyState">
           <p class="empty-state-title">Nenhuma turma encontrada</p>
           <p class="empty-state-desc">Tente alterar os termos da busca ou ajustar os filtros aplicados.</p>

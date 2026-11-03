@@ -6,7 +6,7 @@
     <title>
       Configuração de Autoavaliação · Coordenação · Desktop · Educar &amp; Aprender
     </title>
-    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
     <link
       rel="icon"
@@ -20,7 +20,7 @@
       href="../assets/favicon-dark.svg"
       media="(prefers-color-scheme: dark)"
     />
-    <!-- Tipografia Inter oficial do Penpot -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,7 +28,7 @@
       rel="stylesheet"
     />
     <style>
-      /* Reset & Base */
+
       *,
       *::before,
       *::after {
@@ -53,14 +53,12 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Layout Geral Desktop */
       .app-layout {
         display: flex;
         width: 100%;
         min-height: 100vh;
       }
 
-      /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
       .sidebar {
         width: 248px;
         min-width: 248px;
@@ -75,7 +73,6 @@
         z-index: 20;
       }
 
-      /* Topo da Sidebar: Marca */
       .sidebar-brand {
         display: flex;
         align-items: center;
@@ -119,7 +116,6 @@
         text-transform: uppercase;
       }
 
-      /* Navegação Principal */
       .sidebar-nav {
         flex: 1;
         display: flex;
@@ -176,7 +172,6 @@
         font-weight: 600;
       }
 
-      /* Barra indicadora azul ativa no item do menu */
       .nav-link.active::before {
         content: "";
         position: absolute;
@@ -199,7 +194,6 @@
         color: currentColor;
       }
 
-      /* Rodapé da Sidebar: Perfil da Coordenação */
       .sidebar-footer {
         padding: 16px 12px;
         margin-top: auto;
@@ -265,7 +259,6 @@
         flex-shrink: 0;
       }
 
-      /* Wrapper do Conteúdo Principal */
       .main-wrapper {
         flex: 1;
         display: flex;
@@ -275,7 +268,6 @@
         background-color: #f5f8fc;
       }
 
-      /* Cabeçalho Superior Desktop (76px) */
           .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -367,7 +359,6 @@
       border: none;
     }
 
-      /* Área de Conteúdo */
       .content-area {
         flex: 1;
         width: 100%;
@@ -375,7 +366,6 @@
         box-sizing: border-box;
       }
 
-      /* Cabeçalho da Página */
       .page-title-row {
         margin-bottom: 24px;
       }
@@ -395,7 +385,6 @@
         line-height: 1.4;
       }
 
-      /* Painel: Turma Selecionada */
       .turma-selected-card {
         background-color: #ffffff;
         border: 1px solid #d8e4f3;
@@ -486,7 +475,6 @@
         color: #1d4ed8;
       }
 
-      /* Grid Principal do Formulário */
       .form-grid {
         display: flex;
         gap: 24px;
@@ -510,7 +498,6 @@
         gap: 24px;
       }
 
-      /* Painéis Padrão do Formulário */
       .form-panel {
         background-color: #ffffff;
         border: 1px solid #d8e4f3;
@@ -549,7 +536,6 @@
         line-height: 1.4;
       }
 
-      /* Campos de Texto */
       .form-group {
         display: flex;
         flex-direction: column;
@@ -614,7 +600,6 @@
         color: #8194aa;
       }
 
-      /* Grade de Dimensões Atitudinais */
       .dimensions-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -665,7 +650,6 @@
         color: #172b4d;
       }
 
-      /* Painel de Prazo para Responder */
       .deadline-box {
         display: flex;
         align-items: center;
@@ -710,7 +694,6 @@
         margin-top: 2px;
       }
 
-      /* Rodapé Fixo de Ações (Voltar, Prévia e Criar Autoavaliação) */
       .fixed-footer {
         position: fixed;
         bottom: 0;
@@ -802,16 +785,16 @@
   </head>
   <body>
     <div class="app-layout">
-      <!-- Barra Lateral da Coordenação (248px) - Padrão Unificado de Ícones -->
+
       <aside class="sidebar">
-        <!-- Marca -->
+
         <a
           href="painel-inicial.html"
           class="sidebar-brand"
           aria-label="Educar &amp; Aprender - Início"
         >
           <div class="brand-icon">
-            <!-- Ícone oficial do Penpot: Livro -->
+
             <svg
               width="20"
               height="20"
@@ -834,15 +817,14 @@
           </div>
         </a>
 
-        <!-- Navegação Principal -->
         <nav class="sidebar-nav">
           <div class="nav-section-title">Gestão Pedagógica</div>
           <ul class="nav-list">
-            <!-- Visão Geral -->
+
             <li class="nav-item">
               <a href="painel-inicial.html" class="nav-link">
                 <span class="nav-icon">
-                  <!-- Ícone Início oficial do Penpot -->
+
                   <svg
                     width="20"
                     height="20"
@@ -862,11 +844,10 @@
               </a>
             </li>
 
-            <!-- Sistema de Alertas -->
             <li class="nav-item">
               <a href="sistema-alerta-precoce.html" class="nav-link">
                 <span class="nav-icon">
-                  <!-- Ícone Notificações / Sino oficial do Penpot -->
+
                   <svg
                     width="20"
                     height="20"
@@ -887,11 +868,10 @@
               </a>
             </li>
 
-            <!-- Clima Escolar -->
             <li class="nav-item">
               <a href="clima-escolar.html" class="nav-link">
                 <span class="nav-icon">
-                  <!-- Ícone Comunidade Escolar oficial do Penpot -->
+
                   <svg
                     width="20"
                     height="20"
@@ -914,14 +894,13 @@
               </a>
             </li>
 
-            <!-- Dashboards Agregadores -->
             <li class="nav-item">
               <a
                 href="dashboard-agregador-visao-central.html"
                 class="nav-link"
               >
                 <span class="nav-icon">
-                  <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+
                   <svg
                     width="20"
                     height="20"
@@ -940,11 +919,10 @@
               </a>
             </li>
 
-            <!-- Turmas (Ativo) -->
             <li class="nav-item">
               <a href="turmas.html" class="nav-link active">
                 <span class="nav-icon">
-                <!-- Ícone Turmas oficial: Livro -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -956,7 +934,6 @@
           </ul>
         </nav>
 
-        <!-- Rodapé: Perfil da Coordenação -->
         <div class="sidebar-footer">
         <button
           type="button"
@@ -1000,9 +977,8 @@
       </div>
     </aside>
 
-      <!-- Conteúdo Principal -->
       <main class="main-wrapper">
-        <!-- Cabeçalho Superior Desktop (76px) -->
+
         <header class="top-header">
           <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
             <a href="painel-inicial.html" class="breadcrumb-item"
@@ -1031,9 +1007,8 @@
           </div>
         </header>
 
-        <!-- Área de Conteúdo -->
         <div class="content-area">
-          <!-- Título e Descrição da Página -->
+
           <section class="page-title-row">
             <h1 class="page-title">Configuração de Autoavaliação</h1>
             <p class="page-description">
@@ -1042,7 +1017,6 @@
             </p>
           </section>
 
-          <!-- Painel: Turma Selecionada -->
           <section
             class="turma-selected-card"
             aria-label="Turma selecionada para a autoavaliação"
@@ -1098,11 +1072,10 @@
             <a href="turmas.html" class="btn-change-turma">Alterar turma</a>
           </section>
 
-          <!-- Grid Principal do Formulário -->
           <div class="form-grid">
-            <!-- Coluna Principal (Esquerda) -->
+
             <div class="form-main-col">
-              <!-- Painel: Detalhes da Atividade -->
+
               <section class="form-panel" aria-label="Detalhes da atividade">
                 <div class="form-panel-header">
                   <h2 class="form-panel-title">Detalhes da atividade</h2>
@@ -1132,7 +1105,6 @@
                 </div>
               </section>
 
-              <!-- Painel: Dimensões Atitudinais -->
               <section class="form-panel" aria-label="Dimensões atitudinais">
                 <div class="form-panel-header">
                   <h2 class="form-panel-title">Dimensões atitudinais</h2>
@@ -1145,7 +1117,7 @@
                 </p>
 
                 <div class="dimensions-grid">
-                  <!-- Dimensão 1: Autonomia (Selecionada) -->
+
                   <div class="dimension-checkbox-card checked">
                     <div class="dimension-checkbox-box" aria-hidden="true">
                       <svg
@@ -1164,7 +1136,6 @@
                     <span class="dimension-name">Autonomia</span>
                   </div>
 
-                  <!-- Dimensão 2: Responsabilidade (Selecionada) -->
                   <div class="dimension-checkbox-card checked">
                     <div class="dimension-checkbox-box" aria-hidden="true">
                       <svg
@@ -1183,7 +1154,6 @@
                     <span class="dimension-name">Responsabilidade</span>
                   </div>
 
-                  <!-- Dimensão 3: Respeito e Convivência (Selecionada) -->
                   <div class="dimension-checkbox-card checked">
                     <div class="dimension-checkbox-box" aria-hidden="true">
                       <svg
@@ -1202,13 +1172,11 @@
                     <span class="dimension-name">Respeito e Convivência</span>
                   </div>
 
-                  <!-- Dimensão 4: Colaboração -->
                   <div class="dimension-checkbox-card">
                     <div class="dimension-checkbox-box" aria-hidden="true"></div>
                     <span class="dimension-name">Colaboração</span>
                   </div>
 
-                  <!-- Dimensão 5: Participação -->
                   <div class="dimension-checkbox-card">
                     <div class="dimension-checkbox-box" aria-hidden="true"></div>
                     <span class="dimension-name">Participação</span>
@@ -1217,9 +1185,8 @@
               </section>
             </div>
 
-            <!-- Coluna Lateral (Direita) -->
             <div class="form-side-col">
-              <!-- Painel: Prazo de Resposta -->
+
               <section class="form-panel" aria-label="Prazo de resposta">
                 <div class="form-panel-header">
                   <h2 class="form-panel-title">Prazo para responder</h2>
@@ -1269,9 +1236,8 @@
           </div>
         </div>
 
-        <!-- Rodapé Fixo de Ações -->
         <footer class="fixed-footer">
-          <!-- Botão Voltar (redireciona para autoavaliacoes.html) -->
+
           <a href="autoavaliacoes.html" class="btn-footer-back">
             <svg
               width="16"
@@ -1289,7 +1255,6 @@
             Voltar
           </a>
 
-          <!-- Botão Prévia (com ícone de lupa) -->
           <a href="previa-autoavaliacao.html" class="btn-footer-preview">
             <svg
               width="16"
@@ -1308,11 +1273,9 @@
             Prévia
           </a>
 
-          <!-- Botão Finalizar -->
           <a href="autoavaliacao-finalizada.html" class="btn-footer-submit">Finalizar</a>
         </footer>
       </main>
     </div>
   </body>
 </html>
-

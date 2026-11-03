@@ -7,7 +7,7 @@
       Autoavaliações · Turma 6º ano A · Coordenação · Desktop · Educar &amp;
       Aprender
     </title>
-    <!-- Favicon adaptativo oficial para tema claro e escuro -->
+
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
     <link
       rel="icon"
@@ -21,7 +21,7 @@
       href="../assets/favicon-dark.svg"
       media="(prefers-color-scheme: dark)"
     />
-    <!-- Tipografia Inter oficial do Penpot -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,7 +29,7 @@
       rel="stylesheet"
     />
     <style>
-      /* Reset & Base */
+
       *,
       *::before,
       *::after {
@@ -54,14 +54,12 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Layout Geral Desktop */
       .app-layout {
         display: flex;
         width: 100%;
         min-height: 100vh;
       }
 
-      /* Barra Lateral da Coordenação (248px) - Padrão Unificado */
       .sidebar {
         width: 248px;
         min-width: 248px;
@@ -76,7 +74,6 @@
         z-index: 20;
       }
 
-      /* Topo da Sidebar: Marca */
       .sidebar-brand {
         display: flex;
         align-items: center;
@@ -120,7 +117,6 @@
         text-transform: uppercase;
       }
 
-      /* Navegação Principal */
       .sidebar-nav {
         flex: 1;
         display: flex;
@@ -177,7 +173,6 @@
         font-weight: 600;
       }
 
-      /* Barra indicadora azul ativa no item do menu */
       .nav-link.active::before {
         content: "";
         position: absolute;
@@ -200,7 +195,6 @@
         color: currentColor;
       }
 
-      /* Rodapé da Sidebar: Perfil da Coordenação */
       .sidebar-footer {
         padding: 16px 12px;
         margin-top: auto;
@@ -266,7 +260,6 @@
         flex-shrink: 0;
       }
 
-      /* Wrapper do Conteúdo Principal */
       .main-wrapper {
         flex: 1;
         display: flex;
@@ -276,7 +269,6 @@
         background-color: #f5f8fc;
       }
 
-      /* Cabeçalho Superior Desktop (76px) */
           .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -368,7 +360,6 @@
       border: none;
     }
 
-      /* Área de Conteúdo */
       .content-area {
         flex: 1;
         width: 100%;
@@ -376,7 +367,6 @@
         box-sizing: border-box;
       }
 
-      /* Cabeçalho da Página */
       .page-title-row {
         margin-bottom: 24px;
       }
@@ -396,7 +386,6 @@
         line-height: 1.4;
       }
 
-      /* Indicador / Resumo de Autoavaliações Criadas */
       .summary-indicator-card {
         background-color: #ffffff;
         border: 1px solid #d8e4f3;
@@ -442,7 +431,6 @@
         margin-top: 2px;
       }
 
-      /* Linha de Título de Seção + Contador */
       .section-header-row {
         display: flex;
         align-items: center;
@@ -463,7 +451,6 @@
         color: #60758b;
       }
 
-      /* Barra de Filtros Padronizada (Turma e Período) */
       .filters-row {
         display: flex;
         align-items: center;
@@ -585,7 +572,6 @@
         font-weight: 600;
       }
 
-      /* Painel de Atividade da Autoavaliação (Borda Verde Penpot) */
       .activity-card {
         background-color: #ffffff;
         border: 2px solid #16a34a;
@@ -652,7 +638,6 @@
         margin-top: 3px;
       }
 
-      /* Badge de Status "Em andamento" */
       .status-badge {
         display: inline-flex;
         align-items: center;
@@ -668,7 +653,6 @@
         letter-spacing: 0.2px;
       }
 
-      /* Barra de Progresso */
       .progress-section {
         display: flex;
         flex-direction: column;
@@ -720,7 +704,6 @@
         transform: translateX(2px);
       }
 
-      /* Rodapé Fixo de Ações (Voltar e Criar Autoavaliação) */
       .fixed-footer {
         position: fixed;
         bottom: 0;
@@ -792,12 +775,12 @@
   </head>
   <body>
     <div class="app-layout">
-      <!-- Barra Lateral da Coordenação (248px) - Padrão Unificado de Ícones -->
+
       <aside class="sidebar">
-      <!-- Marca -->
+
       <a href="painel-inicial.html" class="sidebar-brand" aria-label="Educar &amp; Aprender - Início">
         <div class="brand-icon">
-          <!-- Ícone oficial do Penpot: Livro -->
+
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
@@ -809,15 +792,14 @@
         </div>
       </a>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Gestão Pedagógica</div>
         <ul class="nav-list">
-          <!-- Visão Geral (Ativo) -->
+
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Início oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
                 </svg>
@@ -826,11 +808,10 @@
             </a>
           </li>
 
-          <!-- Sistema de Alertas -->
           <li class="nav-item">
             <a href="sistema-alerta-precoce.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Notificações / Sino oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                   <path d="M8.33 17.5h3.34"/>
@@ -840,11 +821,10 @@
             </a>
           </li>
 
-          <!-- Clima Escolar -->
           <li class="nav-item">
             <a href="clima-escolar.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Comunidade Escolar oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="10" cy="5" r="2.2"/>
                   <circle cx="5" cy="7.2" r="1.5"/>
@@ -858,11 +838,10 @@
             </a>
           </li>
 
-          <!-- Dashboards Agregadores -->
           <li class="nav-item">
             <a href="dashboard-agregador-visao-central.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Gráficos / Dashboard oficial do Penpot -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
                   <path d="M12.5 5h5v5"/>
@@ -872,11 +851,10 @@
             </a>
           </li>
 
-          <!-- Turmas -->
           <li class="nav-item">
             <a href="turmas.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Turmas oficial: Livro -->
+
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
@@ -888,7 +866,6 @@
         </ul>
       </nav>
 
-      <!-- Rodapé: Perfil da Coordenação -->
       <div class="sidebar-footer">
         <button
           type="button"
@@ -932,9 +909,8 @@
       </div>
     </aside>
 
-      <!-- Conteúdo Principal -->
       <main class="main-wrapper">
-        <!-- Cabeçalho Superior Desktop (76px) -->
+
         <header class="top-header">
           <nav class="breadcrumb-trail" aria-label="Navegação estrutural">
             <a href="painel-inicial.html" class="breadcrumb-item"
@@ -961,9 +937,8 @@
           </div>
         </header>
 
-        <!-- Área de Conteúdo -->
         <div class="content-area">
-          <!-- Título e Descrição da Página -->
+
           <section class="page-title-row">
             <h1 class="page-title">Autoavaliações</h1>
             <p class="page-description">
@@ -971,13 +946,12 @@
             </p>
           </section>
 
-          <!-- Card Resumo / Indicador: Autoavaliações criadas -->
           <section
             class="summary-indicator-card"
             aria-label="Resumo de autoavaliações criadas"
           >
             <div class="indicator-icon-wrapper" aria-hidden="true">
-              <!-- Ícone indicador oficial do Penpot -->
+
               <svg
                 width="24"
                 height="24"
@@ -1001,13 +975,11 @@
             </div>
           </section>
 
-          <!-- Cabeçalho da Seção: Todas as autoavaliações -->
           <div class="section-header-row">
             <h2 class="section-title">Todas as autoavaliações</h2>
             <span class="section-counter">1 atividade</span>
           </div>
 
-          <!-- Barra de Filtros Padronizada (Turma e Período) -->
           <section class="filters-row" aria-label="Filtros de autoavaliação">
             <div class="filter-item">
               <details class="filter-dropdown-details">
@@ -1047,7 +1019,6 @@
             </div>
           </section>
 
-          <!-- Card de Atividade da Autoavaliação (Redireciona para o Comparativo) -->
           <a
             href="comparativo-autoavaliacao.html"
             class="activity-card"
@@ -1056,7 +1027,7 @@
             <div class="activity-header">
               <div class="activity-header-left">
                 <div class="activity-icon-wrapper" aria-hidden="true">
-                  <!-- Ícone oficial de Atividade / Avaliação do Penpot -->
+
                   <svg
                     width="24"
                     height="24"
@@ -1087,7 +1058,6 @@
               <span class="status-badge">Em andamento</span>
             </div>
 
-            <!-- Progresso de Preenchimento -->
             <div class="progress-section">
               <div
                 class="progress-track"
@@ -1121,7 +1091,6 @@
           </a>
         </div>
 
-        <!-- Rodapé Fixo de Ações (Oficial do Penpot) -->
         <footer class="fixed-footer">
           <a href="minhas-turmas-6ano-a-expandida.html" class="btn-back">
             <svg
