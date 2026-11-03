@@ -19,10 +19,18 @@
       --color-text-muted: #60758b;
       --color-primary: #2563eb;
       --color-primary-light: #e8f1ff;
+      --color-warning-text: #b45309;
+      --color-warning-bg: #fff4d6;
+      --color-success-text: #16a34a;
+      --color-success-bg: #e8f7ee;
+
       --radius-sm: 8px;
       --radius-md: 12px;
-      --radius-btn: 12px;
-      --radius-card: 16px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
+      --radius-btn: var(--radius-md);
+      --radius-card: var(--radius-xl);
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
     *, *::before, *::after {
@@ -139,7 +147,7 @@
       height: 42px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: 14px;
+      border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -467,7 +475,7 @@
           </svg>
         </div>
         <div class="brand-text">
-          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-name">Educar & Aprender</span>
           <span class="brand-category">Área do Estudante</span>
         </div>
       </a>
@@ -550,7 +558,7 @@
 
     <footer class="bottom-actions-bar">
       <a href="autoavaliacoes-estudante-mobile.html" class="btn-action btn-draft">Salvar rascunho</a>
-      <a href="finalizar-autoavaliacao-estudante-mobile.html" class="btn-action btn-next">Próxima dimensão &nbsp;→</a>
+      <a href="finalizar-autoavaliacao-estudante-mobile.html" class="btn-action btn-next">Próxima dimensão&nbsp;→</a>
     </footer>
 
   </main>
