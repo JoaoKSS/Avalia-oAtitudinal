@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parecer Formativo · Professor · Educar &amp; Aprender</title>
+  <title>Editar Observação · Professor · Educar &amp; Aprender</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
@@ -20,18 +20,20 @@
     :root {
       --color-primary: #2563eb;
       --color-primary-hover: #1d4ed8;
-      --color-primary-light: #e8f0ff;
+      --color-primary-light: #e8f1ff;
       --color-bg-canvas: #f5f8fc;
       --color-bg-card: #ffffff;
       --color-text-main: #172b4d;
       --color-text-muted: #60758b;
       --color-border: #d8e4f3;
-      --color-border-subtle: #e2e8f0;
-      --color-positive: #16a34a;
-      --color-warning: #b86a00;
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
+      --color-border-subtle: #d9e4f2;
+      --color-warning: #8a5200;
+      --color-warning-border: #b86a00;
+      --color-warning-bg: #f6e2b8;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
     }
 
     body {
@@ -152,16 +154,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--color-text-muted);
-      cursor: pointer;
       position: relative;
+      cursor: pointer;
       text-decoration: none;
-      transition: all 0.15s ease;
+      color: var(--color-text-muted);
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      padding: 0;
     }
 
     .header-icon-btn:hover {
       background-color: #f8fafc;
-      border-color: var(--color-primary);
+      border-color: #c7d7eb;
       color: var(--color-primary);
     }
 
@@ -181,365 +184,299 @@
       padding: 14px 16px 98px 16px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      scrollbar-width: none;
+      gap: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
     }
 
     .main-content::-webkit-scrollbar {
-      display: none;
+      width: 4px;
     }
 
-    .back-link {
+    .main-content::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .back-nav-link {
       display: inline-flex;
       align-items: center;
+      gap: 4px;
+      color: var(--color-primary);
       font-size: 13px;
       font-weight: 600;
-      color: var(--color-primary);
       text-decoration: none;
+      transition: opacity 0.15s ease;
       width: fit-content;
-      transition: color 0.15s ease;
+      flex-shrink: 0;
     }
 
-    .back-link:hover {
-      text-decoration: underline;
+    .back-nav-link:hover {
+      opacity: 0.8;
     }
 
-    .page-header {
+    .page-title-group {
       display: flex;
       flex-direction: column;
       gap: 4px;
+      flex-shrink: 0;
     }
 
     .page-title {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--color-text-main);
+      font-size: 21px;
+      font-weight: 600;
       line-height: 1.25;
+      color: var(--color-text-main);
     }
 
     .page-subtitle {
-      font-size: 13px;
-      color: var(--color-text-muted);
+      font-size: 12px;
       line-height: 1.4;
+      color: var(--color-text-muted);
     }
 
-    .student-card {
+    .student-summary-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .student-left {
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
       display: flex;
       align-items: center;
       gap: 12px;
-      min-width: 0;
+      flex-shrink: 0;
     }
 
-    .student-avatar {
+    .student-summary-avatar {
       width: 38px;
       height: 38px;
       border-radius: 50%;
       background-color: var(--color-primary-light);
       color: var(--color-primary);
-      font-size: 13px;
-      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
       flex-shrink: 0;
     }
 
-    .student-info {
+    .student-summary-info {
       display: flex;
       flex-direction: column;
-      min-width: 0;
+      gap: 2px;
     }
 
-    .student-name {
+    .student-summary-name {
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-text-main);
-      line-height: 1.2;
+      line-height: 1.3;
     }
 
-    .student-meta {
+    .student-summary-meta {
       font-size: 11px;
       color: var(--color-text-muted);
-      line-height: 1.3;
-      margin-top: 3px;
-    }
-
-    .status-badge-pendente {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--color-warning);
-      background-color: #fffbeb;
-      border: 1px solid #fed7aa;
-      padding: 4px 10px;
-      border-radius: 6px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .section-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--color-text-main);
-    }
-
-    .card-potencialidade {
-      background-color: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .potencialidade-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .potencialidade-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: var(--color-positive);
-      flex-shrink: 0;
-    }
-
-    .potencialidade-label {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--color-positive);
-    }
-
-    .potencialidade-desc {
-      font-size: 13px;
-      color: var(--color-text-main);
-      line-height: 1.35;
-    }
-
-    .card-dimensoes {
-      background-color: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 14px 14px 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .badge-barras {
-      align-self: flex-start;
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--color-primary);
-      background-color: var(--color-primary-light);
-      padding: 3px 8px;
-      border-radius: 6px;
-      letter-spacing: 0.5px;
-    }
-
-    .dimension-slider-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .dimension-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .dimension-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-text-main);
-    }
-
-    .dimension-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      width: 52px;
-      height: 22px;
-      background-color: #eff6ff;
-      border: 1px solid #bfdbfe;
-      border-radius: 6px;
-    }
-
-    .dimension-value {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--color-primary);
-      line-height: 1;
-    }
-
-    .dimension-suffix {
-      font-size: 10px;
       font-weight: 500;
-      color: var(--color-text-muted);
-      line-height: 1;
     }
 
-    .dimension-range {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 6px;
-      background: linear-gradient(to right, var(--color-primary) var(--fill-pct, 80%), #e2e8f0 var(--fill-pct, 80%));
-      border-radius: 3px;
-      outline: none;
-      margin: 6px 0 2px 0;
-      cursor: pointer;
-    }
-
-    .dimension-range::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 6px;
-      background: transparent;
-      border-radius: 3px;
-    }
-
-    .dimension-range::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: #ffffff;
-      border: 2px solid var(--color-primary);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
-      cursor: pointer;
-      margin-top: -5px;
-    }
-
-    .dimension-scale {
-      display: flex;
-      justify-content: space-between;
-      font-size: 10px;
-      color: var(--color-text-muted);
-      padding: 0 2px;
-    }
-
-    .dimensoes-divider {
-      height: 1px;
-      background-color: var(--color-border);
-      margin: 4px 0 2px;
-    }
-
-    .dimensoes-summary {
-      font-size: 12px;
-      color: var(--color-text-main);
-      line-height: 1.3;
-    }
-
-    .dimensoes-summary strong {
-      font-weight: 700;
-      color: var(--color-text-main);
-    }
-
-    .feedback-section {
+    .form-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
+      flex-shrink: 0;
     }
 
-    .feedback-label {
-      font-size: 14px;
+    .form-label {
+      font-size: 12px;
       font-weight: 700;
       color: var(--color-text-main);
+      display: flex;
+      align-items: center;
+      gap: 2px;
     }
 
-    .feedback-box {
+    .form-required {
+      color: #dc2626;
+      font-weight: 700;
+    }
+
+    .form-select-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .form-select {
+      width: 100%;
+      height: 40px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      border-radius: 9px;
+      padding: 0 34px 0 12px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-main);
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.15s ease;
     }
 
-    .feedback-textarea {
+    .form-select:focus {
+      border-color: var(--color-primary);
+    }
+
+    .form-select-arrow {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .type-options-row {
+      display: flex;
+      gap: 8px;
       width: 100%;
-      min-height: 130px;
-      border: none;
-      outline: none;
+    }
+
+    .type-radio-input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .type-pill {
+      flex: 1;
+      height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      user-select: none;
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+
+    .type-pill.positiva {
+      background-color: #f1f8f3;
+      border-color: #ddebe0;
+      color: #568064;
+    }
+
+    .type-pill.neutra {
+      background-color: #f4f6f8;
+      border-color: #e2e7ed;
+      color: #718096;
+    }
+
+    .type-pill.desenvolver {
+      background-color: var(--color-warning-bg);
+      border-color: var(--color-warning-border);
+      color: var(--color-warning);
+      border-width: 1.5px;
+    }
+
+    .type-radio-input#tipo-pos:checked + .type-pill.positiva {
+      background-color: #d1fae5;
+      border-color: #10b981;
+      color: #047857;
+      box-shadow: 0 0 0 1px #10b981;
+    }
+
+    .type-radio-input#tipo-neu:checked + .type-pill.neutra {
+      background-color: #e2e8f0;
+      border-color: #94a3b8;
+      color: #334155;
+      box-shadow: 0 0 0 1px #94a3b8;
+    }
+
+    .type-radio-input#tipo-des:checked + .type-pill.desenvolver {
+      background-color: var(--color-warning-bg);
+      border-color: var(--color-warning-border);
+      color: var(--color-warning);
+      border-width: 1.5px;
+      box-shadow: 0 0 0 1px var(--color-warning-border);
+    }
+
+    .form-textarea {
+      width: 100%;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 10px 12px;
       font-family: inherit;
       font-size: 12px;
+      line-height: 1.45;
       color: var(--color-text-main);
-      line-height: 1.5;
+      outline: none;
       resize: vertical;
-      background: transparent;
+      transition: border-color 0.15s ease;
+      box-sizing: border-box;
     }
 
-    .feedback-counter {
-      align-self: flex-end;
-      font-size: 11px;
-      color: var(--color-text-muted);
+    .form-textarea:focus {
+      border-color: var(--color-primary);
     }
 
-    .action-buttons-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 4px;
+    .form-textarea.desc {
+      min-height: 76px;
     }
 
-    .btn-secondary {
-      flex: 1;
-      height: 48px;
-      background-color: #ffffff;
+    .form-textarea.just {
+      min-height: 82px;
+    }
+
+    .form-input-text {
+      width: 100%;
+      height: 42px;
+      background-color: var(--color-bg-card);
       border: 1px solid var(--color-border);
-      border-radius: 8px;
+      border-radius: 10px;
+      padding: 0 12px;
+      font-family: inherit;
       font-size: 13px;
-      font-weight: 600;
       color: var(--color-text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
+      outline: none;
+      transition: border-color 0.15s ease;
+      box-sizing: border-box;
     }
 
-    .btn-secondary:hover {
-      background-color: #f8fafc;
-      border-color: #cbd5e1;
+    .form-input-text:focus {
+      border-color: var(--color-primary);
     }
 
-    .btn-primary {
-      flex: 1.4;
+    .btn-save-primary {
+      width: 100%;
       height: 48px;
       background-color: var(--color-primary);
-      border: 1px solid var(--color-primary);
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #ffffff;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
       text-decoration: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 4px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
       transition: background-color 0.15s ease;
     }
 
-    .btn-primary:hover {
+    .btn-save-primary:hover {
       background-color: var(--color-primary-hover);
-      border-color: var(--color-primary-hover);
     }
 
     .bottom-nav {
@@ -570,6 +507,14 @@
       cursor: pointer;
     }
 
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
     .nav-indicator-bar {
       position: absolute;
       top: -8px;
@@ -577,22 +522,6 @@
       height: 3px;
       border-radius: 2px;
       background-color: var(--color-primary);
-    }
-
-    .nav-tab.active {
-      color: var(--color-primary);
-    }
-
-    .nav-label {
-      font-size: 10px;
-      font-weight: 500;
-      line-height: 1.4;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .nav-tab.active .nav-label {
-      font-weight: 600;
     }
 
     .nav-icon {
@@ -603,94 +532,94 @@
       justify-content: center;
     }
 
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
     .profile-modal-overlay {
       position: absolute;
-      inset: 0;
-      z-index: 99;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(2px);
+      z-index: 100;
       display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 92px;
+      box-sizing: border-box;
     }
 
     .profile-modal-overlay:target {
-      display: block;
+      display: flex;
     }
 
     .profile-modal-backdrop {
       position: absolute;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.4);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       cursor: default;
-      z-index: 99;
     }
 
     .profile-modal-card {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 88px;
-      width: 346px;
-      max-width: calc(100% - 32px);
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 13px;
-      padding: 14px 16px;
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
-      box-sizing: border-box;
-      z-index: 100;
+      position: relative;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      width: calc(100% - 32px);
+      max-width: 358px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      z-index: 101;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .profile-modal-pointer {
       position: absolute;
       bottom: -8px;
-      right: 20px;
-      width: 14px;
-      height: 14px;
-      background-color: #ffffff;
-      border-right: 1px solid #d9e4f2;
-      border-bottom: 1px solid #d9e4f2;
+      right: 36px;
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-right: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
       transform: rotate(45deg);
-      z-index: 101;
     }
 
     .profile-modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 24px;
     }
 
     .profile-modal-title {
       font-size: 14px;
       font-weight: 700;
-      line-height: 1.2;
-      color: #172b4d;
-      margin: 0;
+      color: var(--color-text-main);
     }
 
     .profile-modal-close {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background-color: #f5f8fc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #60758b;
-      font-size: 15px;
-      font-weight: 400;
       text-decoration: none;
+      color: var(--color-text-muted);
+      font-size: 16px;
       line-height: 1;
-      transition: background-color 0.15s ease, color 0.15s ease;
-    }
-
-    .profile-modal-close:hover {
-      background-color: #e2e8f0;
-      color: #172b4d;
+      padding: 4px;
     }
 
     .profile-modal-divider {
       height: 1px;
-      background-color: #e8eef5;
-      margin: 10px 0;
+      background: var(--color-border-subtle);
+      width: 100%;
     }
 
     .profile-modal-user {
@@ -703,12 +632,12 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background-color: #e8f1ff;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #2563eb;
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 700;
       flex-shrink: 0;
     }
@@ -716,47 +645,36 @@
     .profile-modal-user-info {
       display: flex;
       flex-direction: column;
-      min-width: 0;
+      gap: 2px;
     }
 
     .profile-modal-user-name {
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.2;
-      color: #172b4d;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-main);
     }
 
     .profile-modal-user-role {
-      font-size: 10px;
-      font-weight: 400;
-      line-height: 1.2;
-      color: #60758b;
-      margin-top: 3px;
+      font-size: 11px;
+      color: var(--color-text-muted);
     }
 
     .profile-modal-logout {
       display: flex;
       align-items: center;
       gap: 10px;
-      height: 48px;
-      padding: 0 14px;
-      background-color: #fff5f5;
-      border: 1px solid #fee2e2;
-      border-radius: 9px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #fee2e2;
+      color: #dc2626;
       text-decoration: none;
-      box-sizing: border-box;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background-color 0.15s ease;
     }
 
     .profile-modal-logout:hover {
-      background-color: #fee2e2;
-      border-color: #fca5a5;
-    }
-
-    .profile-modal-logout-text {
-      font-size: 13px;
-      font-weight: 600;
-      color: #dc2626;
+      background: #fecaca;
     }
   </style>
 </head>
@@ -764,7 +682,7 @@
 
   <main class="mobile-screen-wrapper">
     <header class="mobile-header">
-      <a href="painel-inicial-professor-mobile.html" class="brand-section" aria-label="Educar e Aprender - Início">
+      <a href="painel-inicial.html" class="brand-section" aria-label="Educar e Aprender - Início">
         <div class="brand-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
@@ -785,151 +703,92 @@
           </svg>
         </a>
 
-        <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
+        <a href="#notificacoes" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
             <path d="M10.333 23.5h3.334"/>
           </svg>
           <span class="notif-badge-dot" aria-hidden="true"></span>
-        </button>
+        </a>
       </div>
     </header>
 
     <div class="main-content">
-      <a href="resumo-periodo.html" class="back-link">‹&nbsp; Voltar ao Resumo</a>
+      <a href="detalhe-observacao.html" class="back-nav-link">‹ Voltar ao detalhe</a>
 
-      <div class="page-header">
-        <h1 class="page-title">Parecer formativo</h1>
-        <p class="page-subtitle">Registre avanços, contextos e próximos passos possíveis.</p>
+      <div class="page-title-group">
+        <h1 class="page-title">Editar observação</h1>
+        <p class="page-subtitle">Atualize o contexto e a justificativa pedagógica.</p>
       </div>
 
-      <section class="student-card">
-        <div class="student-left">
-          <div class="student-avatar" aria-hidden="true">AB</div>
-          <div class="student-info">
-            <h2 class="student-name">Ana Beatriz Ferraz</h2>
-            <span class="student-meta">6º ano A · 1º bimestre</span>
-          </div>
+      <div class="student-summary-card">
+        <div class="student-summary-avatar">AB</div>
+        <div class="student-summary-info">
+          <span class="student-summary-name">Ana Beatriz Ferraz</span>
+          <span class="student-summary-meta">6º ano A · 1º bimestre de 2026</span>
         </div>
-        <span class="status-badge-pendente">Pendente</span>
-      </section>
-
-      <section class="card-potencialidade">
-        <div class="potencialidade-header">
-          <span class="potencialidade-dot" aria-hidden="true"></span>
-          <span class="potencialidade-label">Potencialidade</span>
-        </div>
-        <p class="potencialidade-desc">Coopera e inclui colegas nas atividades.</p>
-      </section>
-
-      <section class="card-dimensoes">
-        <span class="badge-barras">BARRAS DE AVALIAÇÃO</span>
-
-        <div class="dimension-slider-item">
-          <div class="dimension-header">
-            <span class="dimension-title">Respeito e convivência</span>
-            <div class="dimension-badge">
-              <span class="dimension-value">4,2</span>
-              <span class="dimension-suffix">/ 5</span>
-            </div>
-          </div>
-          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="4.2" style="--fill-pct: 80%;" aria-label="Respeito e convivência" readonly>
-          <div class="dimension-scale">
-            <span>1.0</span>
-            <span>5.0</span>
-          </div>
-        </div>
-
-        <div class="dimension-slider-item">
-          <div class="dimension-header">
-            <span class="dimension-title">Colaboração</span>
-            <div class="dimension-badge">
-              <span class="dimension-value">4,0</span>
-              <span class="dimension-suffix">/ 5</span>
-            </div>
-          </div>
-          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="4.0" style="--fill-pct: 75%;" aria-label="Colaboração" readonly>
-          <div class="dimension-scale">
-            <span>1.0</span>
-            <span>5.0</span>
-          </div>
-        </div>
-
-        <div class="dimension-slider-item">
-          <div class="dimension-header">
-            <span class="dimension-title">Responsabilidade</span>
-            <div class="dimension-badge">
-              <span class="dimension-value">3,8</span>
-              <span class="dimension-suffix">/ 5</span>
-            </div>
-          </div>
-          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="3.8" style="--fill-pct: 70%;" aria-label="Responsabilidade" readonly>
-          <div class="dimension-scale">
-            <span>1.0</span>
-            <span>5.0</span>
-          </div>
-        </div>
-
-        <div class="dimension-slider-item">
-          <div class="dimension-header">
-            <span class="dimension-title">Autonomia</span>
-            <div class="dimension-badge">
-              <span class="dimension-value">3,5</span>
-              <span class="dimension-suffix">/ 5</span>
-            </div>
-          </div>
-          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="3.5" style="--fill-pct: 62.5%;" aria-label="Autonomia" readonly>
-          <div class="dimension-scale">
-            <span>1.0</span>
-            <span>5.0</span>
-          </div>
-        </div>
-
-        <div class="dimension-slider-item">
-          <div class="dimension-header">
-            <span class="dimension-title">Participação</span>
-            <div class="dimension-badge">
-              <span class="dimension-value">5,0</span>
-              <span class="dimension-suffix">/ 5</span>
-            </div>
-          </div>
-          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="5.0" style="--fill-pct: 100%;" aria-label="Participação" readonly>
-          <div class="dimension-scale">
-            <span>1.0</span>
-            <span>5.0</span>
-          </div>
-        </div>
-
-        <div class="dimensoes-divider"></div>
-
-        <div class="dimensoes-summary">
-          Média resultante: <strong>4,1 / 5,0</strong>
-        </div>
-      </section>
-
-      <section class="feedback-section">
-        <label for="feedback-text" class="feedback-label">Devolutiva para a estudante</label>
-        <div class="feedback-box">
-          <textarea id="feedback-text" class="feedback-textarea" rows="6">Ana, neste bimestre você contribuiu para o trabalho em grupo e ajudou a incluir as ideias dos colegas. Esse é um ponto forte que vale continuar desenvolvendo.
-
-Como próximo passo, vamos combinar uma estratégia simples para conferir os materiais antes das atividades. Na próxima etapa, conversaremos sobre o que funcionou e sobre o apoio de que você precisa.</textarea>
-          <div class="feedback-counter">296 / 500 caracteres</div>
-        </div>
-      </section>
-
-      <div class="action-buttons-row">
-        <a href="devolutiva-individual.html" class="btn-secondary">Salvar rascunho</a>
-        <a href="devolutiva-enviada.html" class="btn-primary">
-          <span>Enviar devolutiva</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4.167 10h11.666M10.833 5l5 5-5 5"/>
-          </svg>
-        </a>
       </div>
+
+      <form action="detalhe-observacao.html" method="get" style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="form-group">
+          <label for="campo-dimensao" class="form-label">
+            Dimensão atitudinal
+            <span class="form-required">*</span>
+          </label>
+          <div class="form-select-wrapper">
+            <select id="campo-dimensao" name="dimensao" class="form-select">
+              <option value="responsabilidade" selected>Responsabilidade</option>
+              <option value="colaboracao">Colaboração</option>
+              <option value="autonomia">Autonomia</option>
+              <option value="empatia">Empatia</option>
+              <option value="participacao">Participação</option>
+            </select>
+            <div class="form-select-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m5 7.5 5 5 5-5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="form-label">
+            Tipo de observação
+            <span class="form-required">*</span>
+          </span>
+          <div class="type-options-row">
+            <input type="radio" name="tipo_obs" id="tipo-pos" value="positiva" class="type-radio-input">
+            <label for="tipo-pos" class="type-pill positiva">Positiva</label>
+
+            <input type="radio" name="tipo_obs" id="tipo-neu" value="neutra" class="type-radio-input">
+            <label for="tipo-neu" class="type-pill neutra">Neutra</label>
+
+            <input type="radio" name="tipo_obs" id="tipo-des" value="desenvolver" class="type-radio-input" checked>
+            <label for="tipo-des" class="type-pill desenvolver">A desenvolver</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="campo-descricao" class="form-label">Descrição da observação</label>
+          <textarea id="campo-descricao" name="descricao" class="form-textarea desc">Compareceu sem os materiais necessários em duas aulas. A situação foi observada durante atividades com uso do caderno e dos materiais de apoio.</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="campo-contexto" class="form-label">Contexto da observação</label>
+          <input type="text" id="campo-contexto" name="contexto" class="form-input-text" value="Preparação para a aula">
+        </div>
+
+        <div class="form-group">
+          <label for="campo-justificativa" class="form-label">Justificativa pedagógica</label>
+          <textarea id="campo-justificativa" name="justificativa" class="form-textarea just">Registrar para combinar uma estratégia de organização dos materiais e identificar o apoio necessário à rotina escolar.</textarea>
+        </div>
+
+        <button type="submit" class="btn-save-primary">Salvar alterações</button>
+      </form>
     </div>
 
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <a href="painel-inicial-professor-mobile.html" class="nav-tab">
+      <a href="painel-inicial.html" class="nav-tab">
         <div class="nav-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
@@ -970,12 +829,12 @@ Como próximo passo, vamos combinar uma estratégia simples para conferir os mat
     </nav>
 
     <div id="modal-perfil" class="profile-modal-overlay">
-      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal"></a>
+      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
       <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
         <div class="profile-modal-pointer" aria-hidden="true"></div>
         <div class="profile-modal-header">
           <h2 id="modal-perfil-title" class="profile-modal-title">Meu Perfil</h2>
-          <a href="#" class="profile-modal-close" aria-label="Fechar">✕</a>
+          <a href="#" class="profile-modal-close" aria-label="Fechar modal">✕</a>
         </div>
         <div class="profile-modal-divider"></div>
         <div class="profile-modal-user">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Devolutiva Enviada · Professor · Educar &amp; Aprender</title>
+  <title>Histórico Enviado · Professor · Educar &amp; Aprender</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
@@ -20,18 +20,19 @@
     :root {
       --color-primary: #2563eb;
       --color-primary-hover: #1d4ed8;
-      --color-primary-light: #e8f0ff;
+      --color-primary-light: #e8f1ff;
       --color-bg-canvas: #f5f8fc;
       --color-bg-card: #ffffff;
       --color-text-main: #172b4d;
       --color-text-muted: #60758b;
       --color-border: #d8e4f3;
-      --color-border-subtle: #e2e8f0;
+      --color-border-subtle: #d9e4f2;
       --color-positive: #16a34a;
       --color-positive-bg: #e8f7ee;
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
     }
 
     body {
@@ -152,16 +153,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--color-text-muted);
-      cursor: pointer;
       position: relative;
+      cursor: pointer;
       text-decoration: none;
-      transition: all 0.15s ease;
+      color: var(--color-text-muted);
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      padding: 0;
     }
 
     .header-icon-btn:hover {
       background-color: #f8fafc;
-      border-color: var(--color-primary);
+      border-color: #c7d7eb;
       color: var(--color-primary);
     }
 
@@ -195,6 +197,7 @@
       justify-content: center;
       margin-top: 36px;
       margin-bottom: 32px;
+      flex-shrink: 0;
     }
 
     .success-circle-outer {
@@ -219,23 +222,24 @@
     }
 
     .success-title {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 21px;
+      font-weight: 600;
       color: var(--color-text-main);
       text-align: center;
-      margin-top: 18px;
+      margin-top: 20px;
       line-height: 1.25;
     }
 
     .confirmation-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border);
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       padding: 16px 18px;
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-bottom: auto;
+      flex-shrink: 0;
     }
 
     .confirmation-student-row {
@@ -262,11 +266,12 @@
       display: flex;
       flex-direction: column;
       min-width: 0;
+      gap: 2px;
     }
 
     .confirmation-student-name {
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-text-main);
       line-height: 1.25;
     }
@@ -274,13 +279,14 @@
     .confirmation-student-meta {
       font-size: 12px;
       color: var(--color-text-muted);
+      font-weight: 500;
       line-height: 1.3;
-      margin-top: 3px;
     }
 
     .confirmation-divider {
       height: 1px;
-      background-color: var(--color-border-subtle);
+      background-color: var(--color-border);
+      width: 100%;
     }
 
     .confirmation-status-row {
@@ -298,8 +304,8 @@
     }
 
     .status-text-green {
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 12px;
+      font-weight: 600;
       color: var(--color-positive);
     }
 
@@ -318,6 +324,7 @@
       transition: background-color 0.15s ease;
       margin-top: 32px;
       margin-bottom: 8px;
+      flex-shrink: 0;
     }
 
     .btn-return:hover {
@@ -352,6 +359,14 @@
       cursor: pointer;
     }
 
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
     .nav-indicator-bar {
       position: absolute;
       top: -8px;
@@ -359,22 +374,6 @@
       height: 3px;
       border-radius: 2px;
       background-color: var(--color-primary);
-    }
-
-    .nav-tab.active {
-      color: var(--color-primary);
-    }
-
-    .nav-label {
-      font-size: 10px;
-      font-weight: 500;
-      line-height: 1.4;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .nav-tab.active .nav-label {
-      font-weight: 600;
     }
 
     .nav-icon {
@@ -385,94 +384,94 @@
       justify-content: center;
     }
 
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
     .profile-modal-overlay {
       position: absolute;
-      inset: 0;
-      z-index: 99;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(2px);
+      z-index: 100;
       display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 92px;
+      box-sizing: border-box;
     }
 
     .profile-modal-overlay:target {
-      display: block;
+      display: flex;
     }
 
     .profile-modal-backdrop {
       position: absolute;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.4);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       cursor: default;
-      z-index: 99;
     }
 
     .profile-modal-card {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 88px;
-      width: 346px;
-      max-width: calc(100% - 32px);
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 13px;
-      padding: 14px 16px;
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
-      box-sizing: border-box;
-      z-index: 100;
+      position: relative;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      width: calc(100% - 32px);
+      max-width: 358px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      z-index: 101;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .profile-modal-pointer {
       position: absolute;
       bottom: -8px;
-      right: 20px;
-      width: 14px;
-      height: 14px;
-      background-color: #ffffff;
-      border-right: 1px solid #d9e4f2;
-      border-bottom: 1px solid #d9e4f2;
+      right: 36px;
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-right: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
       transform: rotate(45deg);
-      z-index: 101;
     }
 
     .profile-modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 24px;
     }
 
     .profile-modal-title {
       font-size: 14px;
       font-weight: 700;
-      line-height: 1.2;
-      color: #172b4d;
-      margin: 0;
+      color: var(--color-text-main);
     }
 
     .profile-modal-close {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background-color: #f5f8fc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #60758b;
-      font-size: 15px;
-      font-weight: 400;
       text-decoration: none;
+      color: var(--color-text-muted);
+      font-size: 16px;
       line-height: 1;
-      transition: background-color 0.15s ease, color 0.15s ease;
-    }
-
-    .profile-modal-close:hover {
-      background-color: #e2e8f0;
-      color: #172b4d;
+      padding: 4px;
     }
 
     .profile-modal-divider {
       height: 1px;
-      background-color: #e8eef5;
-      margin: 10px 0;
+      background: var(--color-border-subtle);
+      width: 100%;
     }
 
     .profile-modal-user {
@@ -485,12 +484,12 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background-color: #e8f1ff;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #2563eb;
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 700;
       flex-shrink: 0;
     }
@@ -498,47 +497,36 @@
     .profile-modal-user-info {
       display: flex;
       flex-direction: column;
-      min-width: 0;
+      gap: 2px;
     }
 
     .profile-modal-user-name {
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.2;
-      color: #172b4d;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-main);
     }
 
     .profile-modal-user-role {
-      font-size: 10px;
-      font-weight: 400;
-      line-height: 1.2;
-      color: #60758b;
-      margin-top: 3px;
+      font-size: 11px;
+      color: var(--color-text-muted);
     }
 
     .profile-modal-logout {
       display: flex;
       align-items: center;
       gap: 10px;
-      height: 48px;
-      padding: 0 14px;
-      background-color: #fff5f5;
-      border: 1px solid #fee2e2;
-      border-radius: 9px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #fee2e2;
+      color: #dc2626;
       text-decoration: none;
-      box-sizing: border-box;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background-color 0.15s ease;
     }
 
     .profile-modal-logout:hover {
-      background-color: #fee2e2;
-      border-color: #fca5a5;
-    }
-
-    .profile-modal-logout-text {
-      font-size: 13px;
-      font-weight: 600;
-      color: #dc2626;
+      background: #fecaca;
     }
   </style>
 </head>
@@ -546,7 +534,7 @@
 
   <main class="mobile-screen-wrapper">
     <header class="mobile-header">
-      <a href="painel-inicial-professor-mobile.html" class="brand-section" aria-label="Educar e Aprender - Início">
+      <a href="painel-inicial.html" class="brand-section" aria-label="Educar e Aprender - Início">
         <div class="brand-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
@@ -567,55 +555,55 @@
           </svg>
         </a>
 
-        <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
+        <a href="#notificacoes" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
             <path d="M10.333 23.5h3.334"/>
           </svg>
           <span class="notif-badge-dot" aria-hidden="true"></span>
-        </button>
+        </a>
       </div>
     </header>
 
     <div class="main-content">
       <div class="success-hero">
-        <div class="success-circle-outer" aria-hidden="true">
+        <div class="success-circle-outer">
           <div class="success-circle-inner">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 13l4 4L19 7"/>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5"/>
             </svg>
           </div>
         </div>
-        <h1 class="success-title">Devolutiva enviada</h1>
+        <h1 class="success-title">Histórico enviado</h1>
       </div>
 
-      <section class="confirmation-card" aria-label="Detalhes da devolutiva enviada">
+      <div class="confirmation-card">
         <div class="confirmation-student-row">
-          <div class="confirmation-avatar" aria-hidden="true">AB</div>
+          <div class="confirmation-avatar">AB</div>
           <div class="confirmation-student-info">
             <span class="confirmation-student-name">Ana Beatriz Ferraz</span>
             <span class="confirmation-student-meta">6º ano A · 1º bimestre de 2026</span>
           </div>
         </div>
 
-        <div class="confirmation-divider" aria-hidden="true"></div>
+        <div class="confirmation-divider"></div>
 
         <div class="confirmation-status-row">
-          <span class="status-dot-green" aria-hidden="true"></span>
-          <span class="status-text-green">Enviada agora · parecer formativo</span>
+          <span class="status-dot-green"></span>
+          <span class="status-text-green">Enviada agora · histórico de evidências</span>
         </div>
-      </section>
+      </div>
 
-      <a href="devolutiva-individual.html" class="btn-return">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M15.833 10H4.167M9.167 15L4.167 10l5-5"/>
+      <a href="historico-evidencias.html" class="btn-return">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15.833 10H4.167M10 15.833 4.167 10 10 4.167"/>
         </svg>
-        <span>Voltar às devolutivas</span>
+        <span>Voltar os Históricos</span>
       </a>
     </div>
 
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <a href="painel-inicial-professor-mobile.html" class="nav-tab">
+      <a href="painel-inicial.html" class="nav-tab">
         <div class="nav-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
@@ -656,12 +644,12 @@
     </nav>
 
     <div id="modal-perfil" class="profile-modal-overlay">
-      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal"></a>
+      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
       <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
         <div class="profile-modal-pointer" aria-hidden="true"></div>
         <div class="profile-modal-header">
           <h2 id="modal-perfil-title" class="profile-modal-title">Meu Perfil</h2>
-          <a href="#" class="profile-modal-close" aria-label="Fechar">✕</a>
+          <a href="#" class="profile-modal-close" aria-label="Fechar modal">✕</a>
         </div>
         <div class="profile-modal-divider"></div>
         <div class="profile-modal-user">
