@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Evolução do Estudante · Lucas Martins · Responsável · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -29,14 +26,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
       min-height: 100vh;
     }
 
-    /* Barra Lateral do Responsável (248px) */
     .sidebar {
       width: 248px;
       background-color: #ffffff;
@@ -89,7 +84,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -144,7 +138,6 @@
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -167,7 +160,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Responsável */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -233,7 +225,6 @@
       justify-content: center;
     }
 
-    /* Área Principal */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -241,7 +232,6 @@
       min-width: 0;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -335,7 +325,6 @@
       border-radius: 50%;
     }
 
-    /* Área de Conteúdo */
     .content-area {
       padding: 32px;
       width: 100%;
@@ -344,7 +333,6 @@
       gap: 28px;
     }
 
-    /* Cabeçalho da Tela */
     .page-header {
       display: flex;
       flex-direction: column;
@@ -365,7 +353,6 @@
       color: #60758b;
     }
 
-    /* Cartão de Identificação do Estudante (1088 × 75px) */
     .student-id-card {
       width: 100%;
       min-height: 76px;
@@ -428,7 +415,6 @@
       line-height: 1.4;
     }
 
-    /* Seletor de Período (Dropdown) */
     .period-selector {
       display: inline-flex;
       align-items: center;
@@ -465,7 +451,6 @@
       margin-left: 2px;
     }
 
-    /* Linha de KPIs (3 Cards) */
     .kpi-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -567,7 +552,6 @@
       line-height: 1.4;
     }
 
-    /* Grid de Gráficos Principais (2 Colunas) */
     .charts-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -637,7 +621,6 @@
       color: #60758b;
     }
 
-    /* Painel do Gráfico Radar (Esquerda) */
     .radar-container {
       display: flex;
       align-items: center;
@@ -660,7 +643,6 @@
       overflow: visible;
     }
 
-    /* Lista de Dimensões (Direita do Radar) */
     .dimensions-list {
       width: 200px;
       display: flex;
@@ -717,7 +699,6 @@
       color: #172b4d;
     }
 
-    /* Painel do Gráfico de Linha (Direita) */
     .line-chart-container {
       display: flex;
       flex-direction: column;
@@ -755,7 +736,6 @@
       color: #16804a;
     }
 
-    /* Responsividade */
     @media (max-width: 1200px) {
       .kpi-row {
         grid-template-columns: 1fr;
@@ -774,7 +754,6 @@
 </head>
 <body>
   <div class="app-layout">
-    <!-- Barra Lateral do Responsável (248px) -->
     <aside class="sidebar">
       <div class="sidebar-brand">
         <div class="brand-icon">
@@ -788,11 +767,9 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Acompanhamento Escolar</div>
         <ul class="nav-list">
-          <!-- Início -->
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
@@ -804,7 +781,6 @@
             </a>
           </li>
 
-          <!-- Evolução do estudante -->
           <li class="nav-item">
             <a href="evolucao-estudante.html" class="nav-link active">
               <span class="nav-icon">
@@ -817,7 +793,6 @@
             </a>
           </li>
 
-          <!-- Histórico de registros -->
           <li class="nav-item">
             <a href="historico-registros.html" class="nav-link">
               <span class="nav-icon">
@@ -830,7 +805,6 @@
             </a>
           </li>
 
-          <!-- Devolutivas -->
           <li class="nav-item">
             <a href="devolutivas.html" class="nav-link">
               <span class="nav-icon">
@@ -844,7 +818,6 @@
             </a>
           </li>
 
-          <!-- Mensagens -->
           <li class="nav-item">
             <a href="mensagens.html" class="nav-link">
               <span class="nav-icon">
@@ -860,7 +833,6 @@
         </ul>
       </nav>
 
-      <!-- Perfil do Responsável no Rodapé -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button" aria-label="Menu do responsável">
           <div class="user-avatar">
@@ -882,9 +854,7 @@
       </div>
     </aside>
 
-    <!-- Área Principal de Conteúdo -->
     <main class="main-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
@@ -913,15 +883,12 @@
         </div>
       </header>
 
-      <!-- Conteúdo da Página -->
       <div class="content-area">
-        <!-- Título e Subtítulo -->
         <div class="page-header">
           <h1 class="page-title">Evolução do Lucas</h1>
           <p class="page-desc">Acompanhe o desenvolvimento ao longo do tempo.</p>
         </div>
 
-        <!-- Cartão de Identificação do Estudante com Seletor de Período -->
         <section class="student-id-card">
           <div class="student-id-left">
             <div class="student-id-avatar">LM</div>
@@ -945,9 +912,7 @@
           </button>
         </section>
 
-        <!-- Linha de KPIs (3 Cards) -->
         <section class="kpi-row" aria-label="Indicadores chave">
-          <!-- KPI 1: Média Geral -->
           <div class="kpi-card">
             <div class="kpi-icon-box kpi-icon-blue">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -963,7 +928,6 @@
             </div>
           </div>
 
-          <!-- KPI 2: Tendência Desde Maio -->
           <div class="kpi-card">
             <div class="kpi-icon-box kpi-icon-green">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -980,7 +944,6 @@
             </div>
           </div>
 
-          <!-- KPI 3: Maior Pontuação -->
           <div class="kpi-card">
             <div class="kpi-icon-box kpi-icon-amber">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -995,9 +958,7 @@
           </div>
         </section>
 
-        <!-- Grid de Gráficos Principais (2 Colunas) -->
         <section class="charts-grid">
-          <!-- Gráfico Esquerdo: Perfil por Dimensão (Radar + Lista) -->
           <div class="chart-card">
             <div class="chart-card-header">
               <div class="chart-card-header-left">
@@ -1007,39 +968,29 @@
             </div>
 
             <div class="radar-container">
-              <!-- Radar Visual com SVG Exato do Penpot -->
               <div class="radar-visual">
                 <svg class="radar-svg" viewBox="0 0 280 245" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Grelha Concreta do Radar (Polígonos concêntricos de nível) -->
-                  <!-- Nível 5 (Externo) -->
                   <polygon points="140,24 220.9,82.5 189.9,178.1 90.1,178.1 59.1,82.5" stroke="#d9e4f2" stroke-width="1" fill="none" />
-                  <!-- Nível 4 -->
                   <polygon points="140,40.8 204.7,87.8 179.9,164.3 100.1,164.3 75.3,87.8" stroke="#d9e4f2" stroke-width="1" fill="none" />
-                  <!-- Nível 3 -->
                   <polygon points="140,57.9 188.6,93.0 169.8,150.6 110.2,150.6 91.4,93.0" stroke="#d9e4f2" stroke-width="1" fill="none" />
-                  <!-- Nível 2 -->
                   <polygon points="140,74.9 172.3,98.3 159.7,136.9 120.3,136.9 107.7,98.3" stroke="#d9e4f2" stroke-width="1" fill="none" />
 
-                  <!-- Eixos Radiais do Centro (140, 109) -->
                   <line x1="140" y1="109" x2="140" y2="24" stroke="#d9e4f2" stroke-width="1" />
                   <line x1="140" y1="109" x2="220.9" y2="82.5" stroke="#d9e4f2" stroke-width="1" />
                   <line x1="140" y1="109" x2="189.9" y2="178.1" stroke="#d9e4f2" stroke-width="1" />
                   <line x1="140" y1="109" x2="90.1" y2="178.1" stroke="#d9e4f2" stroke-width="1" />
                   <line x1="140" y1="109" x2="59.1" y2="82.5" stroke="#d9e4f2" stroke-width="1" />
 
-                  <!-- Polígono Preenchido dos Dados do Estudante -->
                   <polygon points="140,37.7 201.1,89.1 179.9,164.3 104.0,158.8 78.7,89.0"
                            fill="#2563eb" fill-opacity="0.16"
                            stroke="#2563eb" stroke-width="2.4" stroke-linejoin="round" />
 
-                  <!-- Pontos Marcadores das Dimensões -->
                   <circle cx="140.0" cy="37.7" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
                   <circle cx="201.1" cy="89.1" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
                   <circle cx="179.9" cy="164.3" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
                   <circle cx="104.0" cy="158.8" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
                   <circle cx="78.7" cy="89.0" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
 
-                  <!-- Rótulos em volta do Radar -->
                   <text x="140" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60758b">Responsabilidade · 4,2</text>
                   <text x="228" y="86" text-anchor="start" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60758b">Colaboração · 3,8</text>
                   <text x="195" y="196" text-anchor="start" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#60758b">Autonomia · 4,0</text>
@@ -1048,11 +999,9 @@
                 </svg>
               </div>
 
-              <!-- Lista Lateral de Valores e Escala -->
               <div class="dimensions-list">
                 <span class="dimensions-scale-header">ESCALA 1–5</span>
 
-                <!-- Responsabilidade -->
                 <div class="dimension-item">
                   <div class="dimension-item-left">
                     <span class="dimension-bar-indicator"></span>
@@ -1061,7 +1010,6 @@
                   <span class="dimension-score">4,2</span>
                 </div>
 
-                <!-- Respeito e convivência -->
                 <div class="dimension-item">
                   <div class="dimension-item-left">
                     <span class="dimension-bar-indicator"></span>
@@ -1070,7 +1018,6 @@
                   <span class="dimension-score">4,4</span>
                 </div>
 
-                <!-- Autonomia -->
                 <div class="dimension-item">
                   <div class="dimension-item-left">
                     <span class="dimension-bar-indicator"></span>
@@ -1079,7 +1026,6 @@
                   <span class="dimension-score">4,0</span>
                 </div>
 
-                <!-- Colaboração -->
                 <div class="dimension-item">
                   <div class="dimension-item-left">
                     <span class="dimension-bar-indicator"></span>
@@ -1088,7 +1034,6 @@
                   <span class="dimension-score">3,8</span>
                 </div>
 
-                <!-- Participação -->
                 <div class="dimension-item">
                   <div class="dimension-item-left">
                     <span class="dimension-bar-indicator"></span>
@@ -1100,7 +1045,6 @@
             </div>
           </div>
 
-          <!-- Gráfico Direito: Média Geral (Linha Temporal) -->
           <div class="chart-card">
             <div class="chart-card-header">
               <div class="chart-card-header-left">
@@ -1114,7 +1058,6 @@
             </div>
 
             <div class="line-chart-container">
-              <!-- SVG do Gráfico de Linha Mensal Exato do Penpot -->
               <svg class="line-svg" viewBox="0 0 454 160" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
@@ -1123,20 +1066,16 @@
                   </linearGradient>
                 </defs>
 
-                <!-- Linhas Horizontais da Grade -->
                 <line x1="36" y1="24" x2="439" y2="24" stroke="#e2e8f0" stroke-width="1" />
                 <line x1="36" y1="62" x2="439" y2="62" stroke="#e2e8f0" stroke-width="1" />
                 <line x1="36" y1="100" x2="439" y2="100" stroke="#e2e8f0" stroke-width="1" />
                 <line x1="36" y1="138" x2="439" y2="138" stroke="#e2e8f0" stroke-width="1" />
 
-                <!-- Gradiente de Preenchimento da Curva Temporal -->
                 <path d="M47.9,120 L123.7,105 L199.6,93 L275.4,98 L351.2,75 L427.1,57 L427.1,138 L47.9,138 Z" fill="url(#areaGradient)" />
 
-                <!-- Linha Principal dos Dados -->
                 <path d="M47.9,120 L123.7,105 L199.6,93 L275.4,98 L351.2,75 L427.1,57"
                       stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 
-                <!-- Marcadores Circulares dos 6 Meses -->
                 <circle cx="47.9" cy="120" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
                 <circle cx="123.7" cy="105" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
                 <circle cx="199.6" cy="93" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
@@ -1145,7 +1084,6 @@
                 <circle cx="427.1" cy="57" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
               </svg>
 
-              <!-- Meses Eixo X -->
               <div class="line-chart-months">
                 <span class="month-label">Mai</span>
                 <span class="month-label">Jun</span>
@@ -1155,7 +1093,6 @@
                 <span class="month-label">Out</span>
               </div>
 
-              <!-- Indicador de Tendência -->
               <div class="line-chart-footer">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>

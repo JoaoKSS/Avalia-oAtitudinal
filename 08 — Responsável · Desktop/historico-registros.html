@@ -6,7 +6,6 @@
     <title>
       Histórico de Registros · Lucas Martins · Responsável · Educar & Aprender
     </title>
-    <!-- Favicon adaptativo oficial para tema claro e escuro -->
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
     <link
       rel="icon"
@@ -20,7 +19,6 @@
       href="../assets/favicon-dark.svg"
       media="(prefers-color-scheme: dark)"
     />
-    <!-- Tipografia Inter oficial do Penpot -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,7 +26,6 @@
       rel="stylesheet"
     />
     <style>
-      /* Reset & Base */
       *,
       *::before,
       *::after {
@@ -59,7 +56,6 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Layout Geral Desktop 1440 × 1024 */
       .app-layout {
         display: flex;
         width: 100%;
@@ -67,7 +63,6 @@
         overflow: hidden;
       }
 
-      /* Barra Lateral do Responsável (248px) */
       .sidebar {
         width: 248px;
         background-color: #ffffff;
@@ -118,7 +113,6 @@
         text-transform: uppercase;
       }
 
-      /* Navegação */
       .sidebar-nav {
         flex: 1;
         display: flex;
@@ -175,7 +169,6 @@
         font-weight: 600;
       }
 
-      /* Barra indicadora azul ativa no item do menu */
       .nav-link.active::before {
         content: "";
         position: absolute;
@@ -198,7 +191,6 @@
         color: currentColor;
       }
 
-      /* Rodapé da Sidebar: Perfil do Responsável */
       .sidebar-footer {
         padding: 16px 12px;
         margin-top: auto;
@@ -264,7 +256,6 @@
         justify-content: center;
       }
 
-      /* Área Principal (1192px) */
       .main-wrapper {
         flex: 1;
         display: flex;
@@ -275,7 +266,6 @@
         background-color: #f5f8fc;
       }
 
-      /* Cabeçalho Superior Desktop (76px) */
       .top-header {
         height: 76px;
         background-color: #ffffff;
@@ -370,7 +360,6 @@
         border-radius: 50%;
       }
 
-      /* Área de Conteúdo */
       .content-area {
         flex: 1;
         padding: 32px 32px 20px 32px;
@@ -383,7 +372,6 @@
         min-height: 0;
       }
 
-      /* Cabeçalho da Tela */
       .page-header {
         display: flex;
         flex-direction: column;
@@ -405,7 +393,6 @@
         color: #60758b;
       }
 
-      /* Cartão de Identificação do Estudante (1088 × 86px) */
       .student-id-card {
         width: 100%;
         min-height: 76px;
@@ -472,7 +459,6 @@
         line-height: 1.4;
       }
 
-      /* Seção de Filtros */
       .filters-section {
         display: flex;
         flex-direction: column;
@@ -557,7 +543,6 @@
         line-height: 1.4;
       }
 
-      /* Lista de Registros (Cards) com Scroll Interno */
       .records-list {
         flex: 1;
         min-height: 0;
@@ -666,7 +651,6 @@
         padding-top: 4px;
       }
 
-      /* Badges de Status do Registro */
       .status-badge {
         display: inline-flex;
         align-items: center;
@@ -711,7 +695,6 @@
   </head>
   <body>
     <div class="app-layout">
-      <!-- Barra Lateral do Responsável (248px) -->
       <aside class="sidebar">
         <div class="sidebar-brand">
           <div class="brand-icon">
@@ -736,11 +719,9 @@
           </div>
         </div>
 
-        <!-- Navegação Principal -->
         <nav class="sidebar-nav">
           <div class="nav-section-title">Acompanhamento Escolar</div>
           <ul class="nav-list">
-            <!-- Início -->
             <li class="nav-item">
               <a href="painel-inicial.html" class="nav-link">
                 <span class="nav-icon">
@@ -763,7 +744,6 @@
               </a>
             </li>
 
-            <!-- Evolução do estudante -->
             <li class="nav-item">
               <a href="evolucao-estudante.html" class="nav-link">
                 <span class="nav-icon">
@@ -785,7 +765,6 @@
               </a>
             </li>
 
-            <!-- Histórico de registros -->
             <li class="nav-item">
               <a href="historico-registros.html" class="nav-link active">
                 <span class="nav-icon">
@@ -807,7 +786,6 @@
               </a>
             </li>
 
-            <!-- Devolutivas -->
             <li class="nav-item">
               <a href="devolutivas.html" class="nav-link">
                 <span class="nav-icon">
@@ -830,7 +808,6 @@
               </a>
             </li>
 
-            <!-- Mensagens -->
             <li class="nav-item">
               <a href="mensagens.html" class="nav-link">
                 <span class="nav-icon">
@@ -861,7 +838,6 @@
           </ul>
         </nav>
 
-        <!-- Perfil do Responsável no Rodapé -->
         <div class="sidebar-footer">
           <button
             class="user-profile-button"
@@ -905,9 +881,7 @@
         </div>
       </aside>
 
-      <!-- Área Principal Desktop (1192px) -->
       <main class="main-wrapper">
-        <!-- Cabeçalho Superior Desktop (76px) -->
         <header class="top-header">
           <nav class="breadcrumb" aria-label="Navegação estrutural">
             <a href="painel-inicial.html" class="breadcrumb-item"
@@ -974,9 +948,7 @@
           </div>
         </header>
 
-        <!-- Conteúdo da Tela de Histórico -->
         <section class="content-area">
-          <!-- Título e Descrição da Tela -->
           <div class="page-header">
             <h1 class="page-title">Histórico de registros</h1>
             <p class="page-desc">
@@ -985,7 +957,6 @@
             </p>
           </div>
 
-          <!-- Cartão de Identificação do Estudante (1088 × 86px) -->
           <div class="student-id-card">
             <div class="student-id-left">
               <div class="student-id-avatar" aria-hidden="true">LM</div>
@@ -999,7 +970,6 @@
             <div class="student-id-badge">VISUALIZANDO REGISTROS</div>
           </div>
 
-          <!-- Seção de Filtros e Contagem -->
           <div class="filters-section">
             <h2 class="filters-title">Filtrar registros</h2>
 
@@ -1015,9 +985,7 @@
             </div>
           </div>
 
-          <!-- Lista de Registros Avaliados -->
           <div class="records-list">
-            <!-- Registro 1: Colaboração (Positiva) -->
             <a href="detalhe-registro-colaboracao.html" class="record-card">
               <div class="record-top">
                 <span class="record-date">21 OUT 2026</span>
@@ -1048,7 +1016,6 @@
               </div>
             </a>
 
-            <!-- Registro 2: Participação (Positiva) -->
             <a href="detalhe-registro-colaboracao.html" class="record-card">
               <div class="record-top">
                 <span class="record-date">19 OUT 2026</span>
@@ -1079,7 +1046,6 @@
               </div>
             </a>
 
-            <!-- Registro 3: Responsabilidade (A desenvolver) -->
             <a href="detalhe-registro-colaboracao.html" class="record-card">
               <div class="record-top">
                 <span class="record-date">16 OUT 2026</span>

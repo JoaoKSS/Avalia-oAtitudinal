@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parecer Formativo · Lucas Martins · Responsável · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -29,14 +26,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
       min-height: 100vh;
     }
 
-    /* Barra Lateral do Responsável (248px) */
     .sidebar {
       width: 248px;
       background-color: #ffffff;
@@ -89,7 +84,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -144,7 +138,6 @@
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -167,7 +160,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Responsável */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -233,7 +225,6 @@
       justify-content: center;
     }
 
-    /* Área Principal */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -241,7 +232,6 @@
       min-width: 0;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -335,7 +325,6 @@
       border-radius: 50%;
     }
 
-    /* Área de Conteúdo */
     .content-area {
       flex: 1;
       padding: 32px;
@@ -345,7 +334,6 @@
       gap: 20px;
     }
 
-    /* Cabeçalho da Tela */
     .page-header {
       display: flex;
       flex-direction: column;
@@ -382,7 +370,6 @@
       align-items: center;
     }
 
-    /* Cartão de Identificação do Dependente */
     .student-id-card {
       width: 100%;
       min-height: 76px;
@@ -446,7 +433,6 @@
       color: #60758b;
     }
 
-    /* Badge Parecer Disponível */
     .status-capsule {
       display: inline-flex;
       align-items: center;
@@ -462,7 +448,6 @@
       white-space: nowrap;
     }
 
-    /* Cartão Mensagem de Abertura / Celebrativo */
     .celebration-card {
       width: 100%;
       min-height: 88px;
@@ -508,7 +493,6 @@
       line-height: 1.4;
     }
 
-    /* Grid de Detalhes em 2 Colunas (Pontos Fortes & Mensagem) */
     .details-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -578,7 +562,6 @@
       width: 100%;
     }
 
-    /* Bloco Ponto Forte */
     .strength-content {
       display: flex;
       align-items: flex-start;
@@ -612,7 +595,6 @@
       line-height: 1.4;
     }
 
-    /* Bloco Mensagem do Professor */
     .teacher-quote-content {
       display: flex;
       align-items: flex-start;
@@ -626,7 +608,6 @@
       color: #172b4d;
     }
 
-    /* Barra Inferior de Ações (Rodapé 76px) */
     .bottom-actions-bar {
       position: sticky;
       bottom: 0;
@@ -667,7 +648,6 @@
       transform: translateY(-1px);
     }
 
-    /* Responsividade */
     @media (max-width: 992px) {
       .details-grid {
         grid-template-columns: 1fr;
@@ -685,7 +665,6 @@
 </head>
 <body>
   <div class="app-layout">
-    <!-- Barra Lateral do Responsável (248px) -->
     <aside class="sidebar">
       <div class="sidebar-brand">
         <div class="brand-icon">
@@ -699,11 +678,9 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Acompanhamento Escolar</div>
         <ul class="nav-list">
-          <!-- Início -->
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
@@ -715,7 +692,6 @@
             </a>
           </li>
 
-          <!-- Evolução do estudante -->
           <li class="nav-item">
             <a href="evolucao-estudante.html" class="nav-link">
               <span class="nav-icon">
@@ -728,7 +704,6 @@
             </a>
           </li>
 
-          <!-- Histórico de registros -->
           <li class="nav-item">
             <a href="historico-registros.html" class="nav-link">
               <span class="nav-icon">
@@ -741,7 +716,6 @@
             </a>
           </li>
 
-          <!-- Devolutivas -->
           <li class="nav-item">
             <a href="devolutivas.html" class="nav-link active">
               <span class="nav-icon">
@@ -755,7 +729,6 @@
             </a>
           </li>
 
-          <!-- Mensagens -->
           <li class="nav-item">
             <a href="mensagens.html" class="nav-link">
               <span class="nav-icon">
@@ -771,7 +744,6 @@
         </ul>
       </nav>
 
-      <!-- Perfil do Responsável no Rodapé -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button" aria-label="Menu do responsável">
           <div class="user-avatar">
@@ -793,9 +765,7 @@
       </div>
     </aside>
 
-    <!-- Área Principal de Conteúdo -->
     <main class="main-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Navegação estrutural">
           <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
@@ -826,14 +796,11 @@
         </div>
       </header>
 
-      <!-- Conteúdo da Página -->
       <div class="content-area">
-        <!-- Título e Subtítulo Metadados -->
         <div class="page-header">
           <h1 class="page-title">Parecer formativo</h1>
           <span class="page-subtitle-meta">Prof.ª Marina Costa &nbsp;·&nbsp; 6º ano A</span>
           <div class="page-date-meta">
-            <!-- Ícone Calendário oficial do Penpot -->
             <span class="date-icon">
               <svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="3" width="13" height="12" rx="2"></rect>
@@ -846,7 +813,6 @@
           </div>
         </div>
 
-        <!-- Cartão de Identificação do Estudante -->
         <section class="student-id-card">
           <div class="student-id-left">
             <div class="student-id-avatar">LM</div>
@@ -861,10 +827,8 @@
           </div>
         </section>
 
-        <!-- Cartão Mensagem de Abertura / Celebrativo -->
         <section class="celebration-card" aria-label="Mensagem motivacional">
           <div class="celebration-icon-box">
-            <!-- Ícone Estrela de Conquista oficial do Penpot -->
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
             </svg>
@@ -875,13 +839,10 @@
           </div>
         </section>
 
-        <!-- Grid de Detalhes em 2 Colunas -->
         <section class="details-grid">
-          <!-- Coluna 1: Pontos Fortes -->
           <article class="detail-card">
             <div class="detail-card-header">
               <div class="detail-icon-box detail-icon-green">
-                <!-- Ícone Coração / Colaboração oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                 </svg>
@@ -895,7 +856,6 @@
             <div class="detail-divider"></div>
 
             <div class="strength-content">
-              <!-- Indicador Vertical Verde 5px -->
               <span class="strength-indicator"></span>
               <div class="strength-text-block">
                 <h4 class="strength-dimension">Colaboração</h4>
@@ -904,11 +864,9 @@
             </div>
           </article>
 
-          <!-- Coluna 2: Mensagem do Professor -->
           <article class="detail-card">
             <div class="detail-card-header">
               <div class="detail-icon-box detail-icon-blue">
-                <!-- Ícone Livro / Aspas do Professor oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                   <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
@@ -929,10 +887,8 @@
         </section>
       </div>
 
-      <!-- Barra Inferior de Ações com Botão Voltar -->
       <footer class="bottom-actions-bar">
         <a href="devolutivas.html" class="btn-back" title="Voltar">
-          <!-- Ícone Seta para a Esquerda oficial do Professor -->
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
           </svg>

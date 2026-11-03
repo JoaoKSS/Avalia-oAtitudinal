@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minhas Devolutivas · Lucas Martins · Responsável · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -29,14 +26,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
       min-height: 100vh;
     }
 
-    /* Barra Lateral do Responsável (248px) */
     .sidebar {
       width: 248px;
       background-color: #ffffff;
@@ -89,7 +84,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -144,7 +138,6 @@
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -167,7 +160,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Responsável */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -233,7 +225,6 @@
       justify-content: center;
     }
 
-    /* Área Principal */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -241,7 +232,6 @@
       min-width: 0;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -335,7 +325,6 @@
       border-radius: 50%;
     }
 
-    /* Área de Conteúdo */
     .content-area {
       flex: 1;
       padding: 32px;
@@ -346,7 +335,6 @@
       gap: 20px;
     }
 
-    /* Cabeçalho da Tela */
     .page-header {
       display: flex;
       flex-direction: column;
@@ -367,7 +355,6 @@
       color: #60758b;
     }
 
-    /* Cartão de Identificação do Estudante */
     .student-id-card {
       width: 100%;
       min-height: 76px;
@@ -431,7 +418,6 @@
       line-height: 1.3;
     }
 
-    /* Badge Cápsula (VISUALIZANDO DEVOLUTIVAS) */
     .status-capsule {
       height: 28px;
       padding: 0 16px;
@@ -449,7 +435,6 @@
       line-height: 1;
     }
 
-    /* Seção de Filtros e Contagem */
     .controls-section {
       display: flex;
       flex-direction: column;
@@ -478,7 +463,6 @@
       line-height: 1.4;
     }
 
-    /* Barra de Filtros */
     .filter-bar {
       display: flex;
       align-items: center;
@@ -551,7 +535,6 @@
       user-select: none;
     }
 
-    /* Lista de Devolutivas (Cards) */
     .devolutivas-list {
       display: flex;
       flex-direction: column;
@@ -632,7 +615,6 @@
       line-height: 1.3;
     }
 
-    /* Badges de Status (NOVA / VISTA) */
     .status-badge {
       height: 24px;
       padding: 0 12px;
@@ -658,7 +640,6 @@
       color: #60758b;
     }
 
-    /* Conteúdo Inferior do Card */
     .devolutiva-card-bottom {
       display: flex;
       align-items: flex-end;
@@ -706,7 +687,6 @@
       text-decoration: none;
     }
 
-    /* Responsividade */
     @media (max-width: 992px) {
       .student-id-card {
         flex-direction: column;
@@ -721,7 +701,6 @@
 </head>
 <body>
   <div class="app-layout">
-    <!-- Barra Lateral do Responsável (248px) -->
     <aside class="sidebar">
       <div class="sidebar-brand">
         <div class="brand-icon">
@@ -735,11 +714,9 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Acompanhamento Escolar</div>
         <ul class="nav-list">
-          <!-- Início -->
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
@@ -751,7 +728,6 @@
             </a>
           </li>
 
-          <!-- Evolução do estudante -->
           <li class="nav-item">
             <a href="evolucao-estudante.html" class="nav-link">
               <span class="nav-icon">
@@ -764,7 +740,6 @@
             </a>
           </li>
 
-          <!-- Histórico de registros -->
           <li class="nav-item">
             <a href="historico-registros.html" class="nav-link">
               <span class="nav-icon">
@@ -777,7 +752,6 @@
             </a>
           </li>
 
-          <!-- Devolutivas -->
           <li class="nav-item">
             <a href="devolutivas.html" class="nav-link active">
               <span class="nav-icon">
@@ -791,7 +765,6 @@
             </a>
           </li>
 
-          <!-- Mensagens -->
           <li class="nav-item">
             <a href="mensagens.html" class="nav-link">
               <span class="nav-icon">
@@ -807,7 +780,6 @@
         </ul>
       </nav>
 
-      <!-- Perfil do Responsável no Rodapé -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button" aria-label="Menu do responsável">
           <div class="user-avatar">
@@ -829,9 +801,7 @@
       </div>
     </aside>
 
-    <!-- Área Principal de Conteúdo -->
     <main class="main-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
@@ -860,15 +830,12 @@
         </div>
       </header>
 
-      <!-- Conteúdo da Página -->
       <div class="content-area">
-        <!-- Título e Subtítulo -->
         <div class="page-header">
           <h1 class="page-title">Devolutivas do Lucas</h1>
           <p class="page-desc">Mensagens do professor sobre o percurso do estudante.</p>
         </div>
 
-        <!-- Cartão de Identificação do Estudante -->
         <section class="student-id-card">
           <div class="student-id-left">
             <div class="student-id-avatar">LM</div>
@@ -883,7 +850,6 @@
           </div>
         </section>
 
-        <!-- Seção de Filtros e Contagem -->
         <section class="controls-section" aria-label="Filtros de devolutivas">
           <div class="controls-header">
             <span class="section-label">RECENTES</span>
@@ -891,14 +857,11 @@
           </div>
 
           <div class="filter-bar">
-            <!-- Abas de Filtro -->
             <button class="filter-btn active" type="button">Todas</button>
             <button class="filter-btn secondary" type="button">Novas</button>
             <button class="filter-btn secondary" type="button">Vistas</button>
 
-            <!-- Seletor de Período -->
             <button class="period-dropdown-btn" type="button" aria-label="Filtrar por período">
-              <!-- Ícone de Relógio oficial do Penpot -->
               <svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="8.5" cy="8.5" r="6.375"></circle>
                 <polyline points="8.5 4.5 8.5 8.5 10.6 9.9"></polyline>
@@ -909,14 +872,11 @@
           </div>
         </section>
 
-        <!-- Lista de Devolutivas (2 Cards) -->
         <section class="devolutivas-list" aria-label="Devolutivas pedagógicas">
-          <!-- Card 1: Parecer Formativo · 1º Bimestre (NOVA) -->
           <a href="devolutiva-selecionada.html" class="devolutiva-card">
             <div class="devolutiva-card-top">
               <div class="devolutiva-header-left">
                 <div class="devolutiva-icon-wrapper devolutiva-icon-blue">
-                  <!-- Ícone Livro/Parecer Formativo oficial do Penpot -->
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 6.5C4 5.119 5.119 4 6.5 4H12v15H6.5C5.293 18.976 4.241 19.817 4 21V6.5z"></path>
                     <path d="M20 6.5C20 5.119 18.881 4 17.5 4H12v15h5.5c1.207-.024 2.259.817 2.5 2V6.5z"></path>
@@ -929,7 +889,6 @@
                 </div>
               </div>
 
-              <!-- Badge NOVA -->
               <span class="status-badge status-badge-new">NOVA</span>
             </div>
 
@@ -948,12 +907,10 @@
             </div>
           </a>
 
-          <!-- Card 2: Acompanhamento · Outubro (VISTA) -->
           <a href="devolutiva-selecionada.html" class="devolutiva-card">
             <div class="devolutiva-card-top">
               <div class="devolutiva-header-left">
                 <div class="devolutiva-icon-wrapper devolutiva-icon-gray">
-                  <!-- Ícone Conversa/Acompanhamento oficial do Penpot -->
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                   </svg>
@@ -964,7 +921,6 @@
                 </div>
               </div>
 
-              <!-- Badge VISTA -->
               <span class="status-badge status-badge-seen">VISTA</span>
             </div>
 

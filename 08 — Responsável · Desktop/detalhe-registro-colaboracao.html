@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalhes do Registro · Colaboração · Lucas Martins · Responsável · Educar & Aprender</title>
-  <!-- Favicon transparente adaptativo para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -29,14 +26,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
       min-height: 100vh;
     }
 
-    /* Barra Lateral do Responsável (248px) */
     .sidebar {
       width: 248px;
       background-color: #ffffff;
@@ -89,7 +84,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -144,7 +138,6 @@
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -167,7 +160,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Responsável */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -233,7 +225,6 @@
       justify-content: center;
     }
 
-    /* Área Principal */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -241,7 +232,6 @@
       min-width: 0;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -335,7 +325,6 @@
       border-radius: 50%;
     }
 
-    /* Área de Conteúdo */
     .content-area {
       flex: 1;
       padding: 32px;
@@ -346,7 +335,6 @@
       gap: 20px;
     }
 
-    /* Cabeçalho da Tela */
     .page-header {
       display: flex;
       flex-direction: column;
@@ -367,7 +355,6 @@
       color: #60758b;
     }
 
-    /* Cartão de Identificação do Dependente */
     .student-id-card {
       width: 100%;
       min-height: 76px;
@@ -446,7 +433,6 @@
       line-height: 1;
     }
 
-    /* Seção do Registro Pedagógico */
     .record-section {
       display: flex;
       flex-direction: column;
@@ -473,7 +459,6 @@
       color: #60758b;
     }
 
-    /* Grade de 2 colunas do Registro (Card Principal + Resumo) */
     .record-grid {
       display: grid;
       grid-template-columns: 1.8fr 1fr;
@@ -486,7 +471,6 @@
       }
     }
 
-    /* Card Principal */
     .card-main-record {
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
@@ -551,7 +535,6 @@
       line-height: 1.45;
     }
 
-    /* Card Resumo */
     .card-summary-record {
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
@@ -614,7 +597,6 @@
       margin-top: auto;
     }
 
-    /* Card Contato Pedagógico (Fale com a equipe) */
     .card-contact {
       width: 100%;
       background-color: #ffffff;
@@ -673,7 +655,6 @@
       transform: translateY(0);
     }
 
-    /* Barra de Ações Inferior (Rodapé) */
     .bottom-actions-bar {
       position: sticky;
       bottom: 0;
@@ -722,7 +703,6 @@
 <body>
 
   <div class="app-layout">
-    <!-- Barra Lateral do Responsável (248px) -->
     <aside class="sidebar">
       <div class="sidebar-brand">
         <div class="brand-icon">
@@ -736,11 +716,9 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Acompanhamento Escolar</div>
         <ul class="nav-list">
-          <!-- Início -->
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
@@ -752,7 +730,6 @@
             </a>
           </li>
 
-          <!-- Evolução do estudante -->
           <li class="nav-item">
             <a href="evolucao-estudante.html" class="nav-link">
               <span class="nav-icon">
@@ -765,7 +742,6 @@
             </a>
           </li>
 
-          <!-- Histórico de registros -->
           <li class="nav-item">
             <a href="historico-registros.html" class="nav-link active">
               <span class="nav-icon">
@@ -778,7 +754,6 @@
             </a>
           </li>
 
-          <!-- Devolutivas -->
           <li class="nav-item">
             <a href="devolutivas.html" class="nav-link">
               <span class="nav-icon">
@@ -792,7 +767,6 @@
             </a>
           </li>
 
-          <!-- Mensagens -->
           <li class="nav-item">
             <a href="mensagens.html" class="nav-link">
               <span class="nav-icon">
@@ -808,7 +782,6 @@
         </ul>
       </nav>
 
-      <!-- Perfil do Responsável no Rodapé -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button" aria-label="Menu do responsável">
           <div class="user-avatar">
@@ -830,9 +803,7 @@
       </div>
     </aside>
 
-    <!-- Área Principal Desktop -->
     <main class="main-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Navegação estrutural">
           <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
@@ -863,15 +834,12 @@
         </div>
       </header>
 
-      <!-- Conteúdo da Tela -->
       <section class="content-area">
-        <!-- Título e Subtítulo -->
         <div class="page-header">
           <h1 class="page-title">Detalhes do registro</h1>
           <p class="page-desc">Registro compartilhado pela equipe pedagógica</p>
         </div>
 
-        <!-- Identificação do Dependente -->
         <div class="student-id-card">
           <div class="student-id-left">
             <div class="student-id-avatar" aria-hidden="true">LM</div>
@@ -886,7 +854,6 @@
           </div>
         </div>
 
-        <!-- Seção do Registro Pedagógico -->
         <div class="record-section">
           <div class="section-header">
             <h2 class="section-title">Registro pedagógico</h2>
@@ -894,7 +861,6 @@
           </div>
 
           <div class="record-grid">
-            <!-- Card Principal -->
             <div class="card-main-record">
               <h3 class="record-dimension-title">Colaboração</h3>
               <div class="record-divider"></div>
@@ -912,7 +878,6 @@
               </div>
             </div>
 
-            <!-- Card Resumo -->
             <div class="card-summary-record">
               <h3 class="summary-title">Resumo do registro</h3>
               <div class="record-divider"></div>
@@ -932,7 +897,6 @@
           </div>
         </div>
 
-        <!-- Card Contato Pedagógico -->
         <div class="card-contact">
           <div class="contact-info">
             <h3 class="contact-title">Quer conversar sobre este registro?</h3>
@@ -944,10 +908,8 @@
         </div>
       </section>
 
-      <!-- Barra Inferior de Ações com Botão Voltar -->
       <footer class="bottom-actions-bar">
         <a href="historico-registros.html" class="btn-back" title="Voltar">
-          <!-- Ícone Seta para a Esquerda oficial do Professor -->
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
           </svg>

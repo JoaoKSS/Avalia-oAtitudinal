@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel Inicial do Responsável · Desktop · Educar & Aprender</title>
-  <!-- Favicon adaptativo oficial para tema claro e escuro -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
-  <!-- Tipografia Inter oficial do Penpot -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -29,14 +26,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Geral Desktop 1440 × 1024 */
     .app-layout {
       display: flex;
       width: 100%;
       min-height: 100vh;
     }
 
-    /* Barra Lateral do Responsável (248px) */
     .sidebar {
       width: 248px;
       background-color: #ffffff;
@@ -49,7 +44,6 @@
       height: 100vh;
     }
 
-    /* Topo da Sidebar: Marca */
     .sidebar-brand {
       display: flex;
       align-items: center;
@@ -90,7 +84,6 @@
       text-transform: uppercase;
     }
 
-    /* Navegação */
     .sidebar-nav {
       flex: 1;
       display: flex;
@@ -145,7 +138,6 @@
       font-weight: 600;
     }
 
-    /* Barra indicadora azul ativa no item do menu */
     .nav-link.active::before {
       content: "";
       position: absolute;
@@ -168,7 +160,6 @@
       color: currentColor;
     }
 
-    /* Rodapé da Sidebar: Perfil do Responsável */
     .sidebar-footer {
       padding: 16px 12px;
       margin-top: auto;
@@ -234,7 +225,6 @@
       justify-content: center;
     }
 
-    /* Área Principal (1192px) */
     .main-wrapper {
       flex: 1;
       display: flex;
@@ -242,7 +232,6 @@
       min-width: 0;
     }
 
-    /* Cabeçalho Superior Desktop (76px) */
     .top-header {
       height: 76px;
       background-color: #ffffff;
@@ -336,7 +325,6 @@
       border-radius: 50%;
     }
 
-    /* Área de Conteúdo */
     .content-area {
       padding: 32px;
       width: 100%;
@@ -345,7 +333,6 @@
       gap: 28px;
     }
 
-    /* Boas-vindas */
     .welcome-header {
       margin-bottom: 0;
     }
@@ -365,7 +352,6 @@
       color: #60758b;
     }
 
-    /* Cartão de Dependente Desktop (1128 × 100px) */
     .dependent-cards-container {
       display: flex;
       flex-direction: column;
@@ -455,7 +441,6 @@
       white-space: nowrap;
     }
 
-    /* Seção de Atalhos Rápidos (Grid 2 colunas) */
     .shortcuts-section {
       display: flex;
       flex-direction: column;
@@ -549,12 +534,9 @@
 <body>
 
   <div class="app-layout">
-    <!-- Barra Lateral do Responsável (248px) -->
     <aside class="sidebar">
-      <!-- Marca -->
       <div class="sidebar-brand">
         <div class="brand-icon">
-          <!-- Ícone do Penpot: Livro aberto oficial -->
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
           </svg>
@@ -565,15 +547,12 @@
         </div>
       </div>
 
-      <!-- Navegação Principal -->
       <nav class="sidebar-nav">
         <div class="nav-section-title">Acompanhamento Escolar</div>
         <ul class="nav-list">
-          <!-- Início (Ativo) -->
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link active">
               <span class="nav-icon">
-                <!-- Ícone Início oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
                 </svg>
@@ -582,11 +561,9 @@
             </a>
           </li>
 
-          <!-- Evolução do estudante -->
           <li class="nav-item">
             <a href="evolucao-estudante.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Gráfico de Evolução / Trending Up -->
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
                   <polyline points="17 6 23 6 23 12"/>
@@ -596,11 +573,9 @@
             </a>
           </li>
 
-          <!-- Histórico de registros -->
           <li class="nav-item">
             <a href="historico-registros.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Histórico / Lupa do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="8.5" cy="8.5" r="5.5"/>
                   <line x1="12.5" y1="12.5" x2="16.5" y2="16.5"/>
@@ -610,11 +585,9 @@
             </a>
           </li>
 
-          <!-- Devolutivas -->
           <li class="nav-item">
             <a href="devolutivas.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Devolutivas (≡) -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="3.5" y1="6" x2="16.5" y2="6"/>
                   <line x1="3.5" y1="10" x2="16.5" y2="10"/>
@@ -625,11 +598,9 @@
             </a>
           </li>
 
-          <!-- Mensagens -->
           <li class="nav-item">
             <a href="mensagens.html" class="nav-link">
               <span class="nav-icon">
-                <!-- Ícone Mensagens / Conversas oficial do Penpot -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
                   <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
@@ -642,11 +613,9 @@
         </ul>
       </nav>
 
-      <!-- Perfil do Responsável no Rodapé -->
       <div class="sidebar-footer">
         <button class="user-profile-button" type="button" aria-label="Menu do responsável">
           <div class="user-avatar">
-            <!-- Ícone Silhueta de Usuário oficial do Penpot -->
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
               <circle cx="12" cy="7" r="4"/>
@@ -665,9 +634,7 @@
       </div>
     </aside>
 
-    <!-- Área Principal Desktop (1192px) -->
     <main class="main-wrapper">
-      <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Navegação estrutural">
           <span class="breadcrumb-path">Responsável</span>
@@ -694,17 +661,13 @@
         </div>
       </header>
 
-      <!-- Conteúdo do Painel -->
       <section class="content-area">
-        <!-- Título e Subtítulo de Boas-vindas -->
         <div class="welcome-header">
           <h1 class="welcome-title">Olá, Responsável!</h1>
           <p class="welcome-desc">Acompanhe o desenvolvimento do seu dependente.</p>
         </div>
 
-        <!-- Lista de Dependentes Acompanhados -->
         <div class="dependent-cards-container">
-          <!-- Cartão do Dependente: Lucas Martins -->
           <a href="historico-registros.html" class="dependent-card active">
             <div class="dependent-left">
               <div class="student-avatar" aria-hidden="true">LM</div>
@@ -723,16 +686,13 @@
           </a>
         </div>
 
-        <!-- Seção de Atalhos Rápidos -->
         <div class="shortcuts-section">
           <h2 class="section-title">Acesso rápido</h2>
           
           <div class="shortcuts-grid">
-            <!-- Atalho 1: Evolução do estudante -->
             <a href="evolucao-estudante.html" class="shortcut-card">
               <div class="shortcut-left">
                 <div class="shortcut-icon-wrapper">
-                  <!-- Ícone Trending Up -->
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
                     <polyline points="17 6 23 6 23 12"/>
@@ -750,11 +710,9 @@
               </div>
             </a>
 
-            <!-- Atalho 2: Devolutivas -->
             <a href="devolutivas.html" class="shortcut-card">
               <div class="shortcut-left">
                 <div class="shortcut-icon-wrapper">
-                  <!-- Ícone Devolutivas (≡) -->
                   <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="5.5" x2="17" y2="5.5"/>
                     <line x1="3" y1="10" x2="17" y2="10"/>
@@ -773,11 +731,9 @@
               </div>
             </a>
 
-            <!-- Atalho 3: Histórico de registros -->
             <a href="historico-registros.html" class="shortcut-card">
               <div class="shortcut-left">
                 <div class="shortcut-icon-wrapper">
-                  <!-- Ícone Lupa / Histórico -->
                   <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="8.5" cy="8.5" r="5.5"/>
                     <line x1="12.5" y1="12.5" x2="16.5" y2="16.5"/>
@@ -795,11 +751,9 @@
               </div>
             </a>
 
-            <!-- Atalho 4: Mensagens -->
             <a href="mensagens.html" class="shortcut-card">
               <div class="shortcut-left">
                 <div class="shortcut-icon-wrapper">
-                  <!-- Ícone Conversas -->
                   <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
                     <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
