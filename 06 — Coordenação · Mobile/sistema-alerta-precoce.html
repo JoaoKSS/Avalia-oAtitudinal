@@ -1,772 +1,657 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Sistema de Alerta Precoce · Coordenação · Mobile · Educar &amp; Aprender
-    </title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="../assets/favicon-light.svg"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="../assets/favicon-dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <link rel="alternate icon" href="../assets/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --color-bg-canvas: #f5f8fc;
-        --color-bg-card: #ffffff;
-        --color-border-subtle: #d9e4f2;
-        --color-border-divider: #e5edf6;
-        --color-border-track: #edf2f7;
-        --color-text-main: #172b4d;
-        --color-text-muted: #60758b;
-        --color-text-subtle: #8194aa;
-        --color-primary: #2563eb;
-        --color-primary-light: #e8f1ff;
-        --color-danger: #b91c1c;
-        --color-danger-light: #fee2e2;
-        --color-warning: #b45309;
-        --color-warning-light: #fff4d6;
-        --color-success: #15803d;
-        --color-success-light: #e8f7ef;
-        --color-purple: #6d5bd0;
-        --color-purple-light: #f1edff;
-        --color-neutral-trend: #b9bc51;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Alerta Precoce · Coordenação · Mobile · Educar & Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      --color-danger: #b91c1c;
+      --color-danger-light: #fee2e2;
+      --color-warning: #b45309;
+      --color-warning-light: #fff4d6;
+      --color-success: #15803d;
+      --color-success-light: #e8f7ee;
 
-        --radius-sm: 8px;
-        --radius-pill: 10px;
-        --radius-md: 12px;
-        --radius-card: 16px;
-        --radius-full: 9999px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
 
-        --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.03);
-      }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      * {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-      *::-webkit-scrollbar {
-        display: none;
-        width: 0;
-        height: 0;
-      }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
         padding: 0;
       }
-
-      body {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        background-color: var(--color-bg-canvas);
-        color: var(--color-text-main);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        min-height: 100vh;
-        margin: 0;
-        padding: 16px;
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-      }
-
       .mobile-screen-wrapper {
-        width: 390px;
-        min-width: 390px;
-        max-width: 390px;
-        height: 844px;
-        min-height: 844px;
-        max-height: 844px;
-        background-color: var(--color-bg-canvas);
-        border-radius: 36px;
-        border: 1px solid var(--color-border-subtle);
-        box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 0;
-      }
-
-      @media (max-width: 480px) {
-        body {
-          padding: 0;
-        }
-        .mobile-screen-wrapper {
-          width: 100%;
-          min-width: 0;
-          max-width: 100%;
-          height: 100vh;
-          min-height: 100vh;
-          max-height: 100vh;
-          border-radius: 0;
-          border: none;
-          box-shadow: none;
-        }
-      }
-
-      .mobile-header {
         width: 100%;
-        height: 72px;
-        background-color: var(--color-bg-card);
-        border-bottom: 1px solid var(--color-border-subtle);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 16px;
-        flex-shrink: 0;
-        z-index: 10;
-      }
-
-      .brand-section {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-      }
-
-      .brand-icon {
-        width: 38px;
-        height: 38px;
-        background-color: var(--color-primary);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
-      }
-
-      .brand-titles {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .brand-text {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--color-text-main);
-        letter-spacing: -0.2px;
-        line-height: 1.2;
-      }
-
-      .brand-badge {
-        font-size: 8px;
-        font-weight: 600;
-        color: var(--color-primary);
-        letter-spacing: 0.6px;
-        text-transform: uppercase;
-        line-height: 1.2;
-      }
-
-      .header-notification-btn {
-        width: 42px;
-        height: 42px;
-        border-radius: 14px;
-        background-color: #ffffff;
-        border: 1px solid var(--color-border-subtle);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-text-muted);
-        position: relative;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.15s ease;
-      }
-
-      .header-notification-btn:hover {
-        background-color: #f8fafc;
-      }
-
-      .notification-dot {
-        position: absolute;
-        top: 9px;
-        right: 10px;
-        width: 7px;
-        height: 7px;
-        background-color: var(--color-primary);
-        border-radius: 50%;
-        border: 1.5px solid #ffffff;
-      }
-
-      .screen-content {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        flex: 1;
-        overflow-y: auto;
-        padding: 16px 16px 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .page-hero {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-
-      .page-title {
-        font-size: 20px;
-        font-weight: 600;
-        color: var(--color-text-main);
-        letter-spacing: -0.3px;
-        line-height: 1.3;
-      }
-
-      .page-subtitle {
-        font-size: 11px;
-        font-weight: 400;
-        color: var(--color-text-muted);
-        line-height: 1.45;
-      }
-
-      .kpis-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .kpi-card {
-        width: 100%;
-        height: 72px;
-        background-color: var(--color-bg-card);
-        border: 1px solid var(--color-border-subtle);
-        border-radius: var(--radius-card);
-        padding: 0 16px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        box-shadow: var(--shadow-card);
-        flex-shrink: 0;
-      }
-
-      .kpi-icon-box {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-
-      .kpi-icon-box.danger {
-        background-color: var(--color-danger-light);
-        color: var(--color-danger);
-      }
-
-      .kpi-icon-box.warning {
-        background-color: var(--color-warning-light);
-        color: var(--color-warning);
-      }
-
-      .kpi-icon-box.primary {
-        background-color: var(--color-primary-light);
-        color: var(--color-primary);
-      }
-
-      .kpi-exclamation {
-        font-size: 28px;
-        font-weight: 700;
-        line-height: 1;
-        color: var(--color-warning);
-      }
-
-      .kpi-info {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
         min-width: 0;
-        gap: 3px;
-      }
-
-      .kpi-label {
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--color-text-muted);
-        line-height: 1.2;
-      }
-
-      .kpi-value-row {
-        display: flex;
-        align-items: baseline;
-        gap: 8px;
-      }
-
-      .kpi-value {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--color-text-main);
-        line-height: 1.15;
-      }
-
-      .kpi-meta {
-        font-size: 9.5px;
-        font-weight: 400;
-        color: var(--color-text-muted);
-        line-height: 1.2;
-      }
-
-      .filters-section {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        margin-top: -2px;
-      }
-
-      .filters-title {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--color-text-main);
-        letter-spacing: -0.1px;
-      }
-
-      .filter-group {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-
-      .filter-label {
-        font-size: 9.5px;
-        font-weight: 500;
-        color: var(--color-text-muted);
-      }
-
-      .filter-select-wrapper {
-        position: relative;
-        width: 100%;
-      }
-
-      .filter-select {
-        width: 100%;
-        height: 34px;
-        background-color: #ffffff;
-        border: 1px solid var(--color-border-subtle);
-        border-radius: var(--radius-sm);
-        padding: 0 30px 0 10px;
-        font-family: inherit;
-        font-size: 10.5px;
-        font-weight: 400;
-        color: var(--color-text-main);
-        appearance: none;
-        -webkit-appearance: none;
-        cursor: pointer;
-      }
-
-      .filter-select:focus {
-        outline: none;
-        border-color: var(--color-primary);
-      }
-
-      .filter-chevron {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-        color: var(--color-text-muted);
-        font-size: 13px;
-        line-height: 1;
-      }
-
-      .mobile-card {
-        background-color: var(--color-bg-card);
-        border: 1px solid var(--color-border-subtle);
-        border-radius: var(--radius-card);
-        padding: 16px;
-        box-shadow: var(--shadow-card);
-        display: flex;
-        flex-direction: column;
-      }
-
-      .card-header-flex {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .card-title-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-      }
-
-      .card-title {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        letter-spacing: -0.2px;
-      }
-
-      .card-badge-pill {
-        height: 22px;
-        padding: 0 10px;
-        font-size: 9.5px;
-        font-weight: 700;
-        color: var(--color-primary);
-        background-color: var(--color-primary-light);
-        border-radius: var(--radius-full);
-        letter-spacing: 0.4px;
-        text-transform: uppercase;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-      }
-
-      .card-divider {
-        height: 1px;
-        background-color: var(--color-border-divider);
-        margin: 12px 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
         border: none;
+        box-shadow: none;
       }
+    }
 
-      .turmas-alert-list {
-        display: flex;
-        flex-direction: column;
-      }
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      min-height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
 
-      .turma-alert-item {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 4px 0;
-      }
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
 
-      .turma-name {
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--color-text-main);
-      }
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-      .turma-alert-mid {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-      }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
 
-      .turma-reason {
-        font-size: 12px;
-        font-weight: 400;
-        color: var(--color-text-muted);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
 
-      .turma-count {
-        font-size: 12.5px;
-        font-weight: 600;
-        color: var(--color-text-main);
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
 
-      .turma-progress-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-top: 2px;
-      }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-      .turma-progress-track {
-        flex: 1;
-        height: 7px;
-        background-color: var(--color-border-track);
-        border-radius: var(--radius-full);
-        overflow: hidden;
-      }
+    .header-icon-btn {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      padding: 0;
+    }
 
-      .turma-progress-bar {
-        height: 100%;
-        border-radius: var(--radius-full);
-      }
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #c7d7eb;
+      color: var(--color-primary);
+    }
 
-      .turma-progress-bar.danger {
-        background-color: #b91c1c;
-        width: 72%;
-      }
+    .notif-badge-dot {
+      position: absolute;
+      left: 27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
 
-      .turma-progress-bar.warning-high {
-        background-color: #b45309;
-        width: 54%;
-      }
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 16px 98px 16px;
+      display: flex;
+      flex-direction: column;
+      scrollbar-width: none;
+    }
 
-      .turma-progress-bar.warning-mid {
-        background-color: #b45309;
-        width: 38%;
-      }
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
 
-      .turma-progress-bar.success {
-        background-color: #15803d;
-        width: 22%;
-      }
+    .page-hero {
+      margin-bottom: 14px;
+    }
 
-      .turma-trend-icon {
-        width: 16px;
-        font-size: 14px;
-        font-weight: 700;
-        text-align: right;
-        line-height: 1;
-        flex-shrink: 0;
-      }
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-text-main);
+    }
 
-      .turma-trend-icon.danger {
-        color: #b91c1c;
-      }
+    .page-subtitle {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.42;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
 
-      .turma-trend-icon.warning {
-        color: #b45309;
-      }
+    .kpis-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
 
-      .turma-trend-icon.neutral {
-        color: #65a30d;
-        font-size: 16px;
-        line-height: 0.8;
-      }
+    .kpi-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-card);
+    }
 
-      .turma-trend-icon.success {
-        color: #15803d;
-      }
+    .kpi-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-      .alunos-alert-list {
-        display: flex;
-        flex-direction: column;
-      }
+    .kpi-icon-box.danger {
+      background-color: var(--color-danger-light);
+      color: var(--color-danger);
+    }
 
-      .aluno-alert-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 6px 0;
-      }
+    .kpi-icon-box.warning {
+      background-color: var(--color-warning-light);
+      color: var(--color-warning);
+    }
 
-      .aluno-avatar {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        font-weight: 700;
-        flex-shrink: 0;
-        margin-top: 1px;
-      }
+    .kpi-icon-box.primary {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+    }
 
-      .aluno-avatar.blue {
-        background-color: #e8f1ff;
-        color: var(--color-primary);
-      }
+    .kpi-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+      gap: 2px;
+    }
 
-      .aluno-avatar.purple {
-        background-color: #f3e8ff;
-        color: #7c3aed;
-      }
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      line-height: 1.2;
+    }
 
-      .aluno-avatar.green {
-        background-color: #e8f7ef;
-        color: #15803d;
-      }
+    .kpi-value-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
 
-      .aluno-info-col {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: 0;
-        gap: 2px;
-      }
+    .kpi-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.15;
+    }
 
-      .aluno-header-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-      }
+    .kpi-meta {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.2;
+    }
 
-      .aluno-name {
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--color-text-main);
-      }
+    .mobile-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 16px;
+    }
 
-      .badge-severity {
-        height: 22px;
-        padding: 0 10px;
-        font-size: 10px;
-        font-weight: 700;
-        border-radius: var(--radius-full);
-        letter-spacing: 0.3px;
-        text-transform: uppercase;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-        flex-shrink: 0;
-      }
+    .card-header-flex {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
 
-      .badge-severity.critico {
-        background-color: #fee2e2;
-        color: #b91c1c;
-      }
+    .card-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
 
-      .badge-severity.atencao {
-        background-color: #fef3c7;
-        color: #b45309;
-      }
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
 
-      .aluno-turma {
-        font-size: 11.5px;
-        color: var(--color-text-muted);
-        font-weight: 400;
-      }
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
 
-      .aluno-signal {
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--color-text-main);
-        margin: 2px 0 1px;
-      }
+    .card-link-action {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
 
-      .aluno-meta {
-        font-size: 11px;
-        color: var(--color-text-subtle);
-        font-weight: 400;
-      }
+    .card-link-action:hover {
+      text-decoration: underline;
+    }
 
-      .card-footer-action-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 2px;
-        padding-top: 2px;
-      }
+    .card-divider {
+      height: 1px;
+      background-color: var(--color-border-subtle);
+      margin: 12px 0;
+      border: none;
+    }
 
-      .card-count-label {
-        font-size: 11px;
-        color: var(--color-text-subtle);
-        font-weight: 400;
-      }
+    .turmas-alert-list {
+      display: flex;
+      flex-direction: column;
+    }
 
-      .btn-card-action {
-        height: 28px;
-        padding: 0 14px;
-        border-radius: var(--radius-full);
-        border: 1.5px solid var(--color-primary);
-        background-color: #ffffff;
-        color: var(--color-primary);
-        font-size: 11.5px;
-        font-weight: 600;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-        transition:
-          background-color 0.15s ease,
-          color 0.15s ease;
-      }
+    .turma-alert-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 4px 0;
+    }
 
-      .btn-card-action:hover {
-        background-color: var(--color-primary-light);
-      }
+    .turma-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
 
-      .bottom-nav {
-        width: 100%;
-        height: 72px;
-        background-color: var(--color-bg-card);
-        border-top: 1px solid var(--color-border-subtle);
-        display: flex;
-        align-items: stretch;
-        justify-content: space-around;
-        flex-shrink: 0;
-        z-index: 10;
-      }
+    .turma-alert-mid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
 
-      .nav-tab {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-        text-decoration: none;
-        color: var(--color-text-muted);
-        position: relative;
-        transition: color 0.15s ease;
-      }
+    .turma-reason {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-      .nav-tab.active {
-        color: var(--color-primary);
-      }
+    .turma-count {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
-      .nav-indicator-bar {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 32px;
-        height: 3px;
-        background-color: var(--color-primary);
-        border-radius: 0 0 3px 3px;
-        display: none;
-      }
+    .turma-progress-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 2px;
+    }
 
-      .nav-tab.active .nav-indicator-bar {
-        display: block;
-      }
+    .turma-progress-track {
+      flex: 1;
+      height: 7px;
+      background-color: #edf2f7;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
 
-      .nav-icon {
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    .turma-progress-bar {
+      height: 100%;
+      border-radius: 9999px;
+    }
 
-      .nav-label {
-        font-size: 10.5px;
-        font-weight: 500;
-        line-height: 1;
-      }
+    .turma-progress-bar.danger {
+      background-color: var(--color-danger);
+      width: 72%;
+    }
 
-      .nav-tab.active .nav-label {
-        font-weight: 600;
-      }
-    
+    .turma-progress-bar.warning-high {
+      background-color: var(--color-warning);
+      width: 54%;
+    }
+
+    .turma-progress-bar.warning-mid {
+      background-color: var(--color-warning);
+      width: 38%;
+    }
+
+    .turma-progress-bar.success {
+      background-color: var(--color-success);
+      width: 22%;
+    }
+
+    .turma-trend-icon {
+      width: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: right;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .turma-trend-icon.danger {
+      color: var(--color-danger);
+    }
+
+    .turma-trend-icon.warning {
+      color: var(--color-warning);
+    }
+
+    .turma-trend-icon.neutral {
+      color: #65a30d;
+      font-size: 16px;
+      line-height: 0.8;
+    }
+
+    .turma-trend-icon.success {
+      color: var(--color-success);
+    }
+
+    .alunos-alert-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .aluno-alert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 6px 0;
+    }
+
+    .aluno-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .aluno-avatar.blue {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+
+    .aluno-avatar.purple {
+      background-color: #f1edff;
+      color: #7c3aed;
+    }
+
+    .aluno-avatar.green {
+      background-color: var(--color-success-light);
+      color: var(--color-success);
+    }
+
+    .aluno-info-col {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+      gap: 2px;
+    }
+
+    .aluno-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .aluno-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    .badge-status {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2.5px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .badge-status.critico {
+      background-color: var(--color-danger-light);
+      color: var(--color-danger);
+    }
+
+    .badge-status.atencao {
+      background-color: var(--color-warning-light);
+      color: var(--color-warning);
+    }
+
+    .aluno-turma {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    .aluno-signal {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin: 2px 0 1px;
+    }
+
+    .aluno-meta {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    .card-footer-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 2px;
+    }
+
+    .card-footer-count {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .btn-dialogue {
+      height: 36px;
+      padding: 0 16px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--color-primary);
+      background-color: #ffffff;
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-dialogue:hover {
+      background-color: var(--color-primary-light);
+    }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-top: 8px;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      width: 78px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      position: relative;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
     .profile-modal-overlay {
       position: absolute;
       inset: 0;
@@ -781,80 +666,88 @@
     .profile-modal-backdrop {
       position: absolute;
       inset: 0;
-      background-color: rgba(15, 23, 42, 0.4);
+      background: rgba(15, 23, 42, 0.4);
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(2px);
     }
 
     .profile-modal-card {
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 88px;
-      right: 12px;
-      width: 260px;
+      width: 346px;
+      max-width: calc(100% - 32px);
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
-      padding: 16px;
+      border-radius: 13px;
+      padding: 14px 16px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+      box-sizing: border-box;
       z-index: 100;
       display: flex;
       flex-direction: column;
-      box-sizing: border-box;
     }
 
     .profile-modal-pointer {
       position: absolute;
-      bottom: -6px;
+      bottom: -8px;
       right: 27px;
-      width: 10px;
-      height: 10px;
+      width: 14px;
+      height: 14px;
       background-color: #ffffff;
       border-right: 1px solid #d9e4f2;
       border-bottom: 1px solid #d9e4f2;
       transform: rotate(45deg);
+      z-index: 101;
     }
 
     .profile-modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      height: 24px;
     }
 
     .profile-modal-title {
       font-size: 14px;
       font-weight: 700;
+      line-height: 1.2;
       color: #172b4d;
+      margin: 0;
     }
 
     .profile-modal-close {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #f5f8fc;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
+      color: #60758b;
       font-size: 15px;
       font-weight: 400;
-      color: #64748b;
-      border-radius: 6px;
+      text-decoration: none;
+      line-height: 1;
+      transition: background-color 0.15s ease, color 0.15s ease;
     }
 
     .profile-modal-close:hover {
-      background-color: #f1f5f9;
-      color: #0f172a;
+      background-color: #e2e8f0;
+      color: #172b4d;
     }
 
     .profile-modal-divider {
       height: 1px;
-      background-color: #e2e8f0;
-      margin: 8px 0 10px 0;
+      background-color: #e8eef5;
+      margin: 10px 0;
     }
 
     .profile-modal-user {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .profile-modal-avatar {
@@ -862,10 +755,10 @@
       height: 40px;
       border-radius: 50%;
       background-color: #e8f1ff;
-      color: #2563eb;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #2563eb;
       font-size: 11px;
       font-weight: 700;
       flex-shrink: 0;
@@ -874,30 +767,33 @@
     .profile-modal-user-info {
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .profile-modal-user-name {
       font-size: 14px;
       font-weight: 600;
+      line-height: 1.2;
       color: #172b4d;
     }
 
     .profile-modal-user-role {
       font-size: 10px;
       font-weight: 400;
+      line-height: 1.2;
       color: #60758b;
+      margin-top: 3px;
     }
 
     .profile-modal-logout {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 10px 14px;
-      background-color: #fef2f2;
+      gap: 10px;
+      height: 48px;
+      padding: 0 14px;
+      background-color: #fff5f5;
       border: 1px solid #fee2e2;
-      border-radius: 8px;
+      border-radius: 9px;
       text-decoration: none;
       box-sizing: border-box;
       transition: background-color 0.15s ease, border-color 0.15s ease;
@@ -914,331 +810,300 @@
       color: #dc2626;
     }
   </style>
-  </head>
-  <body>
-    <div class="mobile-screen-wrapper">
-      <header class="mobile-header">
-        <a href="painel-inicial-coordenacao-mobile.html" class="brand-section">
-          <div class="brand-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#ffffff"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-              <path
-                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
-              />
+</head>
+<body>
+
+  <main class="mobile-screen-wrapper">
+    <header class="mobile-header">
+      <a href="painel-inicial-coordenacao-mobile.html" class="brand-section" aria-label="Educar e Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-category">Área da Coordenação</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="sistema-alerta-precoce.html" class="header-icon-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
+        </a>
+      </div>
+    </header>
+
+    <section class="main-content">
+
+      <section class="page-hero">
+        <h1 class="page-title">Sistema de Alerta Precoce</h1>
+        <p class="page-subtitle">Acompanhe sinais por turma e por estudante.</p>
+      </section>
+
+      <section class="kpis-list" aria-label="Indicadores rápidos de alertas">
+        <div class="kpi-card">
+          <div class="kpi-icon-box danger" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.334"/>
             </svg>
           </div>
-          <div class="brand-titles">
-            <span class="brand-text">Educar &amp; Aprender</span>
-            <span class="brand-badge">COORDENAÇÃO PEDAGÓGICA</span>
+          <div class="kpi-info">
+            <span class="kpi-label">Alertas Críticos</span>
+            <span class="kpi-value">3</span>
           </div>
-        </a>
+        </div>
 
-        <a
-          href="sistema-alerta-precoce.html"
-          class="header-notification-btn"
-          title="Notificações e alertas"
-          aria-label="Notificações e alertas"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#60758b"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-          </svg>
-          <span class="notification-dot" aria-hidden="true"></span>
-        </a>
-      </header>
+        <div class="kpi-card">
+          <div class="kpi-icon-box warning" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="4" x2="12" y2="13.5"/>
+              <line x1="12" y1="19" x2="12.01" y2="19"/>
+            </svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">Alertas de Atenção</span>
+            <span class="kpi-value">9</span>
+          </div>
+        </div>
 
-      <main class="screen-content">
-        <section class="page-hero">
-          <h1 class="page-title">Sistema de Alerta Precoce</h1>
-          <p class="page-subtitle">
-            Acompanhe sinais por turma e por estudante.
-          </p>
-        </section>
-
-        <section class="kpis-list" aria-label="Indicadores rápidos de alertas">
-          <div class="kpi-card">
-            <div class="kpi-icon-box danger" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#b91c1c"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-              </svg>
-            </div>
-            <div class="kpi-info">
-              <span class="kpi-label">Alertas Críticos</span>
-              <span class="kpi-value">3</span>
+        <div class="kpi-card">
+          <div class="kpi-icon-box primary" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">Turmas com alertas</span>
+            <div class="kpi-value-row">
+              <span class="kpi-value">4</span>
+              <span class="kpi-meta">de 8 turmas monitoradas</span>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="kpi-card">
-            <div class="kpi-icon-box warning" aria-hidden="true">
-              <span class="kpi-exclamation">!</span>
-            </div>
-            <div class="kpi-info">
-              <span class="kpi-label">Alertas de Atenção</span>
-              <span class="kpi-value">9</span>
-            </div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-icon-box primary" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2563eb"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-              </svg>
-            </div>
-            <div class="kpi-info">
-              <span class="kpi-label">Turmas com alertas</span>
-              <div class="kpi-value-row">
-                <span class="kpi-value">4</span>
-                <span class="kpi-meta">de 8 turmas monitoradas</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="filters-section" aria-label="Filtros de alertas">
-          <h2 class="filters-title">Filtros de alertas</h2>
-          <div class="filter-group">
-            <label for="periodo-select" class="filter-label">Período</label>
-            <div class="filter-select-wrapper">
-              <select
-                id="periodo-select"
-                class="filter-select"
-                aria-label="Período dos alertas"
-              >
-                <option value="30">Últimos 30 dias</option>
-                <option value="15">Últimos 15 dias</option>
-                <option value="7">Últimos 7 dias</option>
-                <option value="bimestre">Bimestre atual</option>
-              </select>
-              <span class="filter-chevron" aria-hidden="true">⌄</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="mobile-card" aria-label="Alertas por turma">
-          <div class="card-title-row">
+      <section class="mobile-card" aria-label="Alertas por turma">
+        <div class="card-header-flex">
+          <div class="card-title-group">
             <h2 class="card-title">Alertas por turma</h2>
-            <span class="card-badge-pill">4 TURMAS</span>
+            <p class="card-subtitle">4 turmas com alertas ativos</p>
           </div>
+        </div>
 
-          <hr class="card-divider" />
+        <hr class="card-divider" />
 
-          <div class="turmas-alert-list">
-            <div class="turma-alert-item">
-              <span class="turma-name">7º ano B</span>
-              <div class="turma-alert-mid">
-                <span class="turma-reason"
-                  >Aumento de faltas e queda atitudinal</span
-                >
-                <span class="turma-count">4 alertas</span>
-              </div>
-              <div class="turma-progress-row">
-                <div class="turma-progress-track">
-                  <div class="turma-progress-bar danger"></div>
-                </div>
-                <span
-                  class="turma-trend-icon danger"
-                  title="Tendência de alta"
-                  aria-label="Tendência de alta"
-                  >↑</span
-                >
-              </div>
+        <div class="turmas-alert-list">
+          <div class="turma-alert-item">
+            <span class="turma-name">7º ano B</span>
+            <div class="turma-alert-mid">
+              <span class="turma-reason">Aumento de faltas e queda atitudinal</span>
+              <span class="turma-count">4 alertas</span>
             </div>
-
-            <hr class="card-divider" />
-
-            <div class="turma-alert-item">
-              <span class="turma-name">8º ano A</span>
-              <div class="turma-alert-mid">
-                <span class="turma-reason"
-                  >Frequência e desempenho em queda</span
-                >
-                <span class="turma-count">3 alertas</span>
+            <div class="turma-progress-row">
+              <div class="turma-progress-track">
+                <div class="turma-progress-bar danger"></div>
               </div>
-              <div class="turma-progress-row">
-                <div class="turma-progress-track">
-                  <div class="turma-progress-bar warning-high"></div>
-                </div>
-                <span
-                  class="turma-trend-icon warning"
-                  title="Tendência de alta"
-                  aria-label="Tendência de alta"
-                  >↑</span
-                >
-              </div>
-            </div>
-
-            <hr class="card-divider" />
-
-            <div class="turma-alert-item">
-              <span class="turma-name">6º ano C</span>
-              <div class="turma-alert-mid">
-                <span class="turma-reason">Colaboração e participação</span>
-                <span class="turma-count">2 alertas</span>
-              </div>
-              <div class="turma-progress-row">
-                <div class="turma-progress-track">
-                  <div class="turma-progress-bar warning-mid"></div>
-                </div>
-                <span
-                  class="turma-trend-icon neutral"
-                  title="Tendência estável"
-                  aria-label="Tendência estável"
-                  >—</span
-                >
-              </div>
-            </div>
-
-            <hr class="card-divider" />
-
-            <div class="turma-alert-item">
-              <span class="turma-name">9º ano A</span>
-              <div class="turma-alert-mid">
-                <span class="turma-reason"
-                  >Sinal isolado em acompanhamento</span
-                >
-                <span class="turma-count">1 alerta</span>
-              </div>
-              <div class="turma-progress-row">
-                <div class="turma-progress-track">
-                  <div class="turma-progress-bar success"></div>
-                </div>
-                <span
-                  class="turma-trend-icon success"
-                  title="Tendência de queda"
-                  aria-label="Tendência de queda"
-                  >↓</span
-                >
-              </div>
+              <span class="turma-trend-icon danger" title="Tendência de alta" aria-label="Tendência de alta">↑</span>
             </div>
           </div>
 
           <hr class="card-divider" />
 
-          <div class="card-footer-action-row">
-            <span class="card-count-label">Exibindo 4 de 4 turmas</span>
-            <a href="todas-as-turmas.html" class="btn-card-action"
-              >Ver todas as turmas</a
-            >
+          <div class="turma-alert-item">
+            <span class="turma-name">8º ano A</span>
+            <div class="turma-alert-mid">
+              <span class="turma-reason">Frequência e desempenho em queda</span>
+              <span class="turma-count">3 alertas</span>
+            </div>
+            <div class="turma-progress-row">
+              <div class="turma-progress-track">
+                <div class="turma-progress-bar warning-high"></div>
+              </div>
+              <span class="turma-trend-icon warning" title="Tendência de alta" aria-label="Tendência de alta">↑</span>
+            </div>
           </div>
-        </section>
 
-        <section class="mobile-card" aria-label="Alertas por aluno">
-          <div class="card-title-row">
+          <hr class="card-divider" />
+
+          <div class="turma-alert-item">
+            <span class="turma-name">6º ano C</span>
+            <div class="turma-alert-mid">
+              <span class="turma-reason">Colaboração e participação</span>
+              <span class="turma-count">2 alertas</span>
+            </div>
+            <div class="turma-progress-row">
+              <div class="turma-progress-track">
+                <div class="turma-progress-bar warning-mid"></div>
+              </div>
+              <span class="turma-trend-icon neutral" title="Tendência estável" aria-label="Tendência estável">—</span>
+            </div>
+          </div>
+
+          <hr class="card-divider" />
+
+          <div class="turma-alert-item">
+            <span class="turma-name">9º ano A</span>
+            <div class="turma-alert-mid">
+              <span class="turma-reason">Sinal isolado em acompanhamento</span>
+              <span class="turma-count">1 alerta</span>
+            </div>
+            <div class="turma-progress-row">
+              <div class="turma-progress-track">
+                <div class="turma-progress-bar success"></div>
+              </div>
+              <span class="turma-trend-icon success" title="Tendência de queda" aria-label="Tendência de queda">↓</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="card-divider" />
+
+        <div class="card-footer-flex">
+          <span class="card-footer-count">Exibindo 4 de 4 turmas</span>
+          <a href="todas-as-turmas.html" class="btn-dialogue">Ver todas as turmas</a>
+        </div>
+      </section>
+
+      <section class="mobile-card" aria-label="Alertas por aluno">
+        <div class="card-header-flex">
+          <div class="card-title-group">
             <h2 class="card-title">Alertas por aluno</h2>
-            <span class="card-badge-pill">12 ALUNOS</span>
+            <p class="card-subtitle">12 estudantes com alertas ativos</p>
           </div>
+        </div>
 
-          <hr class="card-divider" />
+        <hr class="card-divider" />
 
-          <div class="alunos-alert-list">
-            <div class="aluno-alert-item">
-              <div class="aluno-avatar blue" aria-hidden="true">MS</div>
-              <div class="aluno-info-col">
-                <div class="aluno-header-row">
-                  <span class="aluno-name">Marina Santos</span>
-                  <span class="badge-severity critico">CRÍTICO</span>
-                </div>
-                <span class="aluno-turma">7º ano B</span>
-                <p class="aluno-signal">Queda atitudinal + faltas</p>
-                <span class="aluno-meta">3 indicadores · 5 dias</span>
+        <div class="alunos-alert-list">
+          <div class="aluno-alert-item">
+            <div class="aluno-avatar blue" aria-hidden="true">MS</div>
+            <div class="aluno-info-col">
+              <div class="aluno-header-row">
+                <span class="aluno-name">Marina Santos</span>
+                <span class="badge-status critico">CRÍTICO</span>
               </div>
-            </div>
-
-            <hr class="card-divider" />
-
-            <div class="aluno-alert-item">
-              <div class="aluno-avatar purple" aria-hidden="true">JL</div>
-              <div class="aluno-info-col">
-                <div class="aluno-header-row">
-                  <span class="aluno-name">João Lima</span>
-                  <span class="badge-severity atencao">ATENÇÃO</span>
-                </div>
-                <span class="aluno-turma">8º ano A</span>
-                <p class="aluno-signal">Frequência + desempenho</p>
-                <span class="aluno-meta">2 indicadores · 8 dias</span>
-              </div>
-            </div>
-
-            <hr class="card-divider" />
-
-            <div class="aluno-alert-item">
-              <div class="aluno-avatar green" aria-hidden="true">AR</div>
-              <div class="aluno-info-col">
-                <div class="aluno-header-row">
-                  <span class="aluno-name">Ana Ribeiro</span>
-                  <span class="badge-severity atencao">ATENÇÃO</span>
-                </div>
-                <span class="aluno-turma">6º ano C</span>
-                <p class="aluno-signal">Queda em colaboração</p>
-                <span class="aluno-meta">1 dimensão · 12 dias</span>
-              </div>
-            </div>
-
-            <hr class="card-divider" />
-
-            <div class="aluno-alert-item">
-              <div class="aluno-avatar purple" aria-hidden="true">PC</div>
-              <div class="aluno-info-col">
-                <div class="aluno-header-row">
-                  <span class="aluno-name">Pedro Costa</span>
-                  <span class="badge-severity critico">CRÍTICO</span>
-                </div>
-                <span class="aluno-turma">7º ano B</span>
-                <p class="aluno-signal">Participação + faltas</p>
-                <span class="aluno-meta">2 indicadores · 3 dias</span>
-              </div>
+              <span class="aluno-turma">7º ano B</span>
+              <p class="aluno-signal">Queda atitudinal + faltas</p>
+              <span class="aluno-meta">3 indicadores · 5 dias</span>
             </div>
           </div>
 
           <hr class="card-divider" />
 
-          <div class="card-footer-action-row">
-            <span class="card-count-label">Exibindo 4 de 12 estudantes</span>
-            <a href="todos-os-estudantes.html" class="btn-card-action"
-              >Ver todas os alunos</a
-            >
+          <div class="aluno-alert-item">
+            <div class="aluno-avatar purple" aria-hidden="true">JL</div>
+            <div class="aluno-info-col">
+              <div class="aluno-header-row">
+                <span class="aluno-name">João Lima</span>
+                <span class="badge-status atencao">ATENÇÃO</span>
+              </div>
+              <span class="aluno-turma">8º ano A</span>
+              <p class="aluno-signal">Frequência + desempenho</p>
+              <span class="aluno-meta">2 indicadores · 8 dias</span>
+            </div>
           </div>
-        </section>
-          <div id="modal-perfil" class="profile-modal-overlay">
+
+          <hr class="card-divider" />
+
+          <div class="aluno-alert-item">
+            <div class="aluno-avatar green" aria-hidden="true">AR</div>
+            <div class="aluno-info-col">
+              <div class="aluno-header-row">
+                <span class="aluno-name">Ana Ribeiro</span>
+                <span class="badge-status atencao">ATENÇÃO</span>
+              </div>
+              <span class="aluno-turma">6º ano C</span>
+              <p class="aluno-signal">Queda em colaboração</p>
+              <span class="aluno-meta">1 dimensão · 12 dias</span>
+            </div>
+          </div>
+
+          <hr class="card-divider" />
+
+          <div class="aluno-alert-item">
+            <div class="aluno-avatar purple" aria-hidden="true">PC</div>
+            <div class="aluno-info-col">
+              <div class="aluno-header-row">
+                <span class="aluno-name">Pedro Costa</span>
+                <span class="badge-status critico">CRÍTICO</span>
+              </div>
+              <span class="aluno-turma">7º ano B</span>
+              <p class="aluno-signal">Participação + faltas</p>
+              <span class="aluno-meta">2 indicadores · 3 dias</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="card-divider" />
+
+        <div class="card-footer-flex">
+          <span class="card-footer-count">Exibindo 4 de 12 estudantes</span>
+          <a href="todos-os-estudantes.html" class="btn-dialogue">Ver todos os alunos</a>
+        </div>
+      </section>
+
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <a href="sistema-alerta-precoce.html" class="nav-tab active" aria-current="page">
+        <div class="nav-indicator-bar" aria-hidden="true"></div>
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+            <path d="M8.33 17.5h3.34"/>
+          </svg>
+        </div>
+        <span class="nav-label">Alertas</span>
+      </a>
+
+      <a href="turmas.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 5.833v11.667"/>
+            <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Turmas</span>
+      </a>
+
+      <a href="dashboard-agregador-visao-central.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
+            <path d="M12.5 5h5v5"/>
+          </svg>
+        </div>
+        <span class="nav-label">Agregadores</span>
+      </a>
+
+      <a href="#modal-perfil" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="6.667" r="3.333"/>
+            <path d="M4.167 17.5v-1.667C4.167 12.612 6.778 10 10 10s5.833 2.612 5.833 5.833V17.5"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <div id="modal-perfil" class="profile-modal-overlay">
       <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
       <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
         <div class="profile-modal-header">
@@ -1265,114 +1130,8 @@
         <div class="profile-modal-pointer"></div>
       </div>
     </div>
-</main>
 
-      <nav class="bottom-nav" aria-label="Navegação principal">
-        <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"
-              />
-            </svg>
-          </div>
-          <span class="nav-label">Início</span>
-        </a>
+  </main>
 
-        <a
-          href="sistema-alerta-precoce.html"
-          class="nav-tab active"
-          aria-current="page"
-        >
-          <span class="nav-indicator-bar" aria-hidden="true"></span>
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
-              />
-              <path d="M8.33 17.5h3.34" />
-            </svg>
-          </div>
-          <span class="nav-label">Alertas</span>
-        </a>
-
-        <a href="turmas.html" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M10 5.833v11.667" />
-              <path
-                d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"
-              />
-            </svg>
-          </div>
-          <span class="nav-label">Turmas</span>
-        </a>
-
-        <a href="dashboard-agregador-visao-central.html" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5" />
-              <path d="M12.5 5h5v5" />
-            </svg>
-          </div>
-          <span class="nav-label">Agregadores</span>
-        </a>
-
-        <a href="#modal-perfil" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <ellipse cx="12" cy="8" rx="4" ry="4" />
-              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2" />
-            </svg>
-          </div>
-          <span class="nav-label">Perfil</span>
-        </a>
-      </nav>
-    </div>
-  </body>
+</body>
 </html>

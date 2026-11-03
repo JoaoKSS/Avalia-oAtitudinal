@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Turmas · Coordenação · Mobile 390 × 1350 · 6º ano A expandida</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)" />
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
-  <link rel="alternate icon" href="../assets/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turmas · Coordenação · Mobile · Educar & Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --color-bg-canvas: #f5f8fc;
@@ -21,18 +20,17 @@
       --color-text-muted: #60758b;
       --color-primary: #2563eb;
       --color-primary-light: #e8f1ff;
+      --color-primary-soft: #eff5ff;
       --color-success: #15803d;
       --color-success-light: #e6f6ee;
-    }
+      --color-teal: #0f766e;
+      --color-teal-light: #ccfbf1;
 
-    * {
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    *::-webkit-scrollbar {
-      display: none;
-      width: 0;
-      height: 0;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
     *, *::before, *::after {
@@ -95,6 +93,7 @@
     .mobile-header {
       width: 100%;
       height: 72px;
+      min-height: 72px;
       background-color: var(--color-bg-card);
       border-bottom: 1px solid var(--color-border-subtle);
       display: flex;
@@ -108,7 +107,7 @@
     .brand-section {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       text-decoration: none;
     }
 
@@ -121,101 +120,112 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
-    }
-
-    .brand-titles {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
     }
 
     .brand-text {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--color-text-main);
-      line-height: 1.2;
+      display: flex;
+      flex-direction: column;
     }
 
-    .brand-badge {
-      font-size: 8.5px;
-      font-weight: 700;
-      color: var(--color-primary);
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
       letter-spacing: 0.5px;
+      color: var(--color-primary);
       text-transform: uppercase;
     }
 
-    .header-notification-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      border: 1px solid var(--color-border-subtle);
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-icon-btn {
+      width: 42px;
+      height: 42px;
       background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--color-text-muted);
-      cursor: pointer;
       position: relative;
+      cursor: pointer;
       text-decoration: none;
-      transition: background-color 0.15s ease;
+      color: var(--color-text-muted);
+      padding: 0;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
-    .header-notification-btn:hover {
+    .header-icon-btn:hover {
       background-color: #f8fafc;
+      border-color: #c7d7eb;
+      color: var(--color-primary);
     }
 
-    .notification-dot {
+    .notif-badge-dot {
       position: absolute;
-      top: 8px;
-      right: 9px;
+      left: 27px;
+      top: 6px;
       width: 7px;
       height: 7px;
-      background-color: var(--color-primary);
-      border: 1.5px solid var(--color-bg-card);
+      background: var(--color-primary);
       border-radius: 50%;
     }
 
-    .screen-content {
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+    .main-content {
       flex: 1;
       overflow-y: auto;
-      padding: 16px;
+      padding: 18px 16px 98px 16px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
     }
 
     .page-hero {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      margin-bottom: 14px;
     }
 
     .page-title {
       font-size: 22px;
       font-weight: 700;
+      line-height: 1.35;
       color: var(--color-text-main);
-      letter-spacing: -0.3px;
     }
 
     .page-subtitle {
-      font-size: 11.5px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.42;
       color: var(--color-text-muted);
-      line-height: 1.4;
+      margin-top: 4px;
     }
 
     .summary-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: 16px;
+      border-radius: var(--radius-xl);
       padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-around;
       height: 64px;
       flex-shrink: 0;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 16px;
     }
 
     .summary-item {
@@ -248,6 +258,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-bottom: 16px;
     }
 
     .filter-group {
@@ -288,7 +299,7 @@
       height: 40px;
       line-height: 40px;
       border: 1px solid var(--color-border-subtle);
-      border-radius: 10px;
+      border-radius: var(--radius-md);
       background-color: var(--color-bg-card);
       padding: 0 14px 0 42px;
       font-size: 12px;
@@ -315,7 +326,7 @@
       width: 100%;
       height: 40px;
       border: 1px solid var(--color-border-subtle);
-      border-radius: 10px;
+      border-radius: var(--radius-md);
       background-color: var(--color-bg-card);
       padding: 0 32px 0 12px;
       font-size: 12px;
@@ -355,27 +366,33 @@
     }
 
     .turmas-list-title {
-      font-size: 13.5px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 600;
       color: var(--color-text-main);
     }
 
     .turmas-list-count {
-      font-size: 11.5px;
+      font-size: 12px;
       color: var(--color-text-muted);
     }
 
     .turma-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: 16px;
+      border-radius: var(--radius-xl);
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      box-shadow: var(--shadow-card);
+    }
+
+    .turma-card.expanded {
+      border-color: var(--color-primary);
+      box-shadow: 0px 8px 20px rgba(20, 51, 97, 0.08);
     }
 
     .turma-card-main {
-      padding: 14px;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -384,13 +401,13 @@
     .turma-code-box {
       width: 44px;
       height: 44px;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       background-color: var(--color-primary-light);
       color: var(--color-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 700;
       flex-shrink: 0;
     }
@@ -411,42 +428,45 @@
     }
 
     .turma-name {
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 600;
       color: var(--color-text-main);
     }
 
     .turma-status-badge {
-      padding: 3px 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2.5px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-transform: uppercase;
       background-color: var(--color-success-light);
       color: var(--color-success);
-      font-size: 10px;
-      font-weight: 600;
-      border-radius: 10px;
-      line-height: 1.2;
-      flex-shrink: 0;
     }
 
     .turma-etapa {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--color-text-muted);
     }
 
-    .turma-divider {
+    .card-divider {
       height: 1px;
-      background-color: var(--color-border-divider);
-      width: 100%;
+      background-color: var(--color-border-subtle);
+      border: none;
+      margin: 12px 0;
     }
 
     .turma-card-footer {
-      padding: 10px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 10px 16px 14px 16px;
     }
 
     .turma-students-label {
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 400;
       color: var(--color-text-muted);
     }
@@ -472,11 +492,6 @@
       color: var(--color-primary);
     }
 
-    .turma-card.expanded {
-      border: 1px solid var(--color-primary);
-      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
-    }
-
     .turma-expand-btn.disabled,
     .turma-expand-btn:disabled {
       cursor: default;
@@ -489,33 +504,29 @@
       flex-direction: column;
       gap: 6px;
       width: 100%;
-      padding: 12px 14px 14px 14px;
+      padding: 12px 16px 14px 16px;
       background-color: #ffffff;
       border-top: 1px solid var(--color-border-divider);
     }
 
     .expanded-action-item {
       height: 42px;
-      background-color: #f8fafc;
-      border: 1px solid #d9e4f2;
-      border-radius: 10px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
       padding: 0 16px;
       display: flex;
       align-items: center;
       gap: 12px;
-      color: #172b4d;
+      color: var(--color-text-main);
       text-decoration: none;
       font-size: 13px;
       font-weight: 600;
-      transition:
-        background-color 0.15s ease,
-        border-color 0.15s ease,
-        color 0.15s ease,
-        transform 0.12s ease;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.12s ease;
     }
 
     .expanded-action-item .action-item-icon {
-      color: #2563eb;
+      color: var(--color-primary);
       width: 18px;
       height: 18px;
       display: flex;
@@ -526,7 +537,7 @@
     }
 
     .expanded-action-item.item-historico .action-item-icon {
-      color: #0f766e;
+      color: var(--color-teal);
     }
 
     .expanded-action-item svg {
@@ -535,69 +546,65 @@
     }
 
     .expanded-action-item:hover {
-      background-color: #2563eb !important;
-      border-color: #2563eb !important;
-      color: #ffffff !important;
+      background-color: var(--color-primary-light);
+      border-color: var(--color-primary);
+      color: var(--color-primary);
       transform: translateX(2px);
     }
 
     .expanded-action-item:hover .action-item-icon,
     .expanded-action-item:hover svg {
-      color: #ffffff !important;
-      stroke: #ffffff !important;
+      color: var(--color-primary);
+      stroke: var(--color-primary);
     }
 
     .turmas-footer-note {
       text-align: right;
-      font-size: 10.5px;
+      font-size: 11px;
       color: var(--color-text-muted);
-      margin-top: 2px;
-      margin-bottom: 6px;
+      margin-top: 8px;
+      margin-bottom: 8px;
     }
 
     .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
       width: 100%;
-      height: 72px;
+      height: 80px;
       background-color: var(--color-bg-card);
       border-top: 1px solid var(--color-border-subtle);
       display: flex;
-      align-items: stretch;
+      align-items: flex-start;
       justify-content: space-around;
-      flex-shrink: 0;
-      z-index: 10;
+      padding-top: 8px;
+      z-index: 20;
     }
 
     .nav-tab {
-      flex: 1;
+      width: 78px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 4px;
       text-decoration: none;
-      color: var(--color-text-muted);
       position: relative;
-      transition: color 0.15s ease;
-    }
-
-    .nav-tab.active {
-      color: var(--color-primary);
+      color: var(--color-text-muted);
+      cursor: pointer;
     }
 
     .nav-indicator-bar {
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 32px;
+      top: -8px;
+      width: 36px;
       height: 3px;
+      border-radius: 2px;
       background-color: var(--color-primary);
-      border-radius: 0 0 3px 3px;
-      display: none;
     }
 
-    .nav-tab.active .nav-indicator-bar {
-      display: block;
+    .nav-tab.active {
+      color: var(--color-primary);
     }
 
     .nav-icon {
@@ -609,15 +616,17 @@
     }
 
     .nav-label {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 500;
-      line-height: 1;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
     }
 
     .nav-tab.active .nav-label {
       font-weight: 600;
     }
-  
+
     .profile-modal-overlay {
       position: absolute;
       inset: 0;
@@ -632,80 +641,88 @@
     .profile-modal-backdrop {
       position: absolute;
       inset: 0;
-      background-color: rgba(15, 23, 42, 0.4);
+      background: rgba(15, 23, 42, 0.4);
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(2px);
     }
 
     .profile-modal-card {
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 88px;
-      right: 12px;
-      width: 260px;
+      width: 346px;
+      max-width: calc(100% - 32px);
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
-      padding: 16px;
+      border-radius: 13px;
+      padding: 14px 16px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+      box-sizing: border-box;
       z-index: 100;
       display: flex;
       flex-direction: column;
-      box-sizing: border-box;
     }
 
     .profile-modal-pointer {
       position: absolute;
-      bottom: -6px;
+      bottom: -8px;
       right: 27px;
-      width: 10px;
-      height: 10px;
+      width: 14px;
+      height: 14px;
       background-color: #ffffff;
       border-right: 1px solid #d9e4f2;
       border-bottom: 1px solid #d9e4f2;
       transform: rotate(45deg);
+      z-index: 101;
     }
 
     .profile-modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      height: 24px;
     }
 
     .profile-modal-title {
       font-size: 14px;
       font-weight: 700;
+      line-height: 1.2;
       color: #172b4d;
+      margin: 0;
     }
 
     .profile-modal-close {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #f5f8fc;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
+      color: #60758b;
       font-size: 15px;
       font-weight: 400;
-      color: #64748b;
-      border-radius: 6px;
+      text-decoration: none;
+      line-height: 1;
+      transition: background-color 0.15s ease, color 0.15s ease;
     }
 
     .profile-modal-close:hover {
-      background-color: #f1f5f9;
-      color: #0f172a;
+      background-color: #e2e8f0;
+      color: #172b4d;
     }
 
     .profile-modal-divider {
       height: 1px;
-      background-color: #e2e8f0;
-      margin: 8px 0 10px 0;
+      background-color: #e8eef5;
+      margin: 10px 0;
     }
 
     .profile-modal-user {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .profile-modal-avatar {
@@ -713,10 +730,10 @@
       height: 40px;
       border-radius: 50%;
       background-color: #e8f1ff;
-      color: #2563eb;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #2563eb;
       font-size: 11px;
       font-weight: 700;
       flex-shrink: 0;
@@ -725,30 +742,33 @@
     .profile-modal-user-info {
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .profile-modal-user-name {
       font-size: 14px;
       font-weight: 600;
+      line-height: 1.2;
       color: #172b4d;
     }
 
     .profile-modal-user-role {
       font-size: 10px;
       font-weight: 400;
+      line-height: 1.2;
       color: #60758b;
+      margin-top: 3px;
     }
 
     .profile-modal-logout {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 10px 14px;
-      background-color: #fef2f2;
+      gap: 10px;
+      height: 48px;
+      padding: 0 14px;
+      background-color: #fff5f5;
       border: 1px solid #fee2e2;
-      border-radius: 8px;
+      border-radius: 9px;
       text-decoration: none;
       box-sizing: border-box;
       transition: background-color 0.15s ease, border-color 0.15s ease;
@@ -768,32 +788,32 @@
 </head>
 <body>
 
-  <div class="mobile-screen-wrapper">
-
+  <main class="mobile-screen-wrapper">
     <header class="mobile-header">
-      <a href="painel-inicial-coordenacao-mobile.html" class="brand-section">
-        <div class="brand-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      <a href="painel-inicial-coordenacao-mobile.html" class="brand-section" aria-label="Educar e Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
           </svg>
         </div>
-        <div class="brand-titles">
-          <span class="brand-text">Educar &amp; Aprender</span>
-          <span class="brand-badge">COORDENAÇÃO PEDAGÓGICA</span>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-category">Área da Coordenação</span>
         </div>
       </a>
 
-      <a href="sistema-alerta-precoce.html" class="header-notification-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-        </svg>
-        <span class="notification-dot" aria-hidden="true"></span>
-      </a>
+      <div class="header-actions">
+        <a href="sistema-alerta-precoce.html" class="header-icon-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
+        </a>
+      </div>
     </header>
 
-    <main class="screen-content">
+    <section class="main-content">
 
       <section class="page-hero">
         <h1 class="page-title">Turmas</h1>
@@ -827,7 +847,7 @@
               id="input-busca-turma"
               class="search-input"
               placeholder="Buscar turma por nome ou ano..."
-            />
+            >
           </div>
         </div>
 
@@ -863,7 +883,7 @@
               <span class="turma-etapa">Ensino Fundamental II</span>
             </div>
           </div>
-          <div class="turma-divider" aria-hidden="true"></div>
+          <div class="card-divider" aria-hidden="true"></div>
           <div class="turma-card-footer">
             <span class="turma-students-label">28 estudantes</span>
             <a href="turmas.html" class="turma-expand-btn" aria-label="Recolher opções da turma 6º ano A">−</a>
@@ -871,56 +891,24 @@
           <div class="expanded-actions-list" id="actions-6a">
             <a href="todos-os-estudantes.html" class="expanded-action-item">
               <span class="action-item-icon" aria-hidden="true">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="3635 1870 18 18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M3649.5227 1880.8409C3649.5227 1881.8577 3648.6982 1882.6818 3647.6819 1882.6818H3641.5454L3638.4773 1884.5227V1875.3182C3638.4773 1874.3015 3639.3018 1873.4773 3640.3181 1873.4773H3647.6819C3648.6982 1873.4773 3649.5227 1874.3015 3649.5227 1875.3182V1880.8409Z"
-                  />
-                  <path
-                    d="M3641.5454 1877.1591H3646.4546M3641.5454 1879.6136H3645.2273"
-                  />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                 </svg>
               </span>
               <span>Ver estudantes</span>
             </a>
 
-            <a
-              href="autoavaliacoes-turma-6ano-a.html"
-              class="expanded-action-item item-historico"
-            >
+            <a href="autoavaliacoes-turma-6ano-a.html" class="expanded-action-item item-historico">
               <span class="action-item-icon" aria-hidden="true">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="3635 1917.864 18 18.273"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M3645.2273 1920.8636H3640.3181C3639.6404 1920.8636 3639.0908 1921.4131 3639.0908 1922.0909V1931.9091C3639.0908 1932.5869 3639.6404 1933.1364 3640.3181 1933.1364H3645.2273"
-                  />
-                  <path d="M3645.2273 1920.8636V1924.5454H3648.9092" />
-                  <path d="M3645.2273 1920.8636L3648.9092 1924.5454" />
-                  <ellipse
-                    cx="3647.0682"
-                    cy="1930.0682"
-                    rx="2.4545"
-                    ry="2.4545"
-                  />
-                  <path
-                    d="M3647.0681 1928.8409V1930.0682L3647.8044 1930.6818"
-                  />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13.692 3.539H6.923A1.692 1.692 0 0 0 5.231 5.231v13.538a1.692 1.692 0 0 0 1.692 1.692h6.769"/>
+                  <path d="M13.692 3.539v5.077h5.077"/>
+                  <path d="M13.692 3.539l5.077 5.076"/>
+                  <ellipse cx="16.23" cy="16.23" rx="3.385" ry="3.385"/>
+                  <path d="M16.231 14.539v1.692l1.015.846"/>
                 </svg>
               </span>
               <span>Autoavaliações</span>
@@ -928,30 +916,9 @@
 
             <a href="dashboard-agregador-analise-por-turma.html" class="expanded-action-item">
               <span class="action-item-icon" aria-hidden="true">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="3635 1966 18 18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect
-                    rx="2"
-                    ry="2"
-                    x="3639.7045"
-                    y="1970.0909"
-                    width="8.5909"
-                    height="10.4318"
-                  />
-                  <path
-                    d="M3642.1592 1970.0909V1969.4773H3645.8408V1970.0909"
-                  />
-                  <path
-                    d="M3644 1973.7727V1977.4546M3642.1592 1975.6136H3645.8408"
-                  />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="16" rx="2" ry="2"/>
+                  <path d="M9 10h6M9 14h6"/>
                 </svg>
               </span>
               <span>Ver análise por turma</span>
@@ -970,7 +937,7 @@
               <span class="turma-etapa">Ensino Fundamental II</span>
             </div>
           </div>
-          <div class="turma-divider" aria-hidden="true"></div>
+          <div class="card-divider" aria-hidden="true"></div>
           <div class="turma-card-footer">
             <span class="turma-students-label">31 estudantes</span>
             <button type="button" class="turma-expand-btn disabled" aria-label="Opções indisponíveis" disabled>+</button>
@@ -988,7 +955,7 @@
               <span class="turma-etapa">Ensino Fundamental II</span>
             </div>
           </div>
-          <div class="turma-divider" aria-hidden="true"></div>
+          <div class="card-divider" aria-hidden="true"></div>
           <div class="turma-card-footer">
             <span class="turma-students-label">29 estudantes</span>
             <button type="button" class="turma-expand-btn disabled" aria-label="Opções indisponíveis" disabled>+</button>
@@ -1006,7 +973,7 @@
               <span class="turma-etapa">Ensino Fundamental II</span>
             </div>
           </div>
-          <div class="turma-divider" aria-hidden="true"></div>
+          <div class="card-divider" aria-hidden="true"></div>
           <div class="turma-card-footer">
             <span class="turma-students-label">30 estudantes</span>
             <button type="button" class="turma-expand-btn disabled" aria-label="Opções indisponíveis" disabled>+</button>
@@ -1016,34 +983,7 @@
         <p class="turmas-footer-note">Mostrando 1–4 de 4 turmas</p>
       </section>
 
-        <div id="modal-perfil" class="profile-modal-overlay">
-      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
-      <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
-        <div class="profile-modal-header">
-          <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
-          <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
-        </div>
-        <div class="profile-modal-divider"></div>
-        <div class="profile-modal-user">
-          <div class="profile-modal-avatar">CP</div>
-          <div class="profile-modal-user-info">
-            <span class="profile-modal-user-name">Coordenação Pedagógica</span>
-            <span class="profile-modal-user-role">Coordenador</span>
-          </div>
-        </div>
-        <div class="profile-modal-divider"></div>
-        <a href="../00 — Acesso e autenticação/login-mobile.html" class="profile-modal-logout">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-            <polyline points="16 17 21 12 16 7"></polyline>
-            <line x1="21" y1="12" x2="9" y2="12"></line>
-          </svg>
-          <span class="profile-modal-logout-text">Sair da conta</span>
-        </a>
-        <div class="profile-modal-pointer"></div>
-      </div>
-    </div>
-</main>
+    </section>
 
     <nav class="bottom-nav" aria-label="Navegação principal">
       <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
@@ -1066,7 +1006,7 @@
       </a>
 
       <a href="turmas.html" class="nav-tab active" aria-current="page">
-        <span class="nav-indicator-bar" aria-hidden="true"></span>
+        <div class="nav-indicator-bar" aria-hidden="true"></div>
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M10 5.833v11.667"/>
@@ -1088,17 +1028,44 @@
 
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="12" cy="8" rx="4" ry="4"/>
-            <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="6.667" r="3.333"/>
+            <path d="M4.167 17.5v-1.667C4.167 12.612 6.778 10 10 10s5.833 2.612 5.833 5.833V17.5"/>
           </svg>
         </div>
         <span class="nav-label">Perfil</span>
       </a>
     </nav>
 
-  </div>
+    <div id="modal-perfil" class="profile-modal-overlay">
+      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
+      <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
+        <div class="profile-modal-header">
+          <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
+          <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <div class="profile-modal-user">
+          <div class="profile-modal-avatar">CP</div>
+          <div class="profile-modal-user-info">
+            <span class="profile-modal-user-name">Coordenação Pedagógica</span>
+            <span class="profile-modal-user-role">Coordenador</span>
+          </div>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <a href="../00 — Acesso e autenticação/login-mobile.html" class="profile-modal-logout">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          <span class="profile-modal-logout-text">Sair da conta</span>
+        </a>
+        <div class="profile-modal-pointer"></div>
+      </div>
+    </div>
 
+  </main>
 
 </body>
 </html>

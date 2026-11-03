@@ -1,486 +1,472 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prévia da Autoavaliação · Coordenação · Mobile 390 × 1650</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prévia da Autoavaliação · Coordenação · Mobile · Educar & Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-border-divider: #eef3f9;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-text-subtle: #8194aa;
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      --color-primary-soft: #eff5ff;
+      --color-success: #16a34a;
+      --color-success-light: #e8f7ee;
 
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="../assets/favicon-light.svg"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="../assets/favicon-dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <link rel="alternate icon" href="../assets/favicon.svg" />
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 14px;
+      --radius-xl: 16px;
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <style>
-      :root {
-        --color-bg-canvas: #f5f8fc;
-        --color-bg-card: #ffffff;
-        --color-border-subtle: #d9e4f2;
-        --color-border-divider: #eef3f9;
-        --color-text-main: #172b4d;
-        --color-text-muted: #60758b;
-        --color-text-subtle: #8194aa;
-        --color-primary: #2563eb;
-        --color-primary-light: #e8f1ff;
-        --color-success: #16a34a;
-        --color-success-light: #e8f7ee;
-      }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-      * {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-      *::-webkit-scrollbar {
-        display: none;
-        width: 0;
-        height: 0;
-      }
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
+    @media (max-width: 480px) {
+      body {
         padding: 0;
       }
-
-      body {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        background-color: var(--color-bg-canvas);
-        color: var(--color-text-main);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        min-height: 100vh;
-        margin: 0;
-        padding: 16px;
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-      }
-
       .mobile-screen-wrapper {
-        width: 390px;
-        min-width: 390px;
-        max-width: 390px;
-        height: 844px;
-        min-height: 844px;
-        max-height: 844px;
-        background-color: var(--color-bg-canvas);
-        border-radius: 36px;
-        border: 1px solid var(--color-border-subtle);
-        box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 0;
-      }
-
-      @media (max-width: 480px) {
-        body {
-          padding: 0;
-        }
-        .mobile-screen-wrapper {
-          width: 100%;
-          min-width: 0;
-          max-width: 100%;
-          height: 100vh;
-          min-height: 100vh;
-          max-height: 100vh;
-          border-radius: 0;
-          border: none;
-          box-shadow: none;
-        }
-      }
-
-      .mobile-header {
         width: 100%;
-        height: 72px;
-        background-color: var(--color-bg-card);
-        border-bottom: 1px solid var(--color-border-subtle);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 16px;
-        flex-shrink: 0;
-        z-index: 10;
-      }
-
-      .brand-section {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-      }
-
-      .brand-icon {
-        width: 38px;
-        height: 38px;
-        background-color: var(--color-primary);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
-      }
-
-      .brand-titles {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .brand-text {
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        line-height: 1.2;
-      }
-
-      .brand-badge {
-        font-size: 8.5px;
-        font-weight: 700;
-        color: var(--color-primary);
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-      }
-
-      .header-notification-btn {
-        width: 38px;
-        height: 38px;
-        border-radius: 12px;
-        border: 1px solid var(--color-border-subtle);
-        background-color: var(--color-bg-card);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-text-muted);
-        cursor: pointer;
-        position: relative;
-        text-decoration: none;
-        transition: background-color 0.15s ease;
-      }
-
-      .header-notification-btn:hover {
-        background-color: #f8fafc;
-      }
-
-      .notification-dot {
-        position: absolute;
-        top: 8px;
-        right: 9px;
-        width: 7px;
-        height: 7px;
-        background-color: var(--color-primary);
-        border: 1.5px solid var(--color-bg-card);
-        border-radius: 50%;
-      }
-
-      .screen-content {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        flex: 1;
-        overflow-y: auto;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        padding-bottom: 96px;
-      }
-
-      .page-hero {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        margin-top: 2px;
-      }
-
-      .page-title {
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        letter-spacing: -0.3px;
-      }
-
-      .page-subtitle {
-        font-size: 11px;
-        color: var(--color-text-muted);
-        line-height: 1.4;
-      }
-
-      .activity-summary-card {
-        background-color: var(--color-bg-card);
-        border: 1px solid var(--color-border-subtle);
-        border-radius: 12px;
-        padding: 14px 16px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .summary-icon-box {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-        background-color: var(--color-primary-light);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        color: var(--color-primary);
-      }
-
-      .summary-info {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
         min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
       }
+    }
 
-      .summary-title {
-        font-size: 14.5px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        line-height: 1.3;
-      }
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      min-height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
 
-      .summary-meta {
-        font-size: 11.5px;
-        color: var(--color-text-muted);
-      }
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
 
-      .preview-caption {
-        font-size: 10px;
-        color: var(--color-text-muted);
-        margin-top: -4px;
-        margin-bottom: -2px;
-      }
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-      .question-card {
-        background-color: var(--color-bg-card);
-        border: 1px solid var(--color-border-subtle);
-        border-radius: 16px;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
 
-      .question-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
 
-      .dimension-badge {
-        padding: 5px 16px;
-        background-color: var(--color-primary-light);
-        color: var(--color-primary);
-        font-size: 11px;
-        font-weight: 700;
-        border-radius: 14px;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-      }
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
 
-      .edit-link {
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--color-primary);
-        text-decoration: none;
-        transition: opacity 0.15s ease;
-      }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-      .edit-link:hover {
-        opacity: 0.8;
-        text-decoration: underline;
-      }
+    .header-icon-btn {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      padding: 0;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
 
-      .question-statement {
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        line-height: 1.35;
-      }
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: #c7d7eb;
+      color: var(--color-primary);
+    }
 
-      .question-divider {
-        height: 1px;
-        background-color: var(--color-border-divider);
-        width: 100%;
-        margin: 2px 0;
-      }
+    .notif-badge-dot {
+      position: absolute;
+      left: 27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
 
-      .options-header-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 2px;
-      }
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 16px 98px 16px;
+      display: flex;
+      flex-direction: column;
+      scrollbar-width: none;
+    }
 
-      .options-label {
-        font-size: 11.5px;
-        font-weight: 600;
-        color: var(--color-text-muted);
-      }
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
 
-      .options-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
+    .page-hero {
+      margin-bottom: 14px;
+    }
 
-      .option-item {
-        height: 48px;
-        background-color: #ffffff;
-        border: 1px solid var(--color-border-subtle);
-        border-radius: 12px;
-        padding: 0 14px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        transition:
-          border-color 0.15s ease,
-          background-color 0.15s ease;
-      }
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-text-main);
+    }
 
-      .option-item:hover {
-        border-color: #b9d0ee;
-        background-color: #fbfdff;
-      }
+    .page-subtitle {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.42;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
 
-      .option-number {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        background-color: var(--color-primary-light);
-        color: var(--color-primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        font-weight: 700;
-        flex-shrink: 0;
-      }
+    .activity-summary-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 16px;
+    }
 
-      .option-text {
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--color-text-main);
-        line-height: 1.3;
-      }
+    .summary-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background-color: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-primary);
+    }
 
-      .btn-salvar-voltar {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 8px;
-          width: 100%;
-          height: 50px;
-          min-height: 50px;
-          flex-shrink: 0;
-          background-color: var(--color-primary);
-          color: #ffffff;
-          border: none;
-          border-radius: 12px;
-          font-size: 15px;
-          font-weight: 700;
-          text-decoration: none;
-          box-shadow: none;
-          margin-top: 8px;
-          transition:
-              background-color 0.15s ease,
-              transform 0.1s ease;
-      }
+    .summary-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
 
-      .btn-salvar-voltar:hover {
-        background-color: #1d4ed8;
-      }
+    .summary-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.3;
+    }
 
-      .btn-salvar-voltar:active {
-        transform: scale(0.99);
-      }
+    .summary-meta {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
 
-      .bottom-nav {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 72px;
-        background-color: var(--color-bg-card);
-        border-top: 1px solid var(--color-border-subtle);
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        z-index: 20;
-      }
+    .preview-caption {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
 
-      .nav-tab {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-        text-decoration: none;
-        color: var(--color-text-muted);
-        flex: 1;
-        height: 100%;
-        position: relative;
-        transition: color 0.15s ease;
-      }
+    .question-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 16px;
+    }
 
-      .nav-tab.active {
-        color: var(--color-primary);
-        font-weight: 600;
-      }
+    .question-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-      .nav-indicator-bar {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 32px;
-        height: 3px;
-        background-color: var(--color-primary);
-        border-radius: 0 0 3px 3px;
-      }
+    .dimension-badge {
+      padding: 5px 16px;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 9999px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
 
-      .nav-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 22px;
-        height: 22px;
-      }
+    .card-link-action {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
 
-      .nav-label {
-        font-size: 10px;
-        line-height: 1;
-      }
-    
+    .card-link-action:hover {
+      text-decoration: underline;
+    }
+
+    .question-statement {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.35;
+    }
+
+    .card-divider {
+      height: 1px;
+      background-color: var(--color-border-subtle);
+      width: 100%;
+      margin: 2px 0;
+    }
+
+    .options-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2px;
+    }
+
+    .options-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .option-item {
+      height: 48px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .option-item:hover {
+      border-color: var(--color-primary);
+      background-color: #f8fafc;
+    }
+
+    .option-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .option-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      line-height: 1.3;
+    }
+
+    .btn-primary-full {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 50px;
+      background-color: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: none;
+      margin-top: 16px;
+      flex-shrink: 0;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-primary-full:hover {
+      background-color: #1d4ed8;
+    }
+
+    .btn-primary-full:active {
+      transform: scale(0.99);
+    }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-top: 8px;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      width: 78px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      position: relative;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
     .profile-modal-overlay {
       position: absolute;
       inset: 0;
@@ -495,80 +481,88 @@
     .profile-modal-backdrop {
       position: absolute;
       inset: 0;
-      background-color: rgba(15, 23, 42, 0.4);
+      background: rgba(15, 23, 42, 0.4);
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(2px);
     }
 
     .profile-modal-card {
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 88px;
-      right: 12px;
-      width: 260px;
+      width: 346px;
+      max-width: calc(100% - 32px);
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
-      padding: 16px;
+      border-radius: 13px;
+      padding: 14px 16px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+      box-sizing: border-box;
       z-index: 100;
       display: flex;
       flex-direction: column;
-      box-sizing: border-box;
     }
 
     .profile-modal-pointer {
       position: absolute;
-      bottom: -6px;
+      bottom: -8px;
       right: 27px;
-      width: 10px;
-      height: 10px;
+      width: 14px;
+      height: 14px;
       background-color: #ffffff;
       border-right: 1px solid #d9e4f2;
       border-bottom: 1px solid #d9e4f2;
       transform: rotate(45deg);
+      z-index: 101;
     }
 
     .profile-modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      height: 24px;
     }
 
     .profile-modal-title {
       font-size: 14px;
       font-weight: 700;
+      line-height: 1.2;
       color: #172b4d;
+      margin: 0;
     }
 
     .profile-modal-close {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #f5f8fc;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
+      color: #60758b;
       font-size: 15px;
       font-weight: 400;
-      color: #64748b;
-      border-radius: 6px;
+      text-decoration: none;
+      line-height: 1;
+      transition: background-color 0.15s ease, color 0.15s ease;
     }
 
     .profile-modal-close:hover {
-      background-color: #f1f5f9;
-      color: #0f172a;
+      background-color: #e2e8f0;
+      color: #172b4d;
     }
 
     .profile-modal-divider {
       height: 1px;
-      background-color: #e2e8f0;
-      margin: 8px 0 10px 0;
+      background-color: #e8eef5;
+      margin: 10px 0;
     }
 
     .profile-modal-user {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .profile-modal-avatar {
@@ -576,10 +570,10 @@
       height: 40px;
       border-radius: 50%;
       background-color: #e8f1ff;
-      color: #2563eb;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #2563eb;
       font-size: 11px;
       font-weight: 700;
       flex-shrink: 0;
@@ -588,30 +582,33 @@
     .profile-modal-user-info {
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .profile-modal-user-name {
       font-size: 14px;
       font-weight: 600;
+      line-height: 1.2;
       color: #172b4d;
     }
 
     .profile-modal-user-role {
       font-size: 10px;
       font-weight: 400;
+      line-height: 1.2;
       color: #60758b;
+      margin-top: 3px;
     }
 
     .profile-modal-logout {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 10px 14px;
-      background-color: #fef2f2;
+      gap: 10px;
+      height: 48px;
+      padding: 0 14px;
+      background-color: #fff5f5;
       border: 1px solid #fee2e2;
-      border-radius: 8px;
+      border-radius: 9px;
       text-decoration: none;
       box-sizing: border-box;
       transition: background-color 0.15s ease, border-color 0.15s ease;
@@ -628,284 +625,234 @@
       color: #dc2626;
     }
   </style>
-  </head>
-  <body>
-    <div class="mobile-screen-wrapper">
-      <header class="mobile-header">
-        <a href="painel-inicial-coordenacao-mobile.html" class="brand-section">
-          <div class="brand-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#ffffff"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-              <path
-                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
-              />
-            </svg>
-          </div>
-          <div class="brand-titles">
-            <span class="brand-text">Educar &amp; Aprender</span>
-            <span class="brand-badge">COORDENAÇÃO PEDAGÓGICA</span>
-          </div>
-        </a>
+</head>
+<body>
 
-        <a
-          href="sistema-alerta-precoce.html"
-          class="header-notification-btn"
-          title="Notificações e alertas"
-          aria-label="Notificações e alertas"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#60758b"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+  <main class="mobile-screen-wrapper">
+    <header class="mobile-header">
+      <a href="painel-inicial-coordenacao-mobile.html" class="brand-section" aria-label="Educar e Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
           </svg>
-          <span class="notification-dot" aria-hidden="true"></span>
-        </a>
-      </header>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-category">Área da Coordenação</span>
+        </div>
+      </a>
 
-      <main class="screen-content">
-        <section class="page-hero" aria-label="Apresentação da prévia">
-          <h1 class="page-title">Prévia da Autoavaliação</h1>
-          <p class="page-subtitle">
-            Confira as perguntas e alternativas antes de disponibilizar a
-            atividade.
-          </p>
-        </section>
-
-        <section class="activity-summary-card" aria-label="Resumo da atividade">
-          <div class="summary-icon-box" aria-hidden="true">
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#2563eb"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-          <div class="summary-info">
-            <h2 class="summary-title">Autoavaliação atitudinal - 1º 2026</h2>
-            <span class="summary-meta">6º ano A · Prazo 30 out. 2026</span>
-          </div>
-        </section>
-
-        <p class="preview-caption">
-          3 perguntas padrão · 5 alternativas de resposta
-        </p>
-
-        <article class="question-card" aria-label="Pergunta sobre Autonomia">
-          <div class="question-header">
-            <span class="dimension-badge">AUTONOMIA</span>
-            <a
-              href="configuracao-autoavaliacao.html"
-              class="edit-link"
-              aria-label="Editar questão de Autonomia"
-              >Editar questão</a
-            >
-          </div>
-
-          <h3 class="question-statement">
-            Como você percebe essa atitude no seu dia a dia?
-          </h3>
-
-          <div class="question-divider" aria-hidden="true"></div>
-
-          <div class="options-header-row">
-            <span class="options-label">Alternativas de resposta</span>
-            <a
-              href="configuracao-autoavaliacao.html"
-              class="edit-link"
-              aria-label="Editar alternativas de Autonomia"
-              >Editar alternativas</a
-            >
-          </div>
-
-          <div class="options-list">
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">1</span>
-              <span class="option-text"
-                >Ainda estou desenvolvendo essa atitude</span
-              >
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">2</span>
-              <span class="option-text">Consigo em poucas situações</span>
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">3</span>
-              <span class="option-text">Consigo em algumas situações</span>
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">4</span>
-              <span class="option-text">Consigo na maioria das situações</span>
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">5</span>
-              <span class="option-text"
-                >Pratico essa atitude com frequência</span
-              >
-            </div>
-          </div>
-        </article>
-
-        <article
-          class="question-card"
-          aria-label="Pergunta sobre Responsabilidade"
-        >
-          <div class="question-header">
-            <span class="dimension-badge">RESPONSABILIDADE</span>
-            <a
-              href="configuracao-autoavaliacao.html"
-              class="edit-link"
-              aria-label="Editar questão de Responsabilidade"
-              >Editar questão</a
-            >
-          </div>
-
-          <h3 class="question-statement">
-            Como você percebe essa atitude no seu dia a dia?
-          </h3>
-
-          <div class="question-divider" aria-hidden="true"></div>
-
-          <div class="options-header-row">
-            <span class="options-label">Alternativas de resposta</span>
-            <a
-              href="configuracao-autoavaliacao.html"
-              class="edit-link"
-              aria-label="Editar alternativas de Responsabilidade"
-              >Editar alternativas</a
-            >
-          </div>
-
-          <div class="options-list">
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">1</span>
-              <span class="option-text"
-                >Ainda estou desenvolvendo essa atitude</span
-              >
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">2</span>
-              <span class="option-text">Consigo em poucas situações</span>
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">3</span>
-              <span class="option-text">Consigo em algumas situações</span>
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">4</span>
-              <span class="option-text">Consigo na maioria das situações</span>
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">5</span>
-              <span class="option-text"
-                >Pratico essa atitude com frequência</span
-              >
-            </div>
-          </div>
-        </article>
-
-        <article
-          class="question-card"
-          aria-label="Pergunta sobre Respeito e Convivência"
-        >
-          <div class="question-header">
-            <span class="dimension-badge">RESPEITO E CONVIVÊNCIA</span>
-            <a
-              href="configuracao-autoavaliacao.html"
-              class="edit-link"
-              aria-label="Editar questão de Respeito e Convivência"
-              >Editar questão</a
-            >
-          </div>
-
-          <h3 class="question-statement">
-            Como você percebe essa atitude no seu dia a dia?
-          </h3>
-
-          <div class="question-divider" aria-hidden="true"></div>
-
-          <div class="options-header-row">
-            <span class="options-label">Alternativas de resposta</span>
-            <a
-              href="configuracao-autoavaliacao.html"
-              class="edit-link"
-              aria-label="Editar alternativas de Respeito e Convivência"
-              >Editar alternativas</a
-            >
-          </div>
-
-          <div class="options-list">
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">1</span>
-              <span class="option-text"
-                >Ainda estou desenvolvendo essa atitude</span
-              >
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">2</span>
-              <span class="option-text">Consigo em poucas situações</span>
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">3</span>
-              <span class="option-text">Consigo em algumas situações</span>
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">4</span>
-              <span class="option-text">Consigo na maioria das situações</span>
-            </div>
-            <div class="option-item">
-              <span class="option-number" aria-hidden="true">5</span>
-              <span class="option-text"
-                >Pratico essa atitude com frequência</span
-              >
-            </div>
-          </div>
-        </article>
-
-        <a
-          href="configuracao-autoavaliacao.html"
-          class="btn-salvar-voltar"
-          aria-label="Salvar e voltar para Configuração de Autoavaliação"
-        >
-          <svg
-            width="16"
-            height="14"
-            viewBox="0 0 14 12"
-            fill="none"
-            stroke="#ffffff"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M13 6H1M6 11L1 6L6 1" />
+      <div class="header-actions">
+        <a href="sistema-alerta-precoce.html" class="header-icon-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span>Salvar e voltar</span>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
         </a>
-          <div id="modal-perfil" class="profile-modal-overlay">
+      </div>
+    </header>
+
+    <section class="main-content">
+
+      <section class="page-hero" aria-label="Apresentação da prévia">
+        <h1 class="page-title">Prévia da Autoavaliação</h1>
+        <p class="page-subtitle">Confira as perguntas e alternativas antes de disponibilizar a atividade.</p>
+      </section>
+
+      <section class="activity-summary-card" aria-label="Resumo da atividade">
+        <div class="summary-icon-box" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="summary-info">
+          <h2 class="summary-title">Autoavaliação atitudinal - 1º 2026</h2>
+          <span class="summary-meta">6º ano A · Prazo 30 out. 2026</span>
+        </div>
+      </section>
+
+      <p class="preview-caption">3 perguntas padrão · 5 alternativas de resposta</p>
+
+      <article class="question-card" aria-label="Pergunta sobre Autonomia">
+        <div class="question-header">
+          <span class="dimension-badge">AUTONOMIA</span>
+          <a href="configuracao-autoavaliacao.html" class="card-link-action" aria-label="Editar questão de Autonomia">Editar questão</a>
+        </div>
+
+        <h3 class="question-statement">Como você percebe essa atitude no seu dia a dia?</h3>
+
+        <div class="card-divider" aria-hidden="true"></div>
+
+        <div class="options-header-row">
+          <span class="options-label">Alternativas de resposta</span>
+          <a href="configuracao-autoavaliacao.html" class="card-link-action" aria-label="Editar alternativas de Autonomia">Editar alternativas</a>
+        </div>
+
+        <div class="options-list">
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">1</span>
+            <span class="option-text">Ainda estou desenvolvendo essa atitude</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">2</span>
+            <span class="option-text">Consigo em poucas situações</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">3</span>
+            <span class="option-text">Consigo em algumas situações</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">4</span>
+            <span class="option-text">Consigo na maioria das situações</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">5</span>
+            <span class="option-text">Pratico essa atitude com frequência</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="question-card" aria-label="Pergunta sobre Responsabilidade">
+        <div class="question-header">
+          <span class="dimension-badge">RESPONSABILIDADE</span>
+          <a href="configuracao-autoavaliacao.html" class="card-link-action" aria-label="Editar questão de Responsabilidade">Editar questão</a>
+        </div>
+
+        <h3 class="question-statement">Como você percebe essa atitude no seu dia a dia?</h3>
+
+        <div class="card-divider" aria-hidden="true"></div>
+
+        <div class="options-header-row">
+          <span class="options-label">Alternativas de resposta</span>
+          <a href="configuracao-autoavaliacao.html" class="card-link-action" aria-label="Editar alternativas de Responsabilidade">Editar alternativas</a>
+        </div>
+
+        <div class="options-list">
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">1</span>
+            <span class="option-text">Ainda estou desenvolvendo essa atitude</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">2</span>
+            <span class="option-text">Consigo em poucas situações</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">3</span>
+            <span class="option-text">Consigo em algumas situações</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">4</span>
+            <span class="option-text">Consigo na maioria das situações</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">5</span>
+            <span class="option-text">Pratico essa atitude com frequência</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="question-card" aria-label="Pergunta sobre Respeito e Convivência">
+        <div class="question-header">
+          <span class="dimension-badge">RESPEITO E CONVIVÊNCIA</span>
+          <a href="configuracao-autoavaliacao.html" class="card-link-action" aria-label="Editar questão de Respeito e Convivência">Editar questão</a>
+        </div>
+
+        <h3 class="question-statement">Como você percebe essa atitude no seu dia a dia?</h3>
+
+        <div class="card-divider" aria-hidden="true"></div>
+
+        <div class="options-header-row">
+          <span class="options-label">Alternativas de resposta</span>
+          <a href="configuracao-autoavaliacao.html" class="card-link-action" aria-label="Editar alternativas de Respeito e Convivência">Editar alternativas</a>
+        </div>
+
+        <div class="options-list">
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">1</span>
+            <span class="option-text">Ainda estou desenvolvendo essa atitude</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">2</span>
+            <span class="option-text">Consigo em poucas situações</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">3</span>
+            <span class="option-text">Consigo em algumas situações</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">4</span>
+            <span class="option-text">Consigo na maioria das situações</span>
+          </div>
+          <div class="option-item">
+            <span class="option-number" aria-hidden="true">5</span>
+            <span class="option-text">Pratico essa atitude com frequência</span>
+          </div>
+        </div>
+      </article>
+
+      <a href="configuracao-autoavaliacao.html" class="btn-primary-full" aria-label="Salvar e voltar para Configuração de Autoavaliação">
+        <svg width="16" height="14" viewBox="0 0 14 12" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M13 6H1M6 11L1 6L6 1"/>
+        </svg>
+        <span>Salvar e voltar</span>
+      </a>
+
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <a href="sistema-alerta-precoce.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
+            <path d="M8.33 17.5h3.34"/>
+          </svg>
+        </div>
+        <span class="nav-label">Alertas</span>
+      </a>
+
+      <a href="turmas.html" class="nav-tab active" aria-current="page">
+        <div class="nav-indicator-bar" aria-hidden="true"></div>
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 5.833v11.667"/>
+            <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Turmas</span>
+      </a>
+
+      <a href="dashboard-agregador-visao-central.html" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
+            <path d="M12.5 5h5v5"/>
+          </svg>
+        </div>
+        <span class="nav-label">Agregadores</span>
+      </a>
+
+      <a href="#modal-perfil" class="nav-tab">
+        <div class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="6.667" r="3.333"/>
+            <path d="M4.167 17.5v-1.667C4.167 12.612 6.778 10 10 10s5.833 2.612 5.833 5.833V17.5"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <div id="modal-perfil" class="profile-modal-overlay">
       <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
       <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
         <div class="profile-modal-header">
@@ -923,119 +870,17 @@
         <div class="profile-modal-divider"></div>
         <a href="../00 — Acesso e autenticação/login-mobile.html" class="profile-modal-logout">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-            <polyline points="16 17 21 12 16 7"></polyline>
-            <line x1="21" y1="12" x2="9" y2="12"></line>
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
           </svg>
           <span class="profile-modal-logout-text">Sair da conta</span>
         </a>
         <div class="profile-modal-pointer"></div>
       </div>
     </div>
-</main>
 
-      <nav class="bottom-nav" aria-label="Navegação principal">
-        <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"
-              />
-            </svg>
-          </div>
-          <span class="nav-label">Início</span>
-        </a>
+  </main>
 
-        <a href="sistema-alerta-precoce.html" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
-              />
-              <path d="M8.33 17.5h3.34" />
-            </svg>
-          </div>
-          <span class="nav-label">Alertas</span>
-        </a>
-
-        <a href="turmas.html" class="nav-tab active" aria-current="page">
-          <span class="nav-indicator-bar" aria-hidden="true"></span>
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M10 5.833v11.667" />
-              <path
-                d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"
-              />
-            </svg>
-          </div>
-          <span class="nav-label">Turmas</span>
-        </a>
-
-        <a href="dashboard-agregador-visao-central.html" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5" />
-              <path d="M12.5 5h5v5" />
-            </svg>
-          </div>
-          <span class="nav-label">Agregadores</span>
-        </a>
-
-        <a href="#modal-perfil" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <ellipse cx="12" cy="8" rx="4" ry="4" />
-              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2" />
-            </svg>
-          </div>
-          <span class="nav-label">Perfil</span>
-        </a>
-      </nav>
-    </div>
-  </body>
+</body>
 </html>

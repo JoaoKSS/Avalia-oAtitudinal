@@ -17,7 +17,6 @@
       --color-border-subtle: #d9e4f2;
       --color-text-main: #172b4d;
       --color-text-muted: #60758b;
-      --color-text-subtle: #8194aa;
       --color-primary: #2563eb;
       --color-primary-light: #e8f1ff;
       --color-danger: #b91c1c;
@@ -26,26 +25,12 @@
       --color-warning-light: #fff4d6;
       --color-success: #15803d;
       --color-success-light: #e8f7ee;
-      --color-purple: #7c3aed;
-      --color-purple-light: #f1edff;
 
       --radius-sm: 8px;
       --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-full: 9999px;
-
+      --radius-lg: 14px;
+      --radius-xl: 16px;
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
-    }
-
-    
-    * {
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    *::-webkit-scrollbar {
-      display: none;
-      width: 0;
-      height: 0;
     }
 
     *, *::before, *::after {
@@ -108,6 +93,7 @@
     .mobile-header {
       width: 100%;
       height: 72px;
+      min-height: 72px;
       background-color: var(--color-bg-card);
       border-bottom: 1px solid var(--color-border-subtle);
       display: flex;
@@ -121,7 +107,7 @@
     .brand-section {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       text-decoration: none;
     }
 
@@ -134,120 +120,121 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
-    }
-
-    .brand-titles {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
     }
 
     .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
       font-size: 15px;
-      font-weight: 700;
-      color: var(--color-text-main);
-      letter-spacing: -0.2px;
-      line-height: 1.2;
-    }
-
-    .brand-badge {
-      font-size: 10px;
       font-weight: 600;
-      color: var(--color-primary);
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      line-height: 1.2;
+      line-height: 1.25;
+      color: var(--color-text-main);
     }
 
-    .header-notification-btn {
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-icon-btn {
       width: 42px;
       height: 42px;
-      border-radius: 14px;
-      background-color: #ffffff;
+      background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #60758b;
       position: relative;
       cursor: pointer;
       text-decoration: none;
-      transition: background-color 0.15s ease;
+      color: var(--color-text-muted);
+      padding: 0;
     }
 
-    .header-notification-btn:hover {
+    .header-icon-btn:hover {
       background-color: #f8fafc;
+      border-color: #c7d7eb;
+      color: var(--color-primary);
     }
 
-    .notification-dot {
+    .notif-badge-dot {
       position: absolute;
-      top: 9px;
-      right: 10px;
-      width: 7.5px;
-      height: 7.5px;
-      background-color: var(--color-primary);
+      left: 27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
       border-radius: 50%;
-      border: 1.5px solid #ffffff;
     }
 
-    .screen-content {
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+    .main-content {
       flex: 1;
       overflow-y: auto;
-      padding: 16px 16px 24px;
+      padding: 18px 16px 98px 16px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
     }
 
     .page-hero {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 0;
+      margin-bottom: 14px;
     }
 
     .page-title {
       font-size: 22px;
       font-weight: 700;
+      line-height: 1.35;
       color: var(--color-text-main);
-      letter-spacing: -0.3px;
-      line-height: 1.25;
     }
 
     .page-subtitle {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 400;
+      line-height: 1.42;
       color: var(--color-text-muted);
-      line-height: 1.45;
+      margin-top: 4px;
     }
 
     .kpis-list {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      margin-bottom: 20px;
     }
 
     .kpi-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 12px 16px;
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
       display: flex;
       align-items: center;
-      gap: 14px;
-      position: relative;
-      overflow: hidden;
+      gap: 12px;
       box-shadow: var(--shadow-card);
     }
 
     .kpi-icon-box {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -274,11 +261,11 @@
       flex-direction: column;
       flex: 1;
       min-width: 0;
-      gap: 4px;
+      gap: 2px;
     }
 
     .kpi-label {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
       color: var(--color-text-muted);
       line-height: 1.2;
@@ -287,18 +274,18 @@
     .kpi-value-row {
       display: flex;
       align-items: baseline;
-      gap: 10px;
+      gap: 8px;
     }
 
     .kpi-value {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--color-text-main);
       line-height: 1.15;
     }
 
     .kpi-meta {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 400;
       color: var(--color-text-muted);
       line-height: 1.2;
@@ -307,11 +294,10 @@
     .mobile-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 18px 16px;
+      border-radius: var(--radius-xl);
+      padding: 16px;
       box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
+      margin-bottom: 16px;
     }
 
     .card-header-flex {
@@ -319,7 +305,7 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .card-title-group {
@@ -330,9 +316,8 @@
 
     .card-title {
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--color-text-main);
-      letter-spacing: -0.2px;
     }
 
     .card-subtitle {
@@ -342,7 +327,7 @@
     }
 
     .card-link-action {
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--color-primary);
       text-decoration: none;
@@ -350,7 +335,6 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      transition: color 0.15s ease;
     }
 
     .card-link-action:hover {
@@ -390,7 +374,7 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background-color: #e8f1ff;
+      background-color: var(--color-primary-light);
       color: var(--color-primary);
       display: flex;
       align-items: center;
@@ -410,7 +394,7 @@
 
     .alert-name {
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--color-text-main);
       white-space: nowrap;
       overflow: hidden;
@@ -418,7 +402,7 @@
     }
 
     .alert-class {
-      font-size: 11.5px;
+      font-size: 12px;
       color: var(--color-text-muted);
     }
 
@@ -428,17 +412,17 @@
     }
 
     .alert-reason {
-      font-size: 11.5px;
+      font-size: 12px;
       color: var(--color-text-muted);
       line-height: 1.35;
       text-align: right;
     }
 
     .badge-status {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
       padding: 2.5px 8px;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       letter-spacing: 0.3px;
       white-space: nowrap;
       flex-shrink: 0;
@@ -446,13 +430,13 @@
     }
 
     .badge-status.critico {
-      background-color: #fee2e2;
-      color: #b91c1c;
+      background-color: var(--color-danger-light);
+      color: var(--color-danger);
     }
 
     .badge-status.atencao {
-      background-color: #fff4d6;
-      color: #b45309;
+      background-color: var(--color-warning-light);
+      color: var(--color-warning);
     }
 
     .card-footer-flex {
@@ -464,7 +448,7 @@
 
     .card-footer-count {
       font-size: 11px;
-      color: var(--color-text-subtle);
+      color: var(--color-text-muted);
     }
 
     .clima-score-header {
@@ -478,7 +462,7 @@
     .clima-score-val {
       font-size: 22px;
       font-weight: 700;
-      color: #15803d;
+      color: var(--color-success);
       line-height: 1;
     }
 
@@ -515,14 +499,14 @@
       flex: 1;
       height: 7px;
       background-color: #edf2f7;
-      border-radius: var(--radius-full);
+      border-radius: 9999px;
       overflow: hidden;
     }
 
     .clima-dim-bar {
       height: 100%;
       background-color: var(--color-primary);
-      border-radius: var(--radius-full);
+      border-radius: 9999px;
       transition: width 0.3s ease;
     }
 
@@ -554,22 +538,24 @@
       align-items: center;
       gap: 14px;
       padding: 12px 14px;
-      background-color: #ffffff;
+      background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: 14px;
+      border-radius: var(--radius-xl);
       text-decoration: none;
       transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+      box-shadow: var(--shadow-card);
     }
 
     .shortcut-card-btn:hover {
       background-color: #f8fafc;
-      border-color: #cbd5e1;
+      border-color: var(--color-primary);
+      transform: translateY(-1px);
     }
 
     .shortcut-icon {
       width: 44px;
       height: 44px;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -577,18 +563,18 @@
     }
 
     .shortcut-icon.blue {
-      background-color: #eff6ff;
+      background-color: var(--color-primary-light);
       color: var(--color-primary);
     }
 
     .shortcut-icon.purple {
-      background-color: #f5f3ff;
+      background-color: #f1edff;
       color: #7c3aed;
     }
 
     .shortcut-icon.green {
-      background-color: #f0fdf4;
-      color: #16a34a;
+      background-color: var(--color-success-light);
+      color: var(--color-success);
     }
 
     .shortcut-body {
@@ -603,7 +589,7 @@
       font-size: 14px;
       font-weight: 700;
       color: var(--color-text-main);
-      line-height: 1.25;
+      line-height: 1.35;
     }
 
     .shortcut-desc {
@@ -613,17 +599,21 @@
     }
 
     .shortcut-arrow {
-      color: var(--color-primary);
+      color: #8194aa;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .shortcut-card-btn:hover .shortcut-arrow {
+      color: var(--color-primary);
+      transform: translateX(2px);
     }
 
     .turmas-card-panel {
-      display: flex;
-      flex-direction: column;
-      padding: 18px 16px;
+      padding: 16px;
     }
 
     .turmas-header-group {
@@ -635,8 +625,8 @@
     .turmas-icon-box {
       width: 44px;
       height: 44px;
-      border-radius: 12px;
-      background-color: #eff6ff;
+      border-radius: var(--radius-md);
+      background-color: var(--color-primary-light);
       color: var(--color-primary);
       display: flex;
       align-items: center;
@@ -652,7 +642,7 @@
 
     .turmas-title {
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--color-text-main);
       line-height: 1.2;
     }
@@ -661,7 +651,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--color-text-muted);
       font-weight: 500;
     }
@@ -682,63 +672,57 @@
 
     .turmas-link {
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--color-primary);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: opacity 0.15s ease;
     }
 
     .turmas-link:hover {
       text-decoration: underline;
-      opacity: 0.85;
     }
 
     .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
       width: 100%;
-      height: 72px;
+      height: 80px;
       background-color: var(--color-bg-card);
       border-top: 1px solid var(--color-border-subtle);
       display: flex;
-      align-items: stretch;
+      align-items: flex-start;
       justify-content: space-around;
-      flex-shrink: 0;
-      z-index: 10;
+      padding-top: 8px;
+      z-index: 20;
     }
 
     .nav-tab {
-      flex: 1;
+      width: 78px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 4px;
       text-decoration: none;
-      color: var(--color-text-muted);
       position: relative;
-      transition: color 0.15s ease;
-    }
-
-    .nav-tab.active {
-      color: var(--color-primary);
+      color: var(--color-text-muted);
+      cursor: pointer;
     }
 
     .nav-indicator-bar {
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 32px;
+      top: -8px;
+      width: 36px;
       height: 3px;
+      border-radius: 2px;
       background-color: var(--color-primary);
-      border-radius: 0 0 3px 3px;
-      display: none;
     }
 
-    .nav-tab.active .nav-indicator-bar {
-      display: block;
+    .nav-tab.active {
+      color: var(--color-primary);
     }
 
     .nav-icon {
@@ -750,15 +734,17 @@
     }
 
     .nav-label {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 500;
-      line-height: 1;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
     }
 
     .nav-tab.active .nav-label {
       font-weight: 600;
     }
-  
+
     .profile-modal-overlay {
       position: absolute;
       inset: 0;
@@ -773,80 +759,88 @@
     .profile-modal-backdrop {
       position: absolute;
       inset: 0;
-      background-color: rgba(15, 23, 42, 0.4);
+      background: rgba(15, 23, 42, 0.4);
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(2px);
     }
 
     .profile-modal-card {
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 88px;
-      right: 12px;
-      width: 260px;
+      width: 346px;
+      max-width: calc(100% - 32px);
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
-      padding: 16px;
+      border-radius: 13px;
+      padding: 14px 16px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+      box-sizing: border-box;
       z-index: 100;
       display: flex;
       flex-direction: column;
-      box-sizing: border-box;
     }
 
     .profile-modal-pointer {
       position: absolute;
-      bottom: -6px;
+      bottom: -8px;
       right: 27px;
-      width: 10px;
-      height: 10px;
+      width: 14px;
+      height: 14px;
       background-color: #ffffff;
       border-right: 1px solid #d9e4f2;
       border-bottom: 1px solid #d9e4f2;
       transform: rotate(45deg);
+      z-index: 101;
     }
 
     .profile-modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      height: 24px;
     }
 
     .profile-modal-title {
       font-size: 14px;
       font-weight: 700;
+      line-height: 1.2;
       color: #172b4d;
+      margin: 0;
     }
 
     .profile-modal-close {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #f5f8fc;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
+      color: #60758b;
       font-size: 15px;
       font-weight: 400;
-      color: #64748b;
-      border-radius: 6px;
+      text-decoration: none;
+      line-height: 1;
+      transition: background-color 0.15s ease, color 0.15s ease;
     }
 
     .profile-modal-close:hover {
-      background-color: #f1f5f9;
-      color: #0f172a;
+      background-color: #e2e8f0;
+      color: #172b4d;
     }
 
     .profile-modal-divider {
       height: 1px;
-      background-color: #e2e8f0;
-      margin: 8px 0 10px 0;
+      background-color: #e8eef5;
+      margin: 10px 0;
     }
 
     .profile-modal-user {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .profile-modal-avatar {
@@ -854,10 +848,10 @@
       height: 40px;
       border-radius: 50%;
       background-color: #e8f1ff;
-      color: #2563eb;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #2563eb;
       font-size: 11px;
       font-weight: 700;
       flex-shrink: 0;
@@ -866,30 +860,33 @@
     .profile-modal-user-info {
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .profile-modal-user-name {
       font-size: 14px;
       font-weight: 600;
+      line-height: 1.2;
       color: #172b4d;
     }
 
     .profile-modal-user-role {
       font-size: 10px;
       font-weight: 400;
+      line-height: 1.2;
       color: #60758b;
+      margin-top: 3px;
     }
 
     .profile-modal-logout {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 10px 14px;
-      background-color: #fef2f2;
+      gap: 10px;
+      height: 48px;
+      padding: 0 14px;
+      background-color: #fff5f5;
       border: 1px solid #fee2e2;
-      border-radius: 8px;
+      border-radius: 9px;
       text-decoration: none;
       box-sizing: border-box;
       transition: background-color 0.15s ease, border-color 0.15s ease;
@@ -909,32 +906,32 @@
 </head>
 <body>
 
-  <div class="mobile-screen-wrapper">
-
+  <main class="mobile-screen-wrapper">
     <header class="mobile-header">
-      <div class="brand-section">
-        <div class="brand-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      <a href="painel-inicial-coordenacao-mobile.html" class="brand-section" aria-label="Educar e Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
           </svg>
         </div>
-        <div class="brand-titles">
-          <span class="brand-text">Educar &amp; Aprender</span>
-          <span class="brand-badge">Coordenação Pedagógica</span>
+        <div class="brand-text">
+          <span class="brand-name">Educar & Aprender</span>
+          <span class="brand-category">Área da Coordenação</span>
         </div>
-      </div>
-
-      <a href="sistema-alerta-precoce.html" class="header-notification-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-        </svg>
-        <span class="notification-dot" aria-hidden="true"></span>
       </a>
+
+      <div class="header-actions">
+        <a href="sistema-alerta-precoce.html" class="header-icon-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M15 6.667C15 3.905 12.762 1.667 10 1.667C7.238 1.667 5 3.905 5 6.667C5 12.5 2.5 12.5 2.5 14.167L17.5 14.167C17.5 12.5 15 12.5 15 6.667Z" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M8.334 17.5H11.666" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
+        </a>
+      </div>
     </header>
 
-    <main class="screen-content">
+    <section class="main-content">
 
       <section class="page-hero">
         <h1 class="page-title">Visão geral da escola</h1>
@@ -945,8 +942,8 @@
         <div class="kpi-card">
           <div class="kpi-icon-box danger" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.334"/>
             </svg>
           </div>
           <div class="kpi-info">
@@ -1141,9 +1138,9 @@
               <span class="shortcut-desc">Perfil coletivo e distribuição</span>
             </div>
             <div class="shortcut-arrow" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4.705" y1="9" x2="13.295" y2="9"></line>
+                <polyline points="9.614 5.318 13.295 9 9.614 12.682"></polyline>
               </svg>
             </div>
           </a>
@@ -1160,9 +1157,9 @@
               <span class="shortcut-desc">Evolução e histórico individual</span>
             </div>
             <div class="shortcut-arrow" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4.705" y1="9" x2="13.295" y2="9"></line>
+                <polyline points="9.614 5.318 13.295 9 9.614 12.682"></polyline>
               </svg>
             </div>
           </a>
@@ -1179,9 +1176,9 @@
               <span class="shortcut-desc">Pesquisar e comparar dimensões</span>
             </div>
             <div class="shortcut-arrow" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4.705" y1="9" x2="13.295" y2="9"></line>
+                <polyline points="9.614 5.318 13.295 9 9.614 12.682"></polyline>
               </svg>
             </div>
           </a>
@@ -1226,38 +1223,11 @@
         </div>
       </section>
 
-        <div id="modal-perfil" class="profile-modal-overlay">
-      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
-      <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
-        <div class="profile-modal-header">
-          <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
-          <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
-        </div>
-        <div class="profile-modal-divider"></div>
-        <div class="profile-modal-user">
-          <div class="profile-modal-avatar">CP</div>
-          <div class="profile-modal-user-info">
-            <span class="profile-modal-user-name">Coordenação Pedagógica</span>
-            <span class="profile-modal-user-role">Coordenador</span>
-          </div>
-        </div>
-        <div class="profile-modal-divider"></div>
-        <a href="../00 — Acesso e autenticação/login-mobile.html" class="profile-modal-logout">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-            <polyline points="16 17 21 12 16 7"></polyline>
-            <line x1="21" y1="12" x2="9" y2="12"></line>
-          </svg>
-          <span class="profile-modal-logout-text">Sair da conta</span>
-        </a>
-        <div class="profile-modal-pointer"></div>
-      </div>
-    </div>
-</main>
+    </section>
 
     <nav class="bottom-nav" aria-label="Navegação principal">
       <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab active" aria-current="page">
-        <span class="nav-indicator-bar" aria-hidden="true"></span>
+        <div class="nav-indicator-bar" aria-hidden="true"></div>
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
@@ -1288,7 +1258,7 @@
 
       <a href="dashboard-agregador-visao-central.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
             <path d="M12.5 5h5v5"/>
           </svg>
@@ -1298,17 +1268,44 @@
 
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="12" cy="8" rx="4" ry="4"/>
-            <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="6.667" r="3.333"/>
+            <path d="M4.167 17.5v-1.667C4.167 12.612 6.778 10 10 10s5.833 2.612 5.833 5.833V17.5"/>
           </svg>
         </div>
         <span class="nav-label">Perfil</span>
       </a>
     </nav>
 
-  </div>
+    <div id="modal-perfil" class="profile-modal-overlay">
+      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
+      <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
+        <div class="profile-modal-header">
+          <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
+          <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <div class="profile-modal-user">
+          <div class="profile-modal-avatar">CP</div>
+          <div class="profile-modal-user-info">
+            <span class="profile-modal-user-name">Coordenação Pedagógica</span>
+            <span class="profile-modal-user-role">Coordenador</span>
+          </div>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <a href="../00 — Acesso e autenticação/login-mobile.html" class="profile-modal-logout">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span class="profile-modal-logout-text">Sair da conta</span>
+        </a>
+        <div class="profile-modal-pointer"></div>
+      </div>
+    </div>
+
+  </main>
 
 </body>
 </html>
-
