@@ -109,7 +109,7 @@
       }
 
       .brand-role {
-        font-size: 8px;
+        font-size: 10px;
         font-weight: 600;
         line-height: 1.4;
         letter-spacing: 0.5px;
@@ -125,7 +125,7 @@
       }
 
       .nav-section-title {
-        font-size: 9px;
+        font-size: 10px;
         font-weight: 600;
         line-height: 1.4;
         letter-spacing: 0.5px;
@@ -558,7 +558,6 @@
         color: #8194aa;
         font-weight: 500;
         text-align: right;
-        user-select: none;
         padding: 0;
         line-height: 1;
       }
@@ -605,7 +604,6 @@
         justify-content: space-between;
         margin-left: 36px;
         margin-top: 10px;
-        user-select: none;
       }
 
       .chart-x-axis span {
@@ -1360,8 +1358,12 @@
                   <div class="chart-plot-area">
                     <svg
                       class="chart-svg"
+                      width="500"
+                      height="135"
                       viewBox="0 0 500 135"
                       preserveAspectRatio="none"
+                      fill="none"
+                      aria-hidden="true"
                     >
 
                       <line
@@ -1370,6 +1372,8 @@
                         x2="500"
                         y2="2"
                         class="chart-grid-line"
+                        stroke="#d8e4f3"
+                        stroke-width="1"
                         vector-effect="non-scaling-stroke"
                       />
                       <line
@@ -1378,6 +1382,8 @@
                         x2="500"
                         y2="46"
                         class="chart-grid-line"
+                        stroke="#d8e4f3"
+                        stroke-width="1"
                         vector-effect="non-scaling-stroke"
                       />
                       <line
@@ -1386,6 +1392,8 @@
                         x2="500"
                         y2="90"
                         class="chart-grid-line"
+                        stroke="#d8e4f3"
+                        stroke-width="1"
                         vector-effect="non-scaling-stroke"
                       />
                       <line
@@ -1394,21 +1402,28 @@
                         x2="500"
                         y2="134"
                         class="chart-grid-line"
+                        stroke="#d8e4f3"
+                        stroke-width="1"
                         vector-effect="non-scaling-stroke"
                       />
 
                       <polyline
                         points="18,47 111,44 204,40 296,39 389,35 482,31"
                         class="chart-trend-line"
+                        fill="none"
+                        stroke="#2563eb"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
                         vector-effect="non-scaling-stroke"
                       />
 
-                      <circle cx="18" cy="47" r="4.5" class="chart-dot" vector-effect="non-scaling-stroke" />
-                      <circle cx="111" cy="44" r="4.5" class="chart-dot" vector-effect="non-scaling-stroke" />
-                      <circle cx="204" cy="40" r="4.5" class="chart-dot" vector-effect="non-scaling-stroke" />
-                      <circle cx="296" cy="39" r="4.5" class="chart-dot" vector-effect="non-scaling-stroke" />
-                      <circle cx="389" cy="35" r="4.5" class="chart-dot" vector-effect="non-scaling-stroke" />
-                      <circle cx="482" cy="31" r="4.5" class="chart-dot" vector-effect="non-scaling-stroke" />
+                      <circle cx="18" cy="47" r="4.5" class="chart-dot" fill="#ffffff" stroke="#2563eb" stroke-width="2" vector-effect="non-scaling-stroke" />
+                      <circle cx="111" cy="44" r="4.5" class="chart-dot" fill="#ffffff" stroke="#2563eb" stroke-width="2" vector-effect="non-scaling-stroke" />
+                      <circle cx="204" cy="40" r="4.5" class="chart-dot" fill="#ffffff" stroke="#2563eb" stroke-width="2" vector-effect="non-scaling-stroke" />
+                      <circle cx="296" cy="39" r="4.5" class="chart-dot" fill="#ffffff" stroke="#2563eb" stroke-width="2" vector-effect="non-scaling-stroke" />
+                      <circle cx="389" cy="35" r="4.5" class="chart-dot" fill="#ffffff" stroke="#2563eb" stroke-width="2" vector-effect="non-scaling-stroke" />
+                      <circle cx="482" cy="31" r="4.5" class="chart-dot" fill="#ffffff" stroke="#2563eb" stroke-width="2" vector-effect="non-scaling-stroke" />
                     </svg>
                   </div>
                 </div>
@@ -1726,7 +1741,7 @@
     <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
       <div class="profile-modal-header">
         <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
-        <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
+        <a href="#" class="profile-modal-close" aria-label="Fechar modal"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
       </div>
       <div class="profile-modal-divider"></div>
       <div class="profile-modal-user">
