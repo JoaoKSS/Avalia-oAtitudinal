@@ -398,15 +398,30 @@
         margin-top: 4px;
       }
 
-      .filters-bar {
-        display: flex;
-        align-items: center;
-        gap: 16px;
+      .filters-row-layout {
+        display: grid;
+        grid-template-columns: 1.55fr 1fr;
+        gap: 24px;
         margin-bottom: 24px;
+      }
+
+      @media (max-width: 900px) {
+        .filters-row-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .filters-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 0;
+        width: 100%;
       }
 
       .filter-dropdown-details {
         position: relative;
+        width: 100%;
       }
 
       .filter-dropdown-details summary {
@@ -444,12 +459,9 @@
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
       }
 
-      .filter-dropdown.filter-turma {
-        width: 180px;
-      }
-
+      .filter-dropdown.filter-turma,
       .filter-dropdown.filter-periodo {
-        width: 200px;
+        width: 100%;
       }
 
       .filter-label {
@@ -1474,7 +1486,8 @@
             </article>
           </section>
 
-          <div class="filters-bar">
+          <div class="filters-row-layout">
+            <div class="filters-bar">
 
             <details class="filter-dropdown-details">
               <summary class="filter-dropdown filter-turma">
@@ -1506,6 +1519,7 @@
                 <div class="filter-dropdown-item">Ano letivo atual</div>
               </div>
             </details>
+            </div>
           </div>
 
           <div class="bi-grid-top">
