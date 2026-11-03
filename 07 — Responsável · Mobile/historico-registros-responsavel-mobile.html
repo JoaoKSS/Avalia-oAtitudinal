@@ -98,6 +98,7 @@
     .mobile-header {
       width: 100%;
       height: 72px;
+      min-height: 72px;
       background-color: var(--color-bg-card);
       border-bottom: 1px solid var(--color-border-subtle);
       display: flex;
@@ -166,6 +167,7 @@
       cursor: pointer;
       color: var(--color-text-muted);
       text-decoration: none;
+      padding: 0;
       transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
@@ -173,6 +175,11 @@
       background-color: #f8fafc;
       border-color: #cbd5e1;
       color: var(--color-text-main);
+    }
+
+    .header-icon-btn.active {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
     }
 
     .notif-badge-dot {
@@ -192,7 +199,6 @@
       padding: 14px 16px 98px 16px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
       scrollbar-width: none;
     }
 
@@ -211,6 +217,7 @@
       font-weight: 600;
       transition: opacity 0.15s ease;
       align-self: flex-start;
+      margin-bottom: 14px;
     }
 
     .btn-back-link:hover {
@@ -229,6 +236,7 @@
       align-items: center;
       justify-content: space-between;
       box-shadow: var(--shadow-card);
+      margin-bottom: 20px;
     }
 
     .dependent-left {
@@ -292,7 +300,7 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      margin-top: 4px;
+      margin-bottom: 12px;
     }
 
     .section-title {
@@ -316,6 +324,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      margin-bottom: 14px;
     }
 
     .filter-chip {
@@ -527,7 +536,7 @@
       align-items: center;
       justify-content: center;
     }
-  
+
     .profile-modal-overlay {
       position: absolute;
       inset: 0;
@@ -674,7 +683,6 @@
       font-weight: 600;
       color: #dc2626;
     }
-
   </style>
 </head>
 <body>
@@ -691,7 +699,7 @@
           </svg>
         </div>
         <div class="brand-text">
-          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-name">Educar & Aprender</span>
           <span class="brand-category">Área do Responsável</span>
         </div>
       </a>
@@ -719,8 +727,8 @@
     <section class="main-content">
       
       <a href="painel-inicial-responsavel-mobile.html" class="btn-back-link" title="Voltar ao início">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12.5 15l-5-5 5-5"/>
         </svg>
         <span>Início</span>
       </a>
@@ -843,7 +851,6 @@
       </a>
     </nav>
 
-  
     <div id="modal-perfil" class="profile-modal-overlay">
       <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
       <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
@@ -876,4 +883,3 @@
 
 </body>
 </html>
-

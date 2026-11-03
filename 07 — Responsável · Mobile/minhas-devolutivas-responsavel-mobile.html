@@ -169,6 +169,11 @@
       color: var(--color-primary);
     }
 
+    .header-icon-btn.active {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
     .notif-badge-dot {
       position: absolute;
       left: 27px;
@@ -185,7 +190,6 @@
       padding: 14px 16px 88px 16px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
       scrollbar-width: none;
     }
 
@@ -203,11 +207,11 @@
       font-weight: 600;
       transition: opacity 0.15s ease;
       align-self: flex-start;
+      margin-bottom: 14px;
     }
 
     .btn-back-link:hover {
       opacity: 0.8;
-      text-decoration: underline;
     }
 
     .dependent-card {
@@ -277,7 +281,7 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      margin-top: 2px;
+      margin-bottom: 20px;
     }
 
     .page-title {
@@ -300,13 +304,13 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
       color: var(--color-text-muted);
-      margin-top: 2px;
+      margin-bottom: 12px;
     }
 
     .devolutivas-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .devolutiva-card {
@@ -400,6 +404,7 @@
       font-size: 11px;
       font-weight: 400;
       color: var(--color-text-muted);
+      margin-bottom: 4px;
     }
 
     .devolutiva-summary-text {
@@ -641,7 +646,7 @@
           </svg>
         </div>
         <div class="brand-text">
-          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-name">Educar & Aprender</span>
           <span class="brand-category">Área do Responsável</span>
         </div>
       </a>

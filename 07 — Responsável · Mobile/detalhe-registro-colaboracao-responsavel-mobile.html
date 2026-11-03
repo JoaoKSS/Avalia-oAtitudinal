@@ -98,6 +98,7 @@
     .mobile-header {
       width: 100%;
       height: 72px;
+      min-height: 72px;
       background-color: var(--color-bg-card);
       border-bottom: 1px solid var(--color-border-subtle);
       display: flex;
@@ -122,7 +123,7 @@
       border-radius: 12px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify_content: center;
       flex-shrink: 0;
     }
 
@@ -166,6 +167,7 @@
       cursor: pointer;
       color: var(--color-text-muted);
       text-decoration: none;
+      padding: 0;
       transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
@@ -173,6 +175,11 @@
       background-color: #f8fafc;
       border-color: #cbd5e1;
       color: var(--color-text-main);
+    }
+
+    .header-icon-btn.active {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
     }
 
     .notif-badge-dot {
@@ -192,7 +199,6 @@
       padding: 14px 16px 98px 16px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
       scrollbar-width: none;
     }
 
@@ -211,6 +217,7 @@
       font-weight: 600;
       transition: opacity 0.15s ease;
       align-self: flex-start;
+      margin-bottom: 14px;
     }
 
     .btn-back-link:hover {
@@ -222,6 +229,7 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
+      margin-bottom: 20px;
     }
 
     .page-title {
@@ -309,6 +317,7 @@
       justify-content: space-between;
       gap: 10px;
       padding: 2px 2px 0 2px;
+      margin-bottom: 20px;
     }
 
     .meta-date-block {
@@ -353,6 +362,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-bottom: 20px;
     }
 
     .dimension-title {
@@ -414,6 +424,7 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      margin-bottom: 20px;
     }
 
     .guidance-title {
@@ -445,6 +456,7 @@
       display: flex;
       flex-direction: column;
       gap: 3px;
+      margin-bottom: 12px;
     }
 
     .dialogue-title {
@@ -543,7 +555,7 @@
       height: 24px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify_content: center;
     }
   
     .profile-modal-overlay {
@@ -627,7 +639,7 @@
     .profile-modal-divider {
       height: 1px;
       background-color: #e2e8f0;
-      margin: 8px 0 10px 0;
+      margin: 8px 0 10px 0.
     }
 
     .profile-modal-user {
@@ -646,8 +658,8 @@
       align-items: center;
       justify-content: center;
       font-size: 11px;
-      font-weight: 700;
-      flex-shrink: 0;
+      font-weight: 700.
+      flex-shrink: 0.
     }
 
     .profile-modal-user-info {
@@ -657,42 +669,41 @@
 
     .profile-modal-user-name {
       font-size: 14px;
-      font-weight: 600;
-      color: #172b4d;
+      font-weight: 600.
+      color: #172b4d.
     }
 
     .profile-modal-user-role {
-      font-size: 10px;
-      font-weight: 400;
-      color: #60758b;
+      font-size: 10px.
+      font-weight: 400.
+      color: #60758b.
     }
 
     .profile-modal-logout {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 10px 14px;
-      background-color: #fef2f2;
-      border: 1px solid #fee2e2;
-      border-radius: 8px;
-      text-decoration: none;
-      box-sizing: border-box;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
+      display: flex.
+      align-items: center.
+      justify-content: center.
+      gap: 8px.
+      width: 100%.
+      padding: 10px 14px.
+      background-color: #fef2f2.
+      border: 1px solid #fee2e2.
+      border-radius: 8px.
+      text-decoration: none.
+      box-sizing: border-box.
+      transition: background-color 0.15s ease, border-color 0.15s ease.
     }
 
     .profile-modal-logout:hover {
-      background-color: #fee2e2;
-      border-color: #fca5a5;
+      background-color: #fee2e2.
+      border-color: #fca5a5.
     }
 
     .profile-modal-logout-text {
-      font-size: 13px;
-      font-weight: 600;
-      color: #dc2626;
+      font-size: 13px.
+      font-weight: 600.
+      color: #dc2626.
     }
-
   </style>
 </head>
 <body>
@@ -709,7 +720,7 @@
           </svg>
         </div>
         <div class="brand-text">
-          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-name">Educar & Aprender</span>
           <span class="brand-category">Área do Responsável</span>
         </div>
       </a>
@@ -775,7 +786,7 @@
         <hr class="card-divider">
         <div class="observation-title">Cooperou na atividade em grupo</div>
         <p class="observation-desc">Compartilhou ideias e contribuiu com o grupo.</p>
-        
+
         <div class="context-block">
           <span class="context-label">CONTEXTO DA OBSERVAÇÃO</span>
           <span class="context-desc">Atividade em grupo realizada em sala de aula.</span>
@@ -844,7 +855,6 @@
       </a>
     </nav>
 
-  
     <div id="modal-perfil" class="profile-modal-overlay">
       <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
       <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
@@ -877,4 +887,3 @@
 
 </body>
 </html>
-
