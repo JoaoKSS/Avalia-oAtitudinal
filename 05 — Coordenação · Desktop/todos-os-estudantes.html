@@ -42,7 +42,7 @@
     .sidebar {
       width: 248px;
       background-color: #ffffff;
-      border-right: 1px solid #d9e4f2;
+      border-right: 1px solid #d8e4f3;
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
@@ -256,7 +256,7 @@
         .top-header {
       height: 76px;
       background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d8e4f3;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -310,7 +310,7 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       background-color: #ffffff;
       display: flex;
       align-items: center;
@@ -347,11 +347,9 @@
     /* Conteúdo do Painel */
     .content-area {
       flex: 1;
-      min-height: 0;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 24px 24px 32px 32px;
       width: 100%;
+      padding: 32px;
+      overflow-y: auto;
       box-sizing: border-box;
     }
 
@@ -378,15 +376,15 @@
     }
 
     .page-title {
-      font-size: 27px;
-      font-weight: 600;
+      font-size: 28px;
+      font-weight: 700;
       line-height: 1.35;
       color: #172b4d;
       margin-bottom: 4px;
     }
 
     .page-desc {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
       line-height: 1.4;
       color: #60758b;
@@ -402,7 +400,7 @@
 
     .summary-card {
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       border-radius: 12px;
       height: 66px;
       display: flex;
@@ -484,110 +482,176 @@
       color: #6d5bd0;
     }
 
-    /* Linha de Controles: Filtros Dropdown + Busca */
+    /* Linha de Controles: Filtros Dropdown + Busca Padronizados */
     .controls-row {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       gap: 12px;
       margin-bottom: 24px;
       flex-wrap: wrap;
     }
 
     .filter-item {
+      flex: 1;
+      min-width: 140px;
+      position: relative;
+    }
+
+    .filter-dropdown-details {
+      position: relative;
+      width: 100%;
+    }
+
+    .filter-dropdown-details summary {
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    .filter-dropdown-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .filter-dropdown {
+      width: 100%;
+      height: 48px;
+      background-color: #ffffff;
+      border: 1px solid #d8e4f3;
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      min-width: 140px;
-      flex: 1;
+      justify-content: center;
+      padding: 6px 14px;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    .filter-dropdown:hover {
+      border-color: #cbd5e1;
+    }
+
+    .filter-dropdown-details[open] .filter-dropdown {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     .filter-label {
       font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.5px;
-      text-transform: uppercase;
       color: #60758b;
+      text-transform: uppercase;
+      line-height: 1.2;
     }
 
-    .filter-select-wrapper {
-      position: relative;
-      width: 100%;
+    .filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .filter-select {
-      width: 100%;
-      height: 34px;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 8px;
-      padding: 0 28px 0 10px;
-      font-family: inherit;
+    .filter-text {
       font-size: 12px;
       font-weight: 500;
       color: #172b4d;
-      appearance: none;
-      outline: none;
-      cursor: pointer;
-      transition: border-color 0.15s ease;
-    }
-
-    .filter-select:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .filter-chevron {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
       color: #60758b;
-      display: flex;
-      align-items: center;
+      font-size: 12px;
+      line-height: 1;
+      margin-left: 6px;
+    }
+
+    .filter-dropdown-menu {
+      position: absolute;
+      top: 54px;
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      border: 1px solid #d8e4f3;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 40;
+      display: none;
+      overflow: hidden;
+    }
+
+    .filter-dropdown-details[open] .filter-dropdown-menu {
+      display: block;
+    }
+
+    .filter-dropdown-item {
+      display: block;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 400;
+      color: #172b4d;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .filter-dropdown-item:hover {
+      background-color: #f1f5f9;
+      color: #2563eb;
+    }
+
+    .filter-dropdown-item.selected {
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-weight: 600;
     }
 
     .search-filter-item {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      flex: 2.2;
-      min-width: 280px;
+      flex: 2;
+      min-width: 240px;
     }
 
     .search-box-wrapper {
       position: relative;
       width: 100%;
-      height: 34px;
+      height: 48px;
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 8px;
+      border: 1px solid #d8e4f3;
+      border-radius: 10px;
       display: flex;
       align-items: center;
-      padding: 0 10px;
-      gap: 8px;
-      transition: border-color 0.15s ease;
+      padding: 0 16px;
+      gap: 10px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
     }
 
     .search-box-wrapper:focus-within {
       border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
 
     .search-icon-symbol {
+      width: 20px;
+      height: 20px;
       color: #60758b;
-      font-size: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     .search-text-input {
       flex: 1;
+      height: 100%;
       border: none;
       outline: none;
       font-family: inherit;
-      font-size: 12px;
+      font-size: 14px;
       color: #172b4d;
       background: transparent;
     }
@@ -599,7 +663,7 @@
     /* Painel / Card da Tabela de Estudantes */
     .table-card {
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       border-radius: 16px;
       padding: 20px 24px;
       display: flex;
@@ -640,7 +704,7 @@
       height: 32px;
       padding: 0 14px;
       border-radius: 8px;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       background-color: #ffffff;
       color: #60758b;
       font-family: inherit;
@@ -697,15 +761,15 @@
       color: #8194aa;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      border-bottom: 1px solid #d9e4f2;
-      border-top: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d8e4f3;
+      border-top: 1px solid #d8e4f3;
     }
 
     .data-table td {
       padding: 12px 14px;
       font-size: 12px;
       color: #172b4d;
-      border-bottom: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d8e4f3;
       vertical-align: middle;
     }
 
@@ -771,15 +835,19 @@
     }
 
     .badge-level {
-      padding: 3px 8px;
-      border-radius: 8px;
-      font-size: 9px;
+      height: 24px;
+      width: 76px;
+      padding: 0;
+      border-radius: 6px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      box-sizing: border-box;
+      white-space: nowrap;
     }
 
     .badge-level.critical {
@@ -805,7 +873,7 @@
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       white-space: nowrap;
       transition: color 0.15s ease;
     }
@@ -851,7 +919,7 @@
     .bottom-bar {
       height: 76px;
       background-color: #ffffff;
-      border-top: 1px solid #d9e4f2;
+      border-top: 1px solid #d8e4f3;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -866,7 +934,7 @@
       padding: 0 24px;
       border-radius: 10px;
       background-color: #60758b;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       color: #ffffff;
       font-family: inherit;
       font-size: 13px;
@@ -1092,7 +1160,13 @@
 
           <!-- Card Atenção -->
           <div class="summary-card">
-            <div class="summary-icon-box amber" aria-hidden="true">!</div>
+            <div class="summary-icon-box amber" aria-hidden="true">
+              <!-- Ícone Exclamação oficial de Atenção do Penpot -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M10.25 4.5h3.5l-.65 9.5h-2.2l-.65-9.5z"/>
+                <rect x="10.5" y="16.5" width="3" height="3" rx="0.5"/>
+              </svg>
+            </div>
             <div class="summary-content">
               <span class="summary-label">Atenção</span>
               <span class="summary-value amber">9</span>
@@ -1117,93 +1191,97 @@
           </div>
         </section>
 
-        <!-- Linha de Controles: Filtros + Busca -->
+        <!-- Linha de Controles: Filtros Dropdown Padronizados + Busca -->
         <section class="controls-row" aria-label="Filtros e busca">
           <!-- Filtro Turma -->
           <div class="filter-item">
-            <label for="filtro-turma" class="filter-label">Turma</label>
-            <div class="filter-select-wrapper">
-              <select id="filtro-turma" class="filter-select">
-                <option value="todas" selected>Todas as turmas</option>
-                <option value="7b">7º ano B</option>
-                <option value="8a">8º ano A</option>
-                <option value="6c">6º ano C</option>
-                <option value="9a">9º ano A</option>
-                <option value="8b">8º ano B</option>
-                <option value="9b">9º ano B</option>
-              </select>
-              <span class="filter-chevron" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 6l4 4 4-4"/>
-                </svg>
-              </span>
-            </div>
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+                <span class="filter-label">TURMA</span>
+                <div class="filter-row">
+                  <span class="filter-text">Todas as turmas</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu" role="listbox">
+                <a href="#todas" class="filter-dropdown-item selected" role="option">Todas as turmas</a>
+                <a href="#7b" class="filter-dropdown-item" role="option">7º ano B</a>
+                <a href="#8a" class="filter-dropdown-item" role="option">8º ano A</a>
+                <a href="#6c" class="filter-dropdown-item" role="option">6º ano C</a>
+                <a href="#9a" class="filter-dropdown-item" role="option">9º ano A</a>
+                <a href="#8b" class="filter-dropdown-item" role="option">8º ano B</a>
+                <a href="#9b" class="filter-dropdown-item" role="option">9º ano B</a>
+              </div>
+            </details>
           </div>
 
           <!-- Filtro Tipo de Alerta -->
           <div class="filter-item">
-            <label for="filtro-tipo" class="filter-label">Tipo de alerta</label>
-            <div class="filter-select-wrapper">
-              <select id="filtro-tipo" class="filter-select">
-                <option value="todos" selected>Todos os tipos</option>
-                <option value="atitudinal">Queda atitudinal</option>
-                <option value="faltas">Aumento de faltas</option>
-                <option value="participacao">Participação</option>
-                <option value="desempenho">Desempenho</option>
-              </select>
-              <span class="filter-chevron" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 6l4 4 4-4"/>
-                </svg>
-              </span>
-            </div>
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+                <span class="filter-label">TIPO DE ALERTA</span>
+                <div class="filter-row">
+                  <span class="filter-text">Todos os tipos</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu" role="listbox">
+                <a href="#todos" class="filter-dropdown-item selected" role="option">Todos os tipos</a>
+                <a href="#atitudinal" class="filter-dropdown-item" role="option">Queda atitudinal</a>
+                <a href="#faltas" class="filter-dropdown-item" role="option">Aumento de faltas</a>
+                <a href="#participacao" class="filter-dropdown-item" role="option">Participação</a>
+                <a href="#desempenho" class="filter-dropdown-item" role="option">Desempenho</a>
+              </div>
+            </details>
           </div>
 
           <!-- Filtro Nível de Criticidade -->
           <div class="filter-item">
-            <label for="filtro-nivel" class="filter-label">Nível de criticidade</label>
-            <div class="filter-select-wrapper">
-              <select id="filtro-nivel" class="filter-select">
-                <option value="todos" selected>Todos os níveis</option>
-                <option value="critico">Crítico</option>
-                <option value="atencao">Atenção</option>
-              </select>
-              <span class="filter-chevron" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 6l4 4 4-4"/>
-                </svg>
-              </span>
-            </div>
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+                <span class="filter-label">NÍVEL DE CRITICIDADE</span>
+                <div class="filter-row">
+                  <span class="filter-text">Todos os níveis</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu" role="listbox">
+                <a href="#todos" class="filter-dropdown-item selected" role="option">Todos os níveis</a>
+                <a href="#critico" class="filter-dropdown-item" role="option">Crítico</a>
+                <a href="#atencao" class="filter-dropdown-item" role="option">Atenção</a>
+              </div>
+            </details>
           </div>
 
           <!-- Filtro Período -->
           <div class="filter-item">
-            <label for="filtro-periodo" class="filter-label">Período</label>
-            <div class="filter-select-wrapper">
-              <select id="filtro-periodo" class="filter-select">
-                <option value="30" selected>Últimos 30 dias</option>
-                <option value="15">Últimos 15 dias</option>
-                <option value="60">Últimos 60 dias</option>
-                <option value="semestre">Neste semestre</option>
-              </select>
-              <span class="filter-chevron" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 6l4 4 4-4"/>
-                </svg>
-              </span>
-            </div>
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+                <span class="filter-label">PERÍODO</span>
+                <div class="filter-row">
+                  <span class="filter-text">Últimos 30 dias</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu" role="listbox">
+                <a href="#30" class="filter-dropdown-item selected" role="option">Últimos 30 dias</a>
+                <a href="#15" class="filter-dropdown-item" role="option">Últimos 15 dias</a>
+                <a href="#60" class="filter-dropdown-item" role="option">Últimos 60 dias</a>
+                <a href="#semestre" class="filter-dropdown-item" role="option">Neste semestre</a>
+              </div>
+            </details>
           </div>
 
           <!-- Busca de Estudante -->
           <div class="search-filter-item">
             <div class="search-box-wrapper">
               <span class="search-icon-symbol" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11.5" cy="8.5" r="5.5"/>
-                  <path d="M7.5 12.5L3.5 16.5"/>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"/>
+                  <path d="M16.667 16.667L13.333 13.333"/>
                 </svg>
               </span>
-              <input type="text" class="search-text-input" placeholder="Buscar pelo nome do estudante…" aria-label="Buscar pelo nome do estudante">
+              <input type="text" class="search-text-input" placeholder="Buscar pelo nome do estudante…" aria-label="Buscar pelo nome do estudante" autocomplete="off">
             </div>
           </div>
         </section>
@@ -1257,7 +1335,9 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=marina-santos" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <span aria-hidden="true">&rarr;</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                    </svg>
                   </a>
                 </td>
               </tr>
@@ -1278,7 +1358,9 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=pedro-costa" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <span aria-hidden="true">&rarr;</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                    </svg>
                   </a>
                 </td>
               </tr>
@@ -1299,7 +1381,9 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=gabriel-barros" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <span aria-hidden="true">&rarr;</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                    </svg>
                   </a>
                 </td>
               </tr>
@@ -1320,7 +1404,9 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=joao-lima" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <span aria-hidden="true">&rarr;</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                    </svg>
                   </a>
                 </td>
               </tr>
@@ -1341,7 +1427,9 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=ana-ribeiro" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <span aria-hidden="true">&rarr;</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                    </svg>
                   </a>
                 </td>
               </tr>
@@ -1362,7 +1450,9 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=lucas-martins" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <span aria-hidden="true">&rarr;</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                    </svg>
                   </a>
                 </td>
               </tr>
@@ -1383,7 +1473,9 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=beatriz-nunes" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <span aria-hidden="true">&rarr;</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                    </svg>
                   </a>
                 </td>
               </tr>
@@ -1404,7 +1496,9 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=sofia-alves" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <span aria-hidden="true">&rarr;</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                    </svg>
                   </a>
                 </td>
               </tr>
@@ -1433,7 +1527,6 @@
       </footer>
     </main>
   </div>
-
 </body>
 </html>
 

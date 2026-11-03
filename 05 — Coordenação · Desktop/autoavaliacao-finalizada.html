@@ -65,7 +65,7 @@
         width: 248px;
         min-width: 248px;
         background-color: #ffffff;
-        border-right: 1px solid #d9e4f2;
+        border-right: 1px solid #d8e4f3;
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
@@ -270,112 +270,114 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+        height: 100vh;
         min-width: 0;
-        min-height: 100vh;
+        overflow: hidden;
+        position: relative;
         background-color: #f5f8fc;
       }
 
       /* Cabeçalho Superior Desktop (76px) */
-          .top-header {
-      height: 76px;
-      background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-      flex-shrink: 0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+      .top-header {
+        height: 76px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #d8e4f3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        flex-shrink: 0;
+        z-index: 10;
+      }
 
-    .breadcrumb,
-    .breadcrumb-trail {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-    }
+      .breadcrumb,
+      .breadcrumb-trail {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+      }
 
-    .breadcrumb-path,
-    .breadcrumb-item {
-      color: #60758b;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
+      .breadcrumb-path,
+      .breadcrumb-item {
+        color: #60758b;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
 
-    .breadcrumb-item:hover,
-    .breadcrumb-path:hover {
-      color: #2563eb;
-    }
+      .breadcrumb-item:hover,
+      .breadcrumb-path:hover {
+        color: #2563eb;
+      }
 
-    .breadcrumb-separator {
-      color: #8194aa;
-      user-select: none;
-    }
+      .breadcrumb-separator {
+        color: #8194aa;
+        user-select: none;
+      }
 
-    .breadcrumb-current {
-      color: #2563eb;
-      font-weight: 600;
-    }
+      .breadcrumb-current {
+        color: #2563eb;
+        font-weight: 600;
+      }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
 
-    .header-icon-btn,
-    .notification-btn,
-    .btn-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      border: 1px solid #d9e4f2;
-      background-color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #60758b;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.15s ease;
-      padding: 0;
-      text-decoration: none;
-      box-sizing: border-box;
-    }
+      .header-icon-btn,
+      .notification-btn,
+      .btn-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid #d8e4f3;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #60758b;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.15s ease;
+        padding: 0;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
 
-    .header-icon-btn:hover,
-    .notification-btn:hover,
-    .btn-icon:hover {
-      background-color: #f8fafc;
-      border-color: #cbd5e1;
-      color: #172b4d;
-    }
+      .header-icon-btn:hover,
+      .notification-btn:hover,
+      .btn-icon:hover {
+        background-color: #f8fafc;
+        border-color: #cbd5e1;
+        color: #172b4d;
+      }
 
-    .notification-dot,
-    .notification-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 7px;
-      height: 7px;
-      background-color: #2563eb;
-      border-radius: 50%;
-      border: none;
-    }
+      .notification-dot,
+      .notification-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 7px;
+        height: 7px;
+        background-color: #2563eb;
+        border-radius: 50%;
+        border: none;
+      }
 
-      /* Área de Conteúdo da Página */
+      /* Área de Conteúdo da Página Centralizada */
       .content-area {
         flex: 1;
-        width: 100%;
-        padding: 56px 32px 110px 32px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
+        padding: 24px 32px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-y: auto;
       }
 
       /* Ícone de Sucesso Oficial do Penpot */
@@ -388,6 +390,7 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 24px;
+        flex-shrink: 0;
       }
 
       .success-icon-inner {
@@ -418,10 +421,11 @@
         width: 100%;
         max-width: 960px;
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 14px;
-        padding: 20px 24px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
+        padding: 24px 32px;
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        box-sizing: border-box;
       }
 
       .turma-top-row {
@@ -431,8 +435,8 @@
       }
 
       .turma-icon-wrapper {
-        width: 44px;
-        height: 44px;
+        width: 48px;
+        height: 48px;
         border-radius: 10px;
         background-color: #e8f1ff;
         color: #2563eb;
@@ -445,21 +449,24 @@
       .turma-meta-group {
         display: flex;
         flex-direction: column;
+        gap: 3px;
       }
 
       .turma-title-text {
-        font-size: 16px;
-        font-weight: 600;
+        font-size: 15px;
+        font-weight: 700;
         color: #172b4d;
+        line-height: 1.35;
       }
 
       .turma-details-text {
         display: flex;
         align-items: center;
         gap: 8px;
-        font-size: 13px;
+        font-size: 12px;
+        font-weight: 400;
         color: #60758b;
-        margin-top: 3px;
+        line-height: 1.38;
       }
 
       .students-indicator-tag {
@@ -479,7 +486,7 @@
       .turma-bottom-status {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
       }
 
       .status-dot-green {
@@ -491,49 +498,52 @@
       }
 
       .status-text-green {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600;
         color: #16a34a;
+        line-height: 1.3;
       }
 
-      /* Rodapé Fixo de Ações */
-      .fixed-footer {
-        position: fixed;
-        bottom: 0;
-        left: 248px;
-        right: 0;
-        height: 72px;
+      /* Barra Inferior de Ações */
+      .bottom-bar {
+        height: 76px;
         background-color: #ffffff;
-        border-top: 1px solid #d9e4f2;
+        border-top: 1px solid #d8e4f3;
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding: 0 32px;
-        z-index: 15;
-        box-shadow: 0 -4px 12px rgba(15, 23, 42, 0.04);
+        padding: 0 24px 0 32px;
+        flex-shrink: 0;
+        box-shadow: 0 -4px 12px rgba(16, 24, 40, 0.05);
+        z-index: 20;
       }
 
-      .btn-footer-back {
+      .btn-back {
+        height: 44px;
+        padding: 0 24px;
+        border-radius: 10px;
+        background-color: #60758b;
+        border: 1px solid #d8e4f3;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        width: 150px;
-        height: 46px;
-        border-radius: 10px;
-        background-color: #60758b;
-        border: 1px solid #d9e4f2;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 600;
         text-decoration: none;
         cursor: pointer;
-        transition: all 0.15s ease;
+        transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
       }
 
-      .btn-footer-back:hover {
+      .btn-back:hover {
         background-color: #475569;
-        border-color: #cbd5e1;
+        transform: translateY(-1px);
+      }
+
+      .btn-back:active {
+        transform: translateY(0);
       }
     </style>
   </head>
@@ -856,16 +866,16 @@
           </section>
         </div>
 
-        <!-- Rodapé Fixo de Ações -->
-        <footer class="fixed-footer">
-          <!-- Botão Voltar (redireciona para autoavaliacoes.html conforme solicitado) -->
+        <!-- Barra Inferior de Ações -->
+        <footer class="bottom-bar">
           <a
             href="autoavaliacoes.html"
-            class="btn-footer-back"
+            class="btn-back"
+            title="Voltar para Autoavaliações"
           >
             <svg
-              width="16"
-              height="16"
+              width="14"
+              height="14"
               viewBox="0 0 20 20"
               fill="none"
               stroke="currentColor"
@@ -874,9 +884,9 @@
               stroke-linejoin="round"
               aria-hidden="true"
             >
-              <path d="M16 10H4M9 5l-5 5 5 5" />
+              <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167" />
             </svg>
-            Voltar
+            <span>Voltar</span>
           </a>
         </footer>
       </main>

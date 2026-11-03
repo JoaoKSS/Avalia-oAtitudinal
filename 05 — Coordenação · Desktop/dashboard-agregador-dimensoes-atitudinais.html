@@ -65,7 +65,7 @@
         width: 248px;
         min-width: 248px;
         background-color: #ffffff;
-        border-right: 1px solid #d9e4f2;
+        border-right: 1px solid #d8e4f3;
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
@@ -280,7 +280,7 @@
           .top-header {
       height: 76px;
       background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d8e4f3;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -334,7 +334,7 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       background-color: #ffffff;
       display: flex;
       align-items: center;
@@ -415,68 +415,131 @@
         margin-top: 4px;
       }
 
-      /* Barra de Filtros e Busca */
+      /* Barra de Filtros e Busca - Padrão Professor */
       .filters-row {
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         gap: 16px;
         margin-bottom: 24px;
         flex-wrap: wrap;
       }
 
-      .filter-group {
+      .filter-dropdown-details {
+        position: relative;
+      }
+
+      .filter-dropdown-details summary {
+        list-style: none;
+        outline: none;
+        user-select: none;
+      }
+
+      .filter-dropdown-details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .filter-dropdown {
+        height: 48px;
+        background-color: #ffffff;
+        border: 1px solid #d8e4f3;
+        border-radius: 10px;
         display: flex;
         flex-direction: column;
-        gap: 6px;
-      }
-
-      .filter-label {
-        font-size: 11px;
-        font-weight: 600;
-        color: #8194aa;
-        letter-spacing: 0.4px;
-        text-transform: uppercase;
-      }
-
-      .filter-control-wrap {
-        position: relative;
-        display: inline-block;
-      }
-
-      .filter-select {
-        appearance: none;
-        -webkit-appearance: none;
-        background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 8px;
-        padding: 8px 36px 8px 14px;
-        font-size: 13.5px;
-        font-weight: 600;
-        color: #172b4d;
+        justify-content: center;
+        padding: 6px 16px;
         cursor: pointer;
-        min-width: 210px;
-        transition: all 0.15s ease;
-        font-family: inherit;
+        position: relative;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        user-select: none;
+        box-sizing: border-box;
       }
 
-      .filter-select:hover {
+      .filter-dropdown:hover {
         border-color: #cbd5e1;
       }
 
-      .filter-select:focus {
-        outline: none;
+      .filter-dropdown-details[open] .filter-dropdown {
         border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
       }
 
-      .select-arrow {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
+      .filter-dropdown.filter-dimensao {
+        width: 190px;
+      }
+
+      .filter-dropdown.filter-periodo {
+        width: 200px;
+      }
+
+      .filter-label {
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
         color: #60758b;
-        font-size: 11px;
+        text-transform: uppercase;
+        line-height: 1.2;
+      }
+
+      .filter-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .filter-text {
+        font-size: 12px;
+        font-weight: 500;
+        color: #172b4d;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .filter-chevron {
+        color: #60758b;
+        font-size: 12px;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+
+      .filter-dropdown-menu {
+        position: absolute;
+        top: 54px;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        border: 1px solid #d8e4f3;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        z-index: 40;
+        display: none;
+        overflow: hidden;
+      }
+
+      .filter-dropdown-details[open] .filter-dropdown-menu {
+        display: block;
+      }
+
+      .filter-dropdown-item {
+        display: block;
+        text-decoration: none;
+        padding: 10px 16px;
+        font-size: 13px;
+        color: #172b4d;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+      }
+
+      .filter-dropdown-item:hover {
+        background-color: #f1f5f9;
+        color: #2563eb;
+      }
+
+      .filter-dropdown-item.selected {
+        background-color: #e8f1ff;
+        color: #2563eb;
+        font-weight: 600;
       }
 
       /* Campo de Busca */
@@ -484,19 +547,21 @@
         position: relative;
         display: flex;
         align-items: center;
-        min-width: 280px;
+        flex: 1;
+        min-width: 260px;
       }
 
       .search-input {
         width: 100%;
-        height: 38px;
+        height: 48px;
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 8px;
-        padding: 8px 14px 8px 38px;
+        border: 1px solid #d8e4f3;
+        border-radius: 10px;
+        padding: 0 16px 0 42px;
         font-size: 13px;
         color: #172b4d;
         font-family: inherit;
+        box-sizing: border-box;
         transition: all 0.15s ease;
       }
 
@@ -512,7 +577,7 @@
 
       .search-icon {
         position: absolute;
-        left: 12px;
+        left: 14px;
         top: 50%;
         transform: translateY(-50%);
         color: #8194aa;
@@ -522,11 +587,11 @@
         justify-content: center;
       }
 
-      /* Grade dos 4 Indicadores Principais (KPIs) */
+      /* Grade dos 4 Indicadores Principais (KPIs) - Padrão Professor */
       .kpi-indicators-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
+        gap: 24px;
         margin-bottom: 24px;
       }
 
@@ -544,19 +609,27 @@
 
       .kpi-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 13px;
-        padding: 16px 20px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
+        padding: 0 20px;
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 16px;
+        height: 104px;
+        box-sizing: border-box;
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
-        min-height: 82px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      }
+
+      .kpi-card:hover {
+        border-color: #2563eb;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+        transform: translateY(-1px);
       }
 
       .kpi-icon-box {
-        width: 38px;
-        height: 38px;
+        width: 44px;
+        height: 44px;
         border-radius: 10px;
         display: flex;
         align-items: center;
@@ -571,7 +644,7 @@
       }
 
       .kpi-label {
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 500;
         color: #60758b;
         line-height: 1.25;
@@ -581,17 +654,17 @@
       }
 
       .kpi-value {
-        font-size: 22px;
+        font-size: 28px;
         font-weight: 700;
         color: #172b4d;
-        line-height: 1.25;
-        margin-top: 2px;
+        line-height: 1.2;
+        margin: 2px 0;
       }
 
       .kpi-subtext {
-        font-size: 11px;
+        font-size: 12px;
+        font-weight: 400;
         color: #60758b;
-        margin-top: 2px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -601,7 +674,7 @@
       .bi-grid-top {
         display: grid;
         grid-template-columns: 1.62fr 1fr;
-        gap: 20px;
+        gap: 24px;
         margin-bottom: 24px;
         align-items: stretch;
       }
@@ -612,16 +685,13 @@
         }
       }
 
-      /* Regra Especial de Zoom solicitada: Apenas no card Evolução de Colaboração */
-      .card-evolucao-colaboracao {
-        zoom: 1.25;
-      }
+      /* .card-evolucao-colaboracao zoom removido para manter tipografia e proporções unificadas */
 
       /* Painel Padrão BI */
       .bi-panel-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 14px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
         padding: 24px;
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
         display: flex;
@@ -641,16 +711,18 @@
       }
 
       .bi-panel-title {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
+        line-height: 1.35;
         color: #172b4d;
-        line-height: 1.3;
       }
 
       .bi-panel-subtitle {
-        font-size: 12.5px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.4;
         color: #60758b;
-        margin-top: 3px;
+        margin-top: 4px;
       }
 
       /* Gráfico de Linha Vetorial */
@@ -665,7 +737,7 @@
         display: flex;
         align-items: stretch;
         gap: 12px;
-        height: 160px;
+        height: 190px;
       }
 
       .chart-y-axis {
@@ -695,7 +767,7 @@
       }
 
       .chart-grid-line {
-        stroke: #d9e4f2;
+        stroke: #d8e4f3;
         stroke-width: 1;
       }
 
@@ -807,8 +879,8 @@
       /* Painel Inferior: Tabela de Insights por Dimensão */
       .insights-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 14px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
         overflow: hidden;
         margin-bottom: 24px;
@@ -830,14 +902,14 @@
       }
 
       .insights-table th {
-        background-color: #f8fafd;
-        border-top: 1px solid #d9e4f2;
-        border-bottom: 1px solid #d9e4f2;
-        padding: 10px 24px;
-        font-size: 10.5px;
+        background-color: #ffffff;
+        border-top: 1px solid #d8e4f3;
+        border-bottom: 1px solid #d8e4f3;
+        padding: 12px 24px;
+        font-size: 11px;
         font-weight: 700;
         color: #8194aa;
-        letter-spacing: 0.6px;
+        letter-spacing: 0.5px;
         text-transform: uppercase;
         white-space: nowrap;
       }
@@ -874,8 +946,8 @@
 
       .insights-table td {
         padding: 15px 24px;
-        border-bottom: 1px solid #d9e4f2;
-        font-size: 12.5px;
+        border-bottom: 1px solid #d8e4f3;
+        font-size: 13px;
         color: #172b4d;
         vertical-align: middle;
       }
@@ -907,11 +979,17 @@
       .trend-pill {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 5px;
-        font-size: 11.5px;
-        font-weight: 600;
-        padding: 3px 9px;
+        width: 116px;
+        height: 24px;
+        padding: 0 10px;
         border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        box-sizing: border-box;
         white-space: nowrap;
       }
 
@@ -950,7 +1028,7 @@
       .bottom-bar {
         height: 76px;
         background-color: #ffffff;
-        border-top: 1px solid #d9e4f2;
+        border-top: 1px solid #d8e4f3;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -965,7 +1043,7 @@
         padding: 0 24px;
         border-radius: 10px;
         background-color: #60758b;
-        border: 1px solid #d9e4f2;
+        border: 1px solid #d8e4f3;
         color: #ffffff;
         font-family: inherit;
         font-size: 13px;
@@ -1076,21 +1154,14 @@
             <li class="nav-item">
               <a href="clima-escolar.html" class="nav-link">
                 <span class="nav-icon">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <circle cx="10" cy="10" r="7.5" />
-                    <path d="M7.5 8.33h.01M12.5 8.33h.01" />
-                    <path d="M7.5 12.5c.83 1.25 2.5 1.67 5 0" />
-                  </svg>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="10" cy="5" r="2.2"></circle>
+                  <circle cx="5" cy="7.2" r="1.5"></circle>
+                  <circle cx="15" cy="7.2" r="1.5"></circle>
+                  <path d="M2.5 18c0-3.4 2.6-5.3 7.5-5.3s7.5 1.9 7.5 5.3"></path>
+                  <path d="M1.2 17.5c.2-2.4 1.2-3.3 2.8-3.5"></path>
+                  <path d="M16 14c1.6.2 2.6 1.1 2.8 3.5"></path>
+                </svg>
                 </span>
                 <span>Clima escolar</span>
               </a>
@@ -1242,66 +1313,66 @@
             </p>
           </div>
 
-          <!-- Barra de Filtros e Busca -->
+          <!-- Barra de Filtros e Busca - Padrão Professor -->
           <section class="filters-row" aria-label="Filtros e busca">
-            <!-- Filtro 1: Dimensão Selecionada -->
-            <div class="filter-group">
-              <span class="filter-label">Dimensão</span>
-              <div class="filter-control-wrap">
-                <select
-                  class="filter-select"
-                  aria-label="Selecionar dimensão atitudinal"
-                >
-                  <option value="colaboracao" selected>Colaboração</option>
-                  <option value="responsabilidade">Responsabilidade</option>
-                  <option value="autonomia">Autonomia</option>
-                  <option value="participacao">Participação</option>
-                  <option value="respeito">Respeito</option>
-                </select>
-                <span class="select-arrow" aria-hidden="true">&#9662;</span>
+            <!-- Filtro 1: Dimensão -->
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown filter-dimensao">
+                <span class="filter-label">DIMENSÃO</span>
+                <div class="filter-row">
+                  <span class="filter-text">Colaboração</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu">
+                <div class="filter-dropdown-item selected">Colaboração</div>
+                <div class="filter-dropdown-item">Responsabilidade</div>
+                <div class="filter-dropdown-item">Autonomia</div>
+                <div class="filter-dropdown-item">Participação</div>
+                <div class="filter-dropdown-item">Respeito</div>
               </div>
-            </div>
+            </details>
 
             <!-- Filtro 2: Período -->
-            <div class="filter-group">
-              <span class="filter-label">Período</span>
-              <div class="filter-control-wrap">
-                <select class="filter-select" aria-label="Selecionar período">
-                  <option value="6-meses" selected>Últimos 6 meses</option>
-                  <option value="1-bimestre">1º Bimestre</option>
-                  <option value="2-bimestre">2º Bimestre</option>
-                  <option value="ano-atual">Ano letivo atual</option>
-                </select>
-                <span class="select-arrow" aria-hidden="true">&#9662;</span>
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown filter-periodo">
+                <span class="filter-label">PERÍODO</span>
+                <div class="filter-row">
+                  <span class="filter-text">Últimos 6 meses</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu">
+                <div class="filter-dropdown-item selected">Últimos 6 meses</div>
+                <div class="filter-dropdown-item">1º Bimestre</div>
+                <div class="filter-dropdown-item">2º Bimestre</div>
+                <div class="filter-dropdown-item">Ano letivo atual</div>
               </div>
-            </div>
+            </details>
 
             <!-- Filtro 3: Busca de dimensão -->
-            <div class="filter-group" style="flex: 1; min-width: 260px">
-              <span class="filter-label" style="opacity: 0">Busca</span>
-              <div class="search-box-wrap">
-                <span class="search-icon" aria-hidden="true">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                  </svg>
-                </span>
-                <input
-                  type="text"
-                  class="search-input"
-                  placeholder="Pesquisar dimensão…"
-                  aria-label="Pesquisar dimensão"
-                />
-              </div>
+            <div class="search-box-wrap">
+              <span class="search-icon" aria-hidden="true">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+              </span>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Pesquisar dimensão…"
+                aria-label="Pesquisar dimensão"
+              />
             </div>
           </section>
 
@@ -1322,12 +1393,13 @@
                   height="20"
                   viewBox="0 0 20 20"
                   fill="none"
+                  stroke="#2563eb"
                   stroke-width="1.8"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <circle cx="10" cy="10" r="7.5" stroke="#60758b" />
-                  <path d="M10 5.5v4.5l2.5 1.7" stroke="#2563eb" />
+                  <circle cx="10" cy="10" r="7.5" />
+                  <path d="M10 5.5v4.5l2.5 1.7" />
                 </svg>
               </div>
               <div class="kpi-text-group">

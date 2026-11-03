@@ -58,7 +58,7 @@
         width: 248px;
         min-width: 248px;
         background-color: #ffffff;
-        border-right: 1px solid #d9e4f2;
+        border-right: 1px solid #d8e4f3;
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
@@ -273,7 +273,7 @@
           .top-header {
       height: 76px;
       background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d8e4f3;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -327,7 +327,7 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       background-color: #ffffff;
       display: flex;
       align-items: center;
@@ -411,14 +411,13 @@
       /* Card de Perfil do Estudante (Cabeçalho de perfil individual) */
       .student-profile-header-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 14px;
-        padding: 18px 24px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
+        padding: 20px 24px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 24px;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
       }
 
       .student-profile-left {
@@ -460,21 +459,25 @@
       }
 
       .student-status-badge {
+        height: 24px;
         font-size: 11px;
         font-weight: 700;
         color: #b45309;
         background-color: #fff4d6;
-        padding: 5px 12px;
-        border-radius: 8px;
+        padding: 0 12px;
+        border-radius: 6px;
         letter-spacing: 0.5px;
         text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
 
       /* Grade dos 4 Indicadores (KPIs) */
       .kpi-indicators-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        gap: 24px;
         margin-bottom: 24px;
       }
 
@@ -486,19 +489,26 @@
 
       .kpi-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 13px;
-        padding: 18px 20px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
+        padding: 0 20px;
         display: flex;
         align-items: center;
         gap: 16px;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
-        min-height: 82px;
+        height: 104px;
+        box-sizing: border-box;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      }
+
+      .kpi-card:hover {
+        border-color: #2563eb;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+        transform: translateY(-1px);
       }
 
       .kpi-icon-box {
-        width: 38px;
-        height: 38px;
+        width: 44px;
+        height: 44px;
         border-radius: 10px;
         display: flex;
         align-items: center;
@@ -515,7 +525,7 @@
       .kpi-label {
         font-size: 13px;
         color: #60758b;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.25;
         white-space: nowrap;
         overflow: hidden;
@@ -523,17 +533,17 @@
       }
 
       .kpi-value {
-        font-size: 22px;
+        font-size: 28px;
         font-weight: 700;
         color: #172b4d;
-        line-height: 1.25;
-        margin-top: 2px;
+        line-height: 1.2;
+        margin: 2px 0;
       }
 
       .kpi-subtext {
-        font-size: 11px;
+        font-size: 12px;
+        font-weight: 400;
         color: #60758b;
-        margin-top: 2px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -543,14 +553,12 @@
       .bi-grid-top {
         display: grid;
         grid-template-columns: 1.62fr 1fr;
-        gap: 20px;
+        gap: 24px;
         margin-bottom: 24px;
         align-items: stretch;
       }
 
-      .card-evolucao-individual {
-        zoom: 1.25;
-      }
+      /* .card-evolucao-individual zoom removido para manter proporção e tamanho de fonte idênticos */
 
       @media (max-width: 1100px) {
         .bi-grid-top {
@@ -561,10 +569,9 @@
       /* Painéis Padrão BI */
       .bi-panel-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 14px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
         padding: 24px;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
         display: flex;
         flex-direction: column;
       }
@@ -577,25 +584,33 @@
       }
 
       .bi-panel-title {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
+        line-height: 1.35;
         color: #172b4d;
       }
 
       .bi-panel-subtitle {
-        font-size: 12.5px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.4;
         color: #60758b;
-        margin-top: 3px;
+        margin-top: 4px;
       }
 
       .badge-variation {
-        font-size: 12px;
+        height: 24px;
+        font-size: 11px;
         font-weight: 700;
         color: #15803d;
         background-color: #e8f7ee;
-        padding: 4px 10px;
-        border-radius: 8px;
+        padding: 0 10px;
+        border-radius: 6px;
         letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
       }
 
       /* Gráfico de Evolução da Média Individual (Sem distorção) */
@@ -610,7 +625,7 @@
         display: flex;
         align-items: stretch;
         gap: 12px;
-        height: 160px;
+        height: 200px;
       }
 
       .chart-y-axis {
@@ -640,7 +655,7 @@
       }
 
       .chart-grid-line {
-        stroke: #d9e4f2;
+        stroke: #d8e4f3;
         stroke-width: 1;
       }
 
@@ -762,9 +777,8 @@
       /* Painel de Evidências e Marcos Recentes */
       .evidence-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 14px;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
         overflow: hidden;
         margin-bottom: 24px;
       }
@@ -785,14 +799,14 @@
       }
 
       .evidence-table th {
-        background-color: #f8fafd;
-        border-top: 1px solid #d9e4f2;
-        border-bottom: 1px solid #d9e4f2;
-        padding: 10px 24px;
-        font-size: 10.5px;
+        background-color: #ffffff;
+        border-top: 1px solid #d8e4f3;
+        border-bottom: 1px solid #d8e4f3;
+        padding: 12px 24px;
+        font-size: 11px;
         font-weight: 700;
         color: #8194aa;
-        letter-spacing: 0.6px;
+        letter-spacing: 0.5px;
         text-transform: uppercase;
         white-space: nowrap;
       }
@@ -823,8 +837,8 @@
 
       .evidence-table td {
         padding: 15px 24px;
-        border-bottom: 1px solid #d9e4f2;
-        font-size: 12.5px;
+        border-bottom: 1px solid #d8e4f3;
+        font-size: 13px;
         color: #172b4d;
         vertical-align: middle;
       }
@@ -843,27 +857,27 @@
 
       .evidence-date {
         color: #60758b;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 500;
         white-space: nowrap;
       }
 
       .evidence-dim {
         font-weight: 600;
-        font-size: 12.5px;
+        font-size: 13px;
         color: #172b4d;
         white-space: nowrap;
       }
 
       .evidence-context {
         color: #60758b;
-        font-size: 12.5px;
-        line-height: 1.4;
+        font-size: 13px;
+        line-height: 1.45;
       }
 
       .evidence-origin {
         color: #2563eb;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 600;
         white-space: nowrap;
       }
@@ -872,13 +886,12 @@
       .bottom-bar {
         height: 76px;
         background-color: #ffffff;
-        border-top: 1px solid #d9e4f2;
+        border-top: 1px solid #d8e4f3;
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding: 0 24px 0 32px;
+        padding: 0 32px;
         flex-shrink: 0;
-        box-shadow: 0 -4px 12px rgba(16, 24, 40, 0.05);
         z-index: 20;
       }
 
@@ -887,7 +900,7 @@
         padding: 0 24px;
         border-radius: 10px;
         background-color: #60758b;
-        border: 1px solid #d9e4f2;
+        border: 1px solid #d8e4f3;
         color: #ffffff;
         font-family: inherit;
         font-size: 13px;
@@ -1181,12 +1194,13 @@
                   height="20"
                   viewBox="0 0 20 20"
                   fill="none"
+                  stroke="#2563eb"
                   stroke-width="1.8"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <circle cx="10" cy="10" r="7.5" stroke="#60758b" />
-                  <path d="M10 5.5v4.5l2.5 1.7" stroke="#2563eb" />
+                  <circle cx="10" cy="10" r="7.5" />
+                  <path d="M10 5.5v4.5l2.5 1.7" />
                 </svg>
               </div>
               <div class="kpi-text-group">

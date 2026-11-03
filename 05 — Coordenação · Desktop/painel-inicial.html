@@ -42,7 +42,7 @@
     .sidebar {
       width: 248px;
       background-color: #ffffff;
-      border-right: 1px solid #d9e4f2;
+      border-right: 1px solid #d8e4f3;
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
@@ -256,7 +256,7 @@
         .top-header {
       height: 76px;
       background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d8e4f3;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -310,7 +310,7 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       background-color: #ffffff;
       display: flex;
       align-items: center;
@@ -350,7 +350,7 @@
       min-height: 0;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 24px 24px 48px 32px;
+      padding: 32px;
       width: 100%;
       box-sizing: border-box;
     }
@@ -378,33 +378,33 @@
     }
 
     .page-title {
-      font-size: 27px;
-      font-weight: 600;
-      line-height: 1.35;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.36;
       color: #172b4d;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .page-desc {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 1.4;
+      line-height: 1.43;
       color: #60758b;
     }
 
-    /* Linha 1: 3 Indicadores / KPIs (Altura: 100px) */
+    /* Linha 1: 3 Indicadores / KPIs */
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      gap: 24px;
       margin-bottom: 24px;
     }
 
     .kpi-card {
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 16px;
-      height: 100px;
+      border: 1px solid #d8e4f3;
+      border-radius: 12px;
+      height: 104px;
       display: flex;
       align-items: center;
       padding: 0 20px;
@@ -453,41 +453,41 @@
     }
 
     .kpi-label {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
-      line-height: 1.2;
+      line-height: 1.25;
       color: #60758b;
     }
 
     .kpi-value {
-      font-size: 26px;
-      font-weight: 600;
-      line-height: 1.25;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
       color: #172b4d;
-      margin: 2px 0 1px 0;
+      margin: 2px 0;
     }
 
     .kpi-hint {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.3;
       color: #60758b;
     }
 
-    /* Linha 2 & 3: Layout Bi-coluna (690px + 418px com gap 20px) */
+    /* Linha 2 & 3: Layout Bi-coluna */
     .two-panels-row {
       display: grid;
       grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
-      gap: 20px;
+      gap: 24px;
       margin-bottom: 24px;
     }
 
     /* Painéis Gerais */
     .panel-card {
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 16px;
-      padding: 20px 24px;
+      border: 1px solid #d8e4f3;
+      border-radius: 12px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
     }
@@ -500,46 +500,52 @@
     }
 
     .panel-header-simple {
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .panel-title {
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 700;
       line-height: 1.35;
       color: #172b4d;
     }
 
     .panel-subtitle {
-      font-size: 10px;
+      font-size: 13px;
       font-weight: 400;
       line-height: 1.4;
       color: #60758b;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     .panel-link {
-      font-size: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
       font-weight: 600;
       color: #2563eb;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px 6px;
-      border-radius: 6px;
-      transition: background-color 0.15s ease, color 0.15s ease;
+      transition: color 0.15s ease;
+      white-space: nowrap;
     }
 
     .panel-link:hover {
-      background-color: #e8f1ff;
       color: #1d4ed8;
       text-decoration: underline;
     }
 
+    .panel-link svg {
+      transition: transform 0.15s ease;
+    }
+
+    .panel-link:hover svg {
+      transform: translateX(2px);
+    }
+
     .panel-divider {
       height: 1px;
-      background-color: #d9e4f2;
+      background-color: #d8e4f3;
       margin: 4px 0 12px 0;
       border: none;
     }
@@ -556,10 +562,10 @@
       align-items: center;
       justify-content: space-between;
       padding: 12px 0;
-      border-bottom: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d8e4f3;
       text-decoration: none;
       color: inherit;
-      transition: background-color 0.15s ease;
+      transition: background-color 0.15s ease, padding 0.15s ease;
     }
 
     .alert-row:hover {
@@ -583,7 +589,7 @@
       border-radius: 50%;
       background-color: #e8f1ff;
       color: #2563eb;
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -594,17 +600,18 @@
     .alert-student-info {
       display: flex;
       flex-direction: column;
+      gap: 2px;
     }
 
     .alert-student-name {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       color: #172b4d;
       line-height: 1.3;
     }
 
     .alert-student-class {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 400;
       color: #60758b;
       line-height: 1.3;
@@ -612,24 +619,27 @@
 
     .alert-reason {
       flex: 1;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 400;
       color: #60758b;
       padding: 0 12px;
     }
 
     .alert-badge {
-      height: 22px;
-      padding: 0 10px;
-      border-radius: 8px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
+      height: 24px;
+      width: 76px;
+      padding: 0;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       text-transform: uppercase;
+      box-sizing: border-box;
+      white-space: nowrap;
     }
 
     .alert-badge.critical {
@@ -644,8 +654,8 @@
 
     .panel-footer-count {
       margin-top: 14px;
-      font-size: 10px;
-      font-weight: 400;
+      font-size: 12px;
+      font-weight: 500;
       color: #8194aa;
     }
 
@@ -657,14 +667,14 @@
     }
 
     .clima-score-value {
-      font-size: 22px;
-      font-weight: 600;
+      font-size: 26px;
+      font-weight: 700;
       line-height: 1.2;
       color: #15803d;
     }
 
     .clima-score-scale {
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 500;
       color: #60758b;
     }
@@ -684,8 +694,8 @@
     }
 
     .dimension-name {
-      width: 130px;
-      font-size: 11px;
+      width: 140px;
+      font-size: 13px;
       font-weight: 500;
       color: #172b4d;
       flex-shrink: 0;
@@ -693,7 +703,7 @@
 
     .dimension-track {
       flex: 1;
-      height: 7px;
+      height: 8px;
       background-color: #edf2f7;
       border-radius: 4px;
       overflow: hidden;
@@ -708,8 +718,8 @@
     }
 
     .dimension-value {
-      width: 32px;
-      font-size: 10px;
+      width: 36px;
+      font-size: 13px;
       font-weight: 600;
       color: #172b4d;
       text-align: right;
@@ -722,49 +732,64 @@
     }
 
     .clima-action-link {
-      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
       font-weight: 600;
       color: #2563eb;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
+      transition: color 0.15s ease;
     }
 
     .clima-action-link:hover {
+      color: #1d4ed8;
       text-decoration: underline;
+    }
+
+    .clima-action-link svg {
+      transition: transform 0.15s ease;
+    }
+
+    .clima-action-link:hover svg {
+      transform: translateX(2px);
     }
 
     /* Painel: Dashboards Agregadores */
     .shortcuts-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .shortcut-item {
       display: flex;
       align-items: center;
-      height: 44px;
-      border: 1px solid #d9e4f2;
+      min-height: 58px;
+      border: 1px solid #d8e4f3;
       border-radius: 12px;
-      padding: 0 12px;
-      gap: 12px;
+      padding: 10px 16px;
+      gap: 14px;
       text-decoration: none;
       background-color: #ffffff;
-      transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
     }
 
     .shortcut-item:hover {
       border-color: #2563eb;
-      background-color: #fcfdfe;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .shortcut-item:hover .card-arrow {
+      color: #2563eb;
       transform: translateX(2px);
     }
 
     .shortcut-icon-badge {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -789,36 +814,39 @@
     .shortcut-info {
       display: flex;
       flex-direction: column;
+      gap: 2px;
       flex: 1;
       min-width: 0;
     }
 
     .shortcut-title {
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 600;
       color: #172b4d;
-      line-height: 1.25;
+      line-height: 1.3;
     }
 
     .shortcut-desc {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 400;
       color: #60758b;
-      line-height: 1.25;
+      line-height: 1.3;
     }
 
-    .shortcut-arrow {
-      font-size: 14px;
-      font-weight: 600;
-      color: #2563eb;
+    .card-arrow {
+      color: #8194aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, color 0.15s ease;
       flex-shrink: 0;
     }
 
     /* Card: Todas as Turmas */
     .turmas-card {
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 16px;
+      border: 1px solid #d8e4f3;
+      border-radius: 12px;
       padding: 24px;
       display: flex;
       flex-direction: column;
@@ -846,8 +874,8 @@
     }
 
     .turmas-card-title {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 700;
       line-height: 1.3;
       color: #172b4d;
       margin-bottom: 6px;
@@ -857,7 +885,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 12px;
+      font-size: 13px;
       color: #60758b;
       margin-bottom: auto;
     }
@@ -875,11 +903,21 @@
       color: #2563eb;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      transition: color 0.15s ease;
     }
 
     .turmas-card:hover .turmas-card-action {
+      color: #1d4ed8;
       text-decoration: underline;
+    }
+
+    .turmas-card-action svg {
+      transition: transform 0.15s ease;
+    }
+
+    .turmas-card:hover .turmas-card-action svg {
+      transform: translateX(2px);
     }
   </style>
 </head>
@@ -1115,7 +1153,12 @@
                 <h2 class="panel-title">Alertas que precisam de atenção</h2>
                 <p class="panel-subtitle">Cruzamento de indicadores atitudinais, frequência e desempenho</p>
               </div>
-              <a href="sistema-alerta-precoce.html" class="panel-link">Ver todos &rarr;</a>
+              <a href="sistema-alerta-precoce.html" class="panel-link">
+                <span>Ver todos</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                </svg>
+              </a>
             </div>
             <hr class="panel-divider">
 
@@ -1225,7 +1268,12 @@
             </div>
 
             <div class="clima-footer-link">
-              <a href="clima-escolar.html" class="clima-action-link">Ver análise de clima &rarr;</a>
+              <a href="clima-escolar.html" class="clima-action-link">
+                <span>Ver análise de clima</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                </svg>
+              </a>
             </div>
           </div>
         </section>
@@ -1253,7 +1301,11 @@
                   <span class="shortcut-title">Por turma</span>
                   <span class="shortcut-desc">Perfil coletivo e distribuição</span>
                 </div>
-                <span class="shortcut-arrow">&rarr;</span>
+                <div class="card-arrow">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </div>
               </a>
 
               <!-- Atalho 2: Por Aluno -->
@@ -1269,7 +1321,11 @@
                   <span class="shortcut-title">Por aluno</span>
                   <span class="shortcut-desc">Evolução e histórico individual</span>
                 </div>
-                <span class="shortcut-arrow">&rarr;</span>
+                <div class="card-arrow">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </div>
               </a>
 
               <!-- Atalho 3: Por Dimensão Atitudinal -->
@@ -1285,7 +1341,11 @@
                   <span class="shortcut-title">Por dimensão atitudinal</span>
                   <span class="shortcut-desc">Pesquisar e comparar dimensões</span>
                 </div>
-                <span class="shortcut-arrow">&rarr;</span>
+                <div class="card-arrow">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+                  </svg>
+                </div>
               </a>
             </div>
           </div>
@@ -1317,7 +1377,9 @@
             </div>
             <div class="turmas-card-action">
               <span>Acessar listagem completa</span>
-              <span aria-hidden="true">&rarr;</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+              </svg>
             </div>
           </a>
         </section>

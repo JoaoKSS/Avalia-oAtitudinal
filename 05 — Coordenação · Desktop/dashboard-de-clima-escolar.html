@@ -49,7 +49,7 @@
     .sidebar {
       width: 248px;
       background-color: #ffffff;
-      border-right: 1px solid #d9e4f2;
+      border-right: 1px solid #d8e4f3;
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
@@ -264,7 +264,7 @@
         .top-header {
       height: 76px;
       background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d8e4f3;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -318,7 +318,7 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       background-color: #ffffff;
       display: flex;
       align-items: center;
@@ -358,7 +358,7 @@
       min-height: 0;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 24px 16px 48px 28px;
+      padding: 32px;
       width: 100%;
       box-sizing: border-box;
     }
@@ -382,153 +382,211 @@
 
     /* Título & Descrição da Página */
     .page-header {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .page-title {
-      font-size: 27px;
-      font-weight: 600;
-      line-height: 1.3;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.25;
       color: #172b4d;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .page-desc {
-      font-size: 13px;
+      font-size: 14px;
       color: #60758b;
       line-height: 1.5;
     }
 
-    /* Barra de Filtros e Ação */
+    /* Barra de Filtros e Ação - Padrão Professor */
     .filter-bar {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
       margin-bottom: 24px;
       width: 100%;
-      flex-wrap: wrap;
+      align-items: center;
     }
 
     .filter-controls {
-      display: flex;
-      align-items: flex-end;
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .filter-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .filter-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      color: #60758b;
-      text-transform: uppercase;
-    }
-
-    .select-wrapper {
-      position: relative;
-      display: inline-flex;
       align-items: center;
     }
 
-    .filter-select {
-      appearance: none;
-      -webkit-appearance: none;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 8px;
-      height: 34px;
-      padding: 0 32px 0 12px;
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: 500;
-      color: #172b4d;
-      cursor: pointer;
-      outline: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    .filter-dropdown-details {
+      position: relative;
+      width: 100%;
     }
 
-    .filter-select:hover {
+    .filter-dropdown-details summary {
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    .filter-dropdown-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .filter-dropdown {
+      width: 100%;
+      height: 48px;
+      background-color: #ffffff;
+      border: 1px solid #d8e4f3;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6px 16px;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    .filter-dropdown:hover {
       border-color: #cbd5e1;
     }
 
-    .filter-select:focus {
+    .filter-dropdown-details[open] .filter-dropdown {
       border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
-    .filter-periodo {
-      width: 176px;
+    .filter-dropdown.filter-periodo,
+    .filter-dropdown.filter-unidade,
+    .filter-dropdown.filter-segmento {
+      width: 100%;
     }
 
-    .filter-unidade {
-      width: 220px;
-    }
-
-    .filter-segmento {
-      width: 180px;
-    }
-
-    .select-chevron {
-      position: absolute;
-      right: 10px;
-      pointer-events: none;
+    .filter-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       color: #60758b;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .filter-text {
+      font-size: 12px;
+      font-weight: 500;
+      color: #172b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .filter-chevron {
+      color: #60758b;
+      font-size: 12px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .filter-dropdown-menu {
+      position: absolute;
+      top: 54px;
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      border: 1px solid #d8e4f3;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 40;
+      display: none;
+      overflow: hidden;
+    }
+
+    .filter-dropdown-details[open] .filter-dropdown-menu {
+      display: block;
+    }
+
+    .filter-dropdown-item {
+      display: block;
+      text-decoration: none;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: #172b4d;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .filter-dropdown-item:hover {
+      background-color: #f1f5f9;
+      color: #2563eb;
+    }
+
+    .filter-dropdown-item.selected {
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-weight: 600;
     }
 
     .filter-actions {
+      grid-column: 4;
       display: flex;
       align-items: center;
+      justify-content: flex-end;
     }
 
     .btn-export {
-      height: 34px;
-      padding: 0 14px;
+      height: 48px;
+      padding: 0 16px;
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 8px;
+      border: 1px solid #d8e4f3;
+      border-radius: 10px;
       color: #2563eb;
       font-family: inherit;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       cursor: pointer;
-      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
     }
 
     .btn-export:hover {
       background-color: #f7f9fc;
       border-color: #2563eb;
+      box-shadow: 0 1px 3px rgba(37, 99, 235, 0.08);
     }
 
-    /* Linha de Indicadores KPI (4 Cards) */
+    /* Linha de Indicadores KPI (4 Cards) - Padrão Professor */
     .kpi-grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 24px;
       margin-bottom: 24px;
       width: 100%;
     }
 
     .kpi-card {
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 16px;
-      padding: 16px 20px;
+      border: 1px solid #d8e4f3;
+      border-radius: 12px;
+      padding: 0 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 96px;
+      height: 104px;
       box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
       transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      box-sizing: border-box;
     }
 
     .kpi-card:hover {
@@ -538,7 +596,7 @@
     }
 
     .kpi-title {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
       color: #60758b;
       margin-bottom: 4px;
@@ -547,25 +605,25 @@
     .kpi-val-row {
       display: flex;
       align-items: baseline;
-      gap: 4px;
+      gap: 6px;
       margin-bottom: 4px;
     }
 
     .kpi-number {
-      font-size: 22px;
+      font-size: 28px;
       font-weight: 700;
       color: #172b4d;
       line-height: 1.1;
     }
 
     .kpi-scale {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       color: #8194aa;
     }
 
     .kpi-hint {
-      font-size: 11px;
+      font-size: 12px;
       color: #60758b;
     }
 
@@ -573,16 +631,16 @@
     .dashboard-row {
       display: grid;
       grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
-      gap: 20px;
+      gap: 24px;
       margin-bottom: 24px;
       width: 100%;
     }
 
     .panel-card {
       background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 16px;
-      padding: 20px 24px;
+      border: 1px solid #d8e4f3;
+      border-radius: 12px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
@@ -602,21 +660,25 @@
     }
 
     .panel-title {
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
       color: #172b4d;
     }
 
     .panel-subtitle {
-      font-size: 11px;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.4;
       color: #60758b;
+      margin-top: 2px;
     }
 
     .panel-legend {
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 11px;
+      font-size: 12px;
       color: #60758b;
     }
 
@@ -689,7 +751,7 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-start;
-      font-size: 10px;
+      font-size: 11px;
       color: #8194aa;
       user-select: none;
       line-height: 1;
@@ -717,7 +779,7 @@
     }
 
     .bar-value {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 600;
       color: #60758b;
       line-height: 1;
@@ -754,7 +816,7 @@
     .x-label {
       width: 44px;
       text-align: center;
-      font-size: 10px;
+      font-size: 11px;
       color: #60758b;
       user-select: none;
     }
@@ -774,8 +836,8 @@
     }
 
     .dim-name {
-      width: 130px;
-      font-size: 11px;
+      width: 140px;
+      font-size: 13px;
       font-weight: 500;
       color: #172b4d;
       flex-shrink: 0;
@@ -809,8 +871,8 @@
     }
 
     .dim-score {
-      width: 28px;
-      font-size: 11px;
+      width: 32px;
+      font-size: 13px;
       font-weight: 600;
       color: #172b4d;
       text-align: right;
@@ -829,7 +891,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 10px;
+      font-size: 12px;
       color: #60758b;
     }
 
@@ -846,8 +908,8 @@
     }
 
     .dist-label {
-      width: 140px;
-      font-size: 11px;
+      width: 150px;
+      font-size: 13px;
       font-weight: 500;
       color: #172b4d;
       flex-shrink: 0;
@@ -880,8 +942,8 @@
     }
 
     .dist-total {
-      width: 36px;
-      font-size: 10px;
+      width: 40px;
+      font-size: 12px;
       color: #60758b;
       text-align: right;
       flex-shrink: 0;
@@ -908,13 +970,13 @@
     }
 
     .action-title {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       color: #172b4d;
     }
 
     .action-meta {
-      font-size: 11px;
+      font-size: 12px;
       color: #60758b;
     }
 
@@ -928,12 +990,15 @@
     .action-badge {
       display: inline-flex;
       align-items: center;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 9px;
+      justify-content: center;
+      height: 24px;
+      padding: 0 10px;
+      border-radius: 6px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      box-sizing: border-box;
     }
 
     .action-badge.blue {
@@ -955,7 +1020,7 @@
     }
 
     .action-due {
-      font-size: 10px;
+      font-size: 11px;
       color: #60758b;
       font-weight: 500;
     }
@@ -1137,56 +1202,59 @@
         <div class="filter-bar">
           <div class="filter-controls">
             <!-- Filtro Período -->
-            <div class="filter-group">
-              <label class="filter-label" for="filter-periodo">PERÍODO</label>
-              <div class="select-wrapper">
-                <select id="filter-periodo" class="filter-select filter-periodo">
-                  <option selected>Últimos 6 meses</option>
-                  <option>Últimos 3 meses</option>
-                  <option>Ano letivo atual</option>
-                  <option>1º Semestre</option>
-                </select>
-                <svg class="select-chevron" width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 7.5L10 12.5L15 7.5"/>
-                </svg>
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown filter-periodo">
+                <span class="filter-label">PERÍODO</span>
+                <div class="filter-row">
+                  <span class="filter-text">Últimos 6 meses</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu">
+                <div class="filter-dropdown-item selected">Últimos 6 meses</div>
+                <div class="filter-dropdown-item">Últimos 3 meses</div>
+                <div class="filter-dropdown-item">Ano letivo atual</div>
+                <div class="filter-dropdown-item">1º Semestre</div>
               </div>
-            </div>
+            </details>
 
             <!-- Filtro Unidade Escolar -->
-            <div class="filter-group">
-              <label class="filter-label" for="filter-unidade">UNIDADE ESCOLAR</label>
-              <div class="select-wrapper">
-                <select id="filter-unidade" class="filter-select filter-unidade">
-                  <option selected>Todas as unidades</option>
-                  <option>Unidade Central</option>
-                  <option>Unidade Fundamental</option>
-                </select>
-                <svg class="select-chevron" width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 7.5L10 12.5L15 7.5"/>
-                </svg>
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown filter-unidade">
+                <span class="filter-label">UNIDADE ESCOLAR</span>
+                <div class="filter-row">
+                  <span class="filter-text">Todas as unidades</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu">
+                <div class="filter-dropdown-item selected">Todas as unidades</div>
+                <div class="filter-dropdown-item">Unidade Central</div>
+                <div class="filter-dropdown-item">Unidade Fundamental</div>
               </div>
-            </div>
+            </details>
 
             <!-- Filtro Segmento -->
-            <div class="filter-group">
-              <label class="filter-label" for="filter-segmento">SEGMENTO</label>
-              <div class="select-wrapper">
-                <select id="filter-segmento" class="filter-select filter-segmento">
-                  <option selected>Ensino fundamental</option>
-                  <option>Ensino Fundamental II</option>
-                  <option>Ensino Médio</option>
-                </select>
-                <svg class="select-chevron" width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 7.5L10 12.5L15 7.5"/>
-                </svg>
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown filter-segmento">
+                <span class="filter-label">SEGMENTO</span>
+                <div class="filter-row">
+                  <span class="filter-text">Ensino fundamental</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu">
+                <div class="filter-dropdown-item selected">Ensino fundamental</div>
+                <div class="filter-dropdown-item">Ensino Fundamental II</div>
+                <div class="filter-dropdown-item">Ensino Médio</div>
               </div>
-            </div>
+            </details>
           </div>
 
           <!-- Ação Exportar Resumo -->
           <div class="filter-actions">
             <button type="button" class="btn-export" onclick="window.print()" title="Exportar resumo de clima escolar">
-              <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M6 14L14 6M14 6H7M14 6V13"/>
               </svg>
               <span>Exportar resumo</span>

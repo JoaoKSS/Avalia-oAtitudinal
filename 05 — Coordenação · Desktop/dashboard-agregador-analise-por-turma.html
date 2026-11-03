@@ -58,7 +58,7 @@
         width: 248px;
         min-width: 248px;
         background-color: #ffffff;
-        border-right: 1px solid #d9e4f2;
+        border-right: 1px solid #d8e4f3;
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
@@ -273,7 +273,7 @@
           .top-header {
       height: 76px;
       background-color: #ffffff;
-      border-bottom: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d8e4f3;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -327,7 +327,7 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      border: 1px solid #d9e4f2;
+      border: 1px solid #d8e4f3;
       background-color: #ffffff;
       display: flex;
       align-items: center;
@@ -408,71 +408,137 @@
         margin-top: 4px;
       }
 
-      /* Linha de Filtros (Turma e Período) */
+      /* Linha de Filtros (Turma e Período) - Padrão Professor */
       .filters-bar {
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         gap: 16px;
         margin-bottom: 24px;
       }
 
-      .filter-field {
+      .filter-dropdown-details {
+        position: relative;
+      }
+
+      .filter-dropdown-details summary {
+        list-style: none;
+        outline: none;
+        user-select: none;
+      }
+
+      .filter-dropdown-details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .filter-dropdown {
+        height: 48px;
+        background-color: #ffffff;
+        border: 1px solid #d8e4f3;
+        border-radius: 10px;
         display: flex;
         flex-direction: column;
-        gap: 6px;
-      }
-
-      .filter-label {
-        font-size: 12px;
-        font-weight: 600;
-        color: #60758b;
-      }
-
-      .select-container {
-        position: relative;
-        display: inline-block;
-      }
-
-      .filter-select {
-        appearance: none;
-        -webkit-appearance: none;
-        background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 8px;
-        padding: 7px 36px 7px 14px;
-        font-size: 13.5px;
-        font-weight: 600;
-        color: #172b4d;
+        justify-content: center;
+        padding: 6px 16px;
         cursor: pointer;
-        min-width: 160px;
-        transition: all 0.15s ease;
+        position: relative;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        user-select: none;
+        box-sizing: border-box;
       }
 
-      .filter-select:hover {
+      .filter-dropdown:hover {
         border-color: #cbd5e1;
       }
 
-      .filter-select:focus {
-        outline: none;
+      .filter-dropdown-details[open] .filter-dropdown {
         border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
       }
 
-      .select-arrow {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
+      .filter-dropdown.filter-turma {
+        width: 180px;
+      }
+
+      .filter-dropdown.filter-periodo {
+        width: 200px;
+      }
+
+      .filter-label {
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
         color: #60758b;
-        font-size: 11px;
+        text-transform: uppercase;
+        line-height: 1.2;
       }
 
-      /* Grade dos 3 Indicadores (KPIs) */
+      .filter-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .filter-text {
+        font-size: 12px;
+        font-weight: 500;
+        color: #172b4d;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .filter-chevron {
+        color: #60758b;
+        font-size: 12px;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+
+      .filter-dropdown-menu {
+        position: absolute;
+        top: 54px;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        border: 1px solid #d8e4f3;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        z-index: 40;
+        display: none;
+        overflow: hidden;
+      }
+
+      .filter-dropdown-details[open] .filter-dropdown-menu {
+        display: block;
+      }
+
+      .filter-dropdown-item {
+        display: block;
+        text-decoration: none;
+        padding: 10px 16px;
+        font-size: 13px;
+        color: #172b4d;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+      }
+
+      .filter-dropdown-item:hover {
+        background-color: #f1f5f9;
+        color: #2563eb;
+      }
+
+      .filter-dropdown-item.selected {
+        background-color: #e8f1ff;
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      /* Grade dos 3 Indicadores (KPIs) - Padrão Professor */
       .kpi-indicators-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        gap: 24px;
         margin-bottom: 24px;
       }
 
@@ -484,19 +550,27 @@
 
       .kpi-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 13px;
-        padding: 18px 24px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
+        padding: 0 20px;
         display: flex;
         align-items: center;
         gap: 16px;
+        height: 104px;
+        box-sizing: border-box;
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
-        min-height: 78px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      }
+
+      .kpi-card:hover {
+        border-color: #2563eb;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+        transform: translateY(-1px);
       }
 
       .kpi-icon-box {
-        width: 38px;
-        height: 38px;
+        width: 44px;
+        height: 44px;
         border-radius: 10px;
         display: flex;
         align-items: center;
@@ -510,18 +584,18 @@
       }
 
       .kpi-label {
-        font-size: 13.5px;
+        font-size: 13px;
         color: #60758b;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.25;
       }
 
       .kpi-value {
-        font-size: 22px;
+        font-size: 28px;
         font-weight: 700;
         color: #172b4d;
-        line-height: 1.25;
-        margin-top: 3px;
+        line-height: 1.2;
+        margin: 2px 0 0 0;
       }
 
       /* Grade BI Superior (Perfil Dimensional + Tendência da Turma) */
@@ -542,8 +616,8 @@
       /* Painéis Padrão BI */
       .bi-panel-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 14px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
         padding: 24px;
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
         display: flex;
@@ -558,25 +632,33 @@
       }
 
       .bi-panel-title {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
+        line-height: 1.35;
         color: #172b4d;
       }
 
       .bi-panel-subtitle {
-        font-size: 12.5px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.4;
         color: #60758b;
-        margin-top: 3px;
+        margin-top: 4px;
       }
 
       .badge-current-avg {
-        font-size: 12px;
+        height: 24px;
+        font-size: 11px;
         font-weight: 700;
         color: #15803d;
         background-color: #e8f7ee;
-        padding: 4px 10px;
-        border-radius: 8px;
+        padding: 0 10px;
+        border-radius: 6px;
         letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
       }
 
       /* Barras do Perfil Dimensional da Turma */
@@ -694,7 +776,7 @@
       }
 
       .chart-grid-line {
-        stroke: #d9e4f2;
+        stroke: #d8e4f3;
         stroke-width: 1;
       }
 
@@ -736,8 +818,8 @@
       /* Painel Inferior: Tabela de Estudantes para Acompanhamento */
       .table-card {
         background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        border-radius: 14px;
+        border: 1px solid #d8e4f3;
+        border-radius: 12px;
         box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
         overflow: hidden;
       }
@@ -759,8 +841,8 @@
 
       .students-table th {
         background-color: #f8fafc;
-        border-top: 1px solid #d9e4f2;
-        border-bottom: 1px solid #d9e4f2;
+        border-top: 1px solid #d8e4f3;
+        border-bottom: 1px solid #d8e4f3;
         padding: 10px 24px;
         font-size: 11px;
         font-weight: 700;
@@ -820,15 +902,20 @@
         color: #15803d;
       }
 
-      /* Badges de Situação */
+      /* Badges de Situação - Padrão Professor */
       .status-pill {
+        height: 24px;
+        width: 76px;
+        padding: 0;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 3px 12px;
-        border-radius: 8px;
-        font-size: 12px;
-        font-weight: 600;
+        box-sizing: border-box;
         white-space: nowrap;
       }
 
@@ -844,7 +931,7 @@
 
       .status-pill.status-observar {
         background-color: #e8f1ff;
-        color: #1d4ed8;
+        color: #2563eb;
       }
 
       .status-pill.status-estavel {
@@ -853,10 +940,14 @@
       }
 
       .btn-view-profile {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 600;
         color: #2563eb;
         text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
         transition: color 0.15s ease;
       }
 
@@ -865,11 +956,19 @@
         text-decoration: underline;
       }
 
+      .btn-view-profile svg {
+        transition: transform 0.15s ease;
+      }
+
+      .btn-view-profile:hover svg {
+        transform: translateX(2px);
+      }
+
       /* Barra Inferior de Ações (Igual a ver-todas-as-turmas.html) */
       .bottom-bar {
         height: 76px;
         background-color: #ffffff;
-        border-top: 1px solid #d9e4f2;
+        border-top: 1px solid #d8e4f3;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -884,7 +983,7 @@
         padding: 0 24px;
         border-radius: 10px;
         background-color: #60758b;
-        border: 1px solid #d9e4f2;
+        border: 1px solid #d8e4f3;
         color: #ffffff;
         font-family: inherit;
         font-size: 13px;
@@ -1174,14 +1273,14 @@
                   height="20"
                   viewBox="0 0 20 20"
                   fill="none"
+                  stroke="#2563eb"
                   stroke-width="1.8"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <circle cx="10" cy="7" r="4" stroke="#60758b" />
+                  <circle cx="10" cy="7" r="4" />
                   <path
                     d="M3 18v-1.5c0-2.5 2-4.5 4.5-4.5h5c2.5 0 4.5 2 4.5 4.5V18"
-                    stroke="#2563eb"
                   />
                 </svg>
               </div>
@@ -1204,12 +1303,13 @@
                   height="20"
                   viewBox="0 0 20 20"
                   fill="none"
+                  stroke="#15803d"
                   stroke-width="1.8"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <circle cx="10" cy="10" r="7.5" stroke="#60758b" />
-                  <path d="M10 5.5v4.5l2.5 1.7" stroke="#15803d" />
+                  <circle cx="10" cy="10" r="7.5" />
+                  <path d="M10 5.5v4.5l2.5 1.7" />
                 </svg>
               </div>
               <div class="kpi-text-group">
@@ -1249,32 +1349,40 @@
             </article>
           </section>
 
-          <!-- Filtros de Seleção (Turma e Período) -->
+          <!-- Filtros de Seleção (Turma e Período) - Padrão Professor -->
           <div class="filters-bar">
-            <div class="filter-field">
-              <label class="filter-label" for="select-turma">Turma</label>
-              <div class="select-container">
-                <select id="select-turma" class="filter-select">
-                  <option value="7b" selected>7º ano B</option>
-                  <option value="6a">6º ano A</option>
-                  <option value="8a">8º ano A</option>
-                  <option value="9b">9º ano B</option>
-                </select>
-                <span class="select-arrow" aria-hidden="true">⌄</span>
+            <!-- Filtro Turma -->
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown filter-turma">
+                <span class="filter-label">TURMA</span>
+                <div class="filter-row">
+                  <span class="filter-text">7º ano B</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu">
+                <div class="filter-dropdown-item selected">7º ano B</div>
+                <div class="filter-dropdown-item">6º ano A</div>
+                <div class="filter-dropdown-item">8º ano A</div>
+                <div class="filter-dropdown-item">9º ano B</div>
               </div>
-            </div>
+            </details>
 
-            <div class="filter-field">
-              <label class="filter-label" for="select-periodo">Período</label>
-              <div class="select-container">
-                <select id="select-periodo" class="filter-select">
-                  <option value="6m" selected>Últimos 6 meses</option>
-                  <option value="3m">Últimos 3 meses</option>
-                  <option value="1a">Ano letivo atual</option>
-                </select>
-                <span class="select-arrow" aria-hidden="true">⌄</span>
+            <!-- Filtro Período -->
+            <details class="filter-dropdown-details">
+              <summary class="filter-dropdown filter-periodo">
+                <span class="filter-label">PERÍODO</span>
+                <div class="filter-row">
+                  <span class="filter-text">Últimos 6 meses</span>
+                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                </div>
+              </summary>
+              <div class="filter-dropdown-menu">
+                <div class="filter-dropdown-item selected">Últimos 6 meses</div>
+                <div class="filter-dropdown-item">Últimos 3 meses</div>
+                <div class="filter-dropdown-item">Ano letivo atual</div>
               </div>
-            </div>
+            </details>
           </div>
 
           <!-- Grade BI Superior (Perfil Dimensional da Turma + Tendência) -->
@@ -1378,7 +1486,7 @@
 
               <!-- Insight Informativo -->
               <div class="insight-box">
-               
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M16.67 5L7.5 14.17 3.33 10" />
                 </svg>
                 <span
@@ -1516,7 +1624,7 @@
 
               <!-- Insight Informativo -->
               <div class="insight-box">
-              
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M16.67 5L7.5 14.17 3.33 10" />
                 </svg>
                 <span>Melhora gradual nos últimos 6 meses.</span>
@@ -1563,9 +1671,12 @@
                       <span class="status-pill status-atencao">Atenção</span>
                     </td>
                     <td>
-                      <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile"
-                        >Ver perfil individual</a
-                      >
+                      <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile">
+                        <span>Ver perfil individual</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                        </svg>
+                      </a>
                     </td>
                   </tr>
 
@@ -1583,9 +1694,12 @@
                       <span class="status-pill status-critico">Crítico</span>
                     </td>
                     <td>
-                      <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile"
-                        >Ver perfil individual</a
-                      >
+                      <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile">
+                        <span>Ver perfil individual</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                        </svg>
+                      </a>
                     </td>
                   </tr>
 
@@ -1603,9 +1717,12 @@
                       <span class="status-pill status-observar">Observar</span>
                     </td>
                     <td>
-                      <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile"
-                        >Ver perfil individual</a
-                      >
+                      <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile">
+                        <span>Ver perfil individual</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                        </svg>
+                      </a>
                     </td>
                   </tr>
 
@@ -1623,9 +1740,12 @@
                       <span class="status-pill status-estavel">Estável</span>
                     </td>
                     <td>
-                      <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile"
-                        >Ver perfil individual</a
-                      >
+                      <a href="dashboard-agregador-perfil-do-aluno.html" class="btn-view-profile">
+                        <span>Ver perfil individual</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
+                        </svg>
+                      </a>
                     </td>
                   </tr>
                 </tbody>
