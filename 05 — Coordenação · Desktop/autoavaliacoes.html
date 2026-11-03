@@ -109,7 +109,7 @@
       }
 
       .brand-role {
-        font-size: 8px;
+        font-size: 10px;
         font-weight: 600;
         line-height: 1.4;
         letter-spacing: 0.5px;
@@ -125,7 +125,7 @@
       }
 
       .nav-section-title {
-        font-size: 9px;
+        font-size: 10px;
         font-weight: 600;
         line-height: 1.4;
         letter-spacing: 0.5px;
@@ -305,8 +305,12 @@
     }
 
     .breadcrumb-separator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
       color: #8194aa;
-      user-select: none;
+      vertical-align: middle;
     }
 
     .breadcrumb-current {
@@ -469,15 +473,9 @@
         width: 100%;
       }
 
-      .filter-dropdown-details summary {
-        list-style: none;
-        outline: none;
-        user-select: none;
-      }
+      
 
-      .filter-dropdown-details summary::-webkit-details-marker {
-        display: none;
-      }
+      
 
       .filter-dropdown {
         width: 100%;
@@ -492,7 +490,6 @@
         cursor: pointer;
         position: relative;
         transition: border-color 0.15s ease, box-shadow 0.15s ease;
-        user-select: none;
         box-sizing: border-box;
       }
 
@@ -500,24 +497,27 @@
         border-color: #cbd5e1;
       }
 
-      .filter-dropdown-details[open] .filter-dropdown {
+      .filter-dropdown-details:focus-within .filter-dropdown, .filter-dropdown-details:hover .filter-dropdown {
         border-color: #2563eb;
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
       }
 
       .filter-label {
-        font-size: 9px;
+        display: block;
+        font-size: 10px;
         font-weight: 600;
         letter-spacing: 0.5px;
         color: #60758b;
         text-transform: uppercase;
-        line-height: 1.2;
+        line-height: 14px;
+        margin-bottom: 2px;
       }
 
       .filter-row {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        line-height: 16px;
       }
 
       .filter-text {
@@ -546,7 +546,7 @@
         overflow: hidden;
       }
 
-      .filter-dropdown-details[open] .filter-dropdown-menu {
+      .filter-dropdown-details:focus-within .filter-dropdown-menu, .filter-dropdown-details:hover .filter-dropdown-menu {
         display: block;
       }
 
@@ -961,7 +961,7 @@
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
                 </svg>
               </span>
@@ -973,7 +973,7 @@
             <a href="sistema-alerta-precoce.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                   <path d="M8.33 17.5h3.34"/>
                 </svg>
@@ -986,7 +986,7 @@
             <a href="clima-escolar.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="10" cy="5" r="2.2"/>
                   <circle cx="5" cy="7.2" r="1.5"/>
                   <circle cx="15" cy="7.2" r="1.5"/>
@@ -1003,7 +1003,7 @@
             <a href="dashboard-agregador-visao-central.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
                   <path d="M12.5 5h5v5"/>
                 </svg>
@@ -1016,7 +1016,7 @@
             <a href="turmas.html" class="nav-link active">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
                 </svg>
@@ -1035,7 +1035,7 @@
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="currentColor"
+              stroke="#2563eb"
               stroke-width="1.8"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1054,7 +1054,7 @@
               height="18"
               viewBox="0 0 18 18"
               fill="none"
-              stroke="currentColor"
+              stroke="#8194aa"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1073,9 +1073,9 @@
             <a href="painel-inicial.html" class="breadcrumb-item"
               >Área da coordenação</a
             >
-            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <svg class="breadcrumb-separator" width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="#8194aa" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><line x1="1" y1="12" x2="6" y2="1"/></svg>
             <a href="turmas.html" class="breadcrumb-item">Turmas</a>
-            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <svg class="breadcrumb-separator" width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="#8194aa" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><line x1="1" y1="12" x2="6" y2="1"/></svg>
             <span class="breadcrumb-current">Autoavaliações</span>
           </nav>
 
@@ -1085,7 +1085,7 @@
               class="notification-btn"
               aria-label="Notificações da coordenação"
             >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.34"/>
             </svg>
@@ -1114,7 +1114,7 @@
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="currentColor"
+                stroke="#6554c0"
                 stroke-width="1.8"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -1139,32 +1139,32 @@
 
           <section class="filters-row" aria-label="Filtros de autoavaliação">
             <div class="filter-item">
-              <details class="filter-dropdown-details">
-                <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+              <div class="filter-dropdown-details" tabindex="0">
+                <div class="filter-dropdown" role="button" aria-haspopup="listbox">
                   <span class="filter-label">TURMA</span>
                   <div class="filter-row">
                     <span class="filter-text">6º ano A</span>
-                    <span class="filter-chevron" aria-hidden="true">▾</span>
+                    <svg class="filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                   </div>
-                </summary>
+                </div>
                 <div class="filter-dropdown-menu" role="listbox">
                   <a href="#6a" class="filter-dropdown-item selected" role="option">6º ano A</a>
                   <a href="#7b" class="filter-dropdown-item" role="option">7º ano B</a>
                   <a href="#8c" class="filter-dropdown-item" role="option">8º ano C</a>
                   <a href="#9a" class="filter-dropdown-item" role="option">9º ano A</a>
                 </div>
-              </details>
+              </div>
             </div>
 
             <div class="filter-item">
-              <details class="filter-dropdown-details">
-                <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+              <div class="filter-dropdown-details" tabindex="0">
+                <div class="filter-dropdown" role="button" aria-haspopup="listbox">
                   <span class="filter-label">PERÍODO</span>
                   <div class="filter-row">
                     <span class="filter-text">Todos os períodos</span>
-                    <span class="filter-chevron" aria-hidden="true">▾</span>
+                    <svg class="filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                   </div>
-                </summary>
+                </div>
                 <div class="filter-dropdown-menu" role="listbox">
                   <a href="#all" class="filter-dropdown-item selected" role="option">Todos os períodos</a>
                   <a href="#1bim" class="filter-dropdown-item" role="option">1º Bimestre</a>
@@ -1172,7 +1172,7 @@
                   <a href="#3bim" class="filter-dropdown-item" role="option">3º Bimestre</a>
                   <a href="#4bim" class="filter-dropdown-item" role="option">4º Bimestre</a>
                 </div>
-              </details>
+              </div>
             </div>
           </section>
 
@@ -1190,7 +1190,7 @@
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#16a34a"
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1234,7 +1234,7 @@
                     height="14"
                     viewBox="0 0 16 16"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#2563eb"
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1255,7 +1255,7 @@
               height="16"
               viewBox="0 0 20 20"
               fill="none"
-              stroke="currentColor"
+              stroke="#ffffff"
               stroke-width="2.2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1272,7 +1272,7 @@
               height="18"
               viewBox="0 0 18 18"
               fill="none"
-              stroke="currentColor"
+              stroke="#ffffff"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1291,7 +1291,7 @@
     <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
       <div class="profile-modal-header">
         <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
-        <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
+        <a href="#" class="profile-modal-close" aria-label="Fechar modal"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
       </div>
       <div class="profile-modal-divider"></div>
       <div class="profile-modal-user">
