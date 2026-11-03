@@ -534,8 +534,7 @@
       flex: 1;
       min-height: 0;
       overflow-y: auto;
-      padding-right: 6px;
-      padding-bottom: 16px;
+      padding: 4px 14px 16px 2px;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -568,13 +567,15 @@
       display: flex;
       flex-direction: column;
       text-decoration: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      color: inherit;
+      cursor: pointer;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
     }
 
     .record-card:hover {
-      border-color: #2563eb;
-      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
-      transform: translateY(-1px);
+      border-color: #bfdbfe;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+      transform: translateX(2px);
     }
 
     .record-top {
@@ -860,7 +861,7 @@
         <!-- Lista de Registros Avaliados -->
         <div class="records-list">
           <!-- Registro 1: Colaboração (Positiva) -->
-          <article class="record-card">
+          <a href="detalhe-registro-colaboracao.html" class="record-card">
             <div class="record-top">
               <span class="record-date">21 OUT 2026</span>
               <span class="dimension-badge">COLABORAÇÃO</span>
@@ -869,17 +870,17 @@
             <p class="record-desc">Compartilhou ideias e contribuiu com o grupo.</p>
             <div class="record-bottom">
               <span class="status-badge positiva">Positiva</span>
-              <a href="detalhe-registro-colaboracao.html" class="record-action">
+              <div class="record-action">
                 <span>Ver registro</span>
                 <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
                 </svg>
-              </a>
+              </div>
             </div>
-          </article>
+          </a>
 
           <!-- Registro 2: Participação (Positiva) -->
-          <article class="record-card">
+          <a href="detalhe-registro-participacao.html" class="record-card">
             <div class="record-top">
               <span class="record-date">19 OUT 2026</span>
               <span class="dimension-badge">PARTICIPAÇÃO</span>
@@ -888,17 +889,17 @@
             <p class="record-desc">Compartilhou uma ideia durante a atividade da turma.</p>
             <div class="record-bottom">
               <span class="status-badge positiva">Positiva</span>
-              <a href="detalhe-registro-participacao.html" class="record-action">
+              <div class="record-action">
                 <span>Ver registro</span>
                 <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
                 </svg>
-              </a>
+              </div>
             </div>
-          </article>
+          </a>
 
           <!-- Registro 3: Responsabilidade (A desenvolver) -->
-          <article class="record-card">
+          <a href="detalhe-registro-responsabilidade.html" class="record-card">
             <div class="record-top">
               <span class="record-date">16 OUT 2026</span>
               <span class="dimension-badge">RESPONSABILIDADE</span>
@@ -907,14 +908,14 @@
             <p class="record-desc">Não organizou os materiais corretamente ao final da aula.</p>
             <div class="record-bottom">
               <span class="status-badge desenvolver">A desenvolver</span>
-              <a href="detalhe-registro-responsabilidade.html" class="record-action">
+              <div class="record-action">
                 <span>Ver registro</span>
                 <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
                 </svg>
-              </a>
+              </div>
             </div>
-          </article>
+          </a>
         </div>
       </section>
     </main>
