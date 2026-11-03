@@ -106,7 +106,7 @@
     }
 
     .brand-role {
-      font-size: 8px;
+      font-size: 10px;
       font-weight: 600;
       line-height: 1.4;
       letter-spacing: 0.5px;
@@ -122,7 +122,7 @@
     }
 
     .nav-section-title {
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
       line-height: 1.4;
       letter-spacing: 0.5px;
@@ -609,7 +609,6 @@
       border: 1px solid #d9e4f2;
       border-radius: var(--radius-btn);
       cursor: pointer;
-      user-select: none;
       transition: all 0.15s ease;
     }
 
@@ -656,23 +655,20 @@
       transform: scale(1);
     }
 
-    .option-number {
-      font-size: 13px;
-      font-weight: 700;
-      color: #60758b;
-      width: 18px;
-      flex-shrink: 0;
-    }
-
-    .option-item.selected .option-number {
-      color: #2563eb;
-    }
-
     .option-label {
       font-size: 14px;
       font-weight: 400;
       color: #60758b;
       flex: 1;
+    }
+
+    .option-label::first-letter {
+      font-weight: 700;
+      color: #60758b;
+    }
+
+    .option-item.selected .option-label::first-letter {
+      color: #2563eb;
     }
 
     .option-item.selected .option-label {
@@ -693,6 +689,7 @@
     }
 
     .reflection-textarea {
+      display: block;
       width: 100%;
       min-height: 72px;
       height: 72px;
@@ -705,11 +702,10 @@
       line-height: 1.5;
       color: #172b4d;
       outline: none;
-      resize: vertical;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .reflection-textarea::placeholder {
+    .reflection-placeholder {
       color: #8194aa;
     }
 
@@ -915,7 +911,7 @@
           <li class="nav-item">
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
                 </svg>
               </span>
@@ -925,7 +921,7 @@
           <li class="nav-item">
             <a href="minhas-autoavaliacoes.html" class="nav-link active" aria-current="page">
               <span class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M3.5 10.5L7.5 14.5L16.5 5.5"/>
                 </svg>
               </span>
@@ -935,7 +931,7 @@
           <li class="nav-item">
             <a href="minha-evolucao.html" class="nav-link">
               <span class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 14.5L7.5 9.5L11 13L17.5 5"/>
                   <path d="M12.5 5H17.5V10"/>
                 </svg>
@@ -946,7 +942,7 @@
           <li class="nav-item">
             <a href="minhas-devolutivas.html" class="nav-link">
               <span class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="3.5" y1="6" x2="16.5" y2="6"/>
                   <line x1="3.5" y1="10" x2="16.5" y2="10"/>
                   <line x1="3.5" y1="14" x2="16.5" y2="14"/>
@@ -961,7 +957,7 @@
       <div class="sidebar-footer">
         <a href="#modal-perfil" class="user-profile-button" aria-label="Abrir menu de perfil do estudante">
           <div class="user-avatar">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <ellipse cx="12" cy="8" rx="4" ry="4"/>
               <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
             </svg>
@@ -971,7 +967,7 @@
             <span class="user-role">Estudante</span>
           </div>
           <div class="user-chevron">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#8194aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
             </svg>
           </div>
@@ -988,7 +984,7 @@
 
         <div class="header-actions">
           <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.334"/>
             </svg>
@@ -1022,46 +1018,41 @@
                 <div class="option-radio">
                   <span class="option-radio-dot"></span>
                 </div>
-                <span class="option-number">1</span>
-                <span class="option-label">Ainda estou desenvolvendo essa atitude</span>
+                <span class="option-label">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ainda estou desenvolvendo essa atitude</span>
               </div>
 
               <div class="option-item" role="radio" aria-checked="false" tabindex="0" data-value="2">
                 <div class="option-radio">
                   <span class="option-radio-dot"></span>
                 </div>
-                <span class="option-number">2</span>
-                <span class="option-label">Consigo em poucas situações</span>
+                <span class="option-label">2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consigo em poucas situações</span>
               </div>
 
               <div class="option-item" role="radio" aria-checked="false" tabindex="0" data-value="3">
                 <div class="option-radio">
                   <span class="option-radio-dot"></span>
                 </div>
-                <span class="option-number">3</span>
-                <span class="option-label">Consigo em algumas situações</span>
+                <span class="option-label">3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consigo em algumas situações</span>
               </div>
 
               <div class="option-item selected" role="radio" aria-checked="true" tabindex="0" data-value="4">
                 <div class="option-radio">
                   <span class="option-radio-dot"></span>
                 </div>
-                <span class="option-number">4</span>
-                <span class="option-label">Consigo na maioria das situações</span>
+                <span class="option-label">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consigo na maioria das situações</span>
               </div>
 
               <div class="option-item" role="radio" aria-checked="false" tabindex="0" data-value="5">
                 <div class="option-radio">
                   <span class="option-radio-dot"></span>
                 </div>
-                <span class="option-number">5</span>
-                <span class="option-label">Pratico essa atitude com frequência</span>
+                <span class="option-label">5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pratico essa atitude com frequência</span>
               </div>
             </div>
 
             <div class="reflection-block">
               <h4 class="reflection-title">Reflexão (opcional)</h4>
-              <textarea class="reflection-textarea" placeholder="Escreva um exemplo ou contexto, se desejar…" aria-label="Reflexão opcional"></textarea>
+              <div class="reflection-textarea" role="textbox" aria-multiline="true" aria-label="Reflexão opcional"><span class="reflection-placeholder">Escreva um exemplo ou contexto, se desejar…</span></div>
             </div>
           </article>
 
@@ -1071,7 +1062,7 @@
               <p class="sidebar-card-body">Ao finalizar, sua autoavaliação será concluída e enviada para o(a) professor(a).</p>
               <div class="sidebar-card-divider"></div>
               <div class="sidebar-card-status">
-                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="#16804a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M3.5 10.5L7.5 14.5L16.5 5.5"/>
                 </svg>
                 <span>Suas respostas são pessoais.</span>
@@ -1109,7 +1100,7 @@
 
       <footer class="bottom-actions-bar">
         <a href="responder-autoavaliacao.html" class="btn-back" aria-label="Voltar para a dimensão anterior">
-          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
           </svg>
           <span>Voltar</span>
@@ -1126,7 +1117,7 @@
     <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
       <div class="profile-modal-header">
         <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
-        <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
+        <a href="#" class="profile-modal-close" aria-label="Fechar modal"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
       </div>
       <div class="profile-modal-divider"></div>
       <div class="profile-modal-user">
