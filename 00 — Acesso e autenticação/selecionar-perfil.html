@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selecionar Perfil · Educar & Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-border-divider: #eef3f9;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      --color-primary-soft: #eff5ff;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --shadow-card: 0px 8px 24px rgba(20, 51, 97, 0.06);
+      --shadow-hover: 0px 12px 32px rgba(37, 99, 235, 0.12);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hub-container {
+      width: 100%;
+      max-width: 820px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      background-color: var(--color-primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.25;
+    }
+
+    .demo-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background-color: var(--color-primary-soft);
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius-md);
+      font-size: 12px;
+      color: #1e40af;
+      line-height: 1.4;
+    }
+
+    .demo-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2.5px 8px;
+      background-color: var(--color-primary);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .hub-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hub-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.3;
+    }
+
+    .hub-subtitle {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.45;
+    }
+
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 16px 12px;
+      }
+      .hub-container {
+        padding: 24px 18px;
+        border-radius: var(--radius-lg);
+        gap: 20px;
+      }
+      .hub-title {
+        font-size: 20px;
+      }
+      .profiles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .profile-card {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .profile-card:hover {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .profile-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .profile-icon-badge.professor {
+      background-color: #e8f1ff;
+      color: #2563eb;
+    }
+
+    .profile-icon-badge.coordenacao {
+      background-color: #f1edff;
+      color: #7c3aed;
+    }
+
+    .profile-icon-badge.estudante {
+      background-color: #e6f6ee;
+      color: #15803d;
+    }
+
+    .profile-icon-badge.responsavel {
+      background-color: #fff7ed;
+      color: #ea580c;
+    }
+
+    .profile-title-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .profile-role-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .profile-desc {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    .profile-actions-row {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn-flow {
+      flex: 1;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-flow.mobile {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      border: 1px solid transparent;
+    }
+
+    .btn-flow.mobile:hover {
+      background-color: #dbeafe;
+    }
+
+    .btn-flow.desktop {
+      background-color: #ffffff;
+      color: var(--color-text-main);
+      border: 1px solid var(--color-border-subtle);
+    }
+
+    .btn-flow.desktop:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background-color: #f8fafc;
+    }
+
+    .hub-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--color-border-divider);
+      padding-top: 18px;
+      font-size: 12px;
+      color: var(--color-text-muted);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .back-links-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .back-login-link {
+      color: var(--color-primary);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-login-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="hub-container">
+    <header class="brand-header">
+      <div class="brand-icon">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Educar & Aprender</span>
+      </div>
+    </header>
+
+    <div class="demo-banner" role="note" aria-label="Aviso de tela demonstrativa">
+      <span class="demo-badge">Demonstrativo</span>
+      <span>Esta tela é somente demonstrativa e serve para orientar o início do fluxo de cada perfil de usuário.</span>
+    </div>
+
+    <section class="hub-intro">
+      <h1 class="hub-title">Selecione o perfil para iniciar o fluxo</h1>
+      <p class="hub-subtitle">Escolha o ambiente correspondente ao seu perfil para acessar o painel inicial:</p>
+    </section>
+
+    <div class="profiles-grid">
+
+      <article class="profile-card">
+        <div class="profile-card-header">
+          <div class="profile-icon-badge professor">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div class="profile-title-col">
+            <h2 class="profile-role-name">Professor</h2>
+            <p class="profile-desc">Turmas, registros formativos, evidências e devolutivas.</p>
+          </div>
+        </div>
+        <div class="profile-actions-row">
+          <a href="../02 — Professor · Mobile/painel-inicial.html" class="btn-flow mobile">
+            <span>📱 Mobile</span>
+          </a>
+          <a href="../01 — Professor · Desktop/painel-inicial.html" class="btn-flow desktop">
+            <span>💻 Desktop</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <div class="profile-card-header">
+          <div class="profile-icon-badge coordenacao">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="profile-title-col">
+            <h2 class="profile-role-name">Coordenação</h2>
+            <p class="profile-desc">Visão escolar, alerta precoce, turmas e agregadores.</p>
+          </div>
+        </div>
+        <div class="profile-actions-row">
+          <a href="../06 — Coordenação · Mobile/painel-inicial-coordenacao-mobile.html" class="btn-flow mobile">
+            <span>📱 Mobile</span>
+          </a>
+          <a href="../05 — Coordenação · Desktop/painel-inicial.html" class="btn-flow desktop">
+            <span>💻 Desktop</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <div class="profile-card-header">
+          <div class="profile-icon-badge estudante">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="profile-title-col">
+            <h2 class="profile-role-name">Estudante</h2>
+            <p class="profile-desc">Autoavaliações, reflexões, devolutivas e evolução atitudinal.</p>
+          </div>
+        </div>
+        <div class="profile-actions-row">
+          <a href="../03 — Estudante · Mobile/painel-inicial-estudante-mobile.html" class="btn-flow mobile">
+            <span>📱 Mobile</span>
+          </a>
+          <a href="../04 — Estudante · Desktop/painel-inicial.html" class="btn-flow desktop">
+            <span>💻 Desktop</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <div class="profile-card-header">
+          <div class="profile-icon-badge responsavel">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div class="profile-title-col">
+            <h2 class="profile-role-name">Responsável</h2>
+            <p class="profile-desc">Acompanhamento familiar, registros e devolutivas da escola.</p>
+          </div>
+        </div>
+        <div class="profile-actions-row">
+          <a href="../07 — Responsável · Mobile/painel-inicial-responsavel-mobile.html" class="btn-flow mobile">
+            <span>📱 Mobile</span>
+          </a>
+          <a href="../08 — Responsável · Desktop/painel-inicial.html" class="btn-flow desktop">
+            <span>💻 Desktop</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <footer class="hub-footer">
+      <span>Educar & Aprender · Sistema de Gestão Atitudinal</span>
+      <div class="back-links-group">
+        <a href="login.html" class="back-login-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span>Login Desktop</span>
+        </a>
+        <a href="login-mobile.html" class="back-login-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span>Login Mobile</span>
+        </a>
+      </div>
+    </footer>
+  </main>
+
+</body>
+</html>
