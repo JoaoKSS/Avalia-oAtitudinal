@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Autoavaliações · Turma 6º ano A · Coordenação · Mobile 390 × 980</title>
 
-  <!-- Favicon adaptativo oficial -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)" />
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
   <link rel="alternate icon" href="../assets/favicon.svg" />
@@ -31,7 +30,6 @@
       --color-warning-light: #fff4d6;
     }
 
-    /* Ocultar barra de rolagem visual mantendo a rolagem ativa em todo o container mobile */
     * {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -64,7 +62,6 @@
       overflow-x: hidden;
     }
 
-    /* Container do Mockup Mobile: 390px × 844px padrão */
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -100,7 +97,6 @@
       }
     }
 
-    /* Cabeçalho Superior Mobile (72px) - Idêntico a turmas.html */
     .mobile-header {
       width: 100%;
       height: 72px;
@@ -185,7 +181,6 @@
       border-radius: 50%;
     }
 
-    /* Conteúdo Principal com Rolagem */
     .screen-content {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -195,10 +190,9 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      padding-bottom: 150px; /* espaço extra para não sobrepor o botão fixo */
+      padding-bottom: 150px;
     }
 
-    /* Botão Voltar */
     .back-nav-link {
       display: inline-flex;
       align-items: center;
@@ -217,7 +211,6 @@
       text-decoration: underline;
     }
 
-    /* Título & Descrição */
     .page-hero {
       display: flex;
       flex-direction: column;
@@ -237,7 +230,6 @@
       line-height: 1.4;
     }
 
-    /* Resumo Geral (Cartão com 2 colunas: Em andamento | Concluídas) */
     .summary-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
@@ -303,7 +295,6 @@
       margin: 0 12px;
     }
 
-    /* Seção de Autoavaliações & Filtros */
     .section-header {
       display: flex;
       align-items: center;
@@ -317,7 +308,6 @@
       color: var(--color-text-main);
     }
 
-    /* Grid de Filtros: Turma e Período lado a lado */
     .filters-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -383,7 +373,6 @@
       color: var(--color-text-muted);
     }
 
-    /* Cartão Atividade: Autoavaliação atitudinal */
     .activity-card {
       background-color: var(--color-bg-card);
       border: 1.5px solid var(--color-success);
@@ -465,7 +454,6 @@
       width: 100%;
     }
 
-    /* Seção de Progresso e Participação */
     .progress-section {
       display: flex;
       flex-direction: column;
@@ -504,7 +492,6 @@
       border-radius: 4px;
     }
 
-    /* Rodapé do Cartão com link Comparativo */
     .activity-card-footer {
       display: flex;
       justify-content: flex-end;
@@ -534,10 +521,9 @@
       margin-top: -4px;
     }
 
-    /* Barra de Ação Fixada Pouco Acima do Rodapé */
     .fixed-action-bar {
       position: absolute;
-      bottom: 72px; /* Imediatamente acima do rodapé de 72px */
+      bottom: 72px;
       left: 0;
       width: 100%;
       padding: 12px 16px 14px 16px;
@@ -550,7 +536,6 @@
       box-sizing: border-box;
     }
 
-    /* Botão Criar Autoavaliação */
     .btn-criar-autoavaliacao {
       pointer-events: auto;
       display: flex;
@@ -577,7 +562,6 @@
       transform: scale(0.99);
     }
 
-    /* Barra de Navegação Inferior (Mobile) - Idêntica a turmas.html */
     .bottom-nav {
       position: absolute;
       bottom: 0;
@@ -640,7 +624,6 @@
 
   <div class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile: Coordenação (Idêntico a turmas.html) -->
     <header class="mobile-header">
       <a href="painel-inicial-coordenacao-mobile.html" class="brand-section">
         <div class="brand-icon" aria-hidden="true">
@@ -664,24 +647,19 @@
       </a>
     </header>
 
-    <!-- Conteúdo Rolável -->
     <main class="screen-content">
 
-      <!-- Voltar para Turmas -->
       <a href="turmas-6ano-a-expandida.html" class="back-nav-link" aria-label="Voltar para Turmas">
         <span aria-hidden="true">‹</span>
         <span>Voltar para Turmas</span>
       </a>
 
-      <!-- Título & Subtítulo da Página -->
       <section class="page-hero" aria-label="Apresentação da página">
         <h1 class="page-title">Autoavaliações</h1>
         <p class="page-subtitle">Acompanhe as atividades e a participação das turmas.</p>
       </section>
 
-      <!-- Resumo Geral: Em andamento (1) | Concluídas (0) -->
       <section class="summary-card" aria-label="Resumo geral das autoavaliações">
-        <!-- Coluna 1: Em andamento -->
         <div class="summary-col">
           <span class="summary-value primary">1</span>
           <div class="summary-text-group">
@@ -692,7 +670,6 @@
 
         <div class="summary-divider" aria-hidden="true"></div>
 
-        <!-- Coluna 2: Concluídas -->
         <div class="summary-col">
           <span class="summary-value muted">0</span>
           <div class="summary-text-group">
@@ -702,12 +679,10 @@
         </div>
       </section>
 
-      <!-- Cabeçalho da Seção de Autoavaliações -->
       <div class="section-header">
         <h2 class="section-title">Autoavaliações</h2>
       </div>
 
-      <!-- Filtros: Turma e Período -->
       <section class="filters-grid" aria-label="Filtros de autoavaliações">
         <div class="filter-item">
           <label for="filtro-turma" class="filter-label">Turma</label>
@@ -742,7 +717,6 @@
         <span class="results-count">1 resultado</span>
       </div>
 
-      <!-- Cartão da Atividade: Autoavaliação atitudinal — 1º 2026 -->
       <article class="activity-card" onclick="window.location.href='comparativo-autoavaliacao.html'" aria-label="Autoavaliação atitudinal — 1º 2026">
         <div class="activity-header">
           <div class="activity-icon-box" aria-hidden="true">
@@ -761,7 +735,6 @@
 
         <div class="activity-divider" aria-hidden="true"></div>
 
-        <!-- Progresso / Participação -->
         <div class="progress-section">
           <div class="progress-labels">
             <span class="progress-title">Participação dos estudantes</span>
@@ -772,7 +745,6 @@
           </div>
         </div>
 
-        <!-- Rodapé do Cartão com Comparativo -->
         <div class="activity-card-footer">
           <a href="comparativo-autoavaliacao.html" class="comparativo-link">
             <span>Comparativo</span>
@@ -787,7 +759,6 @@
 
     </main>
 
-    <!-- Barra de Ação Fixada Pouco Acima do Rodapé -->
     <div class="fixed-action-bar">
       <a href="configuracao-autoavaliacao.html" class="btn-criar-autoavaliacao">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -798,9 +769,7 @@
       </a>
     </div>
 
-    <!-- Barra de Navegação Inferior (Mobile) - Idêntica a turmas.html -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <!-- 1. Início -->
       <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -810,7 +779,6 @@
         <span class="nav-label">Início</span>
       </a>
 
-      <!-- 2. Alertas -->
       <a href="sistema-alerta-precoce.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -821,7 +789,6 @@
         <span class="nav-label">Alertas</span>
       </a>
 
-      <!-- 3. Turmas (Ativo) -->
       <a href="turmas.html" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar" aria-hidden="true"></span>
         <div class="nav-icon" aria-hidden="true">
@@ -833,7 +800,6 @@
         <span class="nav-label">Turmas</span>
       </a>
 
-      <!-- 4. Agregadores -->
       <a href="dashboard-agregador-visao-central.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -844,7 +810,6 @@
         <span class="nav-label">Agregadores</span>
       </a>
 
-      <!-- 5. Perfil -->
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

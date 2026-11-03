@@ -41,7 +41,6 @@
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
-    /* Ocultar barra de rolagem visual mantendo a rolagem ativa */
     * {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -74,7 +73,6 @@
       overflow-x: hidden;
     }
 
-    /* Container de visualização Mobile (390px x 844px) */
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -110,7 +108,6 @@
       }
     }
 
-    /* Cabeçalho Superior Mobile (72px) - Padrão */
     .mobile-header {
       width: 100%;
       height: 72px;
@@ -197,7 +194,6 @@
       border: 1.5px solid #ffffff;
     }
 
-    /* Conteúdo Rolável (Main) */
     .screen-content {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -210,7 +206,6 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Título da Página */
     .page-title {
       font-size: 22px;
       font-weight: 700;
@@ -219,7 +214,6 @@
       line-height: 1.25;
     }
 
-    /* Seção Filtros */
     .filters-row-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -272,7 +266,6 @@
       pointer-events: none;
     }
 
-    /* Grid de KPIs */
     .kpi-row-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -341,7 +334,6 @@
       white-space: nowrap;
     }
 
-    /* Cards Gerais (Painéis) */
     .panel-card {
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
@@ -406,7 +398,6 @@
       color: #64748b;
     }
 
-    /* Perfil Dimensional com Barra Dupla (Turma vs Escola) */
     .dual-dim-list {
       display: flex;
       flex-direction: column;
@@ -469,7 +460,6 @@
       margin-top: -2px;
     }
 
-    /* Tendência da Turma */
     .tendencia-badge-group {
       display: flex;
       flex-direction: column;
@@ -499,7 +489,6 @@
       margin-top: 4px;
     }
 
-    /* Seção: Estudantes para Acompanhamento */
     .estudantes-section {
       display: flex;
       flex-direction: column;
@@ -541,7 +530,6 @@
       white-space: nowrap;
     }
 
-    /* Tabela de Estudantes */
     .table-container {
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
@@ -644,7 +632,6 @@
       text-decoration: underline;
     }
 
-    /* Barra de Navegação Inferior (Mobile) - Padrão com Agregadores Ativo */
     .bottom-nav {
       width: 100%;
       height: 72px;
@@ -707,10 +694,8 @@
 </head>
 <body>
 
-  <!-- Mockup Mobile Screen Wrapper (390px x 844px) -->
   <div class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile: Coordenação -->
     <header class="mobile-header">
       <div class="brand-section">
         <div class="brand-icon" aria-hidden="true">
@@ -734,13 +719,10 @@
       </a>
     </header>
 
-    <!-- Conteúdo Rolável -->
     <main class="screen-content">
 
-      <!-- Título da Página -->
       <h1 class="page-title">Análise por turma</h1>
 
-      <!-- Filtros: Turma e Período -->
       <div class="filters-row-grid">
         <div class="filter-group">
           <label class="filter-label" for="filter-turma">Turma</label>
@@ -769,9 +751,7 @@
         </div>
       </div>
 
-      <!-- KPIs - Linha 1 -->
       <div class="kpi-row-grid">
-        <!-- Estudantes na turma -->
         <article class="kpi-card">
           <div class="kpi-icon-box blue" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -786,7 +766,6 @@
           </div>
         </article>
 
-        <!-- Média atitudinal -->
         <article class="kpi-card">
           <div class="kpi-icon-box green" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -802,7 +781,6 @@
         </article>
       </div>
 
-      <!-- KPIs - Linha 2 (Full Width: Em Estado de Atenção) -->
       <article class="kpi-card full-width">
         <div class="kpi-icon-box amber" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -818,7 +796,6 @@
         </div>
       </article>
 
-      <!-- Painel: Perfil dimensional da turma -->
       <section class="panel-card" aria-label="Perfil dimensional da turma">
         <div class="panel-header">
           <div class="panel-title-group">
@@ -839,7 +816,6 @@
         </div>
 
         <div class="dual-dim-list">
-          <!-- Responsabilidade: 4,3 -->
           <div class="dual-dim-item">
             <div class="dual-dim-top">
               <span class="dual-dim-name">Responsabilidade</span>
@@ -851,7 +827,6 @@
             </div>
           </div>
 
-          <!-- Respeito: 4,2 -->
           <div class="dual-dim-item">
             <div class="dual-dim-top">
               <span class="dual-dim-name">Respeito</span>
@@ -863,7 +838,6 @@
             </div>
           </div>
 
-          <!-- Autonomia: 4,0 -->
           <div class="dual-dim-item">
             <div class="dual-dim-top">
               <span class="dual-dim-name">Autonomia</span>
@@ -875,7 +849,6 @@
             </div>
           </div>
 
-          <!-- Colaboração: 3,9 -->
           <div class="dual-dim-item">
             <div class="dual-dim-top">
               <span class="dual-dim-name">Colaboração</span>
@@ -887,7 +860,6 @@
             </div>
           </div>
 
-          <!-- Participação: 3,8 -->
           <div class="dual-dim-item">
             <div class="dual-dim-top">
               <span class="dual-dim-name">Participação</span>
@@ -903,7 +875,6 @@
         <p class="panel-insight-text">A turma está acima da média escolar nas cinco dimensões do exemplo.</p>
       </section>
 
-      <!-- Painel: Tendência da turma -->
       <section class="panel-card" aria-label="Tendência da turma">
         <div class="panel-header">
           <div class="panel-title-group">
@@ -920,12 +891,10 @@
         </div>
 
         <svg class="tendencia-chart-svg" viewBox="0 0 326 110" preserveAspectRatio="none">
-          <!-- Horizontal Light Grid Lines -->
           <line x1="10" y1="18" x2="316" y2="18" stroke="#f1f5f9" stroke-width="1" />
           <line x1="10" y1="58" x2="316" y2="58" stroke="#f1f5f9" stroke-width="1" />
           <line x1="10" y1="92" x2="316" y2="92" stroke="#f1f5f9" stroke-width="1" />
 
-          <!-- Trend line -->
           <polyline
             fill="none"
             stroke="#2563eb"
@@ -935,7 +904,6 @@
             points="24,76 80,70 136,66 192,60 248,54 302,48"
           />
 
-          <!-- Data Points -->
           <circle cx="24" cy="76" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
           <circle cx="80" cy="70" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
           <circle cx="136" cy="66" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
@@ -943,7 +911,6 @@
           <circle cx="248" cy="54" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
           <circle cx="302" cy="48" r="4.5" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" />
 
-          <!-- X Months Labels -->
           <text x="24" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Mai</text>
           <text x="80" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Jun</text>
           <text x="136" y="106" fill="#64748b" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">Jul</text>
@@ -955,7 +922,6 @@
         <p class="panel-insight-text">Melhora gradual nos últimos 6 meses.</p>
       </section>
 
-      <!-- Seção: Estudantes para acompanhamento -->
       <section class="estudantes-section" aria-label="Estudantes para acompanhamento">
         <div class="estudantes-header">
           <div class="estudantes-title-group">
@@ -965,7 +931,6 @@
           <span class="badge-sinalizados">4 estudantes sinalizados</span>
         </div>
 
-        <!-- Tabela com rolagem horizontal -->
         <div class="table-container">
           <table class="estudantes-table">
             <thead>
@@ -995,7 +960,6 @@
           </table>
         </div>
 
-        <!-- Instrução e barra visual de rolagem horizontal -->
         <div class="scroll-instruction-row">
           <span class="scroll-instruction-text">&harr; Deslize horizontalmente para acessar todas as colunas</span>
           <div class="scroll-track">
@@ -1003,7 +967,6 @@
           </div>
         </div>
 
-        <!-- Link Ver todos os estudantes -->
         <div class="link-ver-todos-container">
           <a href="todos-os-estudantes.html" class="link-ver-todos">
             <span>Ver todos os estudantes</span>
@@ -1014,9 +977,7 @@
 
     </main>
 
-    <!-- Barra de Navegação Inferior (Mobile) - Padrão com Agregadores Ativo -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <!-- 1. Início -->
       <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1026,7 +987,6 @@
         <span class="nav-label">Início</span>
       </a>
 
-      <!-- 2. Alertas -->
       <a href="sistema-alerta-precoce.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1037,7 +997,6 @@
         <span class="nav-label">Alertas</span>
       </a>
 
-      <!-- 3. Turmas -->
       <a href="turmas.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1048,7 +1007,6 @@
         <span class="nav-label">Turmas</span>
       </a>
 
-      <!-- 4. Agregadores (Ativo) -->
       <a href="dashboard-agregador-visao-central.html" class="nav-tab active" aria-current="page">
         <span class="nav-indicator-bar" aria-hidden="true"></span>
         <div class="nav-icon" aria-hidden="true">
@@ -1060,7 +1018,6 @@
         <span class="nav-label">Agregadores</span>
       </a>
 
-      <!-- 5. Perfil -->
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
