@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parecer Formativo · Professor · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f0ff;
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-border: #d8e4f3;
+      --color-border-subtle: #e2e8f0;
+      --color-positive: #16a34a;
+      --color-warning: #b86a00;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-icon-btn {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .notif-badge-dot {
+      position: absolute;
+      left: 27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 16px 98px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      width: fit-content;
+      transition: color 0.15s ease;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .page-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.25;
+    }
+
+    .page-subtitle {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    .student-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .student-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .student-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .student-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .student-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      line-height: 1.2;
+    }
+
+    .student-meta {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+      margin-top: 3px;
+    }
+
+    .status-badge-pendente {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-warning);
+      background-color: #fffbeb;
+      border: 1px solid #fed7aa;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .card-potencialidade {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .potencialidade-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .potencialidade-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-positive);
+      flex-shrink: 0;
+    }
+
+    .potencialidade-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-positive);
+    }
+
+    .potencialidade-desc {
+      font-size: 13px;
+      color: var(--color-text-main);
+      line-height: 1.35;
+    }
+
+    .card-dimensoes {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .badge-barras {
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-primary);
+      background-color: var(--color-primary-light);
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .dimension-slider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .dimension-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dimension-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    .dimension-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      width: 52px;
+      height: 22px;
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+    }
+
+    .dimension-value {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+
+    .dimension-suffix {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      line-height: 1;
+    }
+
+    .dimension-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(to right, var(--color-primary) var(--fill-pct, 80%), #e2e8f0 var(--fill-pct, 80%));
+      border-radius: 3px;
+      outline: none;
+      margin: 6px 0 2px 0;
+      cursor: pointer;
+    }
+
+    .dimension-range::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 6px;
+      background: transparent;
+      border-radius: 3px;
+    }
+
+    .dimension-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 2px solid var(--color-primary);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+      margin-top: -5px;
+    }
+
+    .dimension-scale {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--color-text-muted);
+      padding: 0 2px;
+    }
+
+    .dimensoes-divider {
+      height: 1px;
+      background-color: var(--color-border);
+      margin: 4px 0 2px;
+    }
+
+    .dimensoes-summary {
+      font-size: 12px;
+      color: var(--color-text-main);
+      line-height: 1.3;
+    }
+
+    .dimensoes-summary strong {
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .feedback-section {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .feedback-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .feedback-box {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .feedback-textarea {
+      width: 100%;
+      min-height: 130px;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 12px;
+      color: var(--color-text-main);
+      line-height: 1.5;
+      resize: vertical;
+      background: transparent;
+    }
+
+    .feedback-counter {
+      align-self: flex-end;
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .action-buttons-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .btn-secondary {
+      flex: 1;
+      height: 48px;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      flex: 1.4;
+      height: 48px;
+      background-color: var(--color-primary);
+      border: 1px solid var(--color-primary);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-primary-hover);
+      border-color: var(--color-primary-hover);
+    }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-top: 8px;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      position: relative;
+      width: 78px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-modal-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 99;
+      display: none;
+    }
+
+    .profile-modal-overlay:target {
+      display: block;
+    }
+
+    .profile-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      cursor: default;
+      z-index: 99;
+    }
+
+    .profile-modal-card {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 88px;
+      width: 346px;
+      max-width: calc(100% - 32px);
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 13px;
+      padding: 14px 16px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+      box-sizing: border-box;
+      z-index: 100;
+    }
+
+    .profile-modal-pointer {
+      position: absolute;
+      bottom: -8px;
+      right: 20px;
+      width: 14px;
+      height: 14px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d9e4f2;
+      transform: rotate(45deg);
+      z-index: 101;
+    }
+
+    .profile-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 24px;
+    }
+
+    .profile-modal-title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #172b4d;
+      margin: 0;
+    }
+
+    .profile-modal-close {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #f5f8fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      font-size: 15px;
+      font-weight: 400;
+      text-decoration: none;
+      line-height: 1;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .profile-modal-close:hover {
+      background-color: #e2e8f0;
+      color: #172b4d;
+    }
+
+    .profile-modal-divider {
+      height: 1px;
+      background-color: #e8eef5;
+      margin: 10px 0;
+    }
+
+    .profile-modal-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-modal-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .profile-modal-user-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .profile-modal-user-name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #172b4d;
+    }
+
+    .profile-modal-user-role {
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #60758b;
+      margin-top: 3px;
+    }
+
+    .profile-modal-logout {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 48px;
+      padding: 0 14px;
+      background-color: #fff5f5;
+      border: 1px solid #fee2e2;
+      border-radius: 9px;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .profile-modal-logout:hover {
+      background-color: #fee2e2;
+      border-color: #fca5a5;
+    }
+
+    .profile-modal-logout-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="mobile-screen-wrapper">
+    <header class="mobile-header">
+      <a href="painel-inicial-professor-mobile.html" class="brand-section" aria-label="Educar e Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-category">Área do Professor</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+            <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
+          </svg>
+        </a>
+
+        <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+            <path d="M10.333 23.5h3.334"/>
+          </svg>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <a href="resumo-periodo.html" class="back-link">‹&nbsp; Voltar ao Resumo</a>
+
+      <div class="page-header">
+        <h1 class="page-title">Parecer formativo</h1>
+        <p class="page-subtitle">Registre avanços, contextos e próximos passos possíveis.</p>
+      </div>
+
+      <section class="student-card">
+        <div class="student-left">
+          <div class="student-avatar" aria-hidden="true">AB</div>
+          <div class="student-info">
+            <h2 class="student-name">Ana Beatriz Ferraz</h2>
+            <span class="student-meta">6º ano A · 1º bimestre</span>
+          </div>
+        </div>
+        <span class="status-badge-pendente">Pendente</span>
+      </section>
+
+      <section class="card-potencialidade">
+        <div class="potencialidade-header">
+          <span class="potencialidade-dot" aria-hidden="true"></span>
+          <span class="potencialidade-label">Potencialidade</span>
+        </div>
+        <p class="potencialidade-desc">Coopera e inclui colegas nas atividades.</p>
+      </section>
+
+      <section class="card-dimensoes">
+        <span class="badge-barras">BARRAS DE AVALIAÇÃO</span>
+
+        <div class="dimension-slider-item">
+          <div class="dimension-header">
+            <span class="dimension-title">Respeito e convivência</span>
+            <div class="dimension-badge">
+              <span class="dimension-value">4,2</span>
+              <span class="dimension-suffix">/ 5</span>
+            </div>
+          </div>
+          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="4.2" style="--fill-pct: 80%;" aria-label="Respeito e convivência" readonly>
+          <div class="dimension-scale">
+            <span>1.0</span>
+            <span>5.0</span>
+          </div>
+        </div>
+
+        <div class="dimension-slider-item">
+          <div class="dimension-header">
+            <span class="dimension-title">Colaboração</span>
+            <div class="dimension-badge">
+              <span class="dimension-value">4,0</span>
+              <span class="dimension-suffix">/ 5</span>
+            </div>
+          </div>
+          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="4.0" style="--fill-pct: 75%;" aria-label="Colaboração" readonly>
+          <div class="dimension-scale">
+            <span>1.0</span>
+            <span>5.0</span>
+          </div>
+        </div>
+
+        <div class="dimension-slider-item">
+          <div class="dimension-header">
+            <span class="dimension-title">Responsabilidade</span>
+            <div class="dimension-badge">
+              <span class="dimension-value">3,8</span>
+              <span class="dimension-suffix">/ 5</span>
+            </div>
+          </div>
+          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="3.8" style="--fill-pct: 70%;" aria-label="Responsabilidade" readonly>
+          <div class="dimension-scale">
+            <span>1.0</span>
+            <span>5.0</span>
+          </div>
+        </div>
+
+        <div class="dimension-slider-item">
+          <div class="dimension-header">
+            <span class="dimension-title">Autonomia</span>
+            <div class="dimension-badge">
+              <span class="dimension-value">3,5</span>
+              <span class="dimension-suffix">/ 5</span>
+            </div>
+          </div>
+          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="3.5" style="--fill-pct: 62.5%;" aria-label="Autonomia" readonly>
+          <div class="dimension-scale">
+            <span>1.0</span>
+            <span>5.0</span>
+          </div>
+        </div>
+
+        <div class="dimension-slider-item">
+          <div class="dimension-header">
+            <span class="dimension-title">Participação</span>
+            <div class="dimension-badge">
+              <span class="dimension-value">5,0</span>
+              <span class="dimension-suffix">/ 5</span>
+            </div>
+          </div>
+          <input type="range" class="dimension-range" min="1.0" max="5.0" step="0.1" value="5.0" style="--fill-pct: 100%;" aria-label="Participação" readonly>
+          <div class="dimension-scale">
+            <span>1.0</span>
+            <span>5.0</span>
+          </div>
+        </div>
+
+        <div class="dimensoes-divider"></div>
+
+        <div class="dimensoes-summary">
+          Média resultante: <strong>4,1 / 5,0</strong>
+        </div>
+      </section>
+
+      <section class="feedback-section">
+        <label for="feedback-text" class="feedback-label">Devolutiva para a estudante</label>
+        <div class="feedback-box">
+          <textarea id="feedback-text" class="feedback-textarea" rows="6">Ana, neste bimestre você contribuiu para o trabalho em grupo e ajudou a incluir as ideias dos colegas. Esse é um ponto forte que vale continuar desenvolvendo.
+
+Como próximo passo, vamos combinar uma estratégia simples para conferir os materiais antes das atividades. Na próxima etapa, conversaremos sobre o que funcionou e sobre o apoio de que você precisa.</textarea>
+          <div class="feedback-counter">296 / 500 caracteres</div>
+        </div>
+      </section>
+
+      <div class="action-buttons-row">
+        <a href="devolutiva-individual.html" class="btn-secondary">Salvar rascunho</a>
+        <a href="devolutiva-enviada.html" class="btn-primary">
+          <span>Enviar devolutiva</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.167 10h11.666M10.833 5l5 5-5 5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="painel-inicial-professor-mobile.html" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <a href="minhas-turmas.html" class="nav-tab active" aria-current="page">
+        <div class="nav-indicator-bar" aria-hidden="true"></div>
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 5.833v11.667"/>
+            <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Turmas</span>
+      </a>
+
+      <a href="registro-selecionar-estudante.html" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
+          </svg>
+        </div>
+        <span class="nav-label">Registros</span>
+      </a>
+
+      <a href="#modal-perfil" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="8" rx="4" ry="4"/>
+            <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <div id="modal-perfil" class="profile-modal-overlay">
+      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal"></a>
+      <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
+        <div class="profile-modal-pointer" aria-hidden="true"></div>
+        <div class="profile-modal-header">
+          <h2 id="modal-perfil-title" class="profile-modal-title">Meu Perfil</h2>
+          <a href="#" class="profile-modal-close" aria-label="Fechar">✕</a>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <div class="profile-modal-user">
+          <div class="profile-modal-avatar">PR</div>
+          <div class="profile-modal-user-info">
+            <span class="profile-modal-user-name">Prof. Ricardo Silveira</span>
+            <span class="profile-modal-user-role">Docente de Língua Portuguesa</span>
+          </div>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <a href="login.html" class="profile-modal-logout">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.5 17.5H4.167a1.667 1.667 0 0 1-1.667-1.667V4.167A1.667 1.667 0 0 1 4.167 2.5H7.5"/>
+            <path d="M13.333 14.167L17.5 10l-4.167-4.167"/>
+            <path d="M17.5 10H7.5"/>
+          </svg>
+          <span class="profile-modal-logout-text">Sair da conta</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
