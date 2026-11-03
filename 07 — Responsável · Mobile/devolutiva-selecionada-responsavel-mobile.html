@@ -212,6 +212,7 @@
       font-weight: 600;
       transition: opacity 0.15s ease;
       align-self: flex-start;
+      margin-bottom: 12px;
     }
 
     .btn-back-link:hover {
@@ -222,7 +223,7 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .page-title {
@@ -230,104 +231,185 @@
       font-weight: 700;
       color: var(--color-text-main);
       letter-spacing: -0.01em;
+      margin: 0;
     }
 
     .meta-line {
       font-size: 13px;
       color: var(--color-text-muted);
       line-height: 1.4;
+      margin: 0;
     }
 
     .meta-date {
       font-size: 12px;
       color: var(--color-text-muted);
+      margin: 0;
     }
 
     .opening-card {
-      background-color: var(--color-primary-soft);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 16px;
+      background-color: #eaf2ff;
+      border: none;
+      border-radius: 16px;
+      padding: 14px 16px;
       display: flex;
-      flex-direction: column;
-      gap: 4px;
+      align-items: center;
+      gap: 14px;
       margin-bottom: 20px;
     }
 
+    .opening-icon-box {
+      width: 42px;
+      height: 42px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .opening-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
     .opening-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--color-primary);
+      font-size: 14px;
+      font-weight: 700;
+      color: #1d4ed8;
+      line-height: 1.3;
+      margin: 0;
     }
 
     .opening-desc {
-      font-size: 13px;
-      color: var(--color-text-muted);
-      line-height: 1.45;
+      font-size: 11px;
+      color: #35527a;
+      line-height: 1.4;
+      margin: 0;
     }
 
-    .content-section {
+    .devolutiva-section {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 14px;
       margin-bottom: 20px;
     }
 
     .section-title {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-text-main);
+      line-height: 1.3;
+      margin: 0;
     }
 
-    .strength-card {
+    .devolutiva-card {
       background-color: var(--color-bg-card);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-xl);
+      border: 1px solid #d7e4f5;
+      border-radius: 16px;
       padding: 16px;
       display: flex;
-      align-items: flex-start;
+      flex-direction: column;
+      box-shadow: 0 2px 6px rgba(20, 51, 97, 0.04);
+    }
+
+    .card-header-row {
+      display: flex;
+      align-items: center;
       gap: 12px;
-      box-shadow: var(--shadow-card);
+    }
+
+    .card-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card-icon-box.green {
+      background-color: #e8f6ee;
+    }
+
+    .card-icon-box.blue {
+      background-color: #eaf1ff;
+    }
+
+    .card-header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .card-header-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #172b4d;
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    .card-header-subtitle {
+      font-size: 12px;
+      color: #60758b;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .card-divider {
+      height: 1px;
+      background-color: #e5eaf1;
+      margin: 14px 0;
+      border: none;
+    }
+
+    .card-strength-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .strength-indicator-bar {
-      width: 4px;
+      width: 6px;
       height: 42px;
-      border-radius: 4px;
-      background-color: var(--color-success-text);
+      border-radius: 3px;
+      background-color: #16a34a;
       flex-shrink: 0;
     }
 
     .strength-body {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
+      min-width: 0;
     }
 
     .strength-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--color-success-text);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #16804a;
+      line-height: 1.3;
+      margin: 0;
     }
 
     .strength-desc {
-      font-size: 13px;
-      color: var(--color-text-main);
-      line-height: 1.45;
+      font-size: 12px;
+      color: #172b4d;
+      line-height: 1.4;
+      margin: 0;
     }
 
-    .parecer-card {
-      background-color: var(--color-bg-card);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-xl);
-      padding: 16px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .parecer-text {
+    .card-body-text {
       font-size: 13px;
-      color: var(--color-text-main);
+      color: #25364b;
       line-height: 1.5;
+      margin: 0;
     }
 
     .bottom-nav {
@@ -577,45 +659,76 @@
       </div>
     </header>
 
-    <div class="main-content">
+    <section class="main-content">
 
-      <a href="minhas-devolutivas-responsavel-mobile.html" class="btn-back-link" aria-label="Voltar para devolutivas">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12.5 15l-5-5 5-5"/>
-        </svg>
+      <a href="minhas-devolutivas-responsavel-mobile.html" class="btn-back-link" aria-label="Devolutivas">
+        <span aria-hidden="true">&lsaquo;</span>
         <span>Devolutivas</span>
       </a>
 
       <div class="devolutiva-header">
         <h1 class="page-title">Parecer formativo</h1>
-        <p class="meta-line">Prof.ª Marina Costa · 6º ano A</p>
-        <p class="meta-date">1º bimestre · 18 de novembro de 2026</p>
+        <p class="meta-line">Prof.ª Marina Costa  ·  6º ano A</p>
+        <p class="meta-date">1º bimestre  ·  18 de novembro de 2026</p>
       </div>
 
-      <aside class="opening-card" aria-label="Mensagem de incentivo">
-        <div class="opening-title">Você tem motivos para se orgulhar!</div>
-        <p class="opening-desc">Veja o que você já conquistou e o que pode desenvolver.</p>
-      </aside>
+      <article class="opening-card" aria-label="Mensagem de incentivo">
+        <div class="opening-icon-box" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="opening-content">
+          <h2 class="opening-title">Você tem motivos para se orgulhar!</h2>
+          <p class="opening-desc">Veja o que você já conquistou e o que pode desenvolver.</p>
+        </div>
+      </article>
 
-      <section class="content-section" aria-label="Pontos fortes observados">
+      <section class="devolutiva-section" aria-label="Devolutiva">
         <h2 class="section-title">Devolutiva</h2>
-        <div class="strength-card">
-          <div class="strength-indicator-bar" aria-hidden="true"></div>
-          <div class="strength-body">
-            <h3 class="strength-title">Colaboração</h3>
-            <p class="strength-desc">Coopera e inclui colegas nas atividades.</p>
+
+        <div class="devolutiva-card">
+          <div class="card-header-row">
+            <div class="card-icon-box green" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16804a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <div class="card-header-text">
+              <h3 class="card-header-title">Pontos fortes</h3>
+              <p class="card-header-subtitle">Aspectos positivos observados no período.</p>
+            </div>
+          </div>
+          <div class="card-divider" aria-hidden="true"></div>
+          <div class="card-strength-row">
+            <div class="strength-indicator-bar" aria-hidden="true"></div>
+            <div class="strength-body">
+              <h4 class="strength-title">Colaboração</h4>
+              <p class="strength-desc">Coopera e inclui colegas nas atividades.</p>
+            </div>
           </div>
         </div>
+
+        <div class="devolutiva-card">
+          <div class="card-header-row">
+            <div class="card-icon-box blue" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <div class="card-header-text">
+              <h3 class="card-header-title">Mensagem do professor</h3>
+              <p class="card-header-subtitle">Prof.ª Marina Costa</p>
+            </div>
+          </div>
+          <div class="card-divider" aria-hidden="true"></div>
+          <p class="card-body-text">Cooperou e incluiu seus colegas durante a atividade.</p>
+        </div>
+
       </section>
 
-      <section class="content-section" aria-label="Mensagem completa do professor">
-        <h2 class="section-title">Mensagem do professor</h2>
-        <article class="parecer-card">
-          <p class="parecer-text">Cooperou e incluiu seus colegas durante a atividade.</p>
-        </article>
-      </section>
-
-    </div>
+    </section>
 
     <nav class="bottom-nav" aria-label="Navegação principal">
       <a href="painel-inicial-responsavel-mobile.html" class="nav-tab active" aria-current="page">
@@ -645,7 +758,7 @@
             <path d="M4.167 17.5v-1.667C4.167 12.612 6.778 10 10 10s5.833 2.612 5.833 5.833V17.5"/>
           </svg>
         </div>
-        <span class="nav-label">Perfil</span>
+        <span class="nav-label">Meu perfil</span>
       </a>
     </nav>
 
