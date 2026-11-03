@@ -1,102 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Todas as turmas em alerta · Coordenação · Mobile · Educar &amp; Aprender
-    </title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="../assets/favicon-light.svg"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="../assets/favicon-dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <link rel="alternate icon" href="../assets/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --color-bg-canvas: #f5f8fc;
-        --color-bg-card: #ffffff;
-        --color-border-subtle: #d9e4f2;
-        --color-border-divider: #e2e8f0;
-        --color-text-main: #172b4d;
-        --color-text-body: #334155;
-        --color-text-muted: #60758b;
-        --color-text-subtle: #8194aa;
-        --color-text-meta: #64748b;
-        --color-primary: #2563eb;
-        --color-primary-light: #e8f1ff;
-        --color-danger: #b91c1c;
-        --color-danger-light: #fee2e2;
-        --color-warning: #b45309;
-        --color-warning-dark: #92400e;
-        --color-warning-light: #fff4d6;
-        --color-warning-bg: #fef3c7;
-        --color-success: #15803d;
-        --color-success-light: #e6f5ed;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todas as turmas em alerta · Coordenação · Mobile · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-border-subtle: #d9e4f2;
+      --color-border-divider: #e2e8f0;
+      --color-text-main: #172b4d;
+      --color-text-body: #334155;
+      --color-text-muted: #60758b;
+      --color-text-subtle: #8194aa;
+      --color-text-meta: #64748b;
+      --color-primary: #2563eb;
+      --color-primary-light: #e8f1ff;
+      --color-danger: #b91c1c;
+      --color-danger-light: #fee2e2;
+      --color-warning: #b45309;
+      --color-warning-dark: #92400e;
+      --color-warning-light: #fff4d6;
+      --color-warning-bg: #fef3c7;
+      --color-success: #15803d;
+      --color-success-light: #e6f5ed;
 
-        --radius-sm: 7px;
-        --radius-md: 8px;
-        --radius-pill: 11px;
-        --radius-card: 10px;
-        --radius-kpi: 16px;
-        --radius-full: 9999px;
+      --radius-sm: 7px;
+      --radius-md: 8px;
+      --radius-pill: 11px;
+      --radius-card: 10px;
+      --radius-kpi: 16px;
+      --radius-full: 9999px;
 
-        --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.03);
-      }
+      --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.03);
+    }
 
-      * {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-      *::-webkit-scrollbar {
-        display: none;
-        width: 0;
-        height: 0;
-      }
+    
+    /* Ocultar barra de rolagem visual mantendo a rolagem ativa */
+    * {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    *::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Container do Mockup Mobile (390px × 844px) */
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
         padding: 0;
       }
-
-      body {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        background-color: var(--color-bg-canvas);
-        color: var(--color-text-main);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      .mobile-screen-wrapper {
         width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
         min-height: 100vh;
-        margin: 0;
-        padding: 16px;
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
       }
-<<<<<<< HEAD
     }
 
     /* Cabeçalho Superior Mobile (72px) */
@@ -192,10 +205,10 @@
       -ms-overflow-style: none;
       flex: 1;
       overflow-y: auto;
-      padding: 14px 16px 28px;
+      padding: 16px 16px 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -208,7 +221,7 @@
       font-weight: 600;
       color: var(--color-primary);
       text-decoration: none;
-      margin-top: 2px;
+      margin-top: 0;
       align-self: flex-start;
       transition: opacity 0.15s ease;
     }
@@ -222,35 +235,35 @@
     .page-hero {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
       margin-top: -2px;
     }
 
     .page-title {
-      font-size: 19px;
-      font-weight: 600;
+      font-size: 22px;
+      font-weight: 700;
       color: var(--color-text-main);
       letter-spacing: -0.3px;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     .page-subtitle {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 400;
       color: var(--color-text-muted);
       line-height: 1.45;
     }
 
-    /* 3 Indicadores Rápidos (KPIs: 358px × 78px) */
+    /* 3 Indicadores Rápidos (KPIs: 358px × 72px) */
     .kpis-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 8px;
     }
 
     .kpi-card {
       width: 100%;
-      height: 78px;
+      height: 72px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-kpi);
@@ -288,7 +301,7 @@
     }
 
     .kpi-exclamation {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
       line-height: 1;
       color: var(--color-warning);
@@ -316,14 +329,14 @@
     }
 
     .kpi-value {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 700;
       color: var(--color-text-main);
       line-height: 1.15;
     }
 
     .kpi-meta {
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 400;
       color: var(--color-text-muted);
       line-height: 1.2;
@@ -334,30 +347,30 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: -2px;
+      margin-top: 2px;
     }
 
     .filters-title {
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: var(--color-text-main);
-      letter-spacing: -0.1px;
+      letter-spacing: -0.15px;
     }
 
     .filters-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px 14px;
+      gap: 10px 12px;
     }
 
     .filter-item {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
     }
 
     .filter-label {
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 500;
       color: var(--color-text-muted);
     }
@@ -369,13 +382,13 @@
 
     .filter-select {
       width: 100%;
-      height: 34px;
+      height: 38px;
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-md);
-      padding: 0 24px 0 10px;
+      padding: 0 28px 0 12px;
       font-family: inherit;
-      font-size: 9px;
+      font-size: 11.5px;
       font-weight: 400;
       color: var(--color-text-main);
       appearance: none;
@@ -403,12 +416,12 @@
     .search-group {
       display: flex;
       flex-direction: column;
-      gap: 3px;
-      margin-top: 4px;
+      gap: 4px;
+      margin-top: 2px;
     }
 
     .search-label {
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 500;
       color: var(--color-text-muted);
     }
@@ -434,13 +447,13 @@
 
     .search-input {
       width: 100%;
-      height: 36px;
+      height: 38px;
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-md);
-      padding: 0 12px 0 36px;
+      padding: 0 12px 0 34px;
       font-family: inherit;
-      font-size: 9px;
+      font-size: 11.5px;
       font-weight: 400;
       color: var(--color-text-main);
     }
@@ -458,30 +471,30 @@
     .list-section-header {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       margin-top: 4px;
     }
 
     .list-section-title {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 700;
       color: var(--color-text-main);
-      letter-spacing: -0.15px;
+      letter-spacing: -0.2px;
     }
 
     .tabs-grid-2x2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px 8px;
+      gap: 8px 10px;
     }
 
     .tab-pill-btn {
-      height: 28px;
+      height: 32px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--color-border-subtle);
       background-color: #ffffff;
       color: var(--color-text-muted);
-      font-size: 9px;
+      font-size: 11.5px;
       font-weight: 500;
       display: flex;
       align-items: center;
@@ -492,7 +505,7 @@
     }
 
     .tab-pill-btn.active {
-      background-color: var(--color-primary-light);
+      background-color: #eff6ff;
       border-color: var(--color-primary);
       color: var(--color-primary);
       font-weight: 600;
@@ -515,12 +528,12 @@
       width: 100%;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-card);
-      padding: 13px 14px 14px;
+      border-radius: 16px;
+      padding: 16px;
       box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .turma-card-top-row {
@@ -538,25 +551,25 @@
 
     .turma-card-title {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-text-main);
       letter-spacing: -0.2px;
       line-height: 1.2;
     }
 
     .turma-card-stage {
-      font-size: 10px;
+      font-size: 11.5px;
       font-weight: 400;
-      color: var(--color-text-meta);
+      color: var(--color-text-muted);
       line-height: 1.2;
     }
 
     .turma-level-badge {
       height: 22px;
-      padding: 0 10px;
-      border-radius: var(--radius-pill);
-      font-size: 8px;
-      font-weight: 600;
+      padding: 0 12px;
+      border-radius: var(--radius-full);
+      font-size: 9.5px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.3px;
       display: inline-flex;
@@ -572,8 +585,8 @@
     }
 
     .turma-level-badge.atencao {
-      background-color: var(--color-warning-bg);
-      color: var(--color-warning-dark);
+      background-color: #fef3c7;
+      color: #b45309;
     }
 
     .turma-level-badge.monitoramento {
@@ -589,9 +602,9 @@
     }
 
     .turma-active-alerts {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-text-body);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-main);
       line-height: 1.2;
     }
 
@@ -602,29 +615,35 @@
     }
 
     .turma-signal-label {
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
-      color: var(--color-text-meta);
+      color: var(--color-text-muted);
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
 
     .turma-signal-text {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
-      color: var(--color-text-body);
+      color: var(--color-text-main);
       line-height: 1.35;
     }
 
+    .turma-action-row {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding-top: 2px;
+    }
+
     .turma-action-link {
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 12.5px;
+      font-weight: 700;
       color: var(--color-primary);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      margin-top: 2px;
+      gap: 6px;
       transition: opacity 0.15s ease;
     }
 
@@ -750,1200 +769,80 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
               <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-=======
-
-      .mobile-screen-wrapper {
-        width: 390px;
-        min-width: 390px;
-        max-width: 390px;
-        height: 844px;
-        min-height: 844px;
-        max-height: 844px;
-        background-color: var(--color-bg-canvas);
-        border-radius: 36px;
-        border: 1px solid var(--color-border-subtle);
-        box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 0;
-      }
-
-      @media (max-width: 480px) {
-        body {
-          padding: 0;
-        }
-        .mobile-screen-wrapper {
-          width: 100%;
-          min-width: 0;
-          max-width: 100%;
-          height: 100vh;
-          min-height: 100vh;
-          max-height: 100vh;
-          border-radius: 0;
-          border: none;
-          box-shadow: none;
-        }
-      }
-
-      .mobile-header {
-        width: 100%;
-        height: 72px;
-        background-color: var(--color-bg-card);
-        border-bottom: 1px solid var(--color-border-subtle);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 16px;
-        flex-shrink: 0;
-        z-index: 10;
-      }
-
-      .brand-section {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-      }
-
-      .brand-icon {
-        width: 38px;
-        height: 38px;
-        background-color: var(--color-primary);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
-      }
-
-      .brand-titles {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .brand-text {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--color-text-main);
-        letter-spacing: -0.2px;
-        line-height: 1.2;
-      }
-
-      .brand-badge {
-        font-size: 8px;
-        font-weight: 600;
-        color: var(--color-primary);
-        letter-spacing: 0.6px;
-        text-transform: uppercase;
-        line-height: 1.2;
-      }
-
-      .header-notification-btn {
-        width: 42px;
-        height: 42px;
-        border-radius: 14px;
-        background-color: #ffffff;
-        border: 1px solid var(--color-border-subtle);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-text-muted);
-        position: relative;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.15s ease;
-      }
-
-      .header-notification-btn:hover {
-        background-color: #f8fafc;
-      }
-
-      .notification-dot {
-        position: absolute;
-        top: 9px;
-        right: 10px;
-        width: 7px;
-        height: 7px;
-        background-color: var(--color-primary);
-        border-radius: 50%;
-        border: 1.5px solid #ffffff;
-      }
-
-      .screen-content {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        flex: 1;
-        overflow-y: auto;
-        padding: 16px 16px 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .back-nav-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--color-primary);
-        text-decoration: none;
-        margin-top: 0;
-        align-self: flex-start;
-        transition: opacity 0.15s ease;
-      }
-
-      .back-nav-link:hover {
-        text-decoration: underline;
-        opacity: 0.85;
-      }
-
-      .page-hero {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        margin-top: -2px;
-      }
-
-      .page-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        letter-spacing: -0.3px;
-        line-height: 1.25;
-      }
-
-      .page-subtitle {
-        font-size: 12px;
-        font-weight: 400;
-        color: var(--color-text-muted);
-        line-height: 1.45;
-      }
-
-      .kpis-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .kpi-card {
-        width: 100%;
-        height: 72px;
-        background-color: var(--color-bg-card);
-        border: 1px solid var(--color-border-subtle);
-        border-radius: var(--radius-kpi);
-        padding: 0 16px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        box-shadow: var(--shadow-card);
-        flex-shrink: 0;
-      }
-
-      .kpi-icon-box {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-
-      .kpi-icon-box.danger {
-        background-color: var(--color-danger-light);
-        color: var(--color-danger);
-      }
-
-      .kpi-icon-box.warning {
-        background-color: var(--color-warning-light);
-        color: var(--color-warning);
-      }
-
-      .kpi-icon-box.primary {
-        background-color: var(--color-primary-light);
-        color: var(--color-primary);
-      }
-
-      .kpi-exclamation {
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 1;
-        color: var(--color-warning);
-      }
-
-      .kpi-info {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: 0;
-        gap: 3px;
-      }
-
-      .kpi-label {
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--color-text-muted);
-        line-height: 1.2;
-      }
-
-      .kpi-value-row {
-        display: flex;
-        align-items: baseline;
-        gap: 8px;
-      }
-
-      .kpi-value {
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        line-height: 1.15;
-      }
-
-      .kpi-meta {
-        font-size: 11px;
-        font-weight: 400;
-        color: var(--color-text-muted);
-        line-height: 1.2;
-      }
-
-      .filters-section {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 2px;
-      }
-
-      .filters-title {
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        letter-spacing: -0.15px;
-      }
-
-      .filters-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px 12px;
-      }
-
-      .filter-item {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .filter-label {
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--color-text-muted);
-      }
-
-      .filter-select-wrapper {
-        position: relative;
-        width: 100%;
-      }
-
-      .filter-select {
-        width: 100%;
-        height: 38px;
-        background-color: #ffffff;
-        border: 1px solid var(--color-border-subtle);
-        border-radius: var(--radius-md);
-        padding: 0 28px 0 12px;
-        font-family: inherit;
-        font-size: 11.5px;
-        font-weight: 400;
-        color: var(--color-text-main);
-        appearance: none;
-        -webkit-appearance: none;
-        cursor: pointer;
-      }
-
-      .filter-select:focus {
-        outline: none;
-        border-color: var(--color-primary);
-      }
-
-      .filter-chevron {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-        color: var(--color-text-muted);
-        font-size: 13px;
-        line-height: 1;
-      }
-
-      .search-group {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        margin-top: 2px;
-      }
-
-      .search-label {
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--color-text-muted);
-      }
-
-      .search-input-wrapper {
-        position: relative;
-        width: 100%;
-      }
-
-      .search-icon {
-        position: absolute;
-        left: 11px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 16px;
-        height: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
-        color: var(--color-text-muted);
-      }
-
-      .search-input {
-        width: 100%;
-        height: 38px;
-        background-color: #ffffff;
-        border: 1px solid var(--color-border-subtle);
-        border-radius: var(--radius-md);
-        padding: 0 12px 0 34px;
-        font-family: inherit;
-        font-size: 11.5px;
-        font-weight: 400;
-        color: var(--color-text-main);
-      }
-
-      .search-input::placeholder {
-        color: var(--color-text-subtle);
-      }
-
-      .search-input:focus {
-        outline: none;
-        border-color: var(--color-primary);
-      }
-
-      .list-section-header {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 4px;
-      }
-
-      .list-section-title {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        letter-spacing: -0.2px;
-      }
-
-      .tabs-grid-2x2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px 10px;
-      }
-
-      .tab-pill-btn {
-        height: 32px;
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--color-border-subtle);
-        background-color: #ffffff;
-        color: var(--color-text-muted);
-        font-size: 11.5px;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        cursor: pointer;
-        transition: all 0.15s ease;
-      }
-
-      .tab-pill-btn.active {
-        background-color: #eff6ff;
-        border-color: var(--color-primary);
-        color: var(--color-primary);
-        font-weight: 600;
-      }
-
-      .tab-pill-btn:hover:not(.active) {
-        background-color: #f8fafc;
-        border-color: #cbd5e1;
-      }
-
-      .turmas-cards-list {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 2px;
-      }
-
-      .turma-detail-card {
-        width: 100%;
-        background-color: var(--color-bg-card);
-        border: 1px solid var(--color-border-subtle);
-        border-radius: 16px;
-        padding: 16px;
-        box-shadow: var(--shadow-card);
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .turma-card-top-row {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 8px;
-      }
-
-      .turma-card-title-col {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .turma-card-title {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        letter-spacing: -0.2px;
-        line-height: 1.2;
-      }
-
-      .turma-card-stage {
-        font-size: 11.5px;
-        font-weight: 400;
-        color: var(--color-text-muted);
-        line-height: 1.2;
-      }
-
-      .turma-level-badge {
-        height: 22px;
-        padding: 0 12px;
-        border-radius: var(--radius-full);
-        font-size: 9.5px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-        flex-shrink: 0;
-      }
-
-      .turma-level-badge.critico {
-        background-color: var(--color-danger-light);
-        color: var(--color-danger);
-      }
-
-      .turma-level-badge.atencao {
-        background-color: #fef3c7;
-        color: #b45309;
-      }
-
-      .turma-level-badge.monitoramento {
-        background-color: var(--color-success-light);
-        color: var(--color-success);
-      }
-
-      .turma-card-divider {
-        height: 1px;
-        background-color: var(--color-border-divider);
-        border: none;
-        margin: 2px 0;
-      }
-
-      .turma-active-alerts {
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--color-text-main);
-        line-height: 1.2;
-      }
-
-      .turma-signal-block {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-
-      .turma-signal-label {
-        font-size: 10px;
-        font-weight: 600;
-        color: var(--color-text-muted);
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-      }
-
-      .turma-signal-text {
-        font-size: 13px;
-        font-weight: 400;
-        color: var(--color-text-main);
-        line-height: 1.35;
-      }
-
-      .turma-action-row {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        padding-top: 2px;
-      }
-
-      .turma-action-link {
-        font-size: 12.5px;
-        font-weight: 700;
-        color: var(--color-primary);
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: opacity 0.15s ease;
-      }
-
-      .turma-action-link:hover {
-        text-decoration: underline;
-        opacity: 0.85;
-      }
-
-      .bottom-nav {
-        width: 100%;
-        height: 72px;
-        background-color: var(--color-bg-card);
-        border-top: 1px solid var(--color-border-subtle);
-        display: flex;
-        align-items: stretch;
-        justify-content: space-around;
-        flex-shrink: 0;
-        z-index: 10;
-      }
-
-      .nav-tab {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-        text-decoration: none;
-        color: var(--color-text-muted);
-        position: relative;
-        transition: color 0.15s ease;
-      }
-
-      .nav-tab.active {
-        color: var(--color-primary);
-      }
-
-      .nav-indicator-bar {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 32px;
-        height: 3px;
-        background-color: var(--color-primary);
-        border-radius: 0 0 3px 3px;
-        display: none;
-      }
-
-      .nav-tab.active .nav-indicator-bar {
-        display: block;
-      }
-
-      .nav-icon {
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .nav-label {
-        font-size: 10.5px;
-        font-weight: 500;
-        line-height: 1;
-      }
-
-      .nav-tab.active .nav-label {
-        font-weight: 600;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="mobile-screen-wrapper">
-      <header class="mobile-header">
-        <a href="painel-inicial-coordenacao-mobile.html" class="brand-section">
-          <div class="brand-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#ffffff"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-              <path
-                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
-              />
->>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
             </svg>
           </div>
-          <div class="brand-titles">
-            <span class="brand-text">Educar &amp; Aprender</span>
-            <span class="brand-badge">COORDENAÇÃO PEDAGÓGICA</span>
+          <div class="kpi-info">
+            <span class="kpi-label">Alertas Críticos</span>
+            <span class="kpi-value">3</span>
           </div>
-        </a>
+        </div>
 
-<<<<<<< HEAD
         <!-- KPI 2: Alertas de Atenção -->
         <div class="kpi-card">
           <div class="kpi-icon-box warning" aria-hidden="true">
-            <span class="kpi-exclamation">!</span>
-=======
-        <a
-          href="sistema-alerta-precoce.html"
-          class="header-notification-btn"
-          title="Notificações e alertas"
-          aria-label="Notificações e alertas"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#60758b"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-          </svg>
-          <span class="notification-dot" aria-hidden="true"></span>
-        </a>
-      </header>
-
-      <main class="screen-content">
-        <a
-          href="sistema-alerta-precoce.html"
-          class="back-nav-link"
-          aria-label="Voltar para Sistemas de Alerta"
-        >
-          <span aria-hidden="true">&lsaquo;</span>
-          <span>Voltar para Sistemas de Alerta</span>
-        </a>
-
-        <section class="page-hero">
-          <h1 class="page-title">Todas as turmas em alerta</h1>
-          <p class="page-subtitle">
-            Consulte todas as turmas, compare os alertas e acesse os estudantes
-          </p>
-        </section>
-
-        <section class="kpis-list" aria-label="Indicadores rápidos de alertas">
-          <div class="kpi-card">
-            <div class="kpi-icon-box danger" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#b91c1c"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-              </svg>
-            </div>
-            <div class="kpi-info">
-              <span class="kpi-label">Alertas Críticos</span>
-              <span class="kpi-value">3</span>
-            </div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-icon-box warning" aria-hidden="true">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#b45309"
-                stroke-width="3.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="12" y1="4" x2="12" y2="13.5" />
-                <line x1="12" y1="19" x2="12.01" y2="19" />
-              </svg>
-            </div>
-            <div class="kpi-info">
-              <span class="kpi-label">Alertas de Atenção</span>
-              <span class="kpi-value">9</span>
-            </div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-icon-box primary" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2563eb"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-              </svg>
-            </div>
-            <div class="kpi-info">
-              <span class="kpi-label">Turmas com alertas</span>
-              <div class="kpi-value-row">
-                <span class="kpi-value">4</span>
-                <span class="kpi-meta">de 8 turmas monitoradas</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="filters-section" aria-label="Filtros e busca">
-          <h2 class="filters-title">Filtrar estudantes</h2>
-
-          <div class="filters-grid">
-            <div class="filter-item">
-              <label for="filtro-turma" class="filter-label">Turma</label>
-              <div class="filter-select-wrapper">
-                <select
-                  id="filtro-turma"
-                  class="filter-select"
-                  aria-label="Filtrar por turma"
-                >
-                  <option value="todas">Todas as turmas</option>
-                  <option value="7b">7º ano B</option>
-                  <option value="8a">8º ano A</option>
-                  <option value="6c">6º ano C</option>
-                  <option value="9a">9º ano A</option>
-                </select>
-                <span class="filter-chevron" aria-hidden="true">⌄</span>
-              </div>
-            </div>
-
-            <div class="filter-item">
-              <label for="filtro-tipo" class="filter-label"
-                >Tipo de alerta</label
-              >
-              <div class="filter-select-wrapper">
-                <select
-                  id="filtro-tipo"
-                  class="filter-select"
-                  aria-label="Filtrar por tipo de alerta"
-                >
-                  <option value="todos">Todos os tipos</option>
-                  <option value="atitudinal">Queda atitudinal</option>
-                  <option value="frequencia">Frequência</option>
-                  <option value="desempenho">Desempenho</option>
-                  <option value="colaboracao">Colaboração</option>
-                </select>
-                <span class="filter-chevron" aria-hidden="true">⌄</span>
-              </div>
-            </div>
-
-            <div class="filter-item">
-              <label for="filtro-nivel" class="filter-label"
-                >Nível de criticidade</label
-              >
-              <div class="filter-select-wrapper">
-                <select
-                  id="filtro-nivel"
-                  class="filter-select"
-                  aria-label="Filtrar por nível de criticidade"
-                >
-                  <option value="todos">Todos os níveis</option>
-                  <option value="critico">Crítico</option>
-                  <option value="atencao">Atenção</option>
-                  <option value="monitoramento">Monitoramento</option>
-                </select>
-                <span class="filter-chevron" aria-hidden="true">⌄</span>
-              </div>
-            </div>
-
-            <div class="filter-item">
-              <label for="filtro-periodo" class="filter-label">Período</label>
-              <div class="filter-select-wrapper">
-                <select
-                  id="filtro-periodo"
-                  class="filter-select"
-                  aria-label="Filtrar por período"
-                >
-                  <option value="30">Últimos 30 dias</option>
-                  <option value="15">Últimos 15 dias</option>
-                  <option value="7">Últimos 7 dias</option>
-                  <option value="bimestre">Bimestre atual</option>
-                </select>
-                <span class="filter-chevron" aria-hidden="true">⌄</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="search-group">
-            <label for="busca-estudante" class="search-label">Buscar</label>
-            <div class="search-input-wrapper">
-              <span class="search-icon" aria-hidden="true">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="11.5" cy="8.5" r="5.5" />
-                  <path d="M7.5 12.5L3.5 16.5" />
-                </svg>
-              </span>
-              <input
-                type="text"
-                id="busca-estudante"
-                class="search-input"
-                placeholder="Buscar pelo nome do estudante..."
-                aria-label="Buscar pelo nome do estudante"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section
-          class="list-section-header"
-          aria-label="Lista de turmas em alerta"
-        >
-          <h2 class="list-section-title">Lista de turmas em alerta</h2>
-
-          <div class="tabs-grid-2x2" role="tablist">
-            <button class="tab-pill-btn active" role="tab" aria-selected="true">
-              Todas (4)
-            </button>
-            <button class="tab-pill-btn" role="tab" aria-selected="false">
-              Críticas (3)
-            </button>
-            <button class="tab-pill-btn" role="tab" aria-selected="false">
-              Atenção (9)
-            </button>
-            <button class="tab-pill-btn" role="tab" aria-selected="false">
-              Monitoramento (1)
-            </button>
-          </div>
-
-          <div class="turmas-cards-list">
-            <article
-              class="turma-detail-card"
-              aria-label="Detalhes da turma 7º ano B"
-            >
-              <div class="turma-card-top-row">
-                <div class="turma-card-title-col">
-                  <h3 class="turma-card-title">7º ano B</h3>
-                  <span class="turma-card-stage">Ensino Fundamental II</span>
-                </div>
-                <span class="turma-level-badge critico">CRÍTICO</span>
-              </div>
-
-              <hr class="turma-card-divider" />
-
-              <span class="turma-active-alerts">4 alertas ativos</span>
-
-              <div class="turma-signal-block">
-                <span class="turma-signal-label">PRINCIPAL SINAL</span>
-                <p class="turma-signal-text">Faltas + queda atitudinal</p>
-              </div>
-
-              <hr class="turma-card-divider" />
-
-              <div class="turma-action-row">
-                <a href="todos-os-estudantes.html" class="turma-action-link">
-                  <span>Ver estudantes</span>
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <article
-              class="turma-detail-card"
-              aria-label="Detalhes da turma 8º ano A"
-            >
-              <div class="turma-card-top-row">
-                <div class="turma-card-title-col">
-                  <h3 class="turma-card-title">8º ano A</h3>
-                  <span class="turma-card-stage">Ensino Fundamental II</span>
-                </div>
-                <span class="turma-level-badge atencao">ATENÇÃO</span>
-              </div>
-
-              <hr class="turma-card-divider" />
-
-              <span class="turma-active-alerts">3 alertas ativos</span>
-
-              <div class="turma-signal-block">
-                <span class="turma-signal-label">PRINCIPAL SINAL</span>
-                <p class="turma-signal-text">Frequência e desempenho</p>
-              </div>
-
-              <hr class="turma-card-divider" />
-
-              <div class="turma-action-row">
-                <a href="todos-os-estudantes.html" class="turma-action-link">
-                  <span>Ver estudantes</span>
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <article
-              class="turma-detail-card"
-              aria-label="Detalhes da turma 6º ano C"
-            >
-              <div class="turma-card-top-row">
-                <div class="turma-card-title-col">
-                  <h3 class="turma-card-title">6º ano C</h3>
-                  <span class="turma-card-stage">Ensino Fundamental II</span>
-                </div>
-                <span class="turma-level-badge atencao">ATENÇÃO</span>
-              </div>
-
-              <hr class="turma-card-divider" />
-
-              <span class="turma-active-alerts">2 alertas ativos</span>
-
-              <div class="turma-signal-block">
-                <span class="turma-signal-label">PRINCIPAL SINAL</span>
-                <p class="turma-signal-text">Colaboração e participação</p>
-              </div>
-
-              <hr class="turma-card-divider" />
-
-              <div class="turma-action-row">
-                <a href="todos-os-estudantes.html" class="turma-action-link">
-                  <span>Ver estudantes</span>
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <article
-              class="turma-detail-card"
-              aria-label="Detalhes da turma 9º ano A"
-            >
-              <div class="turma-card-top-row">
-                <div class="turma-card-title-col">
-                  <h3 class="turma-card-title">9º ano A</h3>
-                  <span class="turma-card-stage">Ensino Fundamental II</span>
-                </div>
-                <span class="turma-level-badge monitoramento"
-                  >MONITORAMENTO</span
-                >
-              </div>
-
-              <hr class="turma-card-divider" />
-
-              <span class="turma-active-alerts">1 alerta ativo</span>
-
-              <div class="turma-signal-block">
-                <span class="turma-signal-label">PRINCIPAL SINAL</span>
-                <p class="turma-signal-text">Sinal isolado em acompanhamento</p>
-              </div>
-
-              <hr class="turma-card-divider" />
-
-              <div class="turma-action-row">
-                <a href="todos-os-estudantes.html" class="turma-action-link">
-                  <span>Ver estudantes</span>
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-      </main>
-
-      <nav class="bottom-nav" aria-label="Navegação principal">
-        <a href="painel-inicial-coordenacao-mobile.html" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"
-              />
-            </svg>
->>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
-          </div>
-          <span class="nav-label">Início</span>
-        </a>
-
-        <a
-          href="sistema-alerta-precoce.html"
-          class="nav-tab active"
-          aria-current="page"
-        >
-          <span class="nav-indicator-bar" aria-hidden="true"></span>
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
-              />
-              <path d="M8.33 17.5h3.34" />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="4" x2="12" y2="13.5"/>
+              <line x1="12" y1="19" x2="12.01" y2="19"/>
             </svg>
           </div>
-          <span class="nav-label">Alertas</span>
-        </a>
+          <div class="kpi-info">
+            <span class="kpi-label">Alertas de Atenção</span>
+            <span class="kpi-value">9</span>
+          </div>
+        </div>
 
-        <a href="turmas.html" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M10 5.833v11.667" />
-              <path
-                d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"
-              />
+        <!-- KPI 3: Turmas com alertas -->
+        <div class="kpi-card">
+          <div class="kpi-icon-box primary" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
             </svg>
           </div>
-          <span class="nav-label">Turmas</span>
-        </a>
-
-        <a href="dashboard-agregador-visao-central.html" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5" />
-              <path d="M12.5 5h5v5" />
-            </svg>
+          <div class="kpi-info">
+            <span class="kpi-label">Turmas com alertas</span>
+            <div class="kpi-value-row">
+              <span class="kpi-value">4</span>
+              <span class="kpi-meta">de 8 turmas monitoradas</span>
+            </div>
           </div>
-          <span class="nav-label">Agregadores</span>
-        </a>
+        </div>
+      </section>
 
-        <a href="#modal-perfil" class="nav-tab">
-          <div class="nav-icon" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <ellipse cx="12" cy="8" rx="4" ry="4" />
-              <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2" />
-            </svg>
+      <!-- Seção: Filtrar estudantes (Filtros 2×2 e Busca) -->
+      <section class="filters-section" aria-label="Filtros e busca">
+        <h2 class="filters-title">Filtrar estudantes</h2>
+
+        <div class="filters-grid">
+          <!-- Filtro 1: Turma -->
+          <div class="filter-item">
+            <label for="filtro-turma" class="filter-label">Turma</label>
+            <div class="filter-select-wrapper">
+              <select id="filtro-turma" class="filter-select" aria-label="Filtrar por turma">
+                <option value="todas">Todas as turmas</option>
+                <option value="7b">7º ano B</option>
+                <option value="8a">8º ano A</option>
+                <option value="6c">6º ano C</option>
+                <option value="9a">9º ano A</option>
+              </select>
+              <span class="filter-chevron" aria-hidden="true">⌄</span>
+            </div>
           </div>
-<<<<<<< HEAD
+
+          <!-- Filtro 2: Tipo de alerta -->
+          <div class="filter-item">
+            <label for="filtro-tipo" class="filter-label">Tipo de alerta</label>
+            <div class="filter-select-wrapper">
+              <select id="filtro-tipo" class="filter-select" aria-label="Filtrar por tipo de alerta">
+                <option value="todos">Todos os tipos</option>
+                <option value="atitudinal">Queda atitudinal</option>
+                <option value="frequencia">Frequência</option>
+                <option value="desempenho">Desempenho</option>
+                <option value="colaboracao">Colaboração</option>
+              </select>
+              <span class="filter-chevron" aria-hidden="true">⌄</span>
+            </div>
+          </div>
 
           <!-- Filtro 3: Nível de criticidade -->
           <div class="filter-item">
@@ -2021,10 +920,15 @@
 
             <hr class="turma-card-divider">
 
-            <a href="todos-os-estudantes.html" class="turma-action-link">
-              <span>Ver estudantes</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
+            <div class="turma-action-row">
+              <a href="todos-os-estudantes.html" class="turma-action-link">
+                <span>Ver estudantes</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </article>
 
           <!-- Card 2: 8º ano A -->
@@ -2048,10 +952,15 @@
 
             <hr class="turma-card-divider">
 
-            <a href="todos-os-estudantes.html" class="turma-action-link">
-              <span>Ver estudantes</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
+            <div class="turma-action-row">
+              <a href="todos-os-estudantes.html" class="turma-action-link">
+                <span>Ver estudantes</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </article>
 
           <!-- Card 3: 6º ano C -->
@@ -2075,10 +984,15 @@
 
             <hr class="turma-card-divider">
 
-            <a href="todos-os-estudantes.html" class="turma-action-link">
-              <span>Ver estudantes</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
+            <div class="turma-action-row">
+              <a href="todos-os-estudantes.html" class="turma-action-link">
+                <span>Ver estudantes</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </article>
 
           <!-- Card 4: 9º ano A -->
@@ -2102,10 +1016,15 @@
 
             <hr class="turma-card-divider">
 
-            <a href="todos-os-estudantes.html" class="turma-action-link">
-              <span>Ver estudantes</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
+            <div class="turma-action-row">
+              <a href="todos-os-estudantes.html" class="turma-action-link">
+                <span>Ver estudantes</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </article>
         </div>
       </section>
@@ -2173,11 +1092,5 @@
   </div>
 
 </body>
-=======
-          <span class="nav-label">Perfil</span>
-        </a>
-      </nav>
-    </div>
-  </body>
->>>>>>> 8d5cbc8 (refatoração dos arquivos de coordenação mobile)
 </html>
+
