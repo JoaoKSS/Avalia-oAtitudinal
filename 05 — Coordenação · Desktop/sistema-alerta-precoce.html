@@ -281,8 +281,12 @@
     }
 
     .breadcrumb-separator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
       color: #8194aa;
-      user-select: none;
+      vertical-align: middle;
     }
 
     .breadcrumb-current {
@@ -474,15 +478,9 @@
       position: relative;
     }
 
-    .filter-dropdown-details summary {
-      list-style: none;
-      outline: none;
-      user-select: none;
-    }
+    
 
-    .filter-dropdown-details summary::-webkit-details-marker {
-      display: none;
-    }
+    
 
     .filter-dropdown-details.box-periodo {
       width: 100%;
@@ -509,24 +507,27 @@
       border-color: #cbd5e1;
     }
 
-    .filter-dropdown-details[open] .filter-dropdown {
+    .filter-dropdown-details:focus-within .filter-dropdown, .filter-dropdown-details:hover .filter-dropdown {
       border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     .filter-label {
-      font-size: 9px;
+      display: block;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.5px;
       color: #60758b;
       text-transform: uppercase;
-      line-height: 1.2;
+      line-height: 14px;
+      margin-bottom: 2px;
     }
 
     .filter-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      line-height: 16px;
     }
 
     .filter-text {
@@ -555,7 +556,7 @@
       overflow: hidden;
     }
 
-    .filter-dropdown-details[open] .filter-dropdown-menu {
+    .filter-dropdown-details:focus-within .filter-dropdown-menu, .filter-dropdown-details:hover .filter-dropdown-menu {
       display: block;
     }
 
@@ -816,6 +817,18 @@
       border-bottom: 1px solid #d8e4f3;
     }
 
+        .students-table-header .student-col-info,
+    .students-table-header .student-col-signal,
+    .students-table-header .student-col-level,
+    .students-table-header .student-col-action {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8194aa;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      line-height: 14px;
+      cursor: default;
+    }
     .students-alert-list {
       display: flex;
       flex-direction: column;
@@ -922,10 +935,12 @@
 
     .badge-level {
       height: 24px;
-      width: 76px;
-      padding: 0;
+      min-width: 76px;
+      width: auto;
+      padding: 0 8px;
       border-radius: 6px;
       font-size: 11px;
+      line-height: 24px;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -1177,7 +1192,7 @@
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
                 </svg>
               </span>
@@ -1189,7 +1204,7 @@
             <a href="sistema-alerta-precoce.html" class="nav-link active">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                   <path d="M8.33 17.5h3.34"/>
                 </svg>
@@ -1202,7 +1217,7 @@
             <a href="clima-escolar.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="10" cy="5" r="2.2"/>
                   <circle cx="5" cy="7.2" r="1.5"/>
                   <circle cx="15" cy="7.2" r="1.5"/>
@@ -1219,7 +1234,7 @@
             <a href="dashboard-agregador-visao-central.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
                   <path d="M12.5 5h5v5"/>
                 </svg>
@@ -1232,7 +1247,7 @@
             <a href="turmas.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
                 </svg>
@@ -1251,7 +1266,7 @@
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="currentColor"
+              stroke="#2563eb"
               stroke-width="1.8"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1270,7 +1285,7 @@
               height="18"
               viewBox="0 0 18 18"
               fill="none"
-              stroke="currentColor"
+              stroke="#8194aa"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1287,13 +1302,13 @@
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-item">Área da coordenação</a>
-          <span class="breadcrumb-separator">/</span>
+          <svg class="breadcrumb-separator" width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="#8194aa" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><line x1="1" y1="12" x2="6" y2="1"/></svg>
           <span class="breadcrumb-current">Sistema de alertas</span>
         </nav>
 
         <div class="header-actions">
           <a href="sistema-alerta-precoce.html" class="header-icon-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.34"/>
             </svg>
@@ -1313,7 +1328,7 @@
 
           <div class="kpi-card">
             <div class="kpi-icon-wrapper critical" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#b91c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                 <path d="M8.33 17.5h3.34"/>
               </svg>
@@ -1328,7 +1343,7 @@
           <div class="kpi-card">
             <div class="kpi-icon-wrapper warning" aria-hidden="true">
 
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#b45309" aria-hidden="true">
                 <path d="M10.25 4.5h3.5l-.65 9.5h-2.2l-.65-9.5z"/>
                 <rect x="10.5" y="16.5" width="3" height="3" rx="0.5"/>
               </svg>
@@ -1343,7 +1358,7 @@
           <div class="kpi-card">
             <div class="kpi-icon-wrapper primary" aria-hidden="true">
 
-              <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M10 5.83v11.67"/>
                 <path d="M2.5 15c-.46 0-.83-.37-.83-.83V3.33C1.67 2.87 2.04 2.5 2.5 2.5h4.17c1.84 0 3.33 1.49 3.33 3.33 0-1.84 1.49-3.33 3.33-3.33h4.17c.46 0 .83.37.83.83v10.84c0 .46-.37.83-.83.83h-5c-1.38 0-2.5 1.12-2.5 2.5 0-1.38-1.12-2.5-2.5-2.5H2.5z"/>
               </svg>
@@ -1357,21 +1372,21 @@
         </section>
 
         <section class="filter-section" aria-label="Filtro de período">
-          <details class="filter-dropdown-details box-periodo">
-            <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+          <div class="filter-dropdown-details box-periodo" tabindex="0">
+            <div class="filter-dropdown" role="button" aria-haspopup="listbox">
               <span class="filter-label">PERÍODO</span>
               <div class="filter-row">
                 <span class="filter-text">Últimos 30 dias</span>
-                <span class="filter-chevron" aria-hidden="true">▾</span>
+                <svg class="filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
               </div>
-            </summary>
+            </div>
             <div class="filter-dropdown-menu">
               <a href="#dias-30" class="filter-dropdown-item selected">Últimos 30 dias</a>
               <a href="#dias-15" class="filter-dropdown-item">Últimos 15 dias</a>
               <a href="#dias-60" class="filter-dropdown-item">Últimos 60 dias</a>
               <a href="#semestre" class="filter-dropdown-item">Neste semestre</a>
             </div>
-          </details>
+          </div>
         </section>
 
         <section class="alerta-grid-main" aria-label="Visão de Alertas em Dois Níveis">
@@ -1398,10 +1413,10 @@
                   <div class="turma-risk-track">
                     <div class="turma-risk-bar critical" style="width: 76%;"></div>
                   </div>
-                  <span class="turma-trend-icon critical" title="Tendência de alta">&uarr;</span>
+                  <span class="turma-trend-icon critical" title="Tendência de alta"><svg class="trend-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
                   <a href="dashboard-agregador-analise-por-turma.html?turma=7b" class="turma-link-detail">
                     <span>Ver alunos</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                   </svg>
                   </a>
@@ -1418,10 +1433,10 @@
                   <div class="turma-risk-track">
                     <div class="turma-risk-bar warning" style="width: 58%;"></div>
                   </div>
-                  <span class="turma-trend-icon warning" title="Tendência de alta">&uarr;</span>
+                  <span class="turma-trend-icon warning" title="Tendência de alta"><svg class="trend-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
                   <a href="dashboard-agregador-analise-por-turma.html?turma=8a" class="turma-link-detail">
                     <span>Ver alunos</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                   </svg>
                   </a>
@@ -1438,10 +1453,10 @@
                   <div class="turma-risk-track">
                     <div class="turma-risk-bar warning" style="width: 39%;"></div>
                   </div>
-                  <span class="turma-trend-icon neutral" title="Tendência estável">&ndash;</span>
+                  <span class="turma-trend-icon neutral" title="Tendência estável"><svg class="trend-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#b9bc51" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
                   <a href="dashboard-agregador-analise-por-turma.html?turma=6c" class="turma-link-detail">
                     <span>Ver alunos</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                   </svg>
                   </a>
@@ -1458,10 +1473,10 @@
                   <div class="turma-risk-track">
                     <div class="turma-risk-bar normal" style="width: 22%;"></div>
                   </div>
-                  <span class="turma-trend-icon positive" title="Tendência de queda">&darr;</span>
+                  <span class="turma-trend-icon positive" title="Tendência de queda"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
                   <a href="dashboard-agregador-analise-por-turma.html?turma=9a" class="turma-link-detail">
                     <span>Ver alunos</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                   </svg>
                   </a>
@@ -1485,10 +1500,10 @@
             <hr class="panel-divider">
 
             <div class="students-table-header">
-              <span>ESTUDANTE</span>
-              <span>SINAL DETECTADO</span>
-              <span>NÍVEL</span>
-              <span>PRÓXIMO PASSO</span>
+              <div class="student-col-info"><span>ESTUDANTE</span></div>
+              <div class="student-col-signal"><span>SINAL DETECTADO</span></div>
+              <div class="student-col-level"><span>NÍVEL</span></div>
+              <div class="student-col-action"><span>PRÓXIMO PASSO</span></div>
             </div>
 
             <div class="students-alert-list">
@@ -1510,7 +1525,7 @@
                 </div>
                 <a href="dashboard-agregador-perfil-do-aluno.html" class="student-col-action">
                   <span>Ver perfil individual</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                   </svg>
                 </a>
@@ -1533,7 +1548,7 @@
                 </div>
                 <a href="dashboard-agregador-perfil-do-aluno.html" class="student-col-action">
                   <span>Ver perfil individual</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                   </svg>
                 </a>
@@ -1556,7 +1571,7 @@
                 </div>
                 <a href="dashboard-agregador-perfil-do-aluno.html" class="student-col-action">
                   <span>Ver perfil individual</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                   </svg>
                 </a>
@@ -1579,7 +1594,7 @@
                 </div>
                 <a href="dashboard-agregador-perfil-do-aluno.html" class="student-col-action">
                   <span>Ver perfil individual</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                   </svg>
                 </a>
