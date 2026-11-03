@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalhes do Registro · Lucas Martins · Responsável · Mobile · Educar & Aprender</title>
 
-  <!-- Favicons adaptativos -->
+  
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
   <link rel="alternate icon" href="../assets/favicon.svg">
 
-  <!-- Google Fonts: Inter -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
       --color-success-bg: #e8f6ee;
 
       --radius-sm: 8px;
-      --radius-md: 10px;
+      --radius-md: 12px;
       --radius-lg: 14px;
       --radius-xl: 16px;
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
@@ -58,7 +58,7 @@
       overflow-x: hidden;
     }
 
-    /* Container do dispositivo mobile (390 × 844) */
+    
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -94,7 +94,7 @@
       }
     }
 
-    /* Cabeçalho Mobile (72px) */
+    
     .mobile-header {
       width: 100%;
       height: 72px;
@@ -111,7 +111,7 @@
     .brand-section {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       text-decoration: none;
     }
 
@@ -124,8 +124,6 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      color: #ffffff;
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
     }
 
     .brand-text {
@@ -160,7 +158,7 @@
       height: 42px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-lg);
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -179,16 +177,15 @@
 
     .notif-badge-dot {
       position: absolute;
-      right: 10px;
-      top: 10px;
+      left: 27px;
+      top: 6px;
       width: 7px;
       height: 7px;
       background: var(--color-primary);
       border-radius: 50%;
-      border: 1.5px solid #ffffff;
     }
 
-    /* Conteúdo Principal Rolável */
+    
     .main-content {
       flex: 1;
       overflow-y: auto;
@@ -203,7 +200,7 @@
       display: none;
     }
 
-    /* Link Voltar */
+    
     .btn-back-link {
       display: inline-flex;
       align-items: center;
@@ -218,10 +215,9 @@
 
     .btn-back-link:hover {
       opacity: 0.8;
-      text-decoration: underline;
     }
 
-    /* Cabeçalho da Tela */
+    
     .page-header {
       display: flex;
       flex-direction: column;
@@ -231,40 +227,42 @@
     .page-title {
       font-size: 20px;
       font-weight: 700;
-      color: #172b45;
-      letter-spacing: -0.01em;
+      color: var(--color-text-main);
+      line-height: 1.3;
     }
 
     .page-subtitle {
       font-size: 12px;
-      color: #64748b;
-      line-height: 1.4;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.35;
     }
 
-    /* Cartão do Dependente */
+    
     .dependent-card {
       width: 100%;
       min-height: 84px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-xl);
-      padding: 12px 16px;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
       gap: 14px;
       box-shadow: var(--shadow-card);
+      box-sizing: border-box;
     }
 
     .dependent-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       background-color: var(--color-primary-light);
       color: var(--color-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       flex-shrink: 0;
     }
@@ -277,16 +275,17 @@
     }
 
     .dependent-tag {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.6px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
       color: var(--color-text-muted);
     }
 
     .dependent-name {
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 600;
+      line-height: 1.38;
       color: var(--color-text-main);
       white-space: nowrap;
       overflow: hidden;
@@ -294,14 +293,16 @@
     }
 
     .dependent-grade {
-      font-size: 11px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.35;
       color: var(--color-text-muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    /* Linha de Data e Classificação */
+    
     .meta-bar {
       display: flex;
       align-items: center;
@@ -318,34 +319,35 @@
 
     .meta-date-label {
       font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.6px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      color: #718096;
+      color: var(--color-text-muted);
     }
 
     .meta-date-value {
       font-size: 13px;
       font-weight: 600;
-      color: #25364b;
+      color: var(--color-text-main);
     }
 
     .pill-classification {
       display: inline-flex;
       align-items: center;
-      padding: 5px 12px;
-      border-radius: 9999px;
-      font-size: 12px;
+      padding: 0 10px;
+      height: 22px;
+      border-radius: var(--radius-sm);
+      font-size: 10px;
       font-weight: 600;
-      background-color: #e8f6ee;
-      color: #287d4f;
+      background-color: var(--color-success-bg);
+      color: var(--color-success-text);
     }
 
-    /* Card Principal do Registro */
+    
     .detail-card {
       background-color: var(--color-bg-card);
-      border: 1px solid #e0e7e4;
-      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
       padding: 16px;
       box-shadow: var(--shadow-card);
       display: flex;
@@ -355,8 +357,9 @@
 
     .dimension-title {
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--color-primary);
+      line-height: 1.38;
     }
 
     .card-divider {
@@ -368,15 +371,16 @@
 
     .observation-title {
       font-size: 15px;
-      font-weight: 700;
-      color: #1f3045;
-      line-height: 1.35;
+      font-weight: 600;
+      color: var(--color-text-main);
+      line-height: 1.4;
     }
 
     .observation-desc {
-      font-size: 13px;
-      color: #58677b;
-      line-height: 1.45;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.42;
     }
 
     .context-block {
@@ -388,45 +392,47 @@
 
     .context-label {
       font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.6px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      color: #718096;
+      color: var(--color-text-muted);
     }
 
     .context-desc {
       font-size: 12px;
-      color: #58677b;
-      line-height: 1.4;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.35;
     }
 
-    /* Card de Orientação à Família */
+    
     .guidance-card {
-      background-color: #e8f0ff;
-      border: 1px solid rgba(37, 99, 235, 0.12);
-      border-radius: 12px;
-      padding: 14px 16px;
+      background-color: var(--color-primary-soft);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 16px;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
     .guidance-title {
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 600;
       color: var(--color-primary);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     .guidance-desc {
       font-size: 12px;
-      color: #3f5878;
-      line-height: 1.45;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.42;
     }
 
-    /* Bloco Diálogo com a Família */
+    
     .dialogue-section {
       background-color: transparent;
       display: flex;
@@ -442,25 +448,27 @@
     }
 
     .dialogue-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #20334a;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: var(--color-text-main);
     }
 
     .dialogue-desc {
       font-size: 12px;
-      color: #65758a;
-      line-height: 1.4;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.42;
     }
 
     .btn-send-message {
       width: 100%;
-      height: 44px;
+      height: 40px;
       background-color: var(--color-primary);
       color: #ffffff;
       border: none;
-      border-radius: var(--radius-md);
-      font-size: 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -476,7 +484,7 @@
       background-color: #1d4ed8;
     }
 
-    /* Navegação Inferior Mobile (80px) */
+    
     .bottom-nav {
       position: absolute;
       bottom: 0;
@@ -486,9 +494,9 @@
       background-color: var(--color-bg-card);
       border-top: 1px solid var(--color-border-subtle);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-around;
-      padding: 0 8px 12px 8px;
+      padding-top: 8px;
       z-index: 20;
     }
 
@@ -499,25 +507,35 @@
       justify-content: center;
       gap: 4px;
       text-decoration: none;
-      color: var(--color-text-muted);
       position: relative;
-      padding: 8px 16px;
-      transition: color 0.15s ease;
-      flex: 1;
+      width: 78px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
     }
 
     .nav-tab.active {
       color: var(--color-primary);
     }
 
-    .nav-tab.active::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      width: 44px;
-      height: 3px;
-      background-color: var(--color-primary);
-      border-radius: 0 0 3px 3px;
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
     }
 
     .nav-icon {
@@ -526,12 +544,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .nav-label {
-      font-size: 11px;
-      font-weight: 600;
-      line-height: 1.2;
     }
   
     .profile-modal-overlay {
@@ -685,17 +697,15 @@
 </head>
 <body>
 
-  <!-- Moldura Mobile (390 x 844) -->
+  
   <main class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile -->
+    
     <header class="mobile-header">
-      <a href="painel-inicial-responsavel-mobile.html" class="brand-section" title="Educar &amp; Aprender - Início">
-        <div class="brand-icon" aria-hidden="true">
-          <!-- Ícone vetorial da marca oficial do Penpot -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      <a href="painel-inicial-responsavel-mobile.html" class="brand-section" aria-label="Educar &amp; Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
           </svg>
         </div>
         <div class="brand-text">
@@ -705,41 +715,42 @@
       </a>
 
       <div class="header-actions">
-        <!-- Botão Mensagens -->
-        <a href="mensagens-responsavel-mobile.html" class="header-icon-btn" title="Mensagens e conversas">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
-            <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
-            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+        <a href="mensagens-responsavel-mobile.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+            <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
           </svg>
         </a>
 
-        <!-- Botão Notificações -->
-        <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+            <path d="M10.333 23.5h3.334"/>
           </svg>
-          <span class="notif-badge-dot"></span>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
         </button>
       </div>
     </header>
 
-    <!-- Conteúdo Principal com Rolagem -->
+    
     <div class="main-content">
 
-      <!-- Link Voltar ao Histórico -->
+      
       <a href="historico-registros-responsavel-mobile.html" class="btn-back-link">
-        <span aria-hidden="true">‹</span> Histórico de registros
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span>Histórico de registros</span>
       </a>
 
-      <!-- Título da Tela -->
+      
       <div class="page-header">
         <h1 class="page-title">Detalhes do registro</h1>
         <p class="page-subtitle">Registro compartilhado pela equipe pedagógica</p>
       </div>
 
-      <!-- Cartão do Estudante / Dependente -->
+      
       <div class="dependent-card">
         <div class="dependent-avatar" aria-hidden="true">LM</div>
         <div class="dependent-info">
@@ -749,7 +760,7 @@
         </div>
       </div>
 
-      <!-- Barra de Metadados: Data e Classificação -->
+      
       <div class="meta-bar">
         <div class="meta-date-block">
           <span class="meta-date-label">DATA DO REGISTRO</span>
@@ -758,7 +769,7 @@
         <span class="pill-classification">Positiva</span>
       </div>
 
-      <!-- Card · Detalhe do Registro -->
+      
       <article class="detail-card">
         <div class="dimension-title">Colaboração</div>
         <hr class="card-divider">
@@ -771,7 +782,7 @@
         </div>
       </article>
 
-      <!-- Card · Orientação à Família -->
+      
       <aside class="guidance-card" aria-label="Orientação para apoio da família">
         <div class="guidance-title">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -782,27 +793,30 @@
         <p class="guidance-desc">Converse com Lucas sobre como as ideias de cada colega ajudaram o grupo e incentive-o a continuar colaborando.</p>
       </aside>
 
-      <!-- Seção Diálogo com a Escola -->
+      
       <section class="dialogue-section" aria-label="Diálogo sobre este registro">
         <div class="dialogue-header">
           <h2 class="dialogue-title">Quer conversar sobre este registro?</h2>
           <p class="dialogue-desc">Se precisar de mais informações, entre em contato com a equipe pedagógica.</p>
         </div>
         <a href="iniciar-mensagem-responsavel-mobile.html" class="btn-send-message" title="Iniciar mensagem com a equipe pedagógica">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M2.5 4.583A2.083 2.083 0 0 1 4.583 2.5h10.834A2.083 2.083 0 0 1 17.5 4.583v7.5a2.083 2.083 0 0 1-2.083 2.084H6.667L2.5 17.5V4.583z"/>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+            <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
           </svg>
-          Enviar mensagem
+          <span>Enviar mensagem</span>
         </a>
       </section>
 
     </div>
 
-    <!-- Navegação Inferior -->
+    
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <a href="painel-inicial-responsavel-mobile.html" class="nav-tab active">
+      <a href="painel-inicial-responsavel-mobile.html" class="nav-tab active" aria-current="page">
+        <div class="nav-indicator-bar" aria-hidden="true"></div>
         <div class="nav-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
           </svg>
         </div>
@@ -811,7 +825,7 @@
 
       <a href="evolucao-estudante-responsavel-mobile.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
             <polyline points="17 6 23 6 23 12"/>
           </svg>
@@ -821,12 +835,12 @@
 
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="7" r="4"/>
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="6.667" r="3.333"/>
+            <path d="M4.167 17.5v-1.667C4.167 12.612 6.778 10 10 10s5.833 2.612 5.833 5.833V17.5"/>
           </svg>
         </div>
-        <span class="nav-label">Meu perfil</span>
+        <span class="nav-label">Perfil</span>
       </a>
     </nav>
 

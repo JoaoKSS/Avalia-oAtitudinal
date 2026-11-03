@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conversas · Responsável · Mobile · Educar & Aprender</title>
 
-  <!-- Favicons adaptativos -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
   <link rel="alternate icon" href="../assets/favicon.svg">
 
-  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,6 +22,7 @@
       --color-text-muted: #60758b;
       --color-primary: #2563eb;
       --color-primary-light: #e8f1ff;
+      --color-primary-soft: #eff5ff;
       --color-warning-text: #b45309;
       --color-warning-bg: #fff4d8;
       --color-success-text: #16a34a;
@@ -31,10 +30,9 @@
       --color-unread-accent: #3aff2e;
 
       --radius-sm: 8px;
-      --radius-md: 10px;
+      --radius-md: 12px;
       --radius-lg: 14px;
       --radius-xl: 16px;
-      --radius-card: 14px;
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
@@ -60,7 +58,6 @@
       overflow-x: hidden;
     }
 
-    /* Container do dispositivo mobile (390 × 844) */
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -96,10 +93,10 @@
       }
     }
 
-    /* Cabeçalho Mobile (72px) */
     .mobile-header {
       width: 100%;
       height: 72px;
+      min-height: 72px;
       background-color: var(--color-bg-card);
       border-bottom: 1px solid var(--color-border-subtle);
       display: flex;
@@ -113,7 +110,7 @@
     .brand-section {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       text-decoration: none;
     }
 
@@ -126,8 +123,6 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      color: #ffffff;
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
     }
 
     .brand-text {
@@ -162,7 +157,7 @@
       height: 42px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-lg);
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -170,6 +165,7 @@
       cursor: pointer;
       color: var(--color-text-muted);
       text-decoration: none;
+      padding: 0;
       transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
@@ -180,23 +176,20 @@
     }
 
     .header-icon-btn.active {
-      background-color: var(--color-primary-light);
       border-color: var(--color-primary);
       color: var(--color-primary);
     }
 
     .notif-badge-dot {
       position: absolute;
-      right: 10px;
-      top: 10px;
+      left: 27px;
+      top: 6px;
       width: 7px;
       height: 7px;
       background: var(--color-primary);
       border-radius: 50%;
-      border: 1.5px solid #ffffff;
     }
 
-    /* Conteúdo Principal Rolável */
     .main-content {
       flex: 1;
       overflow-y: auto;
@@ -211,7 +204,6 @@
       display: none;
     }
 
-    /* Link Voltar */
     .btn-back-link {
       display: inline-flex;
       align-items: center;
@@ -226,10 +218,8 @@
 
     .btn-back-link:hover {
       opacity: 0.8;
-      text-decoration: underline;
     }
 
-    /* Top Row: Cabeçalho e Botão Nova Mensagem */
     .title-row {
       display: flex;
       align-items: flex-start;
@@ -258,7 +248,7 @@
 
     .btn-new-message {
       height: 36px;
-      padding: 0 12px;
+      padding: 0 16px;
       background-color: var(--color-primary);
       color: #ffffff;
       border: none;
@@ -279,46 +269,53 @@
       background-color: #1d4ed8;
     }
 
-    /* Campo de Busca */
     .search-box {
       width: 100%;
-      height: 40px;
+      height: 48px;
+      min-height: 48px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
-      padding: 0 12px;
-      gap: 8px;
-      box-shadow: 0 1px 3px rgba(20, 51, 97, 0.03);
+      padding: 0 16px;
+      gap: 12px;
+      margin-bottom: 16px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
     }
 
     .search-box:focus-within {
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
 
     .search-icon {
-      color: var(--color-text-muted);
+      width: 20px;
+      height: 20px;
+      color: #8194aa;
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
     .search-input {
+      flex: 1;
+      height: 100%;
       border: none;
-      background: transparent;
       outline: none;
+      background: transparent;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 13.5px;
+      font-weight: 400;
       color: var(--color-text-main);
-      width: 100%;
     }
 
     .search-input::placeholder {
       color: #8194aa;
     }
 
-    /* Filtros (Chips) */
     .filters-row {
       display: flex;
       align-items: center;
@@ -326,10 +323,10 @@
     }
 
     .filter-chip {
-      height: 28px;
-      padding: 0 12px;
-      border-radius: var(--radius-sm);
-      font-size: 11px;
+      height: 32px;
+      padding: 0 16px;
+      border-radius: 16px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
@@ -337,14 +334,13 @@
       justify-content: center;
       text-decoration: none;
       transition: all 0.15s ease;
-      font-family: inherit;
       border: 1px solid transparent;
+      font-family: inherit;
     }
 
     .filter-chip.active {
       background-color: var(--color-primary);
       color: #ffffff;
-      font-weight: 700;
     }
 
     .filter-chip.secondary {
@@ -359,7 +355,6 @@
       color: var(--color-text-main);
     }
 
-    /* Legenda de Seção */
     .section-caption {
       font-size: 10px;
       font-weight: 700;
@@ -369,7 +364,6 @@
       margin-top: 4px;
     }
 
-    /* Lista de Conversas */
     .conversations-list {
       display: flex;
       flex-direction: column;
@@ -381,7 +375,7 @@
       align-items: center;
       gap: 12px;
       padding: 12px 14px;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       text-decoration: none;
@@ -396,7 +390,6 @@
       border-color: #cbd5e1;
     }
 
-    /* Destaque Não Lida: Borda verde vibrante #3aff2e */
     .conversation-item-card.unread {
       border: 2px solid var(--color-unread-accent);
     }
@@ -406,7 +399,6 @@
       font-weight: 700;
     }
 
-    /* Badge contador absoluto no canto superior direito */
     .unread-counter-badge {
       position: absolute;
       top: -9px;
@@ -491,7 +483,6 @@
       line-height: 1.3;
     }
 
-    /* Navegação Inferior Mobile (80px) */
     .bottom-nav {
       position: absolute;
       bottom: 0;
@@ -501,9 +492,9 @@
       background-color: var(--color-bg-card);
       border-top: 1px solid var(--color-border-subtle);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-around;
-      padding: 0 8px 12px 8px;
+      padding-top: 8px;
       z-index: 20;
     }
 
@@ -514,25 +505,35 @@
       justify-content: center;
       gap: 4px;
       text-decoration: none;
-      color: var(--color-text-muted);
       position: relative;
-      padding: 8px 16px;
-      transition: color 0.15s ease;
-      flex: 1;
+      width: 78px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
     }
 
     .nav-tab.active {
       color: var(--color-primary);
     }
 
-    .nav-tab.active::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      width: 44px;
-      height: 3px;
-      background-color: var(--color-primary);
-      border-radius: 0 0 3px 3px;
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
     }
 
     .nav-icon {
@@ -543,12 +544,6 @@
       justify-content: center;
     }
 
-    .nav-label {
-      font-size: 11px;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-  
     .profile-modal-overlay {
       position: absolute;
       inset: 0;
@@ -695,60 +690,53 @@
       font-weight: 600;
       color: #dc2626;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Moldura Mobile (390 x 844) -->
   <main class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile -->
     <header class="mobile-header">
-      <a href="painel-inicial-responsavel-mobile.html" class="brand-section" title="Educar &amp; Aprender - Início">
-        <div class="brand-icon" aria-hidden="true">
-          <!-- Ícone vetorial da marca oficial do Penpot -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      <a href="painel-inicial-responsavel-mobile.html" class="brand-section" aria-label="Educar & Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
           </svg>
         </div>
         <div class="brand-text">
-          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-name">Educar & Aprender</span>
           <span class="brand-category">Área do Responsável</span>
         </div>
       </a>
 
       <div class="header-actions">
-        <!-- Botão Mensagens (Ativo) -->
-        <a href="mensagens-responsavel-mobile.html" class="header-icon-btn active" title="Mensagens e conversas">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
-            <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
-            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+        <a href="mensagens-responsavel-mobile.html" class="header-icon-btn active" title="Mensagens" aria-label="Mensagens">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+            <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
           </svg>
         </a>
 
-        <!-- Botão Notificações -->
-        <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+            <path d="M10.333 23.5h3.334"/>
           </svg>
-          <span class="notif-badge-dot"></span>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
         </button>
       </div>
     </header>
 
-    <!-- Conteúdo Principal Rolável -->
     <div class="main-content">
 
-      <!-- Link Voltar ao Início -->
-      <a href="painel-inicial-responsavel-mobile.html" class="btn-back-link">
-        <span aria-hidden="true">‹</span> Início
+      <a href="painel-inicial-responsavel-mobile.html" class="btn-back-link" aria-label="Voltar ao início">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12.5 15l-5-5 5-5"/>
+        </svg>
+        <span>Início</span>
       </a>
 
-      <!-- Cabeçalho e Ação Nova Mensagem -->
       <div class="title-row">
         <div class="page-title-group">
           <h1 class="page-title">Conversas</h1>
@@ -759,37 +747,32 @@
         </a>
       </div>
 
-      <!-- Barra de Busca -->
       <div class="search-box">
-        <div class="search-icon" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        <span class="search-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"/>
+            <path d="M16.667 16.667L13.333 13.333"/>
           </svg>
-        </div>
+        </span>
         <input type="text" class="search-input" placeholder="Buscar conversa" aria-label="Buscar conversa">
       </div>
 
-      <!-- Filtros -->
       <div class="filters-row">
         <button type="button" class="filter-chip active">Todas</button>
         <button type="button" class="filter-chip secondary">Não lidas</button>
         <button type="button" class="filter-chip secondary">Equipe</button>
       </div>
 
-      <!-- Legenda de Seção -->
       <span class="section-caption">MAIS RECENTES</span>
 
-      <!-- Lista de Conversas -->
       <div class="conversations-list">
 
-        <!-- Conversa 1: Prof.ª Ana Almeida (Não Lida - Borda Verde #3aff2e e Badge 1) -->
         <a href="conversa-responsavel-mobile.html" class="conversation-item-card unread" title="Abrir conversa com Prof.ª Ana Almeida">
           <span class="unread-counter-badge" title="1 nova mensagem">1</span>
           <div class="chat-avatar" aria-hidden="true">AA</div>
           <div class="chat-info">
             <div class="chat-top-row">
-              <span class="chat-name">Prof. Ana Almeida</span>
+              <span class="chat-name">Prof.ª Ana Almeida</span>
               <span class="chat-time">14:28</span>
             </div>
             <div class="chat-preview-row">
@@ -798,7 +781,6 @@
           </div>
         </a>
 
-        <!-- Conversa 2: Carlos Pimenta (Coordenação) -->
         <a href="conversa-responsavel-mobile.html" class="conversation-item-card" title="Abrir conversa com Carlos Pimenta">
           <div class="chat-avatar" aria-hidden="true">CP</div>
           <div class="chat-info">
@@ -812,7 +794,6 @@
           </div>
         </a>
 
-        <!-- Conversa 3: Prof. João Martins -->
         <a href="conversa-responsavel-mobile.html" class="conversation-item-card" title="Abrir conversa com Prof. João Martins">
           <div class="chat-avatar" aria-hidden="true">JM</div>
           <div class="chat-info">
@@ -827,12 +808,11 @@
           </div>
         </a>
 
-        <!-- Conversa 4: Prof. Ana Almeida (Anterior) -->
-        <a href="conversa-responsavel-mobile.html" class="conversation-item-card" title="Abrir conversa com Prof. Ana Almeida">
+        <a href="conversa-responsavel-mobile.html" class="conversation-item-card" title="Abrir conversa com Prof.ª Ana Almeida">
           <div class="chat-avatar" aria-hidden="true">AA</div>
           <div class="chat-info">
             <div class="chat-top-row">
-              <span class="chat-name">Prof. Ana Almeida</span>
+              <span class="chat-name">Prof.ª Ana Almeida</span>
               <span class="chat-time">17 out.</span>
             </div>
             <div class="chat-preview-row">
@@ -846,11 +826,11 @@
 
     </div>
 
-    <!-- Navegação Inferior -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <a href="painel-inicial-responsavel-mobile.html" class="nav-tab active">
+      <a href="painel-inicial-responsavel-mobile.html" class="nav-tab active" aria-current="page">
+        <div class="nav-indicator-bar" aria-hidden="true"></div>
         <div class="nav-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
           </svg>
         </div>
@@ -859,7 +839,7 @@
 
       <a href="evolucao-estudante-responsavel-mobile.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
             <polyline points="17 6 23 6 23 12"/>
           </svg>
@@ -869,16 +849,15 @@
 
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="7" r="4"/>
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="6.667" r="3.333"/>
+            <path d="M4.167 17.5v-1.667C4.167 12.612 6.778 10 10 10s5.833 2.612 5.833 5.833V17.5"/>
           </svg>
         </div>
-        <span class="nav-label">Meu perfil</span>
+        <span class="nav-label">Perfil</span>
       </a>
     </nav>
 
-  
     <div id="modal-perfil" class="profile-modal-overlay">
       <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
       <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
@@ -911,4 +890,3 @@
 
 </body>
 </html>
-

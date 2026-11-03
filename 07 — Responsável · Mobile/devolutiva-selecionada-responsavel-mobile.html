@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parecer Formativo · Devolutiva · Lucas Martins · Responsável · Mobile · Educar & Aprender</title>
 
-  <!-- Favicons adaptativos -->
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
   <link rel="alternate icon" href="../assets/favicon.svg">
 
-  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,21 +22,16 @@
       --color-text-muted: #60758b;
       --color-primary: #2563eb;
       --color-primary-light: #e8f1ff;
+      --color-primary-soft: #eff5ff;
       --color-warning-text: #b45309;
       --color-warning-bg: #fff4d8;
       --color-success-text: #16a34a;
       --color-success-bg: #e8f6ee;
-      --color-card-blue-bg: #eaf2ff;
-      --color-card-blue-title: #1d4ed8;
-      --color-card-blue-desc: #35527a;
-      --color-strength-bar: #16a34a;
-      --color-strength-title: #166534;
 
       --radius-sm: 8px;
-      --radius-md: 10px;
+      --radius-md: 12px;
       --radius-lg: 14px;
       --radius-xl: 16px;
-      --radius-card: 14px;
       --shadow-card: 0px 4px 16px rgba(20, 51, 97, 0.04);
     }
 
@@ -64,7 +57,6 @@
       overflow-x: hidden;
     }
 
-    /* Container do dispositivo mobile (390 × 844) */
     .mobile-screen-wrapper {
       width: 390px;
       min-width: 390px;
@@ -100,10 +92,10 @@
       }
     }
 
-    /* Cabeçalho Mobile (72px) */
     .mobile-header {
       width: 100%;
       height: 72px;
+      min-height: 72px;
       background-color: var(--color-bg-card);
       border-bottom: 1px solid var(--color-border-subtle);
       display: flex;
@@ -117,7 +109,7 @@
     .brand-section {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       text-decoration: none;
     }
 
@@ -130,8 +122,6 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      color: #ffffff;
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
     }
 
     .brand-text {
@@ -166,7 +156,7 @@
       height: 42px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-lg);
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -174,6 +164,7 @@
       cursor: pointer;
       color: var(--color-text-muted);
       text-decoration: none;
+      padding: 0;
       transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
@@ -183,18 +174,21 @@
       color: var(--color-text-main);
     }
 
+    .header-icon-btn.active {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
     .notif-badge-dot {
       position: absolute;
-      right: 10px;
-      top: 10px;
+      left: 27px;
+      top: 6px;
       width: 7px;
       height: 7px;
       background: var(--color-primary);
       border-radius: 50%;
-      border: 1.5px solid #ffffff;
     }
 
-    /* Conteúdo Principal Rolável */
     .main-content {
       flex: 1;
       overflow-y: auto;
@@ -209,7 +203,6 @@
       display: none;
     }
 
-    /* Link Voltar */
     .btn-back-link {
       display: inline-flex;
       align-items: center;
@@ -224,10 +217,8 @@
 
     .btn-back-link:hover {
       opacity: 0.8;
-      text-decoration: underline;
     }
 
-    /* Cabeçalho da Devolutiva */
     .devolutiva-header {
       display: flex;
       flex-direction: column;
@@ -252,11 +243,10 @@
       color: var(--color-text-muted);
     }
 
-    /* Cartão Mensagem de Abertura */
     .opening-card {
-      background-color: var(--color-card-blue-bg);
-      border: 1px solid rgba(37, 99, 235, 0.12);
-      border-radius: var(--radius-card);
+      background-color: var(--color-primary-soft);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
       padding: 16px;
       display: flex;
       flex-direction: column;
@@ -265,17 +255,16 @@
 
     .opening-title {
       font-size: 15px;
-      font-weight: 700;
-      color: var(--color-card-blue-title);
+      font-weight: 600;
+      color: var(--color-primary);
     }
 
     .opening-desc {
       font-size: 13px;
-      color: var(--color-card-blue-desc);
+      color: var(--color-text-muted);
       line-height: 1.45;
     }
 
-    /* Seções de Conteúdo */
     .content-section {
       display: flex;
       flex-direction: column;
@@ -283,16 +272,15 @@
     }
 
     .section-title {
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 600;
       color: var(--color-text-main);
     }
 
-    /* Cartão de Pontos Fortes */
     .strength-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-card);
+      border-radius: var(--radius-xl);
       padding: 16px;
       display: flex;
       align-items: flex-start;
@@ -304,7 +292,7 @@
       width: 4px;
       height: 42px;
       border-radius: 4px;
-      background-color: var(--color-strength-bar);
+      background-color: var(--color-success-text);
       flex-shrink: 0;
     }
 
@@ -315,9 +303,9 @@
     }
 
     .strength-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--color-strength-title);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-success-text);
     }
 
     .strength-desc {
@@ -326,11 +314,10 @@
       line-height: 1.45;
     }
 
-    /* Cartão de Parecer Completo */
     .parecer-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-card);
+      border-radius: var(--radius-xl);
       padding: 16px;
       box-shadow: var(--shadow-card);
     }
@@ -341,7 +328,6 @@
       line-height: 1.5;
     }
 
-    /* Navegação Inferior Mobile (80px) */
     .bottom-nav {
       position: absolute;
       bottom: 0;
@@ -351,9 +337,9 @@
       background-color: var(--color-bg-card);
       border-top: 1px solid var(--color-border-subtle);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-around;
-      padding: 0 8px 12px 8px;
+      padding-top: 8px;
       z-index: 20;
     }
 
@@ -364,25 +350,35 @@
       justify-content: center;
       gap: 4px;
       text-decoration: none;
-      color: var(--color-text-muted);
       position: relative;
-      padding: 8px 16px;
-      transition: color 0.15s ease;
-      flex: 1;
+      width: 78px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
     }
 
     .nav-tab.active {
       color: var(--color-primary);
     }
 
-    .nav-tab.active::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      width: 44px;
-      height: 3px;
-      background-color: var(--color-primary);
-      border-radius: 0 0 3px 3px;
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
     }
 
     .nav-icon {
@@ -393,12 +389,6 @@
       justify-content: center;
     }
 
-    .nav-label {
-      font-size: 11px;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-  
     .profile-modal-overlay {
       position: absolute;
       inset: 0;
@@ -545,73 +535,64 @@
       font-weight: 600;
       color: #dc2626;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Moldura Mobile (390 x 844) -->
   <main class="mobile-screen-wrapper">
 
-    <!-- Cabeçalho Mobile -->
     <header class="mobile-header">
-      <a href="painel-inicial-responsavel-mobile.html" class="brand-section" title="Educar &amp; Aprender - Início">
-        <div class="brand-icon" aria-hidden="true">
-          <!-- Ícone vetorial da marca oficial do Penpot -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      <a href="painel-inicial-responsavel-mobile.html" class="brand-section" aria-label="Educar & Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
           </svg>
         </div>
         <div class="brand-text">
-          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-name">Educar & Aprender</span>
           <span class="brand-category">Área do Responsável</span>
         </div>
       </a>
 
       <div class="header-actions">
-        <!-- Botão Mensagens -->
-        <a href="mensagens-responsavel-mobile.html" class="header-icon-btn" title="Mensagens e conversas">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5L11.25 2.5c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
-            <path d="M6.667 14.167h5.416c1.15 0 2.084-.933 2.084-2.084v-.416"/>
-            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084h-1.667"/>
+        <a href="mensagens-responsavel-mobile.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+            <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
           </svg>
         </a>
 
-        <!-- Botão Notificações -->
-        <button class="header-icon-btn" type="button" title="Notificações" aria-label="Notificações">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+            <path d="M10.333 23.5h3.334"/>
           </svg>
-          <span class="notif-badge-dot"></span>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
         </button>
       </div>
     </header>
 
-    <!-- Conteúdo Principal com Rolagem -->
     <div class="main-content">
 
-      <!-- Link Voltar às Devolutivas -->
-      <a href="minhas-devolutivas-responsavel-mobile.html" class="btn-back-link">
-        <span aria-hidden="true">‹</span> Devolutivas
+      <a href="minhas-devolutivas-responsavel-mobile.html" class="btn-back-link" aria-label="Voltar para devolutivas">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12.5 15l-5-5 5-5"/>
+        </svg>
+        <span>Devolutivas</span>
       </a>
 
-      <!-- Cabeçalho da Devolutiva -->
       <div class="devolutiva-header">
         <h1 class="page-title">Parecer formativo</h1>
-        <p class="meta-line">Prof.ª Marina Costa &nbsp;·&nbsp; 6º ano A</p>
-        <p class="meta-date">1º bimestre &nbsp;·&nbsp; 18 de novembro de 2026</p>
+        <p class="meta-line">Prof.ª Marina Costa · 6º ano A</p>
+        <p class="meta-date">1º bimestre · 18 de novembro de 2026</p>
       </div>
 
-      <!-- Cartão · Mensagem de Abertura -->
       <aside class="opening-card" aria-label="Mensagem de incentivo">
         <div class="opening-title">Você tem motivos para se orgulhar!</div>
         <p class="opening-desc">Veja o que você já conquistou e o que pode desenvolver.</p>
       </aside>
 
-      <!-- Seção: Devolutiva / Pontos Fortes -->
       <section class="content-section" aria-label="Pontos fortes observados">
         <h2 class="section-title">Devolutiva</h2>
         <div class="strength-card">
@@ -623,7 +604,6 @@
         </div>
       </section>
 
-      <!-- Seção: Mensagem do Professor -->
       <section class="content-section" aria-label="Mensagem completa do professor">
         <h2 class="section-title">Mensagem do professor</h2>
         <article class="parecer-card">
@@ -633,11 +613,11 @@
 
     </div>
 
-    <!-- Navegação Inferior -->
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <a href="painel-inicial-responsavel-mobile.html" class="nav-tab active">
+      <a href="painel-inicial-responsavel-mobile.html" class="nav-tab active" aria-current="page">
+        <div class="nav-indicator-bar" aria-hidden="true"></div>
         <div class="nav-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
           </svg>
         </div>
@@ -646,7 +626,7 @@
 
       <a href="evolucao-estudante-responsavel-mobile.html" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
             <polyline points="17 6 23 6 23 12"/>
           </svg>
@@ -656,16 +636,15 @@
 
       <a href="#modal-perfil" class="nav-tab">
         <div class="nav-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="7" r="4"/>
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="6.667" r="3.333"/>
+            <path d="M4.167 17.5v-1.667C4.167 12.612 6.778 10 10 10s5.833 2.612 5.833 5.833V17.5"/>
           </svg>
         </div>
-        <span class="nav-label">Meu perfil</span>
+        <span class="nav-label">Perfil</span>
       </a>
     </nav>
 
-  
     <div id="modal-perfil" class="profile-modal-overlay">
       <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal de perfil"></a>
       <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
@@ -698,4 +677,3 @@
 
 </body>
 </html>
-
