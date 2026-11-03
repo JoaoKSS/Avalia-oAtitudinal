@@ -335,10 +335,12 @@
       border-radius: 50%;
     }
 
-    /* Área de Conteúdo Fluida */
+    /* Área de Conteúdo */
     .content-area {
-      padding: 24px 32px 32px 32px;
+      flex: 1;
+      padding: 32px;
       width: 100%;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -352,27 +354,27 @@
     }
 
     .page-title {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
-      line-height: 1.25;
-      color: #172b45;
+      line-height: 1.36;
+      color: #172b4d;
     }
 
     .page-desc {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 1.4;
-      color: #64748b;
+      line-height: 1.43;
+      color: #60758b;
     }
 
-    /* Cartão de Identificação do Dependente (85px de altura) */
+    /* Cartão de Identificação do Dependente */
     .student-id-card {
       width: 100%;
-      min-height: 85px;
+      min-height: 76px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
-      padding: 18px 24px;
+      border-radius: 12px;
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -388,7 +390,7 @@
       width: 48px;
       height: 48px;
       border-radius: 24px;
-      background-color: #e8f0ff;
+      background-color: #e8f1ff;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -396,6 +398,7 @@
       font-weight: 700;
       color: #2563eb;
       flex-shrink: 0;
+      line-height: 1;
     }
 
     .student-id-info {
@@ -406,32 +409,41 @@
 
     .student-id-tag {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #60758b;
+      color: #8194aa;
       text-transform: uppercase;
+      line-height: 1.4;
     }
 
     .student-id-name {
       font-size: 17px;
       font-weight: 700;
       color: #172b4d;
+      line-height: 1.3;
     }
 
     .student-id-class {
       font-size: 13px;
       font-weight: 400;
       color: #60758b;
+      line-height: 1.3;
     }
 
     .student-id-badge {
-      padding: 6px 16px;
-      background-color: #f0f4fa;
-      border-radius: 15px;
+      height: 28px;
+      padding: 0 16px;
+      border-radius: 14px;
+      background-color: #e8f1ff;
+      color: #2563eb;
       font-size: 12px;
       font-weight: 600;
-      color: #60758b;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       white-space: nowrap;
+      flex-shrink: 0;
+      line-height: 1;
     }
 
     /* Seção do Registro Pedagógico */
@@ -448,29 +460,37 @@
     }
 
     .section-title {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
+      line-height: 1.35;
       color: #172b4d;
     }
 
     .section-subtitle {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
-      color: #64748b;
+      line-height: 1.43;
+      color: #60758b;
     }
 
     /* Grade de 2 colunas do Registro (Card Principal + Resumo) */
     .record-grid {
       display: grid;
       grid-template-columns: 1.8fr 1fr;
-      gap: 16px;
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .record-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Card Principal */
     .card-main-record {
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 24px;
       display: flex;
       flex-direction: column;
@@ -479,15 +499,15 @@
     }
 
     .record-dimension-title {
-      font-size: 23px;
+      font-size: 18px;
       font-weight: 700;
       color: #2563eb;
     }
 
     .record-divider {
       height: 1px;
-      background-color: #d9e4f2;
-      margin: 14px 0;
+      background-color: #e5edf7;
+      margin: 16px 0;
     }
 
     .record-observation-box {
@@ -497,16 +517,16 @@
     }
 
     .observation-title {
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 700;
-      color: #1f3045;
+      color: #172b4d;
     }
 
     .observation-desc {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 400;
-      color: #58677b;
-      line-height: 1.4;
+      color: #60758b;
+      line-height: 1.5;
     }
 
     .record-context-box {
@@ -517,24 +537,25 @@
 
     .context-tag {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #718096;
+      color: #8194aa;
       text-transform: uppercase;
+      line-height: 1.4;
     }
 
     .context-desc {
-      font-size: 13px;
-      font-weight: 400;
-      color: #58677b;
-      line-height: 1.4;
+      font-size: 14px;
+      font-weight: 500;
+      color: #172b4d;
+      line-height: 1.45;
     }
 
     /* Card Resumo */
     .card-summary-record {
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 24px;
       display: flex;
       flex-direction: column;
@@ -556,78 +577,41 @@
 
     .summary-label {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #718096;
+      color: #8194aa;
       text-transform: uppercase;
+      line-height: 1.4;
     }
 
     .summary-value {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-      color: #25364b;
+      color: #172b4d;
     }
 
     .pill-status {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: fit-content;
-      padding: 4px 16px;
-      border-radius: 14px;
-      font-size: 12px;
-      font-weight: 700;
+      width: 120px;
+      height: 26px;
+      border-radius: 13px;
+      font-size: 11px;
+      font-weight: 600;
       background-color: #e8f6ee;
-      color: #287d4f;
+      color: #1e7e48;
+      white-space: nowrap;
+      text-align: center;
+      line-height: 1;
+      box-sizing: border-box;
     }
 
     .shared-info {
       font-size: 12px;
       font-weight: 400;
-      color: #64748b;
+      color: #8194aa;
       margin-top: auto;
-    }
-
-    /* Card Orientação da Família (Como apoiar em casa) */
-    .card-guidance {
-      width: 100%;
-      background-color: #e8f0ff;
-      border-radius: 16px;
-      padding: 24px 32px;
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-    }
-
-    .guidance-icon-box {
-      width: 40px;
-      height: 38px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2563eb;
-      flex-shrink: 0;
-    }
-
-    .guidance-content {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .guidance-title {
-      font-size: 19px;
-      font-weight: 700;
-      color: #2563eb;
-    }
-
-    .guidance-desc {
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 1.45;
-      color: #3f5878;
     }
 
     /* Card Contato Pedagógico (Fale com a equipe) */
@@ -635,8 +619,8 @@
       width: 100%;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 16px;
-      padding: 24px 32px;
+      border-radius: 12px;
+      padding: 20px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -649,15 +633,16 @@
     }
 
     .contact-title {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
-      color: #20334a;
+      color: #172b4d;
     }
 
     .contact-desc {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
-      color: #65758a;
+      color: #60758b;
+      line-height: 1.43;
     }
 
     .btn-message {
@@ -665,56 +650,72 @@
       padding: 0 24px;
       background-color: #2563eb;
       color: #ffffff;
-      border: none;
+      border: 1px solid #2563eb;
       border-radius: 10px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       white-space: nowrap;
-      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .btn-message:hover {
       background-color: #1d4ed8;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      border-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .btn-message:active {
+      transform: translateY(0);
     }
 
     /* Barra de Ações Inferior (Rodapé) */
     .bottom-actions-bar {
-      height: 86px;
+      position: sticky;
+      bottom: 0;
       background-color: #ffffff;
       border-top: 1px solid #d9e4f2;
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
       padding: 0 32px;
+      box-shadow: 0 -4px 12px rgba(16, 24, 40, 0.05);
+      gap: 16px;
+      z-index: 20;
       margin-top: auto;
     }
 
     .btn-back {
-      height: 46px;
+      height: 44px;
       padding: 0 24px;
       background-color: #60758b;
       border: 1px solid #d9e4f2;
       border-radius: 10px;
       color: #ffffff;
-      font-size: 12px;
+      font-family: inherit;
+      font-size: 13px;
       font-weight: 600;
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       text-decoration: none;
       cursor: pointer;
-      transition: background-color 0.15s ease, transform 0.15s ease;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
     }
 
     .btn-back:hover {
       background-color: #475569;
-      transform: translateX(-2px);
+      transform: translateY(-1px);
+    }
+
+    .btn-back:active {
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -822,7 +823,7 @@
           </div>
           <div class="user-chevron">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+              <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
             </svg>
           </div>
         </button>
@@ -836,11 +837,11 @@
         <nav class="breadcrumb" aria-label="Navegação estrutural">
           <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
           <span class="breadcrumb-separator">/</span>
-          <a href="painel-inicial.html" class="breadcrumb-item">Aluno</a>
+          <a href="painel-inicial.html" class="breadcrumb-item">Lucas Martins</a>
           <span class="breadcrumb-separator">/</span>
           <a href="historico-registros.html" class="breadcrumb-item">Histórico de registros</a>
           <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-current">Detalhes</span>
+          <span class="breadcrumb-current">Detalhes do registro</span>
         </nav>
 
         <div class="header-actions">
@@ -931,20 +932,6 @@
           </div>
         </div>
 
-        <!-- Card Como apoiar em casa (Orientação da Família) -->
-        <div class="card-guidance">
-          <div class="guidance-icon-box">
-            <!-- Ícone Livro Aberto / Orientação oficial do Penpot -->
-            <svg width="24" height="23" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 6.71v13.41M3 4.31C3 2.99 4.12 1.92 5.5 1.92h6.5v18.2H5.5c-1.21-.02-2.26.79-2.5 1.92V4.31zM21 4.31c0-1.32-1.12-2.39-2.5-2.39H12v18.2h6.5c1.21-.02 2.26.79 2.5 1.92V4.31z"/>
-            </svg>
-          </div>
-          <div class="guidance-content">
-            <h3 class="guidance-title">Como apoiar em casa</h3>
-            <p class="guidance-desc">Converse com Lucas sobre como as ideias de cada colega ajudaram o grupo e incentive-o a continuar colaborando.</p>
-          </div>
-        </div>
-
         <!-- Card Contato Pedagógico -->
         <div class="card-contact">
           <div class="contact-info">
@@ -959,10 +946,10 @@
 
       <!-- Barra Inferior de Ações com Botão Voltar -->
       <footer class="bottom-actions-bar">
-        <a href="historico-registros.html" class="btn-back">
-          <!-- Ícone Seta para a Esquerda -->
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 9H3M8.25 3.75L3 9l5.25 5.25"/>
+        <a href="historico-registros.html" class="btn-back" title="Voltar">
+          <!-- Ícone Seta para a Esquerda oficial do Professor -->
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
           </svg>
           <span>Voltar</span>
         </a>
