@@ -337,8 +337,9 @@
 
     /* Área de Conteúdo */
     .content-area {
-      padding: 24px 32px 40px 32px;
-      width: 100%;
+      flex: 1;
+      padding: 32px;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -352,15 +353,16 @@
     }
 
     .page-title {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
-      line-height: 1.25;
+      line-height: 1.36;
       color: #172b4d;
     }
 
     .page-subtitle-meta {
-      font-size: 15px;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.43;
       color: #60758b;
     }
 
@@ -380,13 +382,13 @@
       align-items: center;
     }
 
-    /* Cartão de Identificação do Estudante (1088 × 78px) */
+    /* Cartão de Identificação do Dependente */
     .student-id-card {
       width: 100%;
-      min-height: 78px;
+      min-height: 76px;
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 16px 24px;
       display: flex;
       align-items: center;
@@ -404,14 +406,15 @@
       width: 48px;
       height: 48px;
       border-radius: 24px;
-      background-color: #e8f0ff;
+      background-color: #e8f1ff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #2563eb;
       flex-shrink: 0;
+      line-height: 1;
     }
 
     .student-id-info {
@@ -422,52 +425,62 @@
 
     .student-tag {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      color: #60758b;
+      color: #8194aa;
       text-transform: uppercase;
+      line-height: 1.3;
     }
 
     .student-id-name {
       font-size: 17px;
       font-weight: 700;
+      line-height: 1.3;
       color: #172b4d;
     }
 
     .student-id-class {
       font-size: 13px;
       font-weight: 400;
+      line-height: 1.3;
       color: #60758b;
     }
 
     /* Badge Parecer Disponível */
     .status-capsule {
-      padding: 7px 18px;
-      background-color: #eef2f7;
-      border-radius: 16px;
-      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      padding: 0 16px;
+      border-radius: 14px;
+      background-color: #e8f1ff;
+      color: #2563eb;
+      font-size: 12px;
       font-weight: 600;
-      color: #60758b;
+      letter-spacing: 0.3px;
       white-space: nowrap;
     }
 
-    /* Cartão Mensagem de Abertura / Celebrativo (1088 × 104px) */
+    /* Cartão Mensagem de Abertura / Celebrativo */
     .celebration-card {
       width: 100%;
-      min-height: 104px;
-      background-color: #eaf2ff;
-      border-radius: 16px;
-      padding: 24px 28px;
+      min-height: 88px;
+      background-color: #f0f7ff;
+      border: 1px solid #d0e1fd;
+      border-radius: 12px;
+      padding: 20px 24px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
     }
 
     .celebration-icon-box {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       background-color: #ffffff;
+      border: 1px solid #d0e1fd;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -482,29 +495,30 @@
     }
 
     .celebration-title {
-      font-size: 19px;
+      font-size: 16px;
       font-weight: 700;
-      color: #1d4ed8;
-      line-height: 1.25;
+      color: #2563eb;
+      line-height: 1.3;
     }
 
     .celebration-desc {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 400;
-      color: #35527a;
+      color: #3f5878;
+      line-height: 1.4;
     }
 
     /* Grid de Detalhes em 2 Colunas (Pontos Fortes & Mensagem) */
     .details-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 20px;
     }
 
     .detail-card {
       background-color: #ffffff;
       border: 1px solid #d9e4f2;
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 24px;
       display: flex;
       flex-direction: column;
@@ -515,13 +529,13 @@
     .detail-card-header {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .detail-icon-box {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -548,17 +562,19 @@
       font-size: 18px;
       font-weight: 700;
       color: #172b4d;
+      line-height: 1.3;
     }
 
     .detail-card-subtitle {
       font-size: 13px;
       font-weight: 400;
       color: #60758b;
+      line-height: 1.3;
     }
 
     .detail-divider {
       height: 1px;
-      background-color: #e2e8f0;
+      background-color: #eef2f6;
       width: 100%;
     }
 
@@ -570,10 +586,10 @@
     }
 
     .strength-indicator {
-      width: 5px;
-      height: 54px;
+      width: 4px;
+      height: 48px;
       background-color: #16a34a;
-      border-radius: 3px;
+      border-radius: 2px;
       flex-shrink: 0;
     }
 
@@ -610,83 +626,45 @@
       color: #172b4d;
     }
 
-    /* Card Orientação (Como conversar sobre esta devolutiva) */
-    .guidance-card {
-      width: 100%;
-      min-height: 88px;
-      background-color: #ffffff;
-      border: 1px solid #d9e4f2;
-      border-radius: 15px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .guidance-icon-box {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background-color: #e8f0ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #2563eb;
-    }
-
-    .guidance-text-block {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .guidance-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #2563eb;
-    }
-
-    .guidance-desc {
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.45;
-      color: #3f5878;
-    }
-
-    /* Barra Inferior de Ações (Rodapé 86px) */
+    /* Barra Inferior de Ações (Rodapé 76px) */
     .bottom-actions-bar {
-      height: 86px;
+      position: sticky;
+      bottom: 0;
       background-color: #ffffff;
       border-top: 1px solid #d9e4f2;
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
       padding: 0 32px;
+      box-shadow: 0 -4px 12px rgba(16, 24, 40, 0.05);
+      gap: 16px;
+      z-index: 20;
       margin-top: auto;
     }
 
     .btn-back {
-      height: 46px;
+      height: 44px;
       padding: 0 24px;
       background-color: #60758b;
       border: 1px solid #d9e4f2;
       border-radius: 10px;
       color: #ffffff;
-      font-size: 14px;
+      font-family: inherit;
+      font-size: 13px;
       font-weight: 600;
-      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 8px;
       text-decoration: none;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-      font-family: inherit;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
     }
 
     .btn-back:hover {
       background-color: #475569;
-      border-color: #cbd5e1;
+      transform: translateY(-1px);
     }
 
     /* Responsividade */
@@ -808,7 +786,7 @@
           </div>
           <div class="user-chevron">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+              <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
             </svg>
           </div>
         </button>
@@ -819,14 +797,14 @@
     <main class="main-wrapper">
       <!-- Cabeçalho Superior Desktop (76px) -->
       <header class="top-header">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
           <a href="painel-inicial.html" class="breadcrumb-item">Responsável</a>
           <span class="breadcrumb-separator">/</span>
-          <a href="painel-inicial.html" class="breadcrumb-item">Aluno</a>
+          <a href="painel-inicial.html" class="breadcrumb-item">Lucas Martins</a>
           <span class="breadcrumb-separator">/</span>
           <a href="devolutivas.html" class="breadcrumb-item">Devolutivas</a>
           <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-current">Detalhes</span>
+          <span class="breadcrumb-current">Parecer formativo</span>
         </nav>
 
         <div class="header-actions">
@@ -945,33 +923,18 @@
             <div class="detail-divider"></div>
 
             <div class="teacher-quote-content">
-              <p class="teacher-quote-text">“Cooperou e incluiu seus colegas durante a atividade.”</p>
+              <p class="teacher-quote-text">Cooperou e incluiu seus colegas durante a atividade.</p>
             </div>
           </article>
-        </section>
-
-        <!-- Card Orientação (Como conversar sobre esta devolutiva) -->
-        <section class="guidance-card" aria-label="Orientação para diálogo">
-          <div class="guidance-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-          </div>
-          <div class="guidance-text-block">
-            <h4 class="guidance-title">Como conversar sobre esta devolutiva</h4>
-            <p class="guidance-desc">Reconheça com Lucas os avanços descritos e converse sobre como a colaboração ajuda a turma a aprender em conjunto.</p>
-          </div>
         </section>
       </div>
 
       <!-- Barra Inferior de Ações com Botão Voltar -->
       <footer class="bottom-actions-bar">
-        <a href="devolutivas.html" class="btn-back" title="Voltar para Minhas Devolutivas">
-          <!-- Ícone Seta para a Esquerda -->
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 9H3M8.25 3.75L3 9l5.25 5.25"/>
+        <a href="devolutivas.html" class="btn-back" title="Voltar">
+          <!-- Ícone Seta para a Esquerda oficial do Professor -->
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"></path>
           </svg>
           <span>Voltar</span>
         </a>
