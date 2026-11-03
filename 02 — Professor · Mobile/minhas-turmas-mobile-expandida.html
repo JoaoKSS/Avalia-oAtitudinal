@@ -210,16 +210,19 @@
     }
 
     .search-box {
+      width: 100%;
+      height: 48px;
+      min-height: 48px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-md);
-      height: 42px;
       display: flex;
       align-items: center;
-      padding: 0 14px;
-      gap: 10px;
+      padding: 0 16px;
+      gap: 12px;
       margin-bottom: 12px;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
     }
 
     .search-box:focus-within {
@@ -228,8 +231,8 @@
     }
 
     .search-icon {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       color: #8194aa;
       display: flex;
       align-items: center;
@@ -244,7 +247,7 @@
       outline: none;
       background: transparent;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 400;
       color: var(--color-text-main);
     }
@@ -286,8 +289,8 @@
 
     .turma-card {
       width: 100%;
-      height: 88px;
-      min-height: 88px;
+      height: 76px;
+      min-height: 76px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-xl);
@@ -326,6 +329,9 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
 
     .turma-card-left {
@@ -389,23 +395,20 @@
     }
 
     .turma-action-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      border: 1px solid var(--color-border-subtle);
-      background-color: var(--color-bg-card);
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--color-text-muted);
+      color: #8194aa;
       flex-shrink: 0;
-      text-decoration: none;
-      transition: all 0.15s ease;
+      transition: color 0.15s ease;
     }
 
-    .turma-action-btn:hover {
-      border-color: var(--color-primary);
-      background-color: var(--color-primary-light);
+    .turma-card:hover .turma-action-btn,
+    .card-expanded-header:hover .turma-action-btn {
       color: var(--color-primary);
     }
 
@@ -421,9 +424,9 @@
     .expanded-action-item {
       height: 44px;
       min-height: 44px;
-      background-color: #f8fafc;
+      background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 0 14px;
       display: flex;
       align-items: center;
@@ -434,10 +437,11 @@
       box-sizing: border-box;
     }
 
-    .expanded-action-item:hover {
-      background-color: var(--color-primary-light);
-      border-color: var(--color-primary);
-      color: var(--color-primary);
+    .expanded-action-item:hover,
+    .expanded-action-item:active {
+      background-color: #2563eb;
+      border-color: #b8ccea;
+      color: #ffffff;
     }
 
     .action-item-left {
@@ -455,6 +459,7 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transition: color 0.15s ease;
     }
 
     .expanded-action-item.item-historico .action-item-icon {
@@ -476,8 +481,14 @@
       transition: transform 0.15s ease, color 0.15s ease;
     }
 
+    .expanded-action-item:hover .action-item-icon,
+    .expanded-action-item:active .action-item-icon,
+    .expanded-action-item:hover .action-item-arrow,
+    .expanded-action-item:active .action-item-arrow {
+      color: #ffffff;
+    }
+
     .expanded-action-item:hover .action-item-arrow {
-      color: var(--color-primary);
       transform: translateX(2px);
     }
 
@@ -742,7 +753,7 @@
 
       <div class="search-box">
         <span class="search-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"/>
             <path d="M16.667 16.667L13.333 13.333"/>
           </svg>
@@ -757,7 +768,7 @@
 
       <div class="turmas-list">
         <div class="turma-card-expanded">
-          <div class="card-expanded-header">
+          <a href="minhas-turmas.html" class="card-expanded-header" title="Recolher turma 6º ano A" aria-label="Recolher turma 6º ano A">
             <div class="turma-card-left">
               <div class="turma-avatar">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -783,12 +794,12 @@
                 </div>
               </div>
             </div>
-            <a href="minhas-turmas.html" class="turma-action-btn" title="Recolher opções da turma" aria-label="Recolher opções da turma">
+            <span class="turma-action-btn" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3.75 9h10.5"/>
               </svg>
-            </a>
-          </div>
+            </span>
+          </a>
 
           <div class="expanded-actions-list">
             <a href="devolutiva-individual.html" class="expanded-action-item">
@@ -874,11 +885,11 @@
               </div>
             </div>
           </div>
-          <div class="turma-action-btn" title="Expandir turma">
+          <span class="turma-action-btn" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 3.75v10.5M3.75 9h10.5"/>
             </svg>
-          </div>
+          </span>
         </a>
 
         <a href="minhas-turmas-expandida.html" class="turma-card" aria-label="Acessar turma 8º ano C">
@@ -907,11 +918,11 @@
               </div>
             </div>
           </div>
-          <div class="turma-action-btn" title="Expandir turma">
+          <span class="turma-action-btn" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 3.75v10.5M3.75 9h10.5"/>
             </svg>
-          </div>
+          </span>
         </a>
 
         <a href="minhas-turmas-expandida.html" class="turma-card" aria-label="Acessar turma 9º ano A">
@@ -940,11 +951,11 @@
               </div>
             </div>
           </div>
-          <div class="turma-action-btn" title="Expandir turma">
+          <span class="turma-action-btn" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 3.75v10.5M3.75 9h10.5"/>
             </svg>
-          </div>
+          </span>
         </a>
       </div>
     </section>

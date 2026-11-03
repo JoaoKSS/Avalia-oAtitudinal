@@ -208,16 +208,19 @@
     }
 
     .search-box {
+      width: 100%;
+      height: 48px;
+      min-height: 48px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-md);
-      height: 42px;
       display: flex;
       align-items: center;
-      padding: 0 14px;
-      gap: 10px;
+      padding: 0 16px;
+      gap: 12px;
       margin-bottom: 12px;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
     }
 
     .search-box:focus-within {
@@ -226,8 +229,8 @@
     }
 
     .search-icon {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       color: #8194aa;
       display: flex;
       align-items: center;
@@ -242,7 +245,7 @@
       outline: none;
       background: transparent;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 400;
       color: var(--color-text-main);
     }
@@ -284,8 +287,8 @@
 
     .turma-card {
       width: 100%;
-      height: 88px;
-      min-height: 88px;
+      height: 76px;
+      min-height: 76px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-xl);
@@ -367,22 +370,19 @@
     }
 
     .turma-action-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      border: 1px solid var(--color-border-subtle);
-      background-color: var(--color-bg-card);
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--color-text-muted);
+      color: #8194aa;
       flex-shrink: 0;
-      transition: all 0.15s ease;
+      transition: color 0.15s ease;
     }
 
     .turma-card:hover .turma-action-btn {
-      border-color: var(--color-primary);
-      background-color: var(--color-primary-light);
       color: var(--color-primary);
     }
 
@@ -647,7 +647,7 @@
 
       <div class="search-box">
         <span class="search-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"/>
             <path d="M16.667 16.667L13.333 13.333"/>
           </svg>
@@ -687,11 +687,11 @@
               </div>
             </div>
           </div>
-          <div class="turma-action-btn" title="Adicionar ou gerenciar turma">
+          <span class="turma-action-btn" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 3.75v10.5M3.75 9h10.5"/>
             </svg>
-          </div>
+          </span>
         </a>
 
         <a href="minhas-turmas-expandida.html" class="turma-card" aria-label="Acessar turma 7º ano B">
@@ -720,11 +720,11 @@
               </div>
             </div>
           </div>
-          <div class="turma-action-btn" title="Adicionar ou gerenciar turma">
+          <span class="turma-action-btn" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 3.75v10.5M3.75 9h10.5"/>
             </svg>
-          </div>
+          </span>
         </a>
 
         <a href="minhas-turmas-expandida.html" class="turma-card" aria-label="Acessar turma 8º ano C">
@@ -753,11 +753,11 @@
               </div>
             </div>
           </div>
-          <div class="turma-action-btn" title="Adicionar ou gerenciar turma">
+          <span class="turma-action-btn" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 3.75v10.5M3.75 9h10.5"/>
             </svg>
-          </div>
+          </span>
         </a>
 
         <a href="minhas-turmas-expandida.html" class="turma-card" aria-label="Acessar turma 9º ano A">
@@ -786,11 +786,11 @@
               </div>
             </div>
           </div>
-          <div class="turma-action-btn" title="Adicionar ou gerenciar turma">
+          <span class="turma-action-btn" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 3.75v10.5M3.75 9h10.5"/>
             </svg>
-          </div>
+          </span>
         </a>
       </div>
     </section>
