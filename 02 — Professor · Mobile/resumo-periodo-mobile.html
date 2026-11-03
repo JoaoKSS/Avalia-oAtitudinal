@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumo do Período · Professor · Educar &amp; Aprender</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-primary-light: #e8f0ff;
+      --color-bg-canvas: #f5f8fc;
+      --color-bg-card: #ffffff;
+      --color-text-main: #172b4d;
+      --color-text-muted: #60758b;
+      --color-border: #d8e4f3;
+      --color-border-subtle: #e2e8f0;
+      --color-positive: #16a34a;
+      --color-warning: #b86a00;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .mobile-screen-wrapper {
+      width: 390px;
+      min-width: 390px;
+      max-width: 390px;
+      height: 844px;
+      min-height: 844px;
+      max-height: 844px;
+      background-color: var(--color-bg-canvas);
+      border-radius: 36px;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: 0 16px 40px rgba(20, 51, 97, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .mobile-screen-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    .mobile-header {
+      width: 100%;
+      height: 72px;
+      background-color: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--color-text-main);
+    }
+
+    .brand-category {
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1.44;
+      letter-spacing: 0.5px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-icon-btn {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .header-icon-btn:hover {
+      background-color: #f8fafc;
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .notif-badge-dot {
+      position: absolute;
+      left: 27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 16px 98px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      scrollbar-width: none;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      width: fit-content;
+      transition: color 0.15s ease;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .page-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.25;
+    }
+
+    .page-subtitle {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    .student-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .student-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .student-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .student-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .student-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      line-height: 1.2;
+    }
+
+    .student-meta {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+      margin-top: 3px;
+    }
+
+    .observations-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-primary);
+      background-color: var(--color-primary-light);
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .metric-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 8px 6px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 52px;
+    }
+
+    .metric-val {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .metric-val.positive {
+      color: var(--color-positive);
+    }
+
+    .metric-val.warning {
+      color: var(--color-warning);
+    }
+
+    .metric-val.neutral {
+      color: var(--color-text-muted);
+    }
+
+    .metric-lbl {
+      font-size: 9.5px;
+      color: var(--color-text-muted);
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    .radar-card {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .radar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 0 4px;
+    }
+
+    .radar-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.2;
+    }
+
+    .radar-subtitle {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .radar-svg-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .radar-svg {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .radar-label {
+      font-size: 11px;
+      font-weight: 500;
+      fill: var(--color-text-muted);
+      font-family: inherit;
+    }
+
+    .radar-label-score {
+      font-weight: 700;
+      fill: var(--color-text-main);
+    }
+
+    .evidence-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .evidence-section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .evidence-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .evidence-item {
+      background-color: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      text-decoration: none;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .evidence-item:hover {
+      border-color: var(--color-primary);
+      background-color: #fafcff;
+    }
+
+    .evidence-item-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .evidence-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .evidence-dot.positive {
+      background-color: var(--color-positive);
+    }
+
+    .evidence-dot.warning {
+      background-color: var(--color-warning);
+    }
+
+    .evidence-dot.neutral {
+      background-color: var(--color-primary);
+    }
+
+    .evidence-item-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .evidence-item-header {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .evidence-item-header.positive {
+      color: var(--color-positive);
+    }
+
+    .evidence-item-header.warning {
+      color: var(--color-warning);
+    }
+
+    .evidence-item-header.neutral {
+      color: var(--color-primary);
+    }
+
+    .evidence-item-desc {
+      font-size: 11px;
+      color: var(--color-text-main);
+      line-height: 1.35;
+    }
+
+    .evidence-arrow {
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-parecer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 44px;
+      background-color: var(--color-primary);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+      margin-top: 4px;
+    }
+
+    .btn-parecer:hover {
+      background-color: var(--color-primary-hover);
+    }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: var(--color-bg-card);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-top: 8px;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-decoration: none;
+      position: relative;
+      width: 78px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+    }
+
+    .nav-indicator-bar {
+      position: absolute;
+      top: -8px;
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--color-primary);
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-tab.active .nav-label {
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-modal-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 99;
+      display: none;
+    }
+
+    .profile-modal-overlay:target {
+      display: block;
+    }
+
+    .profile-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      cursor: default;
+      z-index: 99;
+    }
+
+    .profile-modal-card {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 88px;
+      width: 346px;
+      max-width: calc(100% - 32px);
+      background-color: #ffffff;
+      border: 1px solid #d9e4f2;
+      border-radius: 13px;
+      padding: 14px 16px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+      box-sizing: border-box;
+      z-index: 100;
+    }
+
+    .profile-modal-pointer {
+      position: absolute;
+      bottom: -8px;
+      right: 20px;
+      width: 14px;
+      height: 14px;
+      background-color: #ffffff;
+      border-right: 1px solid #d9e4f2;
+      border-bottom: 1px solid #d9e4f2;
+      transform: rotate(45deg);
+      z-index: 101;
+    }
+
+    .profile-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 24px;
+    }
+
+    .profile-modal-title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #172b4d;
+      margin: 0;
+    }
+
+    .profile-modal-close {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #f5f8fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      font-size: 15px;
+      font-weight: 400;
+      text-decoration: none;
+      line-height: 1;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .profile-modal-close:hover {
+      background-color: #e2e8f0;
+      color: #172b4d;
+    }
+
+    .profile-modal-divider {
+      height: 1px;
+      background-color: #e8eef5;
+      margin: 10px 0;
+    }
+
+    .profile-modal-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-modal-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .profile-modal-user-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .profile-modal-user-name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #172b4d;
+    }
+
+    .profile-modal-user-role {
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #60758b;
+      margin-top: 3px;
+    }
+
+    .profile-modal-logout {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 48px;
+      padding: 0 14px;
+      background-color: #fff5f5;
+      border: 1px solid #fee2e2;
+      border-radius: 9px;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .profile-modal-logout:hover {
+      background-color: #fee2e2;
+      border-color: #fca5a5;
+    }
+
+    .profile-modal-logout-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="mobile-screen-wrapper">
+    <header class="mobile-header">
+      <a href="painel-inicial-professor-mobile.html" class="brand-section" aria-label="Educar e Aprender - Início">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.333 16.25c0-1.15.933-2.083 2.084-2.083h11.25M5.417 1.667h11.25v16.666H5.417c-1.151 0-2.084-.932-2.084-2.083V3.75c0-1.15.933-2.083 2.084-2.083Z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Educar &amp; Aprender</span>
+          <span class="brand-category">Área do Professor</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="mensagens.html" class="header-icon-btn" title="Mensagens" aria-label="Mensagens">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 4.583C2.5 3.433 3.433 2.5 4.583 2.5h6.667c1.15 0 2.083.933 2.083 2.083v4.167c0 1.15-.933 2.083-2.083 2.083H6.667L2.5 13.333V4.583z"/>
+            <path d="M6.667 14.167h5.416c1.151 0 2.084-.933 2.084-2.084v-.416"/>
+            <path d="M14.167 5.833h1.25c1.15 0 2.083.933 2.083 2.084v8.75l-3.333-2.084H12.5"/>
+          </svg>
+        </a>
+
+        <button type="button" class="header-icon-btn" title="Notificações" aria-label="Ver notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+            <path d="M10.333 23.5h3.334"/>
+          </svg>
+          <span class="notif-badge-dot" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <a href="devolutiva-individual.html" class="back-link">‹&nbsp; Voltar à Devolutiva</a>
+
+      <div class="page-header">
+        <h1 class="page-title">Resumo do período</h1>
+        <p class="page-subtitle">Confira as evidências antes de escrever a devolutiva.</p>
+      </div>
+
+      <section class="student-card">
+        <div class="student-left">
+          <div class="student-avatar" aria-hidden="true">AB</div>
+          <div class="student-info">
+            <h2 class="student-name">Ana Beatriz Ferraz</h2>
+            <span class="student-meta">6º ano A &nbsp;·&nbsp; 1º bimestre de 2026</span>
+          </div>
+        </div>
+        <span class="observations-badge">22 observações</span>
+      </section>
+
+      <section class="metrics-row" aria-label="Resumo das evidências">
+        <div class="metric-card">
+          <span class="metric-val positive">14 positivas</span>
+          <span class="metric-lbl">evidências positivas</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-val warning">8 a desenvolver</span>
+          <span class="metric-lbl">a desenvolver</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-val neutral">0 neutras</span>
+          <span class="metric-lbl">evidências neutras</span>
+        </div>
+      </section>
+
+      <section class="radar-card">
+        <div class="radar-header">
+          <h2 class="radar-title">Percepção do professor por dimensão</h2>
+          <span class="radar-subtitle">Escala de referência · 1 a 5</span>
+        </div>
+
+        <div class="radar-svg-container">
+          <svg class="radar-svg" viewBox="20 55 424 295" fill="none">
+            <polygon points="232.0,199.0 252.0,213.5 244.3,237.0 219.7,237.0 212.0,213.5" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+            <polygon points="232.0,178.0 271.9,207.0 256.7,254.0 207.3,254.0 192.1,207.0" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+            <polygon points="232.0,157.0 291.9,200.5 269.0,271.0 195.0,271.0 172.1,200.5" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+            <polygon points="232.0,136.0 311.9,194.0 281.4,288.0 182.6,288.0 152.1,194.0" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+            <polygon points="232.0,115.0 331.9,187.6 293.7,304.9 170.3,304.9 132.1,187.6" fill="none" stroke="#d9e4f2" stroke-width="1"/>
+
+            <line x1="232" y1="220" x2="232.0" y2="115.0" stroke="#d9e4f2" stroke-width="1"/>
+            <line x1="232" y1="220" x2="331.9" y2="187.6" stroke="#d9e4f2" stroke-width="1"/>
+            <line x1="232" y1="220" x2="293.7" y2="304.9" stroke="#d9e4f2" stroke-width="1"/>
+            <line x1="232" y1="220" x2="170.3" y2="304.9" stroke="#d9e4f2" stroke-width="1"/>
+            <line x1="232" y1="220" x2="132.1" y2="187.6" stroke="#d9e4f2" stroke-width="1"/>
+
+            <polygon points="232.0,125.5 315.9,192.7 278.9,284.6 192.5,274.4 152.1,194.0" fill="rgba(37, 99, 235, 0.15)" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round"/>
+
+            <circle cx="232.0" cy="125.5" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+            <circle cx="315.9" cy="192.7" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+            <circle cx="278.9" cy="284.6" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+            <circle cx="192.5" cy="274.4" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+            <circle cx="152.1" cy="194.0" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+
+            <text x="232" y="96" text-anchor="middle" class="radar-label">
+              Respeito · <tspan class="radar-label-score">4,5</tspan>
+            </text>
+
+            <text x="340" y="188" text-anchor="start" class="radar-label">
+              Colaboração · <tspan class="radar-label-score">4,2</tspan>
+            </text>
+
+            <text x="298" y="322" text-anchor="start" class="radar-label">
+              Responsabilidade · <tspan class="radar-label-score">3,8</tspan>
+            </text>
+
+            <text x="166" y="322" text-anchor="end" class="radar-label">
+              Autonomia · <tspan class="radar-label-score">3,2</tspan>
+            </text>
+
+            <text x="124" y="188" text-anchor="end" class="radar-label">
+              Participação · <tspan class="radar-label-score">4,0</tspan>
+            </text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="evidence-section">
+        <h2 class="evidence-section-title">Evidências do período</h2>
+
+        <div class="evidence-list" role="feed">
+          <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
+            <div class="evidence-item-left">
+              <span class="evidence-dot positive" aria-hidden="true"></span>
+              <div class="evidence-item-content">
+                <span class="evidence-item-header positive">12 out. · Colaboração</span>
+                <span class="evidence-item-desc">Incluiu os colegas na organização do grupo.</span>
+              </div>
+            </div>
+            <span class="evidence-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+              </svg>
+            </span>
+          </a>
+
+          <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
+            <div class="evidence-item-left">
+              <span class="evidence-dot warning" aria-hidden="true"></span>
+              <div class="evidence-item-content">
+                <span class="evidence-item-header warning">28 out. · Responsabilidade</span>
+                <span class="evidence-item-desc">Esqueceu os materiais em duas aulas.</span>
+              </div>
+            </div>
+            <span class="evidence-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+              </svg>
+            </span>
+          </a>
+
+          <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
+            <div class="evidence-item-left">
+              <span class="evidence-dot neutral" aria-hidden="true"></span>
+              <div class="evidence-item-content">
+                <span class="evidence-item-header neutral">03 nov. · Autonomia</span>
+                <span class="evidence-item-desc">Solicitou apoio para iniciar uma atividade individual.</span>
+              </div>
+            </div>
+            <span class="evidence-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+              </svg>
+            </span>
+          </a>
+
+          <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
+            <div class="evidence-item-left">
+              <span class="evidence-dot positive" aria-hidden="true"></span>
+              <div class="evidence-item-content">
+                <span class="evidence-item-header positive">06 nov. · Participação</span>
+                <span class="evidence-item-desc">Compartilhou uma estratégia durante a discussão em sala.</span>
+              </div>
+            </div>
+            <span class="evidence-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+              </svg>
+            </span>
+          </a>
+
+          <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
+            <div class="evidence-item-left">
+              <span class="evidence-dot positive" aria-hidden="true"></span>
+              <div class="evidence-item-content">
+                <span class="evidence-item-header positive">10 nov. · Respeito e convivência</span>
+                <span class="evidence-item-desc">Ouviu opiniões diferentes antes de responder.</span>
+              </div>
+            </div>
+            <span class="evidence-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+              </svg>
+            </span>
+          </a>
+
+          <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
+            <div class="evidence-item-left">
+              <span class="evidence-dot positive" aria-hidden="true"></span>
+              <div class="evidence-item-content">
+                <span class="evidence-item-header positive">14 nov. · Responsabilidade</span>
+                <span class="evidence-item-desc">Conferiu os materiais com apoio de uma lista.</span>
+              </div>
+            </div>
+            <span class="evidence-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+              </svg>
+            </span>
+          </a>
+
+          <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
+            <div class="evidence-item-left">
+              <span class="evidence-dot positive" aria-hidden="true"></span>
+              <div class="evidence-item-content">
+                <span class="evidence-item-header positive">18 nov. · Colaboração</span>
+                <span class="evidence-item-desc">Apoiou um colega durante uma atividade em dupla.</span>
+              </div>
+            </div>
+            <span class="evidence-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+              </svg>
+            </span>
+          </a>
+
+          <a href="parecer-formativo.html" class="evidence-item" title="Ver parecer formativo">
+            <div class="evidence-item-left">
+              <span class="evidence-dot positive" aria-hidden="true"></span>
+              <div class="evidence-item-content">
+                <span class="evidence-item-header positive">21 nov. · Autonomia</span>
+                <span class="evidence-item-desc">Concluiu uma etapa após reler as orientações.</span>
+              </div>
+            </div>
+            <span class="evidence-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.705 9h8.59M9.614 5.318 13.295 9l-3.681 3.682"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <a href="parecer-formativo.html" class="btn-parecer">
+        <span>Parecer formativo</span>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/>
+        </svg>
+      </a>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="painel-inicial-professor-mobile.html" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 8.333L10 2.5l7.5 5.833v8.334c0 .46-.373.833-.833.833H12.5v-5.833H7.5v5.833H3.333c-.46 0-.833-.373-.833-.833V8.333z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Início</span>
+      </a>
+
+      <a href="minhas-turmas.html" class="nav-tab active" aria-current="page">
+        <div class="nav-indicator-bar" aria-hidden="true"></div>
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 5.833v11.667"/>
+            <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+          </svg>
+        </div>
+        <span class="nav-label">Turmas</span>
+      </a>
+
+      <a href="registro-selecionar-estudante.html" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11.667 1.667H5c-.92 0-1.667.746-1.667 1.666v13.334c0 .92.746 1.666 1.667 1.666h10c.92 0 1.666-.746 1.666-1.666V6.667L11.667 1.667zm0 0v5h5M6.667 10.833h6.666M6.667 14.167h6.666"/>
+          </svg>
+        </div>
+        <span class="nav-label">Registros</span>
+      </a>
+
+      <a href="#modal-perfil" class="nav-tab">
+        <div class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="8" rx="4" ry="4"/>
+            <path d="M5 21v-2c0-3.866 3.134-7 7-7s7 3.134 7 7v2"/>
+          </svg>
+        </div>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <div id="modal-perfil" class="profile-modal-overlay">
+      <a href="#" class="profile-modal-backdrop" aria-label="Fechar modal"></a>
+      <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
+        <div class="profile-modal-pointer" aria-hidden="true"></div>
+        <div class="profile-modal-header">
+          <h2 id="modal-perfil-title" class="profile-modal-title">Meu Perfil</h2>
+          <a href="#" class="profile-modal-close" aria-label="Fechar">✕</a>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <div class="profile-modal-user">
+          <div class="profile-modal-avatar">PR</div>
+          <div class="profile-modal-user-info">
+            <span class="profile-modal-user-name">Prof. Ricardo Silveira</span>
+            <span class="profile-modal-user-role">Docente de Língua Portuguesa</span>
+          </div>
+        </div>
+        <div class="profile-modal-divider"></div>
+        <a href="login.html" class="profile-modal-logout">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.5 17.5H4.167a1.667 1.667 0 0 1-1.667-1.667V4.167A1.667 1.667 0 0 1 4.167 2.5H7.5"/>
+            <path d="M13.333 14.167L17.5 10l-4.167-4.167"/>
+            <path d="M17.5 10H7.5"/>
+          </svg>
+          <span class="profile-modal-logout-text">Sair da conta</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
