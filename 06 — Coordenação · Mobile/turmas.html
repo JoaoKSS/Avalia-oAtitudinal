@@ -374,6 +374,15 @@
       flex-direction: column;
     }
 
+    #card-6a {
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    #card-6a:hover {
+      background-color: #fafcff;
+    }
+
     .turma-card-main {
       padding: 14px;
       display: flex;
@@ -831,7 +840,7 @@
           <span class="turmas-list-count">4 resultados</span>
         </div>
 
-        <article class="turma-card" id="card-6a">
+        <article class="turma-card" id="card-6a" onclick="window.location.href='turmas-6ano-a-expandida.html'" style="cursor: pointer;" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='turmas-6ano-a-expandida.html';}">
           <div class="turma-card-main">
             <div class="turma-code-box" aria-hidden="true">6ºA</div>
             <div class="turma-info-col">
@@ -895,21 +904,7 @@
           <div class="turma-divider" aria-hidden="true"></div>
           <div class="turma-card-footer">
             <span class="turma-students-label">29 estudantes</span>
-            <button type="button" class="turma-expand-btn" aria-label="Expandir opções da turma 8º ano C" onclick="toggleDetails('actions-8c', this)">+</button>
-          </div>
-          <div class="turma-actions-panel" id="actions-8c" style="display: none;">
-            <a href="todos-os-estudantes.html" class="btn-turma-action primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-              <span>Ver estudantes</span>
-            </a>
-            <a href="dashboard-agregador-analise-por-turma.html" class="btn-turma-action secondary">
-              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/><path d="M12.5 5h5v5"/></svg>
-              <span>Ver Análise por turma</span>
-            </a>
-            <a href="#autoavaliacoes" class="btn-turma-action secondary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-              <span>Autoavaliações</span>
-            </a>
+            <button type="button" class="turma-expand-btn disabled" aria-label="Opções indisponíveis" disabled>+</button>
           </div>
         </article>
 
@@ -927,21 +922,7 @@
           <div class="turma-divider" aria-hidden="true"></div>
           <div class="turma-card-footer">
             <span class="turma-students-label">30 estudantes</span>
-            <button type="button" class="turma-expand-btn" aria-label="Expandir opções da turma 9º ano A" onclick="toggleDetails('actions-9a', this)">+</button>
-          </div>
-          <div class="turma-actions-panel" id="actions-9a" style="display: none;">
-            <a href="todos-os-estudantes.html" class="btn-turma-action primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-              <span>Ver estudantes</span>
-            </a>
-            <a href="dashboard-agregador-analise-por-turma.html" class="btn-turma-action secondary">
-              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/><path d="M12.5 5h5v5"/></svg>
-              <span>Ver Análise por turma</span>
-            </a>
-            <a href="#autoavaliacoes" class="btn-turma-action secondary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-              <span>Autoavaliações</span>
-            </a>
+            <button type="button" class="turma-expand-btn disabled" aria-label="Opções indisponíveis" disabled>+</button>
           </div>
         </article>
 

@@ -206,6 +206,24 @@
       -webkit-overflow-scrolling: touch;
     }
 
+    .back-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      align-self: flex-start;
+      margin-bottom: -4px;
+      transition: opacity 0.15s ease;
+    }
+
+    .back-nav-link:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+
     .page-title {
       font-size: 22px;
       font-weight: 700;
@@ -289,6 +307,12 @@
       gap: 12px;
     }
 
+    .kpi-card.full-width .kpi-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+    }
+
     .kpi-icon-box {
       width: 36px;
       height: 36px;
@@ -301,7 +325,7 @@
 
     .kpi-icon-box.blue { background-color: var(--color-primary-light); color: var(--color-primary); }
     .kpi-icon-box.green { background-color: var(--color-success-light); color: var(--color-success); }
-    .kpi-icon-box.amber { background-color: var(--color-warning-light); color: #d97706; }
+    .kpi-icon-box.amber { background-color: #fff4d6; color: #b45309; }
 
     .kpi-info {
       display: flex;
@@ -868,6 +892,11 @@
 
     <main class="screen-content">
 
+      <a href="dashboard-agregador-visao-central.html" class="back-nav-link" aria-label="Voltar para Dashboard Agregador">
+        <span aria-hidden="true">&lsaquo;</span>
+        <span>Voltar para Dashboard Agregador</span>
+      </a>
+
       <h1 class="page-title">Análise por turma</h1>
 
       <div class="filters-row-grid">
@@ -930,10 +959,9 @@
 
       <article class="kpi-card full-width">
         <div class="kpi-icon-box amber" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
           </svg>
         </div>
         <div class="kpi-info">
@@ -944,13 +972,6 @@
       </article>
 
       <section class="panel-card" aria-label="Perfil dimensional da turma">
-        <div class="panel-header">
-          <div class="panel-title-group">
-            <h2 class="panel-title">Perfil dimensional da turma</h2>
-            <p class="panel-subtitle">Azul = turma selecionada · cinza = média escolar</p>
-          </div>
-        </div>
-
         <div class="panel-legend-row">
           <div class="legend-item">
             <span class="legend-dot blue"></span>
@@ -1105,20 +1126,6 @@
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="scroll-instruction-row">
-          <span class="scroll-instruction-text">&harr; Deslize horizontalmente para acessar todas as colunas</span>
-          <div class="scroll-track">
-            <div class="scroll-thumb"></div>
-          </div>
-        </div>
-
-        <div class="link-ver-todos-container">
-          <a href="todos-os-estudantes.html" class="link-ver-todos">
-            <span>Ver todos os estudantes</span>
-            <span aria-hidden="true">&rarr;</span>
-          </a>
         </div>
       </section>
 

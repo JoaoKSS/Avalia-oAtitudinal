@@ -234,9 +234,9 @@
     }
 
     .filters-heading {
-      font-size: 13.5px;
+      font-size: 15px;
       font-weight: 700;
-      color: #1e293b;
+      color: #172b4d;
       letter-spacing: -0.2px;
     }
 
@@ -246,14 +246,25 @@
       gap: 10px;
     }
 
+    .filters-row-grid-actions {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
     .filter-group {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
+      min-width: 0;
     }
 
-    .filter-group.full-width {
+    .filter-actions-group {
+      display: flex;
+      align-items: flex-end;
       width: 100%;
+      min-width: 0;
     }
 
     .filter-label {
@@ -269,11 +280,11 @@
 
     .filter-select {
       width: 100%;
-      height: 34px;
+      height: 40px;
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-sm);
-      padding: 0 28px 0 10px;
+      border-radius: var(--radius-md);
+      padding: 0 28px 0 12px;
       font-size: 11.5px;
       font-weight: 500;
       color: #1e293b;
@@ -290,32 +301,29 @@
 
     .select-chevron {
       position: absolute;
-      right: 10px;
+      right: 12px;
       top: 50%;
       transform: translateY(-50%);
       pointer-events: none;
     }
 
-    .filter-actions-row {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 2px;
-    }
-
     .btn-exportar-resumo {
+      width: 100%;
+      height: 40px;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      height: 30px;
-      padding: 0 12px;
+      padding: 0 10px;
       background-color: #ffffff;
-      border: 1px solid var(--color-primary);
-      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--color-primary);
+      border-radius: var(--radius-md);
       color: var(--color-primary);
       font-size: 11.5px;
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
+      white-space: nowrap;
       transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
@@ -336,78 +344,38 @@
     .kpi-card {
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-md);
-      padding: 12px 10px;
+      border-radius: 14px;
+      padding: 14px 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .kpi-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 10px;
-      bottom: 10px;
-      width: 3px;
-      border-radius: 0 2px 2px 0;
-    }
-
-    .kpi-card.accent-blue::before { background-color: var(--color-primary); }
-    .kpi-card.accent-green::before { background-color: var(--color-success); }
-    .kpi-card.accent-amber::before { background-color: #ea580c; }
-    .kpi-card.accent-purple::before { background-color: var(--color-purple); }
-
-    .kpi-top-row {
-      display: flex;
-      align-items: flex-start;
       gap: 8px;
+      min-width: 0;
     }
-
-    .kpi-score-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 28px;
-      height: 24px;
-      padding: 0 4px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .kpi-score-badge.blue { background-color: var(--color-primary-light); color: var(--color-primary); }
-    .kpi-score-badge.green { background-color: var(--color-success-light); color: var(--color-success); }
-    .kpi-score-badge.amber { background-color: var(--color-amber-light); color: var(--color-amber); }
-    .kpi-score-badge.purple { background-color: var(--color-purple-light); color: var(--color-purple); }
 
     .kpi-title {
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 500;
       color: #64748b;
-      line-height: 1.25;
-      padding-top: 2px;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .kpi-main-val {
-      font-size: 17px;
+      font-size: 20px;
       font-weight: 700;
-      color: #1e293b;
-      margin-top: 2px;
+      color: #172b4d;
+      line-height: 1.2;
     }
 
     .kpi-detail-text {
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 600;
+      line-height: 1.2;
+      margin-top: auto;
+      color: #60758b;
     }
-
-    .kpi-detail-text.blue { color: var(--color-primary); }
-    .kpi-detail-text.green { color: var(--color-success); }
-    .kpi-detail-text.amber { color: #d97706; }
-    .kpi-detail-text.purple { color: var(--color-purple); }
 
     .chart-card {
       background-color: #ffffff;
@@ -1009,64 +977,54 @@
           </div>
         </div>
 
-        <div class="filter-group full-width">
-          <label class="filter-label" for="filter-segmento">Segmento</label>
-          <div class="select-wrapper">
-            <select id="filter-segmento" class="filter-select">
-              <option value="fundamental" selected>Ensino fundamental</option>
-              <option value="medio">Ensino médio</option>
-              <option value="todos">Todos os segmentos</option>
-            </select>
-            <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        <div class="filters-row-grid-actions">
+          <div class="filter-group">
+            <label class="filter-label" for="filter-segmento">Segmento</label>
+            <div class="select-wrapper">
+              <select id="filter-segmento" class="filter-select">
+                <option value="fundamental" selected>Ensino fundamental</option>
+                <option value="medio">Ensino médio</option>
+                <option value="todos">Todos os segmentos</option>
+              </select>
+              <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
           </div>
-        </div>
 
-        <div class="filter-actions-row">
-          <button type="button" class="btn-exportar-resumo" aria-label="Exportar resumo">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-            <span>Exportar resumo</span>
-          </button>
+          <div class="filter-actions-group">
+            <button type="button" class="btn-exportar-resumo" aria-label="Exportar resumo">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+              <span>Exportar resumo</span>
+            </button>
+          </div>
         </div>
       </section>
 
       <div class="kpi-grid">
-        <article class="kpi-card accent-blue">
-          <div class="kpi-top-row">
-            <span class="kpi-score-badge blue">3,8</span>
-            <span class="kpi-title">Índice de clima escolar</span>
-          </div>
+        <article class="kpi-card">
+          <span class="kpi-title">Índice de clima escolar</span>
           <div class="kpi-main-val">3,8 / 5</div>
-          <div class="kpi-detail-text blue">Percepção geral favorável</div>
+          <div class="kpi-detail-text">Percepção geral favorável</div>
         </article>
 
-        <article class="kpi-card accent-green">
-          <div class="kpi-top-row">
-            <span class="kpi-score-badge green">4,1</span>
-            <span class="kpi-title">Pertencimento</span>
-          </div>
+        <article class="kpi-card">
+          <span class="kpi-title">Pertencimento</span>
           <div class="kpi-main-val">4,1 / 5</div>
-          <div class="kpi-detail-text green">Maior resultado</div>
+          <div class="kpi-detail-text">Maior resultado</div>
         </article>
 
-        <article class="kpi-card accent-amber">
-          <div class="kpi-top-row">
-            <span class="kpi-score-badge amber">3,4</span>
-            <span class="kpi-title">Colaboração</span>
-          </div>
+        <article class="kpi-card">
+          <span class="kpi-title">Colaboração</span>
           <div class="kpi-main-val">3,4 / 5</div>
-          <div class="kpi-detail-text amber">Fortalecer</div>
+          <div class="kpi-detail-text">Fortalecer</div>
         </article>
 
-        <article class="kpi-card accent-purple">
-          <div class="kpi-top-row">
-            <span class="kpi-score-badge purple">4</span>
-            <span class="kpi-title">Turmas para acompanhamento</span>
-          </div>
+        <article class="kpi-card">
+          <span class="kpi-title">Turmas para acompanhamento</span>
           <div class="kpi-main-val">4 de 12</div>
-          <div class="kpi-detail-text purple">Sinal coletivo</div>
+          <div class="kpi-detail-text">Sinal coletivo</div>
         </article>
       </div>
 
@@ -1218,7 +1176,7 @@
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Pertencimento</span>
-              <span class="distrib-pcts">87 / 10 / 3%</span>
+              <span class="distrib-pcts">100 %</span>
             </div>
             <div class="distrib-stacked-bar">
               <div class="stack-seg green" style="width: 87%;"></div>
@@ -1230,7 +1188,7 @@
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Respeito</span>
-              <span class="distrib-pcts">83 / 13 / 4%</span>
+              <span class="distrib-pcts">100 %</span>
             </div>
             <div class="distrib-stacked-bar">
               <div class="stack-seg green" style="width: 83%;"></div>
@@ -1242,7 +1200,7 @@
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Segurança emocional</span>
-              <span class="distrib-pcts">78 / 16 / 6%</span>
+              <span class="distrib-pcts">100 %</span>
             </div>
             <div class="distrib-stacked-bar">
               <div class="stack-seg green" style="width: 78%;"></div>
@@ -1254,7 +1212,7 @@
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Colaboração</span>
-              <span class="distrib-pcts">72 / 20 / 8%</span>
+              <span class="distrib-pcts">100 %</span>
             </div>
             <div class="distrib-stacked-bar">
               <div class="stack-seg green" style="width: 72%;"></div>
@@ -1266,7 +1224,7 @@
           <div class="distrib-item">
             <div class="distrib-top">
               <span class="distrib-name">Participação</span>
-              <span class="distrib-pcts">66 / 24 / 10%</span>
+              <span class="distrib-pcts">100 %</span>
             </div>
             <div class="distrib-stacked-bar">
               <div class="stack-seg green" style="width: 66%;"></div>

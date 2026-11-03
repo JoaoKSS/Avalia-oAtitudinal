@@ -283,11 +283,11 @@
       .question-card {
         background-color: var(--color-bg-card);
         border: 1px solid var(--color-border-subtle);
-        border-radius: 12px;
+        border-radius: 16px;
         padding: 16px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
       }
 
       .question-header {
@@ -297,18 +297,18 @@
       }
 
       .dimension-badge {
-        padding: 4px 14px;
+        padding: 5px 16px;
         background-color: var(--color-primary-light);
         color: var(--color-primary);
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 700;
-        border-radius: 12px;
+        border-radius: 14px;
         letter-spacing: 0.5px;
         text-transform: uppercase;
       }
 
       .edit-link {
-        font-size: 10.5px;
+        font-size: 11px;
         font-weight: 600;
         color: var(--color-primary);
         text-decoration: none;
@@ -321,11 +321,10 @@
       }
 
       .question-statement {
-        font-size: 12.5px;
+        font-size: 14px;
         font-weight: 700;
         color: var(--color-text-main);
-        line-height: 1.4;
-        margin-top: 2px;
+        line-height: 1.35;
       }
 
       .question-divider {
@@ -343,7 +342,7 @@
       }
 
       .options-label {
-        font-size: 10.5px;
+        font-size: 11.5px;
         font-weight: 600;
         color: var(--color-text-muted);
       }
@@ -351,18 +350,18 @@
       .options-list {
         display: flex;
         flex-direction: column;
-        gap: 7px;
+        gap: 8px;
       }
 
       .option-item {
-        height: 38px;
+        height: 48px;
         background-color: #ffffff;
         border: 1px solid var(--color-border-subtle);
-        border-radius: 8px;
-        padding: 0 10px;
+        border-radius: 12px;
+        padding: 0 14px;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         transition:
           border-color 0.15s ease,
           background-color 0.15s ease;
@@ -373,53 +372,48 @@
         background-color: #fbfdff;
       }
 
-    .btn-salvar-voltar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      height: 44px;
-      background-color: var(--color-primary);
-      color: #ffffff;
-      border: none;
-      border-radius: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: none;
-      margin-top: 8px;
-      transition: background-color 0.15s ease, transform 0.1s ease;
-    }
-
-      .option-text {
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--color-text-main);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .btn-salvar-voltar {
+      .option-number {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: var(--color-primary-light);
+        color: var(--color-primary);
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        width: 100%;
-        height: 52px;
-        background-color: var(--color-primary);
-        color: #ffffff;
-        border: none;
-        border-radius: 14px;
-        font-size: 15px;
+        font-size: 12px;
         font-weight: 700;
-        text-decoration: none;
-        box-shadow: none;
-        margin-top: 8px;
-        transition:
-          background-color 0.15s ease,
-          transform 0.1s ease;
+        flex-shrink: 0;
+      }
+
+      .option-text {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--color-text-main);
+        line-height: 1.3;
+      }
+
+      .btn-salvar-voltar {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          width: 100%;
+          height: 50px;
+          min-height: 50px;
+          flex-shrink: 0;
+          background-color: var(--color-primary);
+          color: #ffffff;
+          border: none;
+          border-radius: 12px;
+          font-size: 15px;
+          font-weight: 700;
+          text-decoration: none;
+          box-shadow: none;
+          margin-top: 8px;
+          transition:
+              background-color 0.15s ease,
+              transform 0.1s ease;
       }
 
       .btn-salvar-voltar:hover {

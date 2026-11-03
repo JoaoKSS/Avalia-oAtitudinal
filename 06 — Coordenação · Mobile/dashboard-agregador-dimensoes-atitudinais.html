@@ -207,6 +207,24 @@
       -webkit-overflow-scrolling: touch;
     }
 
+    .back-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      align-self: flex-start;
+      margin-bottom: -4px;
+      transition: opacity 0.15s ease;
+    }
+
+    .back-nav-link:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+
     .page-title {
       font-size: 22px;
       font-weight: 700;
@@ -326,19 +344,19 @@
     }
 
     .kpi-icon-box {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .kpi-icon-box.blue { background-color: var(--color-primary-light); color: var(--color-primary); }
-    .kpi-icon-box.amber { background-color: var(--color-amber-light); color: var(--color-amber); }
-    .kpi-icon-box.green { background-color: var(--color-success-light); color: var(--color-success); }
-    .kpi-icon-box.purple { background-color: var(--color-purple-light); color: var(--color-purple); }
+    .kpi-icon-box.blue { background-color: #e8f1ff; color: #2563eb; }
+    .kpi-icon-box.amber { background-color: #fff4d6; color: #b45309; }
+    .kpi-icon-box.green { background-color: #e8f7ee; color: #16a34a; }
+    .kpi-icon-box.purple { background-color: #f1edff; color: #7c3aed; }
 
     .kpi-info {
       display: flex;
@@ -838,6 +856,11 @@
 
     <main class="screen-content">
 
+      <a href="dashboard-agregador-visao-central.html" class="back-nav-link" aria-label="Voltar para Dashboard Agregador">
+        <span aria-hidden="true">&lsaquo;</span>
+        <span>Voltar para Dashboard Agregador</span>
+      </a>
+
       <h1 class="page-title">Análise por dimensão atitudinal</h1>
 
       <section class="filters-section" aria-label="Filtros da dimensão">
@@ -898,9 +921,11 @@
 
         <article class="kpi-card">
           <div class="kpi-icon-box amber" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 5.833v11.667"/>
-              <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
           <div class="kpi-info">
@@ -915,7 +940,8 @@
         <article class="kpi-card">
           <div class="kpi-icon-box green" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
             </svg>
           </div>
           <div class="kpi-info">
@@ -928,7 +954,11 @@
         <article class="kpi-card">
           <div class="kpi-icon-box purple" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
           </div>
           <div class="kpi-info">
@@ -1048,7 +1078,7 @@
       <section class="leituras-section" aria-label="Leituras para investigação pedagógica">
         <div class="leituras-title-group">
           <h2 class="leituras-title">Leituras para investigação pedagógica</h2>
-          <p class="leituras-subtitle">Dados agregados; não expõe estudante individual.</p>
+          <p class="leituras-subtitle">Dados agregados.</p>
         </div>
 
         <div class="table-container">
@@ -1078,13 +1108,6 @@
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="scroll-instruction-row">
-          <span class="scroll-instruction-text">&harr; Deslize horizontalmente para acessar as demais colunas</span>
-          <div class="scroll-track">
-            <div class="scroll-thumb"></div>
-          </div>
         </div>
       </section>
 
