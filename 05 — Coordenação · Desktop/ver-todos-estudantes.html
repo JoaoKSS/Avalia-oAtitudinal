@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todos os estudantes em alerta · Coordenação · Desktop 1440 × 1024 · Educar &amp; Aprender</title>
+  <title>Todos os estudantes em alerta - Coordenacao - Desktop 1440 x 1024 - Educar e Aprender</title>
 
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon-light.svg" media="(prefers-color-scheme: light)">
@@ -85,7 +85,7 @@
     }
 
     .brand-role {
-      font-size: 8px;
+      font-size: 10px;
       font-weight: 600;
       line-height: 1.4;
       letter-spacing: 0.5px;
@@ -101,7 +101,7 @@
     }
 
     .nav-section-title {
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
       line-height: 1.4;
       letter-spacing: 0.5px;
@@ -281,8 +281,12 @@
     }
 
     .breadcrumb-separator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
       color: #8194aa;
-      user-select: none;
+      vertical-align: middle;
     }
 
     .breadcrumb-current {
@@ -490,15 +494,9 @@
       width: 100%;
     }
 
-    .filter-dropdown-details summary {
-      list-style: none;
-      outline: none;
-      user-select: none;
-    }
+    
 
-    .filter-dropdown-details summary::-webkit-details-marker {
-      display: none;
-    }
+    
 
     .filter-dropdown {
       width: 100%;
@@ -513,7 +511,6 @@
       cursor: pointer;
       position: relative;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
-      user-select: none;
       box-sizing: border-box;
     }
 
@@ -521,24 +518,27 @@
       border-color: #cbd5e1;
     }
 
-    .filter-dropdown-details[open] .filter-dropdown {
+    .filter-dropdown-details:focus-within .filter-dropdown, .filter-dropdown-details:hover .filter-dropdown {
       border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     .filter-label {
-      font-size: 9px;
+      display: block;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.5px;
       color: #60758b;
       text-transform: uppercase;
-      line-height: 1.2;
+      line-height: 14px;
+      margin-bottom: 2px;
     }
 
     .filter-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      line-height: 16px;
     }
 
     .filter-text {
@@ -571,7 +571,7 @@
       overflow: hidden;
     }
 
-    .filter-dropdown-details[open] .filter-dropdown-menu {
+    .filter-dropdown-details:focus-within .filter-dropdown-menu, .filter-dropdown-details:hover .filter-dropdown-menu {
       display: block;
     }
 
@@ -738,6 +738,15 @@
       border-spacing: 0;
     }
 
+    .data-table th:nth-child(1), .data-table td:nth-child(1) { width: 18%; }
+    .data-table th:nth-child(2), .data-table td:nth-child(2) { width: 10%; }
+    .data-table th:nth-child(3), .data-table td:nth-child(3) { width: 14%; }
+    .data-table th:nth-child(4), .data-table td:nth-child(4) { width: 22%; }
+    .data-table th:nth-child(5), .data-table td:nth-child(5) { width: 11%; }
+    .data-table th:nth-child(6), .data-table td:nth-child(6) { width: 11%; }
+    .data-table th:nth-child(7), .data-table td:nth-child(7) { width: 14%; }
+
+
     .data-table th {
       background-color: #ffffff;
       padding: 12px 14px;
@@ -782,7 +791,7 @@
       height: 32px;
       border-radius: 50%;
       background-color: #e8f1ff;
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -894,7 +903,12 @@
 
     .pagination-nav {
       cursor: pointer;
-      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      color: #60758b;
     }
 
     .pagination-nav:hover {
@@ -1126,7 +1140,7 @@
             <a href="painel-inicial.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8.33L10 2.5l7.5 5.83v8.34c0 .46-.37.83-.83.83H12.5v-5.83H7.5v5.83H3.33c-.46 0-.83-.37-.83-.83V8.33z"/>
                 </svg>
               </span>
@@ -1138,7 +1152,7 @@
             <a href="sistema-alerta-precoce.html" class="nav-link active">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                   <path d="M8.33 17.5h3.34"/>
                 </svg>
@@ -1151,7 +1165,7 @@
             <a href="clima-escolar.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="10" cy="5" r="2.2"/>
                   <circle cx="5" cy="7.2" r="1.5"/>
                   <circle cx="15" cy="7.2" r="1.5"/>
@@ -1168,7 +1182,7 @@
             <a href="dashboard-agregador-visao-central.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 14.17l5-5 3.33 3.33L17.5 5"/>
                   <path d="M12.5 5h5v5"/>
                 </svg>
@@ -1181,7 +1195,7 @@
             <a href="turmas.html" class="nav-link">
               <span class="nav-icon">
 
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 5.833v11.667"/>
                   <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
                 </svg>
@@ -1200,7 +1214,7 @@
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="currentColor"
+              stroke="#2563eb"
               stroke-width="1.8"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1219,7 +1233,7 @@
               height="18"
               viewBox="0 0 18 18"
               fill="none"
-              stroke="currentColor"
+              stroke="#8194aa"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1236,15 +1250,15 @@
       <header class="top-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="painel-inicial.html" class="breadcrumb-item">Área da coordenação</a>
-          <span class="breadcrumb-separator">/</span>
+          <svg class="breadcrumb-separator" width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="#8194aa" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><line x1="1" y1="12" x2="6" y2="1"/></svg>
           <a href="sistema-alerta-precoce.html" class="breadcrumb-item">Sistema de alertas</a>
-          <span class="breadcrumb-separator">/</span>
+          <svg class="breadcrumb-separator" width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="#8194aa" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><line x1="1" y1="12" x2="6" y2="1"/></svg>
           <span class="breadcrumb-current">Todos os alunos</span>
         </nav>
 
         <div class="header-actions">
           <a href="sistema-alerta-precoce.html" class="header-icon-btn" title="Notificações e alertas" aria-label="Notificações e alertas">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
               <path d="M10.333 23.5h3.34"/>
             </svg>
@@ -1265,7 +1279,7 @@
           <div class="summary-card">
             <div class="summary-icon-box blue" aria-hidden="true">
 
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="8" r="4"/>
                 <path d="M5 21v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2"/>
               </svg>
@@ -1279,7 +1293,7 @@
           <div class="summary-card">
             <div class="summary-icon-box red" aria-hidden="true">
 
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#b91c1c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
                 <path d="M8.33 17.5h3.34"/>
               </svg>
@@ -1293,7 +1307,7 @@
           <div class="summary-card">
             <div class="summary-icon-box amber" aria-hidden="true">
 
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#b45309" aria-hidden="true">
                 <path d="M10.25 4.5h3.5l-.65 9.5h-2.2l-.65-9.5z"/>
                 <rect x="10.5" y="16.5" width="3" height="3" rx="0.5"/>
               </svg>
@@ -1307,7 +1321,7 @@
           <div class="summary-card">
             <div class="summary-icon-box purple" aria-hidden="true">
 
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6d5bd0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="6" cy="6" r="3"/>
                 <circle cx="6" cy="18" r="3"/>
                 <circle cx="18" cy="12" r="3"/>
@@ -1324,35 +1338,35 @@
         <section class="controls-row" aria-label="Filtros e busca">
 
           <div class="filter-item">
-            <details class="filter-dropdown-details">
-              <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+            <div class="filter-dropdown-details" tabindex="0">
+              <div class="filter-dropdown" role="button" aria-haspopup="listbox">
                 <span class="filter-label">TURMA</span>
                 <div class="filter-row">
                   <span class="filter-text">Todas as turmas</span>
-                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                  <svg class="filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </div>
-              </summary>
+              </div>
               <div class="filter-dropdown-menu" role="listbox">
                 <a href="#todas" class="filter-dropdown-item selected" role="option">Todas as turmas</a>
-                <a href="#7b" class="filter-dropdown-item" role="option">7º ano B</a>
-                <a href="#8a" class="filter-dropdown-item" role="option">8º ano A</a>
-                <a href="#6c" class="filter-dropdown-item" role="option">6º ano C</a>
-                <a href="#9a" class="filter-dropdown-item" role="option">9º ano A</a>
-                <a href="#8b" class="filter-dropdown-item" role="option">8º ano B</a>
-                <a href="#9b" class="filter-dropdown-item" role="option">9º ano B</a>
+                <a href="#7b" class="filter-dropdown-item" role="option">7<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano B</a>
+                <a href="#8a" class="filter-dropdown-item" role="option">8<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano A</a>
+                <a href="#6c" class="filter-dropdown-item" role="option">6<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano C</a>
+                <a href="#9a" class="filter-dropdown-item" role="option">9<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano A</a>
+                <a href="#8b" class="filter-dropdown-item" role="option">8<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano B</a>
+                <a href="#9b" class="filter-dropdown-item" role="option">9<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano B</a>
               </div>
-            </details>
+            </div>
           </div>
 
           <div class="filter-item">
-            <details class="filter-dropdown-details">
-              <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+            <div class="filter-dropdown-details" tabindex="0">
+              <div class="filter-dropdown" role="button" aria-haspopup="listbox">
                 <span class="filter-label">TIPO DE ALERTA</span>
                 <div class="filter-row">
                   <span class="filter-text">Todos os tipos</span>
-                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                  <svg class="filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </div>
-              </summary>
+              </div>
               <div class="filter-dropdown-menu" role="listbox">
                 <a href="#todos" class="filter-dropdown-item selected" role="option">Todos os tipos</a>
                 <a href="#atitudinal" class="filter-dropdown-item" role="option">Queda atitudinal</a>
@@ -1360,53 +1374,53 @@
                 <a href="#participacao" class="filter-dropdown-item" role="option">Participação</a>
                 <a href="#desempenho" class="filter-dropdown-item" role="option">Desempenho</a>
               </div>
-            </details>
+            </div>
           </div>
 
           <div class="filter-item">
-            <details class="filter-dropdown-details">
-              <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+            <div class="filter-dropdown-details" tabindex="0">
+              <div class="filter-dropdown" role="button" aria-haspopup="listbox">
                 <span class="filter-label">NÍVEL DE CRITICIDADE</span>
                 <div class="filter-row">
                   <span class="filter-text">Todos os níveis</span>
-                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                  <svg class="filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </div>
-              </summary>
+              </div>
               <div class="filter-dropdown-menu" role="listbox">
                 <a href="#todos" class="filter-dropdown-item selected" role="option">Todos os níveis</a>
                 <a href="#critico" class="filter-dropdown-item" role="option">Crítico</a>
                 <a href="#atencao" class="filter-dropdown-item" role="option">Atenção</a>
               </div>
-            </details>
+            </div>
           </div>
 
           <div class="filter-item">
-            <details class="filter-dropdown-details">
-              <summary class="filter-dropdown" role="button" aria-haspopup="listbox">
+            <div class="filter-dropdown-details" tabindex="0">
+              <div class="filter-dropdown" role="button" aria-haspopup="listbox">
                 <span class="filter-label">PERÍODO</span>
                 <div class="filter-row">
                   <span class="filter-text">Últimos 30 dias</span>
-                  <span class="filter-chevron" aria-hidden="true">▾</span>
+                  <svg class="filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </div>
-              </summary>
+              </div>
               <div class="filter-dropdown-menu" role="listbox">
                 <a href="#30" class="filter-dropdown-item selected" role="option">Últimos 30 dias</a>
                 <a href="#15" class="filter-dropdown-item" role="option">Últimos 15 dias</a>
                 <a href="#60" class="filter-dropdown-item" role="option">Últimos 60 dias</a>
                 <a href="#semestre" class="filter-dropdown-item" role="option">Neste semestre</a>
               </div>
-            </details>
+            </div>
           </div>
 
           <div class="search-filter-item">
             <div class="search-box-wrapper">
               <span class="search-icon-symbol" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#60758b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <ellipse cx="9.167" cy="9.167" rx="5.833" ry="5.833"/>
                   <path d="M16.667 16.667L13.333 13.333"/>
                 </svg>
               </span>
-              <input type="text" class="search-text-input" placeholder="Buscar pelo nome do estudante…" aria-label="Buscar pelo nome do estudante" autocomplete="off">
+              <div class="search-text-input" role="textbox" aria-label="Buscar pelo nome do estudante" style="display: flex; align-items: center; flex: 1;"><span style="color: #8194aa;">Buscar pelo nome do estudante…</span></div>
             </div>
           </div>
         </section>
@@ -1423,7 +1437,7 @@
               </div>
 
               <span class="sort-indicator" title="Alterar ordenação">
-                Ordenar por: criticidade &darr;
+                Ordenar por: criticidade <svg class="trend-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
               </span>
             </div>
           </div>
@@ -1449,7 +1463,7 @@
                     <span class="student-name">Marina Santos</span>
                   </div>
                 </td>
-                <td class="turma-tag">7º ano B</td>
+                <td class="turma-tag">7<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano B</td>
                 <td class="alert-type-text">Queda atitudinal + Aumento de faltas</td>
                 <td class="signal-detect-text">3 indicadores</td>
                 <td><span class="badge-level critical">CRÍTICO</span></td>
@@ -1457,7 +1471,7 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=marina-santos" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                     </svg>
                   </a>
@@ -1471,7 +1485,7 @@
                     <span class="student-name">Pedro Costa</span>
                   </div>
                 </td>
-                <td class="turma-tag">7º ano B</td>
+                <td class="turma-tag">7<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano B</td>
                 <td class="alert-type-text">Participação + Aumento de faltas</td>
                 <td class="signal-detect-text">2 indicadores</td>
                 <td><span class="badge-level critical">CRÍTICO</span></td>
@@ -1479,7 +1493,7 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=pedro-costa" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                     </svg>
                   </a>
@@ -1493,7 +1507,7 @@
                     <span class="student-name">Gabriel Barros</span>
                   </div>
                 </td>
-                <td class="turma-tag">8º ano A</td>
+                <td class="turma-tag">8<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano A</td>
                 <td class="alert-type-text">Aumento de faltas + Desempenho</td>
                 <td class="signal-detect-text">3 indicadores</td>
                 <td><span class="badge-level critical">CRÍTICO</span></td>
@@ -1501,7 +1515,7 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=gabriel-barros" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                     </svg>
                   </a>
@@ -1515,7 +1529,7 @@
                     <span class="student-name">João Lima</span>
                   </div>
                 </td>
-                <td class="turma-tag">8º ano A</td>
+                <td class="turma-tag">8<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano A</td>
                 <td class="alert-type-text">Queda atitudinal</td>
                 <td class="signal-detect-text">2 indicadores</td>
                 <td><span class="badge-level warning">ATENÇÃO</span></td>
@@ -1523,7 +1537,7 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=joao-lima" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                     </svg>
                   </a>
@@ -1537,7 +1551,7 @@
                     <span class="student-name">Ana Ribeiro</span>
                   </div>
                 </td>
-                <td class="turma-tag">6º ano C</td>
+                <td class="turma-tag">6<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano C</td>
                 <td class="alert-type-text">Queda atitudinal</td>
                 <td class="signal-detect-text">1 dimensão</td>
                 <td><span class="badge-level warning">ATENÇÃO</span></td>
@@ -1545,7 +1559,7 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=ana-ribeiro" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                     </svg>
                   </a>
@@ -1559,7 +1573,7 @@
                     <span class="student-name">Lucas Martins</span>
                   </div>
                 </td>
-                <td class="turma-tag">9º ano A</td>
+                <td class="turma-tag">9<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano A</td>
                 <td class="alert-type-text">Aumento de faltas</td>
                 <td class="signal-detect-text">3 faltas recentes</td>
                 <td><span class="badge-level warning">ATENÇÃO</span></td>
@@ -1567,7 +1581,7 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=lucas-martins" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                     </svg>
                   </a>
@@ -1581,7 +1595,7 @@
                     <span class="student-name">Beatriz Nunes</span>
                   </div>
                 </td>
-                <td class="turma-tag">8º ano B</td>
+                <td class="turma-tag">8<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano B</td>
                 <td class="alert-type-text">Desempenho</td>
                 <td class="signal-detect-text">Queda no período</td>
                 <td><span class="badge-level warning">ATENÇÃO</span></td>
@@ -1589,7 +1603,7 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=beatriz-nunes" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                     </svg>
                   </a>
@@ -1603,7 +1617,7 @@
                     <span class="student-name">Sofia Alves</span>
                   </div>
                 </td>
-                <td class="turma-tag">9º ano B</td>
+                <td class="turma-tag">9<svg class="ordinal-marker" width="7" height="8" viewBox="0 0 7 8" fill="none" aria-hidden="true" style="display: inline-block; vertical-align: baseline; margin-left: 1px;"><circle cx="3.5" cy="3" r="2.2" stroke="#172b4d" stroke-width="1.2"/></svg> ano B</td>
                 <td class="alert-type-text">Participação</td>
                 <td class="signal-detect-text">1 dimensão</td>
                 <td><span class="badge-level warning">ATENÇÃO</span></td>
@@ -1611,7 +1625,7 @@
                 <td>
                   <a href="dashboard-agregador-perfil-do-aluno.html?aluno=sofia-alves" class="table-action-link">
                     <span>Ver perfil individual</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3.334 8h9.332M8.666 4l4 4-4 4"/>
                     </svg>
                   </a>
@@ -1621,18 +1635,22 @@
           </table>
 
           <div class="table-pagination-footer">
-            <span>1–8 de 12</span>
-            <span class="pagination-nav" title="Página anterior">&lsaquo;</span>
-            <span class="pagination-page active">1</span>
-            <span class="pagination-page">2</span>
-            <span class="pagination-nav" title="Próxima página">&rsaquo;</span>
+            <span>1-8 de 12</span>
+            <span class="pagination-nav" title="Página anterior" aria-label="Página anterior">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            </span>
+            <span class="pagination-page active" aria-label="Página 1"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3 4 1.5v9M2 10.5h4"/></svg></span>
+            <span class="pagination-page" aria-label="Página 2"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" stroke="#60758b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5c0-1.2 1-2 2.5-2s2.5.8 2.5 2c0 1-.8 1.8-1.8 2.7L1.5 10.5h5"/></svg></span>
+            <span class="pagination-nav" title="Próxima página" aria-label="Próxima página">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+            </span>
           </div>
         </section>
       </div>
 
       <footer class="bottom-bar">
         <a href="sistema-alerta-precoce.html" class="btn-back">
-          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167"/>
           </svg>
           <span>Voltar</span>
@@ -1646,7 +1664,9 @@
     <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-perfil-title">
       <div class="profile-modal-header">
         <h2 id="modal-perfil-title" class="profile-modal-title">Minha conta</h2>
-        <a href="#" class="profile-modal-close" aria-label="Fechar modal">×</a>
+        <a href="#" class="profile-modal-close" aria-label="Fechar modal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </a>
       </div>
       <div class="profile-modal-divider"></div>
       <div class="profile-modal-user">
