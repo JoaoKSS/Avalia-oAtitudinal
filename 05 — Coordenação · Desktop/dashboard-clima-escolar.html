@@ -261,26 +261,29 @@
     }
 
     /* Cabeçalho Superior Desktop (76px) */
-    .top-header {
+        .top-header {
       height: 76px;
       background-color: #ffffff;
       border-bottom: 1px solid #d9e4f2;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 16px 0 28px;
+      padding: 0 32px;
       flex-shrink: 0;
+      position: sticky;
+      top: 0;
       z-index: 10;
-      width: 100%;
     }
 
-    .breadcrumb {
+    .breadcrumb,
+    .breadcrumb-trail {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       font-size: 13px;
     }
 
+    .breadcrumb-path,
     .breadcrumb-item {
       color: #60758b;
       font-weight: 500;
@@ -288,7 +291,8 @@
       transition: color 0.15s ease;
     }
 
-    .breadcrumb-item:hover {
+    .breadcrumb-item:hover,
+    .breadcrumb-path:hover {
       color: #2563eb;
     }
 
@@ -308,36 +312,44 @@
       gap: 12px;
     }
 
+    .header-icon-btn,
+    .notification-btn,
     .btn-icon {
       width: 44px;
       height: 44px;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid #d9e4f2;
       background-color: #ffffff;
-      color: #60758b;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #60758b;
       cursor: pointer;
-      text-decoration: none;
       position: relative;
-      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      transition: all 0.15s ease;
+      padding: 0;
+      text-decoration: none;
+      box-sizing: border-box;
     }
 
+    .header-icon-btn:hover,
+    .notification-btn:hover,
     .btn-icon:hover {
-      background-color: #f7f9fc;
+      background-color: #f8fafc;
       border-color: #cbd5e1;
       color: #172b4d;
     }
 
+    .notification-dot,
     .notification-badge {
       position: absolute;
       top: 10px;
-      right: 11px;
+      right: 10px;
       width: 7px;
       height: 7px;
       background-color: #2563eb;
       border-radius: 50%;
+      border: none;
     }
 
     /* Conteúdo do Painel */
@@ -1104,11 +1116,11 @@
 
         <div class="header-actions">
           <a href="#" class="btn-icon" aria-label="Notificações" title="Notificações">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"/>
-              <path d="M8.33 17.5h3.34"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.34"/>
             </svg>
-            <span class="notification-badge" aria-hidden="true"></span>
+            <span class="notification-dot" aria-hidden="true"></span>
           </a>
         </div>
       </header>

@@ -270,84 +270,96 @@
       }
 
       /* Cabeçalho Superior Desktop (76px) */
-      .top-header {
-        height: 76px;
-        min-height: 76px;
-        background-color: #ffffff;
-        border-bottom: 1px solid #d9e4f2;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 32px;
-        flex-shrink: 0;
-        z-index: 10;
-      }
+          .top-header {
+      height: 76px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d9e4f2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-      .breadcrumb-trail {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-      }
+    .breadcrumb,
+    .breadcrumb-trail {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
 
-      .breadcrumb-item {
-        color: #60758b;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.15s ease;
-      }
+    .breadcrumb-path,
+    .breadcrumb-item {
+      color: #60758b;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
 
-      .breadcrumb-item:hover {
-        color: #172b4d;
-      }
+    .breadcrumb-item:hover,
+    .breadcrumb-path:hover {
+      color: #2563eb;
+    }
 
-      .breadcrumb-separator {
-        color: #8194aa;
-        font-size: 12px;
-      }
+    .breadcrumb-separator {
+      color: #8194aa;
+      user-select: none;
+    }
 
-      .breadcrumb-current {
-        color: #2563eb;
-        font-weight: 600;
-      }
+    .breadcrumb-current {
+      color: #2563eb;
+      font-weight: 600;
+    }
 
-      .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-      .notification-btn {
-        position: relative;
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-        background-color: #ffffff;
-        border: 1px solid #d9e4f2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #60758b;
-        cursor: pointer;
-        transition: all 0.15s ease;
-      }
+    .header-icon-btn,
+    .notification-btn,
+    .btn-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid #d9e4f2;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60758b;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+      padding: 0;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
 
-      .notification-btn:hover {
-        background-color: #f8fafc;
-        border-color: #cbd5e1;
-        color: #172b4d;
-      }
+    .header-icon-btn:hover,
+    .notification-btn:hover,
+    .btn-icon:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+      color: #172b4d;
+    }
 
-      .notification-dot {
-        position: absolute;
-        top: 11px;
-        right: 12px;
-        width: 7px;
-        height: 7px;
-        background-color: #2563eb;
-        border-radius: 4px;
-        border: 1.5px solid #ffffff;
-      }
+    .notification-dot,
+    .notification-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 7px;
+      height: 7px;
+      background-color: #2563eb;
+      border-radius: 50%;
+      border: none;
+    }
 
       /* Área de Conteúdo com Rolagem Independente */
       .content-area {
@@ -1115,24 +1127,12 @@
               class="notification-btn"
               aria-label="Notificações"
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M15 6.67c0-2.76-2.24-5-5-5s-5 2.24-5 5c0 5.83-2.5 5.83-2.5 7.5h15c0-1.67-2.5-1.67-2.5-7.5z"
-                />
-                <path d="M8.33 17.5h3.34" />
-              </svg>
-              <span class="notification-dot" aria-hidden="true"></span>
-            </button>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 12.667C17 9.905 14.761 7.667 12 7.667s-5 2.238-5 5c0 5.833-2.5 5.833-2.5 7.5h15c0-1.667-2.5-1.667-2.5-7.5"/>
+              <path d="M10.333 23.5h3.34"/>
+            </svg>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
           </div>
         </header>
 
