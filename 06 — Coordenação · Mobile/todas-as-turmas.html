@@ -205,10 +205,10 @@
       -ms-overflow-style: none;
       flex: 1;
       overflow-y: auto;
-      padding: 14px 16px 28px;
+      padding: 16px 16px 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -221,7 +221,7 @@
       font-weight: 600;
       color: var(--color-primary);
       text-decoration: none;
-      margin-top: 2px;
+      margin-top: 0;
       align-self: flex-start;
       transition: opacity 0.15s ease;
     }
@@ -235,35 +235,35 @@
     .page-hero {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
       margin-top: -2px;
     }
 
     .page-title {
-      font-size: 19px;
-      font-weight: 600;
+      font-size: 22px;
+      font-weight: 700;
       color: var(--color-text-main);
       letter-spacing: -0.3px;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     .page-subtitle {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 400;
       color: var(--color-text-muted);
       line-height: 1.45;
     }
 
-    /* 3 Indicadores Rápidos (KPIs: 358px × 78px) */
+    /* 3 Indicadores Rápidos (KPIs: 358px × 72px) */
     .kpis-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 8px;
     }
 
     .kpi-card {
       width: 100%;
-      height: 78px;
+      height: 72px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-kpi);
@@ -301,7 +301,7 @@
     }
 
     .kpi-exclamation {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
       line-height: 1;
       color: var(--color-warning);
@@ -329,14 +329,14 @@
     }
 
     .kpi-value {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 700;
       color: var(--color-text-main);
       line-height: 1.15;
     }
 
     .kpi-meta {
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 400;
       color: var(--color-text-muted);
       line-height: 1.2;
@@ -347,30 +347,30 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: -2px;
+      margin-top: 2px;
     }
 
     .filters-title {
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: var(--color-text-main);
-      letter-spacing: -0.1px;
+      letter-spacing: -0.15px;
     }
 
     .filters-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px 14px;
+      gap: 10px 12px;
     }
 
     .filter-item {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
     }
 
     .filter-label {
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 500;
       color: var(--color-text-muted);
     }
@@ -382,13 +382,13 @@
 
     .filter-select {
       width: 100%;
-      height: 34px;
+      height: 38px;
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-md);
-      padding: 0 24px 0 10px;
+      padding: 0 28px 0 12px;
       font-family: inherit;
-      font-size: 9px;
+      font-size: 11.5px;
       font-weight: 400;
       color: var(--color-text-main);
       appearance: none;
@@ -416,12 +416,12 @@
     .search-group {
       display: flex;
       flex-direction: column;
-      gap: 3px;
-      margin-top: 4px;
+      gap: 4px;
+      margin-top: 2px;
     }
 
     .search-label {
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 500;
       color: var(--color-text-muted);
     }
@@ -447,13 +447,13 @@
 
     .search-input {
       width: 100%;
-      height: 36px;
+      height: 38px;
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-md);
-      padding: 0 12px 0 36px;
+      padding: 0 12px 0 34px;
       font-family: inherit;
-      font-size: 9px;
+      font-size: 11.5px;
       font-weight: 400;
       color: var(--color-text-main);
     }
@@ -471,30 +471,30 @@
     .list-section-header {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       margin-top: 4px;
     }
 
     .list-section-title {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 700;
       color: var(--color-text-main);
-      letter-spacing: -0.15px;
+      letter-spacing: -0.2px;
     }
 
     .tabs-grid-2x2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px 8px;
+      gap: 8px 10px;
     }
 
     .tab-pill-btn {
-      height: 28px;
+      height: 32px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--color-border-subtle);
       background-color: #ffffff;
       color: var(--color-text-muted);
-      font-size: 9px;
+      font-size: 11.5px;
       font-weight: 500;
       display: flex;
       align-items: center;
@@ -505,7 +505,7 @@
     }
 
     .tab-pill-btn.active {
-      background-color: var(--color-primary-light);
+      background-color: #eff6ff;
       border-color: var(--color-primary);
       color: var(--color-primary);
       font-weight: 600;
@@ -528,12 +528,12 @@
       width: 100%;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-card);
-      padding: 13px 14px 14px;
+      border-radius: 16px;
+      padding: 16px;
       box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .turma-card-top-row {
@@ -551,25 +551,25 @@
 
     .turma-card-title {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-text-main);
       letter-spacing: -0.2px;
       line-height: 1.2;
     }
 
     .turma-card-stage {
-      font-size: 10px;
+      font-size: 11.5px;
       font-weight: 400;
-      color: var(--color-text-meta);
+      color: var(--color-text-muted);
       line-height: 1.2;
     }
 
     .turma-level-badge {
       height: 22px;
-      padding: 0 10px;
-      border-radius: var(--radius-pill);
-      font-size: 8px;
-      font-weight: 600;
+      padding: 0 12px;
+      border-radius: var(--radius-full);
+      font-size: 9.5px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.3px;
       display: inline-flex;
@@ -585,8 +585,8 @@
     }
 
     .turma-level-badge.atencao {
-      background-color: var(--color-warning-bg);
-      color: var(--color-warning-dark);
+      background-color: #fef3c7;
+      color: #b45309;
     }
 
     .turma-level-badge.monitoramento {
@@ -602,9 +602,9 @@
     }
 
     .turma-active-alerts {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-text-body);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-main);
       line-height: 1.2;
     }
 
@@ -615,29 +615,35 @@
     }
 
     .turma-signal-label {
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
-      color: var(--color-text-meta);
+      color: var(--color-text-muted);
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
 
     .turma-signal-text {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
-      color: var(--color-text-body);
+      color: var(--color-text-main);
       line-height: 1.35;
     }
 
+    .turma-action-row {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding-top: 2px;
+    }
+
     .turma-action-link {
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 12.5px;
+      font-weight: 700;
       color: var(--color-primary);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      margin-top: 2px;
+      gap: 6px;
       transition: opacity 0.15s ease;
     }
 
@@ -774,7 +780,10 @@
         <!-- KPI 2: Alertas de Atenção -->
         <div class="kpi-card">
           <div class="kpi-icon-box warning" aria-hidden="true">
-            <span class="kpi-exclamation">!</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="4" x2="12" y2="13.5"/>
+              <line x1="12" y1="19" x2="12.01" y2="19"/>
+            </svg>
           </div>
           <div class="kpi-info">
             <span class="kpi-label">Alertas de Atenção</span>
@@ -911,10 +920,15 @@
 
             <hr class="turma-card-divider">
 
-            <a href="todos-os-estudantes.html" class="turma-action-link">
-              <span>Ver estudantes</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
+            <div class="turma-action-row">
+              <a href="todos-os-estudantes.html" class="turma-action-link">
+                <span>Ver estudantes</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </article>
 
           <!-- Card 2: 8º ano A -->
@@ -938,10 +952,15 @@
 
             <hr class="turma-card-divider">
 
-            <a href="todos-os-estudantes.html" class="turma-action-link">
-              <span>Ver estudantes</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
+            <div class="turma-action-row">
+              <a href="todos-os-estudantes.html" class="turma-action-link">
+                <span>Ver estudantes</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </article>
 
           <!-- Card 3: 6º ano C -->
@@ -965,10 +984,15 @@
 
             <hr class="turma-card-divider">
 
-            <a href="todos-os-estudantes.html" class="turma-action-link">
-              <span>Ver estudantes</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
+            <div class="turma-action-row">
+              <a href="todos-os-estudantes.html" class="turma-action-link">
+                <span>Ver estudantes</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </article>
 
           <!-- Card 4: 9º ano A -->
@@ -992,10 +1016,15 @@
 
             <hr class="turma-card-divider">
 
-            <a href="todos-os-estudantes.html" class="turma-action-link">
-              <span>Ver estudantes</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
+            <div class="turma-action-row">
+              <a href="todos-os-estudantes.html" class="turma-action-link">
+                <span>Ver estudantes</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </article>
         </div>
       </section>

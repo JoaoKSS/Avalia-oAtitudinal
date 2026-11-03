@@ -206,10 +206,10 @@
       -ms-overflow-style: none;
       flex: 1;
       overflow-y: auto;
-      padding: 14px 16px 28px;
+      padding: 16px 16px 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -236,35 +236,35 @@
     .page-hero {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
       margin-top: -2px;
     }
 
     .page-title {
-      font-size: 19px;
-      font-weight: 600;
+      font-size: 22px;
+      font-weight: 700;
       color: var(--color-text-main);
       letter-spacing: -0.3px;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     .page-subtitle {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 400;
       color: var(--color-text-muted);
       line-height: 1.45;
     }
 
-    /* 4 Indicadores Rápidos (KPIs: 358px × 78px) */
+    /* 4 Indicadores Rápidos (KPIs: 358px × 72px) */
     .kpis-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 8px;
     }
 
     .kpi-card {
       width: 100%;
-      height: 78px;
+      height: 72px;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-kpi);
@@ -277,8 +277,8 @@
     }
 
     .kpi-icon-box {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -306,13 +306,6 @@
       color: var(--color-purple);
     }
 
-    .kpi-exclamation {
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1;
-      color: var(--color-warning);
-    }
-
     .kpi-info {
       display: flex;
       flex-direction: column;
@@ -329,8 +322,8 @@
     }
 
     .kpi-value {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 700;
       color: var(--color-text-main);
       line-height: 1.15;
     }
@@ -340,30 +333,30 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: -2px;
+      margin-top: 2px;
     }
 
     .filters-title {
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: var(--color-text-main);
-      letter-spacing: -0.1px;
+      letter-spacing: -0.15px;
     }
 
     .filters-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px 14px;
+      gap: 10px 12px;
     }
 
     .filter-item {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
     }
 
     .filter-label {
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 500;
       color: var(--color-text-muted);
     }
@@ -375,13 +368,13 @@
 
     .filter-select {
       width: 100%;
-      height: 34px;
+      height: 38px;
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-md);
-      padding: 0 24px 0 10px;
+      padding: 0 28px 0 12px;
       font-family: inherit;
-      font-size: 9px;
+      font-size: 11.5px;
       font-weight: 400;
       color: var(--color-text-main);
       appearance: none;
@@ -409,12 +402,12 @@
     .search-group {
       display: flex;
       flex-direction: column;
-      gap: 3px;
-      margin-top: 4px;
+      gap: 4px;
+      margin-top: 2px;
     }
 
     .search-label {
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 500;
       color: var(--color-text-muted);
     }
@@ -440,13 +433,13 @@
 
     .search-input {
       width: 100%;
-      height: 36px;
+      height: 38px;
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-md);
       padding: 0 12px 0 36px;
       font-family: inherit;
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 400;
       color: var(--color-text-main);
     }
@@ -464,32 +457,32 @@
     .list-section-header {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       margin-top: 4px;
     }
 
     .list-section-title {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 700;
       color: var(--color-text-main);
-      letter-spacing: -0.15px;
+      letter-spacing: -0.2px;
     }
 
     /* Abas Horizontais (Todos, Críticos, Atenção) */
     .tabs-row-3 {
-      display: flex;
-      gap: 6px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
       width: 100%;
     }
 
     .tab-pill-btn {
-      flex: 1;
-      height: 28px;
-      border-radius: var(--radius-sm);
+      height: 34px;
+      border-radius: var(--radius-md);
       border: 1px solid var(--color-border-subtle);
       background-color: #ffffff;
       color: var(--color-text-muted);
-      font-size: 9px;
+      font-size: 11.5px;
       font-weight: 500;
       display: flex;
       align-items: center;
@@ -500,8 +493,8 @@
     }
 
     .tab-pill-btn.active {
-      background-color: var(--color-primary-light);
-      border-color: var(--color-primary);
+      background-color: #eff6ff;
+      border-color: #3b82f6;
       color: var(--color-primary);
       font-weight: 600;
     }
@@ -516,7 +509,7 @@
       width: 100%;
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-card);
+      border-radius: 16px;
       box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
@@ -524,101 +517,114 @@
       margin-top: 2px;
     }
 
-    .panel-header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 14px 10px;
-    }
-
-    .panel-count-label {
-      font-size: 9px;
-      font-weight: 500;
-      color: var(--color-text-muted);
-    }
-
-    .panel-sort-label {
-      font-size: 8px;
-      font-weight: 500;
-      color: var(--color-primary);
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .panel-divider {
-      height: 1px;
-      background-color: var(--color-border-divider);
-      border: none;
-    }
-
     /* Item de Estudante na Lista */
     .student-item-row {
-      padding: 11px 14px;
+      padding: 16px;
       display: flex;
-      gap: 10px;
+      gap: 12px;
       align-items: flex-start;
+      background-color: #ffffff;
       position: relative;
     }
 
-    .student-item-row.alt-bg {
-      background-color: var(--color-bg-alt-row);
+    .student-item-row:not(:last-child) {
+      border-bottom: 1px solid #f1f5f9;
     }
 
     .student-avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 17px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 8.5px;
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
     .student-avatar.purple {
-      background-color: var(--color-purple-light);
-      color: var(--color-purple);
+      background-color: #ede9fe;
+      color: #7c3aed;
     }
 
     .student-avatar.blue {
-      background-color: var(--color-primary-light);
-      color: var(--color-primary);
+      background-color: #e0f2fe;
+      color: #0284c7;
     }
 
     .student-avatar.green {
-      background-color: var(--color-success-light);
-      color: var(--color-success);
+      background-color: #dcfce7;
+      color: #16a34a;
     }
 
-    .student-details-col {
+    .student-main-content {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex: 1;
+      min-width: 0;
+      gap: 8px;
+    }
+
+    .student-info-col {
       display: flex;
       flex-direction: column;
       flex: 1;
       min-width: 0;
-      gap: 1px;
-    }
-
-    .student-top-line {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
     }
 
     .student-name {
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 13.5px;
+      font-weight: 700;
       color: var(--color-text-main);
+      line-height: 1.2;
     }
 
-    .student-badge-crit {
-      height: 20px;
-      padding: 0 8px;
-      border-radius: var(--radius-pill);
-      font-size: 8px;
+    .student-class {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    .student-signals-block {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .student-signal-type {
+      font-size: 11.5px;
       font-weight: 600;
+      color: var(--color-text-main);
+      line-height: 1.25;
+    }
+
+    .student-signal-sub {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--color-text-subtle);
+      line-height: 1.2;
+    }
+
+    .student-actions-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex-shrink: 0;
+      gap: 6px;
+    }
+
+    .student-badge {
+      height: 20px;
+      padding: 0 10px;
+      border-radius: var(--radius-full);
+      font-size: 9px;
+      font-weight: 700;
       letter-spacing: 0.3px;
       text-transform: uppercase;
       display: inline-flex;
@@ -626,77 +632,41 @@
       justify-content: center;
       line-height: 1;
       flex-shrink: 0;
+    }
+
+    .student-badge.critico {
       background-color: var(--color-danger-light);
       color: var(--color-danger);
     }
 
-    .student-badge-aten {
-      height: 20px;
-      padding: 0 8px;
-      border-radius: var(--radius-pill);
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
-      flex-shrink: 0;
-      background-color: var(--color-warning-light);
-      color: var(--color-warning);
+    .student-badge.atencao {
+      background-color: #fef3c7;
+      color: #b45309;
     }
 
-    .student-meta-line {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 9px;
-      color: var(--color-text-muted);
+    .student-timestamp {
+      font-size: 10.5px;
       font-weight: 400;
-    }
-
-    .student-updated-time {
-      font-size: 8px;
       color: var(--color-text-subtle);
-    }
-
-    .student-type-line {
-      font-size: 9px;
-      font-weight: 500;
-      color: var(--color-text-main);
+      line-height: 1;
       margin-top: 2px;
-    }
-
-    .student-action-line {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: 2px;
-    }
-
-    .student-indicators-count {
-      font-size: 8px;
-      color: var(--color-text-muted);
     }
 
     .student-profile-link {
-      font-size: 8px;
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
       color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       text-decoration: none;
+      margin-top: 4px;
+      transition: opacity 0.15s ease;
     }
 
     .student-profile-link:hover {
       text-decoration: underline;
-    }
-
-    .row-divider {
-      height: 1px;
-      background-color: var(--color-border-row);
-      border: none;
-      margin: 0 14px;
+      opacity: 0.85;
     }
 
     /* Rodapé do Painel (Paginação) */
@@ -704,20 +674,26 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 11px 14px;
+      padding: 14px 16px;
+      border-top: 1px solid #f1f5f9;
+      background-color: #ffffff;
     }
 
     .panel-pagination-note {
-      font-size: 8px;
+      font-size: 11px;
       color: var(--color-text-muted);
+      font-weight: 400;
     }
 
     .panel-pagination-nav {
-      font-size: 9px;
+      font-size: 11.5px;
       font-weight: 600;
       color: var(--color-primary);
-      letter-spacing: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       user-select: none;
+      cursor: pointer;
     }
 
     /* Barra de Navegação Inferior Mobile (Fixed no rodapé do container) */
@@ -862,7 +838,10 @@
         <!-- KPI 3: Alertas de Atenção -->
         <div class="kpi-card">
           <div class="kpi-icon-box warning" aria-hidden="true">
-            <span class="kpi-exclamation">!</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="4" x2="12" y2="13.5"/>
+              <line x1="12" y1="19" x2="12.01" y2="19"/>
+            </svg>
           </div>
           <div class="kpi-info">
             <span class="kpi-label">Alertas de Atenção</span>
@@ -976,194 +955,223 @@
 
         <!-- Painel Branco com a Listagem -->
         <div class="students-panel">
-          <!-- Cabeçalho do Painel -->
-          <div class="panel-header-row">
-            <span class="panel-count-label">Exibindo 8 de 12 estudantes</span>
-            <span class="panel-sort-label">Ordenado por criticidade &darr;</span>
-          </div>
-
-          <hr class="panel-divider">
-
           <!-- Aluno 1: Marina Santos -->
           <article class="student-item-row" aria-label="Estudante Marina Santos">
             <div class="student-avatar purple" aria-hidden="true">MS</div>
-            <div class="student-details-col">
-              <div class="student-top-line">
-                <span class="student-name">Marina Santos</span>
-                <span class="student-badge-crit">CRÍTICO</span>
+            <div class="student-main-content">
+              <div class="student-info-col">
+                <h3 class="student-name">Marina Santos</h3>
+                <span class="student-class">7º ano B</span>
+                <div class="student-signals-block">
+                  <span class="student-signal-type">Atitudinal + faltas</span>
+                  <span class="student-signal-sub">3 indicadores</span>
+                </div>
               </div>
-              <div class="student-meta-line">
-                <span>7º ano B</span>
-                <span class="student-updated-time">Hoje, 09:14</span>
-              </div>
-              <p class="student-type-line">Atitudinal + faltas</p>
-              <div class="student-action-line">
-                <span class="student-indicators-count">3 indicadores</span>
-                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">Ver perfil individual</a>
+              <div class="student-actions-col">
+                <span class="student-badge critico">CRÍTICO</span>
+                <span class="student-timestamp">Hoje, 09:14</span>
+                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">
+                  <span>Ver perfil</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
 
-          <hr class="row-divider">
-
-          <!-- Aluno 2: Pedro Costa (Fundo alternado) -->
-          <article class="student-item-row alt-bg" aria-label="Estudante Pedro Costa">
+          <!-- Aluno 2: Pedro Costa -->
+          <article class="student-item-row" aria-label="Estudante Pedro Costa">
             <div class="student-avatar blue" aria-hidden="true">PC</div>
-            <div class="student-details-col">
-              <div class="student-top-line">
-                <span class="student-name">Pedro Costa</span>
-                <span class="student-badge-crit">CRÍTICO</span>
+            <div class="student-main-content">
+              <div class="student-info-col">
+                <h3 class="student-name">Pedro Costa</h3>
+                <span class="student-class">7º ano B</span>
+                <div class="student-signals-block">
+                  <span class="student-signal-type">Participação + faltas</span>
+                  <span class="student-signal-sub">2 indicadores</span>
+                </div>
               </div>
-              <div class="student-meta-line">
-                <span>7º ano B</span>
-                <span class="student-updated-time">Hoje, 08:42</span>
-              </div>
-              <p class="student-type-line">Participação + faltas</p>
-              <div class="student-action-line">
-                <span class="student-indicators-count">2 indicadores</span>
-                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">Ver perfil individual</a>
+              <div class="student-actions-col">
+                <span class="student-badge critico">CRÍTICO</span>
+                <span class="student-timestamp">Hoje, 08:42</span>
+                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">
+                  <span>Ver perfil</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
-
-          <hr class="row-divider">
 
           <!-- Aluno 3: Gabriel Barros -->
           <article class="student-item-row" aria-label="Estudante Gabriel Barros">
             <div class="student-avatar green" aria-hidden="true">GB</div>
-            <div class="student-details-col">
-              <div class="student-top-line">
-                <span class="student-name">Gabriel Barros</span>
-                <span class="student-badge-crit">CRÍTICO</span>
+            <div class="student-main-content">
+              <div class="student-info-col">
+                <h3 class="student-name">Gabriel Barros</h3>
+                <span class="student-class">8º ano A</span>
+                <div class="student-signals-block">
+                  <span class="student-signal-type">Atitudinal + desempenho</span>
+                  <span class="student-signal-sub">3 indicadores</span>
+                </div>
               </div>
-              <div class="student-meta-line">
-                <span>8º ano A</span>
-                <span class="student-updated-time">Ontem, 16:30</span>
-              </div>
-              <p class="student-type-line">Atitudinal + desempenho</p>
-              <div class="student-action-line">
-                <span class="student-indicators-count">3 indicadores</span>
-                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">Ver perfil individual</a>
+              <div class="student-actions-col">
+                <span class="student-badge critico">CRÍTICO</span>
+                <span class="student-timestamp">Ontem, 16:30</span>
+                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">
+                  <span>Ver perfil</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
 
-          <hr class="row-divider">
-
-          <!-- Aluno 4: João Lima (Fundo alternado) -->
-          <article class="student-item-row alt-bg" aria-label="Estudante João Lima">
+          <!-- Aluno 4: João Lima -->
+          <article class="student-item-row" aria-label="Estudante João Lima">
             <div class="student-avatar blue" aria-hidden="true">JL</div>
-            <div class="student-details-col">
-              <div class="student-top-line">
-                <span class="student-name">João Lima</span>
-                <span class="student-badge-aten">ATENÇÃO</span>
+            <div class="student-main-content">
+              <div class="student-info-col">
+                <h3 class="student-name">João Lima</h3>
+                <span class="student-class">8º ano A</span>
+                <div class="student-signals-block">
+                  <span class="student-signal-type">Frequência + desempenho</span>
+                  <span class="student-signal-sub">2 indicadores</span>
+                </div>
               </div>
-              <div class="student-meta-line">
-                <span>8º ano A</span>
-                <span class="student-updated-time">Hoje, 07:55</span>
-              </div>
-              <p class="student-type-line">Frequência + desempenho</p>
-              <div class="student-action-line">
-                <span class="student-indicators-count">2 indicadores</span>
-                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">Ver perfil individual</a>
+              <div class="student-actions-col">
+                <span class="student-badge atencao">ATENÇÃO</span>
+                <span class="student-timestamp">Hoje, 07:55</span>
+                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">
+                  <span>Ver perfil</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
-
-          <hr class="row-divider">
 
           <!-- Aluno 5: Ana Ribeiro -->
           <article class="student-item-row" aria-label="Estudante Ana Ribeiro">
             <div class="student-avatar green" aria-hidden="true">AR</div>
-            <div class="student-details-col">
-              <div class="student-top-line">
-                <span class="student-name">Ana Ribeiro</span>
-                <span class="student-badge-aten">ATENÇÃO</span>
+            <div class="student-main-content">
+              <div class="student-info-col">
+                <h3 class="student-name">Ana Ribeiro</h3>
+                <span class="student-class">6º ano C</span>
+                <div class="student-signals-block">
+                  <span class="student-signal-type">Queda atitudinal</span>
+                  <span class="student-signal-sub">1 dimensão</span>
+                </div>
               </div>
-              <div class="student-meta-line">
-                <span>6º ano C</span>
-                <span class="student-updated-time">Ontem, 14:18</span>
-              </div>
-              <p class="student-type-line">Queda atitudinal</p>
-              <div class="student-action-line">
-                <span class="student-indicators-count">1 dimensão</span>
-                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">Ver perfil individual</a>
+              <div class="student-actions-col">
+                <span class="student-badge atencao">ATENÇÃO</span>
+                <span class="student-timestamp">Ontem, 14:18</span>
+                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">
+                  <span>Ver perfil</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
 
-          <hr class="row-divider">
-
-          <!-- Aluno 6: Lucas Martins (Fundo alternado) -->
-          <article class="student-item-row alt-bg" aria-label="Estudante Lucas Martins">
+          <!-- Aluno 6: Lucas Martins -->
+          <article class="student-item-row" aria-label="Estudante Lucas Martins">
             <div class="student-avatar purple" aria-hidden="true">LM</div>
-            <div class="student-details-col">
-              <div class="student-top-line">
-                <span class="student-name">Lucas Martins</span>
-                <span class="student-badge-aten">ATENÇÃO</span>
+            <div class="student-main-content">
+              <div class="student-info-col">
+                <h3 class="student-name">Lucas Martins</h3>
+                <span class="student-class">9º ano A</span>
+                <div class="student-signals-block">
+                  <span class="student-signal-type">Frequência / faltas</span>
+                  <span class="student-signal-sub">3 faltas recentes</span>
+                </div>
               </div>
-              <div class="student-meta-line">
-                <span>9º ano A</span>
-                <span class="student-updated-time">Ontem, 11:02</span>
-              </div>
-              <p class="student-type-line">Frequência / faltas</p>
-              <div class="student-action-line">
-                <span class="student-indicators-count">3 faltas recentes</span>
-                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">Ver perfil individual</a>
+              <div class="student-actions-col">
+                <span class="student-badge atencao">ATENÇÃO</span>
+                <span class="student-timestamp">Ontem, 11:02</span>
+                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">
+                  <span>Ver perfil</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
-
-          <hr class="row-divider">
 
           <!-- Aluno 7: Beatriz Nunes -->
           <article class="student-item-row" aria-label="Estudante Beatriz Nunes">
             <div class="student-avatar blue" aria-hidden="true">BN</div>
-            <div class="student-details-col">
-              <div class="student-top-line">
-                <span class="student-name">Beatriz Nunes</span>
-                <span class="student-badge-aten">ATENÇÃO</span>
+            <div class="student-main-content">
+              <div class="student-info-col">
+                <h3 class="student-name">Beatriz Nunes</h3>
+                <span class="student-class">8º ano B</span>
+                <div class="student-signals-block">
+                  <span class="student-signal-type">Desempenho acadêmico</span>
+                  <span class="student-signal-sub">Queda no período</span>
+                </div>
               </div>
-              <div class="student-meta-line">
-                <span>8º ano B</span>
-                <span class="student-updated-time">21 out., 09:30</span>
-              </div>
-              <p class="student-type-line">Desempenho acadêmico</p>
-              <div class="student-action-line">
-                <span class="student-indicators-count">Queda no período</span>
-                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">Ver perfil individual</a>
+              <div class="student-actions-col">
+                <span class="student-badge atencao">ATENÇÃO</span>
+                <span class="student-timestamp">21 out., 09:30</span>
+                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">
+                  <span>Ver perfil</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
 
-          <hr class="row-divider">
-
-          <!-- Aluno 8: Sofia Alves (Fundo alternado) -->
-          <article class="student-item-row alt-bg" aria-label="Estudante Sofia Alves">
+          <!-- Aluno 8: Sofia Alves -->
+          <article class="student-item-row" aria-label="Estudante Sofia Alves">
             <div class="student-avatar green" aria-hidden="true">SA</div>
-            <div class="student-details-col">
-              <div class="student-top-line">
-                <span class="student-name">Sofia Alves</span>
-                <span class="student-badge-aten">ATENÇÃO</span>
+            <div class="student-main-content">
+              <div class="student-info-col">
+                <h3 class="student-name">Sofia Alves</h3>
+                <span class="student-class">9º ano B</span>
+                <div class="student-signals-block">
+                  <span class="student-signal-type">Participação</span>
+                  <span class="student-signal-sub">1 dimensão</span>
+                </div>
               </div>
-              <div class="student-meta-line">
-                <span>9º ano B</span>
-                <span class="student-updated-time">20 out., 15:42</span>
-              </div>
-              <p class="student-type-line">Participação</p>
-              <div class="student-action-line">
-                <span class="student-indicators-count">1 dimensão</span>
-                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">Ver perfil individual</a>
+              <div class="student-actions-col">
+                <span class="student-badge atencao">ATENÇÃO</span>
+                <span class="student-timestamp">20 out., 15:42</span>
+                <a href="dashboard-agregador-perfil-do-aluno.html" class="student-profile-link">
+                  <span>Ver perfil</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
-
-          <hr class="panel-divider">
 
           <!-- Rodapé com Paginação -->
           <div class="panel-footer-row">
             <span class="panel-pagination-note">1–8 de 12 estudantes</span>
-            <span class="panel-pagination-nav" aria-label="Paginação">&lsaquo;&nbsp;&nbsp;1&nbsp;&nbsp;2&nbsp;&nbsp;&rsaquo;</span>
+            <div class="panel-pagination-nav" aria-label="Paginação">
+              <span>&lsaquo;</span>
+              <span>1</span>
+              <span>2</span>
+              <span>&rsaquo;</span>
+            </div>
           </div>
         </div>
       </section>

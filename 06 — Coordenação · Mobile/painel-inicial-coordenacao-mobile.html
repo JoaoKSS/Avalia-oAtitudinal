@@ -200,10 +200,10 @@
       -ms-overflow-style: none;
       flex: 1;
       overflow-y: auto;
-      padding: 20px 16px 28px;
+      padding: 16px 16px 24px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 12px;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -211,8 +211,8 @@
     .page-hero {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      margin-bottom: 2px;
+      gap: 4px;
+      margin-bottom: 0;
     }
 
     .page-title {
@@ -234,17 +234,17 @@
     .kpis-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
 
     .kpi-card {
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border-subtle);
       border-radius: var(--radius-lg);
-      padding: 14px 18px;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow-card);
@@ -379,20 +379,26 @@
 
     .alert-item {
       display: flex;
-      align-items: center;
-      gap: 12px;
+      flex-direction: column;
       padding: 10px 0;
+      gap: 4px;
     }
 
     .alert-item:not(:last-child) {
       border-bottom: 1px solid var(--color-border-subtle);
     }
 
+    .alert-item-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .alert-avatar {
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background-color: var(--color-primary-light);
+      background-color: #e8f1ff;
       color: var(--color-primary);
       display: flex;
       align-items: center;
@@ -402,7 +408,7 @@
       flex-shrink: 0;
     }
 
-    .alert-details {
+    .alert-student-info {
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -410,16 +416,9 @@
       gap: 2px;
     }
 
-    .alert-name-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
     .alert-name {
-      font-size: 13.5px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 700;
       color: var(--color-text-main);
       white-space: nowrap;
       overflow: hidden;
@@ -431,20 +430,23 @@
       color: var(--color-text-muted);
     }
 
+    .alert-reason-row {
+      display: flex;
+      justify-content: flex-end;
+    }
+
     .alert-reason {
       font-size: 11.5px;
       color: var(--color-text-muted);
       line-height: 1.35;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      text-align: right;
     }
 
     .badge-status {
-      font-size: 10px;
+      font-size: 10.5px;
       font-weight: 700;
-      padding: 3px 7px;
-      border-radius: 4px;
+      padding: 2.5px 8px;
+      border-radius: 6px;
       letter-spacing: 0.3px;
       white-space: nowrap;
       flex-shrink: 0;
@@ -452,37 +454,40 @@
     }
 
     .badge-status.critico {
-      background-color: var(--color-danger-light);
-      color: var(--color-danger);
+      background-color: #fee2e2;
+      color: #b91c1c;
     }
 
     .badge-status.atencao {
-      background-color: var(--color-warning-light);
-      color: var(--color-warning);
+      background-color: #fff4d6;
+      color: #b45309;
     }
 
-    .card-footer-note {
-      text-align: center;
+    .card-footer-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 2px;
+    }
+
+    .card-footer-count {
       font-size: 11px;
       color: var(--color-text-subtle);
-      margin-top: 12px;
     }
 
     /* Clima Escolar */
-    .clima-score-badge {
+    .clima-score-header {
       display: flex;
-      align-items: baseline;
-      gap: 4px;
-      background-color: var(--color-success-light);
-      padding: 4px 10px;
-      border-radius: var(--radius-sm);
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
       flex-shrink: 0;
     }
 
     .clima-score-val {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 700;
-      color: var(--color-success);
+      color: #15803d;
       line-height: 1;
     }
 
@@ -490,14 +495,15 @@
       font-size: 11px;
       font-weight: 500;
       color: var(--color-text-muted);
-      line-height: 1;
+      line-height: 1.2;
+      margin-top: 2px;
     }
 
     .clima-dimensions-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin: 6px 0 14px;
+      margin: 4px 0 6px;
     }
 
     .clima-dimension-row {
@@ -507,7 +513,7 @@
     }
 
     .clima-dim-name {
-      width: 116px;
+      width: 114px;
       font-size: 12.5px;
       font-weight: 500;
       color: var(--color-text-main);
@@ -533,27 +539,34 @@
       width: 26px;
       text-align: right;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-text-main);
       flex-shrink: 0;
+    }
+
+    .card-footer-end {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding-top: 2px;
     }
 
     /* Dashboards Agregadores (Atalhos) */
     .shortcuts-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 6px;
+      gap: 12px;
+      margin-top: 12px;
     }
 
     .shortcut-card-btn {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px;
+      gap: 14px;
+      padding: 12px 14px;
       background-color: #ffffff;
       border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-md);
+      border-radius: 14px;
       text-decoration: none;
       transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
     }
@@ -561,13 +574,12 @@
     .shortcut-card-btn:hover {
       background-color: #f8fafc;
       border-color: #cbd5e1;
-      transform: translateY(-1px);
     }
 
     .shortcut-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -575,17 +587,17 @@
     }
 
     .shortcut-icon.blue {
-      background-color: var(--color-primary-light);
+      background-color: #eff6ff;
       color: var(--color-primary);
     }
 
     .shortcut-icon.purple {
-      background-color: var(--color-purple-light);
-      color: var(--color-purple);
+      background-color: #f5f3ff;
+      color: #7c3aed;
     }
 
     .shortcut-icon.green {
-      background-color: var(--color-success-light);
+      background-color: #f0fdf4;
       color: #16a34a;
     }
 
@@ -594,26 +606,27 @@
       flex-direction: column;
       flex: 1;
       min-width: 0;
+      gap: 2px;
     }
 
     .shortcut-title {
-      font-size: 13.5px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 700;
       color: var(--color-text-main);
       line-height: 1.25;
     }
 
     .shortcut-desc {
-      font-size: 11.5px;
+      font-size: 12px;
       color: var(--color-text-muted);
       line-height: 1.35;
-      margin-top: 1px;
     }
 
     .shortcut-arrow {
       color: var(--color-primary);
-      font-size: 16px;
-      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
 
@@ -621,21 +634,20 @@
     .turmas-card-panel {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      padding: 16px;
+      padding: 18px 16px;
     }
 
     .turmas-header-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .turmas-icon-box {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
-      background-color: var(--color-primary-light);
+      background-color: #eff6ff;
       color: var(--color-primary);
       display: flex;
       align-items: center;
@@ -646,7 +658,7 @@
     .turmas-body {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
     }
 
     .turmas-title {
@@ -659,8 +671,8 @@
     .turmas-meta-row {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 12px;
+      gap: 8px;
+      font-size: 12.5px;
       color: var(--color-text-muted);
       font-weight: 500;
     }
@@ -672,15 +684,21 @@
       color: var(--color-text-muted);
     }
 
+    .turmas-footer-action {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding-top: 2px;
+    }
+
     .turmas-link {
-      font-size: 12.5px;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
       color: var(--color-primary);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      align-self: flex-start;
+      gap: 6px;
       transition: opacity 0.15s ease;
     }
 
@@ -844,59 +862,72 @@
 
       <!-- Painel: Alertas que precisam de atenção -->
       <section class="mobile-card" aria-label="Alertas que precisam de atenção">
-        <div class="card-header-flex">
-          <div class="card-title-group">
-            <h2 class="card-title">Alertas que precisam de atenção</h2>
-            <p class="card-subtitle">Cruzamento de indicadores atitudinais, frequência e desempenho</p>
-          </div>
-          <a href="sistema-alerta-precoce.html" class="card-link-action">
-            <span>Ver todos</span>
-            <span aria-hidden="true">&rarr;</span>
-          </a>
+        <div class="card-title-group">
+          <h2 class="card-title">Alertas que precisam de atenção</h2>
+          <p class="card-subtitle">Cruzamento de indicadores atitudinais, frequência e desempenho</p>
         </div>
+
+        <hr class="card-divider" />
 
         <div class="alerts-list">
           <!-- Alerta 1: Gabriel Oliveira -->
           <div class="alert-item">
-            <div class="alert-avatar" aria-hidden="true">MS</div>
-            <div class="alert-details">
-              <div class="alert-name-row">
+            <div class="alert-item-main">
+              <div class="alert-avatar" aria-hidden="true">GO</div>
+              <div class="alert-student-info">
                 <span class="alert-name">Gabriel Oliveira</span>
-                <span class="badge-status critico">CRÍTICO</span>
+                <span class="alert-class">7º ano B</span>
               </div>
-              <span class="alert-class">7º ano B</span>
+              <span class="badge-status critico">CRÍTICO</span>
+            </div>
+            <div class="alert-reason-row">
               <span class="alert-reason">Queda atitudinal + faltas recentes</span>
             </div>
           </div>
 
-          <!-- Alerta 2: Bruno Cardoso Lima -->
+          <!-- Alerta 2: Bruno Cardoso -->
           <div class="alert-item">
-            <div class="alert-avatar" aria-hidden="true">JL</div>
-            <div class="alert-details">
-              <div class="alert-name-row">
-                <span class="alert-name">Bruno Cardoso Lima</span>
-                <span class="badge-status atencao">ATENÇÃO</span>
+            <div class="alert-item-main">
+              <div class="alert-avatar" aria-hidden="true">BC</div>
+              <div class="alert-student-info">
+                <span class="alert-name">Bruno Cardoso</span>
+                <span class="alert-class">8º ano A</span>
               </div>
-              <span class="alert-class">8º ano A</span>
+              <span class="badge-status atencao">ATENÇÃO</span>
+            </div>
+            <div class="alert-reason-row">
               <span class="alert-reason">Frequência em queda + desempenho</span>
             </div>
           </div>
 
-          <!-- Alerta 3: Ana Beatriz Ferraz -->
+          <!-- Alerta 3: Ana Beatriz -->
           <div class="alert-item">
-            <div class="alert-avatar" aria-hidden="true">AR</div>
-            <div class="alert-details">
-              <div class="alert-name-row">
-                <span class="alert-name">Ana Beatriz Ferraz</span>
-                <span class="badge-status atencao">ATENÇÃO</span>
+            <div class="alert-item-main">
+              <div class="alert-avatar" aria-hidden="true">AB</div>
+              <div class="alert-student-info">
+                <span class="alert-name">Ana Beatriz</span>
+                <span class="alert-class">6º ano A</span>
               </div>
-              <span class="alert-class">6º ano A</span>
+              <span class="badge-status atencao">ATENÇÃO</span>
+            </div>
+            <div class="alert-reason-row">
               <span class="alert-reason">Queda em colaboração e participação</span>
             </div>
           </div>
         </div>
 
-        <p class="card-footer-note">3 de 12 alertas exibidos</p>
+        <hr class="card-divider" />
+
+        <div class="card-footer-flex">
+          <span class="card-footer-count">3 de 12 alertas exibidos</span>
+          <a href="sistema-alerta-precoce.html" class="card-link-action">
+            <span>Ver todos os alertas</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
       </section>
 
       <!-- Painel: Clima Escolar -->
@@ -906,7 +937,7 @@
             <h2 class="card-title">Clima escolar</h2>
             <p class="card-subtitle">Distribuição por dimensão atitudinal</p>
           </div>
-          <div class="clima-score-badge" aria-label="Índice 3,8 de 5,0">
+          <div class="clima-score-header" aria-label="Índice 3,8 de 5,0">
             <span class="clima-score-val">3,8</span>
             <span class="clima-score-scale">de 5,0</span>
           </div>
@@ -963,15 +994,20 @@
 
         <hr class="card-divider" />
 
-        <a href="clima-escolar.html" class="card-link-action" style="align-self: flex-start;">
-          <span>Ver análise de clima</span>
-          <span aria-hidden="true">&rarr;</span>
-        </a>
+        <div class="card-footer-end">
+          <a href="clima-escolar.html" class="card-link-action" onclick="event.stopPropagation();">
+            <span>Ver análise de clima</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
       </section>
 
       <!-- Painel: Dashboards Agregadores -->
       <section class="mobile-card" aria-label="Dashboards agregadores">
-        <div class="card-title-group" style="margin-bottom: 12px;">
+        <div class="card-title-group">
           <h2 class="card-title">Dashboards agregadores</h2>
           <p class="card-subtitle">Explore os indicadores por recorte</p>
         </div>
@@ -980,22 +1016,27 @@
           <!-- Atalho 1: Por turma -->
           <a href="dashboard-agregador-analise-por-turma.html" class="shortcut-card-btn">
             <div class="shortcut-icon blue" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10 5.833v11.667"/>
-                <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
               </svg>
             </div>
             <div class="shortcut-body">
               <span class="shortcut-title">Por turma</span>
               <span class="shortcut-desc">Perfil coletivo e distribuição</span>
             </div>
-            <span class="shortcut-arrow" aria-hidden="true">&rarr;</span>
+            <div class="shortcut-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
           </a>
 
           <!-- Atalho 2: Por aluno -->
           <a href="dashboard-agregador-perfil-do-aluno.html" class="shortcut-card-btn">
             <div class="shortcut-icon purple" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                 <circle cx="12" cy="7" r="4"/>
               </svg>
@@ -1004,22 +1045,32 @@
               <span class="shortcut-title">Por aluno</span>
               <span class="shortcut-desc">Evolução e histórico individual</span>
             </div>
-            <span class="shortcut-arrow" aria-hidden="true">&rarr;</span>
+            <div class="shortcut-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
           </a>
 
           <!-- Atalho 3: Por dimensão atitudinal -->
           <a href="dashboard-agregador-dimensoes-atitudinais.html" class="shortcut-card-btn">
             <div class="shortcut-icon green" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"/>
-                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                <polyline points="12 6 12 12 16 14"/>
               </svg>
             </div>
             <div class="shortcut-body">
               <span class="shortcut-title">Por dimensão atitudinal</span>
               <span class="shortcut-desc">Pesquisar e comparar dimensões</span>
             </div>
-            <span class="shortcut-arrow" aria-hidden="true">&rarr;</span>
+            <div class="shortcut-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
           </a>
         </div>
       </section>
@@ -1028,9 +1079,9 @@
       <section class="mobile-card turmas-card-panel" aria-label="Todas as turmas">
         <div class="turmas-header-group">
           <div class="turmas-icon-box" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 5.833v11.667"/>
-              <path d="M2.5 15c-.46 0-.833-.373-.833-.833V3.333C1.667 2.873 2.04 2.5 2.5 2.5h4.167C8.508 2.5 10 3.992 10 5.833c0-1.841 1.492-3.333 3.333-3.333h4.167c.46 0 .833.373.833.833v10.834c0 .46-.373.833-.833.833h-5c-1.381 0-2.5 1.12-2.5 2.5 0-1.38-1.119-2.5-2.5-2.5H2.5z"/>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
             </svg>
           </div>
           <div class="turmas-body">
@@ -1038,7 +1089,7 @@
             <div class="turmas-meta-row">
               <span>4 turmas ativas</span>
               <div class="turmas-meta-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60758b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                   <circle cx="9" cy="7" r="4"/>
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -1049,10 +1100,18 @@
             </div>
           </div>
         </div>
-        <a href="turmas.html" class="turmas-link">
-          <span>Acessar listagem completa</span>
-          <span aria-hidden="true">&rarr;</span>
-        </a>
+
+        <hr class="card-divider" />
+
+        <div class="turmas-footer-action">
+          <a href="turmas.html" class="turmas-link">
+            <span>Acessar listagem completa</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
       </section>
 
     </main>
